@@ -2,193 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a46b928-ce36-4d2c-8e4a-e9e052a0178c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/tm.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nbproject/private/private.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nbproject/project.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/nbproject/project.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/FileManager/File.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/FileManager/Image.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/Shop/Order.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/Shop/Product.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/Shop/ProductCatalog.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/Shop/ProductRubricModel.class.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/Shop/Rubric.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/Shop/Status.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/TM/Attribute/TM_Attribute_Attribute.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/TM/Attribute/TM_Attribute_AttribyteType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/TM/Discussion/TM_Discussion_Discussion.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/TM/Document/TM_Document_Attribute.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/TM/Document/TM_Document_AttribyteType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/TM/Document/TM_Document_Document.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/TM/Task/TM_Task_Attribute.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/TM/Task/TM_Task_AttribyteType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/TM/Task/TM_Task_Task.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/TM/User/TM_User_Profile.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/TM/User/TM_User_Role.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/TM/User/TM_User_User.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/TM/array.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/TM/simo_db.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/share/share.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/share/share_user.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/simo.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/Smarty.class.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/debug.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/block.php.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/block.textformat.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/function.counter.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/function.cycle.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/function.fetch.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/function.html_checkboxes.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/function.html_image.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/function.html_options.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/function.html_radios.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/function.html_select_date.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/function.html_select_time.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/function.html_table.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/function.mailto.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/function.math.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/modifier.capitalize.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/modifier.date_format.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/modifier.debug_print_var.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/modifier.escape.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/modifier.regex_replace.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/modifier.replace.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/modifier.spacify.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/modifier.truncate.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/modifiercompiler.cat.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/modifiercompiler.count_characters.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/modifiercompiler.count_paragraphs.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/modifiercompiler.count_sentences.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/modifiercompiler.count_words.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/modifiercompiler.default.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/modifiercompiler.indent.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/modifiercompiler.lower.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/modifiercompiler.noprint.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/modifiercompiler.string_format.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/modifiercompiler.strip.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/modifiercompiler.strip_tags.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/modifiercompiler.upper.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/modifiercompiler.wordwrap.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/outputfilter.trimwhitespace.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/shared.escape_special_chars.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/shared.make_timestamp.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/shared.mb_str_replace.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/plugins/variablefilter.htmlspecialchars.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_cacheresource_file.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_append.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_assign.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_block.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_break.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_call.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_capture.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_config_load.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_continue.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_debug.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_eval.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_extends.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_for.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_foreach.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_function.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_if.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_include.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_include_php.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_insert.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_ldelim.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_nocache.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_private_block_plugin.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_private_function_plugin.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_private_modifier.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_private_object_block_function.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_private_object_function.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_private_print_expression.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_private_registered_block.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_private_registered_function.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_private_special_variable.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_rdelim.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_section.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compile_while.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_compilebase.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_config.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_config_file_compiler.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_configfilelexer.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_configfileparser.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_data.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_debug.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_filter.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_filter_handler.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_function_call_handler.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_get_include_path.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_nocache_insert.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_parsetree.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_register.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_resource_eval.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_resource_extends.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_resource_file.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_resource_php.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_resource_registered.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_resource_stream.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_resource_string.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_smartytemplatecompiler.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_template.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_templatecompilerbase.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_templatelexer.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_templateparser.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_utility.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_wrapper.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_internal_write_file.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/smarty/sysplugins/smarty_security.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/stdclass/db_driver/db_driver.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/stdclass/db_driver/mysql_db_driver.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/stdclass/db_driver/mysqli_db_driver.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/stdclass/simo_db.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/stdclass/simo_exception.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/stdclass/simo_functions.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/stdclass/simo_log.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/stdclass/simo_session.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/classes/stdclass/simo_smarty.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/config/simo_conf.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/logs/syslog.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/admin/client.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/admin/contacts.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/admin/content_page.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/admin/document.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/admin/faq.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/admin/index.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/admin/license.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/admin/news.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/admin/partner.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/admin/personal.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/admin/project.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/admin/review.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/admin/service.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/admin/service_order.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/admin/smi.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/admin/user.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/admin/vacancy.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/client.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/contacts.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/content_page.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/document.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/error_msg.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/faq.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/index.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/index_old.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/license.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/login.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/news.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/partner.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/personal.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/project.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/review.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/service.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/service_order.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/smi.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/private/smartytemplates/templates/vacancy.tpl" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -208,6 +23,9 @@
   </component>
   <component name="FavoritesManager">
     <favorites_list name="tm" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -261,10 +79,6 @@
               <option name="myItemId" value="tm" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="~Documents" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -273,6 +87,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="tm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="~Documents" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -369,7 +187,7 @@
     <editor active="false" />
     <layout>
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297561" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3297561" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Phing Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
@@ -378,7 +196,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24986653" sideWeight="0.6702439" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3297561" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297561" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -430,6 +248,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
 
