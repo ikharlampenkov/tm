@@ -52,10 +52,10 @@ abstract class TM_Attribute_AttribyteType
      * 
      *
      * @return 
+     * @abstract
      * @access public
      */
-    public function __construct( ) {
-    } // end of member function __construct
+    abstract public function __construct( );
 
     /**
      * 
@@ -130,28 +130,28 @@ abstract class TM_Attribute_AttribyteType
      * 
      *
      * @return 
+     * @abstract
      * @access public
      */
-    public function insertToDB( ) {
-    } // end of member function insertToDB
+    abstract public function insertToDB( );
 
     /**
      * 
      *
      * @return 
+     * @abstract
      * @access public
      */
-    public function updateToDB( ) {
-    } // end of member function updateToDB
+    abstract public function updateToDB( );
 
     /**
      * 
      *
      * @return 
+     * @abstract
      * @access public
      */
-    public function deleteFromDB( ) {
-    } // end of member function deleteFromDB
+    abstract public function deleteFromDB( );
 
     /**
      * 
@@ -159,11 +159,11 @@ abstract class TM_Attribute_AttribyteType
      * @param int id 
 
      * @return Attribute::TM_Attribute_AttribyteType
+     * @abstract
      * @static
      * @access public
      */
-    public static function getInstanceById( $id ) {
-    } // end of member function getInstanceById
+    abstract public static function getInstanceById( $id );
 
     /**
      * 
@@ -181,11 +181,11 @@ abstract class TM_Attribute_AttribyteType
      * 
      *
      * @return array
+     * @abstract
      * @static
      * @access public
      */
-    public static function getAllInstance( ) {
-    } // end of member function getAllInstance
+    abstract public static function getAllInstance( );
 
     /**
      * 
