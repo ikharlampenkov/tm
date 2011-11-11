@@ -1,3 +1,5 @@
+<?php
+
 require_once 'User/TM_User_User.php';
 require_once 'Task/TM_Task_Task.php';
 require_once 'array.php';
