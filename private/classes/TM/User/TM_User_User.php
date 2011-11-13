@@ -173,6 +173,34 @@ class TM_User_User
     /**
      *
      *
+     * @param int id
+
+     * @return Task::tm_user_Task
+     * @static
+     * @access public
+     */
+    public static function getInstanceByLogin($login)
+    {
+        try {
+            $db = simo_db::getInstance();
+            $sql = 'SELECT * FROM tm_user WHERE login="' . $login . '"';
+            $result = $db->query($sql, simo_db::QUERY_MOD_ASSOC);
+
+            if (isset($result[0])) {
+                $o = new TM_User_User();
+                $o->fillFromArray($result[0]);
+                return $o;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    } // end of member function getInstanceById
+
+    /**
+     *
+     *
      * @param array values
 
      * @return Task::tm_user_Task
