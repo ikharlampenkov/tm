@@ -1,3 +1,5 @@
+<?php
+
 require_once 'Attribute/TM_Attribute_AttribyteType.php';
 require_once 'Task/TM_Task_Task.php';
 require_once 'Attribute/TM_Attribute_Attribute.php';

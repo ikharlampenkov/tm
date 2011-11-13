@@ -107,6 +107,10 @@ class simo_db {
         return $data;
     }
 
+    public function prepareStringToOut($string) {
+        return stripslashes($string);
+    }
+
     public function getNextID($table, $idname = 'id') {
         try {
             if (!$this->_conn) {

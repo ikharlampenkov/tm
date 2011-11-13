@@ -1,14 +1,15 @@
-require_once 'Attribute/TM_Attribute_AttribyteType.php';
+<?php
+
+require_once 'Attribute/TM_Attribute_AttributeType.php';
 require_once 'Attribute/TM_Attribute_Attribute.php';
-require_once 'array.php';
-require_once 'simo_db.php';
+
 
 
 /**
- * class TM_Attribute_AttribyteType
+ * class TM_Attribute_AttributeType
  * 
  */
-abstract class TM_Attribute_AttribyteType
+abstract class TM_Attribute_AttributeType
 {
 
     /** Aggregations: */
@@ -52,10 +53,11 @@ abstract class TM_Attribute_AttribyteType
      * 
      *
      * @return 
-     * @abstract
      * @access public
      */
-    abstract public function __construct( );
+    public function __construct( ) {
+        $this->_db = simo_db::getInstance();
+    }
 
     /**
      * 
@@ -64,6 +66,7 @@ abstract class TM_Attribute_AttribyteType
      * @access public
      */
     public function getId( ) {
+        return $this->_id;
     } // end of member function getId
 
     /**
@@ -73,6 +76,7 @@ abstract class TM_Attribute_AttribyteType
      * @access public
      */
     public function getTitle( ) {
+        return $this->_db->prepareStringToOut($this->_title);
     } // end of member function getTitle
 
     /**
@@ -82,6 +86,7 @@ abstract class TM_Attribute_AttribyteType
      * @access public
      */
     public function getHandler( ) {
+        return $this->_handler;
     } // end of member function getHandler
 
     /**
@@ -91,7 +96,20 @@ abstract class TM_Attribute_AttribyteType
      * @access public
      */
     public function getDescription( ) {
+        return $this->_db->prepareStringToOut($this->_description);
     } // end of member function getDescription
+
+    /**
+     *
+     *
+     * @param int value
+
+     * @return
+     * @access protected
+     */
+    protected function setId( $value ) {
+        $this->_id = (int) $this->_db->prepareString($value);
+    } // end of member function setId
 
     /**
      * 
@@ -102,6 +120,7 @@ abstract class TM_Attribute_AttribyteType
      * @access public
      */
     public function setTitle( $value ) {
+        $this->_title = $this->_db->prepareString($value);
     } // end of member function setTitle
 
     /**
@@ -113,6 +132,7 @@ abstract class TM_Attribute_AttribyteType
      * @access public
      */
     public function setHandler( $value ) {
+        $this->_handler = $this->_db->prepareString($value);
     } // end of member function setHandler
 
     /**
@@ -124,6 +144,7 @@ abstract class TM_Attribute_AttribyteType
      * @access public
      */
     public function setDescription( $value ) {
+        $this->_description = $this->_db->prepareString($value);
     } // end of member function setDescription
 
     /**
@@ -158,7 +179,7 @@ abstract class TM_Attribute_AttribyteType
      *
      * @param int id 
 
-     * @return Attribute::TM_Attribute_AttribyteType
+     * @return Attribute::TM_Attribute_AttributeType
      * @abstract
      * @static
      * @access public
@@ -166,16 +187,15 @@ abstract class TM_Attribute_AttribyteType
     abstract public static function getInstanceById( $id );
 
     /**
-     * 
      *
-     * @param array values 
+     *
+     * @param array values
 
      * @return Attribute::TM_Attribute_Attribute
      * @static
      * @access public
      */
-    public static function getInstanceByArray( $values ) {
-    } // end of member function getInstanceByArray
+    abstract public static function getInstanceByArray( $values );
 
     /**
      * 
@@ -196,22 +216,11 @@ abstract class TM_Attribute_AttribyteType
      * @access public
      */
     public function fillFromArray( $values ) {
+        $this->setId($values['id']);
+        $this->setTitle($values['title']);
+        $this->setDescription($values['description']);
+        $this->setHandler($values['handler']);
     } // end of member function fillFromArray
 
-
-    /**
-     * 
-     *
-     * @param int value 
-
-     * @return 
-     * @access protected
-     */
-    protected function setId( $value ) {
-    } // end of member function setId
-
-
-
-
-} // end of TM_Attribute_AttribyteType
+} // end of TM_Attribute_AttributeType
 ?>
