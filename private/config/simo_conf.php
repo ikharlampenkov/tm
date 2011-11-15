@@ -30,10 +30,10 @@ $__cfg['smarty.default.keyword'] = '';
 //$__cfg['smarty.encoding'] = 'windows-1251';
 $__cfg['smarty.encoding'] = 'utf-8';
 
-$__cfg['site.dir'] = $__cfg['site.main.dir'] . 'public/';
+$__cfg['site.dir'] = $__cfg['site.main.dir'] . 'public_html/';
 $__cfg['site.url'] = 'http://www.sibnii2/';
 
 $__cfg['temp.dir'] = $__cfg['site.main.dir'] . 'private/temp/';
-$__cfg['file.upload.dir'] = $__cfg['site.main.dir'] . 'public/files/';
+$__cfg['file.upload.dir'] = $__cfg['site.main.dir'] . 'public_html/files/';
 
 ?>
