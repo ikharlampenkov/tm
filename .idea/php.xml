@@ -2,7 +2,12 @@
 <project version="4">
   <component name="PhpProjectConfiguration">
     <sdk>
-      <PhpSdkConfig version="5.3.6" home="C:\PHP" />
+      <PhpSdkConfig debugger_id="php.debugger.ZendDebugger" version="5.3.8-ZS5.5.0" home="C:\Zend\ZendServer\bin">
+        <include_paths>
+          <path value="." />
+          <path value="C:\Zend\ZendServer\share\ZendFramework\library" />
+        </include_paths>
+      </PhpSdkConfig>
     </sdk>
   </component>
 </project>
