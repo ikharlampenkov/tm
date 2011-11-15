@@ -65,8 +65,42 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $layout->setViewSuffix($options['resources']['layout']['layoutSuffix']);
         $layout->setView($view);
         $view->layout = $layout;
+        $view->assign('title', $options['tm']['title']);
+
         return $layout;
     }
 
+    protected function _initAuth()
+    {
+        $auth = Zend_Auth::getInstance();
+        $data = $auth->getStorage()->read();
+
+        if (!isset($data->status)) {
+            $storage_data = new stdClass();
+            $storage_data->status = 'guest';
+            $auth->getStorage()->write($storage_data);
+
+        }
+    }
+
+    protected function _initAcl()
+    {
+        Zend_Loader::loadClass('TM_Acl_Acl');
+        Zend_Loader::loadClass('CheckAccess');
+        Zend_Controller_Front::getInstance()->registerPlugin(new CheckAccess());
+        return new TM_Acl_Acl();
+    }
+
+    protected function _initAutoLoader()
+    {
+        $auto = Zend_Loader_Autoloader::getInstance();
+        $auto->registerNamespace('TM');
+        $auto->registerNamespace('StdLib');
+    }
+
+    protected function _initConfig()
+    {
+        Zend_Registry::set('production', new Zend_Config_Ini(APPLICATION_PATH . '/configs/application.ini', 'production'));
+    }
 }
 

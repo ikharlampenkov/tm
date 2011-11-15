@@ -28,7 +28,7 @@ function autoload($className) {
     include_once($fn);
   }
 
-  if (file_exists($fn = $__cfg['site.main.dir'] . 'private/classes/stdclass/db_driver/' . $className . '.php')) {
+  if (file_exists($fn = $__cfg['site.main.dir'] . 'private/classes/stdclass/DB/' . $className . '.php')) {
   	include_once($fn);
   }
 
@@ -51,7 +51,7 @@ function autoload($className) {
 
 spl_autoload_register('autoload', false);
 
-$o_log = new simo_log();
+$o_log = new StdLib_Log();
 $o_log->setLogLevel($__cfg['log.level']);
 
 ?>

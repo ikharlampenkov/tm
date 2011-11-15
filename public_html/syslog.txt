@@ -1,0 +1,10 @@
+error   Can`t load driver   16.11.2011 00:09
+error   Can`t load driver   16.11.2011 00:09
+error   Can`t load driver mysqli  16.11.2011 00:14
+error   Can`t load driver mysqli  16.11.2011 00:16
+error   Can`t load driver mysqli  16.11.2011 00:16
+error   Can`t load driver mysqli  16.11.2011 00:16
+error   Can`t load driver mysqli  16.11.2011 00:21
+error   Can`t load driver mysqli  16.11.2011 00:23
+error   Can`t load driver mysqliF:\www\tm\application/../library/StdLib/DB  16.11.2011 00:25
+error   Can`t load driver mysqliF:\www\tm\application/../library/StdLib/DBmysqli_db_driver.php  16.11.2011 00:25
