@@ -93,7 +93,7 @@ class TM_Task_AttributeType extends TM_Attribute_AttributeType
             $result = $db->query($sql, simo_db::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
-                $o = new TM_Document_AttributeType();
+                $o = new TM_Task_AttributeType();
                 $o->fillFromArray($result[0]);
                 return $o;
             } else {
@@ -121,7 +121,7 @@ class TM_Task_AttributeType extends TM_Attribute_AttributeType
             if (isset($result[0])) {
                 $retArray = array();
                 foreach ($result as $res) {
-                    $retArray[] = TM_Document_AttributeType::getInstanceByArray($res);
+                    $retArray[] = TM_Task_AttributeType::getInstanceByArray($res);
                 }
                 return $retArray;
             } else {
@@ -144,7 +144,7 @@ class TM_Task_AttributeType extends TM_Attribute_AttributeType
     public static function getInstanceByArray($values)
     {
         try {
-            $o = new TM_Document_AttributeType();
+            $o = new TM_Task_AttributeType();
             $o->fillFromArray($values);
             return $o;
         } catch (Exception $e) {

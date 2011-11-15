@@ -24,7 +24,7 @@ abstract class TM_Attribute_Attribute
      * 
      * @access protected
      */
-    protected $_task;
+    protected $_task = null;
 
     /**
      * 
@@ -36,13 +36,13 @@ abstract class TM_Attribute_Attribute
      * 
      * @access protected
      */
-    protected $_type;
+    protected $_type = null;
 
     /**
      * 
      * @access protected
      */
-    protected $value;
+    protected $_value;
 
     /**
      * 
@@ -54,23 +54,11 @@ abstract class TM_Attribute_Attribute
     /**
      * 
      *
-     * @param Attribute::TM_Attribute_AttribyteType type 
-
-     * @param Task::TM_Task_Task task 
-
-     * @return 
-     * @abstract
-     * @access public
-     */
-    abstract public function __construct( $type,  $task );
-
-    /**
-     * 
-     *
      * @return Task::TM_Task_Task
      * @access public
      */
     public function getTask( ) {
+        return $this->_task;
     } // end of member function getTask
 
     /**
@@ -80,6 +68,7 @@ abstract class TM_Attribute_Attribute
      * @access public
      */
     public function getType( ) {
+        return $this->_type;
     } // end of member function getType
 
     /**
@@ -89,6 +78,7 @@ abstract class TM_Attribute_Attribute
      * @access public
      */
     public function getAttribyteKey( ) {
+        return $this->_attribyteKey;
     } // end of member function getAttribyteKey
 
     /**
@@ -98,7 +88,45 @@ abstract class TM_Attribute_Attribute
      * @access public
      */
     public function getValue( ) {
+        return $this->_db->prepareStringToOut($this->_value);
     } // end of member function getValue
+
+    /**
+     *
+     *
+     * @param Task::TM_Task_Task value
+
+     * @return
+     * @access protected
+     */
+    protected function setTask(TM_Task_Task $value ) {
+        $this->_task = $value;
+
+    } // end of member function setTask
+
+    /**
+     *
+     *
+     * @param string value
+
+     * @return
+     * @access protected
+     */
+    protected function setAttribyteKey( $value ) {
+        $this->_attribyteKey = $this->_db->prepareString($value);
+    } // end of member function setAttribyteKey
+
+    /**
+     *
+     *
+     * @param Attribute::TM_Attribute_AttribyteType value
+
+     * @return
+     * @access protected
+     */
+    protected function setType(TM_Attribute_AttributeType $value ) {
+        $this->_type = $value;
+    } // end of member function setType
 
     /**
      * 
@@ -109,6 +137,7 @@ abstract class TM_Attribute_Attribute
      * @access public
      */
     public function setValue( $value ) {
+        $this->_value = $this->_db->prepareString($value);
     } // end of member function setValue
 
     /**
@@ -118,6 +147,23 @@ abstract class TM_Attribute_Attribute
      * @abstract
      * @access public
      */
+
+    /**
+     *
+     *
+
+     * @param Task::TM_Task_Task task
+
+     * @return
+     * @abstract
+     * @access public
+     */
+    public function __construct(TM_Task_Task $task) {
+        $this->_db = simo_db::getInstance();
+
+        $this->_task = $task;
+    }
+
     abstract public function insertToDb( );
 
     /**
@@ -163,8 +209,7 @@ abstract class TM_Attribute_Attribute
      * @static
      * @access public
      */
-    public static function getInstanceByArray( $values,  $task ) {
-    } // end of member function getInstanceByArray
+    abstract public static function getInstanceByArray( $values,  $task );
 
     /**
      * 
@@ -187,44 +232,12 @@ abstract class TM_Attribute_Attribute
      * @access public
      */
     public function fillFromArray( $values ) {
+        $o_type = TM_Task_AttributeType::getInstanceById($values['type']);
+        $this->setType($o_type);
+
+        $this->setAttribyteKey($values['attribute_key']);
+        $this->setValue($values['attribute_value']);
     } // end of member function fillFromArray
-
-
-    /**
-     * 
-     *
-     * @param Task::TM_Task_Task value 
-
-     * @return 
-     * @access protected
-     */
-    protected function setTask( $value ) {
-    } // end of member function setTask
-
-    /**
-     * 
-     *
-     * @param string value 
-
-     * @return 
-     * @access protected
-     */
-    protected function setAttribyteKey( $value ) {
-    } // end of member function setAttribyteKey
-
-    /**
-     * 
-     *
-     * @param Attribute::TM_Attribute_AttribyteType value 
-
-     * @return 
-     * @access protected
-     */
-    protected function setType( $value ) {
-    } // end of member function setType
-
-
-
 
 } // end of TM_Attribute_Attribute
 ?>

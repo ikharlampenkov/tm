@@ -1,4 +1,4 @@
-
+<?php
 
 /**
  * class TM_User_Profile
