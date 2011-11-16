@@ -86,7 +86,7 @@ class TM_User_User
     }
 
     public function __construct() {
-        $this->_db = simo_db::getInstance();
+        $this->_db = StdLib_DB::getInstance();
 
     }
 
@@ -154,9 +154,9 @@ class TM_User_User
     public static function getInstanceById($id)
     {
         try {
-            $db = simo_db::getInstance();
+            $db = StdLib_DB::getInstance();
             $sql = 'SELECT * FROM tm_user WHERE id=' . (int)$id;
-            $result = $db->query($sql, simo_db::QUERY_MOD_ASSOC);
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
                 $o = new TM_User_User();
@@ -182,9 +182,9 @@ class TM_User_User
     public static function getInstanceByLogin($login)
     {
         try {
-            $db = simo_db::getInstance();
+            $db = StdLib_DB::getInstance();
             $sql = 'SELECT * FROM tm_user WHERE login="' . $login . '"';
-            $result = $db->query($sql, simo_db::QUERY_MOD_ASSOC);
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
                 $o = new TM_User_User();
@@ -228,9 +228,9 @@ class TM_User_User
     public static function getAllInstance()
     {
         try {
-            $db = simo_db::getInstance();
+            $db = StdLib_DB::getInstance();
             $sql = 'SELECT * FROM tm_user';
-            $result = $db->query($sql, simo_db::QUERY_MOD_ASSOC);
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
                 $retArray = array();

@@ -1,6 +1,6 @@
 <?php
 
-require_once 'User/TM_User_User.php';
+require_once 'User/User.php';
 require_once 'Task/TM_Task_Task.php';
 
 
@@ -165,7 +165,7 @@ class TM_Task_Task
      */
     public function __construct()
     {
-        $this->_db = simo_db::getInstance();
+        $this->_db = StdLib_DB::getInstance();
     } // end of member function __construct
 
     /**
@@ -232,9 +232,9 @@ class TM_Task_Task
     public static function getInstanceById($id)
     {
         try {
-            $db = simo_db::getInstance();
+            $db = StdLib_DB::getInstance();
             $sql = 'SELECT * FROM tm_task WHERE id=' . (int)$id;
-            $result = $db->query($sql, simo_db::QUERY_MOD_ASSOC);
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
                 $o = new TM_Task_Task();
@@ -278,9 +278,9 @@ class TM_Task_Task
     public static function getAllInstance($user)
     {
         try {
-            $db = simo_db::getInstance();
+            $db = StdLib_DB::getInstance();
             $sql = 'SELECT * FROM tm_task';
-            $result = $db->query($sql, simo_db::QUERY_MOD_ASSOC);
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
                 $retArray = array();
@@ -325,7 +325,7 @@ class TM_Task_Task
         if (is_null($this->_childTask)) {
             try {
                 $sql = 'SELECT * FROM tm_task_relation WHERE parent_id=' . $this->_id;
-                $result = $this->_db->query($sql, simo_db::QUERY_MOD_ASSOC);
+                $result = $this->_db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
                 if (isset($result[0]['child_id'])) {
                     foreach ($result as $res) {
@@ -422,7 +422,7 @@ class TM_Task_Task
         if (is_null($this->_parentTask)) {
             try {
                 $sql = 'SELECT * FROM tm_task_relation WHERE child_id=' . $this->_id;
-                $result = $this->_db->query($sql, simo_db::QUERY_MOD_ASSOC);
+                $result = $this->_db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
                 if (isset($result[0]['parent_id'])) {
                     foreach ($result as $res) {

@@ -1,0 +1,71 @@
+body { margin: 0px; padding: 0px; font-family: tahoma; }
+
+table {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    vertical-align: top;
+}
+
+h1 {
+
+    font-size: 20px;
+    font-weight: normal;
+}
+
+tr {
+    vertical-align: top;
+}
+
+input {
+    width: 100%;
+}
+
+textarea {
+    width: 100%;
+    height: 200px;
+}
+
+#save {
+    width: 100px;
+}
+
+.menu {
+    color: #69aefc;
+    font-weight: bold;
+}
+.menu:hover {
+    color: #69aefc;
+    font-weight: bold;
+    text-decoration: none;
+}
+.rmenu {
+    color: #1465c0;
+}
+.rmenu:hover {
+    color: #1465c0;
+    text-decoration: none;
+}
+
+.tedit {
+    background-color:#ebf4ff; padding: 10px; width:100px;
+}
+
+.tdel {
+    background-color:#ebf4ff; padding: 10px; width:50px;
+}
+
+a.tdel {
+    color: #830000;
+}
+a.tedit {
+    color: #1465c0;
+}
+.ttovar {
+    background-color:#f7f7f7; padding: 10px;
+}
+.ttovarred {
+    background-color:#ffdede; padding: 10px;
+}
+
+a { color:#1465c0}

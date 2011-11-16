@@ -7,12 +7,15 @@
  * To change this template use File | Settings | File Templates.
  */
 
-class TM_User_UserManager
+class TM_User_UserManager implements Zend_Auth_Adapter_Interface
 {
 
     static private $_instance = null;
 
-    private $_db;
+    protected $_db;
+
+    protected $_login;
+    protected $_password;
 
     static function getInstance()
     {
@@ -23,9 +26,29 @@ class TM_User_UserManager
         return self::$_instance;
     }
 
+    public function setLogin($login)
+    {
+        $this->_login = $login;
+    }
+
+    public function getLogin()
+    {
+        return $this->_login;
+    }
+
+    public function setPassword($password)
+    {
+        $this->_password = $password;
+    }
+
+    public function getPassword()
+    {
+        return $this->_password;
+    }
+
     private function __construct()
     {
-        $this->_db = simo_db::getInstance();
+        $this->_db = StdLib_DB::getInstance();
     }
 
     public function logIn($login, $password)
@@ -74,4 +97,30 @@ class TM_User_UserManager
     }
 
 
+    /**
+     * Performs an authentication attempt
+     *
+     * @throws Zend_Auth_Adapter_Exception If authentication cannot be performed
+     * @return Zend_Auth_Result
+     */
+    public function authenticate()
+    {
+       try {
+            $o_user = TM_User_User::getInstanceByLogin($this->_login);
+
+            if ($o_user !== false && $o_user->getPassword === $this->_password) {
+                simo_session::setVar('id', $o_user->getId(), 'user');
+                simo_session::setVar('login', $o_user->getLogin(), 'user');
+                simo_session::setVar('token', md5($o_user->getPassword()), 'user');
+
+                $result = new Zend_Auth_Result(Zend_Auth_Result::SUCCESS, $o_user);
+            } else {
+                $result = new Zend_Auth_Result(Zend_Auth_Result::FAILURE, null, array('loginFailed' => 'Incorrect Login & Password'));
+            }
+
+            return $result;
+        } catch (Exception $e) {
+            throw new Zend_Auth_Adapter_Exception("Can`t login. " . $e->getMessage());
+        }
+    }
 }

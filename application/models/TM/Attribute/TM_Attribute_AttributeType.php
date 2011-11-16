@@ -56,7 +56,7 @@ abstract class TM_Attribute_AttributeType
      * @access public
      */
     public function __construct( ) {
-        $this->_db = simo_db::getInstance();
+        $this->_db = StdLib_DB::getInstance();
     }
 
     /**

@@ -293,7 +293,7 @@ CREATE TABLE IF NOT EXISTS `tm_user_profile` (
 
 DROP TABLE IF EXISTS `tm_user_role`;
 CREATE TABLE IF NOT EXISTS `tm_user_role` (
-  `id` int(11) NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(32) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

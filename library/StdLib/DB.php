@@ -1,6 +1,6 @@
 <?php
 
-class simo_db {
+class StdLib_DB {
     const QUERY_MODE_NUM = 1;
     const QUERY_MOD_ASSOC = 2;
     const QUERY_MOD_OBJECT = 3;
@@ -25,10 +25,9 @@ class simo_db {
     }
 
     public function connect($dsn='') {
-        global $__cfg;
 
         if (empty($dsn)) {
-            $dsn = $__cfg['db.dsn'];
+            $dsn = Zend_Registry::get('production')->db->dsn;
         }
 
         $this->_prepareDSN($dsn);
@@ -47,8 +46,8 @@ class simo_db {
             } else {
                 return false;
             }
-        } catch (simo_exception $s_e) {
-            throw new Exception('Can`t connect to db');
+        } catch (StdLib_Exception $s_e) {
+            throw new Exception('Can`t connect to db.' . $s_e->getMessage());
             return false;
         }
     }
@@ -68,30 +67,29 @@ class simo_db {
             }
 
             if ($this->debug) {
-                simo_log::logMsg($query, simo_log::SIMO_LOG_INFO);
+                StdLib_Log::logMsg($query, StdLib_Log::StdLib_Log_INFO);
                 //print "<hr>".$query."<hr>\n";
             }
 
             $result = $this->_driver->query($query, $mode);
 
             return $result;
-        } catch (simo_exception $s_e) {
+        } catch (StdLib_Exception $s_e) {
             throw new Exception('Can`t query ' . $query);
         }
     }
 
     public function prepareString($string) {
-        global $__cfg;
         try {
             if (!$this->_conn) {
                 $this->connect();
             }
 
-            if ($__cfg['smarty.encoding'] == 'windows-1251' && (mb_detect_encoding($string) != 'UTF-8')) {
+            if (Zend_Registry::get('production')->smarty->encoding == 'windows-1251' && (mb_detect_encoding($string) != 'UTF-8')) {
                 $string = iconv('WINDOWS-1251', 'UTF-8//IGNORE', $string);
             }
             return $this->_driver->prepareString($string);
-        } catch (simo_exception $s_e) {
+        } catch (StdLib_Exception $s_e) {
             throw new Exception('Can`t prepareString');
         }
     }
@@ -118,7 +116,7 @@ class simo_db {
             }
 
             return $this->_driver->getNextId($table, $idname);
-        } catch (simo_exception $s_e) {
+        } catch (StdLib_Exception $s_e) {
             throw new Exception('Can`t get nextid ');
         }
     }
@@ -130,7 +128,7 @@ class simo_db {
             }
 
             return $this->_driver->getLastInsertId();
-        } catch (simo_exception $s_e) {
+        } catch (StdLib_Exception $s_e) {
             throw new Exception('Can`t get nextid ');
         }
     }
@@ -142,7 +140,7 @@ class simo_db {
             }
 
             $this->_driver->setCharset($charset);
-        } catch (simo_exception $s_e) {
+        } catch (StdLib_Exception $s_e) {
             throw new Exception($s_e->getMessage());
         }
     }
@@ -154,8 +152,8 @@ class simo_db {
             }
 
             $this->_driver->setDB($dbname);
-        } catch (simo_exception $s_e) {
-            throw new Exception('Can`t set db');
+        } catch (StdLib_Exception $s_e) {
+            throw new Exception('Can`t set db.' . $s_e->getMessage());
         }
     }
 
@@ -177,19 +175,19 @@ class simo_db {
     }
 
     private function _loadDriver() {
-        global $__cfg;
 
         $module_name = $this->_dsn['scheme'] . '_db_driver';
-        $result = file_exists($__cfg['db.driver.path'] . $module_name . '.php');
+
+        $result = file_exists(Zend_Registry::get('production')->db->driver->path . '/' . $module_name . '.php');
 
         if ($result) {
-            include_once $__cfg['db.driver.path'] . $module_name . '.php';
+            include_once Zend_Registry::get('production')->db->driver->path . '/' . $module_name . '.php';
             $this->_driver = new $module_name;
             return true;
         } else {
-            $o_log = new simo_log();
+            $o_log = new StdLib_Log();
             $o_log->setLogLevel(2);
-            throw new simo_exception('Can`t load driver ' . $this->_dsn['scheme']);
+            throw new StdLib_Exception('Can`t load driver ' . $this->_dsn['scheme'] . Zend_Registry::get('production')->db->driver->path . $module_name . '.php');
             return false;
         }
     }

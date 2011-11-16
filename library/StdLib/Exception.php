@@ -5,12 +5,12 @@
  * 
  *
  */
-class simo_exception extends Exception {
+class StdLib_Exception extends Exception {
   
   public function __construct($msg = '', $code = 0)
   {
    parent::__construct($msg, $code);
-   simo_log::logMsg($msg, simo_log::SIMO_LOG_ERROR);
+   StdLib_Log::logMsg($msg, StdLib_Log::StdLib_Log_ERROR);
   }
   
   static public function getMsg(&$e)
@@ -22,7 +22,7 @@ class simo_exception extends Exception {
   static public function registrMsg(&$e, $debug)
   {
    if ($debug) {
-     simo_smarty::throwSmartyException(simo_exception::getMsg($e));
+     simo_smarty::throwSmartyException(StdLib_Exception::getMsg($e));
    }
   }
 }

@@ -4,7 +4,7 @@ require_once 'Attribute/TM_Attribute_AttribyteType.php';
 require_once 'Task/TM_Task_Task.php';
 require_once 'Attribute/TM_Attribute_Attribute.php';
 require_once 'array.php';
-require_once 'simo_db.php';
+require_once 'DB.php';
 
 
 /**
@@ -159,7 +159,7 @@ abstract class TM_Attribute_Attribute
      * @access public
      */
     public function __construct(TM_Task_Task $task) {
-        $this->_db = simo_db::getInstance();
+        $this->_db = StdLib_DB::getInstance();
 
         $this->_task = $task;
     }

@@ -1,10 +1,15 @@
 <?php
 
+require_once 'Attribute/TM_Attribute_AttributeType.php';
+require_once 'Task/TM_Task_AttributeType.php';
+require_once 'array.php';
+
+
 /**
- * class TM_User_Role
+ * class TM_Task_AttributeType
  * 
  */
-class TM_User_Role
+class TM_Task_AttributeType extends TM_Attribute_AttributeType
 {
 
     /** Aggregations: */
@@ -13,44 +18,23 @@ class TM_User_Role
 
      /*** Attributes: ***/
 
-
-    protected $_id;
-
-    protected $_title;
-
-    protected $_db;
-
-
-    public function setId($id)
-    {
-        $this->_id = (int)$id;
-    }
-
-    public function getId()
-    {
-        return $this->_id;
-    }
-
-    public function setTitle($title)
-    {
-        $this->_title = $this->_db->prepareString($title);
-    }
-
-    public function getTitle()
-    {
-        return $this->_title;
-    }
-
-
     public function __construct() {
-        $this->_db = simo_db::getInstance();
+       parent::__construct();
+
     }
 
+    /**
+     *
+     *
+
+     * @return void
+       @access public
+     */
     public function insertToDB()
     {
         try {
-            $sql = 'INSERT INTO tm_user_role(id, title)
-                    VALUES (' . $this->_id . ', "' . $this->_title . '")';
+            $sql = 'INSERT INTO tm_task_attribute_type(id, title, `handler`, description)
+                    VALUES (' . $this->_id . ', "' . $this->_title . '", "' . $this->_handler . '", "' . $this->_description  . '")';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -67,8 +51,8 @@ class TM_User_Role
     public function updateToDB()
     {
         try {
-            $sql = 'UPDATE tm_user_role
-                    SET title="' . $this->_title . '" 
+            $sql = 'UPDATE tm_task_attribute_type
+                    SET title="' . $this->_title . '", `handler`="' . $this->_handler . '", description="' . $this->_description  . '"
                     WHERE id=' .  $this->_id ;
             $this->_db->query($sql);
         } catch (Exception $e) {
@@ -85,7 +69,7 @@ class TM_User_Role
     public function deleteFromDB()
     {
         try {
-            $sql = 'DELETE FROM tm_user_role WHERE id=' . $this->_id;
+            $sql = 'DELETE FROM tm_task_attribute_type WHERE id=' . $this->_id;
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -97,19 +81,19 @@ class TM_User_Role
      *
      * @param int id
 
-     * @return User::TM_User_Role
+     * @return Attribute::TM_Attribute_AttributeType
      * @static
      * @access public
      */
     public static function getInstanceById($id)
     {
         try {
-           $db = simo_db::getInstance();
-            $sql = 'SELECT * FROM tm_user_role WHERE id=' . (int)$id;
-            $result = $db->query($sql, simo_db::QUERY_MOD_ASSOC);
+           $db = StdLib_DB::getInstance();
+            $sql = 'SELECT * FROM tm_task_attribute_type WHERE id=' . (int)$id;
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
-                $o = new TM_User_Role();
+                $o = new TM_Task_AttributeType();
                 $o->fillFromArray($result[0]);
                 return $o;
             } else {
@@ -130,14 +114,14 @@ class TM_User_Role
     public static function getAllInstance()
     {
         try {
-            $db = simo_db::getInstance();
-            $sql = 'SELECT * FROM tm_user_role';
-            $result = $db->query($sql, simo_db::QUERY_MOD_ASSOC);
+            $db = StdLib_DB::getInstance();
+            $sql = 'SELECT * FROM tm_task_attribute_type';
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
                 $retArray = array();
                 foreach ($result as $res) {
-                    $retArray[] = TM_User_Role::getInstanceByArray($res);
+                    $retArray[] = TM_Task_AttributeType::getInstanceByArray($res);
                 }
                 return $retArray;
             } else {
@@ -160,19 +144,12 @@ class TM_User_Role
     public static function getInstanceByArray($values)
     {
         try {
-            $o = new TM_User_Role();
+            $o = new TM_Task_AttributeType();
             $o->fillFromArray($values);
             return $o;
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
     }
-
-    private function fillFromArray($values)
-    {
-        $this->setId($values['id']);
-        $this->setTitle($values['title']);
-    }
-
-} // end of TM_User_Role
+} // end of TM_Task_AttributeType
 ?>

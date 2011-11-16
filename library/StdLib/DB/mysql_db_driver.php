@@ -1,6 +1,6 @@
 <?php
 
-//include_once 'db_driver.php';
+//include_once 'DB.php';
 
 class mysql_db_driver extends db_driver
 {
@@ -16,7 +16,7 @@ class mysql_db_driver extends db_driver
   	  $this->_connect = $result;
   	  return true;
   	} else {
-  	  throw new simo_exception('Can`t connect to host ' . $dsn['host'] . ' ' . $this->_getError());
+  	  throw new StdLib_Exception('Can`t connect to host ' . $dsn['host'] . ' ' . $this->_getError());
   	  return false;
   	}
   }
@@ -32,7 +32,7 @@ class mysql_db_driver extends db_driver
   	  return $this->_prepareAllQuery($result);
   	}
   } else {
-  	throw new simo_exception('Can`t complit query: ' . $sql . ' ' . $this->_getError());
+  	throw new StdLib_Exception('Can`t complit query: ' . $sql . ' ' . $this->_getError());
   	return false;
   }
 
@@ -43,7 +43,7 @@ class mysql_db_driver extends db_driver
   if (mysql_select_db($db_name, $this->_connect)) {
   	return true;
   } else {
-  	throw new simo_exception('Can`t select db ' . $db_name . $this->_getError());
+  	throw new StdLib_Exception('Can`t select db ' . $db_name . $this->_getError());
   	return false;
   }
  }
@@ -52,8 +52,8 @@ class mysql_db_driver extends db_driver
  {
   try {
     $this->query('SET CHARSET ' . $charset);
-  } catch (simo_exception $s_e) {
-  	throw new simo_exception('Can`t set scharset ' . $charset);
+  } catch (StdLib_Exception $s_e) {
+  	throw new StdLib_Exception('Can`t set scharset ' . $charset);
   	return false;
   }
  }
@@ -64,7 +64,7 @@ class mysql_db_driver extends db_driver
   if ($resultstr !== false) {
     return $resultstr;
   } else {
-  	throw new simo_exception('Can`t preparestring ' . $string . ' ' . $this->_getError());
+  	throw new StdLib_Exception('Can`t preparestring ' . $string . ' ' . $this->_getError());
   }
  }
 
@@ -78,8 +78,8 @@ class mysql_db_driver extends db_driver
     } else {
       return 1;
     }
-  } catch (simo_exception $s_e) {
-  	throw new simo_exception('Can`t return nextid for table ' . $table . ' and field ' . $idname);
+  } catch (StdLib_Exception $s_e) {
+  	throw new StdLib_Exception('Can`t return nextid for table ' . $table . ' and field ' . $idname);
   	return -1;
   }
  }
@@ -93,8 +93,8 @@ class mysql_db_driver extends db_driver
     } else {
       return 0;
     }
-  } catch (simo_exception $s_e) {
-  	throw new simo_exception('Can`t return last id');
+  } catch (StdLib_Exception $s_e) {
+  	throw new StdLib_Exception('Can`t return last id');
   	return -1;
   }
  }

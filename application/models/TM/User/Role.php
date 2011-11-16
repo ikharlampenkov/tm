@@ -1,13 +1,10 @@
 <?php
 
-require_once 'Attribute/TM_Attribute_AttributeType.php';
-
-
 /**
- * class TM_Document_AttribyteType
+ * class TM_User_Role
  * 
  */
-class TM_Document_AttributeType extends TM_Attribute_AttributeType
+class TM_User_Role
 {
 
     /** Aggregations: */
@@ -17,23 +14,43 @@ class TM_Document_AttributeType extends TM_Attribute_AttributeType
      /*** Attributes: ***/
 
 
-    public function __construct() {
-       parent::__construct();
-        
+    protected $_id;
+
+    protected $_title;
+
+    protected $_db;
+
+
+    public function setId($id)
+    {
+        $this->_id = (int)$id;
     }
 
-    /**
-     *
-     *
+    public function getId()
+    {
+        return $this->_id;
+    }
 
-     * @return void
-       @access public
-     */
+    public function setTitle($title)
+    {
+        $this->_title = $this->_db->prepareString($title);
+    }
+
+    public function getTitle()
+    {
+        return $this->_title;
+    }
+
+
+    public function __construct() {
+        $this->_db = StdLib_DB::getInstance();
+    }
+
     public function insertToDB()
     {
         try {
-            $sql = 'INSERT INTO tm_document_attribute_type(id, title, `handler`, description)
-                    VALUES (' . $this->_id . ', "' . $this->_title . '", "' . $this->_handler . '", "' . $this->_description  . '")';
+            $sql = 'INSERT INTO tm_user_role(id, title)
+                    VALUES (' . $this->_id . ', "' . $this->_title . '")';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -50,8 +67,8 @@ class TM_Document_AttributeType extends TM_Attribute_AttributeType
     public function updateToDB()
     {
         try {
-            $sql = 'UPDATE tm_document_attribute_type
-                    SET title="' . $this->_title . '", `handler`="' . $this->_handler . '", description="' . $this->_description  . '"
+            $sql = 'UPDATE tm_user_role
+                    SET title="' . $this->_title . '" 
                     WHERE id=' .  $this->_id ;
             $this->_db->query($sql);
         } catch (Exception $e) {
@@ -68,7 +85,7 @@ class TM_Document_AttributeType extends TM_Attribute_AttributeType
     public function deleteFromDB()
     {
         try {
-            $sql = 'DELETE FROM tm_document_attribute_type WHERE id=' . $this->_id;
+            $sql = 'DELETE FROM tm_user_role WHERE id=' . $this->_id;
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -80,19 +97,19 @@ class TM_Document_AttributeType extends TM_Attribute_AttributeType
      *
      * @param int id
 
-     * @return Attribute::TM_Attribute_AttributeType
+     * @return User::TM_User_Role
      * @static
      * @access public
      */
     public static function getInstanceById($id)
     {
         try {
-           $db = simo_db::getInstance();
-            $sql = 'SELECT * FROM tm_document_attribute_type WHERE id=' . (int)$id;
-            $result = $db->query($sql, simo_db::QUERY_MOD_ASSOC);
+           $db = StdLib_DB::getInstance();
+            $sql = 'SELECT * FROM tm_user_role WHERE id=' . (int)$id;
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
-                $o = new TM_Document_AttributeType();
+                $o = new TM_User_Role();
                 $o->fillFromArray($result[0]);
                 return $o;
             } else {
@@ -113,14 +130,14 @@ class TM_Document_AttributeType extends TM_Attribute_AttributeType
     public static function getAllInstance()
     {
         try {
-            $db = simo_db::getInstance();
-            $sql = 'SELECT * FROM tm_document_attribute_type';
-            $result = $db->query($sql, simo_db::QUERY_MOD_ASSOC);
+            $db = StdLib_DB::getInstance();
+            $sql = 'SELECT * FROM tm_user_role';
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
                 $retArray = array();
                 foreach ($result as $res) {
-                    $retArray[] = TM_Document_AttributeType::getInstanceByArray($res);
+                    $retArray[] = TM_User_Role::getInstanceByArray($res);
                 }
                 return $retArray;
             } else {
@@ -143,12 +160,19 @@ class TM_Document_AttributeType extends TM_Attribute_AttributeType
     public static function getInstanceByArray($values)
     {
         try {
-            $o = new TM_Document_AttributeType();
+            $o = new TM_User_Role();
             $o->fillFromArray($values);
             return $o;
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
     }
-} // end of TM_Document_AttribyteType
+
+    private function fillFromArray($values)
+    {
+        $this->setId($values['id']);
+        $this->setTitle($values['title']);
+    }
+
+} // end of TM_User_Role
 ?>

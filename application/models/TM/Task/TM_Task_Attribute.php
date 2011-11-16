@@ -86,9 +86,9 @@ class TM_Task_Attribute extends TM_Attribute_Attribute
      */
     public static function getInstanceByKey(TM_Task_Task $task,  $key ) {
          try {
-           $db = simo_db::getInstance();
+           $db = StdLib_DB::getInstance();
             $sql = 'SELECT * FROM tm_task_attribute WHERE task_id=' .  $task->getId() . ' AND attribute_key="' . $key . '"' ;
-            $result = $db->query($sql, simo_db::QUERY_MOD_ASSOC);
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
                 $o = new TM_Task_Attribute($task);
@@ -113,9 +113,9 @@ class TM_Task_Attribute extends TM_Attribute_Attribute
      */
     public static function getAllInstance(TM_Task_Task $task ) {
         try {
-            $db = simo_db::getInstance();
+            $db = StdLib_DB::getInstance();
             $sql = 'SELECT * FROM tm_task_attribute WHERE task_id=' .  $task->getId();
-            $result = $db->query($sql, simo_db::QUERY_MOD_ASSOC);
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
                 $retArray = array();

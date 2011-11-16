@@ -24,7 +24,7 @@ class simo_functions
   static public function _delFile($fname){
     global $__cfg;
     if (file_exists($fname) && is_file($fname)) {
-      simo_log::logMsg('Удален файл: ' . $fname, simo_log::SIMO_LOG_INFO);
+      StdLib_Log::logMsg('Удален файл: ' . $fname, StdLib_Log::StdLib_Log_INFO);
       unlink($fname);
       return true;
     } else {

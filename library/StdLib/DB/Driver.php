@@ -5,7 +5,7 @@
  * Родоначальник иерархии, определяет интерфейс.
  *
  */
-abstract class db_driver
+abstract class StdLib_DB_Driver
 {
 
  abstract public function __construct();

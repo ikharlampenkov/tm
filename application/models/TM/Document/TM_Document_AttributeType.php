@@ -1,15 +1,13 @@
 <?php
 
 require_once 'Attribute/TM_Attribute_AttributeType.php';
-require_once 'Task/TM_Task_AttributeType.php';
-require_once 'array.php';
 
 
 /**
- * class TM_Task_AttributeType
+ * class TM_Document_AttribyteType
  * 
  */
-class TM_Task_AttributeType extends TM_Attribute_AttributeType
+class TM_Document_AttributeType extends TM_Attribute_AttributeType
 {
 
     /** Aggregations: */
@@ -18,9 +16,10 @@ class TM_Task_AttributeType extends TM_Attribute_AttributeType
 
      /*** Attributes: ***/
 
+
     public function __construct() {
        parent::__construct();
-
+        
     }
 
     /**
@@ -33,7 +32,7 @@ class TM_Task_AttributeType extends TM_Attribute_AttributeType
     public function insertToDB()
     {
         try {
-            $sql = 'INSERT INTO tm_task_attribute_type(id, title, `handler`, description)
+            $sql = 'INSERT INTO tm_document_attribute_type(id, title, `handler`, description)
                     VALUES (' . $this->_id . ', "' . $this->_title . '", "' . $this->_handler . '", "' . $this->_description  . '")';
             $this->_db->query($sql);
         } catch (Exception $e) {
@@ -51,7 +50,7 @@ class TM_Task_AttributeType extends TM_Attribute_AttributeType
     public function updateToDB()
     {
         try {
-            $sql = 'UPDATE tm_task_attribute_type
+            $sql = 'UPDATE tm_document_attribute_type
                     SET title="' . $this->_title . '", `handler`="' . $this->_handler . '", description="' . $this->_description  . '"
                     WHERE id=' .  $this->_id ;
             $this->_db->query($sql);
@@ -69,7 +68,7 @@ class TM_Task_AttributeType extends TM_Attribute_AttributeType
     public function deleteFromDB()
     {
         try {
-            $sql = 'DELETE FROM tm_task_attribute_type WHERE id=' . $this->_id;
+            $sql = 'DELETE FROM tm_document_attribute_type WHERE id=' . $this->_id;
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -88,12 +87,12 @@ class TM_Task_AttributeType extends TM_Attribute_AttributeType
     public static function getInstanceById($id)
     {
         try {
-           $db = simo_db::getInstance();
-            $sql = 'SELECT * FROM tm_task_attribute_type WHERE id=' . (int)$id;
-            $result = $db->query($sql, simo_db::QUERY_MOD_ASSOC);
+           $db = StdLib_DB::getInstance();
+            $sql = 'SELECT * FROM tm_document_attribute_type WHERE id=' . (int)$id;
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
-                $o = new TM_Task_AttributeType();
+                $o = new TM_Document_AttributeType();
                 $o->fillFromArray($result[0]);
                 return $o;
             } else {
@@ -114,14 +113,14 @@ class TM_Task_AttributeType extends TM_Attribute_AttributeType
     public static function getAllInstance()
     {
         try {
-            $db = simo_db::getInstance();
-            $sql = 'SELECT * FROM tm_task_attribute_type';
-            $result = $db->query($sql, simo_db::QUERY_MOD_ASSOC);
+            $db = StdLib_DB::getInstance();
+            $sql = 'SELECT * FROM tm_document_attribute_type';
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
                 $retArray = array();
                 foreach ($result as $res) {
-                    $retArray[] = TM_Task_AttributeType::getInstanceByArray($res);
+                    $retArray[] = TM_Document_AttributeType::getInstanceByArray($res);
                 }
                 return $retArray;
             } else {
@@ -144,12 +143,12 @@ class TM_Task_AttributeType extends TM_Attribute_AttributeType
     public static function getInstanceByArray($values)
     {
         try {
-            $o = new TM_Task_AttributeType();
+            $o = new TM_Document_AttributeType();
             $o->fillFromArray($values);
             return $o;
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
     }
-} // end of TM_Task_AttributeType
+} // end of TM_Document_AttribyteType
 ?>
