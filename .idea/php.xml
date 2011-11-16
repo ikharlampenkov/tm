@@ -2,7 +2,13 @@
 <project version="4">
   <component name="PhpProjectConfiguration">
     <sdk>
-      <PhpSdkConfig version="5.3.6" home="C:\PHP" />
+      <PhpSdkConfig version="5.3.8" home="C:\PHP">
+        <include_paths>
+          <path value="." />
+          <path value="C:\PHP\PEAR\pear" />
+          <path value="C:\PHP\ZendFramework\library" />
+        </include_paths>
+      </PhpSdkConfig>
     </sdk>
   </component>
 </project>
