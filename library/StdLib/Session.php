@@ -4,7 +4,7 @@
  * Класс для работы с сессиями
  *
  */
-class simo_session {
+class StdLib_Session {
   
   const APP_PREF = 'simo';
    
@@ -16,7 +16,7 @@ class simo_session {
    * @param string $prefix - префикс, идентифицирует тип переменной
    * @return bool
    */
-  static public function setVar($name, $value, $prefix = simo_session::APP_PREF) 
+  static public function setVar($name, $value, $prefix = StdLib_Session::APP_PREF)
   {
     if (!empty($name) && isset($value) ) {
       $_SESSION[$prefix][$name] = $value;
@@ -32,7 +32,7 @@ class simo_session {
    * @param string $prefix - префикс, идентифицирует тип переменной
    * @return string
    */
-  static public function getVar($name, $prefix = simo_session::APP_PREF)
+  static public function getVar($name, $prefix = StdLib_Session::APP_PREF)
   {
     if (!empty($name) && isset($_SESSION[$prefix][$name])) {
         return $_SESSION[$prefix][$name];
@@ -47,7 +47,7 @@ class simo_session {
    * @param string $prefix - префикс, идентифицирует тип переменной
    * @return bool
    */
-  static public function existVar($name, $prefix = simo_session::APP_PREF)
+  static public function existVar($name, $prefix = StdLib_Session::APP_PREF)
   {
     if (isset($_SESSION[$prefix][$name])) {
       return true;
@@ -60,7 +60,7 @@ class simo_session {
    *
    * @param string $prefix - префикс, идентифицирует тип переменной
    */
-  static public function clearVars($prefix = simo_session::APP_PREF)
+  static public function clearVars($prefix = StdLib_Session::APP_PREF)
   {
     unset($_SESSION[$prefix]);
   }
@@ -71,7 +71,7 @@ class simo_session {
    * @param string $name - имя переменной
    * @param string $prefix[option] - префикс, идентифицирует тип переменной
    */
-  static public function clearVar($name, $prefix = simo_session::APP_PREF)
+  static public function clearVar($name, $prefix = StdLib_Session::APP_PREF)
   {
     unset($_SESSION[$prefix][$name]);
   }
@@ -82,7 +82,7 @@ class simo_session {
    * @param string $name - имя переменной
    * @param string $prefix - префикс, идентифицирует тип переменной
    */
-  static public function delVar($name, $prefix = simo_session::APP_PREF)
+  static public function delVar($name, $prefix = StdLib_Session::APP_PREF)
   {
       $_SESSION[$prefix][$name] = '';
   }

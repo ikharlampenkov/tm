@@ -85,6 +85,13 @@ class TM_User_User
         return $this->_role;
     }
 
+    public function __get($name) {
+        $method = "get{$name}";
+        if (method_exists($this, $method)) {
+            return $this->$method();
+        }
+    }
+
     public function __construct() {
         $this->_db = StdLib_DB::getInstance();
 
@@ -99,8 +106,8 @@ class TM_User_User
     public function insertToDb()
     {
         try {
-            $sql = 'INSERT INTO tm_user(id, login, password, role_id, date_create)
-                    VALUES (' . $this->_id . ', "' . $this->_login . '", ' . $this->_role->getId() . ', "' . $this->_dateCreate . '")';
+            $sql = 'INSERT INTO tm_user(login, password, role_id, date_create)
+                    VALUES ("' . $this->_login . '", ' . $this->_password  . ', ' . $this->_role->getId() . ', "' . $this->_dateCreate . '")';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());

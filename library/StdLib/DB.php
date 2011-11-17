@@ -27,7 +27,7 @@ class StdLib_DB {
     public function connect($dsn='') {
 
         if (empty($dsn)) {
-            $dsn = Zend_Registry::get('production')->db->dsn; // $__cfg['db.dsn'];
+            $dsn = Zend_Registry::get('production')->db->dsn;
         }
 
         $this->_prepareDSN($dsn);
@@ -80,13 +80,12 @@ class StdLib_DB {
     }
 
     public function prepareString($string) {
-        global $__cfg;
         try {
             if (!$this->_conn) {
                 $this->connect();
             }
 
-            if ($__cfg['smarty.encoding'] == 'windows-1251' && (mb_detect_encoding($string) != 'UTF-8')) {
+            if (Zend_Registry::get('production')->smarty->encoding == 'windows-1251' && (mb_detect_encoding($string) != 'UTF-8')) {
                 $string = iconv('WINDOWS-1251', 'UTF-8//IGNORE', $string);
             }
             return $this->_driver->prepareString($string);
@@ -154,7 +153,7 @@ class StdLib_DB {
 
             $this->_driver->setDB($dbname);
         } catch (StdLib_Exception $s_e) {
-            throw new Exception('Can`t set db');
+            throw new Exception('Can`t set db.' . $s_e->getMessage());
         }
     }
 

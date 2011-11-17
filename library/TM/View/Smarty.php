@@ -31,6 +31,7 @@ class TM_View_Smarty extends Zend_View_Abstract
      */
     public function render($name)
     {
+        header('Content-Type: text/html; charset=' . Zend_Registry::get('production')->smarty->encoding);
         return $this->_smarty->fetch($name);
     }
 
@@ -204,6 +205,7 @@ class TM_View_Smarty extends Zend_View_Abstract
     {
         return $this->_smarty;
     }
+        
 
     /**
      * Use to include the view script in a scope that only allows public
@@ -215,6 +217,7 @@ class TM_View_Smarty extends Zend_View_Abstract
     {
         include func_get_arg(0);
     }
+
 }
 
 ?>

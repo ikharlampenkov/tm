@@ -5,7 +5,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
-      <library name="PHP 5.3.8-ZS5.5.0">
+      <library name="PHP 5.3.8">
         <CLASSES>
           <root url="file://C:/Zend/ZendServer/share/ZendFramework/library" />
         </CLASSES>

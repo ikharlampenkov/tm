@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-11-16 11:07:52
+<?php /* Smarty version Smarty-3.0.9, created on 2011-11-17 23:02:00
          compiled from "F:\www\tm\application/layouts/scripts\layout.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:103034ec28ab6948924-10917247%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:43814ec52ff83a96a5-10737091%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a25500e79cea030075e390e1f8ff3a74600c16de' => 
     array (
       0 => 'F:\\www\\tm\\application/layouts/scripts\\layout.tpl',
-      1 => 1321379128,
+      1 => 1321545705,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '103034ec28ab6948924-10917247',
+  'nocache_hash' => '43814ec52ff83a96a5-10737091',
   'function' => 
   array (
   ),
@@ -21,7 +21,7 @@ $_smarty_tpl->decodeProperties(array (
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-    <meta name="DESCRIPTION" content="<?php echo $_smarty_tpl->getVariable('description')->value;?>
+    <meta name="description" content="<?php echo $_smarty_tpl->getVariable('description')->value;?>
 "/>
     <meta name="keywords" content="<?php echo $_smarty_tpl->getVariable('keywords')->value;?>
 "/>
@@ -48,7 +48,8 @@ $_smarty_tpl->decodeProperties(array (
                     <td style="padding-left: 25px; vertical-align: middle;"><a href="/" style="color: #ffffff; text-decoration: none; font-size: 26px;"><?php echo $_smarty_tpl->getVariable('title')->value;?>
 </a></td>
                     <td width="300" valign="middle" style="color:white">
-                        Пользователь:  &nbsp; / &nbsp; <a href="/login/logout/" style="color:black">Выйти</a>
+                        Пользователь: <?php echo $_smarty_tpl->getVariable('authUser')->value;?>
+ &nbsp; / &nbsp; <a href="/login/logout/" style="color:black">Выйти</a>
                     </td>
                 </tr>
             </table>

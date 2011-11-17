@@ -74,8 +74,8 @@ class simo_smarty extends Smarty
    */
   public static function throwSmartyException($message = '', $code = 1)
   {
-   simo_session::setVar('message', $message, 'exception');
-   simo_session::setVar('code', $code, 'exception');
+   StdLib_Session::setVar('message', $message, 'exception');
+   StdLib_Session::setVar('code', $code, 'exception');
   }
   
   /**
@@ -85,10 +85,10 @@ class simo_smarty extends Smarty
    */
   private function checkSmartyException()
   {
-   if (simo_session::existVar('message', 'exception')) {
+   if (StdLib_Session::existVar('message', 'exception')) {
    	 $this->assign('exception', '1');
-   	 $this->assign('e_message', simo_session::getVar('message', 'exception'));
-   	 $this->assign('e_code', simo_session::getVar('code', 'exception'));
+   	 $this->assign('e_message', StdLib_Session::getVar('message', 'exception'));
+   	 $this->assign('e_code', StdLib_Session::getVar('code', 'exception'));
    	 $this->catchSmartyException();
    } else {
    	 $this->assign('exception', '0');
@@ -101,7 +101,7 @@ class simo_smarty extends Smarty
    */
   private function catchSmartyException()
   {
-   simo_session::clearVars('exception');
+   StdLib_Session::clearVars('exception');
   }
   
 }

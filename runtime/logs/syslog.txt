@@ -1,0 +1,245 @@
+info   SELECT * FROM tm_user WHERE login="admin"  17.11.2011 07:45
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 07:45
+info   SELECT * FROM tm_user WHERE login="admin"  17.11.2011 07:48
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 07:48
+info   SELECT * FROM tm_user WHERE login="admin"  17.11.2011 07:48
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 07:48
+info   SELECT * FROM tm_user WHERE login="admin"  17.11.2011 07:49
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 07:49
+info   SELECT * FROM tm_user WHERE login="admin"  17.11.2011 07:49
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 07:49
+info   SELECT * FROM tm_user WHERE login="admin"  17.11.2011 07:50
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 07:50
+info   SELECT * FROM tm_user WHERE login="admin"  17.11.2011 07:55
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 07:55
+info   SELECT * FROM tm_user WHERE login="admin"  17.11.2011 07:55
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 07:55
+info   SELECT * FROM tm_user WHERE login="admin"  17.11.2011 07:57
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 07:57
+info   SELECT * FROM tm_user WHERE login="admin"  17.11.2011 07:57
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 07:57
+info   SELECT * FROM tm_user WHERE login="admin"  17.11.2011 08:09
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 08:09
+info   SELECT * FROM tm_user WHERE login="admin"  17.11.2011 08:13
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 08:13
+info   SELECT * FROM tm_user WHERE login="admin"  17.11.2011 08:20
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 08:20
+info   SELECT * FROM tm_user WHERE login="admin"  17.11.2011 08:20
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 08:20
+info   SELECT * FROM tm_user WHERE login="admin"  17.11.2011 08:26
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 08:26
+info   SELECT * FROM tm_user WHERE login="admin"  17.11.2011 08:26
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 08:26
+info   SELECT * FROM tm_user WHERE login="admin"  17.11.2011 08:28
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 08:28
+info   SELECT * FROM tm_user WHERE login="admin"  17.11.2011 08:29
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 08:29
+info   preDispatch  17.11.2011 21:21
+info   preDispatch  17.11.2011 21:21
+info   preDispatch  17.11.2011 21:21
+info   preDispatch  17.11.2011 21:21
+info   preDispatch  17.11.2011 21:21
+info   preDispatch  17.11.2011 21:21
+info   preDispatch  17.11.2011 21:21
+info   preDispatch  17.11.2011 21:21
+info   preDispatch  17.11.2011 21:21
+info   preDispatch  17.11.2011 21:21
+info   preDispatch  17.11.2011 21:21
+info   preDispatch  17.11.2011 21:21
+info   preDispatch  17.11.2011 21:22
+info   preDispatch  17.11.2011 21:22
+info   preDispatch  17.11.2011 21:22
+info   preDispatch  17.11.2011 21:24
+info   preDispatch  17.11.2011 21:24
+info   preDispatch  17.11.2011 21:24
+info   preDispatch  17.11.2011 21:24
+info   preDispatch  17.11.2011 21:24
+info   preDispatch  17.11.2011 21:24
+info   preDispatch  17.11.2011 21:24
+info   preDispatch  17.11.2011 21:24
+info   preDispatch  17.11.2011 21:24
+info   preDispatch  17.11.2011 21:24
+info   preDispatch  17.11.2011 21:24
+info   preDispatch  17.11.2011 21:24
+info   preDispatch  17.11.2011 21:24
+info   preDispatch  17.11.2011 21:24
+info   preDispatch  17.11.2011 21:24
+info   preDispatch  17.11.2011 21:24
+info   preDispatch  17.11.2011 21:24
+info   preDispatch  17.11.2011 21:25
+info   preDispatch  17.11.2011 21:25
+info   preDispatch  17.11.2011 21:25
+info   preDispatch  17.11.2011 21:25
+info   preDispatch  17.11.2011 21:25
+info   preDispatch  17.11.2011 21:25
+info   preDispatch  17.11.2011 21:25
+info   preDispatch  17.11.2011 21:25
+info   preDispatch  17.11.2011 21:25
+info   SELECT * FROM tm_user WHERE id=1  17.11.2011 23:16
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:16
+info   SELECT * FROM tm_user_role WHERE id=0  17.11.2011 23:16
+info   SELECT * FROM tm_user_role  17.11.2011 23:17
+info   SELECT * FROM tm_user WHERE id=1  17.11.2011 23:17
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:17
+info   SELECT * FROM tm_user_role  17.11.2011 23:18
+info   SELECT * FROM tm_user WHERE id=1  17.11.2011 23:18
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:18
+info   SELECT * FROM tm_user_role  17.11.2011 23:18
+info   SELECT * FROM tm_user WHERE id=1  17.11.2011 23:18
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:18
+info   SELECT * FROM tm_user WHERE id=1  17.11.2011 23:19
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:19
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:19
+info   INSERT INTO tm_user(id, login, password, role_id, date_create)
+                    VALUES (, "admin", 1, "2011-11-16 16:26:11")  17.11.2011 23:19
+error   Can`t complit query: INSERT INTO tm_user(id, login, password, role_id, date_create)
+                    VALUES (, "admin", 1, "2011-11-16 16:26:11") No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' "admin", 1, "2011-11-16 16:26:11")' at line 2 ;  17.11.2011 23:19
+info   SELECT * FROM tm_user WHERE id=1  17.11.2011 23:19
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:19
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:19
+info   INSERT INTO tm_user(login, password, role_id, date_create)
+                    VALUES ("admin", 1, "2011-11-16 16:26:11")  17.11.2011 23:19
+error   Can`t complit query: INSERT INTO tm_user(login, password, role_id, date_create)
+                    VALUES ("admin", 1, "2011-11-16 16:26:11") No error: 1136:: Error msg: Column count doesn't match value count at row 1 ;  17.11.2011 23:19
+info   SELECT * FROM tm_user_role  17.11.2011 23:21
+info   SELECT * FROM tm_user WHERE id=1  17.11.2011 23:21
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:21
+info   SELECT * FROM tm_user WHERE id=1  17.11.2011 23:21
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:21
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:21
+info   UPDATE tm_user
+                    SET login="admin", role_id="1", date_create="2011-11-16 16:26:11"
+                    WHERE id=  17.11.2011 23:21
+error   Can`t complit query: UPDATE tm_user
+                    SET login="admin", role_id="1", date_create="2011-11-16 16:26:11"
+                    WHERE id= No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3 ;  17.11.2011 23:21
+info   SELECT * FROM tm_user WHERE id=1  17.11.2011 23:24
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:24
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:24
+info   UPDATE tm_user
+                    SET login="admin", role_id="1", date_create="2011-11-16 16:26:11"
+                    WHERE id=  17.11.2011 23:24
+error   Can`t complit query: UPDATE tm_user
+                    SET login="admin", role_id="1", date_create="2011-11-16 16:26:11"
+                    WHERE id= No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 3 ;  17.11.2011 23:24
+info   SELECT * FROM tm_user_role  17.11.2011 23:24
+info   SELECT * FROM tm_user  17.11.2011 23:24
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:24
+info   SELECT * FROM tm_user_role  17.11.2011 23:24
+info   SELECT * FROM tm_user_role  17.11.2011 23:24
+info   SELECT * FROM tm_user_role  17.11.2011 23:31
+info   SELECT * FROM tm_user_role  17.11.2011 23:33
+info   SELECT * FROM tm_user_role  17.11.2011 23:35
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:36
+info   INSERT INTO tm_user(login, password, role_id, date_create)
+                    VALUES ("user", 1, "2011-11-17 23:35:18")  17.11.2011 23:36
+error   Can`t complit query: INSERT INTO tm_user(login, password, role_id, date_create)
+                    VALUES ("user", 1, "2011-11-17 23:35:18") No error: 1136:: Error msg: Column count doesn't match value count at row 1 ;  17.11.2011 23:36
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:38
+info   INSERT INTO tm_user(login, password, role_id, date_create)
+                    VALUES ("user", 321, 1, "2011-11-17 23:35:18")  17.11.2011 23:38
+info   SELECT * FROM tm_user_role  17.11.2011 23:38
+info   SELECT * FROM tm_user_role  17.11.2011 23:38
+info   SELECT * FROM tm_user  17.11.2011 23:38
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:38
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:38
+info   SELECT * FROM tm_user_role  17.11.2011 23:38
+info   SELECT * FROM tm_user WHERE id=2  17.11.2011 23:38
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:38
+info   SELECT * FROM tm_user_role  17.11.2011 23:38
+info   SELECT * FROM tm_user  17.11.2011 23:38
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:38
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:38
+info   SELECT * FROM tm_user_role  17.11.2011 23:38
+info   SELECT * FROM tm_user WHERE id=2  17.11.2011 23:38
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:38
+info   SELECT * FROM tm_user_role  17.11.2011 23:38
+info   SELECT * FROM tm_user  17.11.2011 23:38
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:38
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:38
+info   SELECT * FROM tm_user_role  17.11.2011 23:38
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:38
+info   INSERT INTO tm_user(login, password, role_id, date_create)
+                    VALUES ("test", 111, 1, "2011-11-17 23:38:17")  17.11.2011 23:38
+info   SELECT * FROM tm_user_role  17.11.2011 23:38
+info   SELECT * FROM tm_user_role  17.11.2011 23:38
+info   SELECT * FROM tm_user  17.11.2011 23:38
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:38
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:38
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:38
+info   SELECT * FROM tm_user WHERE id=3  17.11.2011 23:40
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:40
+info   DELETE FROM tm_user
+                    WHERE id=3  17.11.2011 23:40
+info   SELECT * FROM tm_user_role  17.11.2011 23:40
+info   SELECT * FROM tm_user  17.11.2011 23:40
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:40
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:40
+info   SELECT * FROM tm_user_role  17.11.2011 23:49
+info   SELECT * FROM tm_user  17.11.2011 23:49
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:49
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:49
+info   SELECT * FROM tm_user_role  17.11.2011 23:50
+info   SELECT * FROM tm_user  17.11.2011 23:50
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:50
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:50
+info   SELECT * FROM tm_user_role  17.11.2011 23:50
+info   SELECT * FROM tm_user  17.11.2011 23:50
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:50
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:50
+info   SELECT * FROM tm_user_role  17.11.2011 23:50
+info   SELECT * FROM tm_user  17.11.2011 23:50
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:50
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:50
+info   SELECT * FROM tm_user_role  17.11.2011 23:51
+info   SELECT * FROM tm_user  17.11.2011 23:51
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:51
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:51
+info   SELECT * FROM tm_user_role  17.11.2011 23:53
+info   SELECT * FROM tm_user_role  17.11.2011 23:54
+info   SELECT * FROM tm_user_role  17.11.2011 23:54
+info   SELECT * FROM tm_user  17.11.2011 23:54
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:54
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:54
+info   SELECT * FROM tm_user_role  17.11.2011 23:54
+info   SELECT * FROM tm_user WHERE id=1  17.11.2011 23:54
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:54
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:57
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:59
+info   SELECT * FROM tm_user WHERE id=1  17.11.2011 23:59
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:59
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:59
+info   UPDATE tm_user_role
+                    SET title="admin" 
+                    WHERE id=1  17.11.2011 23:59
+info   SELECT * FROM tm_user_role  17.11.2011 23:59
+info   SELECT * FROM tm_user  17.11.2011 23:59
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:59
+info   SELECT * FROM tm_user_role WHERE id=1  17.11.2011 23:59
+info   INSERT INTO tm_user_role(id, title)
+                    VALUES (, "test")  18.11.2011 00:02
+error   Can`t complit query: INSERT INTO tm_user_role(id, title)
+                    VALUES (, "test") No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' "test")' at line 2 ;  18.11.2011 00:02
+info   INSERT INTO tm_user_role(title)
+                    VALUES ("test")  18.11.2011 00:03
+error   Can`t complit query: INSERT INTO tm_user_role(title)
+                    VALUES ("test") No error: 1364:: Error msg: Field 'id' doesn't have a default value ;  18.11.2011 00:03
+info   INSERT INTO tm_user_role(title)
+                    VALUES ("test")  18.11.2011 00:05
+error   Can`t complit query: INSERT INTO tm_user_role(title)
+                    VALUES ("test") No error: 1364:: Error msg: Field 'id' doesn't have a default value ;  18.11.2011 00:05
+info   INSERT INTO tm_user_role(title)
+                    VALUES ("test")  18.11.2011 00:06
+info   SELECT * FROM tm_user_role  18.11.2011 00:06
+info   SELECT * FROM tm_user  18.11.2011 00:06
+info   SELECT * FROM tm_user_role WHERE id=1  18.11.2011 00:06
+info   SELECT * FROM tm_user_role WHERE id=1  18.11.2011 00:06
+info   SELECT * FROM tm_user_role  18.11.2011 00:06
+info   SELECT * FROM tm_user_role WHERE id=2  18.11.2011 00:06
+info   INSERT INTO tm_user(login, password, role_id, date_create)
+                    VALUES ("test", 333, 2, "2011-11-18 00:06:27")  18.11.2011 00:06
+info   SELECT * FROM tm_user_role  18.11.2011 00:06
+info   SELECT * FROM tm_user  18.11.2011 00:06
+info   SELECT * FROM tm_user_role WHERE id=1  18.11.2011 00:06
+info   SELECT * FROM tm_user_role WHERE id=1  18.11.2011 00:06
+info   SELECT * FROM tm_user_role WHERE id=2  18.11.2011 00:06

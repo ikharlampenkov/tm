@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-11-16 11:07:52
+<?php /* Smarty version Smarty-3.0.9, created on 2011-11-17 21:24:19
          compiled from "F:\www\tm\application/views/scripts\login/index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:66304ec2a3d4688a88-74714442%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:157154ec51913e22542-38069253%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'f698f4233b076015e9481e0ef8f148ab50d0d9a6' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\login/index.tpl',
-      1 => 1321379128,
+      1 => 1321539671,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '66304ec2a3d4688a88-74714442',
+  'nocache_hash' => '157154ec51913e22542-38069253',
   'function' => 
   array (
   ),
@@ -64,7 +64,8 @@ $_smarty_tpl->decodeProperties(array (
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td><?php if (isset($_smarty_tpl->getVariable('login_fail',null,true,false)->value)){?><div style="color:white; font-weight:bold; font-size:12px;">Невервный логин и пароль.</div><?php }?></td>
+                                    <td><?php if (isset($_smarty_tpl->getVariable('login_fail',null,true,false)->value)){?><div style="color:white; font-weight:bold; font-size:12px;"><?php echo $_smarty_tpl->getVariable('result')->value['loginFailed'];?>
+</div><?php }?></td>
                                 </tr>
 
 

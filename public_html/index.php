@@ -22,5 +22,8 @@ $application = new Zend_Application(
     APPLICATION_ENV,
     APPLICATION_PATH . '/configs/application.ini'
 );
+
+ini_set('error_reporting', E_ALL);
+
 $application->bootstrap()
             ->run();

@@ -42,7 +42,7 @@
                                 </tr>
                                 <tr>
                                     <td></td>
-                                    <td>{if isset($login_fail)}<div style="color:white; font-weight:bold; font-size:12px;">Невервный логин и пароль.</div>{/if}</td>
+                                    <td>{if isset($login_fail)}<div style="color:white; font-weight:bold; font-size:12px;">{$result.loginFailed}</div>{/if}</td>
                                 </tr>
 
 

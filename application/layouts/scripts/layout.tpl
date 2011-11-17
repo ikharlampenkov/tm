@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-    <meta name="DESCRIPTION" content="{$description}"/>
+    <meta name="description" content="{$description}"/>
     <meta name="keywords" content="{$keywords}"/>
     <meta name="author-corporate" content=""/>
     <meta name="publisher-email" content=""/>
@@ -25,7 +25,7 @@
                 <tr>
                     <td style="padding-left: 25px; vertical-align: middle;"><a href="/" style="color: #ffffff; text-decoration: none; font-size: 26px;">{$title}</a></td>
                     <td width="300" valign="middle" style="color:white">
-                        Пользователь: {*$user*} &nbsp; / &nbsp; <a href="/login/logout/" style="color:black">Выйти</a>
+                        Пользователь: {$authUser} &nbsp; / &nbsp; <a href="/login/logout/" style="color:black">Выйти</a>
                     </td>
                 </tr>
             </table>
