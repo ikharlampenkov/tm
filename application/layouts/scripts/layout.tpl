@@ -25,7 +25,7 @@
                 <tr>
                     <td style="padding-left: 25px; vertical-align: middle;"><a href="/" style="color: #ffffff; text-decoration: none; font-size: 26px;">{$title}</a></td>
                     <td width="300" valign="middle" style="color:white">
-                        Пользователь: {*$user*} &nbsp; / &nbsp; <a href="/login/logout/" style="color:black">Выйти</a>
+                        Пользователь: {$user} &nbsp; / &nbsp; <a href="/login/logout/" style="color:black">Выйти</a>
                     </td>
                 </tr>
             </table>

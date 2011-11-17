@@ -14,6 +14,8 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         // создаем вид
         $view = new TM_View_Smarty();
 
+        //$view->getEngine()->debugging = true;
+
         $view->assign('this', $view);
 
         $options = $this->getOptions();
@@ -25,6 +27,8 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         if (isset($options['resources']['view']['pluginsPath'])) {
             $view->addPluginsPath($options['resources']['view']['pluginsPath']);
         }
+
+        $view->setEncoding($options['resources']['view']['encoding']);
 
         // Создаем рендер
         $viewRenderer = Zend_Controller_Action_HelperBroker::getStaticHelper('ViewRenderer');
@@ -38,7 +42,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
         $view->assign('title', $options['tm']['title']);
         $view->assign('description', $options['smarty']['default']['desc']);
-        $view->assign('keyword', $options['smarty']['default']['keyword']);
+        $view->assign('keywords', $options['smarty']['default']['keyword']);
         $view->assign('encoding', $options['smarty']['encoding']);
 
         return $view;
@@ -74,26 +78,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         return $layout;
     }
 
-    protected function _initAuth()
-    {
-        $auth = Zend_Auth::getInstance();
-        $data = $auth->getStorage()->read();
-
-        if (!isset($data->status)) {
-            $storage_data = new stdClass();
-            $storage_data->status = 'guest';
-            $auth->getStorage()->write($storage_data);
-        }
-    }
-
-    protected function _initAcl()
-    {
-        Zend_Loader::loadClass('TM_Acl_Acl');
-        Zend_Loader::loadClass('CheckAccess');
-        Zend_Controller_Front::getInstance()->registerPlugin(new CheckAccess());
-        return new TM_Acl_Acl();
-    }
-
     protected function _initAutoLoader()
     {
         $auto = Zend_Loader_Autoloader::getInstance();
@@ -113,6 +97,41 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
         $o_log = new StdLib_Log();
         $o_log->setLogLevel($options['log']['level']);
+
+        $db = StdLib_DB::getInstance();
+        $db->debug = false;
     }
+
+    protected function _initAuth()
+    {
+        $auth = Zend_Auth::getInstance();
+        $data = $auth->getStorage()->read();
+
+        if (!isset($data->role)) {
+            $storage_data = new stdClass();
+            $storage_data->id = 0;
+            $storage_data->login = 'guest';
+            $storage_data->token = '';
+            $storage_data->role = 'guest';
+            $auth->getStorage()->write($storage_data);
+
+            $view = $this->getResource('View');
+            $view->assign('user', 'guest');
+
+        } else {
+           $view = $this->getResource('View');
+           $view->assign('user', $data->login);
+        }
+    }
+
+    protected function _initAcl()
+    {
+        Zend_Loader::loadClass('TM_Acl_Acl');
+        Zend_Loader::loadClass('CheckAccess');
+        Zend_Controller_Front::getInstance()->registerPlugin(new CheckAccess());
+        return new TM_Acl_Acl();
+    }
+
+
 }
 

@@ -41,6 +41,13 @@ class TM_User_Role
         return $this->_title;
     }
 
+    public function __get($name) {
+        $method = "get{$name}";
+        if (method_exists($this, $method)) {
+            return $this->$method();
+        }
+    }
+
 
     public function __construct() {
         $this->_db = StdLib_DB::getInstance();

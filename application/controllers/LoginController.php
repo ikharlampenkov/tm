@@ -17,12 +17,15 @@ class LoginController extends Zend_Controller_Action
             $o_userManager->setLogin($request->getParam('login'));
             $o_userManager->setPassword($request->getParam('psw'));
 
+            //print_r($o_userManager);
 
             $auth = Zend_Auth::getInstance();
             $authResult = $auth->authenticate($o_userManager);
+
             if ($authResult->isValid()) {
                 $this->_redirect('/');
             } else {
+                $this->view->assign('result', $authResult->getMessages());
                 $this->view->assign('login_fail', true);
             }
         }
@@ -37,7 +40,7 @@ class LoginController extends Zend_Controller_Action
     public function logoutAction()
     {
         Zend_Auth::getInstance()->clearIdentity();
-        $this->_redirect('/');
+        $this->_redirect('/login');
     }
 
 }

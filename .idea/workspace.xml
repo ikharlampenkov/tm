@@ -3,55 +3,32 @@
   <component name="ChangeListManager">
     <list id="208ba09b-a62b-410e-864b-4a7f61a529f8" name="Default" comment="" />
     <list default="true" id="1e15cf3c-e4a0-4479-b6be-8d8a44301a05" name="New changelist" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
-    <list id="f42909e3-1a08-4869-ae07-8a59593718bf" name="Failed commit: New changelist" comment="Права доступа">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/i/folder.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/i/page_word.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/LoginController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/Login.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/plugins/CheckAccess.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/login/index.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/StdLib/Log.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/TM/Acl/Acl.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/css/main.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/adce21d5e4bd44928444e8e78142d735bf514e9d.file.index.tpl.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/f698f4233b076015e9481e0ef8f148ab50d0d9a6.file.index.tpl.php" />
-      <change type="DELETED" beforePath="E:\www\tm\library\StdLib\simo_log.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="DELETED" beforePath="E:\www\tm\public_html\syslog.txt" afterPath="" />
+      <change type="DELETED" beforePath="E:\www\tm\runtime\templates_c\a25500e79cea030075e390e1f8ff3a74600c16de.file.layout.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="E:\www\tm\runtime\templates_c\adce21d5e4bd44928444e8e78142d735bf514e9d.file.index.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="E:\www\tm\runtime\templates_c\eab985864bf219a2a8625f0f974cae75ef5615e5.file.error.tpl.php" afterPath="" />
+      <change type="DELETED" beforePath="E:\www\tm\runtime\templates_c\f698f4233b076015e9481e0ef8f148ab50d0d9a6.file.index.tpl.php" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/tm.iml" afterPath="$PROJECT_DIR$/.idea/tm.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Administrator.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Administrator.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.zfproject.xml" afterPath="$PROJECT_DIR$/.zfproject.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Bootstrap.php" afterPath="$PROJECT_DIR$/application/Bootstrap.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/configs/application.ini" afterPath="$PROJECT_DIR$/application/configs/application.ini" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/LoginController.php" afterPath="$PROJECT_DIR$/application/controllers/LoginController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/UserController.php" afterPath="$PROJECT_DIR$/application/controllers/UserController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/layouts/scripts/layout.tpl" afterPath="$PROJECT_DIR$/application/layouts/scripts/layout.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/error/error.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/error/error.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/StdLib/simo_functions.php" afterPath="$PROJECT_DIR$/library/StdLib/simo_functions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/private/classes/simo.php" afterPath="$PROJECT_DIR$/private/classes/simo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/private/config/simo_conf.php" afterPath="$PROJECT_DIR$/private/config/simo_conf.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/a25500e79cea030075e390e1f8ff3a74600c16de.file.layout.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/a25500e79cea030075e390e1f8ff3a74600c16de.file.layout.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/b2aac6fcce9bb0e3eeaf67af4b08b5d77457fb5f.file.index.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/b2aac6fcce9bb0e3eeaf67af4b08b5d77457fb5f.file.index.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/eab985864bf219a2a8625f0f974cae75ef5615e5.file.error.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/eab985864bf219a2a8625f0f974cae75ef5615e5.file.error.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/~Documents/sibnii.sql" afterPath="$PROJECT_DIR$/~Documents/sibnii.sql" />
-      <change type="MOVED" beforePath="E:\www\tm\application\views\scripts\user\index.phtml" afterPath="$PROJECT_DIR$/application/views/scripts/user/index.tpl" />
-      <change type="MOVED" beforePath="E:\www\tm\library\StdLib\db_driver\db_driver.php" afterPath="$PROJECT_DIR$/library/StdLib/DB/Driver.php" />
-      <change type="MOVED" beforePath="E:\www\tm\library\StdLib\db_driver\mysql_db_driver.php" afterPath="$PROJECT_DIR$/library/StdLib/DB/mysql_db_driver.php" />
-      <change type="MOVED" beforePath="E:\www\tm\library\StdLib\db_driver\mysqli_db_driver.php" afterPath="$PROJECT_DIR$/library/StdLib/DB/mysqli_db_driver.php" />
-      <change type="MOVED" beforePath="E:\www\tm\library\StdLib\simo_db.php" afterPath="$PROJECT_DIR$/library/StdLib/DB.php" />
-      <change type="MOVED" beforePath="E:\www\tm\library\StdLib\simo_exception.php" afterPath="$PROJECT_DIR$/library/StdLib/Exception.php" />
-      <change type="MOVED" beforePath="E:\www\tm\private\classes\TM\Attribute\TM_Attribute_Attribute.php" afterPath="$PROJECT_DIR$/application/models/TM/Attribute/TM_Attribute_Attribute.php" />
-      <change type="MOVED" beforePath="E:\www\tm\private\classes\TM\Attribute\TM_Attribute_AttributeType.php" afterPath="$PROJECT_DIR$/application/models/TM/Attribute/TM_Attribute_AttributeType.php" />
-      <change type="MOVED" beforePath="E:\www\tm\private\classes\TM\Discussion\TM_Discussion_Discussion.php" afterPath="$PROJECT_DIR$/application/models/TM/Discussion/TM_Discussion_Discussion.php" />
-      <change type="MOVED" beforePath="E:\www\tm\private\classes\TM\Document\TM_Document_Attribute.php" afterPath="$PROJECT_DIR$/application/models/TM/Document/TM_Document_Attribute.php" />
-      <change type="MOVED" beforePath="E:\www\tm\private\classes\TM\Document\TM_Document_AttributeType.php" afterPath="$PROJECT_DIR$/application/models/TM/Document/TM_Document_AttributeType.php" />
-      <change type="MOVED" beforePath="E:\www\tm\private\classes\TM\Document\TM_Document_Document.php" afterPath="$PROJECT_DIR$/application/models/TM/Document/TM_Document_Document.php" />
-      <change type="MOVED" beforePath="E:\www\tm\private\classes\TM\Task\TM_Task_Attribute.php" afterPath="$PROJECT_DIR$/application/models/TM/Task/TM_Task_Attribute.php" />
-      <change type="MOVED" beforePath="E:\www\tm\private\classes\TM\Task\TM_Task_AttributeType.php" afterPath="$PROJECT_DIR$/application/models/TM/Task/TM_Task_AttributeType.php" />
-      <change type="MOVED" beforePath="E:\www\tm\private\classes\TM\Task\TM_Task_Task.php" afterPath="$PROJECT_DIR$/application/models/TM/Task/TM_Task_Task.php" />
-      <change type="MOVED" beforePath="E:\www\tm\private\classes\TM\User\TM_User_Profile.php" afterPath="$PROJECT_DIR$/application/models/TM/User/TM_User_Profile.php" />
-      <change type="MOVED" beforePath="E:\www\tm\private\classes\TM\User\TM_User_Role.php" afterPath="$PROJECT_DIR$/application/models/TM/User/Role.php" />
-      <change type="MOVED" beforePath="E:\www\tm\private\classes\TM\User\TM_User_User.php" afterPath="$PROJECT_DIR$/application/models/TM/User/User.php" />
-      <change type="MOVED" beforePath="E:\www\tm\private\classes\TM\User\TM_User_UserManager.php" afterPath="$PROJECT_DIR$/application/models/TM/User/UserManager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/User/Role.php" afterPath="$PROJECT_DIR$/application/models/TM/User/Role.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/User/User.php" afterPath="$PROJECT_DIR$/application/models/TM/User/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/User/UserManager.php" afterPath="$PROJECT_DIR$/application/models/TM/User/UserManager.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/plugins/CheckAccess.php" afterPath="$PROJECT_DIR$/application/plugins/CheckAccess.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/login/index.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/login/index.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/user/index.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/user/index.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/StdLib/simo_smarty.php" afterPath="$PROJECT_DIR$/library/StdLib/simo_smarty.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/TM/Acl/Acl.php" afterPath="$PROJECT_DIR$/library/TM/Acl/Acl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/TM/View/Smarty.php" afterPath="$PROJECT_DIR$/library/TM/View/Smarty.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/index.php" afterPath="$PROJECT_DIR$/public_html/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/logs/syslog.txt" afterPath="$PROJECT_DIR$/runtime/logs/syslog.txt" />
+      <change type="MOVED" beforePath="E:\www\tm\library\StdLib\simo_session.php" afterPath="$PROJECT_DIR$/library/StdLib/Session.php" />
+      <change type="MOVED" beforePath="E:\www\tm\runtime\templates_c\b2aac6fcce9bb0e3eeaf67af4b08b5d77457fb5f.file.index.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/fa0fdc8e759631f5f5b67786a62b4929fb2f0a97.file.index.tpl.php" />
     </list>
     <ignored path="tm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -88,22 +65,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/private/classes/TM/Document/TM_Document_AttribyteType.php" />
-        <option value="$PROJECT_DIR$/private/classes/TM/Attribute/TM_Attribute_Attribute_Type.php" />
-        <option value="$PROJECT_DIR$/private/classes/stdclass/simo_db.php" />
-        <option value="$PROJECT_DIR$/private/classes/TM/Attribute/TM_Attribute_AttributeType.php" />
-        <option value="/MySQL Fragment (TM_Document_AttributeType.php:491).sql" />
-        <option value="$PROJECT_DIR$/private/classes/TM/Task/TM_Task_AttributeType.php" />
-        <option value="$PROJECT_DIR$/private/classes/TM/Document/TM_Document_AttributeType.php" />
-        <option value="$PROJECT_DIR$/public_html/index.php" />
-        <option value="$PROJECT_DIR$/application/controllers/UserController.php" />
-        <option value="$PROJECT_DIR$/~Documents/sibnii.sql" />
-        <option value="$PROJECT_DIR$/application/layouts/scripts/layout.tpl" />
-        <option value="$PROJECT_DIR$/library/TM/Acl/Acl.php" />
-        <option value="$PROJECT_DIR$/imp/application.ini" />
-        <option value="$PROJECT_DIR$/application/Bootstrap.php" />
         <option value="$PROJECT_DIR$/application/configs/application.ini" />
-        <option value="$PROJECT_DIR$/library/StdLib/DB.php" />
+        <option value="$PROJECT_DIR$/application/views/scripts/login/index.tpl" />
+        <option value="$PROJECT_DIR$/library/StdLib/simo_session.php" />
+        <option value="$PROJECT_DIR$/library/StdLib/stdLibSession.php" />
+        <option value="$PROJECT_DIR$/public_html/index.php" />
+        <option value="$PROJECT_DIR$/imp/application.ini" />
+        <option value="$PROJECT_DIR$/application/models/TM/User/UserManager.php" />
+        <option value="$PROJECT_DIR$/application/layouts/scripts/layout.tpl" />
+        <option value="$PROJECT_DIR$/application/controllers/LoginController.php" />
+        <option value="$PROJECT_DIR$/application/Bootstrap.php" />
+        <option value="$PROJECT_DIR$/application/plugins/CheckAccess.php" />
+        <option value="$PROJECT_DIR$/library/TM/Acl/Acl.php" />
+        <option value="$PROJECT_DIR$/application/controllers/UserController.php" />
+        <option value="$PROJECT_DIR$/application/models/TM/User/User.php" />
+        <option value="$PROJECT_DIR$/application/views/scripts/user/index.tpl" />
+        <option value="$PROJECT_DIR$/application/models/TM/User/Role.php" />
       </list>
     </option>
   </component>
@@ -149,8 +126,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Favorites" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -194,6 +171,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="runtime" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates_c" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -244,6 +225,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="smartytemplates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="private" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="smartytemplates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -452,6 +463,36 @@
               <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="user" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="login" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -656,14 +697,14 @@
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
-    <property name="options.lastSelected" value="reference.webide.settings.project.settings.php" />
+    <property name="options.lastSelected" value="editor.preferences.appearance" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
   </component>
-  <component name="PublishConfig">
+  <component name="PublishConfig" serverName="timeweb" serverId="18d3169c-c6b0-4866-b0e2-1f1eb4b2354d">
     <servers>
       <server id="18d3169c-c6b0-4866-b0e2-1f1eb4b2354d">
         <serverdata>
@@ -693,7 +734,16 @@
         <option name="PhingTarget" enabled="false" />
       </method>
     </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Remote">
+      <JSRemoteDebuggerConfigurationSettings>
+        <option name="engineId" value="embedded" />
+        <option name="fileUrl" />
+      </JSRemoteDebuggerConfigurationSettings>
+      <method>
+        <option name="PhingTarget" enabled="false" />
+      </method>
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="18d3169c-c6b0-4866-b0e2-1f1eb4b2354d" server_name="timeweb">
       <method>
         <option name="FtpUpload" enabled="false">
           <server_id />
@@ -727,7 +777,6 @@
     <task active="true" id="Default" summary="Default task">
       <changelist id="208ba09b-a62b-410e-864b-4a7f61a529f8" name="Default" comment="" />
       <changelist id="1e15cf3c-e4a0-4479-b6be-8d8a44301a05" name="New changelist" comment="" />
-      <changelist id="f42909e3-1a08-4869-ae07-8a59593718bf" name="Failed commit: New changelist" comment="Права доступа" />
       <created>1320919961370</created>
       <updated>1321353227316</updated>
     </task>
@@ -755,28 +804,28 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1928" height="1044" extended-state="6" />
+    <frame x="-4" y="-4" width="1928" height="1044" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32964602" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32964602" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1553829" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32963374" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Phing Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995194" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32964602" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995194" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26548672" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32964602" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32964602" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2626802" sideWeight="0.26327434" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27549386" sideWeight="0.670354" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995194" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2247731" sideWeight="0.84461707" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39933628" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26548672" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32964602" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32964602" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39933628" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
@@ -804,7 +853,7 @@
     <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
     <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Права доступа" />
+    <option name="LAST_COMMIT_MESSAGE" value="New changelist" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -820,8 +869,8 @@
     <MESSAGE value="Тест" />
     <MESSAGE value="Типы атрибутов" />
     <MESSAGE value="Перестройка проекта под ZF" />
-    <MESSAGE value="New changelist" />
     <MESSAGE value="Права доступа" />
+    <MESSAGE value="New changelist" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -839,116 +888,120 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/PHP/ZendFramework/library/Zend/Acl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="282" column="20" selection-start="8214" selection-end="8214" vertical-scroll-proportion="0.33295324">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/TM/Acl/Acl.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="53" selection-start="1021" selection-end="1021" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/plugins/CheckAccess.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="68" selection-start="693" selection-end="693" vertical-scroll-proportion="0.0">
+        <state line="18" column="5" selection-start="602" selection-end="602" vertical-scroll-proportion="0.41689372">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/IndexController.php">
+    <entry file="file://$PROJECT_DIR$/application/layouts/scripts/layout.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="221" selection-end="221" vertical-scroll-proportion="0.0">
+        <state line="27" column="27" selection-start="1270" selection-end="1270" vertical-scroll-proportion="0.3601695">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/TM/User/Role.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/LoginController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1321438195758" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..tm_user_role..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/StdLib/DB/mysqli_db_driver.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="35" selection-start="168" selection-end="168" vertical-scroll-proportion="0.19384265">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/ErrorController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="20" selection-start="867" selection-end="867" vertical-scroll-proportion="0.20524515">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/runtime/logs/syslog.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="27" column="41" selection-start="760" selection-end="760" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/Bootstrap.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="112" column="0" selection-start="3400" selection-end="3400" vertical-scroll-proportion="0.0">
+        <state line="94" column="15" selection-start="2890" selection-end="2890" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/configs/application.ini">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/Core.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="13" selection-start="1147" selection-end="1147" vertical-scroll-proportion="0.659065">
+        <state line="425" column="9" selection-start="10763" selection-end="10763" vertical-scroll-proportion="0.61035424">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imp/application.ini">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/_types.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="237" selection-end="237" vertical-scroll-proportion="0.13568985">
+        <state line="93" column="11" selection-start="2880" selection-end="2880" vertical-scroll-proportion="0.33242506">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/private/classes/simo.php">
+    <entry file="file://$PROJECT_DIR$/runtime/templates_c/fa0fdc8e759631f5f5b67786a62b4929fb2f0a97.file.index.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="0" selection-start="1221" selection-end="1221" vertical-scroll-proportion="0.96921325">
+        <state line="25" column="0" selection-start="807" selection-end="807" vertical-scroll-proportion="-0.008474576">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/private/config/simo_conf.php">
+    <entry file="file://$PROJECT_DIR$/runtime/templates_c/f698f4233b076015e9481e0ef8f148ab50d0d9a6.file.index.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="366" selection-end="390" vertical-scroll-proportion="0.29076397">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.0273381">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library/StdLib/Log.php">
+    <entry file="file://$PROJECT_DIR$/runtime/templates_c/72c46283e7270d1aa68f658773680e79764e70e5.file.index.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="20" selection-start="1522" selection-end="1522" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.25652173">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/library/StdLib/DB.php">
+    <entry file="file://$PROJECT_DIR$/runtime/templates_c/b2aac6fcce9bb0e3eeaf67af4b08b5d77457fb5f.file.index.tpl.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="564" selection-end="564" vertical-scroll-proportion="0.27480045">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/runtime/templates_c/adce21d5e4bd44928444e8e78142d735bf514e9d.file.index.tpl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="5" selection-start="214" selection-end="214" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/private/smartytemplates/templates/admin/user.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="84" vertical-scroll-proportion="-0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/TM/User/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="4" selection-start="1405" selection-end="1565" vertical-scroll-proportion="0.5558583">
+          <folding>
+            <marker date="1321525454539" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..tm_user..." />
+            <marker date="1321525454539" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..tm_user..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/TM/User/Role.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="34" selection-start="571" selection-end="571" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1321525784111" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..tm_user_role..." />
+            <marker date="1321525784111" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..tm_user_role..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/user/index.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="5" selection-start="703" selection-end="703" vertical-scroll-proportion="0.43220338">
           <folding />
         </state>
       </provider>
