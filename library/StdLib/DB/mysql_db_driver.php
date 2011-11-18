@@ -2,7 +2,7 @@
 
 //include_once 'DB.php';
 
-class mysql_db_driver extends db_driver
+class mysql_db_driver extends StdLib_DB_Driver
 {
  private $_connect = null;
 

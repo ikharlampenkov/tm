@@ -25,7 +25,9 @@ class TM_Acl_Acl extends Zend_Acl {
         // РЕСУРСЫ АДМИНА !
         $this->addResource(new Zend_Acl_Resource('admin_allow'), 'guest_allow');
         $this->addResource(new Zend_Acl_Resource('login/logout'), 'admin_allow');
+
         $this->addResource(new Zend_Acl_Resource('index/index'), 'admin_allow');
+
         $this->addResource(new Zend_Acl_Resource('user/index'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('user/add'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('user/edit'), 'admin_allow');
@@ -33,6 +35,11 @@ class TM_Acl_Acl extends Zend_Acl {
         $this->addResource(new Zend_Acl_Resource('user/addRole'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('user/editRole'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('user/deleteRole'), 'admin_allow');
+
+        $this->addResource(new Zend_Acl_Resource('task/index'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('task/add'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('task/edit'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('task/delete'), 'admin_allow');
 
         //...
 

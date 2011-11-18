@@ -18,6 +18,11 @@
         <controllerFile controllerName="Login">
           <actionMethod actionName="index"/>
         </controllerFile>
+        <controllerFile controllerName="Task">
+          <actionMethod actionName="index"/>
+          <actionMethod actionName="edit"/>
+          <actionMethod actionName="delete"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false"/>
       <layoutsDirectory>
@@ -42,6 +47,15 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Login">
             <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Task">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Task">
+            <viewScriptFile forActionName="edit"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Task">
+            <viewScriptFile forActionName="delete"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

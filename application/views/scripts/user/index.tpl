@@ -1,4 +1,4 @@
-<div style="background-color:#f0f0f0; padding:5px;"><h1>Пользователи</h1></div><br/>
+<div class="page"><h1>Пользователи</h1></div><br/>
 
 {if $userList!==false}
 <table width="100%">
