@@ -56,8 +56,8 @@ class TM_User_Role
     public function insertToDB()
     {
         try {
-            $sql = 'INSERT INTO tm_user_role(id, title)
-                    VALUES (' . $this->_id . ', "' . $this->_title . '")';
+            $sql = 'INSERT INTO tm_user_role(title)
+                    VALUES ("' . $this->_title . '")';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());

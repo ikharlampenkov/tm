@@ -1,9 +1,5 @@
 <?php
 
-require_once 'User/User.php';
-require_once 'Task/TM_Task_Task.php';
-
-
 /**
  * class TM_Task_Task
  *
@@ -68,7 +64,7 @@ class TM_Task_Task
      */
     public function getId()
     {
-        $this->_id;
+        return $this->_id;
     } // end of member function getId
 
     /**
@@ -138,7 +134,7 @@ class TM_Task_Task
      * @return
      * @access public
      */
-    public function setUser($value)
+    public function setUser(TM_User_User $value)
     {
         $this->_user = $value;
     } // end of member function setUser
@@ -156,6 +152,13 @@ class TM_Task_Task
         $value = $this->_db->prepareString($value);
         $this->_dateCreate = date("Y-m-d H:i:s", strtotime($value));
     } // end of member function setDateCreate
+
+    public function __get($name) {
+        $method = "get{$name}";
+        if (method_exists($this, $method)) {
+            return $this->$method();
+        }
+    }
 
     /**
      *
@@ -177,9 +180,13 @@ class TM_Task_Task
     public function insertToDb()
     {
         try {
-            $sql = 'INSERT INTO tm_task(id, title, user_id, date_create)
-                    VALUES (' . $this->_id . ', "' . $this->_title . '", ' . $this->_user->getId() . ', "' . $this->_dateCreate . '")';
+            $sql = 'INSERT INTO tm_task(title, user_id, date_create)
+                    VALUES ("' . $this->_title . '", ' . $this->_user->getId() . ', "' . $this->_dateCreate . '")';
             $this->_db->query($sql);
+
+            $this->_id = $this->_db->getLastInsertId();
+            $this->saveParent();
+            //$this->saveChild();
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -198,6 +205,8 @@ class TM_Task_Task
                     SET title="' . $this->_title . '", user_id="' . $this->_user->getId() . '", date_create="' . $this->_dateCreate . '" 
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
+
+            $this->saveParent();
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -381,7 +390,7 @@ class TM_Task_Task
             $sql = 'DELETE FROM tm_task_relation WHERE parent_id=' . $this->_id;
             $this->_db->query($sql);
 
-            if (!is_null($this->_childTask)) {
+            if (!is_null($this->_childTask) && !empty($this->_childTask)) {
                 $sql = 'INSERT INTO tm_task_relation(parent_id, child_id) VALUES';
 
                 foreach ($this->_childTask as $child) {
@@ -419,7 +428,7 @@ class TM_Task_Task
      */
     public function getParent()
     {
-        if (is_null($this->_parentTask)) {
+        if (is_null($this->_parentTask) && empty($this->_parentTask)) {
             try {
                 $sql = 'SELECT * FROM tm_task_relation WHERE child_id=' . $this->_id;
                 $result = $this->_db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
@@ -448,9 +457,9 @@ class TM_Task_Task
      * @return
      * @access public
      */
-    public function addParent($parent)
+    public function addParent(TM_Task_Task $parent)
     {
-        if ($this->_searchParent($parent) === false) {
+        if ($this->searchParent($parent) === false) {
             $this->_parentTask[] = $parent;
         }
     } // end of member function addParent
@@ -465,7 +474,7 @@ class TM_Task_Task
      */
     public function deleteParent($parent)
     {
-       $key = $this->_searchParent($parent);
+       $key = $this->searchParent($parent);
         if ($key !== false) {
             unset($this->_parentTask[$key]);
         }
@@ -477,7 +486,7 @@ class TM_Task_Task
             $sql = 'DELETE FROM tm_task_relation WHERE child_id=' . $this->_id;
             $this->_db->query($sql);
 
-            if (!is_null($this->_parentTask)) {
+            if (!is_null($this->_parentTask) && !empty($this->_parentTask)) {
                 $sql = 'INSERT INTO tm_task_relation(parent_id, child_id) VALUES';
 
                 foreach ($this->_parentTask as $parent) {
@@ -493,7 +502,7 @@ class TM_Task_Task
         }
     }
 
-    protected function _searchParent(TM_Task_Task $needle)
+    public function searchParent(TM_Task_Task $needle)
     {
         if (is_null($this->_parentTask)) {
             return false;

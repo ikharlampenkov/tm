@@ -99,7 +99,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $o_log->setLogLevel($options['log']['level']);
 
         $db = StdLib_DB::getInstance();
-        $db->debug = false;
+        $db->debug = $options['db']['debug'];
     }
 
     protected function _initAuth()
@@ -116,11 +116,11 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             $auth->getStorage()->write($storage_data);
 
             $view = $this->getResource('View');
-            $view->assign('user', 'guest');
+            $view->assign('authUser', 'guest');
 
         } else {
            $view = $this->getResource('View');
-           $view->assign('user', $data->login);
+           $view->assign('authUser', $data->login);
         }
     }
 
@@ -130,6 +130,12 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         Zend_Loader::loadClass('CheckAccess');
         Zend_Controller_Front::getInstance()->registerPlugin(new CheckAccess());
         return new TM_Acl_Acl();
+    }
+
+    protected function _initViewParam()
+    {
+        Zend_Loader::loadClass('SetViewParam');
+        Zend_Controller_Front::getInstance()->registerPlugin(new SetViewParam());
     }
 
 

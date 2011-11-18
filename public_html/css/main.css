@@ -47,6 +47,11 @@ textarea {
     text-decoration: none;
 }
 
+.page {
+    background-color:#f0f0f0;
+    padding:5px;
+}
+
 .tedit {
     background-color:#ebf4ff; padding: 10px; width:100px;
 }
@@ -63,6 +68,11 @@ a.tedit {
 }
 .ttovar {
     background-color:#f7f7f7; padding: 10px;
+}
+.ttovar_title {
+    background-color:#f7f7f7;
+    padding: 10px;
+    width: 200px;
 }
 .ttovarred {
     background-color:#ffdede; padding: 10px;
