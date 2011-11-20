@@ -26,6 +26,15 @@
             <td class="ttovar_title">Дата создания</td>
             <td class="ttovar"><input name="data[date_create]" value="{$task->dateCreate|date_format:"%d.%m.%Y %H:%M:%S"}"/></td>
         </tr>
+
+    {if $attributeHashList!==false}
+        {foreach from=$attributeHashList item=attributeHash}
+            <tr>
+                <td class="ttovar_title">{$attributeHash->title}</td>
+                <td class="ttovar"><input name="data[attribute][{$attributeHash->attributeKey}]" value="{if $task->searchAttribute($attributeHash->attributeKey)}{$task->getAttribute($attributeHash->attributeKey)->value}{/if}"/></td>
+            </tr>
+        {/foreach}
+    {/if}
     </table>
     <input id="save" name="save" type="submit" value="Сохранить"/>
 </form>

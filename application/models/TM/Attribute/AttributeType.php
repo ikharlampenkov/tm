@@ -1,7 +1,7 @@
 <?php
 
-require_once 'Attribute/TM_Attribute_AttributeType.php';
-require_once 'Attribute/TM_Attribute_Attribute.php';
+require_once 'AttributeType.php';
+require_once 'Attribute.php';
 
 
 
@@ -9,7 +9,7 @@ require_once 'Attribute/TM_Attribute_Attribute.php';
  * class TM_Attribute_AttributeType
  * 
  */
-abstract class TM_Attribute_AttributeType
+class TM_Attribute_AttributeType
 {
 
     /** Aggregations: */
@@ -37,27 +37,17 @@ abstract class TM_Attribute_AttributeType
     protected $_handler;
 
     /**
-     * 
+     * @var string
      * @access protected
      */
     protected $_description;
 
     /**
-     * 
-     * @access protected
+     * @var TM_Attribute_AttributeTypeMapper
      */
+    protected $_mapper;
+
     protected $_db;
-
-
-    /**
-     * 
-     *
-     * @return 
-     * @access public
-     */
-    public function __construct( ) {
-        $this->_db = StdLib_DB::getInstance();
-    }
 
     /**
      * 
@@ -102,9 +92,9 @@ abstract class TM_Attribute_AttributeType
     /**
      *
      *
-     * @param int value
+     * @param int $value
 
-     * @return
+     * @return void
      * @access protected
      */
     protected function setId( $value ) {
@@ -114,9 +104,9 @@ abstract class TM_Attribute_AttributeType
     /**
      * 
      *
-     * @param string value 
+     * @param string $value
 
-     * @return 
+     * @return void
      * @access public
      */
     public function setTitle( $value ) {
@@ -126,9 +116,9 @@ abstract class TM_Attribute_AttributeType
     /**
      * 
      *
-     * @param string value 
+     * @param string $value
 
-     * @return 
+     * @return void
      * @access public
      */
     public function setHandler( $value ) {
@@ -138,81 +128,118 @@ abstract class TM_Attribute_AttributeType
     /**
      * 
      *
-     * @param string value 
+     * @param string $value
 
-     * @return 
+     * @return void
      * @access public
      */
     public function setDescription( $value ) {
         $this->_description = $this->_db->prepareString($value);
     } // end of member function setDescription
 
+     public function __get($name)
+    {
+        $method = "get{$name}";
+        if (method_exists($this, $method)) {
+            return $this->$method();
+        }
+    }
+
     /**
-     * 
      *
-     * @return 
-     * @abstract
+     *
+     * @param TM_Attribute_AttributeTypeMapper $mapper
+     * @return TM_Attribute_AttributeType
      * @access public
      */
-    abstract public function insertToDB( );
+    public function __construct(TM_Attribute_AttributeTypeMapper $mapper)
+    {
+        $this->_db = StdLib_DB::getInstance();
+        $this->_mapper = $mapper;
+    }
 
     /**
-     * 
      *
-     * @return 
-     * @abstract
+     *
+
+     * @return void
+       @access public
+     */
+    public function insertToDB()
+    {
+        $this->_mapper->insertToDB($this);
+    }
+
+
+    /**
+     *
+     *
+     * @return void
      * @access public
      */
-    abstract public function updateToDB( );
+    public function updateToDB()
+    {
+        $this->_mapper->updateToDB($this);
+    }
 
     /**
-     * 
      *
-     * @return 
-     * @abstract
+     *
+     * @return void
      * @access public
      */
-    abstract public function deleteFromDB( );
+    public function deleteFromDB()
+    {
+        $this->_mapper->deleteFromDB($this);
+    }
 
     /**
-     * 
      *
-     * @param int id 
-
+     *
+     * @param TM_Attribute_AttributeTypeMapper $mapper
+     * @param int $id
      * @return Attribute::TM_Attribute_AttributeType
-     * @abstract
      * @static
      * @access public
      */
-    abstract public static function getInstanceById( $id );
+    public static function getInstanceById(TM_Attribute_AttributeTypeMapper $mapper, $id)
+    {
+
+        return $mapper->getInstanceById($id);
+    }
 
     /**
      *
      *
-     * @param array values
+     * @param TM_Attribute_AttributeTypeMapper $mapper
+     * @return array
+     * @static
+     * @access public
+     */
+    public static function getAllInstance(TM_Attribute_AttributeTypeMapper $mapper)
+    {
+        return $mapper->getAllInstance();
+    }
 
+    /**
+     *
+     *
+     * @param TM_Attribute_AttributeTypeMapper $mapper
+     * @param array $values
      * @return Attribute::TM_Attribute_Attribute
      * @static
      * @access public
      */
-    abstract public static function getInstanceByArray( $values );
+    public static function getInstanceByArray(TM_Attribute_AttributeTypeMapper $mapper, $values)
+    {
+        return $mapper->getInstanceByArray($values);
+    }
 
     /**
-     * 
      *
-     * @return array
-     * @abstract
-     * @static
-     * @access public
-     */
-    abstract public static function getAllInstance( );
-
-    /**
-     * 
      *
-     * @param array values 
-
-     * @return 
+     * @param array $values
+     * @return void
      * @access public
      */
     public function fillFromArray( $values ) {

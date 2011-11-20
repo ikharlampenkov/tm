@@ -22,6 +22,10 @@
           <actionMethod actionName="index"/>
           <actionMethod actionName="edit"/>
           <actionMethod actionName="delete"/>
+          <actionMethod actionName="addAttributeType"/>
+          <actionMethod actionName="editattribytetype"/>
+          <actionMethod actionName="addAttribyteHash"/>
+          <actionMethod actionName="editAttributeKey"/>
         </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false"/>
@@ -56,6 +60,18 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Task">
             <viewScriptFile forActionName="delete"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Task">
+            <viewScriptFile forActionName="addAttributeType"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Task">
+            <viewScriptFile forActionName="editattribytetype"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Task">
+            <viewScriptFile forActionName="addAttribyteHash"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Task">
+            <viewScriptFile forActionName="editAttributeKey"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

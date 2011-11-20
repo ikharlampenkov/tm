@@ -50,7 +50,13 @@ class TM_Task_Task
     protected $_parentTask = array();
 
     /**
+     * @var array
+     */
+    protected $_attributeList = array();
+
+    /**
      *
+     * @var StdLib_DB
      * @access protected
      */
     protected $_db;
@@ -103,9 +109,9 @@ class TM_Task_Task
     /**
      *
      *
-     * @param int value
+     * @param int $value
 
-     * @return
+     * @return void
      * @access protected
      */
     protected function setId($value)
@@ -116,9 +122,9 @@ class TM_Task_Task
     /**
      *
      *
-     * @param string value
+     * @param string $value
 
-     * @return
+     * @return void
      * @access public
      */
     public function setTitle($value)
@@ -129,9 +135,9 @@ class TM_Task_Task
     /**
      *
      *
-     * @param User::TM_User_User value
+     * @param TM_User_User $value
 
-     * @return
+     * @return void
      * @access public
      */
     public function setUser(TM_User_User $value)
@@ -142,7 +148,7 @@ class TM_Task_Task
     /**
      *
      *
-     * @param string value
+     * @param string $value
 
      * @return string
      * @access public
@@ -152,6 +158,7 @@ class TM_Task_Task
         $value = $this->_db->prepareString($value);
         $this->_dateCreate = date("Y-m-d H:i:s", strtotime($value));
     } // end of member function setDateCreate
+
 
     public function __get($name)
     {
@@ -164,7 +171,7 @@ class TM_Task_Task
     /**
      *
      *
-     * @return
+     * @return TM_Task_Task
      * @access public
      */
     public function __construct()
@@ -175,7 +182,7 @@ class TM_Task_Task
     /**
      *
      *
-     * @return
+     * @return void
      * @access public
      */
     public function insertToDb()
@@ -196,7 +203,7 @@ class TM_Task_Task
     /**
      *
      *
-     * @return
+     * @return void
      * @access public
      */
     public function updateToDb()
@@ -216,7 +223,7 @@ class TM_Task_Task
     /**
      *
      *
-     * @return
+     * @return void
      * @access public
      */
     public function deleteFromDb()
@@ -264,9 +271,9 @@ class TM_Task_Task
     /**
      *
      *
-     * @param array values
-
-     * @return Task::TM_Task_Task
+     * @param $user
+     * @param array $values
+     * @return TM_Task_Task
      * @static
      * @access public
      */
@@ -322,9 +329,9 @@ class TM_Task_Task
     /**
      *
      *
-     * @param array values
+     * @param array $values
 
-     * @return
+     * @return void
      * @access public
      */
     public function fillFromArray($values)
@@ -337,6 +344,7 @@ class TM_Task_Task
         $this->setUser($o_user);
 
         $this->getParent();
+        $this->getAttributeList();
     } // end of member function fillFromArray
 
     /**
@@ -371,9 +379,9 @@ class TM_Task_Task
     /**
      *
      *
-     * @param Task::TM_Task_Task child
+     * @param TM_Task_Task $child
 
-     * @return
+     * @return void
      * @access public
      */
     public function addChild($child)
@@ -534,6 +542,82 @@ class TM_Task_Task
                 }
             }
             return false;
+        }
+    }
+
+    public function getAttributeList()
+    {
+         if (is_null($this->_attributeList) || empty($this->_attributeList)) {
+            try {
+                $attributeList = TM_Attribute_Attribute::getAllInstance(new TM_Task_AttributeMapper(), $this);
+                if ($attributeList !== false) {
+                    foreach ($attributeList as $attribute) {
+                        $this->_attributeList[$attribute->attribyteKey] = $attribute;
+                    }
+                }
+
+                return $this->_attributeList;
+            } catch (Exception $e) {
+                throw new Exception($e->getMessage());
+            }
+        } else {
+            return $this->_attributeList;
+        }
+    }
+
+    public function getAttribute($key)
+    {
+        return $this->_attributeList[$key];
+    }
+
+    public function setAttribute($key, $value)
+    {
+        if ($this->searchAttribute($key)) {
+            $this->_attributeList[$key]->setValue($value);
+
+        } else {
+            $oHash = TM_Task_Hash::getInstanceById($key);
+            $oAttribute = new TM_Attribute_Attribute(new TM_Task_AttributeMapper(), $this);
+            $oAttribute->setAttribyteKey($key);
+            $oAttribute->setType($oHash->getType());
+            $oAttribute->setValue($value);
+
+            $this->_attributeList[$key] = $oAttribute;
+            $oAttribute->insertToDB();
+        }
+    }
+
+    public function searchAttribute($needle)
+    {
+        if (is_null($this->_attributeList) && !empty($this->_attributeList)) {
+            return false;
+        } else {
+            return array_key_exists($needle, $this->_attributeList);
+        }
+    }
+
+    protected function saveAttributeList()
+    {
+        if (is_null($this->_attributeList) && !empty($this->_attributeList)) {
+            foreach ($this->_attributeList as $attribute) {
+                $attribute->updateToDB();
+            }
+        }
+    }
+
+    public function getPathToTask(&$pathArray = array())
+    {
+        try {
+            if (!empty($parent)) {
+                $parent = $this->_parentTask[0];
+                $pathArray[] = $parent;
+
+                $pathArray[] = $parent->getPatchToTask($pathArray);
+
+            }
+            return $pathArray;
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
         }
     }
 

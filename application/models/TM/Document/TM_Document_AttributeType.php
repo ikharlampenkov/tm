@@ -1,6 +1,6 @@
 <?php
 
-require_once 'Attribute/TM_Attribute_AttributeType.php';
+require_once 'Attribute/AttributeType.php';
 
 
 /**

@@ -1,22 +1,11 @@
 <?php
 
-require_once 'Attribute/TM_Attribute_AttributeType.php';
-require_once 'Task/TM_Task_AttributeType.php';
-require_once 'array.php';
-
-
 /**
  * class TM_Task_AttributeType
  * 
  */
-class TM_Task_AttributeType extends TM_Attribute_AttributeType
+class TM_Task_AttributeTypeMapper extends TM_Attribute_AttributeTypeMapper
 {
-
-    /** Aggregations: */
-
-    /** Compositions: */
-
-     /*** Attributes: ***/
 
     public function __construct() {
        parent::__construct();
@@ -30,11 +19,11 @@ class TM_Task_AttributeType extends TM_Attribute_AttributeType
      * @return void
        @access public
      */
-    public function insertToDB()
+    public function insertToDB($type)
     {
         try {
-            $sql = 'INSERT INTO tm_task_attribute_type(id, title, `handler`, description)
-                    VALUES (' . $this->_id . ', "' . $this->_title . '", "' . $this->_handler . '", "' . $this->_description  . '")';
+            $sql = 'INSERT INTO tm_task_attribute_type(title, `handler`, description)
+                    VALUES ("' . $type->title . '", "' . $type->handler . '", "' . $type->description  . '")';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -48,12 +37,12 @@ class TM_Task_AttributeType extends TM_Attribute_AttributeType
      * @return void
      * @access public
      */
-    public function updateToDB()
+    public function updateToDB($type)
     {
         try {
             $sql = 'UPDATE tm_task_attribute_type
-                    SET title="' . $this->_title . '", `handler`="' . $this->_handler . '", description="' . $this->_description  . '"
-                    WHERE id=' .  $this->_id ;
+                    SET title="' . $type->title . '", `handler`="' . $type->handler . '", description="' . $type->description  . '"
+                    WHERE id=' .  $type->id ;
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -66,10 +55,10 @@ class TM_Task_AttributeType extends TM_Attribute_AttributeType
      * @return
      * @access public
      */
-    public function deleteFromDB()
+    public function deleteFromDB($type)
     {
         try {
-            $sql = 'DELETE FROM tm_task_attribute_type WHERE id=' . $this->_id;
+            $sql = 'DELETE FROM tm_task_attribute_type WHERE id=' . $type->id;
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -79,13 +68,12 @@ class TM_Task_AttributeType extends TM_Attribute_AttributeType
     /**
      *
      *
-     * @param int id
+     * @param int $id
 
      * @return Attribute::TM_Attribute_AttributeType
-     * @static
      * @access public
      */
-    public static function getInstanceById($id)
+    public function getInstanceById($id)
     {
         try {
            $db = StdLib_DB::getInstance();
@@ -93,7 +81,7 @@ class TM_Task_AttributeType extends TM_Attribute_AttributeType
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
-                $o = new TM_Task_AttributeType();
+                $o = new TM_Attribute_AttributeType($this);
                 $o->fillFromArray($result[0]);
                 return $o;
             } else {
@@ -108,10 +96,9 @@ class TM_Task_AttributeType extends TM_Attribute_AttributeType
      *
      *
      * @return array
-     * @static
      * @access public
      */
-    public static function getAllInstance()
+    public function getAllInstance()
     {
         try {
             $db = StdLib_DB::getInstance();
@@ -121,7 +108,7 @@ class TM_Task_AttributeType extends TM_Attribute_AttributeType
             if (isset($result[0])) {
                 $retArray = array();
                 foreach ($result as $res) {
-                    $retArray[] = TM_Task_AttributeType::getInstanceByArray($res);
+                    $retArray[] = TM_Attribute_AttributeType::getInstanceByArray($this, $res);
                 }
                 return $retArray;
             } else {
@@ -135,16 +122,15 @@ class TM_Task_AttributeType extends TM_Attribute_AttributeType
     /**
      *
      *
-     * @param array values
+     * @param array $values
 
      * @return Attribute::TM_Attribute_Attribute
-     * @static
      * @access public
      */
-    public static function getInstanceByArray($values)
+    public function getInstanceByArray($values)
     {
         try {
-            $o = new TM_Task_AttributeType();
+            $o = new TM_Attribute_AttributeType($this);
             $o->fillFromArray($values);
             return $o;
         } catch (Exception $e) {

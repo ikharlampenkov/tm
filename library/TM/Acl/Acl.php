@@ -40,6 +40,12 @@ class TM_Acl_Acl extends Zend_Acl {
         $this->addResource(new Zend_Acl_Resource('task/add'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('task/edit'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('task/delete'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('task/addAttributeType'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('task/editAttributeType'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('task/deleteAttributeType'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('task/addAttributeHash'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('task/editAttributeHash'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('task/deleteAttributeHash'), 'admin_allow');
 
         //...
 
