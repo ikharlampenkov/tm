@@ -159,6 +159,21 @@ class TM_Attribute_AttributeType
     }
 
     /**
+     * @param $hash
+     * @param $object
+     * @return void
+     */
+    public function getHTMLFrom($hash, $object)
+    {
+        $html = '<input name="data[attribute][' . $hash->attributeKey . ']" value="';
+        if ($object->searchAttribute($hash->attributeKey)) {
+            $html .= $object->getAttribute($hash->attributeKey)->value;
+        }
+        $html .= '"/>';
+        echo $html;
+    }
+
+    /**
      *
      *
 

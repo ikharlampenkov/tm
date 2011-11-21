@@ -1,13 +1,10 @@
 <?php
 
-//task_id, attribute_key, type_id, attribute_value
-
-
 /**
- * class TM_Task_Attribute
+ * class TM_Document_AttributeMapper
  *
  */
-class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
+class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
 {
 
     public function __construct()
@@ -25,7 +22,7 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
     public function insertToDb(TM_Attribute_Attribute $attribute)
     {
         try {
-            $sql = 'INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value)
+            $sql = 'INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value)
                     VALUES (' . $attribute->task->getId() . ', "' . $attribute->attribyteKey . '", ' . $attribute->type->getId() . ', "' . $attribute->value . '")';
             $this->_db->query($sql);
         } catch (Exception $e) {
@@ -42,9 +39,9 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
     public function updateToDb($attribute)
     {
         try {
-            $sql = 'UPDATE tm_task_attribute
+            $sql = 'UPDATE tm_document_attribute
                     SET type_id="' . $attribute->type->getId() . '", attribute_value="' . $attribute->value . '"
-                    WHERE task_id=' . $attribute->task->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
+                    WHERE document_id=' . $attribute->task->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -60,8 +57,8 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
     public function deleteFromDb($attribute)
     {
         try {
-            $sql = 'DELETE FROM tm_task_attribute
-                    WHERE task_id=' . $attribute->task->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
+            $sql = 'DELETE FROM tm_document_attribute
+                    WHERE document_id=' . $attribute->task->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -72,9 +69,8 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
      *
      *
      * @param $object
-
      * @param string $key
-
+     *
      * @return Attribute::TM_Attribute_Attribute
      * @static
      * @access public
@@ -83,7 +79,7 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_task_attribute WHERE task_id=' . $object->getId() . ' AND attribute_key="' . $key . '"';
+            $sql = 'SELECT * FROM tm_document_attribute WHERE document_id=' . $object->getId() . ' AND attribute_key="' . $key . '"';
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
@@ -111,7 +107,7 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_task_attribute WHERE task_id=' . $object->getId();
+            $sql = 'SELECT * FROM tm_document_attribute WHERE document_id=' . $object->getId();
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
@@ -131,7 +127,7 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
 
     /**
      *
-     * @param $object
+     * @param TM_Document_Document $document
      * @param array $values
      *
      * @return TM_Attribute_Attribute
@@ -147,5 +143,5 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
             throw new Exception($e->getMessage());
         }
     }
-} // end of TM_Task_Attribute
+} // end of TM_Document_AttributeMapper
 ?>

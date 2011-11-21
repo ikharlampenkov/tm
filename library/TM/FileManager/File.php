@@ -4,7 +4,7 @@
  * class File
  *
  */
-class File {
+class TM_FileManager_File {
     /** Aggregations: */
     /** Compositions: */
     /*     * * Attributes: ** */

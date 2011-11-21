@@ -100,9 +100,9 @@ class TM_Attribute_Attribute
     /**
      *
      *
-     * @param Task::TM_Task_Task value
+     * @param TM_Task_Task $value
 
-     * @return
+     * @return void
      * @access protected
      */
     protected function setTask(TM_Task_Task $value)
@@ -140,9 +140,9 @@ class TM_Attribute_Attribute
     /**
      *
      *
-     * @param string value
+     * @param string $value
 
-     * @return
+     * @return void
      * @access public
      */
     public function setValue($value)
@@ -152,9 +152,8 @@ class TM_Attribute_Attribute
 
     /**
      *
-     *
-     * @return
-     * @abstract
+     * @param string $name
+     * @return mixed
      * @access public
      */
 
@@ -169,15 +168,15 @@ class TM_Attribute_Attribute
     /**
      *
      * @param TM_Attribute_AttributeMapper $mapper
-     * @param TM_Task_Task $task
+     * @param $object
      * @return TM_Attribute_Attribute
      * @access public
      */
-    public function __construct(TM_Attribute_AttributeMapper $mapper, TM_Task_Task $task)
+    public function __construct(TM_Attribute_AttributeMapper $mapper, $object)
     {
         $this->_mapper = $mapper;
         $this->_db = StdLib_DB::getInstance();
-        $this->_task = $task;
+        $this->_task = $object;
     }
 
     public function insertToDB()
@@ -212,45 +211,45 @@ class TM_Attribute_Attribute
      *
      *
      * @param TM_Attribute_AttributeMapper $mapper
-     * @param TM_Task_Task $task
+     * @param $object
      * @param string $key
      * @return TM_Attribute_Attribute
      * @static
      * @access public
      */
-    public static function getInstanceByKey(TM_Attribute_AttributeMapper $mapper, $task, $key)
+    public static function getInstanceByKey(TM_Attribute_AttributeMapper $mapper, $object, $key)
     {
 
-        return $mapper->getInstanceByKey($task, $key);
+        return $mapper->getInstanceByKey($object, $key);
     }
 
     /**
      *
      *
      * @param TM_Attribute_AttributeMapper $mapper
-     * @param TM_Task_Task $task
+     * @param $object
      * @return array
      * @static
      * @access public
      */
-    public static function getAllInstance(TM_Attribute_AttributeMapper $mapper, TM_Task_Task $task)
+    public static function getAllInstance(TM_Attribute_AttributeMapper $mapper, $object)
     {
-        return $mapper->getAllInstance($task);
+        return $mapper->getAllInstance($object);
     }
 
     /**
      *
      *
      * @param TM_Attribute_AttributeMapper $mapper
-     * @param TM_Task_Task $task
+     * @param $object
      * @param array $values
      * @return TM_Attribute_Attribute
      * @static
      * @access public
      */
-    public static function getInstanceByArray(TM_Attribute_AttributeMapper $mapper, TM_Task_Task $task, $values)
+    public static function getInstanceByArray(TM_Attribute_AttributeMapper $mapper, $object, $values)
     {
-        return $mapper->getInstanceByArray($task, $values);
+        return $mapper->getInstanceByArray($object, $values);
     }
 
     /**
@@ -263,7 +262,7 @@ class TM_Attribute_Attribute
      */
     public function fillFromArray($values)
     {
-        $o_type = TM_Attribute_AttributeType::getInstanceById(new TM_Task_AttributeTypeMapper(), $values['type_id']);
+        $o_type = TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Task_AttributeTypeMapper(), $values['type_id']);
         $this->setType($o_type);
 
         $this->setAttribyteKey($values['attribute_key']);

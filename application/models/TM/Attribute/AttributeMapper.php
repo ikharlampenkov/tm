@@ -27,12 +27,12 @@ abstract class TM_Attribute_AttributeMapper {
     /**
      *
      *
-     * @param $attribute
+     * @param TM_Attribute_Attribute $attribute
      * @return void
      * @abstract
      * @access public
      */
-    abstract public function insertToDB($attribute);
+    abstract public function insertToDB(TM_Attribute_Attribute $attribute);
 
     /**
      *
@@ -55,32 +55,32 @@ abstract class TM_Attribute_AttributeMapper {
     /**
      *
      *
-     * @param TM_Task_Task $task
+     * @param $object
      * @param int $key
      * @return Attribute::TM_Attribute_Attribute
      * @abstract
      * @access public
      */
-    abstract public function getInstanceByKey(TM_Task_Task $task, $key);
+    abstract public function getInstanceByKey($object, $key);
 
     /**
      *
      *
-     * @param TM_Task_Task $task
+     * @param $object
      * @param array $values
      * @return Attribute::TM_Attribute_Attribute
      * @access public
      */
-    abstract public function getInstanceByArray(TM_Task_Task $task, $values);
+    abstract public function getInstanceByArray($object, $values);
 
     /**
      *
      *
-     * @param TM_Task_Task $task
+     * @param $object
      * @return void array
      * @abstract
      * @access public
      */
-    abstract public function getAllInstance(TM_Task_Task $task);
+    abstract public function getAllInstance($object);
 
 }

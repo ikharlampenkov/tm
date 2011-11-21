@@ -1,10 +1,10 @@
-<div class="page"><h1>Редактировать задачу</h1></div><br/>
+<div class="page"><h1>Добавить документ</h1></div><br/>
 
 {if isset($exception_msg)}
 <div>Ошибка: {$exception_msg}</div><br/>
 {/if}
 
-<form action="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $task->id])}" method="post">
+<form action="{$this->url(['controller' => $controller,'action' => 'add'])}" method="post">
     <table width="100%">
         <tr>
             <td class="ttovar_title">Название</td>
@@ -26,15 +26,6 @@
             <td class="ttovar_title">Дата создания</td>
             <td class="ttovar"><input name="data[date_create]" value="{$task->dateCreate|date_format:"%d.%m.%Y %H:%M:%S"}"/></td>
         </tr>
-
-    {if $attributeHashList!==false}
-        {foreach from=$attributeHashList item=attributeHash}
-            <tr>
-                <td class="ttovar_title">{$attributeHash->title}</td>
-                <td class="ttovar">{$attributeHash->type->getHTMLFrom($attributeHash, $task)}{*<input name="data[attribute][{$attributeHash->attributeKey}]" value="{if $task->searchAttribute($attributeHash->attributeKey)}{$task->getAttribute($attributeHash->attributeKey)->value}{/if}"/>*}</td>
-            </tr>
-        {/foreach}
-    {/if}
     </table>
     <input id="save" name="save" type="submit" value="Сохранить"/>
 </form>

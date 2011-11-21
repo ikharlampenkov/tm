@@ -4,7 +4,7 @@
  * class Image
  *
  */
-class Image extends File {
+class TM_FileManager_Image extends TM_FileManager_File {
     /** Aggregations: */
 
     /** Compositions: */

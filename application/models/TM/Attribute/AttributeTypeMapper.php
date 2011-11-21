@@ -86,4 +86,11 @@ abstract class TM_Attribute_AttributeTypeMapper {
      */
     abstract public function getAllInstance( );
 
+    /**
+     * @abstract
+     * @param int $id
+     * @return void
+     */
+    abstract public function selectFromDB($id);
+
 }

@@ -1,10 +1,20 @@
 <?php
 
+/*
+ * id,
+  title,
+  date_create,
+  user_id,
+  file,
+  is_folder,
+  parent_id
+ */
+
 /**
- * class TM_Task_Task
+ * class TM_Document_Document
  *
  */
-class TM_Task_Task
+class TM_Document_Document
 {
 
     /** Aggregations: */
@@ -29,25 +39,23 @@ class TM_Task_Task
      *
      * @access protected
      */
-    protected $_user = null;
-
-    /**
-     *
-     * @access protected
-     */
     protected $_dateCreate;
 
     /**
      *
      * @access protected
      */
-    protected $_childTask = array();
+    protected $_user = null;
+
+    protected $_file = null;
+
+    protected $_isFolder = false;
 
     /**
      *
      * @access protected
      */
-    protected $_parentTask = array();
+    protected $_parentDocument = null;
 
     /**
      * @var array
@@ -159,6 +167,26 @@ class TM_Task_Task
         $this->_dateCreate = date("Y-m-d H:i:s", strtotime($value));
     } // end of member function setDateCreate
 
+    public function setIsFolder($isFolder)
+    {
+        $this->_isFolder = $isFolder;
+    }
+
+    public function getIsFolder()
+    {
+        return $this->_isFolder;
+    }
+
+    public function setFile($file)
+    {
+        $this->_file = $file;
+    }
+
+    public function getFile()
+    {
+        return $this->_file;
+    }
+
     public function __get($name)
     {
         $method = "get{$name}";
@@ -170,12 +198,13 @@ class TM_Task_Task
     /**
      *
      *
-     * @return TM_Task_Task
+     * @return TM_Document_Document
      * @access public
      */
     public function __construct()
     {
         $this->_db = StdLib_DB::getInstance();
+        $this->_file = new TM_FileManager_File(Zend_Registry::get('production')->files->path);
     } // end of member function __construct
 
     /**
@@ -187,17 +216,20 @@ class TM_Task_Task
     public function insertToDb()
     {
         try {
-            $sql = 'INSERT INTO tm_task(title, user_id, date_create)
-                    VALUES ("' . $this->_title . '", ' . $this->_user->getId() . ', "' . $this->_dateCreate . '")';
+            $sql = 'INSERT INTO tm_document(title, user_id, date_create, file, is_folder, parent_id)
+                    VALUES ("' . $this->_title . '", ' . $this->_user->getId() . ', "' . $this->_dateCreate . '", "", ' . $this->_isFolder . ', ' . $this->_parentDocument->id . ')';
             $this->_db->query($sql);
 
             $this->_id = $this->_db->getLastInsertId();
-            $this->saveParent();
+            //$this->saveParent();
             //$this->saveChild();
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
     } // end of member function insertToDb
+
+
+    //title, date_create, user_id, file, is_folder, parent_id
 
     /**
      *
@@ -208,8 +240,9 @@ class TM_Task_Task
     public function updateToDb()
     {
         try {
-            $sql = 'UPDATE tm_task 
-                    SET title="' . $this->_title . '", user_id="' . $this->_user->getId() . '", date_create="' . $this->_dateCreate . '" 
+            $sql = 'UPDATE tm_document
+                    SET title="' . $this->_title . '", user_id="' . $this->_user->getId() . '", date_create="' . $this->_dateCreate . '",
+                        is_folder=' . $this->_isFolder . ', parent_id=' . $this->_parentDocument->id . ' 
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
 
@@ -232,7 +265,7 @@ class TM_Task_Task
             $this->deleteAllParent();
             $this->saveParent();
 
-            $sql = 'DELETE FROM tm_task
+            $sql = 'DELETE FROM tm_document
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
         } catch (Exception $e) {
@@ -245,7 +278,7 @@ class TM_Task_Task
      *
      * @param int $id идентификатор задачи
 
-     * @return Task::TM_Task_Task
+     * @return Document::TM_Document_Document
      * @static
      * @access public
      */
@@ -253,11 +286,11 @@ class TM_Task_Task
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_task WHERE id=' . (int)$id;
+            $sql = 'SELECT * FROM tm_document WHERE id=' . (int)$id;
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
-                $o = new TM_Task_Task();
+                $o = new TM_Document_Document();
                 $o->fillFromArray($result[0]);
                 return $o;
             } else {
@@ -273,14 +306,14 @@ class TM_Task_Task
      *
      * @param $user
      * @param array $values
-     * @return TM_Task_Task
+     * @return TM_Document_Document
      * @static
      * @access public
      */
     public static function getInstanceByArray($user, $values)
     {
         try {
-            $o = new TM_Task_Task();
+            $o = new TM_Document_Document();
             $o->fillFromArray($values);
             return $o;
         } catch (Exception $e) {
@@ -304,12 +337,12 @@ class TM_Task_Task
             $db = StdLib_DB::getInstance();
             
             if ($parentId > 0 ) {
-                $sql = 'SELECT * FROM tm_task, tm_task_relation
-                        WHERE id=child_id AND parent_id=' . (int)$parentId;
+                $sql = 'SELECT * FROM tm_document
+                        WHERE parent_id=' . (int)$parentId;
             } elseif ($parentId == -1) {
-                $sql = 'SELECT * FROM tm_task';
+                $sql = 'SELECT * FROM tm_document';
             } else {
-                $sql = 'SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                $sql = 'SELECT * FROM tm_document
                         WHERE parent_id IS NULL ';
             }
 
@@ -318,7 +351,7 @@ class TM_Task_Task
             if (isset($result[0])) {
                 $retArray = array();
                 foreach ($result as $res) {
-                    $retArray[] = TM_Task_Task::getInstanceByArray($user, $res);
+                    $retArray[] = TM_Document_Document::getInstanceByArray($user, $res);
                 }
                 return $retArray;
             } else {
@@ -347,7 +380,11 @@ class TM_Task_Task
         $o_user = TM_User_User::getInstanceById($values['user_id']);
         $this->setUser($o_user);
 
-        $this->getParent();
+        $this->setIsFolder($values['is_folder']);
+
+        $this->_file->setName($values['file']);
+
+        //$this->getParent();
         $this->getAttributeList();
     } // end of member function fillFromArray
 
@@ -357,145 +394,48 @@ class TM_Task_Task
      * @return array
      * @access public
      */
-    public function getChild()
-    {
-        if (is_null($this->_childTask) || empty($this->_childTask)) {
-            try {
-                $sql = 'SELECT * FROM tm_task_relation WHERE parent_id=' . $this->_id;
-                $result = $this->_db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
-
-                if (isset($result[0]['child_id'])) {
-                    foreach ($result as $res) {
-                        $this->_childTask[] = TM_Task_Task::getInstanceById($res['child_id']);
-                    }
-                } else {
-                    $this->_childTask = array();
-                }
-                return $this->_childTask;
-            } catch (Exception $e) {
-                throw new Exception($e->getMessage());
-            }
-        } else {
-            return $this->_childTask;
-        }
-    } // end of member function getChild
-
-    /**
-     *
-     *
-     * @param TM_Task_Task $child
-
-     * @return void
-     * @access public
-     */
-    public function addChild($child)
-    {
-        if ($this->_searchChild($child) === false) {
-            $this->_childTask[] = $child;
-        }
-
-    } // end of member function addChild
-
-    /**
-     *
-     *
-     * @param Task::TM_Task_Task child
-
-     * @return
-     * @access public
-     */
-    public function deleteChild($child)
-    {
-        $key = $this->_searchChild($child);
-        if ($key !== false) {
-            unset($this->_childTask[$key]);
-        }
-    } // end of member function deleteChild
-
-    protected function saveChild()
-    {
-        try {
-            $sql = 'DELETE FROM tm_task_relation WHERE parent_id=' . $this->_id;
-            $this->_db->query($sql);
-
-            if (!is_null($this->_childTask) && !empty($this->_childTask)) {
-                $sql = 'INSERT INTO tm_task_relation(parent_id, child_id) VALUES';
-
-                foreach ($this->_childTask as $child) {
-                    $sql .= '(' . $this->_id . ', ' . $child->getId() . '), ';
-                }
-
-                $sql = substr($sql, 0, strlen($sql) - 2);
-                $this->_db->query($sql);
-            }
-
-        } catch (Exception $e) {
-            throw new Exception($e->getMessage());
-        }
-    }
-
-    protected function _searchChild(TM_Task_Task $needle)
-    {
-        if (is_null($this->_childTask) && !empty($this->_childTask)) {
-            return false;
-        } else {
-            foreach ($this->_childTask as $key => $child) {
-                if ($child->_id == $needle->getId()) {
-                    return $key;
-                }
-            }
-            return false;
-        }
-    }
-
-    /**
-     *
-     *
-     * @return array
-     * @access public
-     */
     public function getParent()
     {
-        if (is_null($this->_parentTask) || empty($this->_parentTask)) {
+        if (is_null($this->_parentDocument) || empty($this->_parentDocument)) {
             try {
                 $sql = 'SELECT * FROM tm_task_relation WHERE child_id=' . $this->_id;
                 $result = $this->_db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
                 if (isset($result[0]['parent_id'])) {
                     foreach ($result as $res) {
-                        $this->_parentTask[] = TM_Task_Task::getInstanceById($res['parent_id']);
+                        $this->_parentDocument[] = TM_Document_Document::getInstanceById($res['parent_id']);
                     }
                 } else {
-                    $this->_parentTask = array();
+                    $this->_parentDocument = array();
                 }
-                return $this->_parentTask;
+                return $this->_parentDocument;
             } catch (Exception $e) {
                 throw new Exception($e->getMessage());
             }
         } else {
-            return $this->_parentTask;
+            return $this->_parentDocument;
         }
     } // end of member function getParent
 
     /**
      *
      *
-     * @param Task::TM_Task_Task parent
+     * @param Document::TM_Document_Document parent
 
      * @return
      * @access public
      */
-    public function addParent(TM_Task_Task $parent)
+    public function addParent(TM_Document_Document $parent)
     {
         if ($this->searchParent($parent) === false) {
-            $this->_parentTask[] = $parent;
+            $this->_parentDocument[] = $parent;
         }
     } // end of member function addParent
 
     /**
      *
      *
-     * @param Task::TM_Task_Task parent
+     * @param Document::TM_Document_Document parent
 
      * @return
      * @access public
@@ -504,13 +444,13 @@ class TM_Task_Task
     {
         $key = $this->searchParent($parent);
         if ($key !== false) {
-            unset($this->_parentTask[$key]);
+            unset($this->_parentDocument[$key]);
         }
     } // end of member function deleteParent
 
     public function deleteAllParent()
     {
-        $this->_parentTask = array();
+        $this->_parentDocument = array();
     }
 
     protected function saveParent()
@@ -519,10 +459,10 @@ class TM_Task_Task
             $sql = 'DELETE FROM tm_task_relation WHERE child_id=' . $this->_id;
             $this->_db->query($sql);
 
-            if (!is_null($this->_parentTask) && !empty($this->_parentTask)) {
+            if (!is_null($this->_parentDocument) && !empty($this->_parentDocument)) {
                 $sql = 'INSERT INTO tm_task_relation(parent_id, child_id) VALUES';
 
-                foreach ($this->_parentTask as $parent) {
+                foreach ($this->_parentDocument as $parent) {
                     $sql .= '(' . $parent->getId() . ', ' . $this->_id . '), ';
                 }
 
@@ -535,12 +475,12 @@ class TM_Task_Task
         }
     }
 
-    public function searchParent(TM_Task_Task $needle)
+    public function searchParent(TM_Document_Document $needle)
     {
-        if (is_null($this->_parentTask)) {
+        if (is_null($this->_parentDocument)) {
             return false;
         } else {
-            foreach ($this->_parentTask as $key => $child) {
+            foreach ($this->_parentDocument as $key => $child) {
                 if ($child->_id == $needle->getId()) {
                     return $key;
                 }
@@ -553,7 +493,7 @@ class TM_Task_Task
     {
          if (is_null($this->_attributeList) || empty($this->_attributeList)) {
             try {
-                $attributeList = TM_Attribute_Attribute::getAllInstance(new TM_Task_AttributeMapper(), $this);
+                $attributeList = TM_Attribute_Attribute::getAllInstance(new TM_Document_AttributeMapper(), $this);
                 if ($attributeList !== false) {
                     foreach ($attributeList as $attribute) {
                         $this->_attributeList[$attribute->attribyteKey] = $attribute;
@@ -580,8 +520,8 @@ class TM_Task_Task
             $this->_attributeList[$key]->setValue($value);
 
         } else {
-            $oHash = TM_Task_Hash::getInstanceById($key);
-            $oAttribute = new TM_Attribute_Attribute(new TM_Task_AttributeMapper(), $this);
+            $oHash = TM_Document_Hash::getInstanceById($key);
+            $oAttribute = new TM_Attribute_Attribute(new TM_Document_AttributeMapper(), $this);
             $oAttribute->setAttribyteKey($key);
             $oAttribute->setType($oHash->getType());
             $oAttribute->setValue($value);
@@ -609,14 +549,12 @@ class TM_Task_Task
         }
     }
 
-    public function getPathToTask(&$pathArray = array())
+    public function getPathToDocument(&$pathArray = array())
     {
         try {
-            if (!empty($this->_parentTask)) {
-                $parent = $this->_parentTask[0];
-                $pathArray[] = $parent;
-
-                $parent->getPathToTask($pathArray);
+            if (!is_null($this->_parentDocument)) {
+                $pathArray[] = $this->_parentDocument;
+                $this->_parentDocument->getPathToDocument($pathArray);
             }
             return array_reverse($pathArray);
         } catch (Exception $e) {
@@ -624,10 +562,10 @@ class TM_Task_Task
         }
     }
 
-    protected function _pathToTask(&$pathArray = array())
+    protected function _pathToDocument(&$pathArray = array())
     {
-        
+
     }
 
-} // end of TM_Task_Task
+} // end of TM_Document_Document
 ?>
