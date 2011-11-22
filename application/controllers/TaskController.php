@@ -51,7 +51,7 @@ class TaskController extends Zend_Controller_Action
 
         }
 
-        $this->view->assign('parentList', TM_Task_Task::getAllInstance($this->_user));
+        $this->view->assign('parentList', TM_Task_Task::getAllInstance($this->_user, -1));
         $this->view->assign('task', $oTask);
     }
 
@@ -72,6 +72,17 @@ class TaskController extends Zend_Controller_Action
                 $oTask->setAttribute($key, $value);
             }
 
+            if (!empty($data['document_title'])) {
+                $oDocument = new TM_Document_Document();
+                $oDocument->setUser($this->_user);
+                $oDocument->setDateCreate(date('d.m.Y H:i:s'));
+                $oDocument->setIsFolder(false);
+                $oDocument->setTitle($data['document_title']);
+
+                $oDocument->insertToDb();
+                $oDocument->setLinkToTask($oTask);
+            }
+
             try {
                 $oTask->updateToDb();
                 $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
@@ -81,8 +92,9 @@ class TaskController extends Zend_Controller_Action
 
         }
 
-        $this->view->assign('parentList', TM_Task_Task::getAllInstance($this->_user));
+        $this->view->assign('parentList', TM_Task_Task::getAllInstance($this->_user), -1);
         $this->view->assign('attributeHashList', TM_Task_Hash::getAllInstance());
+        $this->view->assign('documentList', TM_Document_Document::getDocumentByTask($this->_user, $oTask));
         $this->view->assign('task', $oTask);
     }
 
@@ -124,7 +136,7 @@ class TaskController extends Zend_Controller_Action
 
     public function editattributetypeAction()
     {
-       $oType = TM_Attribute_AttributeType::getInstanceById(new TM_Task_AttributeTypeMapper(), $this->getRequest()->getParam('id'));
+       $oType = TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Task_AttributeTypeMapper(), $this->getRequest()->getParam('id'));
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
@@ -147,7 +159,7 @@ class TaskController extends Zend_Controller_Action
 
     public function deleteattributetypeAction()
     {
-        $oType = TM_Attribute_AttributeType::getInstanceById(new TM_Task_AttributeTypeMapper(), $this->getRequest()->getParam('id'));
+        $oType = TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Task_AttributeTypeMapper(), $this->getRequest()->getParam('id'));
         try {
             $oType->deleteFromDB();
             $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
@@ -165,7 +177,8 @@ class TaskController extends Zend_Controller_Action
 
             $oHash->setAttributeKey($data['attribute_key']);
             $oHash->setTitle($data['title']);
-            $oHash->setType(TM_Attribute_AttributeType::getInstanceById(new TM_Task_AttributeTypeMapper(), $data['type_id']));
+            $oHash->setType(TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Task_AttributeTypeMapper(), $data['type_id']));
+            $oHash->setValueList($data['list_value']);
 
             try {
                 $oHash->insertToDb();
@@ -188,7 +201,8 @@ class TaskController extends Zend_Controller_Action
             $data = $this->getRequest()->getParam('data');
 
             $oHash->setTitle($data['title']);
-            $oHash->setType(TM_Attribute_AttributeType::getInstanceById(new TM_Task_AttributeTypeMapper(), $data['type_id']));
+            $oHash->setType(TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Task_AttributeTypeMapper(), $data['type_id']));
+            $oHash->setValueList($data['list_value']);
 
             try {
                 $oHash->updateToDb();

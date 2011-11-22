@@ -4,7 +4,7 @@
  * class File
  *
  */
-class File {
+class TM_FileManager_File {
     /** Aggregations: */
     /** Compositions: */
     /*     * * Attributes: ** */
@@ -63,7 +63,7 @@ class File {
     /**
      *
      *
-     * @param string field
+     * @param string $field
 
      * @return string
      * @access public
@@ -72,7 +72,7 @@ class File {
         if (isset($_FILES[$field]) && $_FILES[$field]['error'] == 0) {
             $this->_ext = $this->extractExt($_FILES[$field]['name']);
             $tempFileName = 'file_' . date('d-m-Y-H-i-s') . '.' . $this->_ext;
-            $result = copy($_FILES[$field]['tmp_name'], $this->_path . $tempFileName);
+            $result = copy($_FILES[$field]['tmp_name'], $this->_path . '/' . $tempFileName);
 
             if ($result) {
                 chmod($this->_path . $tempFileName, 0766);
@@ -95,8 +95,8 @@ class File {
      * @access public
      */
     public function delete() {
-        if (!empty($this->_name) && file_exists($this->_path . $this->_name)) {
-            $result = unlink($this->_path . $this->_name);
+        if (!empty($this->_name) && file_exists($this->_path . '/' . $this->_name)) {
+            $result = unlink($this->_path . '/' . $this->_name);
             if ($result === false) {
                 throw new Exception('Can not delete file ' . $this->_name);
             }

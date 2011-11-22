@@ -4,7 +4,7 @@
  * class Image
  *
  */
-class Image extends File {
+class TM_FileManager_Image extends TM_FileManager_File {
     /** Aggregations: */
 
     /** Compositions: */
@@ -30,10 +30,10 @@ class Image extends File {
             }
 
             $tempFileName = 'img_' . date('d-m-Y-H-i-s') . '.' . $this->_ext;
-            $result = copy($_FILES[$field]['tmp_name'], $this->_path . $tempFileName);
+            $result = copy($_FILES[$field]['tmp_name'], $this->_path . '/' . $tempFileName);
 
             if ($result) {
-                chmod($this->_path . $tempFileName, 0766);
+                chmod($this->_path . '/' . $tempFileName, 0766);
                 $this->_name = $tempFileName;
                 //$this->createPreview();
                 return $this->_name;
@@ -89,8 +89,8 @@ class Image extends File {
      */
     public function delete() {
         if (!empty($this->_name)) {
-            if (file_exists($this->_path . $this->getPreview())) {
-                unlink($this->_path . $this->getPreview());
+            if (file_exists($this->_path . '/' . $this->getPreview())) {
+                unlink($this->_path . '/' . $this->getPreview());
             }
             parent::delete();
         }
@@ -113,16 +113,16 @@ class Image extends File {
     private function _getImageByType() {
         switch ($this->_ext) {
             case 'gif':
-                $image = imagecreatefromgif($this->_path . $this->_name);
+                $image = imagecreatefromgif($this->_path . '/' . $this->_name);
                 break;
             case 'jpeg':
-                $image = imagecreatefromjpeg($this->_path . $this->_name);
+                $image = imagecreatefromjpeg($this->_path . '/' . $this->_name);
                 break;
             case 'jpg':
-                $image = imagecreatefromjpeg($this->_path . $this->_name);
+                $image = imagecreatefromjpeg($this->_path . '/' . $this->_name);
                 break;
             case 'png':
-                $image = imagecreatefrompng($this->_path . $this->_name);
+                $image = imagecreatefrompng($this->_path . '/' . $this->_name);
                 break;
             default:
                 return false;
@@ -132,10 +132,10 @@ class Image extends File {
 
     private function _savePreviewFile($imagePrew) {
         switch ($this->_ext) {
-            case 'gif': return imagegif($imagePrew, $this->_path . $this->getPreview());
-            case 'png': return imagepng($imagePrew, $this->_path . $this->getPreview());
-            case 'jpg': return imagejpeg($imagePrew, $this->_path . $this->getPreview());
-            case 'jpeg': return imagejpeg($imagePrew, $this->_path . $this->getPreview());
+            case 'gif': return imagegif($imagePrew, $this->_path . '/' . $this->getPreview());
+            case 'png': return imagepng($imagePrew, $this->_path . '/' . $this->getPreview());
+            case 'jpg': return imagejpeg($imagePrew, $this->_path . '/' . $this->getPreview());
+            case 'jpeg': return imagejpeg($imagePrew, $this->_path . '/' . $this->getPreview());
         }
         return false;
     }

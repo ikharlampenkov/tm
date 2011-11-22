@@ -117,7 +117,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
             $view = $this->getResource('View');
             $view->assign('authUser', 'guest');
-
         } else {
            $view = $this->getResource('View');
            $view->assign('authUser', $data->login);

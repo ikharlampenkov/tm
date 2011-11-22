@@ -159,7 +159,6 @@ class TM_Task_Task
         $this->_dateCreate = date("Y-m-d H:i:s", strtotime($value));
     } // end of member function setDateCreate
 
-
     public function __get($name)
     {
         $method = "get{$name}";
@@ -215,6 +214,7 @@ class TM_Task_Task
             $this->_db->query($sql);
 
             $this->saveParent();
+            $this->saveAttributeList();
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -302,13 +302,17 @@ class TM_Task_Task
     {
         try {
             $db = StdLib_DB::getInstance();
-            if ($parentId != 0) {
+            
+            if ($parentId > 0 ) {
                 $sql = 'SELECT * FROM tm_task, tm_task_relation
                         WHERE id=child_id AND parent_id=' . (int)$parentId;
+            } elseif ($parentId == -1) {
+                $sql = 'SELECT * FROM tm_task';
             } else {
                 $sql = 'SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
                         WHERE parent_id IS NULL ';
             }
+
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
@@ -598,7 +602,7 @@ class TM_Task_Task
 
     protected function saveAttributeList()
     {
-        if (is_null($this->_attributeList) && !empty($this->_attributeList)) {
+        if (!is_null($this->_attributeList) && !empty($this->_attributeList)) {
             foreach ($this->_attributeList as $attribute) {
                 $attribute->updateToDB();
             }
@@ -608,17 +612,21 @@ class TM_Task_Task
     public function getPathToTask(&$pathArray = array())
     {
         try {
-            if (!empty($parent)) {
+            if (!empty($this->_parentTask)) {
                 $parent = $this->_parentTask[0];
                 $pathArray[] = $parent;
 
-                $pathArray[] = $parent->getPatchToTask($pathArray);
-
+                $parent->getPathToTask($pathArray);
             }
-            return $pathArray;
+            return array_reverse($pathArray);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
+    }
+
+    protected function _pathToTask(&$pathArray = array())
+    {
+        
     }
 
 } // end of TM_Task_Task

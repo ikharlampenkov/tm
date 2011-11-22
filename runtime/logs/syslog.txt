@@ -1,1729 +1,995 @@
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:22
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task WHERE id=3  21.11.2011 23:06
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_relation WHERE child_id=3  21.11.2011 23:06
+info   SELECT * FROM tm_task WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute WHERE task_id=3  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:06
 info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 22:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 22:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 22:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 22:22
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 22:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 22:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 22:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 22:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 22:22
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 22:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:22
-info   INSERT INTO tm_task_attribute_type(title, `handler`, description)
-                    VALUES ("Строка", "", "Любое строковое значение")  20.11.2011 22:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 22:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 22:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 22:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:22
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 22:22
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 22:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:28
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:28
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 22:28
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:28
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:28
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 22:28
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:28
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:28
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 22:28
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:28
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:28
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 22:28
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 22:28
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:29
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:29
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 22:29
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:29
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:29
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 22:29
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:29
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:29
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 22:29
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:29
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:29
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 22:29
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 22:29
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:30
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:30
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:31
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:31
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:31
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:31
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:32
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:32
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:32
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:32
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:35
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:35
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 22:35
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:36
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:36
-info   INSERT INTO tm_task_attribute_type(title, `handler`, description)
-                    VALUES ("Строка", "TM_Attribute_AttributeType", "Любое строковое значение")  20.11.2011 22:36
-error   Can`t complit query: INSERT INTO tm_task_attribute_type(title, `handler`, description)
-                    VALUES ("Строка", "TM_Attribute_AttributeType", "Любое строковое значение") No error: 1062:: Error msg: Duplicate entry 'Строка' for key 'title_UNIQUE' ;  20.11.2011 22:36
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 22:37
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 22:37
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 22:37
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 22:37
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 22:37
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 22:37
-info   UPDATE tm_task_attribute_type
-                    SET title="Строка", `handler`="TM_Attribute_AttributeType", description="Любое строковое значение"
-                    WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 22:37
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 22:37
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 22:37
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:37
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 22:37
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 22:37
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:39
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:39
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 22:39
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:39
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:39
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 22:39
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:39
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:39
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 22:39
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:39
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:39
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 22:39
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 22:39
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:40
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:40
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 22:40
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:40
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:40
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 22:40
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:40
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:40
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 22:40
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:40
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:40
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 22:40
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 22:40
-info   SELECT * FROM tm_task_hash  20.11.2011 22:40
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:43
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:43
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 22:43
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:43
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:43
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 22:43
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:43
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:43
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 22:43
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:43
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:43
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 22:43
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 22:43
-info   SELECT * FROM tm_task_hash  20.11.2011 22:43
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:46
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:46
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 22:46
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:46
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:46
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 22:46
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:46
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:46
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 22:46
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:46
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:46
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 22:46
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 22:46
-info   SELECT * FROM tm_task_hash  20.11.2011 22:46
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 22:47
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 22:47
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 22:47
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 22:47
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 22:47
-info   SELECT * FROM tm_task_hash  20.11.2011 22:47
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 22:47
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 22:47
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 22:47
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 22:47
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 22:47
-info   SELECT * FROM tm_task_hash  20.11.2011 22:47
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 22:47
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 22:47
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 22:47
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 22:47
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 22:47
-info   SELECT * FROM tm_task_hash  20.11.2011 22:47
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:47
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:51
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:51
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:51
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:51
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:51
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:51
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 22:52
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 22:52
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:03
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:03
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:03
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:03
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:05
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:05
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:08
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:08
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:08
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:08
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:08
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:08
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:09
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:09
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:09
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:10
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:10
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:10
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:11
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:11
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:11
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:11
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:11
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:11
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:12
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:12
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:12
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:12
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:12
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:12
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:12
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:12
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:12
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:12
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:12
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:12
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:12
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:12
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:12
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:13
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:13
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:13
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:13
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:13
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:13
-info   INSERT INTO tm_task_hash(task_id, attribute_key, title, type_id)
-                    VALUES (NULL, description, "Текстовое описание задачи", 1)  20.11.2011 23:13
-error   Can`t complit query: INSERT INTO tm_task_hash(task_id, attribute_key, title, type_id)
-                    VALUES (NULL, description, "Текстовое описание задачи", 1) No error: 1054:: Error msg: Unknown column 'description' in 'field list' ;  20.11.2011 23:13
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:13
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:15
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:15
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:15
-info   INSERT INTO tm_task_hash(task_id, attribute_key, title, type_id)
-                    VALUES (NULL, "description", "Текстовое описание задачи", 1)  20.11.2011 23:15
-error   Can`t complit query: INSERT INTO tm_task_hash(task_id, attribute_key, title, type_id)
-                    VALUES (NULL, "description", "Текстовое описание задачи", 1) No error: 1048:: Error msg: Column 'task_id' cannot be null ;  20.11.2011 23:15
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:15
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:17
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:17
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:17
-info   INSERT INTO tm_task_hash(task_id, attribute_key, title, type_id)
-                    VALUES (NULL, "description", "Текстовое описание задачи", 1)  20.11.2011 23:17
-error   Can`t complit query: INSERT INTO tm_task_hash(task_id, attribute_key, title, type_id)
-                    VALUES (NULL, "description", "Текстовое описание задачи", 1) No error: 1048:: Error msg: Column 'task_id' cannot be null ;  20.11.2011 23:17
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:17
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:17
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:17
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:17
-info   INSERT INTO tm_task_hash(task_id, attribute_key, title, type_id)
-                    VALUES (NULL, "description", "Текстовое описание задачи", 1)  20.11.2011 23:17
-error   Can`t complit query: INSERT INTO tm_task_hash(task_id, attribute_key, title, type_id)
-                    VALUES (NULL, "description", "Текстовое описание задачи", 1) No error: 1048:: Error msg: Column 'task_id' cannot be null ;  20.11.2011 23:17
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:17
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:18
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:18
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:18
-info   INSERT INTO tm_task_hash(task_id, attribute_key, title, type_id)
-                    VALUES (NULL, "description", "Текстовое описание задачи", 1)  20.11.2011 23:18
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:19
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:19
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:19
-info   INSERT INTO tm_task_hash(task_id, attribute_key, title, type_id)
-                    VALUES (NULL, "description", "Текстовое описание задачи", 1)  20.11.2011 23:19
-error   Can`t complit query: INSERT INTO tm_task_hash(task_id, attribute_key, title, type_id)
-                    VALUES (NULL, "description", "Текстовое описание задачи", 1) No error: 1062:: Error msg: Duplicate entry 'description' for key 'PRIMARY' ;  20.11.2011 23:19
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:19
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:19
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:19
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 23:19
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:19
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:19
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 23:19
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:19
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:19
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 23:19
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:19
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:19
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:19
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:19
-info   SELECT * FROM tm_task_hash  20.11.2011 23:19
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:19
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:19
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 23:19
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:19
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:19
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 23:19
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:19
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:19
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 23:19
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:19
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:19
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:19
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:19
-info   SELECT * FROM tm_task_hash  20.11.2011 23:19
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:22
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:22
-info   SELECT * FROM tm_task_hash  20.11.2011 23:22
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:22
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:22
-info   SELECT * FROM tm_task_hash  20.11.2011 23:22
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task, tm_task_relation
-                        WHERE id=child_id AND parent_id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task_relation WHERE child_id=3  20.11.2011 23:22
-info   SELECT * FROM tm_task WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task_relation WHERE child_id=4  20.11.2011 23:22
-info   SELECT * FROM tm_task WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:22
-info   SELECT * FROM tm_task_hash  20.11.2011 23:22
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:22
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:22
-info   SELECT * FROM tm_task_hash  20.11.2011 23:22
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task, tm_task_relation
-                        WHERE id=child_id AND parent_id=6  20.11.2011 23:22
-info   SELECT * FROM tm_task WHERE id=6  20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:22
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:22
-info   SELECT * FROM tm_task_hash  20.11.2011 23:22
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:22
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:22
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task WHERE id=6  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:23
-info   INSERT INTO tm_task(title, user_id, date_create)
-                    VALUES ("тест на удаление", 1, "2011-11-20 23:22:57")  20.11.2011 23:23
-info   DELETE FROM tm_task_relation WHERE child_id=7  20.11.2011 23:23
-info   INSERT INTO tm_task_relation(parent_id, child_id) VALUES(6, 7)  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:23
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:23
-info   SELECT * FROM tm_task_hash  20.11.2011 23:23
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task, tm_task_relation
-                        WHERE id=child_id AND parent_id=6  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=7  20.11.2011 23:23
-info   SELECT * FROM tm_task WHERE id=6  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:23
-info   SELECT * FROM tm_task WHERE id=6  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:23
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:23
-info   SELECT * FROM tm_task_hash  20.11.2011 23:23
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task WHERE id=7  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=7  20.11.2011 23:23
-info   SELECT * FROM tm_task WHERE id=6  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:23
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task WHERE id=7  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=7  20.11.2011 23:23
-info   SELECT * FROM tm_task WHERE id=6  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:23
-info   SELECT * FROM tm_task WHERE id=6  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:23
+                        WHERE parent_id IS NULL   21.11.2011 23:06
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:06
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 23:06
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 23:06
+info   SELECT * FROM tm_task_hash  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:06
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task WHERE id=3  21.11.2011 23:06
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_relation WHERE child_id=3  21.11.2011 23:06
+info   SELECT * FROM tm_task WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute WHERE task_id=3  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:06
+info   SELECT * FROM tm_task WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:06
 info   UPDATE tm_task 
-                    SET title="Тест на удаление", user_id="1", date_create="2011-11-20 23:22:57" 
-                    WHERE id=7  20.11.2011 23:23
-info   DELETE FROM tm_task_relation WHERE child_id=7  20.11.2011 23:23
-info   INSERT INTO tm_task_relation(parent_id, child_id) VALUES(6, 7)  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:23
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:23
-info   SELECT * FROM tm_task_hash  20.11.2011 23:23
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
+                    SET title="Вторая задача", user_id="1", date_create="2011-11-18 15:10:25" 
+                    WHERE id=3  21.11.2011 23:06
+info   DELETE FROM tm_task_relation WHERE child_id=3  21.11.2011 23:06
+info   INSERT INTO tm_task_relation(parent_id, child_id) VALUES(1, 3)  21.11.2011 23:06
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:06
 info   SELECT * FROM tm_task, tm_task_relation
-                        WHERE id=child_id AND parent_id=6  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=7  20.11.2011 23:23
-info   SELECT * FROM tm_task WHERE id=6  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:23
-info   SELECT * FROM tm_task WHERE id=6  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:23
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:23
-info   SELECT * FROM tm_task_hash  20.11.2011 23:23
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task, tm_task_relation
-                        WHERE id=child_id AND parent_id=7  20.11.2011 23:23
-info   SELECT * FROM tm_task WHERE id=7  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=7  20.11.2011 23:23
-info   SELECT * FROM tm_task WHERE id=6  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:23
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:23
-info   SELECT * FROM tm_task_hash  20.11.2011 23:23
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
+                        WHERE id=child_id AND parent_id=1  21.11.2011 23:06
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_relation WHERE child_id=3  21.11.2011 23:06
+info   SELECT * FROM tm_task WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute WHERE task_id=3  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:06
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_relation WHERE child_id=4  21.11.2011 23:06
+info   SELECT * FROM tm_task WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute WHERE task_id=4  21.11.2011 23:06
+info   SELECT * FROM tm_task WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute_type  21.11.2011 23:06
+info   SELECT * FROM tm_task_hash  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:06
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:06
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:07
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:07
+info   SELECT * FROM tm_task WHERE id=3  21.11.2011 23:07
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:07
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:07
+info   SELECT * FROM tm_task_relation WHERE child_id=3  21.11.2011 23:07
+info   SELECT * FROM tm_task WHERE id=1  21.11.2011 23:07
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:07
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:07
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:07
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:07
+info   SELECT * FROM tm_task_attribute WHERE task_id=3  21.11.2011 23:07
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:07
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:07
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:07
 info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:23
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:23
-info   SELECT * FROM tm_task_hash  20.11.2011 23:23
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task, tm_task_relation
-                        WHERE id=child_id AND parent_id=6  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=7  20.11.2011 23:23
-info   SELECT * FROM tm_task WHERE id=6  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:23
-info   SELECT * FROM tm_task WHERE id=6  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:23
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:23
-info   SELECT * FROM tm_task_hash  20.11.2011 23:23
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:23
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:25
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:25
-info   SELECT * FROM tm_task WHERE id=7  20.11.2011 23:25
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:25
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:25
-info   SELECT * FROM tm_task_relation WHERE child_id=7  20.11.2011 23:25
-info   SELECT * FROM tm_task WHERE id=6  20.11.2011 23:25
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:25
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:25
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:25
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 23:25
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:25
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:25
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 23:25
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:25
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:25
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 23:25
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:25
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:25
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:25
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:26
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:26
-info   SELECT * FROM tm_task WHERE id=7  20.11.2011 23:26
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:26
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:26
-info   SELECT * FROM tm_task_relation WHERE child_id=7  20.11.2011 23:26
-info   SELECT * FROM tm_task WHERE id=6  20.11.2011 23:26
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:26
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:26
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:26
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 23:26
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:26
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:26
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 23:26
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:26
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:26
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 23:26
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:26
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:26
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:26
-info   SELECT * FROM tm_task_hash  20.11.2011 23:26
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:26
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:26
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:26
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 23:26
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:26
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:26
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 23:26
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:26
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:26
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 23:26
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:26
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:26
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:26
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:26
-info   SELECT * FROM tm_task_hash  20.11.2011 23:26
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:26
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:27
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:27
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:27
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:27
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:27
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 23:27
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:27
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:27
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 23:27
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:27
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:27
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 23:27
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:27
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:27
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:27
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:27
-info   SELECT * FROM tm_task_hash  20.11.2011 23:27
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:27
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:27
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:27
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:29
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:29
-info   SELECT * FROM tm_task_hash WHERE task_id=NULL AND attribute_key="description"  20.11.2011 23:29
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:29
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:30
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:30
-info   SELECT * FROM tm_task_hash WHERE task_id IS NULL AND attribute_key="description"  20.11.2011 23:30
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:30
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:30
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:30
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:30
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:30
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:30
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:30
-info   SELECT * FROM tm_task_hash WHERE task_id IS NULL AND attribute_key="description"  20.11.2011 23:30
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:30
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:30
-info   UPDATE tm_task_hash
-                    SET title="Текстовое описание задачи", type_id=1
-                    WHERE task_id=NULL AND attribute_key=""  20.11.2011 23:30
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:30
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:30
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 23:30
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:30
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:30
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 23:30
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:30
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:30
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 23:30
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:30
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:30
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:30
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:30
-info   SELECT * FROM tm_task_hash  20.11.2011 23:30
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:30
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:31
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:31
-info   SELECT * FROM tm_task, tm_task_relation
-                        WHERE id=child_id AND parent_id=6  20.11.2011 23:31
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:31
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:31
-info   SELECT * FROM tm_task_relation WHERE child_id=7  20.11.2011 23:31
-info   SELECT * FROM tm_task WHERE id=6  20.11.2011 23:31
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:31
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:31
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:31
-info   SELECT * FROM tm_task WHERE id=6  20.11.2011 23:31
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:31
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:31
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:31
-info   SELECT * FROM tm_task_attribute_type  20.11.2011 23:31
-info   SELECT * FROM tm_task_hash  20.11.2011 23:31
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:31
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:31
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:31
-info   SELECT * FROM tm_task WHERE id=7  20.11.2011 23:31
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:31
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:31
-info   SELECT * FROM tm_task_relation WHERE child_id=7  20.11.2011 23:31
-info   SELECT * FROM tm_task WHERE id=6  20.11.2011 23:31
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:31
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:31
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:31
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 23:31
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:31
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:31
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 23:31
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:31
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:31
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 23:31
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:31
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:31
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:31
-info   SELECT * FROM tm_task_hash  20.11.2011 23:31
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:31
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:38
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:38
-info   SELECT * FROM tm_task WHERE id=7  20.11.2011 23:38
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:38
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:38
-info   SELECT * FROM tm_task_relation WHERE child_id=7  20.11.2011 23:38
-info   SELECT * FROM tm_task WHERE id=6  20.11.2011 23:38
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:38
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:38
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:38
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 23:38
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:38
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:38
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 23:38
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:38
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:38
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 23:38
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:38
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:38
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:38
-info   SELECT * FROM tm_task_hash  20.11.2011 23:38
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:38
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:39
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:39
-info   SELECT * FROM tm_task WHERE id=7  20.11.2011 23:39
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:39
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:39
-info   SELECT * FROM tm_task_relation WHERE child_id=7  20.11.2011 23:39
-info   SELECT * FROM tm_task WHERE id=6  20.11.2011 23:39
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:39
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:39
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:39
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   20.11.2011 23:39
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:39
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:39
-info   SELECT * FROM tm_task_relation WHERE child_id=1  20.11.2011 23:39
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:39
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:39
-info   SELECT * FROM tm_task_relation WHERE child_id=5  20.11.2011 23:39
-info   SELECT * FROM tm_user WHERE id=1  20.11.2011 23:39
-info   SELECT * FROM tm_user_role WHERE id=1  20.11.2011 23:39
-info   SELECT * FROM tm_task_relation WHERE child_id=6  20.11.2011 23:39
-info   SELECT * FROM tm_task_hash  20.11.2011 23:39
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  20.11.2011 23:39
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:05
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:05
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:05
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:05
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:05
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:05
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:05
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:05
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:05
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:05
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:08
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:08
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:08
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:08
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:08
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:08
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:08
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:08
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:08
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:08
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:08
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:08
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:08
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:08
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:08
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:08
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:08
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:08
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:08
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:08
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:09
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:09
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:09
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:09
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:09
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:09
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:09
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:09
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:09
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:09
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:09
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:09
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:09
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:09
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:09
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:09
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:09
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:09
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:09
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:09
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:09
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:09
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:09
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:09
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:09
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:09
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:09
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:09
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:09
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:09
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:10
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:10
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:10
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:10
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:10
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:10
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:10
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:10
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:10
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:10
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:10
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:10
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:10
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:10
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:10
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:10
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:10
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:10
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:10
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:10
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:11
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:11
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:11
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:11
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:11
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:11
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:11
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:11
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:11
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:11
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:11
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 00:11
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   21.11.2011 00:11
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:11
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:11
-info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 00:11
-info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 00:11
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:11
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:11
-info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 00:11
-info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 00:11
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:11
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:11
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:11
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:11
-info   SELECT * FROM tm_task_hash  21.11.2011 00:11
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 00:11
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:11
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:11
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:11
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:11
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:11
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:11
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:11
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:11
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:11
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:11
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:11
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 00:11
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   21.11.2011 00:11
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:11
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:11
-info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 00:11
-info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 00:11
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:11
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:11
-info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 00:11
-info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 00:11
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:11
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:11
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:11
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:11
-info   SELECT * FROM tm_task_hash  21.11.2011 00:11
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 00:11
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:33
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:33
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:33
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:33
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:33
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:33
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:33
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:33
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:33
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:33
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:33
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 00:33
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   21.11.2011 00:33
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:33
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:33
-info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 00:33
-info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 00:33
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:33
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:33
-info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 00:33
-info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 00:33
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:33
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:33
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:33
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:33
-info   SELECT * FROM tm_task_hash  21.11.2011 00:33
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 00:33
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:33
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:33
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:33
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:33
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:33
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:33
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:33
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:33
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:33
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:33
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:33
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 00:33
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   21.11.2011 00:33
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:33
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:33
-info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 00:33
-info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 00:33
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:33
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:33
-info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 00:33
-info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 00:33
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:33
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:33
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:33
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:33
-info   SELECT * FROM tm_task_hash  21.11.2011 00:33
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 00:33
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:35
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:35
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:35
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:35
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:35
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:35
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:35
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:35
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:35
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:35
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:35
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 00:35
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   21.11.2011 00:35
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:35
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:35
-info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 00:35
-info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 00:35
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:35
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:35
-info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 00:35
-info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 00:35
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:35
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:35
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:35
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:35
-info   SELECT * FROM tm_task_hash  21.11.2011 00:35
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 00:35
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:36
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 00:36
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:36
-info   SELECT * FROM tm_task_hash  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:36
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 00:36
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:36
-info   SELECT * FROM tm_task_hash  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:36
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 00:36
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:36
-info   SELECT * FROM tm_task_hash  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:36
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 00:36
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:36
-info   SELECT * FROM tm_task_hash  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:36
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 00:36
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:36
-info   SELECT * FROM tm_task_hash  21.11.2011 00:36
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 00:36
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:37
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:37
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:37
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:37
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:37
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:37
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:37
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:37
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:37
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:37
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:37
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 00:37
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   21.11.2011 00:37
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:37
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:37
-info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 00:37
-info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 00:37
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:37
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:37
-info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 00:37
-info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 00:37
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:37
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:37
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:37
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:37
-info   SELECT * FROM tm_task_hash  21.11.2011 00:37
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 00:37
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:45
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 00:45
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:45
-info   SELECT * FROM tm_task_hash  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:45
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 00:45
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:45
-info   SELECT * FROM tm_task_hash  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:45
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 00:45
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:45
-info   SELECT * FROM tm_task_hash  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:45
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 00:45
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:45
-info   SELECT * FROM tm_task_hash  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:45
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 00:45
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:45
-info   SELECT * FROM tm_task_hash  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:45
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 00:45
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:45
-info   SELECT * FROM tm_task_hash  21.11.2011 00:45
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 00:45
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:46
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:46
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:46
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:46
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:46
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 00:46
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   21.11.2011 00:46
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 00:46
-info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 00:46
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 00:46
-info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 00:46
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:46
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:46
-info   SELECT * FROM tm_task_hash  21.11.2011 00:46
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:46
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:46
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:46
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:46
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:46
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 00:46
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   21.11.2011 00:46
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 00:46
-info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 00:46
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 00:46
-info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 00:46
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:46
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:46
-info   SELECT * FROM tm_task_hash  21.11.2011 00:46
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:46
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:46
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:46
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:46
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:46
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 00:46
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   21.11.2011 00:46
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 00:46
-info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 00:46
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 00:46
-info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 00:46
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:46
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:46
-info   SELECT * FROM tm_task_hash  21.11.2011 00:46
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 00:46
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:47
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:47
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:47
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:47
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:47
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:47
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:47
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:47
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:47
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:47
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:47
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 00:47
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   21.11.2011 00:47
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:47
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:47
-info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 00:47
-info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 00:47
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:47
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:47
-info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 00:47
-info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 00:47
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:47
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:47
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:47
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:47
-info   SELECT * FROM tm_task_hash  21.11.2011 00:47
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 00:47
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:48
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:48
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 00:48
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:48
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:48
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 00:48
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 00:48
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:48
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:48
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:48
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:48
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 00:48
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   21.11.2011 00:48
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:48
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:48
-info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 00:48
-info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 00:48
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:48
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:48
-info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 00:48
-info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 00:48
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 00:48
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 00:48
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 00:48
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 00:48
-info   SELECT * FROM tm_task_hash  21.11.2011 00:48
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 00:48
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:07
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:07
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:08
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:08
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 01:08
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:08
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:08
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 01:08
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 01:08
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:08
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:08
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 01:08
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 01:08
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 01:08
-info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   21.11.2011 01:08
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:08
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:08
-info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 01:08
-info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 01:08
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:08
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:08
-info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 01:08
-info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 01:08
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:08
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:08
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 01:08
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 01:08
-info   SELECT * FROM tm_task_hash  21.11.2011 01:08
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 01:08
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:08
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:08
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 01:08
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:08
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:08
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 01:08
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 01:08
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:08
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:08
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 01:08
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 01:08
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 01:08
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 01:08
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:08
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:08
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 01:08
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 01:08
-info   SELECT * FROM tm_task_hash WHERE task_id IS NULL AND attribute_key="description"  21.11.2011 01:08
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 01:08
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:09
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:09
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 01:09
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:09
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:09
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 01:09
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 01:09
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:09
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:09
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 01:09
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 01:09
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 01:09
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 01:09
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:09
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:09
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 01:09
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 01:09
-info   SELECT * FROM tm_task_hash WHERE task_id IS NULL AND attribute_key="description"  21.11.2011 01:09
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 01:09
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:09
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:09
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 01:09
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:09
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:09
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 01:09
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 01:09
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:09
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:09
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 01:09
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 01:09
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 01:09
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 01:09
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:09
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:09
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 01:09
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 01:09
-info   SELECT * FROM tm_task_hash WHERE task_id IS NULL AND attribute_key="description"  21.11.2011 01:09
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 01:09
-info   INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value)
-                    VALUES (7, "description", 1, "Test")  21.11.2011 01:09
+                        WHERE parent_id IS NULL   21.11.2011 23:07
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:07
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:07
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:07
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:07
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:07
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:07
+info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 23:07
+info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 23:07
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:07
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:07
+info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 23:07
+info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 23:07
+info   SELECT * FROM tm_task_hash  21.11.2011 23:07
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:07
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:07
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:07
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_task WHERE id=3  21.11.2011 23:08
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_task_relation WHERE child_id=3  21.11.2011 23:08
+info   SELECT * FROM tm_task WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:08
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:08
+info   SELECT * FROM tm_task_attribute WHERE task_id=3  21.11.2011 23:08
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:08
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:08
+info   SELECT * FROM tm_task WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:08
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:08
 info   UPDATE tm_task 
-                    SET title="Тест на удаление", user_id="1", date_create="2011-11-20 23:22:57" 
-                    WHERE id=7  21.11.2011 01:09
-info   DELETE FROM tm_task_relation WHERE child_id=7  21.11.2011 01:09
-info   INSERT INTO tm_task_relation(parent_id, child_id) VALUES(6, 7)  21.11.2011 01:09
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:09
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:09
+                    SET title="Вторая задача", user_id="1", date_create="2011-11-18 15:10:25" 
+                    WHERE id=3  21.11.2011 23:08
+info   DELETE FROM tm_task_relation WHERE child_id=3  21.11.2011 23:08
+info   INSERT INTO tm_task_relation(parent_id, child_id) VALUES(1, 3)  21.11.2011 23:08
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:08
 info   SELECT * FROM tm_task, tm_task_relation
-                        WHERE id=child_id AND parent_id=6  21.11.2011 01:09
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:09
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:09
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 01:09
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 01:09
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:09
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:09
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 01:09
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 01:09
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 01:09
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:11
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:11
-info   SELECT * FROM tm_task, tm_task_relation
-                        WHERE id=child_id AND parent_id=6  21.11.2011 01:11
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:11
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:11
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 01:11
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 01:11
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:11
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:11
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 01:11
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 01:11
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 01:11
-info   SELECT * FROM tm_task_attribute_type WHERE id=0  21.11.2011 01:11
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:11
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:11
-info   SELECT * FROM tm_task, tm_task_relation
-                        WHERE id=child_id AND parent_id=6  21.11.2011 01:11
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:11
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:11
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 01:11
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 01:11
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:11
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:11
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 01:11
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 01:11
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 01:11
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 01:11
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 01:11
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:11
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:11
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 01:11
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 01:11
-info   SELECT * FROM tm_task_attribute_type  21.11.2011 01:11
-info   SELECT * FROM tm_task_hash  21.11.2011 01:11
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 01:11
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:12
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:12
-info   SELECT * FROM tm_task WHERE id=7  21.11.2011 01:12
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:12
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:12
-info   SELECT * FROM tm_task_relation WHERE child_id=7  21.11.2011 01:12
-info   SELECT * FROM tm_task WHERE id=6  21.11.2011 01:12
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:12
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:12
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 01:12
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 01:12
-info   SELECT * FROM tm_task_attribute WHERE task_id=7  21.11.2011 01:12
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 01:12
+                        WHERE id=child_id AND parent_id=1  21.11.2011 23:08
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_task_relation WHERE child_id=3  21.11.2011 23:08
+info   SELECT * FROM tm_task WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:08
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:08
+info   SELECT * FROM tm_task_attribute WHERE task_id=3  21.11.2011 23:08
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:08
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:08
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_task_relation WHERE child_id=4  21.11.2011 23:08
+info   SELECT * FROM tm_task WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:08
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:08
+info   SELECT * FROM tm_task_attribute WHERE task_id=4  21.11.2011 23:08
+info   SELECT * FROM tm_task WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:08
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:08
+info   SELECT * FROM tm_task_attribute_type  21.11.2011 23:08
+info   SELECT * FROM tm_task_hash  21.11.2011 23:08
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:08
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:08
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:08
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task WHERE id=3  21.11.2011 23:09
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_relation WHERE child_id=3  21.11.2011 23:09
+info   SELECT * FROM tm_task WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute WHERE task_id=3  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:09
 info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL   21.11.2011 01:12
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:12
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:12
-info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 01:12
-info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 01:12
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:12
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:12
-info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 01:12
-info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 01:12
-info   SELECT * FROM tm_user WHERE id=1  21.11.2011 01:12
-info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 01:12
-info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 01:12
-info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 01:12
-info   SELECT * FROM tm_task_hash  21.11.2011 01:12
-info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 01:12
+                        WHERE parent_id IS NULL   21.11.2011 23:09
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 23:09
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 23:09
+info   SELECT * FROM tm_task_hash  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:09
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task WHERE id=3  21.11.2011 23:09
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_relation WHERE child_id=3  21.11.2011 23:09
+info   SELECT * FROM tm_task WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute WHERE task_id=3  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:09
+info   SELECT * FROM tm_task WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:09
+info   UPDATE tm_task 
+                    SET title="Вторая задача", user_id="1", date_create="2011-11-18 15:10:25" 
+                    WHERE id=3  21.11.2011 23:09
+info   DELETE FROM tm_task_relation WHERE child_id=3  21.11.2011 23:09
+info   INSERT INTO tm_task_relation(parent_id, child_id) VALUES(1, 3)  21.11.2011 23:09
+info   UPDATE tm_task_attribute
+                    SET type_id="1", attribute_value="Test"
+                    WHERE task_id=3 AND attribute_key="description"  21.11.2011 23:09
+info   UPDATE tm_task_attribute
+                    SET type_id="2", attribute_value="Big test"
+                    WHERE task_id=3 AND attribute_key="full_text"  21.11.2011 23:09
+info   UPDATE tm_task_attribute
+                    SET type_id="3", attribute_value="Три "
+                    WHERE task_id=3 AND attribute_key="test_list"  21.11.2011 23:09
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task, tm_task_relation
+                        WHERE id=child_id AND parent_id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_relation WHERE child_id=3  21.11.2011 23:09
+info   SELECT * FROM tm_task WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute WHERE task_id=3  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:09
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_relation WHERE child_id=4  21.11.2011 23:09
+info   SELECT * FROM tm_task WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute WHERE task_id=4  21.11.2011 23:09
+info   SELECT * FROM tm_task WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute_type  21.11.2011 23:09
+info   SELECT * FROM tm_task_hash  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:09
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task WHERE id=3  21.11.2011 23:09
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_relation WHERE child_id=3  21.11.2011 23:09
+info   SELECT * FROM tm_task WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute WHERE task_id=3  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:09
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   21.11.2011 23:09
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 23:09
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 23:09
+info   SELECT * FROM tm_task_hash  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:09
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:09
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:22
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:22
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   21.11.2011 23:22
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:22
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:22
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:22
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:22
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:22
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:22
+info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 23:22
+info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 23:22
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:22
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:22
+info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 23:22
+info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 23:22
+info   SELECT * FROM tm_task_attribute_type  21.11.2011 23:22
+info   SELECT * FROM tm_task_hash  21.11.2011 23:22
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:22
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:22
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:22
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:23
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:23
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   21.11.2011 23:23
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:23
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:23
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:23
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:23
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:23
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:23
+info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 23:23
+info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 23:23
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:23
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:23
+info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 23:23
+info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 23:23
+info   SELECT * FROM tm_task_attribute_type  21.11.2011 23:23
+info   SELECT * FROM tm_task_hash  21.11.2011 23:23
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:23
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:23
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:23
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:40
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:40
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   21.11.2011 23:40
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:40
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:40
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:40
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:40
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:40
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:40
+info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 23:40
+info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 23:40
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:40
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:40
+info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 23:40
+info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 23:40
+info   SELECT * FROM tm_document_attribute_type  21.11.2011 23:40
+info   SELECT * FROM tm_document_hash  21.11.2011 23:40
+info   SELECT * FROM tm_document_attribute_type WHERE id=1  21.11.2011 23:40
+info   SELECT * FROM tm_document_attribute_type WHERE id=2  21.11.2011 23:40
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  21.11.2011 23:40
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   21.11.2011 23:41
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:41
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:41
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 23:41
+info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 23:41
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 23:41
+info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 23:41
+info   SELECT * FROM tm_document_attribute_type  21.11.2011 23:41
+info   SELECT * FROM tm_document_hash  21.11.2011 23:41
+info   SELECT * FROM tm_document_attribute_type WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_document_attribute_type WHERE id=2  21.11.2011 23:41
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  21.11.2011 23:41
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_task, tm_task_relation
+                        WHERE id=child_id AND parent_id=1  21.11.2011 23:41
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_task_relation WHERE child_id=3  21.11.2011 23:41
+info   SELECT * FROM tm_task WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:41
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:41
+info   SELECT * FROM tm_task_attribute WHERE task_id=3  21.11.2011 23:41
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:41
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:41
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_task_relation WHERE child_id=4  21.11.2011 23:41
+info   SELECT * FROM tm_task WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:41
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:41
+info   SELECT * FROM tm_task_attribute WHERE task_id=4  21.11.2011 23:41
+info   SELECT * FROM tm_task WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:41
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:41
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   21.11.2011 23:41
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:41
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:41
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 23:41
+info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 23:41
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 23:41
+info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 23:41
+info   SELECT * FROM tm_document_attribute_type  21.11.2011 23:41
+info   SELECT * FROM tm_document_hash  21.11.2011 23:41
+info   SELECT * FROM tm_document_attribute_type WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_document_attribute_type WHERE id=2  21.11.2011 23:41
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  21.11.2011 23:41
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:41
+info   SELECT * FROM tm_document_attribute_type  21.11.2011 23:41
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:42
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:42
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  21.11.2011 23:42
+info   INSERT INTO tm_document_hash(document_id, attribute_key, title, type_id, list_value)
+                    VALUES (NULL, "olist", "fghghfhgf", 3, "Ноль||Ldf ")  21.11.2011 23:42
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:42
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:42
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   21.11.2011 23:42
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:42
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:42
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:42
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:42
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:42
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:42
+info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 23:42
+info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 23:42
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:42
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:42
+info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 23:42
+info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 23:42
+info   SELECT * FROM tm_document_attribute_type  21.11.2011 23:42
+info   SELECT * FROM tm_document_hash  21.11.2011 23:42
+info   SELECT * FROM tm_document_attribute_type WHERE id=1  21.11.2011 23:42
+info   SELECT * FROM tm_document_attribute_type WHERE id=2  21.11.2011 23:42
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  21.11.2011 23:42
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  21.11.2011 23:42
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   21.11.2011 23:43
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:43
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:43
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 23:43
+info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 23:43
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 23:43
+info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 23:43
+info   SELECT * FROM tm_document_attribute_type  21.11.2011 23:43
+info   SELECT * FROM tm_document_hash  21.11.2011 23:43
+info   SELECT * FROM tm_document_attribute_type WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_document_attribute_type WHERE id=2  21.11.2011 23:43
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  21.11.2011 23:43
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  21.11.2011 23:43
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_document_hash WHERE document_id IS NULL AND attribute_key="description"  21.11.2011 23:43
+info   SELECT * FROM tm_document_attribute_type WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_document_attribute_type  21.11.2011 23:43
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   21.11.2011 23:43
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:43
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:43
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 23:43
+info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 23:43
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 23:43
+info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 23:43
+info   SELECT * FROM tm_document_attribute_type  21.11.2011 23:43
+info   SELECT * FROM tm_document_hash  21.11.2011 23:43
+info   SELECT * FROM tm_document_attribute_type WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_document_attribute_type WHERE id=2  21.11.2011 23:43
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  21.11.2011 23:43
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  21.11.2011 23:43
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_document_attribute_type  21.11.2011 23:43
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   21.11.2011 23:43
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:43
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:43
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 23:43
+info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 23:43
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 23:43
+info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 23:43
+info   SELECT * FROM tm_document_attribute_type  21.11.2011 23:43
+info   SELECT * FROM tm_document_hash  21.11.2011 23:43
+info   SELECT * FROM tm_document_attribute_type WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_document_attribute_type WHERE id=2  21.11.2011 23:43
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  21.11.2011 23:43
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  21.11.2011 23:43
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_document_attribute_type WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   21.11.2011 23:43
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:43
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:43
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 23:43
+info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 23:43
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 23:43
+info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 23:43
+info   SELECT * FROM tm_task_attribute_type  21.11.2011 23:43
+info   SELECT * FROM tm_task_hash  21.11.2011 23:43
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:43
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:43
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:43
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:44
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:44
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   21.11.2011 23:44
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:44
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:44
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:44
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:44
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:44
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:44
+info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 23:44
+info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 23:44
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:44
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:44
+info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 23:44
+info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 23:44
+info   SELECT * FROM tm_document_attribute_type  21.11.2011 23:44
+info   SELECT * FROM tm_document_hash  21.11.2011 23:44
+info   SELECT * FROM tm_document_attribute_type WHERE id=1  21.11.2011 23:44
+info   SELECT * FROM tm_document_attribute_type WHERE id=2  21.11.2011 23:44
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  21.11.2011 23:44
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  21.11.2011 23:44
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:45
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:45
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   21.11.2011 23:45
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:45
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:45
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:45
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:48
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:48
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   21.11.2011 23:48
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:48
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:48
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:48
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:48
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:48
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   21.11.2011 23:48
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:48
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:48
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:48
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:51
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:51
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   21.11.2011 23:51
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:51
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:51
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:51
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   21.11.2011 23:56
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:56
+info   SELECT * FROM tm_document_attribute WHERE document_id=1  21.11.2011 23:56
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 23:56
+info   SELECT * FROM tm_document_attribute WHERE document_id=5  21.11.2011 23:56
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 23:56
+info   SELECT * FROM tm_document_attribute WHERE document_id=6  21.11.2011 23:56
+info   SELECT * FROM tm_document_attribute_type  21.11.2011 23:56
+info   SELECT * FROM tm_document_hash  21.11.2011 23:56
+info   SELECT * FROM tm_document_attribute_type WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_document_attribute_type WHERE id=2  21.11.2011 23:56
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  21.11.2011 23:56
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  21.11.2011 23:56
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   21.11.2011 23:56
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:56
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   21.11.2011 23:56
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:56
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:56
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 23:56
+info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 23:56
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 23:56
+info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 23:56
+info   SELECT * FROM tm_task_attribute_type  21.11.2011 23:56
+info   SELECT * FROM tm_task_hash  21.11.2011 23:56
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:56
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:56
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_task, tm_task_relation
+                        WHERE id=child_id AND parent_id=1  21.11.2011 23:56
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_task_relation WHERE child_id=3  21.11.2011 23:56
+info   SELECT * FROM tm_task WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:56
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:56
+info   SELECT * FROM tm_task_attribute WHERE task_id=3  21.11.2011 23:56
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:56
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:56
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_task_relation WHERE child_id=4  21.11.2011 23:56
+info   SELECT * FROM tm_task WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:56
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:56
+info   SELECT * FROM tm_task_attribute WHERE task_id=4  21.11.2011 23:56
+info   SELECT * FROM tm_task WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:56
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:56
+info   SELECT * FROM tm_task_attribute_type  21.11.2011 23:56
+info   SELECT * FROM tm_task_hash  21.11.2011 23:56
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:56
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:56
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:56
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   21.11.2011 23:57
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:57
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:57
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 23:57
+info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 23:57
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 23:57
+info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 23:57
+info   SELECT * FROM tm_task_attribute_type  21.11.2011 23:57
+info   SELECT * FROM tm_task_hash  21.11.2011 23:57
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:57
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:57
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_task_attribute_type  21.11.2011 23:57
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   21.11.2011 23:57
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:57
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:57
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 23:57
+info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 23:57
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 23:57
+info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 23:57
+info   SELECT * FROM tm_task_attribute_type  21.11.2011 23:57
+info   SELECT * FROM tm_task_hash  21.11.2011 23:57
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:57
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:57
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_task_hash WHERE task_id IS NULL AND attribute_key="description"  21.11.2011 23:57
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_task_attribute_type  21.11.2011 23:57
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   21.11.2011 23:57
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:57
+info   SELECT * FROM tm_task_attribute WHERE task_id=1  21.11.2011 23:57
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 23:57
+info   SELECT * FROM tm_task_attribute WHERE task_id=5  21.11.2011 23:57
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 23:57
+info   SELECT * FROM tm_task_attribute WHERE task_id=6  21.11.2011 23:57
+info   SELECT * FROM tm_task_attribute_type  21.11.2011 23:57
+info   SELECT * FROM tm_task_hash  21.11.2011 23:57
+info   SELECT * FROM tm_task_attribute_type WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_task_attribute_type WHERE id=2  21.11.2011 23:57
+info   SELECT * FROM tm_task_attribute_type WHERE id=3  21.11.2011 23:57
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   21.11.2011 23:57
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_task_relation WHERE child_id=1  21.11.2011 23:57
+info   SELECT * FROM tm_document_attribute WHERE document_id=1  21.11.2011 23:57
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_task_relation WHERE child_id=5  21.11.2011 23:57
+info   SELECT * FROM tm_document_attribute WHERE document_id=5  21.11.2011 23:57
+info   SELECT * FROM tm_user WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_user_role WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_task_relation WHERE child_id=6  21.11.2011 23:57
+info   SELECT * FROM tm_document_attribute WHERE document_id=6  21.11.2011 23:57
+info   SELECT * FROM tm_document_attribute_type  21.11.2011 23:57
+info   SELECT * FROM tm_document_hash  21.11.2011 23:57
+info   SELECT * FROM tm_document_attribute_type WHERE id=1  21.11.2011 23:57
+info   SELECT * FROM tm_document_attribute_type WHERE id=2  21.11.2011 23:57
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  21.11.2011 23:57
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  21.11.2011 23:57
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   22.11.2011 00:03
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_task_relation WHERE child_id=1  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute WHERE document_id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_task_relation WHERE child_id=5  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute WHERE document_id=5  22.11.2011 00:03
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_task_relation WHERE child_id=6  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute WHERE document_id=6  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute_type  22.11.2011 00:03
+info   SELECT * FROM tm_document_hash  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute_type WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute_type WHERE id=2  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  22.11.2011 00:03
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_task, tm_task_relation
+                        WHERE id=child_id AND parent_id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_task_relation WHERE child_id=3  22.11.2011 00:03
+info   SELECT * FROM tm_task WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_task_relation WHERE child_id=1  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute WHERE document_id=1  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute WHERE document_id=3  22.11.2011 00:03
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_task_relation WHERE child_id=4  22.11.2011 00:03
+info   SELECT * FROM tm_task WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_task_relation WHERE child_id=1  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute WHERE document_id=1  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute WHERE document_id=4  22.11.2011 00:03
+info   SELECT * FROM tm_task WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_task_relation WHERE child_id=1  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute WHERE document_id=1  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute_type  22.11.2011 00:03
+info   SELECT * FROM tm_document_hash  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute_type WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute_type WHERE id=2  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  22.11.2011 00:03
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   22.11.2011 00:03
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_task_relation WHERE child_id=1  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute WHERE document_id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_task_relation WHERE child_id=5  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute WHERE document_id=5  22.11.2011 00:03
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_task_relation WHERE child_id=6  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute WHERE document_id=6  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute_type  22.11.2011 00:03
+info   SELECT * FROM tm_document_hash  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute_type WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute_type WHERE id=2  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  22.11.2011 00:03
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_task WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_task_relation WHERE child_id=1  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute WHERE document_id=1  22.11.2011 00:03
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   22.11.2011 00:03
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_task_relation WHERE child_id=1  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute WHERE document_id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_task_relation WHERE child_id=5  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute WHERE document_id=5  22.11.2011 00:03
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_task_relation WHERE child_id=6  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute WHERE document_id=6  22.11.2011 00:03
+info   SELECT * FROM tm_document_hash  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute_type WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute_type WHERE id=2  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  22.11.2011 00:03
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   22.11.2011 00:03
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_task_relation WHERE child_id=1  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute WHERE document_id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_task_relation WHERE child_id=5  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute WHERE document_id=5  22.11.2011 00:03
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_task_relation WHERE child_id=6  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute WHERE document_id=6  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute_type  22.11.2011 00:03
+info   SELECT * FROM tm_document_hash  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute_type WHERE id=1  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute_type WHERE id=2  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  22.11.2011 00:03
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  22.11.2011 00:03
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:09
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:09
+info   SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL   22.11.2011 00:09
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:09
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:09
+info   SELECT * FROM tm_task_relation WHERE child_id=1  22.11.2011 00:09
+info   SELECT * FROM tm_document_attribute WHERE document_id=1  22.11.2011 00:09
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:09
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:09
+info   SELECT * FROM tm_task_relation WHERE child_id=5  22.11.2011 00:09
+info   SELECT * FROM tm_document_attribute WHERE document_id=5  22.11.2011 00:09
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:09
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:09
+info   SELECT * FROM tm_task_relation WHERE child_id=6  22.11.2011 00:09
+info   SELECT * FROM tm_document_attribute WHERE document_id=6  22.11.2011 00:09
+info   SELECT * FROM tm_document_attribute_type  22.11.2011 00:09
+info   SELECT * FROM tm_document_hash  22.11.2011 00:09
+info   SELECT * FROM tm_document_attribute_type WHERE id=1  22.11.2011 00:09
+info   SELECT * FROM tm_document_attribute_type WHERE id=2  22.11.2011 00:09
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  22.11.2011 00:09
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  22.11.2011 00:09
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:18
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:18
+info   SELECT * FROM tm_document
+                        WHERE parent_id IS NULL   22.11.2011 00:18
+info   SELECT * FROM tm_document_attribute_type  22.11.2011 00:18
+info   SELECT * FROM tm_document_hash  22.11.2011 00:18
+info   SELECT * FROM tm_document_attribute_type WHERE id=1  22.11.2011 00:18
+info   SELECT * FROM tm_document_attribute_type WHERE id=2  22.11.2011 00:18
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  22.11.2011 00:18
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  22.11.2011 00:18
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:18
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:18
+info   SELECT * FROM tm_document
+                        WHERE parent_id IS NULL   22.11.2011 00:18
+info   SELECT * FROM tm_document_attribute_type  22.11.2011 00:18
+info   SELECT * FROM tm_document_hash  22.11.2011 00:18
+info   SELECT * FROM tm_document_attribute_type WHERE id=1  22.11.2011 00:18
+info   SELECT * FROM tm_document_attribute_type WHERE id=2  22.11.2011 00:18
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  22.11.2011 00:18
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  22.11.2011 00:18
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:18
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:18
+info   SELECT * FROM tm_document  22.11.2011 00:18
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:18
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:18
+info   SELECT * FROM tm_document  22.11.2011 00:18
+info   SELECT * FROM tm_user WHERE id=1  22.11.2011 00:18
+info   SELECT * FROM tm_user_role WHERE id=1  22.11.2011 00:18
+info   SELECT * FROM tm_document
+                        WHERE parent_id IS NULL   22.11.2011 00:18
+info   SELECT * FROM tm_document_attribute_type  22.11.2011 00:18
+info   SELECT * FROM tm_document_hash  22.11.2011 00:18
+info   SELECT * FROM tm_document_attribute_type WHERE id=1  22.11.2011 00:18
+info   SELECT * FROM tm_document_attribute_type WHERE id=2  22.11.2011 00:18
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  22.11.2011 00:18
+info   SELECT * FROM tm_document_attribute_type WHERE id=3  22.11.2011 00:18

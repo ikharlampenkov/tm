@@ -7,14 +7,14 @@
  * To change this template use File | Settings | File Templates.
  */
 
-class TM_Task_Hash
+class TM_Document_Hash
 {
 
     /**
      *
      * @access protected
      */
-    protected $_task;
+    protected $_document;
 
     /**
      *
@@ -48,13 +48,13 @@ class TM_Task_Hash
     /**
      *
      *
-     * @return Task::TM_Task_Task
+     * @return Document::TM_Document_Document
      * @access public
      */
-    public function getTask()
+    public function getDocument()
     {
-        return $this->_task;
-    } // end of member function getTask
+        return $this->_document;
+    } // end of member function getDocument
 
     /**
      *
@@ -86,16 +86,16 @@ class TM_Task_Hash
     /**
      *
      *
-     * @param Task::TM_Task_Task value
+     * @param Document::TM_Document_Document value
 
      * @return
      * @access protected
      */
-    protected function setTask(TM_Task_Task $value)
+    protected function setDocument(TM_Document_Document $value)
     {
-        $this->_task = $value;
+        $this->_document = $value;
 
-    } // end of member function setTask
+    } // end of member function setDocument
 
     /**
      *
@@ -182,7 +182,7 @@ class TM_Task_Hash
      *
      *
 
-     * @return TM_Task_Hash
+     * @return TM_Document_Hash
      * @access public
      */
     public function __construct()
@@ -199,7 +199,7 @@ class TM_Task_Hash
     public function insertToDb()
     {
         try {
-            $sql = 'INSERT INTO tm_task_hash(task_id, attribute_key, title, type_id, list_value)
+            $sql = 'INSERT INTO tm_document_hash(document_id, attribute_key, title, type_id, list_value)
                     VALUES (NULL, "' . $this->_attributeKey . '", "' . $this->_title . '", ' . $this->_type->getId() . ', "' . $this->_listValue . ' ")';
             $this->_db->query($sql);
 
@@ -208,8 +208,6 @@ class TM_Task_Hash
             throw new Exception($e->getMessage());
         }
     } // end of member function insertToDb
-
-    //task_id, attribute_key, title, type_id
 
     /**
      *
@@ -220,9 +218,9 @@ class TM_Task_Hash
     public function updateToDb()
     {
         try {
-            $sql = 'UPDATE tm_task_hash
+            $sql = 'UPDATE tm_document_hash
                     SET title="' . $this->_title . '", type_id=' . $this->_type->getId() . ', list_value="' . $this->_listValue . ' "
-                    WHERE task_id IS NULL AND attribute_key="' . $this->_attributeKey . '"';
+                    WHERE document_id IS NULL AND attribute_key="' . $this->_attributeKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -238,8 +236,8 @@ class TM_Task_Hash
     public function deleteFromDb()
     {
         try {
-            $sql = 'DELETE FROM tm_task_hash
-                    WHERE task_id IS NULL AND attribute_key="' . $this->_attributeKey . '"';
+            $sql = 'DELETE FROM tm_document_hash
+                    WHERE document_id IS NULL AND attribute_key="' . $this->_attributeKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -251,7 +249,7 @@ class TM_Task_Hash
      *
      * @param int $key идентификатор задачи
 
-     * @return TM_Task_Task
+     * @return TM_Document_Document
      * @static
      * @access public
      */
@@ -259,11 +257,11 @@ class TM_Task_Hash
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_task_hash WHERE task_id IS NULL AND attribute_key="' . $key . '"';
+            $sql = 'SELECT * FROM tm_document_hash WHERE document_id IS NULL AND attribute_key="' . $key . '"';
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
-                $o = new TM_Task_Hash();
+                $o = new TM_Document_Hash();
                 $o->fillFromArray($result[0]);
                 return $o;
             } else {
@@ -279,14 +277,14 @@ class TM_Task_Hash
      *
      * @param array $values
 
-     * @return Task::TM_Task_Task
+     * @return Document::TM_Document_Document
      * @static
      * @access public
      */
     public static function getInstanceByArray($values)
     {
         try {
-            $o = new TM_Task_Hash();
+            $o = new TM_Document_Hash();
             $o->fillFromArray($values);
             return $o;
         } catch (Exception $e) {
@@ -306,13 +304,13 @@ class TM_Task_Hash
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_task_hash';
+            $sql = 'SELECT * FROM tm_document_hash';
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
                 $retArray = array();
                 foreach ($result as $res) {
-                    $retArray[] = TM_Task_Hash::getInstanceByArray($res);
+                    $retArray[] = TM_Document_Hash::getInstanceByArray($res);
                 }
                 return $retArray;
             } else {
@@ -334,11 +332,10 @@ class TM_Task_Hash
      */
     public function fillFromArray($values)
     {
-        //$this->setTask($values['task_id']);
         $this->setAttributeKey($values['attribute_key']);
         $this->setTitle($values['title']);
 
-        $this->setType(TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Task_AttributeTypeMapper(), $values['type_id']));
+        $this->setType(TM_Document_AttributeTypeFactory::getAttributeTypeById(new TM_Document_AttributeTypeMapper(), $values['type_id']));
         $this->setValueList($values['list_value']);
     } // end of member function fillFromArray
 
