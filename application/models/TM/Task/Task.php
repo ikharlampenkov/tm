@@ -329,6 +329,26 @@ class TM_Task_Task
         }
     } // end of member function getAllInstance
 
+    public static function getTaskByDocument(TM_User_User $user, TM_Document_Document $document)
+    {
+        try {
+            $db = StdLib_DB::getInstance();
+            $sql = 'SELECT * FROM tm_task, tm_task_document WHERE tm_task.id=tm_task_document.task_id AND tm_task_document.document_id=' . $document->getId();
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+
+            if (isset($result[0])) {
+                $retArray = array();
+                foreach ($result as $res) {
+                    $retArray[] = TM_Task_Task::getInstanceByArray($user, $res);
+                }
+                return $retArray;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
 
     /**
      *

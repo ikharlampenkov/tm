@@ -333,7 +333,7 @@ class TM_Document_Document
      *
      * @param int $id идентификатор задачи
 
-     * @return Document::TM_Document_Document
+     * @return TM_Document_Document
      * @static
      * @access public
      */

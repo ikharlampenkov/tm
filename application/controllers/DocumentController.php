@@ -85,6 +85,7 @@ class DocumentController extends Zend_Controller_Action
 
         $this->view->assign('parentList', TM_Document_Document::getAllInstance($this->_user, -1, 1));
         $this->view->assign('attributeHashList', TM_Document_Hash::getAllInstance());
+        $this->view->assign('taskList', TM_Task_Task::getTaskByDocument($this->_user, $oDocument));
         $this->view->assign('document', $oDocument);
     }
 

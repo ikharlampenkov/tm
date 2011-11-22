@@ -39,6 +39,18 @@
             </tr>
         {/foreach}
     {/if}
+
+    {if $taskList !== false}
+        {foreach from=$taskList item=task}
+            <tr>
+            <td class="ttovar_title">Задачи</td>
+            <td class="ttovar">
+                {$task->title}</a>
+                / <a href="{$this->url(['controller' => 'task','action' => 'edit', 'id' => $task->id])}">редактировать</a>
+            </td>
+        </tr>
+        {/foreach}
+    {/if}
     </table>
     <input id="save" name="save" type="submit" value="Сохранить"/>
 </form>

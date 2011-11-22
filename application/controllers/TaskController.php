@@ -111,6 +111,14 @@ class TaskController extends Zend_Controller_Action
         // action body
     }
 
+    public function deletelinktodocAction()
+    {
+        $oTask = TM_Task_Task::getInstanceById($this->getRequest()->getParam('id'));
+        $oDocument = TM_Document_Document::getInstanceById($this->getRequest()->getParam('doc_id'));
+        $oDocument->deleteLinkToTask($oTask);
+        $this->_redirect('/task/edit/parent/' . $this->getRequest()->getParam('parent', 0) . '/id/' . $this->getRequest()->getParam('id'));
+    }
+
     public function addattributetypeAction()
     {
         $oType = new TM_Attribute_AttributeType(new TM_Task_AttributeTypeMapper());
