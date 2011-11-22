@@ -61,7 +61,14 @@ class TM_Acl_Acl extends Zend_Acl {
         $this->addResource(new Zend_Acl_Resource('document/editAttributeHash'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('document/deleteAttributeHash'), 'admin_allow');
 
-         $this->addResource(new Zend_Acl_Resource('files/'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('discussion/index'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('discussion/add'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('discussion/edit'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('discussion/delete'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('discussion/addTopic'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('discussion/editTopic'), 'admin_allow');
+
+        $this->addResource(new Zend_Acl_Resource('files/'), 'admin_allow');
 
         //...
 
