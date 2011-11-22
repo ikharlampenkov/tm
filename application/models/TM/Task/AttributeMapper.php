@@ -1,39 +1,32 @@
 <?php
 
-require_once 'Attribute/TM_Attribute_Attribute.php';
-require_once 'Task/Task.php';
-
 //task_id, attribute_key, type_id, attribute_value
 
 
 /**
  * class TM_Task_Attribute
- * 
+ *
  */
-class TM_Task_Attribute extends TM_Attribute_Attribute
+class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
 {
 
-    /** Aggregations: */
-
-    /** Compositions: */
-
-     /*** Attributes: ***/
-
-
-    public function __construct(TM_Task_Task $task) {
-       parent::__construct($task);
+    public function __construct()
+    {
+        parent::__construct();
     }
 
     /**
-     * 
      *
-     * @return 
-     * @access public
+     *
+     * @param $attribute
+     * @return void
+    @access public
      */
-    public function insertToDb( ) {
+    public function insertToDb($attribute)
+    {
         try {
             $sql = 'INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value)
-                    VALUES (' . $this->_task->getId() . ', "' . $this->_attribyteKey . '", ' . $this->_type->getId() . ', "' . $this->_value  . '")';
+                    VALUES (' . $attribute->task->getId() . ', "' . $attribute->attribyteKey . '", ' . $attribute->type->getId() . ', "' . $attribute->value . '")';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -41,16 +34,17 @@ class TM_Task_Attribute extends TM_Attribute_Attribute
     } // end of member function insertToDb
 
     /**
-     * 
      *
-     * @return 
+     *
+     * @return
      * @access public
      */
-    public function updateToDb( ) {
-         try {
+    public function updateToDb($attribute)
+    {
+        try {
             $sql = 'UPDATE tm_task_attribute
-                    SET type_id="' . $this->_type->getId() . '", attribute_value="' . $this->_value . '"
-                    WHERE task_id=' .  $this->_task->getId() . ' AND attribute_key="' . $this->_attribyteKey . '"';
+                    SET type_id="' . $attribute->type->getId() . '", attribute_value="' . $attribute->value . '"
+                    WHERE task_id=' . $attribute->task->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -58,15 +52,16 @@ class TM_Task_Attribute extends TM_Attribute_Attribute
     } // end of member function updateToDb
 
     /**
-     * 
      *
-     * @return 
+     *
+     * @return
      * @access public
      */
-    public function deleteFromDb( ) {
+    public function deleteFromDb($attribute)
+    {
         try {
             $sql = 'DELETE FROM tm_task_attribute
-                    WHERE task_id=' .  $this->_task->getId() . ' AND attribute_key="' . $this->_attribyteKey . '"' ;
+                    WHERE task_id=' . $attribute->task->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -74,24 +69,25 @@ class TM_Task_Attribute extends TM_Attribute_Attribute
     } // end of member function deleteFromDb
 
     /**
-     * 
      *
-     * @param Task::TM_Task_Task task 
+     *
+     * @param Task::TM_Task_Task $task
 
-     * @param string key 
+     * @param string $key
 
      * @return Attribute::TM_Attribute_Attribute
      * @static
      * @access public
      */
-    public static function getInstanceByKey(TM_Task_Task $task,  $key ) {
-         try {
-           $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_task_attribute WHERE task_id=' .  $task->getId() . ' AND attribute_key="' . $key . '"' ;
+    public function getInstanceByKey(TM_Task_Task $task, $key)
+    {
+        try {
+            $db = StdLib_DB::getInstance();
+            $sql = 'SELECT * FROM tm_task_attribute WHERE task_id=' . $task->getId() . ' AND attribute_key="' . $key . '"';
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
-                $o = new TM_Task_Attribute($task);
+                $o = new TM_Attribute_Attribute($task, $this);
                 $o->fillFromArray($result[0]);
                 return $o;
             } else {
@@ -103,24 +99,25 @@ class TM_Task_Attribute extends TM_Attribute_Attribute
     } // end of member function getInstanceByKey
 
     /**
-     * 
      *
-     * @param Task::TM_Task_Task task 
+     *
+     * @param TM_Task_Task $task
 
      * @return array
      * @static
      * @access public
      */
-    public static function getAllInstance(TM_Task_Task $task ) {
+    public function getAllInstance(TM_Task_Task $task)
+    {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_task_attribute WHERE task_id=' .  $task->getId();
+            $sql = 'SELECT * FROM tm_task_attribute WHERE task_id=' . $task->getId();
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
                 $retArray = array();
                 foreach ($result as $res) {
-                    $retArray[] = TM_Task_Attribute::getInstanceByArray($res, $task);
+                    $retArray[] = TM_Attribute_Attribute::getInstanceByArray($this, $task, $res);
                 }
                 return $retArray;
             } else {
@@ -134,19 +131,16 @@ class TM_Task_Attribute extends TM_Attribute_Attribute
 
     /**
      *
+     * @param TM_Task_Task $task
+     * @param array $values
      *
-     * @param array values
-
-     * @param Task::TM_Task_Task task
-
-     * @return Attribute::TM_Attribute_Attribute
-     * @static
+     * @return TM_Attribute_Attribute
      * @access public
      */
-    public static function getInstanceByArray($values, TM_Task_Task $task)
+    public function getInstanceByArray(TM_Task_Task $task, $values)
     {
         try {
-            $o = new TM_Task_Attribute($task);
+            $o = new TM_Attribute_Attribute($this, $task);
             $o->fillFromArray($values);
             return $o;
         } catch (Exception $e) {
