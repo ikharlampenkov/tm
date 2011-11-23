@@ -11,7 +11,7 @@
             <td class="ttovar"><input name="data[title]" value="{$document->title}"/></td>
         </tr>
         <tr>
-            <td class="ttovar_title">Супер задача</td>
+            <td class="ttovar_title">Папка</td>
             <td class="ttovar"><select name="data[parentDocument]">
                 <option value="">--</option>
             {if !empty($parentList)}

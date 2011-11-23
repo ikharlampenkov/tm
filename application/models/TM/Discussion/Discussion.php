@@ -203,7 +203,7 @@ class TM_Discussion_Discussion {
     /**
      *
      *
-     * @return TM_Document_Document
+     * @return TM_Discussion_Discussion
      * @access public
      */
     public function getParent()
@@ -223,6 +223,16 @@ class TM_Discussion_Discussion {
     {
         $this->_parent = $parent;
     } // end of member function addParent
+
+    public function isTopic() {
+        if (is_null($this->_topic) || empty($this->_topic)) {
+            return false;
+        } elseif(is_null($this->_parent) || empty($this->_parent)) {
+            return true;
+        } else {
+            return true;
+        }
+    }
 
     public function __get($name)
     {
@@ -272,8 +282,8 @@ class TM_Discussion_Discussion {
     {
         try {
             $sql = 'INSERT INTO tm_discussion(message, user_id, date_create, is_first, topic_id, parent_id)
-                    VALUES ("' . $this->_message . '", ' . $this->_user->getId() . ', "' . $this->_dateCreate . '", "",
-                             ' . $this->_prepareBool($this->_isFirst) . ', ' . $this->_prepareNull($this->_topic) . ', ' . $this->_prepareNull($this->_parent->getId()) . ')';
+                    VALUES ("' . $this->_message . '", ' . $this->_user->getId() . ', "' . $this->_dateCreate . '", 
+                             ' . $this->_prepareBool($this->_isFirst) . ', ' . $this->_prepareNull($this->_topic->id) . ', ' . $this->_prepareNull($this->_parent->id) . ')';
             $this->_db->query($sql);
 
             $this->_id = $this->_db->getLastInsertId();
@@ -375,41 +385,29 @@ class TM_Discussion_Discussion {
      *
      *
      * @param TM_User_User $user
-     * @param int $parentId
-     * @param int $isFolder
+     * @param int $topicId
 
      * @return array
      * @static
      * @access public
      */
-    public static function getAllInstance(TM_User_User $user, $parentId = 0, $isFolder = -1)
+    public static function getAllInstance(TM_User_User $user, $topicId = 0)
     {
         try {
             $db = StdLib_DB::getInstance();
 
             $sql = '';
-            if ($parentId > 0) {
+            if ($topicId > 0) {
                 $sql = 'SELECT * FROM tm_discussion
-                        WHERE parent_id=' . (int)$parentId;
-            } elseif ($parentId == -1) {
+                        WHERE topic_id=' . (int)$topicId;
+            } elseif ($topicId == -1) {
                 $sql = 'SELECT * FROM tm_discussion ';
-            } elseif ($parentId == 0) {
+            } elseif ($topicId == 0) {
                 $sql = 'SELECT * FROM tm_discussion
-                        WHERE parent_id IS NULL ';
+                        WHERE topic_id IS NULL OR parent_id IS NULL ';
             }
 
-            if ($parentId == -1 && $isFolder != -1) {
-                $sql .= ' WHERE ';
-            } elseif ($isFolder != -1) {
-                $sql .= ' AND ';
-            }
-
-            if ($isFolder == 1) {
-                $sql .= ' is_folder=1';
-            } elseif ($isFolder == 0) {
-                $sql .= ' is_folder=0';
-            }
-
+            $sql .= ' ORDER BY parent_id, message';
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
@@ -485,11 +483,16 @@ class TM_Discussion_Discussion {
         $o_user = TM_User_User::getInstanceById($values['user_id']);
         $this->setUser($o_user);
 
-        $this->setIsFolder($values['is_folder']);
+        $this->setIsFirst($values['is_first']);
 
-        $oDocument = TM_Document_Document::getInstanceById($values['parent_id']);
-        if ($oDocument !== false) {
-            $this->setParent($oDocument);
+        $oTopic = TM_Discussion_Discussion::getInstanceById($values['topic_id']);
+        if ($oTopic !== false) {
+            $this->setTopic($oTopic);
+        }
+
+        $oTopic = TM_Discussion_Discussion::getInstanceById($values['parent_id']);
+        if ($oTopic !== false) {
+            $this->setParent($oTopic);
         }
 
     } // end of member function fillFromArray

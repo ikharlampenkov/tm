@@ -22,6 +22,8 @@ class DiscussionController extends Zend_Controller_Action
             $this->view->assign('discussion', $curDiscussion);
             $this->view->assign('breadcrumbs', $curDiscussion->getPathToDiscussion());
         }
+
+        print_r(TM_Discussion_Discussion::getAllInstance($this->_user, $parentId));
     }
 
     public function addAction()
@@ -86,21 +88,22 @@ class DiscussionController extends Zend_Controller_Action
         $this->view->assign('discussion', $oDiscussion);
     }
 
-    public function addfolderAction()
+    public function addtopicAction()
     {
         $oDiscussion = new TM_Discussion_Discussion();
         $oDiscussion->setUser($this->_user);
         $oDiscussion->setDateCreate(date('d.m.Y H:i:s'));
-        $oDiscussion->setIsFolder(true);
+        $oDiscussion->setIsFirst(true);
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
-            $oDiscussion->setTitle($data['title']);
+            $oDiscussion->setMessage($data['message']);
             $oDiscussion->setDateCreate($data['date_create']);
+            //$oDiscussion->setParent(null);
 
 
-            if (!empty($data['parentDiscussion'])) {
-                $oDiscussion->setParent(TM_Discussion_Discussion::getInstanceById($data['parentDiscussion']));
+            if (!empty($data['topic'])) {
+                $oDiscussion->setTopic(TM_Discussion_Discussion::getInstanceById($data['topic']));
             }
 
             try {
@@ -112,25 +115,23 @@ class DiscussionController extends Zend_Controller_Action
 
         }
 
-        $this->view->assign('parentList', TM_Discussion_Discussion::getAllInstance($this->_user, -1));
+        $this->view->assign('topicList', TM_Discussion_Discussion::getAllInstance($this->_user, -1));
         $this->view->assign('discussion', $oDiscussion);
     }
 
-    public function editfolderAction()
+    public function edittopicAction()
     {
         $oDiscussion = TM_Discussion_Discussion::getInstanceById($this->getRequest()->getParam('id'));
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
-            $oDiscussion->setTitle($data['title']);
+            $oDiscussion->setMessage($data['message']);
             $oDiscussion->setDateCreate($data['date_create']);
+            $oDiscussion->setParent(null);
 
-            if (!empty($data['parentDiscussion'])) {
-                $oDiscussion->setParent(TM_Discussion_Discussion::getInstanceById($data['parentDiscussion']));
-            }
 
-            foreach ($data['attribute'] as $key => $value) {
-                $oDiscussion->setAttribute($key, $value);
+            if (!empty($data['topic'])) {
+                $oDiscussion->setParent(TM_Discussion_Discussion::getInstanceById($data['topic']));
             }
 
             try {

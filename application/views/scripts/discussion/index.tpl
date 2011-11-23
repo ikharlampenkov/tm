@@ -21,10 +21,10 @@
     {foreach from=$discussionList item=discussion}
         <tr>
             <td class="ttovar">
-                {if $discussion->isTopic}
-                    <a href="{$this->url(['controller' => $controller,'action' => 'index', 'parent' => $discussion->id])}">{$discussion->title}</a>
+                {if $discussion->isTopic()}
+                    <a href="{$this->url(['controller' => $controller,'action' => 'index', 'parent' => $discussion->id])}">{$discussion->message}</a>
                 {else}
-                    {$discussion->title}
+                    {$discussion->message}
                 {/if}</td>
             <td class="ttovar">{$discussion->datecreate|date_format:"%d.%m.%Y"}</td>
             <td class="tedit">
