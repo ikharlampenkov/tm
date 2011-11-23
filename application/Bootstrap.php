@@ -1,18 +1,18 @@
 <?php
 
-require_once 'TM/View/Smarty.php';
+require_once 'StdLib/Smarty.php';
 
 class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 {
 
     /**
      * Инициализация вида со смарти
-     * @return TM_View_Smarty
+     * @return StdLib_Smarty
      */
     protected function _initView()
     {
         // создаем вид
-        $view = new TM_View_Smarty();
+        $view = new StdLib_Smarty();
 
         //$view->getEngine()->debugging = true;
 

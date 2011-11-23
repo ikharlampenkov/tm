@@ -8,7 +8,7 @@
 
 require_once 'Smarty/Smarty.class.php';
 
-class TM_View_Smarty extends Zend_View_Abstract
+class StdLib_Smarty extends Zend_View_Abstract
 {
 
     /**

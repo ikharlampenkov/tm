@@ -72,6 +72,17 @@ class TaskController extends Zend_Controller_Action
                 $oTask->setAttribute($key, $value);
             }
 
+            if (!empty($data['document_title'])) {
+                $oDocument = new TM_Document_Document();
+                $oDocument->setUser($this->_user);
+                $oDocument->setDateCreate(date('d.m.Y H:i:s'));
+                $oDocument->setIsFolder(false);
+                $oDocument->setTitle($data['document_title']);
+
+                $oDocument->insertToDb();
+                $oDocument->setLinkToTask($oTask);
+            }
+
             try {
                 $oTask->updateToDb();
                 $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
@@ -83,6 +94,7 @@ class TaskController extends Zend_Controller_Action
 
         $this->view->assign('parentList', TM_Task_Task::getAllInstance($this->_user), -1);
         $this->view->assign('attributeHashList', TM_Task_Hash::getAllInstance());
+        $this->view->assign('documentList', TM_Document_Document::getDocumentByTask($this->_user, $oTask));
         $this->view->assign('task', $oTask);
     }
 
@@ -97,6 +109,14 @@ class TaskController extends Zend_Controller_Action
 
         }
         // action body
+    }
+
+    public function deletelinktodocAction()
+    {
+        $oTask = TM_Task_Task::getInstanceById($this->getRequest()->getParam('id'));
+        $oDocument = TM_Document_Document::getInstanceById($this->getRequest()->getParam('doc_id'));
+        $oDocument->deleteLinkToTask($oTask);
+        $this->_redirect('/task/edit/parent/' . $this->getRequest()->getParam('parent', 0) . '/id/' . $this->getRequest()->getParam('id'));
     }
 
     public function addattributetypeAction()

@@ -11,11 +11,22 @@ class StdLib_DB {
      * @var array
      */
     private $_dsn = array();
+
+    /**
+     * @var StdLib_DB_Driver
+     */
     private $_driver = null;
+
     private $_conn = false;
+
     static private $_instance = null;
+
     public $debug = false;
 
+    /**
+     * @static
+     * @return StdLib_DB
+     */
     static function getInstance() {
         if (is_null(self::$_instance)) {
             $class = __CLASS__;
@@ -48,7 +59,6 @@ class StdLib_DB {
             }
         } catch (StdLib_Exception $s_e) {
             throw new Exception('Can`t connect to db.' . $s_e->getMessage());
-            return false;
         }
     }
 
@@ -57,10 +67,10 @@ class StdLib_DB {
      * при отсутствии соединения устанавливает его
      *
      * @param string $query
-     * @param integer $mode 1-циф 2-ассоц 3-объект
+     * @param int $mode 1-циф 2-ассоц 3-объект
      * @return array
      */
-    public function query($query, $mode = 1) {
+    public function query($query, $mode = StdLib_DB::QUERY_MODE_NUM) {
         try {
             if (!$this->_conn) {
                 $this->connect();

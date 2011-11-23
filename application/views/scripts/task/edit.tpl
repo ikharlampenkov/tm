@@ -4,7 +4,7 @@
 <div>Ошибка: {$exception_msg}</div><br/>
 {/if}
 
-<form action="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $task->id])}" method="post">
+<form action="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $task->id])}" method="post" enctype="multipart/form-data">
     <table width="100%">
         <tr>
             <td class="ttovar_title">Название</td>
@@ -35,6 +35,27 @@
             </tr>
         {/foreach}
     {/if}
+
+    {if $documentList !== false}
+        {foreach from=$documentList item=document}
+            <tr>
+            <td class="ttovar_title">Документ</td>
+            <td class="ttovar">
+                <a href="/files/{$document->file->getName()}" target="_blank">{$document->title}</a>
+                / <a href="{$this->url(['controller' => 'document','action' => 'edit', 'id' => $document->id])}">редактировать</a>
+                / <a href="{$this->url(['controller' => $controller,'action' => 'deleteLinkToDoc', 'id' => $task->id, 'doc_id' => $document->id])}">удалить</a>
+            </td>
+        </tr>
+        {/foreach}
+    {/if}
+        <tr>
+            <td class="ttovar_title">Документ</td>
+            <td class="ttovar">
+                Название документа&nbsp;<input name="data[document_title]" value="" style="width: 310px;" />&nbsp;&nbsp;
+		        <input type="file" name="file" style="width: 300px;"/>
+            </td>
+        </tr>
+
     </table>
     <input id="save" name="save" type="submit" value="Сохранить"/>
 </form>

@@ -1,17 +1,16 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.5
+-- version 3.3.9.2
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Ноя 21 2011 г., 23:15
--- Версия сервера: 5.1.50
--- Версия PHP: 5.3.8-ZS5.5.0
+-- Время создания: Ноя 22 2011 г., 13:19
+-- Версия сервера: 5.1.58
+-- Версия PHP: 5.2.14
 
 SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT=0;
 START TRANSACTION;
-SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -29,7 +28,6 @@ SET time_zone = "+00:00";
 -- Структура таблицы `tm_acl_discussion`
 --
 
-DROP TABLE IF EXISTS `tm_acl_discussion`;
 CREATE TABLE IF NOT EXISTS `tm_acl_discussion` (
   `user_id` int(10) unsigned NOT NULL,
   `discussion_id` int(10) unsigned NOT NULL,
@@ -40,13 +38,17 @@ CREATE TABLE IF NOT EXISTS `tm_acl_discussion` (
   KEY `fk_tm_acl_discussion_tm_user1` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Дамп данных таблицы `tm_acl_discussion`
+--
+
+
 -- --------------------------------------------------------
 
 --
 -- Структура таблицы `tm_acl_document`
 --
 
-DROP TABLE IF EXISTS `tm_acl_document`;
 CREATE TABLE IF NOT EXISTS `tm_acl_document` (
   `user_id` int(10) unsigned NOT NULL,
   `document_id` int(10) unsigned NOT NULL,
@@ -57,13 +59,17 @@ CREATE TABLE IF NOT EXISTS `tm_acl_document` (
   KEY `fk_tm_acl_document_tm_document1` (`document_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Дамп данных таблицы `tm_acl_document`
+--
+
+
 -- --------------------------------------------------------
 
 --
 -- Структура таблицы `tm_acl_task`
 --
 
-DROP TABLE IF EXISTS `tm_acl_task`;
 CREATE TABLE IF NOT EXISTS `tm_acl_task` (
   `user_id` int(10) unsigned NOT NULL,
   `task_id` int(10) unsigned NOT NULL,
@@ -75,13 +81,17 @@ CREATE TABLE IF NOT EXISTS `tm_acl_task` (
   KEY `fk_tm_acl_tm_task1` (`task_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Дамп данных таблицы `tm_acl_task`
+--
+
+
 -- --------------------------------------------------------
 
 --
 -- Структура таблицы `tm_discussion`
 --
 
-DROP TABLE IF EXISTS `tm_discussion`;
 CREATE TABLE IF NOT EXISTS `tm_discussion` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `message` text NOT NULL,
@@ -95,13 +105,17 @@ CREATE TABLE IF NOT EXISTS `tm_discussion` (
   KEY `fk_tm_discussion_tm_user1` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+--
+-- Дамп данных таблицы `tm_discussion`
+--
+
+
 -- --------------------------------------------------------
 
 --
 -- Структура таблицы `tm_discussion_document`
 --
 
-DROP TABLE IF EXISTS `tm_discussion_document`;
 CREATE TABLE IF NOT EXISTS `tm_discussion_document` (
   `tm_document_id` int(10) unsigned NOT NULL,
   `tm_discussion_id` int(10) unsigned NOT NULL,
@@ -110,13 +124,17 @@ CREATE TABLE IF NOT EXISTS `tm_discussion_document` (
   KEY `fk_tm_document_discussion_tm_discussion1` (`tm_discussion_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Дамп данных таблицы `tm_discussion_document`
+--
+
+
 -- --------------------------------------------------------
 
 --
 -- Структура таблицы `tm_document`
 --
 
-DROP TABLE IF EXISTS `tm_document`;
 CREATE TABLE IF NOT EXISTS `tm_document` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
@@ -128,7 +146,21 @@ CREATE TABLE IF NOT EXISTS `tm_document` (
   PRIMARY KEY (`id`),
   KEY `fk_tm_document_tm_document1` (`parent_id`),
   KEY `fk_tm_document_tm_user1` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+
+--
+-- Дамп данных таблицы `tm_document`
+--
+
+INSERT INTO `tm_document` (`id`, `title`, `date_create`, `user_id`, `file`, `is_folder`, `parent_id`) VALUES
+(1, 'Первая папка', '2011-11-22 06:59:33', 1, '', 1, NULL),
+(2, 'Вторая папка', '2011-11-22 07:10:00', 1, '', 1, NULL),
+(4, 'Тест2', '2011-11-22 07:14:55', 1, '', 1, 1),
+(5, 'Тест2', '2011-11-22 08:19:07', 1, 'file_22-11-2011-08-21-22.pdf', 0, 1),
+(6, 'Новый', '2011-11-22 08:31:35', 1, 'file_22-11-2011-08-31-54.pdf', 0, 1),
+(9, 'Проверка', '2011-11-22 12:52:32', 1, 'file_22-11-2011-12-52-32.pdf', 0, NULL),
+(10, 'Линковка', '2011-11-22 12:59:21', 1, 'file_22-11-2011-12-59-21.pdf', 0, NULL),
+(11, 'Тест на удаление', '2011-11-22 13:13:41', 1, 'file_22-11-2011-13-13-41.pdf', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -136,7 +168,6 @@ CREATE TABLE IF NOT EXISTS `tm_document` (
 -- Структура таблицы `tm_document_attribute`
 --
 
-DROP TABLE IF EXISTS `tm_document_attribute`;
 CREATE TABLE IF NOT EXISTS `tm_document_attribute` (
   `document_id` int(10) unsigned NOT NULL,
   `attribute_key` varchar(255) NOT NULL,
@@ -147,13 +178,24 @@ CREATE TABLE IF NOT EXISTS `tm_document_attribute` (
   KEY `fk_tm_document_attribute_tm_document_attribute_type1` (`type_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Дамп данных таблицы `tm_document_attribute`
+--
+
+INSERT INTO `tm_document_attribute` (`document_id`, `attribute_key`, `type_id`, `attribute_value`) VALUES
+(1, 'description', 1, ''),
+(1, 'full_text', 2, ''),
+(1, 'test_list', 3, 'Один'),
+(5, 'description', 1, ''),
+(5, 'full_text', 2, ''),
+(5, 'test_list', 3, 'Один');
+
 -- --------------------------------------------------------
 
 --
 -- Структура таблицы `tm_document_attribute_type`
 --
 
-DROP TABLE IF EXISTS `tm_document_attribute_type`;
 CREATE TABLE IF NOT EXISTS `tm_document_attribute_type` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(50) NOT NULL,
@@ -178,7 +220,6 @@ INSERT INTO `tm_document_attribute_type` (`id`, `title`, `handler`, `description
 -- Структура таблицы `tm_document_hash`
 --
 
-DROP TABLE IF EXISTS `tm_document_hash`;
 CREATE TABLE IF NOT EXISTS `tm_document_hash` (
   `document_id` int(10) unsigned DEFAULT NULL,
   `attribute_key` varchar(255) NOT NULL,
@@ -195,7 +236,7 @@ CREATE TABLE IF NOT EXISTS `tm_document_hash` (
 --
 
 INSERT INTO `tm_document_hash` (`document_id`, `attribute_key`, `title`, `type_id`, `list_value`) VALUES
-(NULL, 'description', 'Текстовое описание задачи', 1, ''),
+(NULL, 'description', 'Текстовое описание документа', 1, ' '),
 (NULL, 'full_text', 'Большой текст', 2, ''),
 (NULL, 'test_list', 'Проверка списка', 3, 'Один||Два||Три ');
 
@@ -205,7 +246,6 @@ INSERT INTO `tm_document_hash` (`document_id`, `attribute_key`, `title`, `type_i
 -- Структура таблицы `tm_task`
 --
 
-DROP TABLE IF EXISTS `tm_task`;
 CREATE TABLE IF NOT EXISTS `tm_task` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
@@ -213,7 +253,7 @@ CREATE TABLE IF NOT EXISTS `tm_task` (
   `date_create` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_tm_task_tm_user1` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Дамп данных таблицы `tm_task`
@@ -227,7 +267,8 @@ INSERT INTO `tm_task` (`id`, `title`, `user_id`, `date_create`) VALUES
 (5, 'Второй проект', 1, '2011-11-18 23:40:19'),
 (6, 'Тест', 1, '2011-11-18 23:41:01'),
 (7, 'Тест на удаление', 1, '2011-11-20 23:22:57'),
-(8, 'Вторая подзадача', 1, '2011-11-21 20:39:21');
+(8, 'Вторая подзадача', 1, '2011-11-21 20:39:21'),
+(9, '123', 1, '2011-11-22 08:21:56');
 
 -- --------------------------------------------------------
 
@@ -235,7 +276,6 @@ INSERT INTO `tm_task` (`id`, `title`, `user_id`, `date_create`) VALUES
 -- Структура таблицы `tm_task_attribute`
 --
 
-DROP TABLE IF EXISTS `tm_task_attribute`;
 CREATE TABLE IF NOT EXISTS `tm_task_attribute` (
   `task_id` int(10) unsigned NOT NULL,
   `attribute_key` varchar(255) NOT NULL,
@@ -252,6 +292,7 @@ CREATE TABLE IF NOT EXISTS `tm_task_attribute` (
 
 INSERT INTO `tm_task_attribute` (`task_id`, `attribute_key`, `type_id`, `attribute_value`) VALUES
 (3, 'description', 1, 'Test'),
+(3, 'description2', 2, ''),
 (3, 'full_text', 2, 'Big test'),
 (3, 'test_list', 3, 'Три '),
 (7, 'description', 1, 'Test');
@@ -262,7 +303,6 @@ INSERT INTO `tm_task_attribute` (`task_id`, `attribute_key`, `type_id`, `attribu
 -- Структура таблицы `tm_task_attribute_type`
 --
 
-DROP TABLE IF EXISTS `tm_task_attribute_type`;
 CREATE TABLE IF NOT EXISTS `tm_task_attribute_type` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(50) NOT NULL,
@@ -287,7 +327,6 @@ INSERT INTO `tm_task_attribute_type` (`id`, `title`, `handler`, `description`) V
 -- Структура таблицы `tm_task_discussion`
 --
 
-DROP TABLE IF EXISTS `tm_task_discussion`;
 CREATE TABLE IF NOT EXISTS `tm_task_discussion` (
   `task_id` int(10) unsigned NOT NULL,
   `discussion_id` int(10) unsigned NOT NULL,
@@ -295,13 +334,17 @@ CREATE TABLE IF NOT EXISTS `tm_task_discussion` (
   KEY `fk_tm_task_discussion_tm_discussion1` (`discussion_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Дамп данных таблицы `tm_task_discussion`
+--
+
+
 -- --------------------------------------------------------
 
 --
 -- Структура таблицы `tm_task_document`
 --
 
-DROP TABLE IF EXISTS `tm_task_document`;
 CREATE TABLE IF NOT EXISTS `tm_task_document` (
   `task_id` int(10) unsigned NOT NULL,
   `document_id` int(10) unsigned NOT NULL,
@@ -310,13 +353,19 @@ CREATE TABLE IF NOT EXISTS `tm_task_document` (
   KEY `fk_tm_task_document_tm_document1` (`document_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Дамп данных таблицы `tm_task_document`
+--
+
+INSERT INTO `tm_task_document` (`task_id`, `document_id`) VALUES
+(3, 10);
+
 -- --------------------------------------------------------
 
 --
 -- Структура таблицы `tm_task_hash`
 --
 
-DROP TABLE IF EXISTS `tm_task_hash`;
 CREATE TABLE IF NOT EXISTS `tm_task_hash` (
   `task_id` int(10) unsigned DEFAULT NULL,
   `attribute_key` varchar(255) NOT NULL,
@@ -334,6 +383,7 @@ CREATE TABLE IF NOT EXISTS `tm_task_hash` (
 
 INSERT INTO `tm_task_hash` (`task_id`, `attribute_key`, `title`, `type_id`, `list_value`) VALUES
 (NULL, 'description', 'Текстовое описание задачи', 1, ''),
+(NULL, 'description2', 'description', 2, ' '),
 (NULL, 'full_text', 'Большой текст', 2, ''),
 (NULL, 'test_list', 'Проверка списка', 3, 'Один||Два||Три ');
 
@@ -343,7 +393,6 @@ INSERT INTO `tm_task_hash` (`task_id`, `attribute_key`, `title`, `type_id`, `lis
 -- Структура таблицы `tm_task_relation`
 --
 
-DROP TABLE IF EXISTS `tm_task_relation`;
 CREATE TABLE IF NOT EXISTS `tm_task_relation` (
   `parent_id` int(10) unsigned NOT NULL,
   `child_id` int(10) unsigned NOT NULL,
@@ -368,7 +417,6 @@ INSERT INTO `tm_task_relation` (`parent_id`, `child_id`) VALUES
 -- Структура таблицы `tm_user`
 --
 
-DROP TABLE IF EXISTS `tm_user`;
 CREATE TABLE IF NOT EXISTS `tm_user` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `login` varchar(32) NOT NULL,
@@ -395,7 +443,6 @@ INSERT INTO `tm_user` (`id`, `login`, `password`, `role_id`, `date_create`) VALU
 -- Структура таблицы `tm_user_profile`
 --
 
-DROP TABLE IF EXISTS `tm_user_profile`;
 CREATE TABLE IF NOT EXISTS `tm_user_profile` (
   `user_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `profile_key` varchar(255) NOT NULL,
@@ -404,13 +451,17 @@ CREATE TABLE IF NOT EXISTS `tm_user_profile` (
   KEY `fk_tm_user_profile_tm_user1` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
+--
+-- Дамп данных таблицы `tm_user_profile`
+--
+
+
 -- --------------------------------------------------------
 
 --
 -- Структура таблицы `tm_user_role`
 --
 
-DROP TABLE IF EXISTS `tm_user_role`;
 CREATE TABLE IF NOT EXISTS `tm_user_role` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `title` varchar(32) NOT NULL,
@@ -539,7 +590,3 @@ ALTER TABLE `tm_user_profile`
   ADD CONSTRAINT `fk_tm_user_profile_tm_user1` FOREIGN KEY (`user_id`) REFERENCES `tm_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 SET FOREIGN_KEY_CHECKS=1;
 COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

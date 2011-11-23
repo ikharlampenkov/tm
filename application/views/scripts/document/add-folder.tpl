@@ -1,10 +1,10 @@
-<div class="page"><h1>Добавить документ</h1></div><br/>
+<div class="page"><h1>Добавить папку</h1></div><br/>
 
 {if isset($exception_msg)}
 <div>Ошибка: {$exception_msg}</div><br/>
 {/if}
 
-<form action="{$this->url(['controller' => $controller,'action' => 'add'])}" method="post" enctype="multipart/form-data">
+<form action="{$this->url(['controller' => $controller,'action' => 'addFolder'])}" method="post">
     <table width="100%">
         <tr>
             <td class="ttovar_title">Название</td>
@@ -25,10 +25,6 @@
         <tr>
             <td class="ttovar_title">Дата создания</td>
             <td class="ttovar"><input name="data[date_create]" value="{$document->dateCreate|date_format:"%d.%m.%Y %H:%M:%S"}"/></td>
-        </tr>
-        <tr>
-            <td class="ttovar_title">Файл</td>
-            <td class="ttovar"><input type="file" name="file"/></td>
         </tr>
     </table>
     <input id="save" name="save" type="submit" value="Сохранить"/>

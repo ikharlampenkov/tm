@@ -46,17 +46,29 @@ class TM_Acl_Acl extends Zend_Acl {
         $this->addResource(new Zend_Acl_Resource('task/addAttributeHash'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('task/editAttributeHash'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('task/deleteAttributeHash'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('task/deleteLinkToDoc'), 'admin_allow');
 
         $this->addResource(new Zend_Acl_Resource('document/index'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('document/add'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('document/edit'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('document/delete'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('document/addFolder'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('document/editFolder'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('document/addAttributeType'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('document/editAttributeType'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('document/deleteAttributeType'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('document/addAttributeHash'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('document/editAttributeHash'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('document/deleteAttributeHash'), 'admin_allow');
+
+        $this->addResource(new Zend_Acl_Resource('discussion/index'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('discussion/add'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('discussion/edit'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('discussion/delete'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('discussion/addTopic'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('discussion/editTopic'), 'admin_allow');
+
+        $this->addResource(new Zend_Acl_Resource('files/'), 'admin_allow');
 
         //...
 

@@ -1,21 +1,26 @@
 <?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: Administrator
+ * Date: 22.11.11
+ * Time: 15:38
+ * To change this template use File | Settings | File Templates.
+ */
+
 
 /*
+ * tm_discussion
+ *
  * id,
-  title,
+  message,
   date_create,
   user_id,
-  file,
-  is_folder,
+  is_first
+  topic_id
   parent_id
  */
 
-/**
- * class TM_Document_Document
- *
- */
-class TM_Document_Document
-{
+class TM_Discussion_Discussion {
 
     /** Aggregations: */
 
@@ -33,7 +38,7 @@ class TM_Document_Document
      *
      * @access protected
      */
-    protected $_title;
+    protected $_message;
 
     /**
      *
@@ -43,25 +48,28 @@ class TM_Document_Document
 
     /**
      *
+     * @var TM_User_User
      * @access protected
      */
     protected $_user = null;
 
-    protected $_file = null;
+    protected $_isFirst = false;
 
-    protected $_isFolder = false;
+    protected $_isMessage = false;
 
     /**
-     *
+     * @var TM_Discussion_Discussion
      * @access protected
      */
-    protected $_parentDocument = null;
+    protected $_topic = null;
 
     /**
-     * @var array
+     * @var TM_Discussion_Discussion
+     * @access protected
      */
-    protected $_attributeList = array();
+    protected $_parent = null;
 
+    
     /**
      *
      * @var StdLib_DB
@@ -87,9 +95,9 @@ class TM_Document_Document
      * @return string
      * @access public
      */
-    public function getTitle()
+    public function getMessage()
     {
-        return $this->_db->prepareStringToOut($this->_title);
+        return $this->_db->prepareStringToOut($this->_message);
     } // end of member function getTitle
 
     /**
@@ -135,9 +143,9 @@ class TM_Document_Document
      * @return void
      * @access public
      */
-    public function setTitle($value)
+    public function setMessage($value)
     {
-        $this->_title = $this->_db->prepareString($value);
+        $this->_message = $this->_db->prepareString($value);
     } // end of member function setTitle
 
     /**
@@ -167,24 +175,81 @@ class TM_Document_Document
         $this->_dateCreate = date("Y-m-d H:i:s", strtotime($value));
     } // end of member function setDateCreate
 
-    public function setIsFolder($isFolder)
+
+    public function setIsFirst($isFirst)
     {
-        $this->_isFolder = $isFolder;
+        $this->_isFirst = $isFirst;
     }
 
-    public function getIsFolder()
+    public function getIsFirst()
     {
-        return $this->_isFolder;
+        return $this->_isFirst;
     }
 
-    public function setFile($file)
+    public function setIsMessage($isMessage)
     {
-        $this->_file = $file;
+        $this->_isMessage = $isMessage;
     }
 
-    public function getFile()
+    public function getIsMessage()
     {
-        return $this->_file;
+        return $this->_isMessage;
+    }
+
+    /**
+     * @param TM_Discussion_Discussion $topic
+     */
+    public function setTopic($topic)
+    {
+        $this->_topic = $topic;
+    }
+
+    /**
+     * @return TM_Discussion_Discussion
+     */
+    public function getTopic()
+    {
+        return $this->_topic;
+    }
+
+    /**
+     *
+     *
+     * @return TM_Discussion_Discussion
+     * @access public
+     */
+    public function getParent()
+    {
+        return $this->_parent;
+    } // end of member function getParent
+
+    /**
+     *
+     *
+     * @param TM_Discussion_Discussion $parent
+
+     * @return void
+     * @access public
+     */
+    public function setParent(TM_Discussion_Discussion $parent)
+    {
+        $this->_parent = $parent;
+    } // end of member function addParent
+
+    public function isTopic() {
+        if ($this->_isMessage) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public function __get($name)
+    {
+        $method = "get{$name}";
+        if (method_exists($this, $method)) {
+            return $this->$method();
+        }
     }
 
     protected function _prepareBool($value)
@@ -196,30 +261,6 @@ class TM_Document_Document
         }
     }
 
-    /**
-     *
-     *
-     * @return TM_Document_Document
-     * @access public
-     */
-    public function getParent()
-    {
-        return $this->_parentDocument;
-    } // end of member function getParent
-
-    /**
-     *
-     *
-     * @param TM_Document_Document $parent
-
-     * @return void
-     * @access public
-     */
-    public function setParent(TM_Document_Document $parent)
-    {
-        $this->_parentDocument = $parent;
-    } // end of member function addParent
-
     protected function _prepareNull($value)
     {
         if (is_null($value) || empty($value)) {
@@ -230,24 +271,15 @@ class TM_Document_Document
 
     }
 
-    public function __get($name)
-    {
-        $method = "get{$name}";
-        if (method_exists($this, $method)) {
-            return $this->$method();
-        }
-    }
-
     /**
      *
      *
-     * @return TM_Document_Document
+     * @return TM_Discussion_Discussion
      * @access public
      */
     public function __construct()
     {
         $this->_db = StdLib_DB::getInstance();
-        $this->_file = new TM_FileManager_File(Zend_Registry::get('production')->files->path);
     } // end of member function __construct
 
     /**
@@ -259,27 +291,19 @@ class TM_Document_Document
     public function insertToDb()
     {
         try {
-            $sql = 'INSERT INTO tm_document(title, user_id, date_create, file, is_folder, parent_id)
-                    VALUES ("' . $this->_title . '", ' . $this->_user->getId() . ', "' . $this->_dateCreate . '", "",
-                             ' . $this->_prepareBool($this->_isFolder) . ', ' . $this->_prepareNull($this->_parentDocument->id) . ')';
+            $sql = 'INSERT INTO tm_discussion(message, user_id, date_create, is_first, is_message, topic_id, parent_id)
+                    VALUES ("' . $this->_message . '", ' . $this->_user->getId() . ', "' . $this->_dateCreate . '", 
+                             ' . $this->_prepareBool($this->_isFirst) . ', ' . $this->_prepareBool($this->_isMessage) . ', ' . $this->_prepareNull($this->_topic->id) . ', ' . $this->_prepareNull($this->_parent->id) . ')';
             $this->_db->query($sql);
 
             $this->_id = $this->_db->getLastInsertId();
-
-            if (!$this->_isFolder) {
-                $fName = $this->_file->download('file');
-                if ($fName !== false) {
-                    $sql = 'UPDATE tm_document SET file="' . $fName . '" WHERE id=' . $this->_id;
-                    $this->_db->query($sql);
-                }
-            }
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
     } // end of member function insertToDb
 
 
-    //title, date_create, user_id, file, is_folder, parent_id
+    //id, message, date_create, user_id, is_first, topic_id, parent_id
 
     /**
      *
@@ -290,20 +314,13 @@ class TM_Document_Document
     public function updateToDb()
     {
         try {
-            $sql = 'UPDATE tm_document
-                    SET title="' . $this->_title . '", user_id="' . $this->_user->getId() . '", date_create="' . $this->_dateCreate . '",
-                        is_folder=' . $this->_prepareBool($this->_isFolder) . ', parent_id=' . $this->_prepareNull($this->_parentDocument->id) . '
+            $sql = 'UPDATE tm_discussion
+                    SET message="' . $this->_message . '", user_id="' . $this->_user->getId() . '", date_create="' . $this->_dateCreate . '",
+                        is_first=' . $this->_prepareBool($this->_isFirst) . ', is_message=' . $this->_prepareBool($this->_isMessage) . ',
+                        topic_id=' . $this->_prepareNull($this->_topic->id) . ', parent_id=' . $this->_prepareNull($this->_parent->id) . '
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
 
-            if (!$this->_isFolder) {
-                $fName = $this->_file->download('file');
-                if ($fName !== false) {
-                    $sql = 'UPDATE tm_document SET file="' . $fName . '" WHERE id=' . $this->_id;
-                    $this->_db->query($sql);
-                }
-            }
-            $this->saveAttributeList();
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -318,9 +335,7 @@ class TM_Document_Document
     public function deleteFromDb()
     {
         try {
-            $this->_file->delete();
-
-            $sql = 'DELETE FROM tm_document
+            $sql = 'DELETE FROM tm_discussion
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
         } catch (Exception $e) {
@@ -333,7 +348,7 @@ class TM_Document_Document
      *
      * @param int $id идентификатор задачи
 
-     * @return TM_Document_Document
+     * @return TM_Discussion_Discussion
      * @static
      * @access public
      */
@@ -341,11 +356,11 @@ class TM_Document_Document
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_document WHERE id=' . (int)$id;
+            $sql = 'SELECT * FROM tm_discussion WHERE id=' . (int)$id;
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
-                $o = new TM_Document_Document();
+                $o = new TM_Discussion_Discussion();
                 $o->fillFromArray($result[0]);
                 return $o;
             } else {
@@ -361,14 +376,14 @@ class TM_Document_Document
      *
      * @param $user
      * @param array $values
-     * @return TM_Document_Document
+     * @return TM_Discussion_Discussion
      * @static
      * @access public
      */
     public static function getInstanceByArray($user, $values)
     {
         try {
-            $o = new TM_Document_Document();
+            $o = new TM_Discussion_Discussion();
             $o->fillFromArray($values);
             return $o;
         } catch (Exception $e) {
@@ -380,45 +395,35 @@ class TM_Document_Document
      *
      *
      * @param TM_User_User $user
-     * @param int $parentId
+     * @param int $topicId
 
      * @return array
      * @static
      * @access public
      */
-    public static function getAllInstance(TM_User_User $user, $parentId = 0, $isFolder = -1)
+    public static function getAllInstance(TM_User_User $user, $topicId = 0)
     {
         try {
             $db = StdLib_DB::getInstance();
 
-            if ($parentId > 0) {
-                $sql = 'SELECT * FROM tm_document
-                        WHERE parent_id=' . (int)$parentId;
-            } elseif ($parentId == -1) {
-                $sql = 'SELECT * FROM tm_document ';
-            } elseif ($parentId == 0) {
-                $sql = 'SELECT * FROM tm_document
-                        WHERE parent_id IS NULL ';
+            $sql = '';
+            if ($topicId > 0) {
+                $sql = 'SELECT * FROM tm_discussion
+                        WHERE topic_id=' . (int)$topicId;
+            } elseif ($topicId == -1) {
+                $sql = 'SELECT * FROM tm_discussion ';
+            } elseif ($topicId == 0) {
+                $sql = 'SELECT * FROM tm_discussion
+                        WHERE topic_id IS NULL AND parent_id IS NULL AND is_message=0';
             }
 
-            if ($parentId == -1 && $isFolder != -1) {
-                $sql .= ' WHERE ';
-            } elseif ($isFolder != -1) {
-                $sql .= ' AND ';
-            }
-
-            if ($isFolder == 1) {
-                $sql .= ' is_folder=1';
-            } elseif ($isFolder == 0) {
-                $sql .= ' is_folder=0';
-            }
-
+            $sql .= ' ORDER BY parent_id';
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
                 $retArray = array();
                 foreach ($result as $res) {
-                    $retArray[] = TM_Document_Document::getInstanceByArray($user, $res);
+                    $retArray[] = TM_Discussion_Discussion::getInstanceByArray($user, $res);
                 }
                 return $retArray;
             } else {
@@ -429,17 +434,58 @@ class TM_Document_Document
         }
     } // end of member function getAllInstance
 
-    public static function getDocumentByTask(TM_User_User $user, TM_Task_Task $task)
+    /**
+     *
+     *
+     * @param TM_User_User $user
+     * @param int $topicId
+
+     * @return array
+     * @static
+     * @access public
+     */
+    public static function getParentList(TM_User_User $user, $topicId = 0)
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_document, tm_task_document WHERE tm_document.id=tm_task_document.document_id AND tm_task_document.task_id=' . $task->getId();
+
+            $sql = '';
+            if ($topicId > 0) {
+                $sql = 'SELECT * FROM tm_discussion
+                        WHERE topic_id=' . (int)$topicId . ' AND is_message=1';
+            } elseif ($topicId == 0) {
+                $sql = 'SELECT * FROM tm_discussion
+                        WHERE topic_id IS NOT NULL AND is_message=1 ';
+            }
+
+            $sql .= ' ORDER BY parent_id';
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
                 $retArray = array();
                 foreach ($result as $res) {
-                    $retArray[] = TM_Document_Document::getInstanceByArray($user, $res);
+                    $retArray[] = TM_Discussion_Discussion::getInstanceByArray($user, $res);
+                }
+                return $retArray;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    } // end of member function getAllInstance
+
+    public static function getDiscussionByTask(TM_User_User $user, TM_Task_Task $task)
+    {
+        try {
+            $db = StdLib_DB::getInstance();
+            $sql = 'SELECT * FROM tm_discussion, tm_task_discussion WHERE tm_discussion.id=tm_task_discussion.discussion_id AND tm_task_discussion.task_id=' . $task->getId();
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+
+            if (isset($result[0])) {
+                $retArray = array();
+                foreach ($result as $res) {
+                    $retArray[] = TM_Discussion_Discussion::getInstanceByArray($user, $res);
                 }
                 return $retArray;
             } else {
@@ -453,7 +499,7 @@ class TM_Document_Document
     public function setLinkToTask($task)
     {
         try {
-            $sql = 'INSERT INTO tm_task_document(task_id, document_id) VALUES(' . $task->id . ', ' . $this->_id . ')';
+            $sql = 'INSERT INTO tm_task_discussion(task_id, discussion_id) VALUES(' . $task->id . ', ' . $this->_id . ')';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -463,7 +509,7 @@ class TM_Document_Document
     public function deleteLinkToTask($task)
     {
         try {
-            $sql = 'DELETE FROM tm_task_document WHERE task_id=' . $task->id . ' AND document_id=' . $this->_id;
+            $sql = 'DELETE FROM tm_task_discussion WHERE task_id=' . $task->id . ' AND discussion_id=' . $this->_id;
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -482,89 +528,34 @@ class TM_Document_Document
     public function fillFromArray($values)
     {
         $this->setId($values['id']);
-        $this->setTitle($values['title']);
+        $this->setMessage($values['message']);
         $this->setDateCreate($values['date_create']);
 
         $o_user = TM_User_User::getInstanceById($values['user_id']);
         $this->setUser($o_user);
 
-        $this->_file->setName($values['file']);
-        $this->setIsFolder($values['is_folder']);
+        $this->setIsFirst($values['is_first']);
+        $this->setIsMessage($values['is_message']);
 
-        $oDocument = TM_Document_Document::getInstanceById($values['parent_id']);
-        if ($oDocument !== false) {
-            $this->setParent($oDocument);
+        $oTopic = TM_Discussion_Discussion::getInstanceById($values['topic_id']);
+        if ($oTopic !== false) {
+            $this->setTopic($oTopic);
         }
 
-        $this->getAttributeList();
+        $oTopic = TM_Discussion_Discussion::getInstanceById($values['parent_id']);
+        if ($oTopic !== false) {
+            $this->setParent($oTopic);
+        }
+
     } // end of member function fillFromArray
 
-    public function getAttributeList()
-    {
-        if (is_null($this->_attributeList) || empty($this->_attributeList)) {
-            try {
-                $attributeList = TM_Attribute_Attribute::getAllInstance(new TM_Document_AttributeMapper(), $this);
-                if ($attributeList !== false) {
-                    foreach ($attributeList as $attribute) {
-                        $this->_attributeList[$attribute->attribyteKey] = $attribute;
-                    }
-                }
 
-                return $this->_attributeList;
-            } catch (Exception $e) {
-                throw new Exception($e->getMessage());
-            }
-        } else {
-            return $this->_attributeList;
-        }
-    }
-
-    public function getAttribute($key)
-    {
-        return $this->_attributeList[$key];
-    }
-
-    public function setAttribute($key, $value)
-    {
-        if ($this->searchAttribute($key)) {
-            $this->_attributeList[$key]->setValue($value);
-
-        } else {
-            $oHash = TM_Document_Hash::getInstanceById($key);
-            $oAttribute = new TM_Attribute_Attribute(new TM_Document_AttributeMapper(), $this);
-            $oAttribute->setAttribyteKey($key);
-            $oAttribute->setType($oHash->getType());
-            $oAttribute->setValue($value);
-
-            $this->_attributeList[$key] = $oAttribute;
-            $oAttribute->insertToDB();
-        }
-    }
-
-    public function searchAttribute($needle)
-    {
-        if (is_null($this->_attributeList) && !empty($this->_attributeList)) {
-            return false;
-        } else {
-            return array_key_exists($needle, $this->_attributeList);
-        }
-    }
-
-    protected function saveAttributeList()
-    {
-        if (!is_null($this->_attributeList) && !empty($this->_attributeList)) {
-            foreach ($this->_attributeList as $attribute) {
-                $attribute->updateToDB();
-            }
-        }
-    }
-
-    public function getPathToDocument(&$pathArray = array())
+    public function getPathToDiscussion(&$pathArray = array())
     {
         try {
-            if (!is_null($this->_parentDocument)) {
-                $pathArray[] = $this->_parentDocument;
-                $this->_parentDocument->getPathToDocument($pathArray);
+            if (!is_null($this->_parent)) {
+                $pathArray[] = $this->_parent;
+                $this->_parent->getPathToDiscussion($pathArray);
             }
             return array_reverse($pathArray);
         } catch (Exception $e) {

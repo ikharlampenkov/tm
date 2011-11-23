@@ -32,6 +32,7 @@ class DocumentController extends Zend_Controller_Action
         $oDocument = new TM_Document_Document();
         $oDocument->setUser($this->_user);
         $oDocument->setDateCreate(date('d.m.Y H:i:s'));
+        $oDocument->setIsFolder(false);
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
@@ -39,7 +40,70 @@ class DocumentController extends Zend_Controller_Action
             $oDocument->setDateCreate($data['date_create']);
 
             if (!empty($data['parentDocument'])) {
-                $oDocument->addParent(TM_Document_Document::getInstanceById($data['parentDocument']));
+                $oDocument->setParent(TM_Document_Document::getInstanceById($data['parentDocument']));
+            }
+
+            try {
+                $oDocument->insertToDb();
+                $this->_redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
+            } catch (Exception $e) {
+                $this->view->assign('exception_msg', $e->getMessage());
+            }
+
+        }
+
+        $this->view->assign('parentList', TM_Document_Document::getAllInstance($this->_user, -1, 1));
+        $this->view->assign('document', $oDocument);
+    }
+
+    public function editAction()
+    {
+        $oDocument = TM_Document_Document::getInstanceById($this->getRequest()->getParam('id'));
+
+        if ($this->getRequest()->isPost()) {
+            $data = $this->getRequest()->getParam('data');
+            $oDocument->setTitle($data['title']);
+            $oDocument->setDateCreate($data['date_create']);
+            $oDocument->setIsFolder(false);
+
+            if (!empty($data['parentDocument'])) {
+                $oDocument->setParent(TM_Document_Document::getInstanceById($data['parentDocument']));
+            }
+
+            foreach ($data['attribute'] as $key => $value) {
+                $oDocument->setAttribute($key, $value);
+            }
+
+            try {
+                $oDocument->updateToDb();
+                $this->_redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
+            } catch (Exception $e) {
+                $this->view->assign('exception_msg', $e->getMessage());
+            }
+
+        }
+
+        $this->view->assign('parentList', TM_Document_Document::getAllInstance($this->_user, -1, 1));
+        $this->view->assign('attributeHashList', TM_Document_Hash::getAllInstance());
+        $this->view->assign('taskList', TM_Task_Task::getTaskByDocument($this->_user, $oDocument));
+        $this->view->assign('document', $oDocument);
+    }
+
+    public function addfolderAction()
+    {
+        $oDocument = new TM_Document_Document();
+        $oDocument->setUser($this->_user);
+        $oDocument->setDateCreate(date('d.m.Y H:i:s'));
+        $oDocument->setIsFolder(true);
+
+        if ($this->getRequest()->isPost()) {
+            $data = $this->getRequest()->getParam('data');
+            $oDocument->setTitle($data['title']);
+            $oDocument->setDateCreate($data['date_create']);
+
+
+            if (!empty($data['parentDocument'])) {
+                $oDocument->setParent(TM_Document_Document::getInstanceById($data['parentDocument']));
             }
 
             try {
@@ -55,7 +119,7 @@ class DocumentController extends Zend_Controller_Action
         $this->view->assign('document', $oDocument);
     }
 
-    public function editAction()
+    public function editfolderAction()
     {
         $oDocument = TM_Document_Document::getInstanceById($this->getRequest()->getParam('id'));
 
@@ -65,7 +129,7 @@ class DocumentController extends Zend_Controller_Action
             $oDocument->setDateCreate($data['date_create']);
 
             if (!empty($data['parentDocument'])) {
-                $oDocument->addParent(TM_Document_Document::getInstanceById($data['parentDocument']));
+                $oDocument->setParent(TM_Document_Document::getInstanceById($data['parentDocument']));
             }
 
             foreach ($data['attribute'] as $key => $value) {
