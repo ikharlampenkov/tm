@@ -3,17 +3,7 @@
   <component name="ChangeListManager">
     <list id="208ba09b-a62b-410e-864b-4a7f61a529f8" name="Default" comment="" />
     <list default="true" id="1e15cf3c-e4a0-4479-b6be-8d8a44301a05" name="New changelist" comment="Начаты обсуждения">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/discussion/edit-topic.tpl" />
-      <change type="DELETED" beforePath="E:\www\tm\application\views\scripts\discussion\edit-folder.tpl" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Administrator.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Administrator.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Bootstrap.php" afterPath="$PROJECT_DIR$/application/Bootstrap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/DiscussionController.php" afterPath="$PROJECT_DIR$/application/controllers/DiscussionController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Discussion/Discussion.php" afterPath="$PROJECT_DIR$/application/models/TM/Discussion/Discussion.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/discussion/index.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/discussion/index.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/document/edit-folder.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/document/edit-folder.tpl" />
-      <change type="MOVED" beforePath="E:\www\tm\application\views\scripts\discussion\add-folder.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/discussion/add-topic.tpl" />
-      <change type="MOVED" beforePath="E:\www\tm\library\TM\View\Smarty.php" afterPath="$PROJECT_DIR$/library/StdLib/Smarty.php" />
     </list>
     <ignored path="tm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -117,8 +107,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Favorites" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -327,19 +315,21 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Favorites" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="options.lastSelected" value="reference.settings.deploy.options" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
   </component>
   <component name="PublishConfig" serverName="timeweb" serverId="18d3169c-c6b0-4866-b0e2-1f1eb4b2354d" autoUpload="true">
     <servers>
@@ -451,17 +441,17 @@
     <frame x="-4" y="-4" width="1928" height="1044" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1553829" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32741398" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32632744" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Phing Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995194" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32964602" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2626802" sideWeight="0.26327434" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995194" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33422318" sideWeight="0.84461707" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3384944" sideWeight="0.67367256" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26415095" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26327434" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1553829" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -548,103 +538,72 @@
     </entry>
     <entry file="file://C:/PHP/PEAR/pear/PhpDocumentor/phpDocumentor/Smarty-2.6.0/libs/Smarty.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="596" column="13" selection-start="16056" selection-end="16056" vertical-scroll-proportion="12.991678">
-          <folding />
-        </state>
+        <state line="596" column="13" selection-start="16056" selection-end="16056" vertical-scroll-proportion="12.991678" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/library/Smarty/Smarty.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.6269071">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.6269071" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/Bootstrap.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="33" selection-start="40" selection-end="40" vertical-scroll-proportion="0.046321526">
-          <folding />
-        </state>
+        <state line="2" column="33" selection-start="40" selection-end="40" vertical-scroll-proportion="0.046321526" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/library/StdLib/DB.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="20" selection-start="1194" selection-end="1194" vertical-scroll-proportion="1.2970027">
-          <folding />
-        </state>
+        <state line="56" column="20" selection-start="1194" selection-end="1194" vertical-scroll-proportion="1.2970027" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/library/StdLib/Smarty.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="12" selection-start="169" selection-end="169" vertical-scroll-proportion="0.23160763">
-          <folding />
-        </state>
+        <state line="10" column="12" selection-start="169" selection-end="169" vertical-scroll-proportion="0.23160763" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/library/StdLib/simo_smarty.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.6253406">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.6253406" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/document/add.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/document/edit.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/document/edit-folder.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="42" selection-start="505" selection-end="505" vertical-scroll-proportion="0.31798562">
-          <folding />
-        </state>
+        <state line="13" column="42" selection-start="505" selection-end="505" vertical-scroll-proportion="0.31798562" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/discussion/add-topic.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="128" selection-end="1258" vertical-scroll-proportion="0.15813954">
-          <folding />
-        </state>
+        <state line="6" column="0" selection-start="128" selection-end="1258" vertical-scroll-proportion="0.15813954" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/discussion/edit-topic.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="7" selection-start="1287" selection-end="1287" vertical-scroll-proportion="0.7338129">
-          <folding />
-        </state>
+        <state line="30" column="7" selection-start="1287" selection-end="1287" vertical-scroll-proportion="0.7338129" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/DiscussionController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="83" selection-start="872" selection-end="872" vertical-scroll-proportion="0.57901907">
-          <folding />
-        </state>
+        <state line="25" column="83" selection-start="872" selection-end="872" vertical-scroll-proportion="0.57901907" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/discussion/index.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="36" selection-start="966" selection-end="966" vertical-scroll-proportion="0.4676259">
-          <folding />
-        </state>
+        <state line="23" column="36" selection-start="966" selection-end="966" vertical-scroll-proportion="0.4676259" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/TM/Discussion/Discussion.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="232" column="24" selection-start="4033" selection-end="4033" vertical-scroll-proportion="0.58945906">
-          <folding>
-            <marker date="1322042029908" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..tm_discussion..." />
-            <marker date="1322042029908" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..tm_discussion..." />
-          </folding>
-        </state>
+        <state line="232" column="24" selection-start="4033" selection-end="4033" vertical-scroll-proportion="0.58945906" />
       </provider>
     </entry>
   </component>
