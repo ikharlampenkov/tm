@@ -93,7 +93,7 @@ class TaskController extends Zend_Controller_Action
         }
 
         $this->view->assign('parentList', TM_Task_Task::getAllInstance($this->_user), -1);
-        $this->view->assign('attributeHashList', TM_Task_Hash::getAllInstance());
+        $this->view->assign('attributeHashList', TM_Task_Hash::getAllInstance($oTask));
         $this->view->assign('documentList', TM_Document_Document::getDocumentByTask($this->_user, $oTask));
         $this->view->assign('task', $oTask);
     }

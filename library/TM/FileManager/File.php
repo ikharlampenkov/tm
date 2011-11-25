@@ -42,11 +42,37 @@ class TM_FileManager_File {
     /**
      *
      *
-     * @param string path
 
-     * @param string name
+     * @return string
+     * @access public
+     */
+    public function getName() {
+        return $this->_name;
+    }
 
-     * @return
+    public function setName($value) {
+        $this->_name = $value;
+        $this->_ext = $this->extractExt($value);
+    }
+
+    public function getPath()
+    {
+        return $this->_path;
+    }
+
+    public function setSubPath($folder)
+    {
+        $this->_path .= '/' . $folder;
+    }
+
+    /**
+     *
+     *
+     * @param string $path
+
+     * @param string $name
+
+     * @return TM_FileManager_File
      * @access public
      */
     public function __construct($path, $name = '') {
@@ -57,8 +83,6 @@ class TM_FileManager_File {
             $this->_ext = $this->extractExt($this->_name);
         }
     }
-
-// end of member function __construct
 
     /**
      *
@@ -91,7 +115,7 @@ class TM_FileManager_File {
     /**
      *
      *
-     * @return
+     * @return void
      * @access public
      */
     public function delete() {
@@ -102,30 +126,11 @@ class TM_FileManager_File {
             }
         }
     }
-
-// end of member function delete
-
+    
     /**
      *
      *
-
-     * @return string
-     * @access public
-     */
-    public function getName() {
-        return $this->_name;
-    }
-
-// end of member function getName
-
-    public function setName($value) {
-        $this->_name = $value;
-        $this->_ext = $this->extractExt($value);
-    }
-
-    /**
-     *
-     *
+     * @param string $name
      * @return string
      * @access protected
      */

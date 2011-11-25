@@ -91,6 +91,18 @@ class DiscussionController extends Zend_Controller_Action
         $this->view->assign('discussion', $oDiscussion);
     }
 
+    public function deleteAction()
+    {
+        $oDiscussion = TM_Discussion_Discussion::getInstanceById($this->getRequest()->getParam('id'));
+        try {
+            $oDiscussion->deleteFromDB();
+            $this->_redirect('/discussion/index/parent/' . $this->getRequest()->getParam('parent', 0));
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+
+        }
+    }
+
     public function addtopicAction()
     {
         $oDiscussion = new TM_Discussion_Discussion();
@@ -150,7 +162,7 @@ class DiscussionController extends Zend_Controller_Action
         $this->view->assign('discussion', $oDiscussion);
     }
 
-    public function deleteAction()
+    public function deletetopicAction()
     {
         $oDiscussion = TM_Discussion_Discussion::getInstanceById($this->getRequest()->getParam('id'));
         try {
@@ -160,7 +172,5 @@ class DiscussionController extends Zend_Controller_Action
             throw new Exception($e->getMessage());
 
         }
-        // action body
     }
-
 }

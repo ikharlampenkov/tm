@@ -296,17 +296,24 @@ class TM_Task_Hash
 
     /**
      *
-     *
+     * @param $object
 
      * @return array
      * @static
      * @access public
      */
-    public static function getAllInstance()
+    public static function getAllInstance($object = null)
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_task_hash';
+            $sql = 'SELECT tm_task_hash.attribute_key, title, tm_task_hash.type_id, list_value FROM tm_task_hash';
+
+            if (!is_null($object)) {
+                $sql .= ' LEFT JOIN tm_task_attribute ON tm_task_hash.attribute_key=tm_task_attribute.attribute_key
+                          WHERE tm_task_attribute.task_id=' . $object->id . ' 
+                          ORDER BY is_fill DESC, title';
+            }
+
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {

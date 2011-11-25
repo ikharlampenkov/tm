@@ -5,45 +5,65 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a46b928-ce36-4d2c-8e4a-e9e052a0178c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/controllers/DiscussionController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/TM/Discussion/Discussion.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/discussion/add-topic.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/discussion/add.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/discussion/edit-topic.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/discussion/edit.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/discussion/index.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/document/add-folder.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/document/edit-folder.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/149ff79b9b1b6edb4d853f897deb9d4cedc3b173.file.error.tpl.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/7c4872987174648bce0d1132080eb1e3f622c8b9.file.layout.tpl.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/c04d3e4e2325d160f212a24f2e1901b3314f198b.file.add.tpl.php" />
-      <change type="DELETED" beforePath="F:\www\tm\.idea\dictionaries\Moris.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\tm\application\models\Login.php" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\tm\application\models\TM\Discussion\TM_Discussion_Discussion.php" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\tm\private\classes\simo.php" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\tm\private\config\simo_conf.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/tm.iml" afterPath="$PROJECT_DIR$/.idea/tm.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/StdLib/Functions.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/library/TM/FileManager/Folder.php" />
+      <change type="DELETED" beforePath="F:\www\tm\library\StdLib\simo_functions.php" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\admin\client.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\admin\contacts.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\admin\content_page.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\admin\document.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\admin\faq.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\admin\index.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\admin\license.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\admin\news.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\admin\partner.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\admin\personal.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\admin\project.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\admin\review.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\admin\service.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\admin\service_order.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\admin\smi.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\admin\user.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\admin\vacancy.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\client.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\contacts.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\content_page.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\document.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\error_msg.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\faq.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\index.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\index_old.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\license.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\login.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\news.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\partner.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\personal.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\project.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\review.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\service.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\service_order.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\smi.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\private\smartytemplates\templates\vacancy.tpl" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\~Documents\cl71252_tm.sql" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\~Documents\sibnii.sql" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\~Documents\tm.sql" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/~Documents/model.mwb.bak" afterPath="$PROJECT_DIR$/~Documents/model.mwb.bak" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/~Documents/model.mwb" afterPath="$PROJECT_DIR$/~Documents/model.mwb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Administrator.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Administrator.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="$PROJECT_DIR$/.idea/php.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Bootstrap.php" afterPath="$PROJECT_DIR$/application/Bootstrap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/DiscussionController.php" afterPath="$PROJECT_DIR$/application/controllers/DiscussionController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/DocumentController.php" afterPath="$PROJECT_DIR$/application/controllers/DocumentController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/TaskController.php" afterPath="$PROJECT_DIR$/application/controllers/TaskController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Discussion/Discussion.php" afterPath="$PROJECT_DIR$/application/models/TM/Discussion/Discussion.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Document/AttributeMapper.php" afterPath="$PROJECT_DIR$/application/models/TM/Document/AttributeMapper.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Document/Document.php" afterPath="$PROJECT_DIR$/application/models/TM/Document/Document.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Document/Hash.php" afterPath="$PROJECT_DIR$/application/models/TM/Document/Hash.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Task/AttributeMapper.php" afterPath="$PROJECT_DIR$/application/models/TM/Task/AttributeMapper.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Task/Hash.php" afterPath="$PROJECT_DIR$/application/models/TM/Task/Hash.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Task/Task.php" afterPath="$PROJECT_DIR$/application/models/TM/Task/Task.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/document/add.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/document/add.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/document/edit.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/document/edit.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/document/index.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/document/index.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/task/edit.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/task/edit.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/StdLib/DB.php" afterPath="$PROJECT_DIR$/library/StdLib/DB.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/TM/Acl/Acl.php" afterPath="$PROJECT_DIR$/library/TM/Acl/Acl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/TM/FileManager/File.php" afterPath="$PROJECT_DIR$/library/TM/FileManager/File.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/TM/FileManager/Image.php" afterPath="$PROJECT_DIR$/library/TM/FileManager/Image.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/logs/syslog.txt" afterPath="$PROJECT_DIR$/runtime/logs/syslog.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/~Documents/cl71252_tm.sql" afterPath="$PROJECT_DIR$/~Documents/cl71252_tm.sql" />
-      <change type="MOVED" beforePath="F:\www\tm\library\TM\View\Smarty.php" afterPath="$PROJECT_DIR$/library/StdLib/Smarty.php" />
+      <change type="MOVED" beforePath="F:\www\tm\text.txt" afterPath="$PROJECT_DIR$/~Documents/text.txt" />
     </list>
     <list id="00e427c4-974d-456c-90de-87c345acaa21" name="Failed commit: Доделать схему UML" comment="Добавлена поддержка ZendFramework и Smarty" />
     <ignored path="tm.iws" />
@@ -72,64 +92,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Discussion.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/TM/Discussion/Discussion.php">
+      <file leaf-file-name="Folder.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/library/TM/FileManager/Folder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="242" column="24" selection-start="4124" selection-end="4124" vertical-scroll-proportion="-16.32">
+            <state line="47" column="58" selection-start="1079" selection-end="1079" vertical-scroll-proportion="0.6819961">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="syslog.txt" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/runtime/logs/syslog.txt">
+      <file leaf-file-name="Document.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/TM/Document/Document.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2417" column="40" selection-start="99697" selection-end="99751" vertical-scroll-proportion="0.0">
+            <state line="339" column="87" selection-start="7541" selection-end="7541" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DiscussionController.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/controllers/DiscussionController.php">
+      <file leaf-file-name="File.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/library/TM/FileManager/File.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="39" selection-start="1149" selection-end="1149" vertical-scroll-proportion="-1.0645792">
+            <state line="128" column="4" selection-start="2520" selection-end="2520" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.tpl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/scripts/discussion/index.tpl">
+      <file leaf-file-name="DocumentController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/DocumentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="42" selection-start="1375" selection-end="1375" vertical-scroll-proportion="-19.615385">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add-topic.tpl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/scripts/discussion/add-topic.tpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="128" selection-end="1258" vertical-scroll-proportion="-3.9230769">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add.tpl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/scripts/discussion/add.tpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="40" selection-start="40" selection-end="40" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit.tpl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/scripts/discussion/edit.tpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="45" selection-start="45" selection-end="45" vertical-scroll-proportion="-0.0">
+            <state line="37" column="117" selection-start="1400" selection-end="1400" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -161,22 +154,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/application/models/TM/Attribute/AttributeType.php" />
-        <option value="$PROJECT_DIR$/application/models/TM/Attribute/AttributeTypeList.php" />
-        <option value="$PROJECT_DIR$/application/models/TM/Attribute/AttributeTypeText.php" />
+        <option value="$PROJECT_DIR$/application/controllers/TaskController.php" />
+        <option value="$PROJECT_DIR$/application/models/TM/Document/AttributeMapper.php" />
         <option value="$PROJECT_DIR$/application/models/TM/Task/AttributeMapper.php" />
-        <option value="$PROJECT_DIR$/library/TM/FileManager/File.php" />
-        <option value="$PROJECT_DIR$/library/TM/FileManager/Image.php" />
-        <option value="$PROJECT_DIR$/application/configs/application.ini" />
-        <option value="$PROJECT_DIR$/application/models/TM/Document/Document.php" />
-        <option value="$PROJECT_DIR$/application/views/scripts/document/add.tpl" />
-        <option value="$PROJECT_DIR$/application/views/scripts/document/edit.tpl" />
-        <option value="$PROJECT_DIR$/application/views/scripts/discussion/index.tpl" />
-        <option value="$PROJECT_DIR$/application/views/scripts/discussion/edit-topic.tpl" />
-        <option value="$PROJECT_DIR$/application/views/scripts/discussion/add.tpl" />
-        <option value="$PROJECT_DIR$/application/views/scripts/discussion/edit.tpl" />
+        <option value="$PROJECT_DIR$/application/models/TM/Document/Hash.php" />
+        <option value="$PROJECT_DIR$/application/models/TM/Task/Hash.php" />
         <option value="$PROJECT_DIR$/application/models/TM/Discussion/Discussion.php" />
+        <option value="$PROJECT_DIR$/application/models/TM/Task/Task.php" />
+        <option value="$PROJECT_DIR$/runtime/logs/syslog.txt" />
+        <option value="$PROJECT_DIR$/library/TM/Acl/Acl.php" />
         <option value="$PROJECT_DIR$/application/controllers/DiscussionController.php" />
+        <option value="$PROJECT_DIR$/library/StdLib/simo_functions.php" />
+        <option value="$PROJECT_DIR$/library/StdLib/Functions.php" />
+        <option value="$PROJECT_DIR$/application/controllers/DocumentController.php" />
+        <option value="$PROJECT_DIR$/application/models/TM/Document/Document.php" />
+        <option value="$PROJECT_DIR$/library/TM/FileManager/File.php" />
+        <option value="$PROJECT_DIR$/library/TM/FileManager/Folder.php" />
       </list>
     </option>
   </component>
@@ -230,7 +223,7 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Favorites" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -292,24 +285,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="public_html" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="private" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="smartytemplates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -545,6 +520,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Task" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Document" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -592,10 +593,6 @@
               <option name="myItemId" value="layouts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -635,7 +632,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -864,10 +861,10 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32793137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Phing Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995194" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32888466" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2082221" sideWeight="0.36796948" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21356113" sideWeight="0.32507148" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2082221" sideWeight="0.67206866" order="0" side_tool="false" content_ui="tabs" x="20" y="68" width="485" height="1049" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21356113" sideWeight="0.6673022" order="0" side_tool="false" content_ui="tabs" x="20" y="68" width="485" height="1049" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983795" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32793137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -948,104 +945,114 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/library/TM/FileManager/File.php">
+    <entry file="file://$PROJECT_DIR$/application/models/TM/Document/Hash.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="21" selection-start="38" selection-end="53" vertical-scroll-proportion="0.099804305" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/configs/application.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="53" selection-start="1220" selection-end="1220" vertical-scroll-proportion="0.61545986" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/StdLib/DB.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="49" selection-start="671" selection-end="681" vertical-scroll-proportion="0.48238748" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/document/add.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="33" selection-start="33" selection-end="33" vertical-scroll-proportion="-0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/document/edit.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="44" selection-start="44" selection-end="44" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/document/index.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="311" column="54" selection-start="7165" selection-end="7165" vertical-scroll-proportion="0.45107633">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/DocumentController.php">
+    <entry file="file://$PROJECT_DIR$/application/models/TM/Task/Hash.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="27" selection-start="4767" selection-end="4772" vertical-scroll-proportion="0.58219177">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/TM/Document/Document.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="217" column="24" selection-start="3466" selection-end="3470" vertical-scroll-proportion="0.332999">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/discussion/edit-topic.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="99" selection-start="232" selection-end="232" vertical-scroll-proportion="0.10240964">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/discussion/add-topic.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="128" selection-end="1258" vertical-scroll-proportion="-3.9230769">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/discussion/index.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="42" selection-start="1375" selection-end="1375" vertical-scroll-proportion="-19.615385">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/discussion/add.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="40" selection-start="40" selection-end="40" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/discussion/edit.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="45" selection-start="45" selection-end="45" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/runtime/logs/syslog.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2417" column="40" selection-start="99697" selection-end="99751" vertical-scroll-proportion="0.0">
+        <state line="313" column="54" selection-start="7052" selection-end="7052" vertical-scroll-proportion="0.5841487">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/TM/Discussion/Discussion.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="242" column="24" selection-start="4124" selection-end="4124" vertical-scroll-proportion="-16.32">
+        <state line="555" column="20" selection-start="13653" selection-end="13653" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/runtime/logs/syslog.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3010" column="30" selection-start="180487" selection-end="180537" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/TM/Task/Task.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="232" column="32" selection-start="4368" selection-end="4368" vertical-scroll-proportion="0.50097847">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/TM/Acl/Acl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="70" column="67" selection-start="4270" selection-end="4270" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/DiscussionController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="39" selection-start="1149" selection-end="1149" vertical-scroll-proportion="-1.0645792">
+        <state line="103" column="5" selection-start="4049" selection-end="4049" vertical-scroll-proportion="0.9148728">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_5.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="823" column="9" selection-start="24473" selection-end="24473" vertical-scroll-proportion="0.33268103">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/mbstring.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="359" column="9" selection-start="11532" selection-end="11532" vertical-scroll-proportion="0.5322896">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_1.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="612" column="9" selection-start="17606" selection-end="17606" vertical-scroll-proportion="0.46575344">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/_standard_manual.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="9" selection-start="371" selection-end="371" vertical-scroll-proportion="0.11643836">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/DocumentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="117" selection-start="1400" selection-end="1400" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/TM/Document/Document.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="339" column="87" selection-start="7541" selection-end="7541" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/StdLib/Functions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="13" selection-start="1873" selection-end="1873" vertical-scroll-proportion="0.6233895">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/TM/FileManager/File.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="128" column="4" selection-start="2520" selection-end="2520" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/TM/FileManager/Folder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="58" selection-start="1079" selection-end="1079" vertical-scroll-proportion="0.6819961">
           <folding />
         </state>
       </provider>

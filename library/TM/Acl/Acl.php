@@ -54,6 +54,7 @@ class TM_Acl_Acl extends Zend_Acl {
         $this->addResource(new Zend_Acl_Resource('document/delete'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('document/addFolder'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('document/editFolder'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('document/deleteFolder'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('document/addAttributeType'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('document/editAttributeType'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('document/deleteAttributeType'), 'admin_allow');
@@ -67,6 +68,7 @@ class TM_Acl_Acl extends Zend_Acl {
         $this->addResource(new Zend_Acl_Resource('discussion/delete'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('discussion/addTopic'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('discussion/editTopic'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('discussion/deleteTopic'), 'admin_allow');
 
         $this->addResource(new Zend_Acl_Resource('files/'), 'admin_allow');
 
