@@ -1,14 +1,22 @@
 <?php
-
 /**
- * class TM_User_Role
- * 
+ * Created by JetBrains PhpStorm.
+ * User: Moris
+ * Date: 26.11.11
+ * Time: 14:47
+ * To change this template use File | Settings | File Templates.
  */
-class TM_User_Role
-{
-    
+ 
+class TM_User_Resource {
+
+    /**
+     * @var int
+     */
     protected $_id;
 
+    /**
+     * @var string
+     */
     protected $_title;
 
     protected $_db;
@@ -42,14 +50,22 @@ class TM_User_Role
     }
 
 
+    /**
+     * @return TM_User_Resource
+     */
     public function __construct() {
         $this->_db = StdLib_DB::getInstance();
     }
 
+    /**
+     * @throws Exception
+     * @return void
+     */
+
     public function insertToDB()
     {
         try {
-            $sql = 'INSERT INTO tm_user_role(title)
+            $sql = 'INSERT INTO tm_user_resource(title)
                     VALUES ("' . $this->_title . '")';
             $this->_db->query($sql);
         } catch (Exception $e) {
@@ -67,8 +83,8 @@ class TM_User_Role
     public function updateToDB()
     {
         try {
-            $sql = 'UPDATE tm_user_role
-                    SET title="' . $this->_title . '" 
+            $sql = 'UPDATE tm_user_resource
+                    SET title="' . $this->_title . '"
                     WHERE id=' .  $this->_id ;
             $this->_db->query($sql);
         } catch (Exception $e) {
@@ -85,7 +101,7 @@ class TM_User_Role
     public function deleteFromDB()
     {
         try {
-            $sql = 'DELETE FROM tm_user_role WHERE id=' . $this->_id;
+            $sql = 'DELETE FROM tm_user_resource WHERE id=' . $this->_id;
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -97,7 +113,7 @@ class TM_User_Role
      *
      * @param int $id
 
-     * @return TM_User_Role
+     * @return TM_User_Resource
      * @static
      * @access public
      */
@@ -105,11 +121,11 @@ class TM_User_Role
     {
         try {
            $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_user_role WHERE id=' . (int)$id;
+            $sql = 'SELECT * FROM tm_user_resource WHERE id=' . (int)$id;
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
-                $o = new TM_User_Role();
+                $o = new TM_User_Resource();
                 $o->fillFromArray($result[0]);
                 return $o;
             } else {
@@ -131,13 +147,13 @@ class TM_User_Role
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_user_role';
+            $sql = 'SELECT * FROM tm_user_resource';
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
                 $retArray = array();
                 foreach ($result as $res) {
-                    $retArray[] = TM_User_Role::getInstanceByArray($res);
+                    $retArray[] = TM_User_Resource::getInstanceByArray($res);
                 }
                 return $retArray;
             } else {
@@ -153,14 +169,14 @@ class TM_User_Role
      *
      * @param array $values
 
-     * @return TM_User_Role
+     * @return TM_User_Resource
      * @static
      * @access public
      */
     public static function getInstanceByArray($values)
     {
         try {
-            $o = new TM_User_Role();
+            $o = new TM_User_Resource();
             $o->fillFromArray($values);
             return $o;
         } catch (Exception $e) {
@@ -168,11 +184,10 @@ class TM_User_Role
         }
     }
 
-    private function fillFromArray($values)
+    protected function fillFromArray($values)
     {
         $this->setId($values['id']);
         $this->setTitle($values['title']);
     }
 
-} // end of TM_User_Role
-?>
+}

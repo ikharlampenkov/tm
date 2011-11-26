@@ -35,6 +35,10 @@ class TM_Acl_Acl extends Zend_Acl {
         $this->addResource(new Zend_Acl_Resource('user/addRole'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('user/editRole'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('user/deleteRole'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('user/addResource'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('user/editResource'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('user/deleteResource'), 'admin_allow');
+        $this->addResource(new Zend_Acl_Resource('user/fillResource'), 'admin_allow');
 
         $this->addResource(new Zend_Acl_Resource('task/index'), 'admin_allow');
         $this->addResource(new Zend_Acl_Resource('task/add'), 'admin_allow');

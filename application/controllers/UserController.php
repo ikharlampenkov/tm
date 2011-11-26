@@ -13,6 +13,7 @@ class UserController extends Zend_Controller_Action
     {
         $this->view->assign('userRoleList', TM_User_Role::getAllInstance());
         $this->view->assign('userList', TM_User_User::getAllInstance());
+        $this->view->assign('userResourceList', TM_User_Resource::getAllInstance());
     }
 
     public function addAction()
@@ -103,6 +104,72 @@ class UserController extends Zend_Controller_Action
         $oRole->deleteFromDB();
 
         $this->_redirect('/user');
+    }
+
+    public function addresourceAction()
+    {
+        $oResource = new TM_User_Resource();
+
+        if ($this->getRequest()->isPost()) {
+            $data = $this->getRequest()->getParam('data');
+            $oResource->setTitle($data['title']);
+
+            try {
+                $oResource->insertToDb();
+                $this->_redirect('/user');
+            } catch (Exception $e) {
+                $this->view->assign('exception_msg', $e->getMessage());
+            }
+
+        }
+        
+        $this->view->assign('resource', $oResource);
+    }
+
+    public function editresourceAction()
+    {
+        $oResource = TM_User_Resource::getInstanceById($this->getRequest()->getParam('id'));
+
+        if ($this->getRequest()->isPost()) {
+            $data = $this->getRequest()->getParam('data');
+            $oResource->setTitle($data['title']);
+
+            try {
+                $oResource->updateToDb();
+                $this->_redirect('/user');
+            } catch (Exception $e) {
+                $this->view->assign('exception_msg', $e->getMessage());
+            }
+        }
+
+        $this->view->assign('resource', $oResource);
+    }
+
+    public function deleteresourceAction()
+    {
+        $oResource = TM_User_Resource::getInstanceById($this->getRequest()->getParam('id'));
+        try {
+            $oResource->deleteFromDB();
+            $this->_redirect('/user');
+        } catch (Exception $e) {
+            $this->view->assign('exception_msg', $e->getMessage());
+        }
+    }
+
+    public function fillresourceAction()
+    {
+        $acl = new TM_Acl_Acl();
+        foreach($acl->getResources() as $resource) {
+            print_r($resource);
+            $res = new TM_User_Resource();
+            $res->setTitle($resource);
+            try {
+                $res->insertToDB();
+
+            } catch(Exception $e) {
+                echo $e->getMessage();
+            }
+        }
     }
 
 }
