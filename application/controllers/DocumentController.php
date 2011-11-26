@@ -25,6 +25,8 @@ class DocumentController extends Zend_Controller_Action
 
         $this->view->assign('attributeTypeList', TM_Attribute_AttributeType::getAllInstance(new TM_Document_AttributeTypeMapper()));
         $this->view->assign('attributeHashList', TM_Document_Hash::getAllInstance());
+
+
     }
 
     public function addAction()
@@ -112,6 +114,10 @@ class DocumentController extends Zend_Controller_Action
         $oDocument->setUser($this->_user);
         $oDocument->setDateCreate(date('d.m.Y H:i:s'));
         $oDocument->setIsFolder(true);
+
+        if ($this->getRequest()->getParam('parent', 0) != 0) {
+            $oDocument->setParent(TM_Document_Document::getInstanceById($this->getRequest()->getParam('parent', 0)));
+        }
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');

@@ -28,7 +28,7 @@
         </tr>
         <tr>
             <td class="ttovar_title">Файл</td>
-            <td class="ttovar">{if $document->file->getName()}<a href="/files/{$document->file->getName()}" target="_blank">загрузить</a>{/if}<input type="file" name="file"/></td>
+            <td class="ttovar">{if $document->file->getName()}<a href="/files{$document->file->getSubPath()}/{$document->file->getName()}" target="_blank">загрузить</a>{/if}<input type="file" name="file"/></td>
         </tr>
 
     {if $attributeHashList!==false}

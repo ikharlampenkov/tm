@@ -245,7 +245,7 @@ class TM_Task_Task
      *
      * @param int $id идентификатор задачи
 
-     * @return Task::TM_Task_Task
+     * @return TM_Task_Task
      * @static
      * @access public
      */

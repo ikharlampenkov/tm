@@ -304,9 +304,15 @@ class TM_Document_Hash
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT tm_document_hash.attribute_key, title, tm_document_hash.type_id, list_value FROM tm_document_hash';
 
             if (!is_null($object)) {
+                $sql = 'SELECT COUNT(attribute_key) FROM tm_document_attribute WHERE document_id=' . $object->id;
+                $result = $db->query($sql, StdLib_DB::QUERY_MODE_NUM);
+            }
+
+            $sql = 'SELECT tm_document_hash.attribute_key, title, tm_document_hash.type_id, list_value FROM tm_document_hash';
+
+            if (!is_null($object) && isset($result[0][0]) && $result[0][0] > 0) {
                 $sql .= ' LEFT JOIN tm_document_attribute ON tm_document_hash.attribute_key=tm_document_attribute.attribute_key
                           WHERE tm_document_attribute.document_id=' . $object->id . '
                           ORDER BY is_fill DESC, title';

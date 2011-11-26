@@ -4,7 +4,8 @@
  * class File
  *
  */
-class TM_FileManager_File {
+class TM_FileManager_File
+{
     /** Aggregations: */
     /** Compositions: */
     /*     * * Attributes: ** */
@@ -20,6 +21,8 @@ class TM_FileManager_File {
      * @access protected
      */
     protected $_path;
+
+    protected $_subPath = '';
 
     /**
      *
@@ -46,11 +49,13 @@ class TM_FileManager_File {
      * @return string
      * @access public
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->_name;
     }
 
-    public function setName($value) {
+    public function setName($value)
+    {
         $this->_name = $value;
         $this->_ext = $this->extractExt($value);
     }
@@ -62,7 +67,12 @@ class TM_FileManager_File {
 
     public function setSubPath($folder)
     {
-        $this->_path .= '/' . $folder;
+        $this->_subPath = $folder;
+    }
+
+    public function getSubPath()
+    {
+        return $this->_subPath;
     }
 
     /**
@@ -75,7 +85,8 @@ class TM_FileManager_File {
      * @return TM_FileManager_File
      * @access public
      */
-    public function __construct($path, $name = '') {
+    public function __construct($path, $name = '')
+    {
         $this->_path = $path;
         $this->_name = $name;
 
@@ -92,14 +103,15 @@ class TM_FileManager_File {
      * @return string
      * @access public
      */
-    public function download($field) {
+    public function download($field)
+    {
         if (isset($_FILES[$field]) && $_FILES[$field]['error'] == 0) {
             $this->_ext = $this->extractExt($_FILES[$field]['name']);
             $tempFileName = 'file_' . date('d-m-Y-H-i-s') . '.' . $this->_ext;
-            $result = copy($_FILES[$field]['tmp_name'], $this->_path . '/' . $tempFileName);
+            $result = copy($_FILES[$field]['tmp_name'], $this->_path . $this->_subPath . '/' . $tempFileName);
 
             if ($result) {
-                chmod($this->_path . $tempFileName, 0766);
+                chmod($this->_path . $this->_subPath . $tempFileName, 0766);
                 $this->_name = $tempFileName;
                 return $this->_name;
             } else {
@@ -118,15 +130,16 @@ class TM_FileManager_File {
      * @return void
      * @access public
      */
-    public function delete() {
-        if (!empty($this->_name) && file_exists($this->_path . '/' . $this->_name)) {
-            $result = unlink($this->_path . '/' . $this->_name);
+    public function delete()
+    {
+        if (!empty($this->_name) && file_exists($this->_path . $this->_subPath . '/' . $this->_name)) {
+            $result = unlink($this->_path . $this->_subPath . '/' . $this->_name);
             if ($result === false) {
                 throw new Exception('Can not delete file ' . $this->_name);
             }
         }
     }
-    
+
     /**
      *
      *
@@ -134,7 +147,8 @@ class TM_FileManager_File {
      * @return string
      * @access protected
      */
-    protected function extractExt($name) {
+    protected function extractExt($name)
+    {
         if (!empty($name)) {
             $tempInfo = pathinfo($name);
             return $tempInfo['extension'];
