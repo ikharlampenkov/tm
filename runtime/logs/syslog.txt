@@ -31,3 +31,51 @@ info    resource favicon.ico/index priv show  27.11.2011 20:43
 info    resource task/index priv show  27.11.2011 20:43
 info   role admin resource task/index priv show  27.11.2011 20:43
 info    resource favicon.ico/index priv show  27.11.2011 20:43
+info    resource index/index priv show  27.11.2011 22:33
+info   role guest resource index/index priv show  27.11.2011 22:33
+info    resource favicon.ico/index priv show  27.11.2011 22:33
+info    resource login/index priv show  27.11.2011 22:33
+info   role guest resource login/index priv show  27.11.2011 22:33
+info    resource favicon.ico/index priv show  27.11.2011 22:33
+info    resource index/index priv show  27.11.2011 22:33
+info   role guest resource index/index priv show  27.11.2011 22:33
+info    resource favicon.ico/index priv show  27.11.2011 22:33
+info    resource login/logout priv show  27.11.2011 22:34
+info   role guest resource login/logout priv show  27.11.2011 22:34
+info    resource login/index priv show  27.11.2011 22:34
+info   role guest resource login/index priv show  27.11.2011 22:34
+info    resource favicon.ico/index priv show  27.11.2011 22:34
+info    resource login/index priv show  27.11.2011 22:34
+info   role guest resource login/index priv show  27.11.2011 22:34
+info    resource index/index priv show  27.11.2011 22:34
+info   role admin resource index/index priv show  27.11.2011 22:34
+info    resource favicon.ico/index priv show  27.11.2011 22:34
+info    resource user/index priv show  27.11.2011 22:34
+info   role admin resource user/index priv show  27.11.2011 22:34
+info    resource favicon.ico/index priv show  27.11.2011 22:34
+info    resource user/showRoleAcl priv show  27.11.2011 22:34
+info   role admin resource user/showRoleAcl priv show  27.11.2011 22:34
+info    resource favicon.ico/index priv show  27.11.2011 22:34
+info    resource user/showRoleAcl priv show  27.11.2011 22:35
+info   role admin resource user/showRoleAcl priv show  27.11.2011 22:35
+info    resource user/showRoleAcl priv show  27.11.2011 22:35
+info   role admin resource user/showRoleAcl priv show  27.11.2011 22:35
+info    resource favicon.ico/index priv show  27.11.2011 22:35
+info    resource login/logout priv show  27.11.2011 22:35
+info   role admin resource login/logout priv show  27.11.2011 22:35
+info    resource login/index priv show  27.11.2011 22:35
+info   role guest resource login/index priv show  27.11.2011 22:35
+info    resource favicon.ico/index priv show  27.11.2011 22:35
+info    resource index/index priv show  27.11.2011 22:35
+info   role guest resource index/index priv show  27.11.2011 22:35
+info    resource login/index priv show  27.11.2011 22:35
+info   role guest resource login/index priv show  27.11.2011 22:35
+info    resource favicon.ico/index priv show  27.11.2011 22:35
+info    resource login/index priv show  27.11.2011 22:35
+info   role guest resource login/index priv show  27.11.2011 22:35
+info    resource index/index priv show  27.11.2011 22:35
+info   role admin resource index/index priv show  27.11.2011 22:35
+info    resource favicon.ico/index priv show  27.11.2011 22:35
+info    resource task/index priv show  27.11.2011 22:35
+info   role admin resource task/index priv show  27.11.2011 22:35
+info    resource favicon.ico/index priv show  27.11.2011 22:35

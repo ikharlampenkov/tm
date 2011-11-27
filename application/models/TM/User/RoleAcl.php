@@ -218,6 +218,5 @@ class TM_User_RoleAcl
         $this->setIsAllow($values['is_allow']);
         $this->setPrivileges($values['privileges']);
     } // end of member function fillFromArray
-
-
+    
 }
