@@ -77,6 +77,7 @@ class TaskController extends Zend_Controller_Action
                 }
                 
                 $oDiscussion->insertToDb();
+                $oDiscussion->setLinkToTask($oTask);
 
 
                 $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));

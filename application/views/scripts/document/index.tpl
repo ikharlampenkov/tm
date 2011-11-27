@@ -13,9 +13,20 @@
 
 
 <table width="100%">
+
     <tr>
-        <td class="ttovar" align="center" colspan="3"><a href="{$this->url(['controller' => $controller,'action' => 'addFolder'])}">добавить папку</a> / <a href="{$this->url(['controller' => $controller,'action' => 'add'])}">добавить документ</a></td>
+        <td class="ttovar" align="center" colspan="3">
+        {if_allowed resource="{$controller}/addFolder"}
+        <a href="{$this->url(['controller' => $controller,'action' => 'addFolder'])}">добавить папку</a> / 
+        {/if_allowed}
+        {if_allowed resource="{$controller}/add"}
+        {if isset($parentId) && $parentId>0}
+        <a href="{$this->url(['controller' => $controller,'action' => 'add'])}">добавить документ</a>
+        {/if}
+        {/if_allowed}
+        </td>
     </tr>
+
 
 {if $documentList!==false}
     {foreach from=$documentList item=document}
@@ -29,11 +40,19 @@
             <td class="ttovar">{$document->datecreate|date_format:"%d.%m.%Y"}</td>
             <td class="tedit">
                 {if $document->isFolder}
+                    {if_allowed resource="{$controller}/editFolder"}
                     <a href="{$this->url(['controller' => $controller,'action' => 'editFolder', 'id' => $document->id])}">редактировать</a><br/>
+                    {/if_allowed}
+                    {if_allowed resource="{$controller}/deleteFolder"}
                     <a href="{$this->url(['controller' => $controller,'action' => 'deleteFolder', 'id' => $document->id])}" onclick="return confirmDelete('{$document->id}');" style="color: #830000">удалить</a>
+                    {/if_allowed}
                 {else}
+                    {if_allowed resource="{$controller}/edit"}
                     <a href="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $document->id])}">редактировать</a><br/>
+                    {/if_allowed}
+                    {if_allowed resource="{$controller}/delete"}
                     <a href="{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $document->id])}" onclick="return confirmDelete('{$document->id}');" style="color: #830000">удалить</a>
+                    {/if_allowed}
                 {/if}
             </td>
 
@@ -43,7 +62,7 @@
 
 </table>
 
-
+{if_allowed resource="{$controller}/index" priv="show-attribute-hash"}
 <br/>
 <div class="page"><h1>Список аттрибутов для документов</h1></div><br/>
 
@@ -65,8 +84,9 @@
 {/if}
 
 </table>
+{/if_allowed}
 
-
+{if_allowed resource="{$controller}/index" priv="show-attribute-type"}
 <br/>
 <div class="page"><h1>Типы аттрибутов</h1></div><br/>
 
@@ -86,4 +106,6 @@
     {/foreach}
 {/if}
 
+
 </table>
+{/if_allowed}

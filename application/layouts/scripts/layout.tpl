@@ -46,22 +46,31 @@
                                 <td><h1>Меню:</h1></td>
                             </tr>
 
+                            {if_allowed resource="task/index"}
                             <tr>
                                 <td><a href="/task/" class="menu">Задачи</a></td>
                             </tr>
+                            {/if_allowed}
+                            {if_allowed resource="document/index"}
                             <tr>
                                 <td><a href="/document/" class="menu">Документы</a></td>
                             </tr>
+                            {/if_allowed}
+                            {if_allowed resource="reports/index"}
                             <tr>
                                 <td><a href="/reports/" class="menu">Отчеты</a></td>
                             </tr>
+                            {/if_allowed}
+                            {if_allowed resource="discussion/index"}
                             <tr>
                                 <td><a href="/discussion/" class="menu">Обсуждение</a></td>
                             </tr>
+                            {/if_allowed}
+                        {if_allowed resource="user/index"}
                             <tr>
                                 <td><a href="/user/" class="menu">Пользователи</a></td>
                             </tr>
-
+                        {/if_allowed}
                         </table>
 
                     </td>

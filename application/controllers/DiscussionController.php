@@ -22,6 +22,7 @@ class DiscussionController extends Zend_Controller_Action
             $this->view->assign('discussion', $curDiscussion);
             $this->view->assign('breadcrumbs', $curDiscussion->getPathToDiscussion());
         }
+        $this->view->assign('parentId', $parentId);
     }
 
     public function addAction()

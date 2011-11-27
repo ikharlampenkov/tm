@@ -25,8 +25,7 @@ class DocumentController extends Zend_Controller_Action
 
         $this->view->assign('attributeTypeList', TM_Attribute_AttributeType::getAllInstance(new TM_Document_AttributeTypeMapper()));
         $this->view->assign('attributeHashList', TM_Document_Hash::getAllInstance());
-
-
+        $this->view->assign('parentId', $parentId);
     }
 
     public function addAction()

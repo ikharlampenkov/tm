@@ -11,26 +11,33 @@
     <br/><br/>
 {/if}
 
-
 <table width="100%">
+    {if_allowed resource="{$controller}/add"}
     <tr>
         <td class="ttovar" align="center" colspan="3"><a href="{$this->url(['controller' => $controller,'action' => 'add'])}">добавить</a></td>
     </tr>
+    {/if_allowed}
 
 {if $taskList!==false}
     {foreach from=$taskList item=task}
         <tr>
             <td class="ttovar"><a href="{$this->url(['controller' => $controller,'action' => 'index', 'parent' => $task->id])}">{$task->title}</a></td>
             <td class="ttovar">{$task->datecreate|date_format:"%d.%m.%Y"}</td>
-            <td class="tedit"><a href="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $task->id])}">редактировать</a><br/>
-                <a href="{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $task->id])}" onclick="return confirmDelete('{$task->id}');" style="color: #830000">удалить</a></td>
+            <td class="tedit">
+                {if_allowed resource="{$controller}/edit"}
+                <a href="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $task->id])}">редактировать</a><br/>
+                {/if_allowed}
+                {if_allowed resource="{$controller}/delete"}
+                <a href="{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $task->id])}" onclick="return confirmDelete('{$task->id}');" style="color: #830000">удалить</a>
+                {/if_allowed}
+            </td>
         </tr>
     {/foreach}
 {/if}
 
 </table>
 
-
+{if_allowed resource="{$controller}/index" priv="show-attribute-hash"}
 <br/>
 <div class="page"><h1>Список аттрибутов для задач</h1></div><br/>
 
@@ -52,8 +59,9 @@
 {/if}
 
 </table>
+{/if_allowed}
 
-
+{if_allowed resource="{$controller}/index" priv="show-attribute-type"}
 <br/>
 <div class="page"><h1>Типы аттрибутов</h1></div><br/>
 
@@ -74,3 +82,4 @@
 {/if}
 
 </table>
+{/if_allowed}

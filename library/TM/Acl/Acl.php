@@ -115,7 +115,8 @@ class TM_Acl_Acl extends Zend_Acl {
         */
     }
 
-    public function can($privilege = 'show'){
+    public function can($privilege = 'show')
+    {
         //Инициируем ресурс
         $request = Zend_Controller_Front::getInstance()->getRequest();
         $resource = $request->getControllerName() . '/' . $request->getActionName();
@@ -134,6 +135,20 @@ class TM_Acl_Acl extends Zend_Acl {
         //StdLib_Log::logMsg('role ' . $role . ' resource ' . $resource . ' priv ' . $privilege);
 
         return $this->isAllowed($role, $resource, $privilege);
+    }
+
+    public function canResource($resource, $privilege = 'show')
+    {
+        //Если ресурс не найден закрываем доступ
+        if (!$this->has($resource)) {
+            return false;
+        }
+
+        //Инициируем роль
+        $storage_data = Zend_Auth::getInstance()->getStorage()->read();
+        $role = array_key_exists('role', $storage_data)?$storage_data->role : 'guest';
+
+        return $this->isAllowed($role, $resource, $privilege);        
     }
 }
 
