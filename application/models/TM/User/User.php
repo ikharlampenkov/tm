@@ -100,7 +100,7 @@ class TM_User_User
     /**
      *
      *
-     * @return
+     * @return void
      * @access public
      */
     public function insertToDb()

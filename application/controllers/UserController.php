@@ -106,6 +106,33 @@ class UserController extends Zend_Controller_Action
         $this->_redirect('/user');
     }
 
+    public function showroleaclAction()
+    {
+        $oRole = TM_User_Role::getInstanceById($this->getRequest()->getParam('idRole'));
+
+        if ($this->getRequest()->isPost()) {
+            $data = $this->getRequest()->getParam('data');
+
+            try {
+                foreach($data as $idResource => $values) {
+                    $roleAcl = new TM_User_RoleAcl($oRole);
+                    $roleAcl->setResource(TM_User_Resource::getInstanceById($idResource));
+                    $roleAcl->setIsAllow($values['is_allow']);
+                    $roleAcl->setPrivileges($values['privileges']);
+                    $roleAcl->saveToDb();
+                }
+
+                $this->_redirect('/user/showRoleAcl/idRole/' . $this->getRequest()->getParam('idRole'));
+            } catch (Exception $e) {
+                $this->view->assign('exception_msg', $e->getMessage());
+            }
+        }
+
+        $this->view->assign('role', $oRole);
+        $this->view->assign('userResourceList', TM_User_Resource::getAllInstance());
+        $this->view->assign('roleAcl', TM_User_RoleAcl::getAllInstance($oRole));
+    }
+
     public function addresourceAction()
     {
         $oResource = new TM_User_Resource();

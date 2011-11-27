@@ -4,6 +4,11 @@
     <tr>
         <td class="ttovar" align="center" colspan="3"><a href="{$this->url(['controller' => $controller,'action' => 'add'])}">добавить</a></td>
     </tr>
+    <tr>
+        <td class="ttovar">Логин</td>
+        <td class="ttovar">Роль</td>
+        <td class="ttovar"></td>
+    </tr>
 
 {if $userList!==false}
     {foreach from=$userList item=user}
@@ -30,6 +35,7 @@
     {foreach from=$userRoleList item=role}
         <tr>
             <td class="ttovar">{$role->title}</td>
+            <td class="tedit"><a href="{$this->url(['controller' => $controller,'action' => 'showRoleAcl', 'idRole' => $role->id])}">права</a></td>
             <td class="tedit"><a href="{$this->url(['controller' => $controller,'action' => 'editRole', 'id' => $role->id])}">редактировать</a><br/>
                 <a href="{$this->url(['controller' => $controller,'action' => 'deleteRole', 'id' => $role->id])}" onclick="return confirmDelete('{$role->id}');" style="color: #830000">удалить</a></td>
         </tr>

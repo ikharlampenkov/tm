@@ -1,224 +1,33 @@
-info   SELECT * FROM tm_user_role  26.11.2011 14:47
-info   SELECT * FROM tm_user  26.11.2011 14:47
-info   SELECT * FROM tm_user_role WHERE id=1  26.11.2011 14:47
-info   SELECT * FROM tm_user_role WHERE id=4  26.11.2011 14:47
-info   SELECT * FROM tm_user_role WHERE id=3  26.11.2011 14:47
-info   SELECT * FROM tm_user_role WHERE id=4  26.11.2011 14:47
-info   SELECT * FROM tm_user_role  26.11.2011 16:10
-info   SELECT * FROM tm_user  26.11.2011 16:10
-info   SELECT * FROM tm_user_role WHERE id=1  26.11.2011 16:10
-info   SELECT * FROM tm_user_role WHERE id=4  26.11.2011 16:10
-info   SELECT * FROM tm_user_role WHERE id=3  26.11.2011 16:10
-info   SELECT * FROM tm_user_role WHERE id=4  26.11.2011 16:10
-info   SELECT * FROM tm_user_resource  26.11.2011 16:10
-info   SELECT * FROM tm_user_role  26.11.2011 16:11
-info   SELECT * FROM tm_user  26.11.2011 16:11
-info   SELECT * FROM tm_user_role WHERE id=1  26.11.2011 16:11
-info   SELECT * FROM tm_user_role WHERE id=4  26.11.2011 16:11
-info   SELECT * FROM tm_user_role WHERE id=3  26.11.2011 16:11
-info   SELECT * FROM tm_user_role WHERE id=4  26.11.2011 16:11
-info   SELECT * FROM tm_user_resource  26.11.2011 16:11
-info   SELECT * FROM tm_user_role  26.11.2011 16:13
-info   SELECT * FROM tm_user  26.11.2011 16:13
-info   SELECT * FROM tm_user_role WHERE id=1  26.11.2011 16:13
-info   SELECT * FROM tm_user_role WHERE id=4  26.11.2011 16:13
-info   SELECT * FROM tm_user_role WHERE id=3  26.11.2011 16:13
-info   SELECT * FROM tm_user_role WHERE id=4  26.11.2011 16:13
-info   SELECT * FROM tm_user_resource  26.11.2011 16:13
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("login")  26.11.2011 16:14
-error   Can`t complit query: INSERT INTO tm_user_resource(title)
-                    VALUES ("login") No error: 1364:: Error msg: Field 'id' doesn't have a default value ;  26.11.2011 16:14
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("login")  26.11.2011 16:15
-info   SELECT * FROM tm_user_role  26.11.2011 16:15
-info   SELECT * FROM tm_user  26.11.2011 16:15
-info   SELECT * FROM tm_user_role WHERE id=1  26.11.2011 16:15
-info   SELECT * FROM tm_user_role WHERE id=4  26.11.2011 16:15
-info   SELECT * FROM tm_user_role WHERE id=3  26.11.2011 16:15
-info   SELECT * FROM tm_user_role WHERE id=4  26.11.2011 16:15
-info   SELECT * FROM tm_user_resource  26.11.2011 16:15
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("login/index")  26.11.2011 16:15
-info   SELECT * FROM tm_user_role  26.11.2011 16:15
-info   SELECT * FROM tm_user  26.11.2011 16:15
-info   SELECT * FROM tm_user_role WHERE id=1  26.11.2011 16:15
-info   SELECT * FROM tm_user_role WHERE id=4  26.11.2011 16:15
-info   SELECT * FROM tm_user_role WHERE id=3  26.11.2011 16:15
-info   SELECT * FROM tm_user_role WHERE id=4  26.11.2011 16:15
-info   SELECT * FROM tm_user_resource  26.11.2011 16:15
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("login/logout")  26.11.2011 16:15
-info   SELECT * FROM tm_user_role  26.11.2011 16:15
-info   SELECT * FROM tm_user  26.11.2011 16:15
-info   SELECT * FROM tm_user_role WHERE id=1  26.11.2011 16:15
-info   SELECT * FROM tm_user_role WHERE id=4  26.11.2011 16:15
-info   SELECT * FROM tm_user_role WHERE id=3  26.11.2011 16:15
-info   SELECT * FROM tm_user_role WHERE id=4  26.11.2011 16:15
-info   SELECT * FROM tm_user_resource  26.11.2011 16:15
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("index/index")  26.11.2011 16:15
-info   SELECT * FROM tm_user_role  26.11.2011 16:15
-info   SELECT * FROM tm_user  26.11.2011 16:15
-info   SELECT * FROM tm_user_role WHERE id=1  26.11.2011 16:15
-info   SELECT * FROM tm_user_role WHERE id=4  26.11.2011 16:15
-info   SELECT * FROM tm_user_role WHERE id=3  26.11.2011 16:15
-info   SELECT * FROM tm_user_role WHERE id=4  26.11.2011 16:15
-info   SELECT * FROM tm_user_resource  26.11.2011 16:15
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("user")  26.11.2011 16:16
-info   SELECT * FROM tm_user_role  26.11.2011 16:16
-info   SELECT * FROM tm_user  26.11.2011 16:16
-info   SELECT * FROM tm_user_role WHERE id=1  26.11.2011 16:16
-info   SELECT * FROM tm_user_role WHERE id=4  26.11.2011 16:16
-info   SELECT * FROM tm_user_role WHERE id=3  26.11.2011 16:16
-info   SELECT * FROM tm_user_role WHERE id=4  26.11.2011 16:16
-info   SELECT * FROM tm_user_resource  26.11.2011 16:16
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("user/add")  26.11.2011 16:16
-info   SELECT * FROM tm_user_role  26.11.2011 16:16
-info   SELECT * FROM tm_user  26.11.2011 16:16
-info   SELECT * FROM tm_user_role WHERE id=1  26.11.2011 16:16
-info   SELECT * FROM tm_user_role WHERE id=4  26.11.2011 16:16
-info   SELECT * FROM tm_user_role WHERE id=3  26.11.2011 16:16
-info   SELECT * FROM tm_user_role WHERE id=4  26.11.2011 16:16
-info   SELECT * FROM tm_user_resource  26.11.2011 16:16
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("user/edit")  26.11.2011 16:16
-info   SELECT * FROM tm_user_role  26.11.2011 16:16
-info   SELECT * FROM tm_user  26.11.2011 16:16
-info   SELECT * FROM tm_user_role WHERE id=1  26.11.2011 16:16
-info   SELECT * FROM tm_user_role WHERE id=4  26.11.2011 16:16
-info   SELECT * FROM tm_user_role WHERE id=3  26.11.2011 16:16
-info   SELECT * FROM tm_user_role WHERE id=4  26.11.2011 16:16
-info   SELECT * FROM tm_user_resource  26.11.2011 16:16
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("user/delete")  26.11.2011 16:17
-info   SELECT * FROM tm_user_role  26.11.2011 16:17
-info   SELECT * FROM tm_user  26.11.2011 16:17
-info   SELECT * FROM tm_user_role WHERE id=1  26.11.2011 16:17
-info   SELECT * FROM tm_user_role WHERE id=4  26.11.2011 16:17
-info   SELECT * FROM tm_user_role WHERE id=3  26.11.2011 16:17
-info   SELECT * FROM tm_user_role WHERE id=4  26.11.2011 16:17
-info   SELECT * FROM tm_user_resource  26.11.2011 16:17
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("guest_allow")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("login")  26.11.2011 16:27
-error   Can`t complit query: INSERT INTO tm_user_resource(title)
-                    VALUES ("login") No error: 1062:: Error msg: Duplicate entry 'login' for key 'title' ;  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("login/index")  26.11.2011 16:27
-error   Can`t complit query: INSERT INTO tm_user_resource(title)
-                    VALUES ("login/index") No error: 1062:: Error msg: Duplicate entry 'login/index' for key 'title' ;  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("admin_allow")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("login/logout")  26.11.2011 16:27
-error   Can`t complit query: INSERT INTO tm_user_resource(title)
-                    VALUES ("login/logout") No error: 1062:: Error msg: Duplicate entry 'login/logout' for key 'title' ;  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("index/index")  26.11.2011 16:27
-error   Can`t complit query: INSERT INTO tm_user_resource(title)
-                    VALUES ("index/index") No error: 1062:: Error msg: Duplicate entry 'index/index' for key 'title' ;  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("user/index")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("user/add")  26.11.2011 16:27
-error   Can`t complit query: INSERT INTO tm_user_resource(title)
-                    VALUES ("user/add") No error: 1062:: Error msg: Duplicate entry 'user/add' for key 'title' ;  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("user/edit")  26.11.2011 16:27
-error   Can`t complit query: INSERT INTO tm_user_resource(title)
-                    VALUES ("user/edit") No error: 1062:: Error msg: Duplicate entry 'user/edit' for key 'title' ;  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("user/delete")  26.11.2011 16:27
-error   Can`t complit query: INSERT INTO tm_user_resource(title)
-                    VALUES ("user/delete") No error: 1062:: Error msg: Duplicate entry 'user/delete' for key 'title' ;  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("user/addRole")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("user/editRole")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("user/deleteRole")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("user/addResource")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("user/editResource")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("user/deleteResource")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("user/fillResource")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("task/index")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("task/add")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("task/edit")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("task/delete")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("task/addAttributeType")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("task/editAttributeType")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("task/deleteAttributeType")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("task/addAttributeHash")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("task/editAttributeHash")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("task/deleteAttributeHash")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("task/deleteLinkToDoc")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("document/index")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("document/add")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("document/edit")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("document/delete")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("document/addFolder")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("document/editFolder")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("document/deleteFolder")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("document/addAttributeType")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("document/editAttributeType")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("document/deleteAttributeType")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("document/addAttributeHash")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("document/editAttributeHash")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("document/deleteAttributeHash")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("discussion/index")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("discussion/add")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("discussion/edit")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("discussion/delete")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("discussion/addTopic")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("discussion/editTopic")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("discussion/deleteTopic")  26.11.2011 16:27
-info   INSERT INTO tm_user_resource(title)
-                    VALUES ("files/")  26.11.2011 16:27
-info   SELECT * FROM tm_user WHERE login="admin"  26.11.2011 16:28
-info   SELECT * FROM tm_user_role WHERE id=1  26.11.2011 16:28
-info   SELECT * FROM tm_user_role  26.11.2011 16:28
-info   SELECT * FROM tm_user  26.11.2011 16:28
-info   SELECT * FROM tm_user_role WHERE id=1  26.11.2011 16:28
-info   SELECT * FROM tm_user_role WHERE id=4  26.11.2011 16:28
-info   SELECT * FROM tm_user_role WHERE id=3  26.11.2011 16:28
-info   SELECT * FROM tm_user_role WHERE id=4  26.11.2011 16:28
-info   SELECT * FROM tm_user_resource  26.11.2011 16:28
+info    resource document/index priv show  27.11.2011 20:34
+info   role admin resource document/index priv show  27.11.2011 20:34
+info    resource favicon.ico/index priv show  27.11.2011 20:34
+info    resource document/index priv show  27.11.2011 20:35
+info   role admin resource document/index priv show  27.11.2011 20:35
+info    resource favicon.ico/index priv show  27.11.2011 20:35
+info    resource document/index priv show  27.11.2011 20:35
+info   role admin resource document/index priv show  27.11.2011 20:35
+info    resource favicon.ico/index priv show  27.11.2011 20:35
+info    resource document/index priv show  27.11.2011 20:36
+info   role admin resource document/index priv show  27.11.2011 20:36
+info    resource favicon.ico/index priv show  27.11.2011 20:36
+info    resource document/index priv show  27.11.2011 20:37
+info   role admin resource document/index priv show  27.11.2011 20:37
+info    resource favicon.ico/index priv show  27.11.2011 20:37
+info    resource document/index priv show  27.11.2011 20:39
+info   role admin resource document/index priv show  27.11.2011 20:39
+info    resource favicon.ico/index priv show  27.11.2011 20:39
+info    resource document/index priv show  27.11.2011 20:39
+info   role admin resource document/index priv show  27.11.2011 20:39
+info    resource favicon.ico/index priv show  27.11.2011 20:39
+info    resource document/index priv show  27.11.2011 20:39
+info   role admin resource document/index priv show  27.11.2011 20:39
+info    resource favicon.ico/index priv show  27.11.2011 20:39
+info    resource document/index priv show  27.11.2011 20:42
+info   role admin resource document/index priv show  27.11.2011 20:42
+info    resource favicon.ico/index priv show  27.11.2011 20:42
+info    resource document/index priv show  27.11.2011 20:43
+info   role admin resource document/index priv show  27.11.2011 20:43
+info    resource favicon.ico/index priv show  27.11.2011 20:43
+info    resource task/index priv show  27.11.2011 20:43
+info   role admin resource task/index priv show  27.11.2011 20:43
+info    resource favicon.ico/index priv show  27.11.2011 20:43
