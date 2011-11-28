@@ -28,7 +28,7 @@
                 {/if}</td>
             <td class="ttovar">{$discussion->datecreate|date_format:"%d.%m.%Y"}</td>
             <td class="tedit">
-                {if $discussion->isTopic}
+                {if $discussion->isTopic()}
                     <a href="{$this->url(['controller' => $controller,'action' => 'editTopic', 'id' => $discussion->id])}">редактировать</a><br/>
                     <a href="{$this->url(['controller' => $controller,'action' => 'deleteTopic', 'id' => $discussion->id])}" onclick="return confirmDelete('{$discussion->id}');" style="color: #830000">удалить</a>
                 {else}

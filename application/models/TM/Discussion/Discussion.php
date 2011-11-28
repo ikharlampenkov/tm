@@ -55,6 +55,8 @@ class TM_Discussion_Discussion {
 
     protected $_isFirst = false;
 
+    protected $_isMessage = false;
+
     /**
      * @var TM_Discussion_Discussion
      * @access protected
@@ -184,8 +186,18 @@ class TM_Discussion_Discussion {
         return $this->_isFirst;
     }
 
+    public function setIsMessage($isMessage)
+    {
+        $this->_isMessage = $isMessage;
+    }
+
+    public function getIsMessage()
+    {
+        return $this->_isMessage;
+    }
+
     /**
-     * @param \TM_Discussion_Discussion $topic
+     * @param TM_Discussion_Discussion $topic
      */
     public function setTopic($topic)
     {
@@ -193,7 +205,7 @@ class TM_Discussion_Discussion {
     }
 
     /**
-     * @return \TM_Discussion_Discussion
+     * @return TM_Discussion_Discussion
      */
     public function getTopic()
     {
@@ -225,10 +237,8 @@ class TM_Discussion_Discussion {
     } // end of member function addParent
 
     public function isTopic() {
-        if (is_null($this->_topic) || empty($this->_topic)) {
+        if ($this->_isMessage) {
             return false;
-        } elseif(is_null($this->_parent) || empty($this->_parent)) {
-            return true;
         } else {
             return true;
         }
@@ -281,9 +291,9 @@ class TM_Discussion_Discussion {
     public function insertToDb()
     {
         try {
-            $sql = 'INSERT INTO tm_discussion(message, user_id, date_create, is_first, topic_id, parent_id)
+            $sql = 'INSERT INTO tm_discussion(message, user_id, date_create, is_first, is_message, topic_id, parent_id)
                     VALUES ("' . $this->_message . '", ' . $this->_user->getId() . ', "' . $this->_dateCreate . '", 
-                             ' . $this->_prepareBool($this->_isFirst) . ', ' . $this->_prepareNull($this->_topic->id) . ', ' . $this->_prepareNull($this->_parent->id) . ')';
+                             ' . $this->_prepareBool($this->_isFirst) . ', ' . $this->_prepareBool($this->_isMessage) . ', ' . $this->_prepareNull($this->_topic->id) . ', ' . $this->_prepareNull($this->_parent->id) . ')';
             $this->_db->query($sql);
 
             $this->_id = $this->_db->getLastInsertId();
@@ -306,8 +316,8 @@ class TM_Discussion_Discussion {
         try {
             $sql = 'UPDATE tm_discussion
                     SET message="' . $this->_message . '", user_id="' . $this->_user->getId() . '", date_create="' . $this->_dateCreate . '",
-                        is_first=' . $this->_prepareBool($this->_isFirst) . ', topic_id=' . $this->_prepareNull($this->_topic) . ',
-                        parent_id=' . $this->_prepareNull($this->_parent->getId()) . '
+                        is_first=' . $this->_prepareBool($this->_isFirst) . ', is_message=' . $this->_prepareBool($this->_isMessage) . ',
+                        topic_id=' . $this->_prepareNull($this->_topic->id) . ', parent_id=' . $this->_prepareNull($this->_parent->id) . '
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
 
@@ -404,10 +414,51 @@ class TM_Discussion_Discussion {
                 $sql = 'SELECT * FROM tm_discussion ';
             } elseif ($topicId == 0) {
                 $sql = 'SELECT * FROM tm_discussion
-                        WHERE topic_id IS NULL OR parent_id IS NULL ';
+                        WHERE topic_id IS NULL AND parent_id IS NULL AND is_message=0';
             }
 
-            $sql .= ' ORDER BY parent_id, message';
+            $sql .= ' ORDER BY parent_id';
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+
+            if (isset($result[0])) {
+                $retArray = array();
+                foreach ($result as $res) {
+                    $retArray[] = TM_Discussion_Discussion::getInstanceByArray($user, $res);
+                }
+                return $retArray;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    } // end of member function getAllInstance
+
+    /**
+     *
+     *
+     * @param TM_User_User $user
+     * @param int $topicId
+
+     * @return array
+     * @static
+     * @access public
+     */
+    public static function getParentList(TM_User_User $user, $topicId = 0)
+    {
+        try {
+            $db = StdLib_DB::getInstance();
+
+            $sql = '';
+            if ($topicId > 0) {
+                $sql = 'SELECT * FROM tm_discussion
+                        WHERE topic_id=' . (int)$topicId . ' AND is_message=1';
+            } elseif ($topicId == 0) {
+                $sql = 'SELECT * FROM tm_discussion
+                        WHERE topic_id IS NOT NULL AND is_message=1 ';
+            }
+
+            $sql .= ' ORDER BY parent_id';
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
@@ -484,6 +535,7 @@ class TM_Discussion_Discussion {
         $this->setUser($o_user);
 
         $this->setIsFirst($values['is_first']);
+        $this->setIsMessage($values['is_message']);
 
         $oTopic = TM_Discussion_Discussion::getInstanceById($values['topic_id']);
         if ($oTopic !== false) {
