@@ -5,6 +5,7 @@
       <PhpSdkConfig version="5.3.8" home="C:\PHP">
         <include_paths>
           <path value="." />
+          <path value="C:\Zend\ZendServer\share\ZendFramework\library" />
           <path value="C:\PHP\PEAR\pear" />
           <path value="C:\PHP\ZendFramework\library" />
         </include_paths>

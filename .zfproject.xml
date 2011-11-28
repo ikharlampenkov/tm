@@ -27,6 +27,9 @@
           <actionMethod actionName="addAttribyteHash"/>
           <actionMethod actionName="editAttributeKey"/>
         </controllerFile>
+        <controllerFile controllerName="Reports">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false"/>
       <layoutsDirectory>
@@ -72,6 +75,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Task">
             <viewScriptFile forActionName="editAttributeKey"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Reports">
+            <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

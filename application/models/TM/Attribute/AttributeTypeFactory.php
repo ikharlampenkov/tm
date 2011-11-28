@@ -10,6 +10,12 @@
 class TM_Attribute_AttributeTypeFactory
 {
 
+    /**
+     * @static
+     * @param TM_Attribute_AttributeTypeMapper $mapper
+     * @param $id
+     * @return TM_Attribute_AttributeType
+     */
     public static function getAttributeTypeById(TM_Attribute_AttributeTypeMapper $mapper, $id)
     {
 

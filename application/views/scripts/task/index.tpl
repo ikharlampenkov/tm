@@ -11,32 +11,44 @@
     <br/><br/>
 {/if}
 
-
 <table width="100%">
+    {if_allowed resource="{$controller}/add"}
     <tr>
-        <td class="ttovar" align="center" colspan="3"><a href="{$this->url(['controller' => $controller,'action' => 'add'])}">добавить</a></td>
+        <td class="ttovar" align="center" colspan="4"><a href="{$this->url(['controller' => $controller,'action' => 'add'])}">добавить</a></td>
     </tr>
+    {/if_allowed}
 
 {if $taskList!==false}
     {foreach from=$taskList item=task}
         <tr>
             <td class="ttovar"><a href="{$this->url(['controller' => $controller,'action' => 'index', 'parent' => $task->id])}">{$task->title}</a></td>
             <td class="ttovar">{$task->datecreate|date_format:"%d.%m.%Y"}</td>
-            <td class="tedit"><a href="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $task->id])}">редактировать</a><br/>
-                <a href="{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $task->id])}" onclick="return confirmDelete('{$task->id}');" style="color: #830000">удалить</a></td>
+            <td class="tedit">
+                {if_allowed resource="{$controller}/showAcl"}
+                 <a href="{$this->url(['controller' => $controller,'action' => 'showAcl', 'idTask' => $task->id])}">права</a>
+                {/if_allowed}
+            </td>
+            <td class="tedit">
+                {if_allowed resource="{$controller}/edit"}
+                <a href="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $task->id])}">редактировать</a><br/>
+                {/if_allowed}
+                {if_allowed resource="{$controller}/delete"}
+                <a href="{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $task->id])}" onclick="return confirmDelete('{$task->id}');" style="color: #830000">удалить</a>
+                {/if_allowed}
+            </td>
         </tr>
     {/foreach}
 {/if}
 
 </table>
 
-
+{if_allowed resource="{$controller}/index" priv="show-attribute-hash"}
 <br/>
 <div class="page"><h1>Список аттрибутов для задач</h1></div><br/>
 
 <table width="100%">
     <tr>
-        <td class="ttovar" align="center" colspan="3"><a href="{$this->url(['controller' => $controller,'action' => 'addAttributeHash'])}">добавить</a></td>
+        <td class="ttovar" align="center" colspan="4"><a href="{$this->url(['controller' => $controller,'action' => 'addAttributeHash'])}">добавить</a></td>
     </tr>
 
 {if $attributeHashList!==false}
@@ -45,15 +57,18 @@
             <td class="ttovar">{$attributeHash->attributeKey}</td>
             <td class="ttovar">{$attributeHash->title}</td>
             <td class="ttovar">{$attributeHash->type->title}</td>
-            <td class="tedit"><a href="{$this->url(['controller' => $controller,'action' => 'editAttributeHash', 'key' => $attributeHash->attributeKey])}">редактировать</a><br/>
-                <a href="{$this->url(['controller' => $controller,'action' => 'deleteAttributeHash', 'key' => $attributeHash->attributeKey])}" onclick="return confirmDelete('{$attributeHash->attributeKey}');" style="color: #830000">удалить</a></td>
+            <td class="tedit">
+                <a href="{$this->url(['controller' => $controller,'action' => 'editAttributeHash', 'key' => $attributeHash->attributeKey])}">редактировать</a><br/>
+                <a href="{$this->url(['controller' => $controller,'action' => 'deleteAttributeHash', 'key' => $attributeHash->attributeKey])}" onclick="return confirmDelete('{$attributeHash->attributeKey}');" style="color: #830000">удалить</a>
+            </td>
         </tr>
     {/foreach}
 {/if}
 
 </table>
+{/if_allowed}
 
-
+{if_allowed resource="{$controller}/index" priv="show-attribute-type"}
 <br/>
 <div class="page"><h1>Типы аттрибутов</h1></div><br/>
 
@@ -67,10 +82,13 @@
         <tr>
             <td class="ttovar">{$attributeType->title}</td>
             <td class="ttovar">{$attributeType->handler}</td>
-            <td class="tedit"><a href="{$this->url(['controller' => $controller,'action' => 'editAttributeType', 'id' => $attributeType->id])}">редактировать</a><br/>
-                <a href="{$this->url(['controller' => $controller,'action' => 'deleteAttributeType', 'id' => $attributeType->id])}" onclick="return confirmDelete('{$attributeType->id}');" style="color: #830000">удалить</a></td>
+            <td class="tedit">
+                <a href="{$this->url(['controller' => $controller,'action' => 'editAttributeType', 'id' => $attributeType->id])}">редактировать</a><br/>
+                <a href="{$this->url(['controller' => $controller,'action' => 'deleteAttributeType', 'id' => $attributeType->id])}" onclick="return confirmDelete('{$attributeType->id}');" style="color: #830000">удалить</a>
+            </td>
         </tr>
     {/foreach}
 {/if}
 
 </table>
+{/if_allowed}

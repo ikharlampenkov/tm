@@ -18,7 +18,7 @@ class TaskController extends Zend_Controller_Action
 
         if ($parentId != 0) {
             $curTask = TM_Task_Task::getInstanceById($parentId);
-            
+
             $this->view->assign('task', $curTask);
             $this->view->assign('breadcrumbs', $curTask->getPathToTask());
         }
@@ -33,17 +33,67 @@ class TaskController extends Zend_Controller_Action
         $oTask->setUser($this->_user);
         $oTask->setDateCreate(date('d.m.Y H:i:s'));
 
+        if ($this->getRequest()->getParam('parent', 0) != 0) {
+            $oTask->addParent(TM_Task_Task::getInstanceById($this->getRequest()->getParam('parent', 0)));
+        }
+
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
             $oTask->setTitle($data['title']);
             $oTask->setDateCreate($data['date_create']);
 
             if (!empty($data['parentTask'])) {
-                $oTask->addParent(TM_Task_Task::getInstanceById($data['parentTask']));
+                $parentTask = TM_Task_Task::getInstanceById($data['parentTask']);
+                $oTask->addParent($parentTask);
             }
 
             try {
                 $oTask->insertToDb();
+
+                $oDocument = new TM_Document_Document();
+                $oDocument->setUser($this->_user);
+                $oDocument->setDateCreate(date('d.m.Y H:i:s'));
+                $oDocument->setIsFolder(true);
+                $oDocument->setTitle($data['title']);
+
+                if (!empty($data['parentTask'])) {
+                    $oDocument->setParent(TM_Document_Document::getDocumentFolderByTask($this->_user, $parentTask));
+                }
+
+                $oDocument->insertToDb();
+                $oDocument->setLinkToTask($oTask);
+
+
+                $oDiscussion = new TM_Discussion_Discussion();
+                $oDiscussion->setUser($this->_user);
+                $oDiscussion->setDateCreate(date('d.m.Y H:i:s'));
+                //$oDiscussion->setIsFirst(true);
+                $oDiscussion->setIsMessage(false);
+
+                $oDiscussion->setMessage($data['title']);
+
+                if (!empty($data['parentTask'])) {
+                    $oDiscussion->setTopic(TM_Discussion_Discussion::getDocumentTopicByTask($this->_user, $parentTask));
+                }
+
+                $oDiscussion->insertToDb();
+                $oDiscussion->setLinkToTask($oTask);
+
+                if (!empty($data['parentTask'])) {
+                    $taskAcl = TM_Acl_TaskAcl::getAllInstance($parentTask);
+                    if (!empty($taskAcl)) {
+                        foreach ($taskAcl as $acl) {
+                            $tempAcl = new TM_Acl_TaskAcl($oTask);
+                            $tempAcl->setUser($acl->getUser());
+                            $tempAcl->setIsRead($acl->getIsRead());
+                            $tempAcl->setIsWrite($acl->getIsWrite());
+                            $tempAcl->setIsExecutant($acl->getIsExecutant());
+                            $tempAcl->saveToDb();
+                        }
+                    }
+                }
+
+
                 $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
@@ -78,6 +128,7 @@ class TaskController extends Zend_Controller_Action
                 $oDocument->setDateCreate(date('d.m.Y H:i:s'));
                 $oDocument->setIsFolder(false);
                 $oDocument->setTitle($data['document_title']);
+                $oDocument->setParent(TM_Document_Document::getDocumentFolderByTask($this->_user, $oTask));
 
                 $oDocument->insertToDb();
                 $oDocument->setLinkToTask($oTask);
@@ -93,7 +144,7 @@ class TaskController extends Zend_Controller_Action
         }
 
         $this->view->assign('parentList', TM_Task_Task::getAllInstance($this->_user), -1);
-        $this->view->assign('attributeHashList', TM_Task_Hash::getAllInstance());
+        $this->view->assign('attributeHashList', TM_Task_Hash::getAllInstance($oTask));
         $this->view->assign('documentList', TM_Document_Document::getDocumentByTask($this->_user, $oTask));
         $this->view->assign('task', $oTask);
     }
@@ -119,6 +170,36 @@ class TaskController extends Zend_Controller_Action
         $this->_redirect('/task/edit/parent/' . $this->getRequest()->getParam('parent', 0) . '/id/' . $this->getRequest()->getParam('id'));
     }
 
+    public function showaclAction()
+    {
+        $oTask = TM_Task_Task::getInstanceById($this->getRequest()->getParam('idTask'));
+
+        if ($this->getRequest()->isPost()) {
+            $data = $this->getRequest()->getParam('data');
+
+            try {
+                foreach($data as $idUser => $values) {
+
+                    $taskAcl = new TM_Acl_TaskAcl($oTask);
+
+                    $taskAcl->setUser(TM_User_User::getInstanceById($idUser));
+                    $taskAcl->setIsRead($values['is_read']);
+                    $taskAcl->setIsWrite($values['is_write']);
+                    $taskAcl->setIsExecutant($values['is_executant']);
+                    $taskAcl->saveToDb();
+                }
+
+                $this->_redirect('/task/showAcl/idTask/' . $this->getRequest()->getParam('idTask'));
+            } catch (Exception $e) {
+                $this->view->assign('exception_msg', $e->getMessage());
+            }
+        }
+
+        $this->view->assign('taskAcl', TM_Acl_TaskAcl::getAllInstance($oTask));
+        $this->view->assign('userList', TM_User_User::getAllInstance());
+        $this->view->assign('task', $oTask);
+    }
+
     public function addattributetypeAction()
     {
         $oType = new TM_Attribute_AttributeType(new TM_Task_AttributeTypeMapper());
@@ -138,13 +219,13 @@ class TaskController extends Zend_Controller_Action
             }
 
         }
-        
+
         $this->view->assign('type', $oType);
     }
 
     public function editattributetypeAction()
     {
-       $oType = TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Task_AttributeTypeMapper(), $this->getRequest()->getParam('id'));
+        $oType = TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Task_AttributeTypeMapper(), $this->getRequest()->getParam('id'));
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');

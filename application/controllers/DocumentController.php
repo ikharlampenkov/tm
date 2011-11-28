@@ -25,6 +25,7 @@ class DocumentController extends Zend_Controller_Action
 
         $this->view->assign('attributeTypeList', TM_Attribute_AttributeType::getAllInstance(new TM_Document_AttributeTypeMapper()));
         $this->view->assign('attributeHashList', TM_Document_Hash::getAllInstance());
+        $this->view->assign('parentId', $parentId);
     }
 
     public function addAction()
@@ -33,6 +34,10 @@ class DocumentController extends Zend_Controller_Action
         $oDocument->setUser($this->_user);
         $oDocument->setDateCreate(date('d.m.Y H:i:s'));
         $oDocument->setIsFolder(false);
+
+        if ($this->getRequest()->getParam('parent', 0) != 0) {
+            $oDocument->setParent(TM_Document_Document::getInstanceById($this->getRequest()->getParam('parent', 0)));
+        }
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
@@ -84,9 +89,22 @@ class DocumentController extends Zend_Controller_Action
         }
 
         $this->view->assign('parentList', TM_Document_Document::getAllInstance($this->_user, -1, 1));
-        $this->view->assign('attributeHashList', TM_Document_Hash::getAllInstance());
+        $this->view->assign('attributeHashList', TM_Document_Hash::getAllInstance($oDocument));
         $this->view->assign('taskList', TM_Task_Task::getTaskByDocument($this->_user, $oDocument));
         $this->view->assign('document', $oDocument);
+    }
+
+    public function deleteAction()
+    {
+        $oDocument = TM_Document_Document::getInstanceById($this->getRequest()->getParam('id'));
+        try {
+            $oDocument->deleteFromDB();
+            $this->_redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+
+        }
+        // action body
     }
 
     public function addfolderAction()
@@ -95,6 +113,10 @@ class DocumentController extends Zend_Controller_Action
         $oDocument->setUser($this->_user);
         $oDocument->setDateCreate(date('d.m.Y H:i:s'));
         $oDocument->setIsFolder(true);
+
+        if ($this->getRequest()->getParam('parent', 0) != 0) {
+            $oDocument->setParent(TM_Document_Document::getInstanceById($this->getRequest()->getParam('parent', 0)));
+        }
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
@@ -150,7 +172,7 @@ class DocumentController extends Zend_Controller_Action
         $this->view->assign('document', $oDocument);
     }
 
-    public function deleteAction()
+     public function deletefolderAction()
     {
         $oDocument = TM_Document_Document::getInstanceById($this->getRequest()->getParam('id'));
         try {
@@ -162,6 +184,7 @@ class DocumentController extends Zend_Controller_Action
         }
         // action body
     }
+
 
     public function addattributetypeAction()
     {

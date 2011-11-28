@@ -22,8 +22,14 @@ class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
     public function insertToDb(TM_Attribute_Attribute $attribute)
     {
         try {
-            $sql = 'INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value)
-                    VALUES (' . $attribute->task->getId() . ', "' . $attribute->attribyteKey . '", ' . $attribute->type->getId() . ', "' . $attribute->value . '")';
+            if (!empty($attribute->value)) {
+                $isFill = 1;
+            } else {
+                $isFill = 0;
+            }
+
+            $sql = 'INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (' . $attribute->task->getId() . ', "' . $attribute->attribyteKey . '", ' . $attribute->type->getId() . ', "' . $attribute->value . '", ' . $isFill . ')';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -39,8 +45,14 @@ class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
     public function updateToDb($attribute)
     {
         try {
+            if (!empty($attribute->value)) {
+                $isFill = 1;
+            } else {
+                $isFill = 1;
+            }
+
             $sql = 'UPDATE tm_document_attribute
-                    SET type_id="' . $attribute->type->getId() . '", attribute_value="' . $attribute->value . '"
+                    SET type_id="' . $attribute->type->getId() . '", attribute_value="' . $attribute->value . '", is_fill=' . $isFill . ' 
                     WHERE document_id=' . $attribute->task->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
@@ -50,8 +62,8 @@ class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
 
     /**
      *
-     *
-     * @return
+     * @param $attribute
+     * @return void
      * @access public
      */
     public function deleteFromDb($attribute)

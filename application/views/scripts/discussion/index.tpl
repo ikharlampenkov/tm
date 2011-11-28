@@ -14,7 +14,16 @@
 
 <table width="100%">
     <tr>
-        <td class="ttovar" align="center" colspan="3"><a href="{$this->url(['controller' => $controller,'action' => 'addTopic'])}">добавить тему</a> / <a href="{$this->url(['controller' => $controller,'action' => 'add'])}">добавить комментарий</a></td>
+        <td class="ttovar" align="center" colspan="3">
+            {if_allowed resource="{$controller}/addTopic"}
+            <a href="{$this->url(['controller' => $controller,'action' => 'addTopic'])}">добавить тему</a> /
+            {/if_allowed}
+            {if_allowed resource="{$controller}/add"}
+            {if isset($parentId) && $parentId>0}
+            <a href="{$this->url(['controller' => $controller,'action' => 'add'])}">добавить комментарий</a>
+            {/if}
+            {/if_allowed}
+        </td>
     </tr>
 
 {if $discussionList!==false}
@@ -29,11 +38,19 @@
             <td class="ttovar">{$discussion->datecreate|date_format:"%d.%m.%Y"}</td>
             <td class="tedit">
                 {if $discussion->isTopic()}
+                    {if_allowed resource="{$controller}/editTopic"}
                     <a href="{$this->url(['controller' => $controller,'action' => 'editTopic', 'id' => $discussion->id])}">редактировать</a><br/>
+                    {/if_allowed}
+                    {if_allowed resource="{$controller}/deleteTopic"}
                     <a href="{$this->url(['controller' => $controller,'action' => 'deleteTopic', 'id' => $discussion->id])}" onclick="return confirmDelete('{$discussion->id}');" style="color: #830000">удалить</a>
+                    {/if_allowed}
                 {else}
+                    {if_allowed resource="{$controller}/edit"}
                     <a href="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $discussion->id])}">редактировать</a><br/>
+                    {/if_allowed}
+                    {if_allowed resource="{$controller}/delete"}
                     <a href="{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $discussion->id])}" onclick="return confirmDelete('{$discussion->id}');" style="color: #830000">удалить</a>
+                    {/if_allowed}
                 {/if}
             </td>
 

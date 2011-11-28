@@ -47,12 +47,15 @@ class TM_Document_Document
      */
     protected $_user = null;
 
+    /**
+     * @var TM_FileManager_File|TM_FileManager_Folder
+     */
     protected $_file = null;
 
     protected $_isFolder = false;
 
     /**
-     *
+     * @var TM_Document_Document
      * @access protected
      */
     protected $_parentDocument = null;
@@ -170,6 +173,13 @@ class TM_Document_Document
     public function setIsFolder($isFolder)
     {
         $this->_isFolder = $isFolder;
+        if (is_null($this->_file)) {
+            if ($this->_isFolder) {
+                $this->_file = new TM_FileManager_Folder(Zend_Registry::get('production')->files->path);
+            } else {
+                $this->_file = new TM_FileManager_File(Zend_Registry::get('production')->files->path);
+            }
+        }
     }
 
     public function getIsFolder()
@@ -247,7 +257,7 @@ class TM_Document_Document
     public function __construct()
     {
         $this->_db = StdLib_DB::getInstance();
-        $this->_file = new TM_FileManager_File(Zend_Registry::get('production')->files->path);
+        //$this->_file = new TM_FileManager_File(Zend_Registry::get('production')->files->path);
     } // end of member function __construct
 
     /**
@@ -267,7 +277,15 @@ class TM_Document_Document
             $this->_id = $this->_db->getLastInsertId();
 
             if (!$this->_isFolder) {
+                $this->_file->setSubPath($this->getParentPath());
                 $fName = $this->_file->download('file');
+                if ($fName !== false) {
+                    $sql = 'UPDATE tm_document SET file="' . $fName . '" WHERE id=' . $this->_id;
+                    $this->_db->query($sql);
+                }
+            } else {
+                $this->_file->setSubPath($this->getParentPath());
+                $fName = $this->_file->download(StdLib_Functions::translitIt($this->_title));
                 if ($fName !== false) {
                     $sql = 'UPDATE tm_document SET file="' . $fName . '" WHERE id=' . $this->_id;
                     $this->_db->query($sql);
@@ -297,12 +315,13 @@ class TM_Document_Document
             $this->_db->query($sql);
 
             if (!$this->_isFolder) {
+                $this->_file->setSubPath($this->getParentPath());
                 $fName = $this->_file->download('file');
                 if ($fName !== false) {
                     $sql = 'UPDATE tm_document SET file="' . $fName . '" WHERE id=' . $this->_id;
                     $this->_db->query($sql);
                 }
-            }
+            } 
             $this->saveAttributeList();
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -318,6 +337,9 @@ class TM_Document_Document
     public function deleteFromDb()
     {
         try {
+            if (!$this->_isFolder) {
+                $this->_file->setSubPath($this->_parentDocument->getFile()->getName());
+            }
             $this->_file->delete();
 
             $sql = 'DELETE FROM tm_document
@@ -381,6 +403,7 @@ class TM_Document_Document
      *
      * @param TM_User_User $user
      * @param int $parentId
+     * @param int $isFolder
 
      * @return array
      * @static
@@ -433,7 +456,10 @@ class TM_Document_Document
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_document, tm_task_document WHERE tm_document.id=tm_task_document.document_id AND tm_task_document.task_id=' . $task->getId();
+            $sql = 'SELECT * FROM tm_document, tm_task_document
+                    WHERE tm_document.is_folder=0
+                      AND tm_document.id=tm_task_document.document_id
+                      AND tm_task_document.task_id=' . $task->getId();
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
@@ -442,6 +468,26 @@ class TM_Document_Document
                     $retArray[] = TM_Document_Document::getInstanceByArray($user, $res);
                 }
                 return $retArray;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
+    public static function getDocumentFolderByTask(TM_User_User $user, TM_Task_Task $task)
+    {
+        try {
+            $db = StdLib_DB::getInstance();
+            $sql = 'SELECT * FROM tm_document, tm_task_document
+                    WHERE tm_document.is_folder=1
+                      AND tm_document.id=tm_task_document.document_id
+                      AND tm_task_document.task_id=' . $task->getId();
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+
+            if (isset($result[0])) {
+                return TM_Document_Document::getInstanceByArray($user, $result[0]);
             } else {
                 return false;
             }
@@ -488,13 +534,20 @@ class TM_Document_Document
         $o_user = TM_User_User::getInstanceById($values['user_id']);
         $this->setUser($o_user);
 
-        $this->_file->setName($values['file']);
         $this->setIsFolder($values['is_folder']);
+
+        if ($this->_isFolder) {
+            $this->_file = new TM_FileManager_Folder(Zend_Registry::get('production')->files->path, $values['file']);
+        } else {
+            $this->_file = new TM_FileManager_File(Zend_Registry::get('production')->files->path, $values['file']);
+        }
 
         $oDocument = TM_Document_Document::getInstanceById($values['parent_id']);
         if ($oDocument !== false) {
             $this->setParent($oDocument);
         }
+
+        $this->_file->setSubPath($this->getParentPath());
 
         $this->getAttributeList();
     } // end of member function fillFromArray
@@ -570,6 +623,23 @@ class TM_Document_Document
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
+    }
+
+    protected function getParentPath()
+    {
+        $path = '';
+        $pathArray = $this->getPathToDocument();
+        if (!empty($pathArray)) {
+            foreach ($pathArray as $value) {
+                $path .= '/' . $value->_file->getName();
+            }
+        }
+        /*
+        if (!is_null($this->_parentDocument)) {
+            $path .= '/' . $this->_parentDocument->_file->getName();
+        }
+        */
+        return $path;
     }
 
     protected function _pathToDocument(&$pathArray = array())

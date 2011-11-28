@@ -496,6 +496,26 @@ class TM_Discussion_Discussion {
         }
     }
 
+    public static function getDocumentTopicByTask(TM_User_User $user, TM_Task_Task $task)
+    {
+        try {
+            $db = StdLib_DB::getInstance();
+            $sql = 'SELECT * FROM tm_discussion, tm_task_discussion
+                    WHERE tm_discussion.is_message=0
+                      AND tm_discussion.id=tm_task_discussion.discussion_id
+                      AND tm_task_discussion.task_id=' . $task->getId();
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+
+            if (isset($result[0])) {
+                return TM_Discussion_Discussion::getInstanceByArray($user, $result[0]);
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
     public function setLinkToTask($task)
     {
         try {
@@ -516,6 +536,49 @@ class TM_Discussion_Discussion {
         }
     }
 
+    public static function getDiscussionByDocument(TM_User_User $user, TM_Document_Document $document)
+    {
+        try {
+            $db = StdLib_DB::getInstance();
+            $sql = 'SELECT * FROM tm_discussion, tm_discussion_document
+                    WHERE tm_discussion.id=tm_discussion_document.discussion_id
+                      AND tm_discussion_document.document_id=' . $document->getId();
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+
+            if (isset($result[0])) {
+                $retArray = array();
+                foreach ($result as $res) {
+                    $retArray[] = TM_Discussion_Discussion::getInstanceByArray($user, $res);
+                }
+                return $retArray;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
+    public function setLinkToDocument($document)
+    {
+        try {
+            $sql = 'INSERT INTO tm_discussion_document(tm_document_id, discussion_id) VALUES(' . $document->id . ', ' . $this->_id . ')';
+            $this->_db->query($sql);
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
+    public function deleteLinkToDocument($document)
+    {
+        try {
+            $sql = 'DELETE FROM tm_discussion_document
+                    WHERE tm_document_id=' . $document->id . ' AND discussion_id=' . $this->_id;
+            $this->_db->query($sql);
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
 
     /**
      *

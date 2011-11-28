@@ -26,6 +26,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
         if (isset($options['resources']['view']['pluginsPath'])) {
             $view->addPluginsPath($options['resources']['view']['pluginsPath']);
+
         }
 
         $view->setEncoding($options['resources']['view']['encoding']);
@@ -44,6 +45,8 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $view->assign('description', $options['smarty']['default']['desc']);
         $view->assign('keywords', $options['smarty']['default']['keyword']);
         $view->assign('encoding', $options['smarty']['encoding']);
+
+        //print_r($view);
 
         return $view;
     }
@@ -128,6 +131,10 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         Zend_Loader::loadClass('TM_Acl_Acl');
         Zend_Loader::loadClass('CheckAccess');
         Zend_Controller_Front::getInstance()->registerPlugin(new CheckAccess());
+
+        $view = $this->getResource('View');
+        $view->getEngine()->loadPlugin('smarty_block_if_allowed');
+
         return new TM_Acl_Acl();
     }
 

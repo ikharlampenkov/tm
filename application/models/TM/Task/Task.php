@@ -26,7 +26,7 @@ class TM_Task_Task
     protected $_title;
 
     /**
-     *
+     * @var TM_User_User
      * @access protected
      */
     protected $_user = null;
@@ -245,7 +245,7 @@ class TM_Task_Task
      *
      * @param int $id идентификатор задачи
 
-     * @return Task::TM_Task_Task
+     * @return TM_Task_Task
      * @static
      * @access public
      */
@@ -419,7 +419,7 @@ class TM_Task_Task
     /**
      *
      *
-     * @param Task::TM_Task_Task child
+     * @param TM_Task_Task $child
 
      * @return
      * @access public
@@ -515,7 +515,7 @@ class TM_Task_Task
     /**
      *
      *
-     * @param Task::TM_Task_Task parent
+     * @param TM_Task_Task $parent
 
      * @return
      * @access public

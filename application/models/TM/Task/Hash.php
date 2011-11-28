@@ -115,7 +115,8 @@ class TM_Task_Hash
      * @return void
      * @access protected
      */
-    public function setType(TM_Attribute_AttributeType $value ) {
+    public function setType(TM_Attribute_AttributeType $value)
+    {
         $this->_type = $value;
     } // end of member function setType
 
@@ -132,7 +133,7 @@ class TM_Task_Hash
         $this->_title = $this->_db->prepareString($value);
     } // end of member function setTitle
 
-     /**
+    /**
      *
      *
      * @param array|string $value
@@ -296,17 +297,30 @@ class TM_Task_Hash
 
     /**
      *
-     *
+     * @param $object
 
      * @return array
      * @static
      * @access public
      */
-    public static function getAllInstance()
+    public static function getAllInstance($object = null)
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_task_hash';
+
+            if (!is_null($object)) {
+                $sql = 'SELECT COUNT(attribute_key) FROM tm_task_attribute WHERE task_id=' . $object->id;
+                $result = $db->query($sql, StdLib_DB::QUERY_MODE_NUM);
+            }
+
+            $sql = 'SELECT tm_task_hash.attribute_key, title, tm_task_hash.type_id, list_value FROM tm_task_hash';
+
+            if (!is_null($object) && isset($result[0][0]) && $result[0][0] > 0) {
+                $sql .= ' LEFT JOIN tm_task_attribute ON tm_task_hash.attribute_key=tm_task_attribute.attribute_key
+                          WHERE tm_task_attribute.task_id=' . $object->id . ' 
+                          ORDER BY is_fill DESC, title';
+            }
+
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
