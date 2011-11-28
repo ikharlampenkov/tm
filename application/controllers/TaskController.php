@@ -79,6 +79,20 @@ class TaskController extends Zend_Controller_Action
                 $oDiscussion->insertToDb();
                 $oDiscussion->setLinkToTask($oTask);
 
+                if (!empty($data['parentTask'])) {
+                    $taskAcl = TM_Acl_TaskAcl::getAllInstance($parentTask);
+                    if (!empty($taskAcl)) {
+                        foreach ($taskAcl as $acl) {
+                            $tempAcl = new TM_Acl_TaskAcl($oTask);
+                            $tempAcl->setUser($acl->getUser());
+                            $tempAcl->setIsRead($acl->getIsRead());
+                            $tempAcl->setIsWrite($acl->getIsWrite());
+                            $tempAcl->setIsExecutant($acl->getIsExecutant());
+                            $tempAcl->saveToDb();
+                        }
+                    }
+                }
+
 
                 $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
             } catch (Exception $e) {
@@ -163,6 +177,12 @@ class TaskController extends Zend_Controller_Action
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
 
+            $oFolder = TM_Document_Document::getDocumentFolderByTask($this->_user, $oTask);
+            $folderAcl = TM_Acl_DocumentAcl::getAllInstance($oFolder);
+
+            $oTopic = TM_Discussion_Discussion::getTopicByTask($this->_user, $oTask);
+            $topicAcl = TM_Acl_DiscussionAcl::getAllInstance($oTopic);
+
             try {
                 foreach($data as $idUser => $values) {
 
@@ -173,9 +193,25 @@ class TaskController extends Zend_Controller_Action
                     $taskAcl->setIsWrite($values['is_write']);
                     $taskAcl->setIsExecutant($values['is_executant']);
                     $taskAcl->saveToDb();
+
+                    if (empty($folderAcl)) {
+                        $tempAcl = new TM_Acl_DocumentAcl($oFolder);
+                        $tempAcl->setUser(TM_User_User::getInstanceById($idUser));
+                        $tempAcl->setIsRead($values['is_read']);
+                        $tempAcl->setIsWrite($values['is_write']);
+                        $tempAcl->saveToDb();
+                    }
+
+                    if (empty($topicAcl)) {
+                        $tempAcl = new TM_Acl_DiscussionAcl($oTopic);
+                        $tempAcl->setUser(TM_User_User::getInstanceById($idUser));
+                        $tempAcl->setIsRead($values['is_read']);
+                        $tempAcl->setIsWrite($values['is_write']);
+                        $tempAcl->saveToDb();
+                    }
                 }
 
-                $this->_redirect('/task/showAcl/idTask/' . $this->getRequest()->getParam('idTask'));
+                $this->_redirect('/task/showAcl/parent/' . $this->getRequest()->getParam('parent', 0) . '/idTask/' . $this->getRequest()->getParam('idTask'));
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -303,8 +339,22 @@ class TaskController extends Zend_Controller_Action
         }
     }
 
+    public function showdiscussionAction()
+    {
+        $oTask = TM_Task_Task::getInstanceById($this->getRequest()->getParam('idTask'));
+        $oTopic = TM_Discussion_Discussion::getTopicByTask($this->_user, $oTask);
+
+
+
+        $this->view->assign('discussionList', TM_Discussion_Discussion::getDiscussionByTask($this->_user, $oTask));
+        $this->view->assign('topic', $oTopic);
+        $this->view->assign('task', $oTask);
+    }
+
 
 }
+
+
 
 
 

@@ -46,7 +46,7 @@ abstract class TM_Acl_UserAcl
      */
     public function setIsRead($isAllow)
     {
-        if ($isAllow == 'on') {
+        if ($isAllow === 'on') {
             $this->_isRead = 1;
         } elseif (empty($isAllow)) {
             $this->_isRead = 0;
@@ -68,7 +68,7 @@ abstract class TM_Acl_UserAcl
      */
     public function setIsWrite($isAllow)
     {
-        if ($isAllow == 'on') {
+        if ($isAllow === 'on') {
             $this->_isWrite = 1;
         } elseif (empty($isAllow)) {
             $this->_isWrite = 0;
@@ -134,6 +134,9 @@ abstract class TM_Acl_UserAcl
     {
         $this->_db = StdLib_DB::getInstance();
         $this->_object = $object;
+
+        $this->_isRead = 0;
+        $this->_isWrite = 0;
     }
 
     /**

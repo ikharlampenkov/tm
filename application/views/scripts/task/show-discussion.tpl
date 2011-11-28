@@ -1,30 +1,4 @@
-<div class="page"><h1>{if !isset($discussion)}Обсуждение{else}Тема: {$discussion->title}{/if}</h1></div><br/>
-
-{if isset($breadcrumbs)}
-    <a href="{$this->url(['controller' => $controller,'action' => 'index', 'parent' => 0])}">/..</a>
-    {if !empty($breadcrumbs)}
-    &nbsp;/
-    {foreach from=$breadcrumbs item=crumb name=_crumb}
-    <a href="{$this->url(['controller' => $controller,'action' => 'index', 'parent' => $crumb->id])}">{$crumb->title}</a>&nbsp;/
-    {/foreach}
-    {/if}
-    <br/><br/>
-{/if}
-
-
-<table width="100%">
-    <tr>
-        <td class="ttovar" align="center" colspan="4">
-            {if_allowed resource="{$controller}/addTopic"}
-            <a href="{$this->url(['controller' => $controller,'action' => 'addTopic'])}">добавить тему</a> /
-            {/if_allowed}
-            {if_allowed resource="{$controller}/add"}
-            {if isset($parentId) && $parentId>0}
-            <a href="{$this->url(['controller' => $controller,'action' => 'add'])}">добавить комментарий</a>
-            {/if}
-            {/if_allowed}
-        </td>
-    </tr>
+<div class="page"><h1>Обсуждение задачи: {$task->title}</h1></div><br/>
 
 {if $discussionList!==false}
     {foreach from=$discussionList item=discussion}
@@ -64,5 +38,3 @@
         {/if_object_allowed}
     {/foreach}
 {/if}
-
-</table>

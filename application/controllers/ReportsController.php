@@ -13,6 +13,20 @@ class ReportsController extends Zend_Controller_Action
         // action body
     }
 
+    public function showDesignerAction()
+    {
+        // action body
+    }
+
+    public function generateReportAction()
+    {
+        // action body
+    }
+
 
 }
+
+
+
+
 

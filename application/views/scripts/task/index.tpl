@@ -14,15 +14,21 @@
 <table width="100%">
     {if_allowed resource="{$controller}/add"}
     <tr>
-        <td class="ttovar" align="center" colspan="4"><a href="{$this->url(['controller' => $controller,'action' => 'add'])}">добавить</a></td>
+        <td class="ttovar" align="center" colspan="5"><a href="{$this->url(['controller' => $controller,'action' => 'add'])}">добавить</a></td>
     </tr>
     {/if_allowed}
 
 {if $taskList!==false}
     {foreach from=$taskList item=task}
+        {if_object_allowed type="{$controller}" object="{$task}"}
         <tr>
             <td class="ttovar"><a href="{$this->url(['controller' => $controller,'action' => 'index', 'parent' => $task->id])}">{$task->title}</a></td>
             <td class="ttovar">{$task->datecreate|date_format:"%d.%m.%Y"}</td>
+            <td class="tedit">
+                {if_allowed resource="{$controller}/showDiscussion"}
+                 <a href="{$this->url(['controller' => $controller,'action' => 'showDiscussion', 'idTask' => $task->id])}">обсуждение</a>
+                {/if_allowed}
+            </td>
             <td class="tedit">
                 {if_allowed resource="{$controller}/showAcl"}
                  <a href="{$this->url(['controller' => $controller,'action' => 'showAcl', 'idTask' => $task->id])}">права</a>
@@ -30,13 +36,16 @@
             </td>
             <td class="tedit">
                 {if_allowed resource="{$controller}/edit"}
+                {if_object_allowed type="{$controller}" object="{$task}" priv="write"}
                 <a href="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $task->id])}">редактировать</a><br/>
+                {/if_object_allowed}
                 {/if_allowed}
                 {if_allowed resource="{$controller}/delete"}
                 <a href="{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $task->id])}" onclick="return confirmDelete('{$task->id}');" style="color: #830000">удалить</a>
                 {/if_allowed}
             </td>
         </tr>
+        {/if_object_allowed}
     {/foreach}
 {/if}
 

@@ -48,6 +48,20 @@ class DiscussionController extends Zend_Controller_Action
 
             try {
                 $oDiscussion->insertToDb();
+
+                if (!empty($data['topic'])) {
+                    $discussionAcl = TM_Acl_DiscussionAcl::getAllInstance($oDiscussion->getTopic());
+                    if (!empty($discussionAcl)) {
+                        foreach ($discussionAcl as $acl) {
+                            $tempAcl = new TM_Acl_DiscussionAcl($oDiscussion);
+                            $tempAcl->setUser($acl->getUser());
+                            $tempAcl->setIsRead($acl->getIsRead());
+                            $tempAcl->setIsWrite($acl->getIsWrite());
+                            $tempAcl->saveToDb();
+                        }
+                    }
+                }
+
                 $this->_redirect('/discussion/index/parent/' . $this->getRequest()->getParam('parent', 0));
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
@@ -104,6 +118,35 @@ class DiscussionController extends Zend_Controller_Action
         }
     }
 
+    public function showaclAction()
+    {
+        $oDiscussion = TM_Discussion_Discussion::getInstanceById($this->getRequest()->getParam('idDiscussion'));
+
+        if ($this->getRequest()->isPost()) {
+            $data = $this->getRequest()->getParam('data');
+
+            try {
+                foreach($data as $idUser => $values) {
+
+                    $discussionAcl = new TM_Acl_DiscussionAcl($oDiscussion);
+
+                    $discussionAcl->setUser(TM_User_User::getInstanceById($idUser));
+                    $discussionAcl->setIsRead($values['is_read']);
+                    $discussionAcl->setIsWrite($values['is_write']);
+                    $discussionAcl->saveToDb();
+                }
+
+                $this->_redirect('/discussion/showAcl/parent/' . $this->getRequest()->getParam('parent', 0) . '/idDiscussion/' . $this->getRequest()->getParam('idDiscussion'));
+            } catch (Exception $e) {
+                $this->view->assign('exception_msg', $e->getMessage());
+            }
+        }
+
+        $this->view->assign('discussionAcl', TM_Acl_DiscussionAcl::getAllInstance($oDiscussion));
+        $this->view->assign('userList', TM_User_User::getAllInstance());
+        $this->view->assign('discussion', $oDiscussion);
+    }
+
     public function addtopicAction()
     {
         $oDiscussion = new TM_Discussion_Discussion();
@@ -125,6 +168,20 @@ class DiscussionController extends Zend_Controller_Action
 
             try {
                 $oDiscussion->insertToDb();
+
+                if (!empty($data['topic'])) {
+                    $discussionAcl = TM_Acl_DiscussionAcl::getAllInstance($oDiscussion->getTopic());
+                    if (!empty($discussionAcl)) {
+                        foreach ($discussionAcl as $acl) {
+                            $tempAcl = new TM_Acl_DiscussionAcl($oDiscussion);
+                            $tempAcl->setUser($acl->getUser());
+                            $tempAcl->setIsRead($acl->getIsRead());
+                            $tempAcl->setIsWrite($acl->getIsWrite());
+                            $tempAcl->saveToDb();
+                        }
+                    }
+                }
+
                 $this->_redirect('/discussion/index/parent/' . $this->getRequest()->getParam('parent', 0));
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());

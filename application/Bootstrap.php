@@ -134,6 +134,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
         $view = $this->getResource('View');
         $view->getEngine()->loadPlugin('smarty_block_if_allowed');
+        $view->getEngine()->loadPlugin('smarty_block_if_object_allowed');
 
         return new TM_Acl_Acl();
     }
