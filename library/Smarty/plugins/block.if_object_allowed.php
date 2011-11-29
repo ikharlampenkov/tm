@@ -30,7 +30,8 @@ function smarty_block_if_object_allowed($params, $content, &$smarty, &$repeat)
 
             $class = 'TM_Acl_' . $params['type'] . 'Acl';
             if (class_exists($class)) {
-                $aclList = $class::getAllInstance($params['object']);
+
+                $aclList = call_user_func($class.'::getAllInstance', $params['object']);
 
                 if (empty($aclList)) {
                     return false;
@@ -54,6 +55,7 @@ function smarty_block_if_object_allowed($params, $content, &$smarty, &$repeat)
                         return false;
                     }
                 }
+                
             } else {
                 return false;
             }

@@ -184,7 +184,7 @@ class TaskController extends Zend_Controller_Action
             $topicAcl = TM_Acl_DiscussionAcl::getAllInstance($oTopic);
 
             try {
-                foreach($data as $idUser => $values) {
+                foreach ($data as $idUser => $values) {
 
                     $taskAcl = new TM_Acl_TaskAcl($oTask);
 
@@ -344,9 +344,43 @@ class TaskController extends Zend_Controller_Action
         $oTask = TM_Task_Task::getInstanceById($this->getRequest()->getParam('idTask'));
         $oTopic = TM_Discussion_Discussion::getTopicByTask($this->_user, $oTask);
 
+        if ($this->getRequest()->isPost()) {
+            $data = $this->getRequest()->getParam('data');
+            $oDiscussion = new TM_Discussion_Discussion();
+            $oDiscussion->setUser($this->_user);
+            $oDiscussion->setDateCreate(date('d.m.Y H:i:s'));
+            $oDiscussion->setIsMessage(true);
+            $oDiscussion->setMessage($data['message']);
+
+            $oDiscussion->setTopic($oTopic);
+
+            if (isset($data['parent'])) {
+                $oDiscussion->setParent(TM_Discussion_Discussion::getInstanceById($data['parent']));
+            }
+
+            try {
+                $oDiscussion->insertToDb();
+                $oDiscussion->setLinkToTask($oTask);
+
+                $topicAcl = TM_Acl_DiscussionAcl::getAllInstance($oTopic);
+                if (!empty($topicAcl)) {
+                    foreach ($topicAcl as $acl) {
+                        $tempAcl = new TM_Acl_DiscussionAcl($oDiscussion);
+                        $tempAcl->setUser($acl->getUser());
+                        $tempAcl->setIsRead($acl->getIsRead());
+                        $tempAcl->setIsWrite($acl->getIsWrite());
+                        $tempAcl->saveToDb();
+                    }
+                }
+
+                $this->_redirect('/task/showDiscussion/parent/' . $this->getRequest()->getParam('parent', 0) . '/idTask/' . $this->getRequest()->getParam('idTask'));
+            } catch (Exception $e) {
+                $this->view->assign('exception_msg', $e->getMessage());
+            }
+        }
 
 
-        $this->view->assign('discussionList', TM_Discussion_Discussion::getDiscussionByTask($this->_user, $oTask));
+        $this->view->assign('discussionList', TM_Discussion_Discussion::getDiscussionTreeByTask($this->_user, $oTask));
         $this->view->assign('topic', $oTopic);
         $this->view->assign('task', $oTask);
     }

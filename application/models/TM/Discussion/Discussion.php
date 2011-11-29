@@ -20,7 +20,8 @@
   parent_id
  */
 
-class TM_Discussion_Discussion {
+class TM_Discussion_Discussion
+{
 
     /** Aggregations: */
 
@@ -69,7 +70,7 @@ class TM_Discussion_Discussion {
      */
     protected $_parent = null;
 
-    
+
     /**
      *
      * @var StdLib_DB
@@ -126,7 +127,6 @@ class TM_Discussion_Discussion {
      *
      *
      * @param int $value
-
      * @return void
      * @access protected
      */
@@ -139,7 +139,6 @@ class TM_Discussion_Discussion {
      *
      *
      * @param string $value
-
      * @return void
      * @access public
      */
@@ -152,7 +151,6 @@ class TM_Discussion_Discussion {
      *
      *
      * @param TM_User_User $value
-
      * @return void
      * @access public
      */
@@ -165,7 +163,6 @@ class TM_Discussion_Discussion {
      *
      *
      * @param string $value
-
      * @return string
      * @access public
      */
@@ -227,7 +224,6 @@ class TM_Discussion_Discussion {
      *
      *
      * @param TM_Discussion_Discussion $parent
-
      * @return void
      * @access public
      */
@@ -236,11 +232,21 @@ class TM_Discussion_Discussion {
         $this->_parent = $parent;
     } // end of member function addParent
 
-    public function isTopic() {
+    public function isTopic()
+    {
         if ($this->_isMessage) {
             return false;
         } else {
             return true;
+        }
+    }
+
+    public function hasParent()
+    {
+        if (!is_null($this->_parent) && $this->_parent instanceof TM_Discussion_Discussion) {
+            return true;
+        } else {
+            return false;
         }
     }
 
@@ -347,7 +353,6 @@ class TM_Discussion_Discussion {
      *
      *
      * @param int $id идентификатор задачи
-
      * @return TM_Discussion_Discussion
      * @static
      * @access public
@@ -396,7 +401,6 @@ class TM_Discussion_Discussion {
      *
      * @param TM_User_User $user
      * @param int $topicId
-
      * @return array
      * @static
      * @access public
@@ -439,7 +443,6 @@ class TM_Discussion_Discussion {
      *
      * @param TM_User_User $user
      * @param int $topicId
-
      * @return array
      * @static
      * @access public
@@ -497,6 +500,56 @@ class TM_Discussion_Discussion {
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
+    }
+
+    public static function getDiscussionTreeByTask(TM_User_User $user, TM_Task_Task $task)
+    {
+        try {
+            $db = StdLib_DB::getInstance();
+            $sql = 'SELECT * FROM tm_discussion, tm_task_discussion
+                    WHERE tm_discussion.is_message=1
+                      AND tm_discussion.id=tm_task_discussion.discussion_id
+                      AND tm_task_discussion.task_id=' . $task->getId() . '
+                      AND parent_id IS NULL
+                      ORDER BY date_create';
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+
+            if (isset($result[0])) {
+                $retArray = array();
+                foreach ($result as $res) {
+                    $temp = TM_Discussion_Discussion::getInstanceByArray($user, $res);
+                    $retArray[] = $temp;
+                    $temp->getChildTree($user, $temp->getId(), $retArray);
+                }
+                return $retArray;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
+    public function getChildTree(TM_User_User $user, $parent_id, &$retArray)
+    {
+        try {
+            $sql = 'SELECT * FROM tm_discussion
+                    WHERE tm_discussion.is_message=1
+                      AND parent_id=' . $parent_id . '
+                      ORDER BY date_create';
+            $result = $this->_db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+            if (isset($result[0])) {
+                foreach ($result as $res) {
+                    $temp = TM_Discussion_Discussion::getInstanceByArray($user, $res);
+                    $retArray[] = $temp;
+                    $temp->getChildTree($user, $temp->getId(), $retArray);
+                }
+                //return $retArray;
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+
     }
 
     public static function getTopicByTask(TM_User_User $user, TM_Task_Task $task)
@@ -587,7 +640,6 @@ class TM_Discussion_Discussion {
      *
      *
      * @param array $values
-
      * @return void
      * @access public
      */

@@ -14,3 +14,11 @@ function confirmDelete(name) {
         return false;
     }
 }
+
+function comment_reply_on(id) {
+    $('#replay_on_message').html($('#message_' + id).html());
+    $('#parent').val(id);
+
+    $('#replay_form').show();
+    $('#add_form').hide();
+}
