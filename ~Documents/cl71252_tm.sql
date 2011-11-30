@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Ноя 27 2011 г., 22:18
+-- Время создания: Ноя 30 2011 г., 00:28
 -- Версия сервера: 5.1.50
 -- Версия PHP: 5.3.8-ZS5.5.0
 
@@ -40,6 +40,51 @@ CREATE TABLE IF NOT EXISTS `tm_acl_discussion` (
   KEY `fk_tm_acl_discussion_tm_user1` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Дамп данных таблицы `tm_acl_discussion`
+--
+
+INSERT INTO `tm_acl_discussion` (`user_id`, `discussion_id`, `is_read`, `is_write`) VALUES
+(1, 3, 1, 1),
+(1, 14, 1, 1),
+(1, 15, 1, 1),
+(1, 16, 1, 1),
+(1, 17, 1, 1),
+(1, 18, 1, 1),
+(1, 19, 1, 1),
+(1, 20, 1, 1),
+(1, 21, 1, 1),
+(1, 22, 1, 1),
+(1, 23, 1, 1),
+(1, 24, 1, 1),
+(2, 3, 1, 1),
+(2, 14, 1, 0),
+(2, 15, 1, 1),
+(2, 16, 1, 1),
+(2, 17, 1, 1),
+(2, 18, 1, 1),
+(2, 19, 1, 1),
+(2, 20, 1, 1),
+(2, 21, 1, 1),
+(2, 22, 1, 1),
+(2, 23, 1, 0),
+(2, 24, 1, 0),
+(5, 3, 1, 0),
+(5, 14, 1, 0),
+(5, 15, 1, 0),
+(5, 16, 1, 0),
+(5, 17, 1, 0),
+(5, 18, 1, 0),
+(5, 19, 1, 0),
+(5, 20, 1, 0),
+(5, 21, 1, 0),
+(5, 22, 1, 0),
+(5, 23, 1, 0),
+(5, 24, 1, 0),
+(6, 14, 1, 1),
+(6, 23, 1, 1),
+(6, 24, 1, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -56,6 +101,25 @@ CREATE TABLE IF NOT EXISTS `tm_acl_document` (
   KEY `fk_tm_acl_document_tm_user1` (`user_id`),
   KEY `fk_tm_acl_document_tm_document1` (`document_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `tm_acl_document`
+--
+
+INSERT INTO `tm_acl_document` (`user_id`, `document_id`, `is_read`, `is_write`) VALUES
+(1, 20, 1, 1),
+(1, 34, 1, 1),
+(1, 35, 1, 1),
+(1, 36, 1, 1),
+(2, 20, 1, 1),
+(2, 34, 1, 1),
+(2, 35, 1, 1),
+(2, 36, 1, 0),
+(5, 20, 1, 0),
+(5, 34, 1, 0),
+(5, 35, 1, 0),
+(5, 36, 1, 0),
+(6, 36, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -129,6 +193,12 @@ INSERT INTO `tm_acl_role` (`tm_user_role_id`, `tm_user_resource_id`, `is_allow`,
 (1, 58, 1, 'show'),
 (1, 59, 1, 'show'),
 (1, 60, 1, 'show'),
+(1, 61, 1, 'show'),
+(1, 62, 1, 'show'),
+(1, 63, 1, 'show'),
+(1, 64, 1, 'show'),
+(1, 65, 1, 'show'),
+(1, 66, 1, 'show'),
 (3, 1, 1, 'show'),
 (3, 2, 1, 'show'),
 (3, 3, 1, 'show'),
@@ -180,6 +250,12 @@ INSERT INTO `tm_acl_role` (`tm_user_role_id`, `tm_user_resource_id`, `is_allow`,
 (3, 58, 1, 'show'),
 (3, 59, 0, 'show'),
 (3, 60, 1, 'show'),
+(3, 61, 0, 'show'),
+(3, 62, 0, 'show'),
+(3, 63, 0, 'show'),
+(3, 64, 1, 'show'),
+(3, 65, 1, 'show'),
+(3, 66, 1, 'show'),
 (4, 1, 1, 'show'),
 (4, 2, 1, 'show'),
 (4, 3, 1, 'show'),
@@ -230,11 +306,17 @@ INSERT INTO `tm_acl_role` (`tm_user_role_id`, `tm_user_resource_id`, `is_allow`,
 (4, 57, 1, 'show'),
 (4, 58, 0, 'show'),
 (4, 59, 0, 'show'),
-(4, 60, 0, ''),
+(4, 60, 0, 'show'),
+(4, 61, 0, 'show'),
+(4, 62, 0, 'show'),
+(4, 63, 0, 'show'),
+(4, 64, 0, 'show'),
+(4, 65, 0, 'show'),
+(4, 66, 1, 'show'),
 (5, 1, 1, 'show'),
 (5, 2, 1, 'show'),
 (5, 3, 1, 'show'),
-(5, 4, 0, 'show'),
+(5, 4, 1, 'show'),
 (5, 5, 0, 'show'),
 (5, 6, 0, 'show'),
 (5, 7, 0, 'show'),
@@ -278,7 +360,10 @@ INSERT INTO `tm_acl_role` (`tm_user_role_id`, `tm_user_resource_id`, `is_allow`,
 (5, 54, 0, 'show'),
 (5, 55, 0, 'show'),
 (5, 56, 0, 'show'),
-(5, 57, 0, 'show');
+(5, 57, 0, 'show'),
+(5, 58, 0, 'show'),
+(5, 59, 0, 'show'),
+(5, 60, 0, 'show');
 
 -- --------------------------------------------------------
 
@@ -297,6 +382,34 @@ CREATE TABLE IF NOT EXISTS `tm_acl_task` (
   KEY `fk_tm_acl_tm_user1` (`user_id`),
   KEY `fk_tm_acl_tm_task1` (`task_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `tm_acl_task`
+--
+
+INSERT INTO `tm_acl_task` (`user_id`, `task_id`, `is_read`, `is_write`, `is_executant`) VALUES
+(1, 8, 1, 1, 0),
+(1, 9, 1, 1, 0),
+(1, 10, 1, 1, 0),
+(1, 11, 1, 1, 1),
+(1, 20, 1, 1, 1),
+(1, 21, 1, 1, 0),
+(1, 22, 1, 1, 0),
+(2, 8, 1, 1, 1),
+(2, 9, 1, 1, 1),
+(2, 10, 1, 1, 1),
+(2, 11, 1, 1, 1),
+(2, 20, 1, 1, 1),
+(2, 21, 1, 1, 1),
+(2, 22, 1, 0, 0),
+(5, 8, 1, 0, 0),
+(5, 9, 1, 0, 0),
+(5, 10, 1, 0, 0),
+(5, 11, 1, 1, 1),
+(5, 20, 1, 1, 1),
+(5, 21, 1, 0, 0),
+(5, 22, 1, 0, 0),
+(6, 22, 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -318,7 +431,7 @@ CREATE TABLE IF NOT EXISTS `tm_discussion` (
   KEY `fk_tm_discussion_tm_discussion1` (`parent_id`),
   KEY `fk_tm_discussion_tm_user1` (`user_id`),
   KEY `topic_id` (`topic_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
 
 --
 -- Дамп данных таблицы `tm_discussion`
@@ -326,7 +439,22 @@ CREATE TABLE IF NOT EXISTS `tm_discussion` (
 
 INSERT INTO `tm_discussion` (`id`, `message`, `date_create`, `is_first`, `is_message`, `topic_id`, `parent_id`, `user_id`) VALUES
 (3, 'Первый проект', '2011-11-27 22:14:57', 0, 0, NULL, NULL, 1),
-(4, 'Первая задача', '2011-11-27 22:15:40', 0, 0, 3, NULL, 1);
+(4, 'Первая задача', '2011-11-27 22:15:40', 0, 0, 3, NULL, 1),
+(5, 'Вторая задача', '2011-11-28 20:18:07', 0, 0, 3, NULL, 1),
+(6, 'Третья задача', '2011-11-28 20:28:33', 0, 0, 3, NULL, 1),
+(12, 'Пятая задача', '2011-11-28 21:36:55', 0, 0, 3, NULL, 1),
+(13, 'Тест', '2011-11-28 21:46:06', 0, 0, 3, NULL, 1),
+(14, 'Второй проект', '2011-11-28 22:27:55', 0, 0, NULL, NULL, 1),
+(15, 'Первый коомментарий', '2011-11-29 22:43:11', 0, 1, 3, NULL, 1),
+(16, 'Второй комментарий', '2011-11-29 22:43:30', 0, 1, 3, NULL, 1),
+(17, 'Ответ на первый комментарий', '2011-11-29 22:43:43', 0, 1, 3, 15, 1),
+(18, 'Ответ на второй комментарий', '2011-11-29 22:44:01', 0, 1, 3, 16, 1),
+(19, 'Ответ на ответ на первый комментарий', '2011-11-29 22:44:18', 0, 1, 3, 17, 1),
+(20, 'Еще ответ на первый комментарий', '2011-11-29 22:45:43', 0, 1, 3, 15, 1),
+(21, 'Третий комментарий', '2011-11-29 23:23:29', 0, 1, 3, NULL, 1),
+(22, 'Вот мой ответ на второй комментарий', '2011-11-30 00:21:51', 0, 1, 3, 16, 1),
+(23, 'Первый комментарий', '2011-11-30 00:22:24', 0, 1, 14, NULL, 1),
+(24, 'Ответ', '2011-11-30 00:22:31', 0, 1, 14, 23, 1);
 
 -- --------------------------------------------------------
 
@@ -361,7 +489,7 @@ CREATE TABLE IF NOT EXISTS `tm_document` (
   PRIMARY KEY (`id`),
   KEY `fk_tm_document_tm_document1` (`parent_id`),
   KEY `fk_tm_document_tm_user1` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=37 ;
 
 --
 -- Дамп данных таблицы `tm_document`
@@ -369,7 +497,14 @@ CREATE TABLE IF NOT EXISTS `tm_document` (
 
 INSERT INTO `tm_document` (`id`, `title`, `date_create`, `user_id`, `file`, `is_folder`, `parent_id`) VALUES
 (20, 'Первый проект', '2011-11-27 22:14:57', 1, 'Pervyiy_proekt', 1, NULL),
-(21, 'Первая задача', '2011-11-27 22:15:40', 1, 'Pervaya_zadacha', 1, 20);
+(21, 'Первая задача', '2011-11-27 22:15:40', 1, 'Pervaya_zadacha', 1, 20),
+(22, 'Вторая задача', '2011-11-28 20:18:06', 1, 'Vtoraya_zadacha', 1, 20),
+(23, 'Третья задача', '2011-11-28 20:28:33', 1, 'Tretya_zadacha', 1, 20),
+(32, 'Пятая задача', '2011-11-28 21:36:54', 1, 'Pyataya_zadacha', 1, 20),
+(33, 'Тест', '2011-11-28 21:46:06', 1, 'Test', 1, 20),
+(34, 'Тест прав', '2011-11-28 22:02:02', 1, 'Test_prav', 1, 20),
+(35, 'Тест документ', '2011-11-28 22:02:53', 1, 'file_28-11-2011-22-03-08.mwb', 0, 20),
+(36, 'Второй проект', '2011-11-28 22:27:55', 1, 'Vtoroy_proekt', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -455,7 +590,7 @@ CREATE TABLE IF NOT EXISTS `tm_task` (
   `date_create` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_tm_task_tm_user1` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
 
 --
 -- Дамп данных таблицы `tm_task`
@@ -463,7 +598,12 @@ CREATE TABLE IF NOT EXISTS `tm_task` (
 
 INSERT INTO `tm_task` (`id`, `title`, `user_id`, `date_create`) VALUES
 (8, 'Первый проект', 1, '2011-11-27 22:14:47'),
-(9, 'Первая задача', 1, '2011-11-27 22:15:34');
+(9, 'Первая задача', 1, '2011-11-27 22:15:34'),
+(10, 'Вторая задача', 1, '2011-11-28 20:17:56'),
+(11, 'Третья задача', 1, '2011-11-28 20:27:15'),
+(20, 'Пятая задача', 1, '2011-11-28 21:32:19'),
+(21, 'Тест', 1, '2011-11-28 21:44:44'),
+(22, 'Второй проект', 1, '2011-11-28 22:27:49');
 
 -- --------------------------------------------------------
 
@@ -529,7 +669,22 @@ CREATE TABLE IF NOT EXISTS `tm_task_discussion` (
 
 INSERT INTO `tm_task_discussion` (`task_id`, `discussion_id`) VALUES
 (8, 3),
-(9, 4);
+(9, 4),
+(10, 5),
+(11, 6),
+(20, 12),
+(21, 13),
+(22, 14),
+(8, 15),
+(8, 16),
+(8, 17),
+(8, 18),
+(8, 19),
+(8, 20),
+(8, 21),
+(8, 22),
+(22, 23),
+(22, 24);
 
 -- --------------------------------------------------------
 
@@ -552,7 +707,12 @@ CREATE TABLE IF NOT EXISTS `tm_task_document` (
 
 INSERT INTO `tm_task_document` (`task_id`, `document_id`) VALUES
 (8, 20),
-(9, 21);
+(9, 21),
+(10, 22),
+(11, 23),
+(20, 32),
+(21, 33),
+(22, 36);
 
 -- --------------------------------------------------------
 
@@ -602,7 +762,11 @@ CREATE TABLE IF NOT EXISTS `tm_task_relation` (
 --
 
 INSERT INTO `tm_task_relation` (`parent_id`, `child_id`) VALUES
-(8, 9);
+(8, 9),
+(8, 10),
+(8, 11),
+(8, 20),
+(8, 21);
 
 -- --------------------------------------------------------
 
@@ -635,6 +799,67 @@ INSERT INTO `tm_user` (`id`, `login`, `password`, `role_id`, `date_create`) VALU
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `tm_user_attribute`
+--
+
+DROP TABLE IF EXISTS `tm_user_attribute`;
+CREATE TABLE IF NOT EXISTS `tm_user_attribute` (
+  `user_id` int(10) unsigned NOT NULL,
+  `attribute_key` varchar(255) NOT NULL,
+  `type_id` int(10) unsigned NOT NULL,
+  `attribute_value` text NOT NULL,
+  `is_fill` tinyint(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`user_id`,`attribute_key`),
+  KEY `fk_tm_task_attribute_tm_task1` (`user_id`),
+  KEY `fk_tm_document_attribute_tm_document_attribute_type1` (`type_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `tm_user_attribute_type`
+--
+
+DROP TABLE IF EXISTS `tm_user_attribute_type`;
+CREATE TABLE IF NOT EXISTS `tm_user_attribute_type` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) NOT NULL,
+  `handler` varchar(100) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `title_UNIQUE` (`title`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Дамп данных таблицы `tm_user_attribute_type`
+--
+
+INSERT INTO `tm_user_attribute_type` (`id`, `title`, `handler`, `description`) VALUES
+(1, 'Строка', 'TM_Attribute_AttributeType', 'Любое строковое значение'),
+(2, 'Текст', 'TM_Attribute_AttributeTypeText', 'Многострочный  текст'),
+(3, 'Список', 'TM_Attribute_AttributeTypeList', 'Список из возможных вариантов');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `tm_user_hash`
+--
+
+DROP TABLE IF EXISTS `tm_user_hash`;
+CREATE TABLE IF NOT EXISTS `tm_user_hash` (
+  `document_id` int(10) unsigned DEFAULT NULL,
+  `attribute_key` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `type_id` int(10) unsigned NOT NULL,
+  `list_value` text,
+  PRIMARY KEY (`attribute_key`),
+  KEY `fk_tm_document_hash_tm_task_attribute_type1` (`type_id`),
+  KEY `fk_tm_document_hash_tm_task1` (`document_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `tm_user_profile`
 --
 
@@ -659,7 +884,7 @@ CREATE TABLE IF NOT EXISTS `tm_user_resource` (
   `title` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `title` (`title`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=61 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=67 ;
 
 --
 -- Дамп данных таблицы `tm_user_resource`
@@ -673,6 +898,7 @@ INSERT INTO `tm_user_resource` (`id`, `title`) VALUES
 (52, 'discussion/edit'),
 (55, 'discussion/editTopic'),
 (50, 'discussion/index'),
+(63, 'discussion/showAcl'),
 (38, 'document/add'),
 (47, 'document/addAttributeHash'),
 (44, 'document/addAttributeType'),
@@ -686,12 +912,15 @@ INSERT INTO `tm_user_resource` (`id`, `title`) VALUES
 (45, 'document/editAttributeType'),
 (42, 'document/editFolder'),
 (37, 'document/index'),
+(62, 'document/showAcl'),
 (57, 'files/'),
 (4, 'index/index'),
 (1, 'login'),
 (2, 'login/index'),
 (3, 'login/logout'),
+(64, 'reports/generateReport'),
 (60, 'reports/index'),
+(65, 'reports/showDesigner'),
 (58, 'reposrts'),
 (27, 'task/add'),
 (33, 'task/addAttributeHash'),
@@ -704,6 +933,8 @@ INSERT INTO `tm_user_resource` (`id`, `title`) VALUES
 (34, 'task/editAttributeHash'),
 (31, 'task/editAttributeType'),
 (26, 'task/index'),
+(61, 'task/showAcl'),
+(66, 'task/showDiscussion'),
 (5, 'user'),
 (6, 'user/add'),
 (22, 'user/addResource'),
@@ -770,8 +1001,8 @@ ALTER TABLE `tm_acl_role`
 -- Ограничения внешнего ключа таблицы `tm_acl_task`
 --
 ALTER TABLE `tm_acl_task`
-  ADD CONSTRAINT `fk_tm_acl_tm_task1` FOREIGN KEY (`task_id`) REFERENCES `tm_task` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_tm_acl_tm_user1` FOREIGN KEY (`user_id`) REFERENCES `tm_user` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `tm_acl_task_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tm_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tm_acl_task_ibfk_2` FOREIGN KEY (`task_id`) REFERENCES `tm_task` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `tm_discussion`
@@ -826,8 +1057,8 @@ ALTER TABLE `tm_task_attribute`
 -- Ограничения внешнего ключа таблицы `tm_task_discussion`
 --
 ALTER TABLE `tm_task_discussion`
-  ADD CONSTRAINT `fk_tm_task_discussion_tm_discussion1` FOREIGN KEY (`discussion_id`) REFERENCES `tm_discussion` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_tm_task_discussion_tm_task1` FOREIGN KEY (`task_id`) REFERENCES `tm_task` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `tm_task_discussion_ibfk_1` FOREIGN KEY (`task_id`) REFERENCES `tm_task` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tm_task_discussion_ibfk_2` FOREIGN KEY (`discussion_id`) REFERENCES `tm_discussion` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `tm_task_document`
@@ -855,6 +1086,19 @@ ALTER TABLE `tm_task_relation`
 --
 ALTER TABLE `tm_user`
   ADD CONSTRAINT `tm_user_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `tm_user_role` (`id`);
+
+--
+-- Ограничения внешнего ключа таблицы `tm_user_attribute`
+--
+ALTER TABLE `tm_user_attribute`
+  ADD CONSTRAINT `tm_user_attribute_ibfk_2` FOREIGN KEY (`type_id`) REFERENCES `tm_user_attribute_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tm_user_attribute_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tm_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ограничения внешнего ключа таблицы `tm_user_hash`
+--
+ALTER TABLE `tm_user_hash`
+  ADD CONSTRAINT `tm_user_hash_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `tm_user_attribute_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `tm_user_profile`

@@ -1,41 +1,52 @@
 <div class="page"><h1>Обсуждение задачи: {$task->title}</h1></div><br/>
 
 {if $discussionList!==false}
-    {foreach from=$discussionList item=discussion}
-        {if_object_allowed type="{$controller}" object="{$discussion}"}
-        <tr>
-            <td class="ttovar">
-                {if $discussion->isTopic()}
-                    <a href="{$this->url(['controller' => $controller,'action' => 'index', 'parent' => $discussion->id])}">{$discussion->message}</a>
-                {else}
-                    {$discussion->message}
-                {/if}</td>
-            <td class="ttovar">{$discussion->datecreate|date_format:"%d.%m.%Y"}</td>
-            <td class="tedit">
-                {if_allowed resource="{$controller}/showAcl"}
-                 <a href="{$this->url(['controller' => $controller,'action' => 'showAcl', 'idDiscussion' => $discussion->id])}">права</a>
-                {/if_allowed}
-            </td>
-            <td class="tedit">
-                {if $discussion->isTopic()}
-                    {if_allowed resource="{$controller}/editTopic"}
-                    <a href="{$this->url(['controller' => $controller,'action' => 'editTopic', 'id' => $discussion->id])}">редактировать</a><br/>
-                    {/if_allowed}
-                    {if_allowed resource="{$controller}/deleteTopic"}
-                    <a href="{$this->url(['controller' => $controller,'action' => 'deleteTopic', 'id' => $discussion->id])}" onclick="return confirmDelete('{$discussion->id}');" style="color: #830000">удалить</a>
-                    {/if_allowed}
-                {else}
-                    {if_allowed resource="{$controller}/edit"}
-                    <a href="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $discussion->id])}">редактировать</a><br/>
-                    {/if_allowed}
-                    {if_allowed resource="{$controller}/delete"}
-                    <a href="{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $discussion->id])}" onclick="return confirmDelete('{$discussion->id}');" style="color: #830000">удалить</a>
-                    {/if_allowed}
-                {/if}
-            </td>
 
-        </tr>
-        {/if_object_allowed}
+{assign var="openul" value=false}
+
+<ul id="comment-list" style="padding: 0; margin: 0;">
+    {foreach from=$discussionList item=discussion}
+        {if !$discussion->hasParent() && $openul}</ul>{assign var="openul" value=false}{/if}
+        {if $discussion->hasParent() && !$openul}<ul style="margin-left: 20px; padding: 0px;">{assign var="openul" value=true}{/if}
+        <li style="list-style: none; padding: 5px; background-color: #f7f7f7;">
+            <div style="padding: 5px;">
+                <div style="font-size: 12px; line-height: 16px; " id="message_{{$discussion->id}}">{$discussion->message}</div>
+                <div style="color: #555555; font-size: 11px; line-height: 15px; margin: 5px 0px 0px 0px;">
+                    {$discussion->user->login} {$discussion->datecreate|date_format:"%d.%m.%Y"}
+                    <button style="font-size: 11px; height: 18px; margin: 1px; padding: 1px;" onclick="comment_reply_on({$discussion->id})">Ответить</button>
+                </div>
+            </div>
+        </li>
+
     {/foreach}
+</ul>
+
+<br/><br/>
 {/if}
 
+<div id="replay_form" style="display: none;">
+    <form action="{$this->url(['controller' => $controller,'action' => 'showDiscussion', 'idTask' => $task->id])}" method="post" enctype="multipart/form-data">
+        <div>
+            <div style="font-size: 14px; font-weight: bold; padding: 0px 0px 5px 0px; margin: 0px 0px 5px 0px;">
+                Ответить на <span id="replay_on_message"></span>
+            </div>
+            <textarea name="data[message]"></textarea>
+            <input type="hidden" name="data[parent]" value="" id="parent" />
+            <input id="save" name="save" type="submit" value="Отправить"/>
+        </div>
+    </form>
+    
+</div>
+
+
+<div id="add_form">
+<form action="{$this->url(['controller' => $controller,'action' => 'showDiscussion', 'idTask' => $task->id])}" method="post" enctype="multipart/form-data">
+    <div>
+        <div style="font-size: 14px; font-weight: bold; padding: 0px 0px 5px 0px; margin: 0px 0px 5px 0px;">Добавить
+            комментарий
+        </div>
+        <textarea name="data[message]"></textarea>
+        <input id="save" name="save" type="submit" value="Отправить"/>
+    </div>
+</form>
+</div>
