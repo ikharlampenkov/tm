@@ -70,6 +70,7 @@ class TM_Discussion_Discussion
      */
     protected $_parent = null;
 
+    protected $_document = array();
 
     /**
      *
@@ -248,6 +249,16 @@ class TM_Discussion_Discussion
         } else {
             return false;
         }
+    }
+
+    public function setDocument($document)
+    {
+        $this->_document = $document;
+    }
+
+    public function getDocument()
+    {
+        return $this->_document;
     }
 
     public function __get($name)
@@ -663,6 +674,11 @@ class TM_Discussion_Discussion
         $oTopic = TM_Discussion_Discussion::getInstanceById($values['parent_id']);
         if ($oTopic !== false) {
             $this->setParent($oTopic);
+        }
+
+        $oDocumentList = TM_Document_Document::getDocumentByDiscussion($o_user, $this);
+        if ($oDocumentList !== false) {
+            $this->setDocument($oDocumentList);
         }
 
     } // end of member function fillFromArray

@@ -20,7 +20,7 @@
 
 {if $taskList!==false}
     {foreach from=$taskList item=task}
-        {if_object_allowed type="{$controller}" object="{$task}"}
+        {if_object_allowed type="{$controller|capitalize}" object="{$task}"}
         <tr>
             <td class="ttovar"><a href="{$this->url(['controller' => $controller,'action' => 'index', 'parent' => $task->id])}">{$task->title}</a></td>
             <td class="ttovar">{$task->datecreate|date_format:"%d.%m.%Y"}</td>
@@ -35,8 +35,11 @@
                 {/if_allowed}
             </td>
             <td class="tedit">
+                {if_allowed resource="{$controller}/view"}
+                    <a href="{$this->url(['controller' => $controller,'action' => 'view', 'id' => $task->id])}">просмотреть</a><br/>
+                {/if_allowed}
                 {if_allowed resource="{$controller}/edit"}
-                {if_object_allowed type="{$controller}" object="{$task}" priv="write"}
+                {if_object_allowed type="{$controller|capitalize}" object="{$task}" priv="write"}
                 <a href="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $task->id])}">редактировать</a><br/>
                 {/if_object_allowed}
                 {/if_allowed}
