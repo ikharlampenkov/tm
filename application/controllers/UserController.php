@@ -40,22 +40,28 @@ class UserController extends Zend_Controller_Action
     public function editAction()
     {
         $id = $this->getRequest()->getParam('id');
+        $oUser = TM_User_User::getInstanceById($id);
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
 
-            $oUser = TM_User_User::getInstanceById($id);
+
             $oUser->setLogin($data['login']);
             $oUser->setDateCreate($data['date_create']);
             $oUser->setPassword($data['password']);
             $oUser->setRole(TM_User_Role::getInstanceById($data['role_id']));
+
+            foreach ($data['attribute'] as $key => $value) {
+                $oUser->setAttribute($key, $value);
+            }
 
             $oUser->updateToDb();
             $this->_redirect('/user');
         }
 
         $this->view->assign('userRoleList', TM_User_Role::getAllInstance());
-        $this->view->assign('user', TM_User_User::getInstanceById($id));
+        $this->view->assign('attributeHashList', TM_User_Hash::getAllInstance($oUser));
+        $this->view->assign('user', $oUser);
     }
 
     public function deleteAction()

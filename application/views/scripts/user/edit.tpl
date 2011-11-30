@@ -3,7 +3,7 @@
 <form action="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $user->id])}" method="post">
     <table>
         <tr>
-            <td class="ttovar" width="200">Логин</td>
+            <td class="ttovar_title">Логин</td>
             <td class="ttovar"><input name="data[login]" value="{$user->login}"/></td>
         </tr>
         <tr>
@@ -23,6 +23,14 @@
             </select>
             </td>
         </tr>
+    {if $attributeHashList!==false}
+        {foreach from=$attributeHashList item=attributeHash}
+            <tr>
+                <td class="ttovar_title">{$attributeHash->title}</td>
+                <td class="ttovar">{$attributeHash->type->getHTMLFrom($attributeHash, $user)}</td>
+            </tr>
+        {/foreach}
+    {/if}
     </table>
     <input id="save" name="save" type="submit" value="Сохранить"/>
 </form>

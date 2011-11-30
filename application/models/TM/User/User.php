@@ -31,6 +31,11 @@ class TM_User_User
 
     protected $_dateCreate;
 
+    /**
+     * @var array
+     */
+    protected $_attributeList = array();
+
     protected $_db;
 
 
@@ -127,6 +132,7 @@ class TM_User_User
                     SET login="' . $this->_login . '", role_id="' . $this->_role->getId() . '", date_create="' . $this->_dateCreate . '"
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
+            $this->saveAttributeList();
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -154,7 +160,7 @@ class TM_User_User
      *
      * @param int id
 
-     * @return Task::tm_user_Task
+     * @return TM_User_User
      * @static
      * @access public
      */
@@ -182,7 +188,7 @@ class TM_User_User
      *
      * @param int id
 
-     * @return Task::tm_user_Task
+     * @return TM_User_User
      * @static
      * @access public
      */
@@ -210,7 +216,7 @@ class TM_User_User
      *
      * @param array values
 
-     * @return Task::tm_user_Task
+     * @return TM_User_User
      * @static
      * @access public
      */
@@ -256,9 +262,9 @@ class TM_User_User
     /**
      *
      *
-     * @param array values
+     * @param array $values
 
-     * @return
+     * @return void
      * @access public
      */
     public function fillFromArray($values)
@@ -270,9 +276,69 @@ class TM_User_User
 
         $o_role = TM_User_Role::getInstanceById($values['role_id']);
         $this->setRole($o_role);
+
+        $this->getAttributeList();
     } // end of member function fillFromArray
 
-    
+    public function getAttributeList()
+    {
+        if (is_null($this->_attributeList) || empty($this->_attributeList)) {
+            try {
+                $attributeList = TM_Attribute_Attribute::getAllInstance(new TM_User_AttributeMapper(), $this);
+                if ($attributeList !== false) {
+                    foreach ($attributeList as $attribute) {
+                        $this->_attributeList[$attribute->attribyteKey] = $attribute;
+                    }
+                }
+
+                return $this->_attributeList;
+            } catch (Exception $e) {
+                throw new Exception($e->getMessage());
+            }
+        } else {
+            return $this->_attributeList;
+        }
+    }
+
+    public function getAttribute($key)
+    {
+        return $this->_attributeList[$key];
+    }
+
+    public function setAttribute($key, $value)
+    {
+        if ($this->searchAttribute($key)) {
+            $this->_attributeList[$key]->setValue($value);
+
+        } else {
+            $oHash = TM_User_Hash::getInstanceById($key);
+            $oAttribute = new TM_Attribute_Attribute(new TM_User_AttributeMapper(), $this);
+            $oAttribute->setAttribyteKey($key);
+            $oAttribute->setType($oHash->getType());
+            $oAttribute->setValue($value);
+
+            $this->_attributeList[$key] = $oAttribute;
+            $oAttribute->insertToDB();
+        }
+    }
+
+    public function searchAttribute($needle)
+    {
+        if (is_null($this->_attributeList) && !empty($this->_attributeList)) {
+            return false;
+        } else {
+            return array_key_exists($needle, $this->_attributeList);
+        }
+    }
+
+    protected function saveAttributeList()
+    {
+        if (!is_null($this->_attributeList) && !empty($this->_attributeList)) {
+            foreach ($this->_attributeList as $attribute) {
+                $attribute->updateToDB();
+            }
+        }
+    }
 
 
 } // end of TM_User_User

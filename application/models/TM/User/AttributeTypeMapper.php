@@ -142,7 +142,7 @@ class TM_User_AttributeTypeMapper extends TM_Attribute_AttributeTypeMapper
 
     /**
      * @param int $id
-     * @return void
+     * @return bool|array
      */
     public function selectFromDB($id)
     {
