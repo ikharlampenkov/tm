@@ -30,6 +30,7 @@ class TM_Task_Hash
 
     /**
      *
+     * @var TM_Attribute_AttributeType
      * @access protected
      */
     protected $_type = null;
@@ -48,7 +49,7 @@ class TM_Task_Hash
     /**
      *
      *
-     * @return Task::TM_Task_Task
+     * @return TM_Task_Task
      * @access public
      */
     public function getTask()
@@ -86,9 +87,9 @@ class TM_Task_Hash
     /**
      *
      *
-     * @param Task::TM_Task_Task value
+     * @param TM_Task_Task $value
 
-     * @return
+     * @return void
      * @access protected
      */
     protected function setTask(TM_Task_Task $value)
@@ -203,8 +204,6 @@ class TM_Task_Hash
             $sql = 'INSERT INTO tm_task_hash(task_id, attribute_key, title, type_id, list_value)
                     VALUES (NULL, "' . $this->_attributeKey . '", "' . $this->_title . '", ' . $this->_type->getId() . ', "' . $this->_listValue . ' ")';
             $this->_db->query($sql);
-
-            $this->_id = $this->_db->getLastInsertId();
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -215,7 +214,7 @@ class TM_Task_Hash
     /**
      *
      *
-     * @return
+     * @return void
      * @access public
      */
     public function updateToDb()
@@ -252,7 +251,7 @@ class TM_Task_Hash
      *
      * @param int $key идентификатор задачи
 
-     * @return TM_Task_Task
+     * @return TM_Task_Hash
      * @static
      * @access public
      */
@@ -280,7 +279,7 @@ class TM_Task_Hash
      *
      * @param array $values
 
-     * @return Task::TM_Task_Task
+     * @return TM_Task_Hash
      * @static
      * @access public
      */

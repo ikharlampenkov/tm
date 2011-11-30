@@ -479,7 +479,10 @@ class TM_Discussion_Discussion {
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_discussion, tm_task_discussion WHERE tm_discussion.id=tm_task_discussion.discussion_id AND tm_task_discussion.task_id=' . $task->getId();
+            $sql = 'SELECT * FROM tm_discussion, tm_task_discussion
+                    WHERE tm_discussion.is_message=1
+                      AND tm_discussion.id=tm_task_discussion.discussion_id
+                      AND tm_task_discussion.task_id=' . $task->getId() . ' ORDER BY tm_discussion.parent_id, date_create';
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
@@ -496,7 +499,7 @@ class TM_Discussion_Discussion {
         }
     }
 
-    public static function getDocumentTopicByTask(TM_User_User $user, TM_Task_Task $task)
+    public static function getTopicByTask(TM_User_User $user, TM_Task_Task $task)
     {
         try {
             $db = StdLib_DB::getInstance();

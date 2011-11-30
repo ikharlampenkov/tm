@@ -50,6 +50,20 @@ class DocumentController extends Zend_Controller_Action
 
             try {
                 $oDocument->insertToDb();
+
+                if (!empty($data['parentDocument'])) {
+                    $documentAcl = TM_Acl_DocumentAcl::getAllInstance($oDocument->getParent());
+                    if (!empty($documentAcl)) {
+                        foreach ($documentAcl as $acl) {
+                            $tempAcl = new TM_Acl_DocumentAcl($oDocument);
+                            $tempAcl->setUser($acl->getUser());
+                            $tempAcl->setIsRead($acl->getIsRead());
+                            $tempAcl->setIsWrite($acl->getIsWrite());
+                            $tempAcl->saveToDb();
+                        }
+                    }
+                }
+
                 $this->_redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
@@ -104,7 +118,35 @@ class DocumentController extends Zend_Controller_Action
             throw new Exception($e->getMessage());
 
         }
-        // action body
+    }
+
+    public function showaclAction()
+    {
+        $oDocument = TM_Document_Document::getInstanceById($this->getRequest()->getParam('idDocument'));
+
+        if ($this->getRequest()->isPost()) {
+            $data = $this->getRequest()->getParam('data');
+
+            try {
+                foreach($data as $idUser => $values) {
+
+                    $documentAcl = new TM_Acl_DocumentAcl($oDocument);
+
+                    $documentAcl->setUser(TM_User_User::getInstanceById($idUser));
+                    $documentAcl->setIsRead($values['is_read']);
+                    $documentAcl->setIsWrite($values['is_write']);
+                    $documentAcl->saveToDb();
+                }
+
+                $this->_redirect('/document/showAcl/parent/' . $this->getRequest()->getParam('parent', 0) . '/idDocument/' . $this->getRequest()->getParam('idDocument'));
+            } catch (Exception $e) {
+                $this->view->assign('exception_msg', $e->getMessage());
+            }
+        }
+
+        $this->view->assign('documentAcl', TM_Acl_DocumentAcl::getAllInstance($oDocument));
+        $this->view->assign('userList', TM_User_User::getAllInstance());
+        $this->view->assign('document', $oDocument);
     }
 
     public function addfolderAction()
@@ -130,6 +172,20 @@ class DocumentController extends Zend_Controller_Action
 
             try {
                 $oDocument->insertToDb();
+
+                if (!empty($data['parentDocument'])) {
+                    $documentAcl = TM_Acl_DocumentAcl::getAllInstance($oDocument->getParent());
+                    if (!empty($documentAcl)) {
+                        foreach ($documentAcl as $acl) {
+                            $tempAcl = new TM_Acl_DocumentAcl($oDocument);
+                            $tempAcl->setUser($acl->getUser());
+                            $tempAcl->setIsRead($acl->getIsRead());
+                            $tempAcl->setIsWrite($acl->getIsWrite());
+                            $tempAcl->saveToDb();
+                        }
+                    }
+                }
+
                 $this->_redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());

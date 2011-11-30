@@ -15,7 +15,7 @@
 <table width="100%">
 
     <tr>
-        <td class="ttovar" align="center" colspan="3">
+        <td class="ttovar" align="center" colspan="4">
         {if_allowed resource="{$controller}/addFolder"}
         <a href="{$this->url(['controller' => $controller,'action' => 'addFolder'])}">добавить папку</a> / 
         {/if_allowed}
@@ -30,6 +30,7 @@
 
 {if $documentList!==false}
     {foreach from=$documentList item=document}
+        {if_object_allowed type="{$controller}" object="{$document}"}
         <tr>
             <td class="ttovar">
                 {if $document->isFolder}
@@ -39,16 +40,25 @@
                 {/if}</td>
             <td class="ttovar">{$document->datecreate|date_format:"%d.%m.%Y"}</td>
             <td class="tedit">
+                {if_allowed resource="{$controller}/showAcl"}
+                 <a href="{$this->url(['controller' => $controller,'action' => 'showAcl', 'idDocument' => $document->id])}">права</a>
+                {/if_allowed}
+            </td>
+            <td class="tedit">
                 {if $document->isFolder}
                     {if_allowed resource="{$controller}/editFolder"}
+                    {if_object_allowed type="{$controller}" object="{$document}" priv="write"}
                     <a href="{$this->url(['controller' => $controller,'action' => 'editFolder', 'id' => $document->id])}">редактировать</a><br/>
+                    {/if_object_allowed}
                     {/if_allowed}
                     {if_allowed resource="{$controller}/deleteFolder"}
                     <a href="{$this->url(['controller' => $controller,'action' => 'deleteFolder', 'id' => $document->id])}" onclick="return confirmDelete('{$document->id}');" style="color: #830000">удалить</a>
                     {/if_allowed}
                 {else}
                     {if_allowed resource="{$controller}/edit"}
+                    {if_object_allowed type="{$controller}" object="{$document}" priv="write"}
                     <a href="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $document->id])}">редактировать</a><br/>
+                    {/if_object_allowed}
                     {/if_allowed}
                     {if_allowed resource="{$controller}/delete"}
                     <a href="{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $document->id])}" onclick="return confirmDelete('{$document->id}');" style="color: #830000">удалить</a>
@@ -57,6 +67,7 @@
             </td>
 
         </tr>
+        {/if_object_allowed}
     {/foreach}
 {/if}
 
