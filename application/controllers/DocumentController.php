@@ -18,7 +18,7 @@ class DocumentController extends Zend_Controller_Action
 
         if ($parentId != 0) {
             $curDocument = TM_Document_Document::getInstanceById($parentId);
-            
+
             $this->view->assign('document', $curDocument);
             $this->view->assign('breadcrumbs', $curDocument->getPathToDocument());
         }
@@ -120,6 +120,14 @@ class DocumentController extends Zend_Controller_Action
         }
     }
 
+    public function viewAction()
+    {
+        $oDocument = TM_Document_Document::getInstanceById($this->getRequest()->getParam('id'));
+        $this->view->assign('attributeHashList', TM_Document_Hash::getAllInstance($oDocument));
+        $this->view->assign('taskList', TM_Task_Task::getTaskByDocument($this->_user, $oDocument));
+        $this->view->assign('document', $oDocument);
+    }
+
     public function showaclAction()
     {
         $oDocument = TM_Document_Document::getInstanceById($this->getRequest()->getParam('idDocument'));
@@ -128,7 +136,7 @@ class DocumentController extends Zend_Controller_Action
             $data = $this->getRequest()->getParam('data');
 
             try {
-                foreach($data as $idUser => $values) {
+                foreach ($data as $idUser => $values) {
 
                     $documentAcl = new TM_Acl_DocumentAcl($oDocument);
 
@@ -228,7 +236,7 @@ class DocumentController extends Zend_Controller_Action
         $this->view->assign('document', $oDocument);
     }
 
-     public function deletefolderAction()
+    public function deletefolderAction()
     {
         $oDocument = TM_Document_Document::getInstanceById($this->getRequest()->getParam('id'));
         try {
@@ -261,13 +269,13 @@ class DocumentController extends Zend_Controller_Action
             }
 
         }
-        
+
         $this->view->assign('type', $oType);
     }
 
     public function editattributetypeAction()
     {
-       $oType = TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Document_AttributeTypeMapper(), $this->getRequest()->getParam('id'));
+        $oType = TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Document_AttributeTypeMapper(), $this->getRequest()->getParam('id'));
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
@@ -359,6 +367,101 @@ class DocumentController extends Zend_Controller_Action
         }
     }
 
+    public function showdiscussionAction()
+    {
+        $oDocument = TM_Document_Document::getInstanceById($this->getRequest()->getParam('idDocument'));
+        $oTopic = TM_Discussion_Discussion::getTopicByDocument($this->_user, $oDocument);
+
+        if ($oTopic === false) {
+            $temp = TM_Task_Task::getTaskByDocument($this->_user, $oDocument->getParent());
+            $oTask = $temp[0];
+            print_r($oTask);
+            $parentTopic = TM_Discussion_Discussion::getTopicByTask($this->_user, $oTask);
+
+
+            $oTopic = new TM_Discussion_Discussion();
+            $oTopic->setUser($this->_user);
+            $oTopic->setDateCreate(date('d.m.Y H:i:s'));
+            $oTopic->setIsMessage(false);
+            $oTopic->setMessage($oDocument->getTitle());
+
+            $oTopic->setTopic($parentTopic);
+            $oTopic->insertToDb();
+            $oTopic->setLinkToDocument($oDocument);
+
+            $topicAcl = TM_Acl_DiscussionAcl::getAllInstance($oTopic->getTopic());
+            if (!empty($topicAcl)) {
+                foreach ($topicAcl as $acl) {
+                    $tempAcl = new TM_Acl_DiscussionAcl($oTopic);
+                    $tempAcl->setUser($acl->getUser());
+                    $tempAcl->setIsRead($acl->getIsRead());
+                    $tempAcl->setIsWrite($acl->getIsWrite());
+                    $tempAcl->saveToDb();
+                }
+            }
+        }
+
+        if ($this->getRequest()->isPost()) {
+            $data = $this->getRequest()->getParam('data');
+            $oDiscussion = new TM_Discussion_Discussion();
+            $oDiscussion->setUser($this->_user);
+            $oDiscussion->setDateCreate(date('d.m.Y H:i:s'));
+            $oDiscussion->setIsMessage(true);
+            $oDiscussion->setMessage($data['message']);
+
+            $oDiscussion->setTopic($oTopic);
+
+            if (isset($data['parent'])) {
+                $oDiscussion->setParent(TM_Discussion_Discussion::getInstanceById($data['parent']));
+            }
+
+            try {
+                $oDiscussion->insertToDb();
+                $oDiscussion->setLinkToDocument($oDocument);
+
+                $topicAcl = TM_Acl_DiscussionAcl::getAllInstance($oTopic);
+                if (!empty($topicAcl)) {
+                    foreach ($topicAcl as $acl) {
+                        $tempAcl = new TM_Acl_DiscussionAcl($oDiscussion);
+                        $tempAcl->setUser($acl->getUser());
+                        $tempAcl->setIsRead($acl->getIsRead());
+                        $tempAcl->setIsWrite($acl->getIsWrite());
+                        $tempAcl->saveToDb();
+                    }
+                }
+
+                if (!empty($data['document_title'])) {
+                    $oDocument = new TM_Document_Document();
+                    $oDocument->setUser($this->_user);
+                    $oDocument->setDateCreate(date('d.m.Y H:i:s'));
+                    $oDocument->setIsFolder(false);
+                    $oDocument->setTitle($data['document_title']);
+                    $oDocument->setParent($oDocument->getParent());
+
+                    $oDocument->insertToDb();
+                    $oDocument->setLinkToDiscussion($oDiscussion, 1);
+
+                    if (!empty($topicAcl)) {
+                        foreach ($topicAcl as $acl) {
+                            $tempAcl = new TM_Acl_DocumentAcl($oDocument);
+                            $tempAcl->setUser($acl->getUser());
+                            $tempAcl->setIsRead($acl->getIsRead());
+                            $tempAcl->setIsWrite($acl->getIsWrite());
+                            $tempAcl->saveToDb();
+                        }
+                    }
+                }
+
+                $this->_redirect('/document/showDiscussion/parent/' . $this->getRequest()->getParam('parent', 0) . '/idDocument/' . $this->getRequest()->getParam('idDocument'));
+            } catch (Exception $e) {
+                $this->view->assign('exception_msg', $e->getMessage());
+            }
+        }
+
+        $this->view->assign('discussionList', TM_Discussion_Discussion::getDiscussionTreeByDocument($this->_user, $oDocument));
+        $this->view->assign('topic', $oTopic);
+        $this->view->assign('document', $oDocument);
+    }
 
 }
 
