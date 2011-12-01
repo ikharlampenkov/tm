@@ -28,7 +28,7 @@
 
 {if $discussionList!==false}
     {foreach from=$discussionList item=discussion}
-        {if_object_allowed type="{$controller}" object="{$discussion}"}
+        {if_object_allowed type="{$controller|capitalize}" object="{$discussion}"}
         <tr>
             <td class="ttovar">
                 {if $discussion->isTopic()}

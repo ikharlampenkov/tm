@@ -110,7 +110,6 @@ class TM_Task_Task
      *
      *
      * @param int $value
-
      * @return void
      * @access protected
      */
@@ -123,7 +122,6 @@ class TM_Task_Task
      *
      *
      * @param string $value
-
      * @return void
      * @access public
      */
@@ -136,7 +134,6 @@ class TM_Task_Task
      *
      *
      * @param TM_User_User $value
-
      * @return void
      * @access public
      */
@@ -149,7 +146,6 @@ class TM_Task_Task
      *
      *
      * @param string $value
-
      * @return string
      * @access public
      */
@@ -244,7 +240,6 @@ class TM_Task_Task
      *
      *
      * @param int $id идентификатор задачи
-
      * @return TM_Task_Task
      * @static
      * @access public
@@ -293,7 +288,6 @@ class TM_Task_Task
      *
      * @param TM_User_User $user
      * @param int $parentId
-
      * @return array
      * @static
      * @access public
@@ -302,8 +296,8 @@ class TM_Task_Task
     {
         try {
             $db = StdLib_DB::getInstance();
-            
-            if ($parentId > 0 ) {
+
+            if ($parentId > 0) {
                 $sql = 'SELECT * FROM tm_task, tm_task_relation
                         WHERE id=child_id AND parent_id=' . (int)$parentId;
             } elseif ($parentId == -1) {
@@ -354,7 +348,6 @@ class TM_Task_Task
      *
      *
      * @param array $values
-
      * @return void
      * @access public
      */
@@ -404,7 +397,6 @@ class TM_Task_Task
      *
      *
      * @param TM_Task_Task $child
-
      * @return void
      * @access public
      */
@@ -420,7 +412,6 @@ class TM_Task_Task
      *
      *
      * @param TM_Task_Task $child
-
      * @return
      * @access public
      */
@@ -501,7 +492,6 @@ class TM_Task_Task
      *
      *
      * @param Task::TM_Task_Task parent
-
      * @return
      * @access public
      */
@@ -516,7 +506,6 @@ class TM_Task_Task
      *
      *
      * @param TM_Task_Task $parent
-
      * @return
      * @access public
      */
@@ -571,7 +560,7 @@ class TM_Task_Task
 
     public function getAttributeList()
     {
-         if (is_null($this->_attributeList) || empty($this->_attributeList)) {
+        if (is_null($this->_attributeList) || empty($this->_attributeList)) {
             try {
                 $attributeList = TM_Attribute_Attribute::getAllInstance(new TM_Task_AttributeMapper(), $this);
                 if ($attributeList !== false) {
@@ -646,7 +635,25 @@ class TM_Task_Task
 
     protected function _pathToTask(&$pathArray = array())
     {
-        
+
+    }
+
+    public function getExecutant()
+    {
+        try {
+            $taskAcl = TM_Acl_TaskAcl::getAllInstance($this);
+            $userArray = array();
+            foreach ($taskAcl as $acl) {
+                if ($acl->getIsExecutant()) {
+                    $userArray[] = $acl->getUser();
+                }
+            }
+
+            return $userArray;
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+
     }
 
 } // end of TM_Task_Task

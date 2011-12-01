@@ -30,7 +30,7 @@
 
 {if $documentList!==false}
     {foreach from=$documentList item=document}
-        {if_object_allowed type="{$controller}" object="{$document}"}
+        {if_object_allowed type="{$controller|capitalize}" object="{$document}"}
         <tr>
             <td class="ttovar">
                 {if $document->isFolder}
@@ -39,6 +39,15 @@
                     {$document->title}
                 {/if}</td>
             <td class="ttovar">{$document->datecreate|date_format:"%d.%m.%Y"}</td>
+            {if !$document->isFolder}
+            <td class="tedit">
+                {if_allowed resource="{$controller}/showDiscussion"}
+                 <a href="{$this->url(['controller' => $controller,'action' => 'showDiscussion', 'idDocument' => $document->id])}">обсуждение</a>
+                {/if_allowed}
+            </td>
+            {else}
+            <td class="tedit"></td>
+            {/if}
             <td class="tedit">
                 {if_allowed resource="{$controller}/showAcl"}
                  <a href="{$this->url(['controller' => $controller,'action' => 'showAcl', 'idDocument' => $document->id])}">права</a>
@@ -47,7 +56,7 @@
             <td class="tedit">
                 {if $document->isFolder}
                     {if_allowed resource="{$controller}/editFolder"}
-                    {if_object_allowed type="{$controller}" object="{$document}" priv="write"}
+                    {if_object_allowed type="{$controller|capitalize}" object="{$document}" priv="write"}
                     <a href="{$this->url(['controller' => $controller,'action' => 'editFolder', 'id' => $document->id])}">редактировать</a><br/>
                     {/if_object_allowed}
                     {/if_allowed}
@@ -55,8 +64,11 @@
                     <a href="{$this->url(['controller' => $controller,'action' => 'deleteFolder', 'id' => $document->id])}" onclick="return confirmDelete('{$document->id}');" style="color: #830000">удалить</a>
                     {/if_allowed}
                 {else}
+                    {if_allowed resource="{$controller}/view"}
+                    <a href="{$this->url(['controller' => $controller,'action' => 'view', 'id' => $document->id])}">просмотреть</a><br/>
+                    {/if_allowed}
                     {if_allowed resource="{$controller}/edit"}
-                    {if_object_allowed type="{$controller}" object="{$document}" priv="write"}
+                    {if_object_allowed type="{$controller|capitalize}" object="{$document}" priv="write"}
                     <a href="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $document->id])}">редактировать</a><br/>
                     {/if_object_allowed}
                     {/if_allowed}

@@ -9,7 +9,9 @@
         <CLASSES>
           <root url="file://C:/Zend/ZendServer/share/ZendFramework/library" />
         </CLASSES>
-        <SOURCES />
+        <SOURCES>
+          <root url="file://C:/Zend/ZendServer/share/ZendFramework/library" />
+        </SOURCES>
       </library>
     </orderEntry>
   </component>

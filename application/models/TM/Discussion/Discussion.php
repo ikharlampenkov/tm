@@ -70,6 +70,7 @@ class TM_Discussion_Discussion
      */
     protected $_parent = null;
 
+    protected $_document = array();
 
     /**
      *
@@ -248,6 +249,16 @@ class TM_Discussion_Discussion
         } else {
             return false;
         }
+    }
+
+    public function setDocument($document)
+    {
+        $this->_document = $document;
+    }
+
+    public function getDocument()
+    {
+        return $this->_document;
     }
 
     public function __get($name)
@@ -571,7 +582,7 @@ class TM_Discussion_Discussion
             throw new Exception($e->getMessage());
         }
     }
-
+    
     public function setLinkToTask($task)
     {
         try {
@@ -592,12 +603,86 @@ class TM_Discussion_Discussion
         }
     }
 
+    public static function getTopicByDocument(TM_User_User $user, TM_Document_Document $document)
+    {
+        try {
+            $db = StdLib_DB::getInstance();
+            $sql = 'SELECT * FROM tm_discussion, tm_discussion_document
+                    WHERE tm_discussion.is_message=0
+                      AND tm_discussion_document.is_doc=0
+                      AND tm_discussion.id=tm_discussion_document.discussion_id
+                      AND tm_discussion_document.document_id=' . $document->getId();
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+
+            if (isset($result[0])) {
+                return TM_Discussion_Discussion::getInstanceByArray($user, $result[0]);
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
+    public static function getDiscussionTreeByDocument(TM_User_User $user, TM_Document_Document $document)
+    {
+        try {
+            $db = StdLib_DB::getInstance();
+            $sql = 'SELECT * FROM tm_discussion, tm_discussion_document
+                    WHERE tm_discussion.is_message=1
+                      AND tm_discussion_document.is_doc=0
+                      AND tm_discussion.id=tm_discussion_document.discussion_id
+                      AND tm_discussion_document.document_id=' . $document->getId() . '
+                      AND parent_id IS NULL
+                      ORDER BY date_create';
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+
+            if (isset($result[0])) {
+                $retArray = array();
+                foreach ($result as $res) {
+                    $temp = TM_Discussion_Discussion::getInstanceByArray($user, $res);
+                    $retArray[] = $temp;
+                    $temp->getChildTree($user, $temp->getId(), $retArray);
+                }
+                return $retArray;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
+    public function getChildTreeD(TM_User_User $user, $parent_id, &$retArray)
+    {
+        try {
+            $sql = 'SELECT * FROM tm_discussion
+                    WHERE tm_discussion.is_message=1
+                      AND parent_id=' . $parent_id . '
+                      ORDER BY date_create';
+            $result = $this->_db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+            if (isset($result[0])) {
+                foreach ($result as $res) {
+                    $temp = TM_Discussion_Discussion::getInstanceByArray($user, $res);
+                    $retArray[] = $temp;
+                    $temp->getChildTree($user, $temp->getId(), $retArray);
+                }
+                //return $retArray;
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+
+    }
+
     public static function getDiscussionByDocument(TM_User_User $user, TM_Document_Document $document)
     {
         try {
             $db = StdLib_DB::getInstance();
             $sql = 'SELECT * FROM tm_discussion, tm_discussion_document
-                    WHERE tm_discussion.id=tm_discussion_document.discussion_id
+                    WHERE tm_discussion.is_message=0
+                      AND tm_discussion_document.is_doc=0
+                      AND tm_discussion.id=tm_discussion_document.discussion_id
                       AND tm_discussion_document.document_id=' . $document->getId();
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
@@ -618,7 +703,7 @@ class TM_Discussion_Discussion
     public function setLinkToDocument($document)
     {
         try {
-            $sql = 'INSERT INTO tm_discussion_document(tm_document_id, discussion_id) VALUES(' . $document->id . ', ' . $this->_id . ')';
+            $sql = 'INSERT INTO tm_discussion_document(document_id, discussion_id, is_doc) VALUES(' . $document->id . ', ' . $this->_id . ', 0)';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -629,7 +714,7 @@ class TM_Discussion_Discussion
     {
         try {
             $sql = 'DELETE FROM tm_discussion_document
-                    WHERE tm_document_id=' . $document->id . ' AND discussion_id=' . $this->_id;
+                    WHERE document_id=' . $document->id . ' AND discussion_id=' . $this->_id;
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -663,6 +748,11 @@ class TM_Discussion_Discussion
         $oTopic = TM_Discussion_Discussion::getInstanceById($values['parent_id']);
         if ($oTopic !== false) {
             $this->setParent($oTopic);
+        }
+
+        $oDocumentList = TM_Document_Document::getDocumentByDiscussion($o_user, $this);
+        if ($oDocumentList !== false) {
+            $this->setDocument($oDocumentList);
         }
 
     } // end of member function fillFromArray
