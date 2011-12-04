@@ -300,7 +300,7 @@ class TM_Task_Task
             if ($parentId > 0) {
                 $sql = 'SELECT * FROM tm_task, tm_task_relation
                         WHERE id=child_id AND parent_id=' . (int)$parentId;
-            } elseif ($parentId == -1) {
+            } elseif ($parentId === -1) {
                 $sql = 'SELECT * FROM tm_task';
             } else {
                 $sql = 'SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
@@ -655,6 +655,53 @@ class TM_Task_Task
         }
 
     }
+
+    public function getExecuteTime()
+    {
+        $deadline = time();
+        if ($this->searchAttribute('state') && $this->getAttribute('state')->value == 'Выполнена') {
+            if ($this->searchAttribute('deadline')) {
+                $deadline = strtotime($this->getAttribute('deadline')->value);
+            }
+        }
+
+        $diff = $deadline - strtotime($this->_dateCreate);
+
+        return $diff;
+    }
+
+    public function getLeftTime()
+    {
+        $now = time();
+        $deadline = time();
+
+        if ($this->searchAttribute('deadline')) {
+            $deadline = strtotime($this->getAttribute('deadline')->value);
+        }
+
+        $diff = $deadline - $now;
+        return $diff;
+
+    }
+
+    public function getIsOver()
+    {
+        $now = time();
+        $deadline = time();
+
+        if ($this->searchAttribute('deadline')) {
+            $deadline = strtotime($this->getAttribute('deadline')->value);
+        }
+
+        $diff = $deadline - $now;
+        if ($diff > 0) {
+            return false;
+        } else {
+            return true;
+        }
+
+    }
+
 
 } // end of TM_Task_Task
 ?>

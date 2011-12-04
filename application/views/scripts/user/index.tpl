@@ -14,7 +14,7 @@
     {foreach from=$userList item=user}
         <tr>
             <td class="ttovar">{$user->login}</td>
-            <td class="ttovar">{$user->role->title}</td>
+            <td class="ttovar">{$user->role->rtitle}</td>
             <td class="tedit"><a href="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $user->id])}">редактировать</a><br/>
                 <a href="{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $user->id])}" onclick="return confirmDelete('{$user->id}');" style="color: #830000">удалить</a></td>
         </tr>
@@ -34,6 +34,7 @@
 {if $userRoleList!==false}
     {foreach from=$userRoleList item=role}
         <tr>
+            <td class="ttovar">{$role->rtitle}</td>
             <td class="ttovar">{$role->title}</td>
             <td class="tedit"><a href="{$this->url(['controller' => $controller,'action' => 'showRoleAcl', 'idRole' => $role->id])}">права</a></td>
             <td class="tedit"><a href="{$this->url(['controller' => $controller,'action' => 'editRole', 'id' => $role->id])}">редактировать</a><br/>
@@ -56,6 +57,7 @@
 {if $userResourceList!==false}
     {foreach from=$userResourceList item=resource}
         <tr>
+            <td class="ttovar">{$resource->rtitle}</td>
             <td class="ttovar">{$resource->title}</td>
             <td class="tedit"><a href="{$this->url(['controller' => $controller,'action' => 'editResource', 'id' => $resource->id])}">редактировать</a><br/>
                 <a href="{$this->url(['controller' => $controller,'action' => 'deleteResource', 'id' => $resource->id])}" onclick="return confirmDelete('{$resource->id}');" style="color: #830000">удалить</a></td>

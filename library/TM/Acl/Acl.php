@@ -22,10 +22,12 @@ class TM_Acl_Acl extends Zend_Acl {
         $this->deny(null, null, null);
         foreach ($userRoleList as $role) {
             $roleAcl = TM_User_RoleAcl::getAllInstance($role);
+            if ($roleAcl !== false) {
             foreach ($roleAcl as $acl) {
                 if ($acl->isAllow) {
                     $this->allow($role->title, $acl->resource->title, $acl->getPrivileges(true));
                 }
+            }
             }
         }
 

@@ -147,6 +147,9 @@ class TM_Attribute_Attribute
      */
     public function setValue($value)
     {
+        if ($value === 'on') {
+            $this->_value = 1;
+        }
         $this->_value = $this->_db->prepareString($value);
     } // end of member function setValue
 
