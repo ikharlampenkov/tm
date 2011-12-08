@@ -46,7 +46,7 @@ class TM_FileManager_Folder extends TM_FileManager_File
         if (!empty($this->_name) && file_exists($this->_path . $this->_subPath . '/' . $this->_name)) {
             $result = rmdir($this->_path . $this->_subPath . '/' . $this->_name);
             if ($result === false) {
-                throw new Exception('Can not delete folder ' . $this->_name);
+                throw new Exception('Can not delete folder ' . $this->_subPath . '/' . $this->_name);
             }
         }
     }

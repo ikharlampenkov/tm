@@ -3,24 +3,28 @@
 class ReportsController extends Zend_Controller_Action
 {
 
+    protected $_user = null;
+
     public function init()
     {
-        /* Initialize action controller here */
+        $storage_data = Zend_Auth::getInstance()->getStorage()->read();
+        $this->_user = TM_User_User::getInstanceById($storage_data->id);
     }
 
     public function indexAction()
     {
-        // action body
+
     }
 
-    public function showDesignerAction()
+    public function showdesignerAction()
     {
-        // action body
+
+
     }
 
-    public function generateReportAction()
+    public function generatereportAction()
     {
-        // action body
+        $this->view->assign('taskList', TM_Task_Task::getAllInstance($this->_user));
     }
 
 

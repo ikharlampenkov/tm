@@ -45,7 +45,7 @@
             <tr>
             <td class="ttovar_title">Задачи</td>
             <td class="ttovar">
-                {$task->title}</a>
+                {$task->title}
                 / <a href="{$this->url(['controller' => 'task','action' => 'edit', 'id' => $task->id])}">редактировать</a>
             </td>
         </tr>

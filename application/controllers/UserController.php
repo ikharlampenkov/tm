@@ -81,6 +81,7 @@ class UserController extends Zend_Controller_Action
 
             $oRole = new TM_User_Role();
             $oRole->setTitle($data['title']);
+            $oRole->setRtitle($data['rtitle']);
 
             $oRole->insertToDb();
             $this->_redirect('/user');
@@ -97,6 +98,7 @@ class UserController extends Zend_Controller_Action
 
             $oRole = TM_User_Role::getInstanceById($id);
             $oRole->setTitle($data['title']);
+            $oRole->setRtitle($data['rtitle']);
 
             $oRole->updateToDb();
             $this->_redirect('/user');
@@ -149,6 +151,7 @@ class UserController extends Zend_Controller_Action
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
             $oResource->setTitle($data['title']);
+            $oResource->setRtitle($data['rtitle']);
 
             try {
                 $oResource->insertToDb();
@@ -169,6 +172,7 @@ class UserController extends Zend_Controller_Action
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
             $oResource->setTitle($data['title']);
+            $oResource->setRtitle($data['rtitle']);
 
             try {
                 $oResource->updateToDb();

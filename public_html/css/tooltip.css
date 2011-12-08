@@ -1,0 +1,72 @@
+#documentPopupContainer
+{
+    position:absolute;
+    left:0;
+    top:0;
+    display:none;
+    z-index: 20000;
+}
+
+.documentPopupPopup
+{
+}
+
+#documentPopupContent
+{
+    background-color: #FFF;
+    min-width: 175px;
+    min-height: 50px;
+}
+
+.documentPopupPopup .documentPopupImage
+{
+    margin: 5px;
+    margin-right: 15px;
+}
+
+.documentPopupPopup .corner 
+{
+    width: 19px;
+    height: 15px;
+}
+    
+.documentPopupPopup .topLeft 
+{
+    background: url(../i/docpopup/balloon_topLeft.png) no-repeat;
+}
+    
+.documentPopupPopup .bottomLeft 
+{
+    background: url(../i/docpopup/balloon_bottomLeft.png) no-repeat;
+}
+    
+.documentPopupPopup .left 
+{
+    background: url(../i/docpopup/balloon_left.png) repeat-y;
+}
+    
+.documentPopupPopup .right 
+{
+    background: url(../i/docpopup/balloon_right.png) repeat-y;
+}
+    
+.documentPopupPopup .topRight 
+{
+    background: url(../i/docpopup/balloon_topRight.png) no-repeat;
+}
+    
+.documentPopupPopup .bottomRight 
+{
+    background: url(../i/docpopup/balloon_bottomRight.png) no-repeat;
+}
+    
+.documentPopupPopup .top 
+{
+    background: url(../i/docpopup/balloon_top.png) repeat-x;
+}
+    
+.documentPopupPopup .bottom 
+{
+    background: url(../i/docpopup/balloon_bottom.png) repeat-x;
+    text-align: center;
+}

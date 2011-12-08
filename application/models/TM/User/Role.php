@@ -11,6 +11,8 @@ class TM_User_Role
 
     protected $_title;
 
+    protected $_rtitle;
+
     protected $_db;
 
 
@@ -34,6 +36,16 @@ class TM_User_Role
         return $this->_title;
     }
 
+    public function setRtitle($rtitle)
+    {
+        $this->_rtitle = $rtitle;
+    }
+
+    public function getRtitle()
+    {
+        return $this->_rtitle;
+    }
+
     public function __get($name) {
         $method = "get{$name}";
         if (method_exists($this, $method)) {
@@ -49,8 +61,8 @@ class TM_User_Role
     public function insertToDB()
     {
         try {
-            $sql = 'INSERT INTO tm_user_role(title)
-                    VALUES ("' . $this->_title . '")';
+            $sql = 'INSERT INTO tm_user_role(title, rtitle)
+                    VALUES ("' . $this->_title . '", "' . $this->_rtitle . '")';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -68,7 +80,7 @@ class TM_User_Role
     {
         try {
             $sql = 'UPDATE tm_user_role
-                    SET title="' . $this->_title . '" 
+                    SET title="' . $this->_title . '", rtitle="' . $this->_rtitle . '"
                     WHERE id=' .  $this->_id ;
             $this->_db->query($sql);
         } catch (Exception $e) {
@@ -172,6 +184,7 @@ class TM_User_Role
     {
         $this->setId($values['id']);
         $this->setTitle($values['title']);
+        $this->setRtitle($values['rtitle']);
     }
 
 } // end of TM_User_Role

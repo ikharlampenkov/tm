@@ -73,7 +73,7 @@ class TaskController extends Zend_Controller_Action
                 $oDiscussion->setMessage($data['title']);
 
                 if (!empty($data['parentTask'])) {
-                    $oDiscussion->setTopic(TM_Discussion_Discussion::getDocumentTopicByTask($this->_user, $parentTask));
+                    $oDiscussion->setTopic(TM_Discussion_Discussion::getTopicByTask($this->_user, $parentTask));
                 }
 
                 $oDiscussion->insertToDb();
@@ -143,7 +143,7 @@ class TaskController extends Zend_Controller_Action
 
         }
 
-        $this->view->assign('parentList', TM_Task_Task::getAllInstance($this->_user), -1);
+        $this->view->assign('parentList', TM_Task_Task::getAllInstance($this->_user, -1));
         $this->view->assign('attributeHashList', TM_Task_Hash::getAllInstance($oTask));
         $this->view->assign('documentList', TM_Document_Document::getDocumentByTask($this->_user, $oTask));
         $this->view->assign('task', $oTask);
