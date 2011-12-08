@@ -290,6 +290,8 @@ class TaskController extends Zend_Controller_Action
     public function addattributehashAction()
     {
         $oHash = new TM_Task_Hash();
+        $oHash->setIsRequired(false);
+        $oHash->setSortOrder(1000);
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
@@ -298,6 +300,8 @@ class TaskController extends Zend_Controller_Action
             $oHash->setTitle($data['title']);
             $oHash->setType(TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Task_AttributeTypeMapper(), $data['type_id']));
             $oHash->setValueList($data['list_value']);
+            $oHash->setIsRequired($data['required']);
+            $oHash->setSortOrder($data['sort_order']);
 
             try {
                 $oHash->insertToDb();
@@ -322,6 +326,8 @@ class TaskController extends Zend_Controller_Action
             $oHash->setTitle($data['title']);
             $oHash->setType(TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Task_AttributeTypeMapper(), $data['type_id']));
             $oHash->setValueList($data['list_value']);
+            $oHash->setIsRequired($data['required']);
+            $oHash->setSortOrder($data['sort_order']);
 
             try {
                 $oHash->updateToDb();

@@ -30,7 +30,7 @@
     {if $attributeHashList!==false}
         {foreach from=$attributeHashList item=attributeHash}
             <tr>
-                <td class="ttovar_title">{$attributeHash->title}</td>
+                <td class="{if $attributeHash->isRequired}ttovar_title_requared{else}ttovar_title{/if}">{$attributeHash->title}{if $attributeHash->isRequired}*{/if}</td>
                 <td class="ttovar">{$attributeHash->type->getHTMLFrom($attributeHash, $task)}{*<input name="data[attribute][{$attributeHash->attributeKey}]" value="{if $task->searchAttribute($attributeHash->attributeKey)}{$task->getAttribute($attributeHash->attributeKey)->value}{/if}"/>*}</td>
             </tr>
         {/foreach}
