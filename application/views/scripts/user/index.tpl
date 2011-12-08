@@ -16,7 +16,7 @@
             <td class="ttovar">{$user->login}</td>
             <td class="ttovar">{$user->role->rtitle}</td>
             <td class="tedit"><a href="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $user->id])}">редактировать</a><br/>
-                <a href="{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $user->id])}" onclick="return confirmDelete('{$user->id}');" style="color: #830000">удалить</a></td>
+                <a href="{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $user->id])}" onclick="return confirmDelete('{$user->login}');" style="color: #830000">удалить</a></td>
         </tr>
     {/foreach}
 {/if}
@@ -38,7 +38,7 @@
             <td class="ttovar">{$role->title}</td>
             <td class="tedit"><a href="{$this->url(['controller' => $controller,'action' => 'showRoleAcl', 'idRole' => $role->id])}">права</a></td>
             <td class="tedit"><a href="{$this->url(['controller' => $controller,'action' => 'editRole', 'id' => $role->id])}">редактировать</a><br/>
-                <a href="{$this->url(['controller' => $controller,'action' => 'deleteRole', 'id' => $role->id])}" onclick="return confirmDelete('{$role->id}');" style="color: #830000">удалить</a></td>
+                <a href="{$this->url(['controller' => $controller,'action' => 'deleteRole', 'id' => $role->id])}" onclick="return confirmDelete('{$role->rtitle}');" style="color: #830000">удалить</a></td>
         </tr>
     {/foreach}
 {/if}
@@ -60,7 +60,7 @@
             <td class="ttovar">{$resource->rtitle}</td>
             <td class="ttovar">{$resource->title}</td>
             <td class="tedit"><a href="{$this->url(['controller' => $controller,'action' => 'editResource', 'id' => $resource->id])}">редактировать</a><br/>
-                <a href="{$this->url(['controller' => $controller,'action' => 'deleteResource', 'id' => $resource->id])}" onclick="return confirmDelete('{$resource->id}');" style="color: #830000">удалить</a></td>
+                <a href="{$this->url(['controller' => $controller,'action' => 'deleteResource', 'id' => $resource->id])}" onclick="return confirmDelete('{$resource->rtitle}');" style="color: #830000">удалить</a></td>
         </tr>
     {/foreach}
 {/if}
@@ -84,7 +84,7 @@
             <td class="ttovar">{$attributeHash->type->title}</td>
             <td class="tedit">
                 <a href="{$this->url(['controller' => $controller,'action' => 'editAttributeHash', 'key' => $attributeHash->attributeKey])}">редактировать</a><br/>
-                <a href="{$this->url(['controller' => $controller,'action' => 'deleteAttributeHash', 'key' => $attributeHash->attributeKey])}" onclick="return confirmDelete('{$attributeHash->attributeKey}');" style="color: #830000">удалить</a>
+                <a href="{$this->url(['controller' => $controller,'action' => 'deleteAttributeHash', 'key' => $attributeHash->attributeKey])}" onclick="return confirmDelete('{$attributeHash->title}');" style="color: #830000">удалить</a>
             </td>
         </tr>
     {/foreach}
@@ -107,7 +107,7 @@
             <td class="ttovar">{$attributeType->handler}</td>
             <td class="tedit">
                 <a href="{$this->url(['controller' => $controller,'action' => 'editAttributeType', 'id' => $attributeType->id])}">редактировать</a><br/>
-                <a href="{$this->url(['controller' => $controller,'action' => 'deleteAttributeType', 'id' => $attributeType->id])}" onclick="return confirmDelete('{$attributeType->id}');" style="color: #830000">удалить</a>
+                <a href="{$this->url(['controller' => $controller,'action' => 'deleteAttributeType', 'id' => $attributeType->id])}" onclick="return confirmDelete('{$attributeType->title}');" style="color: #830000">удалить</a>
             </td>
         </tr>
     {/foreach}
