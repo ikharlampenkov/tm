@@ -67,7 +67,8 @@ a.tedit {
     color: #1465c0;
 }
 .ttovar {
-    background-color:#f7f7f7; padding: 10px;
+    background-color:#f7f7f7;
+    padding: 10px;
 }
 .ttovar_title {
     background-color:#f7f7f7;
@@ -77,5 +78,16 @@ a.tedit {
 .ttovarred {
     background-color:#ffdede; padding: 10px;
 }
+
+.ttovar_green {
+    background-color:#ccffcc;
+    padding: 10px;
+}
+
+.ttovar_red {
+    background-color:#ffcccc;
+    padding: 10px;
+}
+
 
 a { color:#1465c0}

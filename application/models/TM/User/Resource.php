@@ -19,6 +19,8 @@ class TM_User_Resource {
      */
     protected $_title;
 
+    protected $_rtitle;
+
     protected $_db;
 
 
@@ -40,6 +42,16 @@ class TM_User_Resource {
     public function getTitle()
     {
         return $this->_title;
+    }
+
+    public function setRtitle($rtitle)
+    {
+        $this->_rtitle = $rtitle;
+    }
+
+    public function getRtitle()
+    {
+        return $this->_rtitle;
     }
 
     public function __get($name) {
@@ -65,8 +77,8 @@ class TM_User_Resource {
     public function insertToDB()
     {
         try {
-            $sql = 'INSERT INTO tm_user_resource(title)
-                    VALUES ("' . $this->_title . '")';
+            $sql = 'INSERT INTO tm_user_resource(title, rtitle)
+                    VALUES ("' . $this->_title . '", "' . $this->_rtitle . '")';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -84,7 +96,7 @@ class TM_User_Resource {
     {
         try {
             $sql = 'UPDATE tm_user_resource
-                    SET title="' . $this->_title . '"
+                    SET title="' . $this->_title . '", rtitle="' . $this->_rtitle . '"
                     WHERE id=' .  $this->_id ;
             $this->_db->query($sql);
         } catch (Exception $e) {
@@ -147,7 +159,7 @@ class TM_User_Resource {
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_user_resource';
+            $sql = 'SELECT * FROM tm_user_resource ORDER BY title';
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
@@ -188,6 +200,7 @@ class TM_User_Resource {
     {
         $this->setId($values['id']);
         $this->setTitle($values['title']);
+        $this->setRtitle($values['rtitle']);
     }
 
 }

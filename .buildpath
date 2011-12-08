@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<buildpath>
+	<buildpathentry kind="src" path="application"/>
+	<buildpathentry kind="src" path="library/Smarty"/>
+	<buildpathentry kind="src" path="library/StdLib"/>
+	<buildpathentry kind="src" path="library/TM/Acl"/>
+	<buildpathentry kind="src" path="library/TM/FileManager"/>
+	<buildpathentry kind="src" path="public_html"/>
+	<buildpathentry kind="src" path="runtime/templates_c"/>
+	<buildpathentry kind="src" path="tests"/>
+	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
+</buildpath>

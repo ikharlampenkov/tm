@@ -16,7 +16,7 @@
                 <ul style="padding: 0; margin: 0;">
                     {foreach from=$discussion->document item=document}
                     <li style="list-style: none; padding: 0px; background-color: #f7f7f7;">
-                        <a href="/files{$document->file->getSubPath()}/{$document->file->getName()}" target="_blank" style="font-size: 11px;">{$document->title}</a>
+                        <a {*class="documentPopupTrigger"*} href="/files{$document->file->getSubPath()}/{$document->file->getName()}" target="_blank" style="font-size: 11px;" rel="{$document->id}">{$document->title}</a>
                     </li>
                     {/foreach}
                 </ul>

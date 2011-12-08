@@ -45,6 +45,8 @@
                  <a href="{$this->url(['controller' => $controller,'action' => 'showDiscussion', 'idDocument' => $document->id])}">обсуждение</a>
                 {/if_allowed}
             </td>
+            {else}
+            <td class="tedit"></td>
             {/if}
             <td class="tedit">
                 {if_allowed resource="{$controller}/showAcl"}

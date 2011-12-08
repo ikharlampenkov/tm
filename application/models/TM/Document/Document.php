@@ -337,9 +337,11 @@ class TM_Document_Document
     public function deleteFromDb()
     {
         try {
+        	/*
             if (!$this->_isFolder) {
                 $this->_file->setSubPath($this->_parentDocument->getFile()->getName());
             }
+            */
             $this->_file->delete();
 
             $sql = 'DELETE FROM tm_document

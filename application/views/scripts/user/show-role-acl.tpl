@@ -17,7 +17,7 @@
         <tr>
             <td class="ttovar_title">{$resource->title}</td>
             <td class="ttovar"><input type="checkbox" name="data[{$resource->id}][is_allow]" {if isset($roleAcl[{$resource->id}]) && $roleAcl[{$resource->id}]->isAllow}checked="checked"{/if} /></td>
-            <td class="ttovar"><input name="data[{$resource->id}][privileges]" value="{if isset($roleAcl[{$resource->id}])}{$roleAcl[{$resource->id}]->privileges}{/if}"/></td>
+            <td class="ttovar"><input name="data[{$resource->id}][privileges]" value="{if isset($roleAcl[{$resource->id}])}{$roleAcl[{$resource->id}]->privileges}{else}show{/if}"/></td>
         </tr>
     {/foreach}
 {/if}
