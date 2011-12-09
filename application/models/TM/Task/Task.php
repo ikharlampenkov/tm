@@ -394,6 +394,18 @@ class TM_Task_Task
     } // end of member function getChild
 
     /**
+     * @return bool
+     */
+    public function hasChild()
+    {
+        if (!empty($this->_childTask)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      *
      *
      * @param TM_Task_Task $child
@@ -412,7 +424,7 @@ class TM_Task_Task
      *
      *
      * @param TM_Task_Task $child
-     * @return
+     * @return void
      * @access public
      */
     public function deleteChild($child)
@@ -489,10 +501,22 @@ class TM_Task_Task
     } // end of member function getParent
 
     /**
+     * @return bool
+     */
+    public function hasParent()
+    {
+        if (!empty($this->_parentTask)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      *
      *
-     * @param Task::TM_Task_Task parent
-     * @return
+     * @param TM_Task_Task $parent
+     * @return void
      * @access public
      */
     public function addParent(TM_Task_Task $parent)
@@ -506,7 +530,7 @@ class TM_Task_Task
      *
      *
      * @param TM_Task_Task $parent
-     * @return
+     * @return void
      * @access public
      */
     public function deleteParent($parent)

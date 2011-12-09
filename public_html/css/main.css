@@ -89,5 +89,12 @@ a.tedit {
     padding: 10px;
 }
 
+.ttovar_title_requared {
+    background-color:#f7f7f7;
+    padding: 10px;
+    width: 210px;
+    color: #ff9ea0;
+}
+
 
 a { color:#1465c0}

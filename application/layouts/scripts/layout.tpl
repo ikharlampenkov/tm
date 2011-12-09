@@ -48,7 +48,7 @@
 
                             {if_allowed resource="task/index"}
                             <tr>
-                                <td><a href="/task/" class="menu">Задачи</a></td>
+                                <td><a href="/task/" class="menu">Проекты</a></td>
                             </tr>
                             {/if_allowed}
                             {if_allowed resource="document/index"}

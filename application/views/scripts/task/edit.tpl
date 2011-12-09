@@ -1,4 +1,4 @@
-<div class="page"><h1>Редактировать задачу</h1></div><br/>
+<div class="page"><h1>Редактировать {if !$task->hasParent()}проект{elseif $task->getChild()}группу задач{else}задачу{/if}</h1></div><br/>
 
 {if isset($exception_msg)}
 <div>Ошибка: {$exception_msg}</div><br/>
@@ -17,6 +17,9 @@
             {if !empty($parentList)}
                 {foreach from=$parentList item=parent}
                     <option value="{$parent->id}" {if $task->searchParent($parent) !== false }selected="selected"{/if}>{$parent->title}</option>
+                    {if $parent->getChild()}
+                        {include file="task/parent-block.tpl" subtask=$parent->getChild() task=$task wid="--"}
+                    {/if}
                 {/foreach}
             {/if}
             </select>
@@ -30,7 +33,7 @@
     {if $attributeHashList!==false}
         {foreach from=$attributeHashList item=attributeHash}
             <tr>
-                <td class="ttovar_title">{$attributeHash->title}</td>
+                <td class="{if $attributeHash->isRequired}ttovar_title_requared{else}ttovar_title{/if}">{$attributeHash->title}{if $attributeHash->isRequired}*{/if}</td>
                 <td class="ttovar">{$attributeHash->type->getHTMLFrom($attributeHash, $task)}{*<input name="data[attribute][{$attributeHash->attributeKey}]" value="{if $task->searchAttribute($attributeHash->attributeKey)}{$task->getAttribute($attributeHash->attributeKey)->value}{/if}"/>*}</td>
             </tr>
         {/foreach}
