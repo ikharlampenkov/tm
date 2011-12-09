@@ -26,6 +26,10 @@ textarea {
     height: 200px;
 }
 
+.input_ajax {
+    width: 600px;
+}
+
 #save {
     width: 100px;
 }
@@ -87,6 +91,13 @@ a.tedit {
 .ttovar_red {
     background-color:#ffcccc;
     padding: 10px;
+}
+
+.ttovar_title_requared {
+    background-color:#f7f7f7;
+    padding: 10px;
+    width: 210px;
+    color: #ff9ea0;
 }
 
 

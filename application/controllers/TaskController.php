@@ -32,6 +32,7 @@ class TaskController extends Zend_Controller_Action
         $oTask = new TM_Task_Task();
         $oTask->setUser($this->_user);
         $oTask->setDateCreate(date('d.m.Y H:i:s'));
+        $oTask->setType(TM_Task_Task::TASK_TYPE_PERIOD);
 
         if ($this->getRequest()->getParam('parent', 0) != 0) {
             $oTask->addParent(TM_Task_Task::getInstanceById($this->getRequest()->getParam('parent', 0)));
@@ -41,6 +42,7 @@ class TaskController extends Zend_Controller_Action
             $data = $this->getRequest()->getParam('data');
             $oTask->setTitle($data['title']);
             $oTask->setDateCreate($data['date_create']);
+            $oTask->setType($data['type']);
 
             if (!empty($data['parentTask'])) {
                 $parentTask = TM_Task_Task::getInstanceById($data['parentTask']);
@@ -60,8 +62,8 @@ class TaskController extends Zend_Controller_Action
                     $oDocument->setParent(TM_Document_Document::getDocumentFolderByTask($this->_user, $parentTask));
                 }
 
-                $oDocument->insertToDb();
-                $oDocument->setLinkToTask($oTask);
+                //$oDocument->insertToDb();
+                //$oDocument->setLinkToTask($oTask);
 
 
                 $oDiscussion = new TM_Discussion_Discussion();
@@ -76,8 +78,8 @@ class TaskController extends Zend_Controller_Action
                     $oDiscussion->setTopic(TM_Discussion_Discussion::getTopicByTask($this->_user, $parentTask));
                 }
 
-                $oDiscussion->insertToDb();
-                $oDiscussion->setLinkToTask($oTask);
+                //$oDiscussion->insertToDb();
+                //$oDiscussion->setLinkToTask($oTask);
 
                 if (!empty($data['parentTask'])) {
                     $taskAcl = TM_Acl_TaskAcl::getAllInstance($parentTask);
@@ -88,21 +90,27 @@ class TaskController extends Zend_Controller_Action
                             $tempAcl->setIsRead($acl->getIsRead());
                             $tempAcl->setIsWrite($acl->getIsWrite());
                             $tempAcl->setIsExecutant($acl->getIsExecutant());
-                            $tempAcl->saveToDb();
+                            //$tempAcl->saveToDb();
                         }
                     }
                 }
 
-
-                $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
+                if($this->_request->isXmlHttpRequest()) {
+                    exit;
+                } else {
+                    $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
+                }
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
 
         }
 
-        $this->view->assign('parentList', TM_Task_Task::getAllInstance($this->_user, -1));
+        $this->view->assign('parentList', TM_Task_Task::getAllInstance($this->_user));
         $this->view->assign('task', $oTask);
+        $this->view->assign('taskTypeList', $oTask->getTypeList());
+
+        $this->_helper->AjaxContext()->addActionContext('add', 'html')->initContext('html');
     }
 
     public function editAction()
@@ -113,6 +121,7 @@ class TaskController extends Zend_Controller_Action
             $data = $this->getRequest()->getParam('data');
             $oTask->setTitle($data['title']);
             $oTask->setDateCreate($data['date_create']);
+            $oTask->setType($data['type']);
 
             if (!empty($data['parentTask'])) {
                 $oTask->addParent(TM_Task_Task::getInstanceById($data['parentTask']));
@@ -143,10 +152,11 @@ class TaskController extends Zend_Controller_Action
 
         }
 
-        $this->view->assign('parentList', TM_Task_Task::getAllInstance($this->_user, -1));
+        $this->view->assign('parentList', TM_Task_Task::getAllInstance($this->_user));
         $this->view->assign('attributeHashList', TM_Task_Hash::getAllInstance($oTask));
         $this->view->assign('documentList', TM_Document_Document::getDocumentByTask($this->_user, $oTask));
         $this->view->assign('task', $oTask);
+        $this->view->assign('taskTypeList', $oTask->getTypeList());
     }
 
     public function viewAction()
@@ -290,6 +300,8 @@ class TaskController extends Zend_Controller_Action
     public function addattributehashAction()
     {
         $oHash = new TM_Task_Hash();
+        $oHash->setIsRequired(false);
+        $oHash->setSortOrder(1000);
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
@@ -298,6 +310,8 @@ class TaskController extends Zend_Controller_Action
             $oHash->setTitle($data['title']);
             $oHash->setType(TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Task_AttributeTypeMapper(), $data['type_id']));
             $oHash->setValueList($data['list_value']);
+            $oHash->setIsRequired($data['required']);
+            $oHash->setSortOrder($data['sort_order']);
 
             try {
                 $oHash->insertToDb();
@@ -322,6 +336,8 @@ class TaskController extends Zend_Controller_Action
             $oHash->setTitle($data['title']);
             $oHash->setType(TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Task_AttributeTypeMapper(), $data['type_id']));
             $oHash->setValueList($data['list_value']);
+            $oHash->setIsRequired($data['required']);
+            $oHash->setSortOrder($data['sort_order']);
 
             try {
                 $oHash->updateToDb();

@@ -25,5 +25,7 @@ $application = new Zend_Application(
 
 ini_set('error_reporting', E_ALL);
 
+setlocale(LC_TIME, 'ru_RU.utf-8', 'rus_RUS.utf-8', 'Russian_Russia.utf-8');
+
 $application->bootstrap()
             ->run();

@@ -61,7 +61,7 @@
                     {/if_object_allowed}
                     {/if_allowed}
                     {if_allowed resource="{$controller}/deleteFolder"}
-                    <a href="{$this->url(['controller' => $controller,'action' => 'deleteFolder', 'id' => $document->id])}" onclick="return confirmDelete('{$document->id}');" style="color: #830000">удалить</a>
+                    <a href="{$this->url(['controller' => $controller,'action' => 'deleteFolder', 'id' => $document->id])}" onclick="return confirmDelete('{$document->title}');" style="color: #830000">удалить</a>
                     {/if_allowed}
                 {else}
                     {if_allowed resource="{$controller}/view"}
@@ -73,7 +73,7 @@
                     {/if_object_allowed}
                     {/if_allowed}
                     {if_allowed resource="{$controller}/delete"}
-                    <a href="{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $document->id])}" onclick="return confirmDelete('{$document->id}');" style="color: #830000">удалить</a>
+                    <a href="{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $document->id])}" onclick="return confirmDelete('{$document->title}');" style="color: #830000">удалить</a>
                     {/if_allowed}
                 {/if}
             </td>
@@ -101,7 +101,7 @@
             <td class="ttovar">{$attributeHash->title}</td>
             <td class="ttovar">{$attributeHash->type->title}</td>
             <td class="tedit"><a href="{$this->url(['controller' => $controller,'action' => 'editAttributeHash', 'key' => $attributeHash->attributeKey])}">редактировать</a><br/>
-                <a href="{$this->url(['controller' => $controller,'action' => 'deleteAttributeHash', 'key' => $attributeHash->attributeKey])}" onclick="return confirmDelete('{$attributeHash->attributeKey}');" style="color: #830000">удалить</a></td>
+                <a href="{$this->url(['controller' => $controller,'action' => 'deleteAttributeHash', 'key' => $attributeHash->attributeKey])}" onclick="return confirmDelete('{$attributeHash->title}');" style="color: #830000">удалить</a></td>
         </tr>
     {/foreach}
 {/if}
@@ -124,7 +124,7 @@
             <td class="ttovar">{$attributeType->title}</td>
             <td class="ttovar">{$attributeType->handler}</td>
             <td class="tedit"><a href="{$this->url(['controller' => $controller,'action' => 'editAttributeType', 'id' => $attributeType->id])}">редактировать</a><br/>
-                <a href="{$this->url(['controller' => $controller,'action' => 'deleteAttributeType', 'id' => $attributeType->id])}" onclick="return confirmDelete('{$attributeType->id}');" style="color: #830000">удалить</a></td>
+                <a href="{$this->url(['controller' => $controller,'action' => 'deleteAttributeType', 'id' => $attributeType->id])}" onclick="return confirmDelete('{$attributeType->title}');" style="color: #830000">удалить</a></td>
         </tr>
     {/foreach}
 {/if}

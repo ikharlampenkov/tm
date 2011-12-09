@@ -36,7 +36,7 @@
                 {else}
                     {$discussion->message}
                 {/if}</td>
-            <td class="ttovar">{$discussion->datecreate|date_format:"%d.%m.%Y"}</td>
+            <td class="ttovar">{$discussion->datecreate|date_format:"%d %B %Y"}</td>
             <td class="tedit">
                 {if_allowed resource="{$controller}/showAcl"}
                  <a href="{$this->url(['controller' => $controller,'action' => 'showAcl', 'idDiscussion' => $discussion->id])}">права</a>
@@ -48,14 +48,14 @@
                     <a href="{$this->url(['controller' => $controller,'action' => 'editTopic', 'id' => $discussion->id])}">редактировать</a><br/>
                     {/if_allowed}
                     {if_allowed resource="{$controller}/deleteTopic"}
-                    <a href="{$this->url(['controller' => $controller,'action' => 'deleteTopic', 'id' => $discussion->id])}" onclick="return confirmDelete('{$discussion->id}');" style="color: #830000">удалить</a>
+                    <a href="{$this->url(['controller' => $controller,'action' => 'deleteTopic', 'id' => $discussion->id])}" onclick="return confirmDelete('{$discussion->message}');" style="color: #830000">удалить</a>
                     {/if_allowed}
                 {else}
                     {if_allowed resource="{$controller}/edit"}
                     <a href="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $discussion->id])}">редактировать</a><br/>
                     {/if_allowed}
                     {if_allowed resource="{$controller}/delete"}
-                    <a href="{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $discussion->id])}" onclick="return confirmDelete('{$discussion->id}');" style="color: #830000">удалить</a>
+                    <a href="{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $discussion->id])}" onclick="return confirmDelete('{$discussion->message}');" style="color: #830000">удалить</a>
                     {/if_allowed}
                 {/if}
             </td>

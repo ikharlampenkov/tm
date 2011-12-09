@@ -7,9 +7,13 @@
     <meta name="author-corporate" content=""/>
     <meta name="publisher-email" content=""/>
 
+    <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+
     <script type="text/javascript" language="javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/jquery-ui.js"></script>
     <script type="text/javascript" language="javascript" src="/js/main.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/func.js"></script>
 
     <title>{$title}</title>
 
@@ -48,7 +52,7 @@
 
                             {if_allowed resource="task/index"}
                             <tr>
-                                <td><a href="/task/" class="menu">Задачи</a></td>
+                                <td><a href="/task/" class="menu">Проекты</a></td>
                             </tr>
                             {/if_allowed}
                             {if_allowed resource="document/index"}

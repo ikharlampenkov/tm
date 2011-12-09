@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-09 19:06:30
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-09 22:16:53
          compiled from "F:\www\tm\application/layouts/scripts\layout.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:71504ed24e298072d5-25143766%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:241254ee22665edee51-09796087%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a25500e79cea030075e390e1f8ff3a74600c16de' => 
     array (
       0 => 'F:\\www\\tm\\application/layouts/scripts\\layout.tpl',
-      1 => 1322405416,
+      1 => 1323442854,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '71504ed24e298072d5-25143766',
+  'nocache_hash' => '241254ee22665edee51-09796087',
   'function' => 
   array (
   ),
@@ -29,9 +29,13 @@ $_smarty_tpl->decodeProperties(array (
     <meta name="author-corporate" content=""/>
     <meta name="publisher-email" content=""/>
 
+    <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css" />
     <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+
     <script type="text/javascript" language="javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/jquery-ui.js"></script>
     <script type="text/javascript" language="javascript" src="/js/main.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/func.js"></script>
 
     <title><?php echo $_smarty_tpl->getVariable('title')->value;?>
 </title>
@@ -74,7 +78,7 @@ $_smarty_tpl->decodeProperties(array (
                             <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>"task/index")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>"task/index"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
                             <tr>
-                                <td><a href="/task/" class="menu">Задачи</a></td>
+                                <td><a href="/task/" class="menu">Проекты</a></td>
                             </tr>
                             <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>"task/index"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 

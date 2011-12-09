@@ -41,6 +41,16 @@ class TM_Task_Hash
     protected $_listValue = '';
 
     /**
+     * @var bool
+     */
+    protected $_isRequired = false;
+
+    /**
+     * @var int
+     */
+    protected $_sortOrder = 1000;
+
+    /**
      *
      * @access protected
      */
@@ -88,7 +98,6 @@ class TM_Task_Hash
      *
      *
      * @param TM_Task_Task $value
-
      * @return void
      * @access protected
      */
@@ -125,7 +134,6 @@ class TM_Task_Hash
      *
      *
      * @param string $value
-
      * @return void
      * @access public
      */
@@ -138,7 +146,6 @@ class TM_Task_Hash
      *
      *
      * @param array|string $value
-
      * @return void
      * @access public
      */
@@ -169,6 +176,53 @@ class TM_Task_Hash
     } // end of member function getValueList
 
     /**
+     * @param boolean $isRequired
+     */
+    public function setIsRequired($isRequired)
+    {
+        if ($isRequired === 'on') {
+            $this->_isRequired = 1;
+        } elseif (empty($isRequired)) {
+            $this->_isRequired = 0;
+        } else {
+            $this->_isRequired = $isRequired;
+        }
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getIsRequired()
+    {
+        return $this->_isRequired;
+    }
+
+    /**
+     * @param int $sortOrder
+     */
+    public function setSortOrder($sortOrder)
+    {
+        $this->_sortOrder = $sortOrder;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSortOrder()
+    {
+        return $this->_sortOrder;
+    } // end of member function fillFromArray
+
+    protected function _prepareBool($value)
+    {
+        if ($value) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    /**
      * @param $name
      * @return mixed
      */
@@ -183,7 +237,6 @@ class TM_Task_Hash
     /**
      *
      *
-
      * @return TM_Task_Hash
      * @access public
      */
@@ -201,15 +254,16 @@ class TM_Task_Hash
     public function insertToDb()
     {
         try {
-            $sql = 'INSERT INTO tm_task_hash(task_id, attribute_key, title, type_id, list_value)
-                    VALUES (NULL, "' . $this->_attributeKey . '", "' . $this->_title . '", ' . $this->_type->getId() . ', "' . $this->_listValue . ' ")';
+            $sql = 'INSERT INTO tm_task_hash(task_id, attribute_key, title, type_id, list_value, required, sort_order)
+                    VALUES (NULL, "' . $this->_attributeKey . '", "' . $this->_title . '", ' . $this->_type->getId() . ',
+                            "' . $this->_listValue . ' ", ' . $this->_prepareBool($this->_isRequired) . ', ' . $this->_sortOrder . ')';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
     } // end of member function insertToDb
 
-    //task_id, attribute_key, title, type_id
+    //task_id, attribute_key, title, type_id, required, sort_order
 
     /**
      *
@@ -221,7 +275,9 @@ class TM_Task_Hash
     {
         try {
             $sql = 'UPDATE tm_task_hash
-                    SET title="' . $this->_title . '", type_id=' . $this->_type->getId() . ', list_value="' . $this->_listValue . ' "
+                    SET title="' . $this->_title . '", type_id=' . $this->_type->getId() . ',
+                        list_value="' . $this->_listValue . ' ", required=' . $this->_prepareBool($this->_isRequired) . ',
+                        sort_order=' . $this->_sortOrder . '
                     WHERE task_id IS NULL AND attribute_key="' . $this->_attributeKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
@@ -250,7 +306,6 @@ class TM_Task_Hash
      *
      *
      * @param int $key идентификатор задачи
-
      * @return TM_Task_Hash
      * @static
      * @access public
@@ -278,7 +333,6 @@ class TM_Task_Hash
      *
      *
      * @param array $values
-
      * @return TM_Task_Hash
      * @static
      * @access public
@@ -297,7 +351,6 @@ class TM_Task_Hash
     /**
      *
      * @param $object
-
      * @return array
      * @static
      * @access public
@@ -312,12 +365,14 @@ class TM_Task_Hash
                 $result = $db->query($sql, StdLib_DB::QUERY_MODE_NUM);
             }
 
-            $sql = 'SELECT tm_task_hash.attribute_key, title, tm_task_hash.type_id, list_value FROM tm_task_hash';
+            $sql = 'SELECT tm_task_hash.attribute_key, title, tm_task_hash.type_id, list_value, required, sort_order  FROM tm_task_hash';
 
             if (!is_null($object) && isset($result[0][0]) && $result[0][0] > 0) {
                 $sql .= ' LEFT JOIN tm_task_attribute ON tm_task_hash.attribute_key=tm_task_attribute.attribute_key
                           WHERE tm_task_attribute.task_id=' . $object->id . ' 
-                          ORDER BY is_fill DESC, title';
+                          ORDER BY required, sort_order, is_fill DESC, title';
+            } else {
+                $sql .= ' ORDER BY required DESC, sort_order, title';
             }
 
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
@@ -341,7 +396,6 @@ class TM_Task_Hash
      *
      *
      * @param array $values
-
      * @return void
      * @access public
      */
@@ -353,6 +407,8 @@ class TM_Task_Hash
 
         $this->setType(TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Task_AttributeTypeMapper(), $values['type_id']));
         $this->setValueList($values['list_value']);
-    } // end of member function fillFromArray
+        $this->setIsRequired($values['required']);
+        $this->setSortOrder($values['sort_order']);
+    }
 
 }

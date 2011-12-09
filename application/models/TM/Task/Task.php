@@ -7,6 +7,8 @@
 class TM_Task_Task
 {
 
+    const TASK_TYPE_PERIOD = 1;
+
     /** Aggregations: */
 
     /** Compositions: */
@@ -36,6 +38,16 @@ class TM_Task_Task
      * @access protected
      */
     protected $_dateCreate;
+
+    /**
+     * @var int
+     */
+    protected $_type = 1;
+
+    /**
+     * @var array - список возможный значений для типа задачи
+     */
+    protected $_typeList = array(1 => 'Период', 2 => 'Без учета времени', 3 => 'На дату');
 
     /**
      *
@@ -155,6 +167,35 @@ class TM_Task_Task
         $this->_dateCreate = date("Y-m-d H:i:s", strtotime($value));
     } // end of member function setDateCreate
 
+    /**
+     * @param int $type
+     */
+    public function setType($type)
+    {
+        if (key_exists($type, $this->_typeList)) {
+            $this->_type = $type;
+        } else {
+            $this->_type = 1;
+        }
+
+    }
+
+    /**
+     * @return int
+     */
+    public function getType()
+    {
+        return $this->_type;
+    }
+
+    /**
+     * @return array
+     */
+    public function getTypeList()
+    {
+        return $this->_typeList;
+    }
+
     public function __get($name)
     {
         $method = "get{$name}";
@@ -183,8 +224,9 @@ class TM_Task_Task
     public function insertToDb()
     {
         try {
-            $sql = 'INSERT INTO tm_task(title, user_id, date_create)
-                    VALUES ("' . $this->_title . '", ' . $this->_user->getId() . ', "' . $this->_dateCreate . '")';
+            $sql = 'INSERT INTO tm_task(title, user_id, date_create, type)
+                    VALUES ("' . $this->_title . '", ' . $this->_user->getId() . ',
+                            "' . $this->_dateCreate . '", ' . $this->_type . ')';
             $this->_db->query($sql);
 
             $this->_id = $this->_db->getLastInsertId();
@@ -205,7 +247,8 @@ class TM_Task_Task
     {
         try {
             $sql = 'UPDATE tm_task 
-                    SET title="' . $this->_title . '", user_id="' . $this->_user->getId() . '", date_create="' . $this->_dateCreate . '" 
+                    SET title="' . $this->_title . '", user_id="' . $this->_user->getId() . '",
+                        date_create="' . $this->_dateCreate . '", type=' . $this->_type . '
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
 
@@ -356,6 +399,7 @@ class TM_Task_Task
         $this->setId($values['id']);
         $this->setTitle($values['title']);
         $this->setDateCreate($values['date_create']);
+        $this->setType($values['type']);
 
         $o_user = TM_User_User::getInstanceById($values['user_id']);
         $this->setUser($o_user);
@@ -394,6 +438,18 @@ class TM_Task_Task
     } // end of member function getChild
 
     /**
+     * @return bool
+     */
+    public function hasChild()
+    {
+        if (!empty($this->_childTask)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      *
      *
      * @param TM_Task_Task $child
@@ -412,7 +468,7 @@ class TM_Task_Task
      *
      *
      * @param TM_Task_Task $child
-     * @return
+     * @return void
      * @access public
      */
     public function deleteChild($child)
@@ -489,10 +545,22 @@ class TM_Task_Task
     } // end of member function getParent
 
     /**
+     * @return bool
+     */
+    public function hasParent()
+    {
+        if (!empty($this->_parentTask)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      *
      *
-     * @param Task::TM_Task_Task parent
-     * @return
+     * @param TM_Task_Task $parent
+     * @return void
      * @access public
      */
     public function addParent(TM_Task_Task $parent)
@@ -506,7 +574,7 @@ class TM_Task_Task
      *
      *
      * @param TM_Task_Task $parent
-     * @return
+     * @return void
      * @access public
      */
     public function deleteParent($parent)
@@ -701,7 +769,6 @@ class TM_Task_Task
         }
 
     }
-
 
 } // end of TM_Task_Task
 ?>

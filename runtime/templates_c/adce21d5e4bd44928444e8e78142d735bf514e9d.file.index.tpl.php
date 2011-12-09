@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-01 23:16:05
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-09 22:59:08
          compiled from "F:\www\tm\application/views/scripts\user/index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:118084ed7a845890018-95570860%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:69834ee2304c70cbf2-54969502%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'adce21d5e4bd44928444e8e78142d735bf514e9d' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\user/index.tpl',
-      1 => 1322745362,
+      1 => 1323432815,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '118084ed7a845890018-95570860',
+  'nocache_hash' => '69834ee2304c70cbf2-54969502',
   'function' => 
   array (
   ),
@@ -39,12 +39,12 @@ if ($_smarty_tpl->_count($_from) > 0){
         <tr>
             <td class="ttovar"><?php echo $_smarty_tpl->getVariable('user')->value->login;?>
 </td>
-            <td class="ttovar"><?php echo $_smarty_tpl->getVariable('user')->value->role->title;?>
+            <td class="ttovar"><?php echo $_smarty_tpl->getVariable('user')->value->role->rtitle;?>
 </td>
             <td class="tedit"><a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'edit','id'=>$_smarty_tpl->getVariable('user')->value->id));?>
 ">редактировать</a><br/>
                 <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'delete','id'=>$_smarty_tpl->getVariable('user')->value->id));?>
-" onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('user')->value->id;?>
+" onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('user')->value->login;?>
 ');" style="color: #830000">удалить</a></td>
         </tr>
     <?php }} ?>
@@ -68,6 +68,8 @@ if ($_smarty_tpl->_count($_from) > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars['role']->key => $_smarty_tpl->tpl_vars['role']->value){
 ?>
         <tr>
+            <td class="ttovar"><?php echo $_smarty_tpl->getVariable('role')->value->rtitle;?>
+</td>
             <td class="ttovar"><?php echo $_smarty_tpl->getVariable('role')->value->title;?>
 </td>
             <td class="tedit"><a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'showRoleAcl','idRole'=>$_smarty_tpl->getVariable('role')->value->id));?>
@@ -75,7 +77,7 @@ if ($_smarty_tpl->_count($_from) > 0){
             <td class="tedit"><a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'editRole','id'=>$_smarty_tpl->getVariable('role')->value->id));?>
 ">редактировать</a><br/>
                 <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'deleteRole','id'=>$_smarty_tpl->getVariable('role')->value->id));?>
-" onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('role')->value->id;?>
+" onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('role')->value->rtitle;?>
 ');" style="color: #830000">удалить</a></td>
         </tr>
     <?php }} ?>
@@ -100,12 +102,14 @@ if ($_smarty_tpl->_count($_from) > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars['resource']->key => $_smarty_tpl->tpl_vars['resource']->value){
 ?>
         <tr>
+            <td class="ttovar"><?php echo $_smarty_tpl->getVariable('resource')->value->rtitle;?>
+</td>
             <td class="ttovar"><?php echo $_smarty_tpl->getVariable('resource')->value->title;?>
 </td>
             <td class="tedit"><a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'editResource','id'=>$_smarty_tpl->getVariable('resource')->value->id));?>
 ">редактировать</a><br/>
                 <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'deleteResource','id'=>$_smarty_tpl->getVariable('resource')->value->id));?>
-" onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('resource')->value->id;?>
+" onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('resource')->value->rtitle;?>
 ');" style="color: #830000">удалить</a></td>
         </tr>
     <?php }} ?>
@@ -140,7 +144,7 @@ if ($_smarty_tpl->_count($_from) > 0){
                 <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'editAttributeHash','key'=>$_smarty_tpl->getVariable('attributeHash')->value->attributeKey));?>
 ">редактировать</a><br/>
                 <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'deleteAttributeHash','key'=>$_smarty_tpl->getVariable('attributeHash')->value->attributeKey));?>
-" onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('attributeHash')->value->attributeKey;?>
+" onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('attributeHash')->value->title;?>
 ');" style="color: #830000">удалить</a>
             </td>
         </tr>
@@ -173,7 +177,7 @@ if ($_smarty_tpl->_count($_from) > 0){
                 <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'editAttributeType','id'=>$_smarty_tpl->getVariable('attributeType')->value->id));?>
 ">редактировать</a><br/>
                 <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'deleteAttributeType','id'=>$_smarty_tpl->getVariable('attributeType')->value->id));?>
-" onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('attributeType')->value->id;?>
+" onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('attributeType')->value->title;?>
 ');" style="color: #830000">удалить</a>
             </td>
         </tr>
