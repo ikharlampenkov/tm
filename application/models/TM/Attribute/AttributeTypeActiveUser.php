@@ -23,13 +23,16 @@ class TM_Attribute_AttributeTypeActiveUser extends TM_Attribute_AttributeType
             }
         }
 
-        $html .= ' style="width: 14px;" /> ';
+        $html .= ' style="width: 14px;" ';
         if ($object->searchAttribute($hash->attributeKey)) {
             if ($object->getAttribute($hash->attributeKey)->value !== '') {
-                $html .= $object->getAttribute($hash->attributeKey)->value;
+                if ($object->getAttribute($hash->attributeKey)->value != $user) {
+                    $html .= ' disabled="disabled" ';
+                }
+                $html .= ' /> ' . $object->getAttribute($hash->attributeKey)->value;
             }
         } else {
-            $html .= $user;
+            $html .= ' /> ' . $user;
         }
         echo $html;
     }

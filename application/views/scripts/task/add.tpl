@@ -1,4 +1,4 @@
-<div class="page"><h1>Добавить задачу</h1></div><br/>
+<div class="page"><h1>Добавить {if !$task->hasParent()}проект{else}задачу{/if}</h1></div><br/>
 
 {if isset($exception_msg)}
 <div>Ошибка: {$exception_msg}</div><br/>
@@ -6,6 +6,17 @@
 
 <form action="{$this->url(['controller' => $controller,'action' => 'add'])}" method="post">
     <table width="100%">
+        <tr>
+            <td class="ttovar_title">Тип задачи</td>
+            <td class="ttovar">
+                <select name="data[type]">
+                {foreach from=$taskTypeList item=task_type key=task_type_key}
+                    <option value="{$task_type_key}" {if $task->type == $task_type_key}selected="selected"{/if}>{$task_type}</option>
+                {/foreach}
+
+                 </select>
+            </td>
+        </tr>
         <tr>
             <td class="ttovar_title">Название</td>
             <td class="ttovar"><input name="data[title]" value="{$task->title}"/></td>
@@ -17,6 +28,9 @@
             {if !empty($parentList)}
                 {foreach from=$parentList item=parent}
                     <option value="{$parent->id}" {if $task->searchParent($parent) !== false }selected="selected"{/if}>{$parent->title}</option>
+                    {if $parent->getChild()}
+                    {include file="task/parent-block.tpl" subtask=$parent->getChild() task=$task wid="--"}
+                    {/if}
                 {/foreach}
             {/if}
             </select>

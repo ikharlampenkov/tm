@@ -1,4 +1,4 @@
-<div class="page"><h1>{if !isset($task)}Задачи{else}Задача: {$task->title}{/if}</h1></div><br/>
+<div class="page"><h1>{if !isset($task)}Проекты{else}{if !$task->hasParent()}Проект{elseif $task->getChild()}Группа задач{else}Задача:{/if} {$task->title}{/if}</h1></div><br/>
 
 {if isset($breadcrumbs)}
 <a href="{$this->url(['controller' => $controller,'action' => 'index', 'parent' => 0])}">/..</a>
@@ -11,15 +11,72 @@
 <br/><br/>
 {/if}
 
-<table width="100%">
+
+<ul id="taskList">
+{if $taskList!==false}
+    {foreach from=$taskList item=task}
+        {if_object_allowed type="{$controller|capitalize}" object="{$task}"}
+            <li id="task_{$task->id}" style="list-style: none;">
+                <div style="padding: 5px 0px 5px; 5px; width: 100%; height: 30px; margin: 0px; 5px;" class="{if $task->searchAttribute('state') && $task->getAttribute('state')->value=='Выполнена'}ttovar_green{elseif $task->getIsOver()}ttovar_red{else}ttovar{/if}">
+
+                    <div style="width: 500px; float:left; margin-left: 5px;">
+                        <a href="#" onclick="task.openTask('{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->id])}', {$task->id});">{$task->title}</a>
+                    </div>
+
+
+                    <div style="width: 250px; float:right;">
+                        {if_allowed resource="{$controller}/showDiscussion"}
+                            <a href="{$this->url(['controller' => $controller,'action' => 'showDiscussion', 'idTask' => $task->id])}">обсуждение</a>
+                        {/if_allowed}
+
+                        {if_allowed resource="{$controller}/showAcl"}
+                            <a href="{$this->url(['controller' => $controller,'action' => 'showAcl', 'idTask' => $task->id])}">права</a>
+                        {/if_allowed}
+
+
+                        {if_allowed resource="{$controller}/view"}
+                            <a href="{$this->url(['controller' => $controller,'action' => 'view', 'id' => $task->id])}">просмотреть</a>
+                        {/if_allowed}
+
+                        {if_allowed resource="{$controller}/edit"}
+                            {if_object_allowed type="{$controller|capitalize}" object="{$task}" priv="write"}
+                                <a href="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $task->id])}">редактировать</a>
+                            {/if_object_allowed}
+                        {/if_allowed}
+
+                        {if_allowed resource="{$controller}/delete"}
+                            <a href="{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $task->id])}" onclick="return confirmDelete('{$task->title}');" style="color: #830000">удалить</a>
+                        {/if_allowed}
+
+                    </div>
+
+                    <div style="width: 120px; float:right;">
+                        {if $task->searchAttribute('deadline')}
+                            {$task->getAttribute('deadline')->value|date_format:"%d %B %Y"}
+                            {else}&nbsp;
+                        {/if}
+                    </div>
+
+                </div>
+            </li>
+            <ul id="subtask_{$task->id}">
+
+            </ul>
+        {/if_object_allowed}
+    {/foreach}
+{/if}
+</ul>
+
+{*
+<table width="100%" id="taskList">
 {if_allowed resource="{$controller}/add"}
     <tr>
-        <td class="ttovar" align="center" colspan="5"><a href="{$this->url(['controller' => $controller,'action' => 'add'])}">добавить</a></td>
+        <td class="ttovar" align="center" colspan="5"><a href="#" onclick="task.addDialog('{$this->url(['controller' => $controller,'action' => 'add'])}')">добавить</a></td>
     </tr>
 {/if_allowed}
 
     <tr>
-        <td class="ttovar">Задача</td>
+        <td class="ttovar">Название</td>
         <td class="ttovar" style="width: 130px;">Выполнить до</td>
         <td class="ttovar" colspan="3">Действия</td>
     </tr>
@@ -27,8 +84,8 @@
 {if $taskList!==false}
     {foreach from=$taskList item=task}
         {if_object_allowed type="{$controller|capitalize}" object="{$task}"}
-            <tr>
-                <td class="{if $task->searchAttribute('state') && $task->getAttribute('state')->value=='Выполнена'}ttovar_green{elseif $task->getIsOver()}ttovar_red{else}ttovar{/if}"><a href="{$this->url(['controller' => $controller,'action' => 'index', 'parent' => $task->id])}">{$task->title}</a></td>
+            <tr id="task_{$task->id}">
+                <td class="{if $task->searchAttribute('state') && $task->getAttribute('state')->value=='Выполнена'}ttovar_green{elseif $task->getIsOver()}ttovar_red{else}ttovar{/if}"><a href="#" onclick="task.openTask('{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->id])}', {$task->id});">{$task->title}</a></td>
                 <td class="{if $task->searchAttribute('state') && $task->getAttribute('state')->value=='Выполнена'}ttovar_green{elseif $task->getIsOver()}ttovar_red{else}ttovar{/if}">{if $task->searchAttribute('deadline')}{$task->getAttribute('deadline')->value|date_format:"%d %B %Y"}{/if}</td>
                 <td class="tedit">
                     {if_allowed resource="{$controller}/showDiscussion"}
@@ -59,6 +116,7 @@
 {/if}
 
 </table>
+*}
 
 {if_allowed resource="{$controller}/index" priv="show-attribute-hash"}
 <br/>

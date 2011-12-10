@@ -116,8 +116,8 @@ class StdLib_DB {
     }
 
     public function prepareStringToOut($string) {
-        //preg_replace("(\\+\")", '\"', $string);
-        return str_replace('"', '&quot;', str_replace('\\', '', $string));
+        //echo preg_replace("(\\+)", '\"', $string);
+        return str_replace('"', '&quot;', stripslashes(stripcslashes($string))); // stripslashes($string); //str_replace('"', '&quot;', preg_replace("(\\+\")", '\"', $string)); //str_replace('\\', '', $string)
     }
 
     public function getNextID($table, $idname = 'id') {

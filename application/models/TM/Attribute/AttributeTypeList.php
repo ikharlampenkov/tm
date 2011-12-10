@@ -16,8 +16,8 @@ class TM_Attribute_AttributeTypeList extends TM_Attribute_AttributeType
 
         foreach ($hash->getValueList() as $value) {
             $html .= '<option value="' . str_replace('*', '', $value) . '" ';
-            if ($object->searchAttribute($hash->attributeKey)) {
-                if ($object->getAttribute($hash->attributeKey)->value == str_replace('*', '', $value)) {
+            if ($object->searchAttribute($hash->attributeKey) && $object->getAttribute($hash->attributeKey)->value != '') {
+                if (trim($object->getAttribute($hash->attributeKey)->value) == str_replace('*', '', $value)) {
                     $html .= 'selected="selected"';
                 }
             } elseif (strpos($value, '*') !== false) {
