@@ -9,6 +9,9 @@ class TaskController extends Zend_Controller_Action
     {
         $storage_data = Zend_Auth::getInstance()->getStorage()->read();
         $this->_user = TM_User_User::getInstanceById($storage_data->id);
+
+        $this->_helper->AjaxContext()->addActionContext('add', 'html')->initContext('html');
+        //$this->_helper->AjaxContext()->addActionContext('showtaskblock', 'html')->initContext('html');
     }
 
     public function indexAction()
@@ -25,6 +28,14 @@ class TaskController extends Zend_Controller_Action
 
         $this->view->assign('attributeTypeList', TM_Attribute_AttributeType::getAllInstance(new TM_Task_AttributeTypeMapper()));
         $this->view->assign('attributeHashList', TM_Task_Hash::getAllInstance());
+    }
+
+    public function showtaskblockAction()
+    {
+        $parentId = $this->getRequest()->getParam('parent', 0);
+        $this->view->assign('taskList', TM_Task_Task::getAllInstance($this->_user, $parentId));
+
+        $this->_helper->AjaxContext()->addActionContext('showTaskBlock', 'html')->initContext('html');
     }
 
     public function addAction()
@@ -62,8 +73,8 @@ class TaskController extends Zend_Controller_Action
                     $oDocument->setParent(TM_Document_Document::getDocumentFolderByTask($this->_user, $parentTask));
                 }
 
-                //$oDocument->insertToDb();
-                //$oDocument->setLinkToTask($oTask);
+                $oDocument->insertToDb();
+                $oDocument->setLinkToTask($oTask);
 
 
                 $oDiscussion = new TM_Discussion_Discussion();
@@ -78,8 +89,8 @@ class TaskController extends Zend_Controller_Action
                     $oDiscussion->setTopic(TM_Discussion_Discussion::getTopicByTask($this->_user, $parentTask));
                 }
 
-                //$oDiscussion->insertToDb();
-                //$oDiscussion->setLinkToTask($oTask);
+                $oDiscussion->insertToDb();
+                $oDiscussion->setLinkToTask($oTask);
 
                 if (!empty($data['parentTask'])) {
                     $taskAcl = TM_Acl_TaskAcl::getAllInstance($parentTask);
@@ -109,8 +120,6 @@ class TaskController extends Zend_Controller_Action
         $this->view->assign('parentList', TM_Task_Task::getAllInstance($this->_user));
         $this->view->assign('task', $oTask);
         $this->view->assign('taskTypeList', $oTask->getTypeList());
-
-        $this->_helper->AjaxContext()->addActionContext('add', 'html')->initContext('html');
     }
 
     public function editAction()

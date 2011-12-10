@@ -11,10 +11,10 @@ var task = {
     addDialog:function (rq_url) { // Функция вывода диалогового окна
         if ($('#addDialog').length < 1) // создаем блок диалогового окна
         {
-            $('body').append('<div id="addDialog" ></div>')
-        }
-        else
+            $('body').append('<div id="addDialog" ></div>');
+        } else {
             $('#addDialog').dialog('close'); // на всякий случай закрываем
+        }
 
         $.get(rq_url, '', function (data) { // посылаем пост запрос для вывода формы
             $('#addDialog').html(data).dialog({
@@ -56,7 +56,14 @@ var task = {
             }
           }
         }, 'html');
+    },
 
+    openTask: function(rg_url, parent) {
+        $('#subtask_' + parent).empty();
+
+        $.get(rg_url, '', function (data) {
+            $('#subtask_' + parent).append(data);
+        }, 'html');
 
     }
 }

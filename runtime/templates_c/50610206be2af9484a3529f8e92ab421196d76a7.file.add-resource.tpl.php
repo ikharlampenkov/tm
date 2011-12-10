@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-11-26 16:14:24
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-10 14:35:03
          compiled from "F:\www\tm\application/views/scripts\user/add-resource.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:33864ed0adf0298d45-97146520%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_smarty_tpl->decodeProperties(array (
     '50610206be2af9484a3529f8e92ab421196d76a7' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\user/add-resource.tpl',
-      1 => 1322298642,
+      1 => 1322989118,
       2 => 'file',
     ),
   ),
@@ -30,6 +30,11 @@ $_smarty_tpl->decodeProperties(array (
         <tr>
             <td class="ttovar" width="200">Название</td>
             <td class="ttovar"><input name="data[title]" value="<?php echo $_smarty_tpl->getVariable('resource')->value->title;?>
+"/></td>
+        </tr>
+        <tr>
+            <td class="ttovar" width="200">Русское название</td>
+            <td class="ttovar"><input name="data[rtitle]" value="<?php echo $_smarty_tpl->getVariable('resource')->value->rtitle;?>
 "/></td>
         </tr>
     </table>
