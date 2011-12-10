@@ -23,4 +23,17 @@ function comment_reply_on(id) {
     $('#add_form').hide();
 }
 
+function mainmenu() {
+    $(".menu_up ul").css({display:"none"});
+    $(".menu_up li").hover(function () {
+        $(this).find('ul.list').css({visibility:"visible", display:"none", position:"absolute"}).show(200);
+    }, function () {
+        $(this).find('ul.list').css({visibility:"hidden"});
+    });
+}
+
+$(document).ready(function () {
+    mainmenu();
+});
+
 

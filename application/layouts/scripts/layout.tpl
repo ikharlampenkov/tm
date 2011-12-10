@@ -7,11 +7,13 @@
     <meta name="author-corporate" content=""/>
     <meta name="publisher-email" content=""/>
 
-    <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css"/>
     <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/menu.css"/>
 
     <script type="text/javascript" language="javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" language="javascript" src="/js/jquery-ui.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/menu.js"></script>
     <script type="text/javascript" language="javascript" src="/js/main.js"></script>
     <script type="text/javascript" language="javascript" src="/js/func.js"></script>
 
@@ -21,72 +23,81 @@
 
 <body>
 
-<table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="0" border="0" align="center">
-    <tr>
-        <td style="height: 60px; vertical-align: top;">
+<div class="head">
+    <div class="login">
+        <div class="unlogged">
+            Пользователь: {$authUser}<br/>
+            <a href="/login/logout/" style="color: #ffffff;">Выйти</a>
+        </div>
+    </div>
 
-            <table style="width: 100%; height: 60px; background-color:#69aefc;">
-                <tr>
-                    <td style="padding-left: 25px; vertical-align: middle;"><a href="/" style="color: #ffffff; text-decoration: none; font-size: 26px;">{$title}</a></td>
-                    <td width="300" valign="middle" style="color:white">
-                        Пользователь: {$authUser} &nbsp; / &nbsp; <a href="/login/logout/" style="color:black">Выйти</a>
-                    </td>
-                </tr>
-            </table>
+    <div class="head_left">
+        <div class="logo"><a href="/" style="color: #ffffff; text-decoration: none; font-size: 26px;">{$title}</a></div>
+    </div>
+</div>
 
 
-        </td>
-    </tr>
-    <tr>
-        <td>
+<a name="top"></a>
 
-            <table border="0" cellpadding="20" width="100%">
-                <tr>
-                    <td width="230">
+<ul class="menu_up">
+{if_allowed resource="task/index"}
+    <li>
+        <a href="/task/" >Проекты</a></td>
+        <span>&nbsp;</span>
+        <ul class="list" id="prgms">
+            <li><a href="/program-for-ipad/">Программы для iPad и iPad 2</a></li>
+        </ul>
+    </li>
+{/if_allowed}
+{if_allowed resource="document/index"}
+    <li>
+        <a href="/document/">Документы</a>
+        <span>&nbsp;</span>
+        <ul class="list" id="prgms">
+            <li><a href="/program-for-iphone/">Программы для iPhone</a></li>
+        </ul>
+    </li>
+{/if_allowed}
+{if_allowed resource="reports/index"}
+    <li>
+        <a href="/reports/">Отчеты</a>
+        <span>&nbsp;</span>
+        <ul class="list" id="prgms">
+            <li><a href="/program-for-ipod/">Программы для iPod и iPod touch</a></li>
+        </ul>
+    </li>
+{/if_allowed}
+{if_allowed resource="discussion/index"}
+    <li>
+        <a href="/discussion/">Обсуждение</a>
+        <span>&nbsp;</span>
+        <ul class="list" id="prgms">
+            <li><a href="/information/">Познавательная информация</a></li>
+        </ul>
+    </li>
+{/if_allowed}
+{if_allowed resource="user/index"}
+    <li>
+           <a href="/user/">Пользователи</a>
+           <span>&nbsp;</span>
+           <ul class="list" id="prgms">
+               <li><a href="/information/">Познавательная информация</a></li>
+           </ul>
+       </li>
+{/if_allowed}
+</ul>
 
-                        <table border="0" cellpadding="10" cellspacing="10" width="100%" height="100%"
-                               style="background-color:#f0f0f0">
-                            <tr>
-                                <td><h1>Меню:</h1></td>
-                            </tr>
+<div class="content">
 
-                            {if_allowed resource="task/index"}
-                            <tr>
-                                <td><a href="/task/" class="menu">Проекты</a></td>
-                            </tr>
-                            {/if_allowed}
-                            {if_allowed resource="document/index"}
-                            <tr>
-                                <td><a href="/document/" class="menu">Документы</a></td>
-                            </tr>
-                            {/if_allowed}
-                            {if_allowed resource="reports/index"}
-                            <tr>
-                                <td><a href="/reports/" class="menu">Отчеты</a></td>
-                            </tr>
-                            {/if_allowed}
-                            {if_allowed resource="discussion/index"}
-                            <tr>
-                                <td><a href="/discussion/" class="menu">Обсуждение</a></td>
-                            </tr>
-                            {/if_allowed}
-                        {if_allowed resource="user/index"}
-                            <tr>
-                                <td><a href="/user/" class="menu">Пользователи</a></td>
-                            </tr>
-                        {/if_allowed}
-                        </table>
+    <table border="0" cellpadding="20" width="100%">
+        <tr>
+            <td>
+            {$this->layout()->content}
+            </td>
+        </tr>
+    </table>
 
-                    </td>
-                    <td>
-                    {$this->layout()->content}
-                    </td>
-                </tr>
-            </table>
-
-        </td>
-    </tr>
-</table>
+</div>
 
 
 </body>

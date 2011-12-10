@@ -1,0 +1,126 @@
+.menu_up * {
+    z-index: 99;
+}
+
+.menu_up {
+    margin: 10px 0 0 9%;
+    overflow: hidden;
+}
+
+.menu_up li {
+    background: url(/i/ar.gif) no-repeat 20px 21px;
+    float: left;
+    height: 50px;
+    margin-right: 1.5%;
+    padding: 12px 25px 0 44px;
+}
+
+.menu_up li:hover {
+    background: url(/i/ar.gif) no-repeat 20px 21px #202020;
+}
+
+.menu_up li a {
+    font: bold 14px/18px Tahoma;
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+.menu_up li a:hover {
+    color: #5a5a5a;
+}
+
+.menu_up li sup {
+    margin-left: 6px;
+    color: #49b4ec;
+}
+
+.menu_up li span {
+    display: block;
+    margin: 0px 0 0 1px;
+    font-size: 10px;
+}
+
+.menu_up .list {
+    background: #202020;
+    margin: 0 0 0 -44px;
+    padding: 7px 0 25px 0;
+}
+
+#films {
+    width: 61%;
+}
+
+#music {
+    width: 49%;
+}
+
+#games {
+    width: 24.4%;
+}
+
+#prgms {
+    width: 19.8%;
+}
+
+#other {
+    width: 11.7%;
+}
+
+.menu_up .list li {
+    display: block;
+    padding-left: 44px;
+    height: 13px;
+    width: 200px;
+    margin: 0;
+}
+
+.menu_up .list li:hover {
+    background: url(/i/ar.gif) no-repeat 20px 21px;
+}
+
+.menu_up .list li a {
+    font: normal 11px/17px Arial;
+    color: #fff;
+    padding: 10px 20px 20px 20px;
+    margin: -10px -20px -20px -20px;
+}
+
+.menu_up .list li a:hover {
+    text-decoration: underline;
+    color: #777;
+}
+
+#sub-menu {
+    padding-left: 19%;
+    width: 79%;
+    padding-top: 4px;
+}
+
+#sub-menu ul {
+    padding-left: 15px;
+    margin-bottom: 30px;
+    height: 40px;
+    width: 520px;
+    background: url(/i/submenu.png) top left no-repeat;
+}
+
+#sub-menu ul {
+    overflow: hidden;
+}
+
+#sub-menu li {
+    float: left;
+    margin: 12px 15px 0 0;
+    padding-right: 15px;
+    border-right: 1px solid #ccc;
+}
+
+#sub-menu li.far {
+    border-right: 0px;
+}
+
+#menu-toggle {
+    position: absolute;
+    cursor: pointer;
+    margin-top: -27px;
+}

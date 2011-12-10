@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-01 22:03:34
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-10 13:26:23
          compiled from "F:\www\tm\application/views/scripts\task/add-attribute-hash.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:69564ed7974648fe88-88514115%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:97254ee2fb8fbd0cf1-67037554%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'c8a66fde7be9076537be3a12da90ba650346c03c' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\task/add-attribute-hash.tpl',
-      1 => 1321889539,
+      1 => 1323432815,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '69564ed7974648fe88-88514115',
+  'nocache_hash' => '97254ee2fb8fbd0cf1-67037554',
   'function' => 
   array (
   ),
@@ -56,6 +56,15 @@ if ($_smarty_tpl->_count($_from) > 0){
         <tr>
             <td class="ttovar_title">Список значений (через ||) </td>
             <td class="ttovar"><input name="data[list_value]" value="<?php echo $_smarty_tpl->getVariable('hash')->value->listValue;?>
+"/></td>
+        </tr>
+        <tr>
+            <td class="ttovar_title">Обязательное</td>
+            <td class="ttovar"><input type="checkbox" name="data[required]" <?php if ($_smarty_tpl->getVariable('hash')->value->isRequired){?>checked="checked" <?php }?> style="width: 14px;"/></td>
+        </tr>
+        <tr>
+            <td class="ttovar_title">Порядок сортировки</td>
+            <td class="ttovar"><input name="data[sort_order]" value="<?php echo $_smarty_tpl->getVariable('hash')->value->sortOrder;?>
 "/></td>
         </tr>
     </table>
