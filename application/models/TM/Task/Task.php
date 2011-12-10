@@ -544,6 +544,30 @@ class TM_Task_Task
         }
     } // end of member function getParent
 
+    public function getFirstParent()
+    {
+        if (is_null($this->_parentTask) || empty($this->_parentTask)) {
+            try {
+                $sql = 'SELECT * FROM tm_task_relation WHERE child_id=' . $this->_id;
+                $result = $this->_db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+
+                if (isset($result[0]['parent_id'])) {
+                    foreach ($result as $res) {
+                        $this->_parentTask[] = TM_Task_Task::getInstanceById($res['parent_id']);
+                    }
+                } else {
+                    $this->_parentTask = array();
+                }
+                print_r($this->_parentTask[0]);
+                return $this->_parentTask[0];
+            } catch (Exception $e) {
+                throw new Exception($e->getMessage());
+            }
+        } else {
+            return $this->_parentTask[0];
+        }
+    }
+
     /**
      * @return bool
      */

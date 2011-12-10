@@ -124,3 +124,14 @@
     cursor: pointer;
     margin-top: -27px;
 }
+
+.sub-menu {
+    padding-left: 15px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    height: 40px;
+    width: 520px;
+    background: url(/i/submenu.png) top left no-repeat;
+    vertical-align: middle;
+
+}

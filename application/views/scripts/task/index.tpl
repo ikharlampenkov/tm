@@ -11,8 +11,11 @@
 <br/><br/>
 {/if}
 
+<div class="sub-menu">
+    <a href="#" onclick="task.addDialog('{$this->url(['controller' => $controller,'action' => 'add'])}')">добавить</a>
+</div>
 
-<ul id="taskList">
+<ul id="subtask_0">
 {if $taskList!==false}
     {foreach from=$taskList item=task}
         {if_object_allowed type="{$controller|capitalize}" object="{$task}"}
@@ -40,7 +43,7 @@
 
                         {if_allowed resource="{$controller}/edit"}
                             {if_object_allowed type="{$controller|capitalize}" object="{$task}" priv="write"}
-                                <a href="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $task->id])}">редактировать</a>
+                                <a href="#" onclick="task.editDialog('{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $task->id])}', {if !$task->hasParent()}0{else}{$task->getFirstParent()->id}{/if}, '{if !$task->hasParent()}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => 0])}{else}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->getFirstParent()->id])}{/if}');">редактировать</a>
                             {/if_object_allowed}
                         {/if_allowed}
 
@@ -59,9 +62,7 @@
 
                 </div>
             </li>
-            <ul id="subtask_{$task->id}">
-
-            </ul>
+            <ul id="subtask_{$task->id}" style="display: none; margin-left: 20px;"></ul>
         {/if_object_allowed}
     {/foreach}
 {/if}
