@@ -13,6 +13,7 @@
 
     <script type="text/javascript" language="javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" language="javascript" src="/js/jquery-ui.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/i18n/jquery.ui.datepicker-ru.js"></script>
     <script type="text/javascript" language="javascript" src="/js/jquery.form.js"></script>
     <script type="text/javascript" language="javascript" src="/js/menu.js"></script>
     <script type="text/javascript" language="javascript" src="/js/main.js"></script>
@@ -45,18 +46,17 @@
     <li>
         <a href="/task/" >Проекты</a></td>
         <span>&nbsp;</span>
-        <ul class="list" id="prgms">
-            <li><a href="/program-for-ipad/">Программы для iPad и iPad 2</a></li>
-        </ul>
     </li>
 {/if_allowed}
 {if_allowed resource="document/index"}
     <li>
         <a href="/document/">Документы</a>
         <span>&nbsp;</span>
+        {*
         <ul class="list" id="prgms">
             <li><a href="/program-for-iphone/">Программы для iPhone</a></li>
         </ul>
+*}
     </li>
 {/if_allowed}
 {if_allowed resource="reports/index"}
@@ -69,9 +69,6 @@
     <li>
         <a href="/discussion/">Обсуждение</a>
         <span>&nbsp;</span>
-        <ul class="list" id="prgms">
-            <li><a href="/information/">Познавательная информация</a></li>
-        </ul>
     </li>
 {/if_allowed}
 {if_allowed resource="user/index"}

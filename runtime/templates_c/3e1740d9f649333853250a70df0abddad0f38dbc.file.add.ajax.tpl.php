@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-10 13:26:10
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-12 00:24:57
          compiled from "F:\www\tm\application/views/scripts\task/add.ajax.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:135574ee2fb8081dbd9-38929406%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:273434ee4e769360dd2-29438006%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '3e1740d9f649333853250a70df0abddad0f38dbc' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\task/add.ajax.tpl',
-      1 => 1323451314,
+      1 => 1323624145,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '135574ee2fb8081dbd9-38929406',
+  'nocache_hash' => '273434ee4e769360dd2-29438006',
   'function' => 
   array (
   ),
@@ -80,6 +80,6 @@ $_template->assign('subtask',$_smarty_tpl->getVariable('parent')->value->getChil
     <tr>
         <td class="ttovar_title">Дата создания</td>
         <td class="ttovar"><input name="data[date_create]" value="<?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('task')->value->dateCreate,"%d.%m.%Y %H:%M:%S");?>
-" class="input_ajax"/></td>
+" class="datepicker input_ajax"/></td>
     </tr>
 </table>

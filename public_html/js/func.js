@@ -31,6 +31,7 @@ var task = {
                     }
                 }
             });
+            $( ".datepicker" ).datepicker($.datepicker.regional[ "ru" ]);
             $('#exception').css('display', 'none');
         }, 'html');
     },
@@ -111,6 +112,7 @@ var task = {
                     }
                 }
             });
+            $( ".datepicker" ).datepicker($.datepicker.regional[ "ru" ]);
             $('#exception').css('display', 'none');
         }, 'html');
     },

@@ -42,6 +42,6 @@
     </tr>
     <tr>
         <td class="ttovar_title">Дата создания</td>
-        <td class="ttovar"><input name="data[date_create]" value="{$task->dateCreate|date_format:"%d.%m.%Y %H:%M:%S"}" class="input_ajax"/></td>
+        <td class="ttovar"><input name="data[date_create]" value="{$task->dateCreate|date_format:"%d.%m.%Y %H:%M:%S"}" class="datepicker input_ajax"/></td>
     </tr>
 </table>

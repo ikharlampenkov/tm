@@ -735,10 +735,12 @@ class TM_Task_Task
         try {
             $taskAcl = TM_Acl_TaskAcl::getAllInstance($this);
             $userArray = array();
+            if ($taskAcl) {
             foreach ($taskAcl as $acl) {
                 if ($acl->getIsExecutant()) {
                     $userArray[] = $acl->getUser();
                 }
+            }
             }
 
             return $userArray;

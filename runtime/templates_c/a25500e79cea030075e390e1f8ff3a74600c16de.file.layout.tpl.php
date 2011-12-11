@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-11 23:24:51
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-12 00:19:56
          compiled from "F:\www\tm\application/layouts/scripts\layout.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:216274ee4d9536fbd02-33250583%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:36164ee4e63ce028b4-63123470%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a25500e79cea030075e390e1f8ff3a74600c16de' => 
     array (
       0 => 'F:\\www\\tm\\application/layouts/scripts\\layout.tpl',
-      1 => 1323620621,
+      1 => 1323623993,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '216274ee4d9536fbd02-33250583',
+  'nocache_hash' => '36164ee4e63ce028b4-63123470',
   'function' => 
   array (
   ),
@@ -35,6 +35,7 @@ $_smarty_tpl->decodeProperties(array (
 
     <script type="text/javascript" language="javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" language="javascript" src="/js/jquery-ui.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/i18n/jquery.ui.datepicker-ru.js"></script>
     <script type="text/javascript" language="javascript" src="/js/jquery.form.js"></script>
     <script type="text/javascript" language="javascript" src="/js/menu.js"></script>
     <script type="text/javascript" language="javascript" src="/js/main.js"></script>
@@ -71,9 +72,6 @@ $_smarty_tpl->decodeProperties(array (
     <li>
         <a href="/task/" >Проекты</a></td>
         <span>&nbsp;</span>
-        <ul class="list" id="prgms">
-            <li><a href="/program-for-ipad/">Программы для iPad и iPad 2</a></li>
-        </ul>
     </li>
 <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>"task/index"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
@@ -82,9 +80,6 @@ $_smarty_tpl->decodeProperties(array (
     <li>
         <a href="/document/">Документы</a>
         <span>&nbsp;</span>
-        <ul class="list" id="prgms">
-            <li><a href="/program-for-iphone/">Программы для iPhone</a></li>
-        </ul>
     </li>
 <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>"document/index"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
@@ -101,9 +96,6 @@ $_smarty_tpl->decodeProperties(array (
     <li>
         <a href="/discussion/">Обсуждение</a>
         <span>&nbsp;</span>
-        <ul class="list" id="prgms">
-            <li><a href="/information/">Познавательная информация</a></li>
-        </ul>
     </li>
 <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>"discussion/index"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
