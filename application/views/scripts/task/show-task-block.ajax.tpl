@@ -1,7 +1,7 @@
 {if $taskList!==false}
     {foreach from=$taskList item=task}
         {if_object_allowed type="{$controller|capitalize}" object="{$task}"}
-            <li id="task_{$task->id}" style="list-style: none;">
+            <li id="task_{$task->id}" class="task_list">
                 <div style="padding: 5px 0px 5px; 5px; width: 100%; height: 30px; margin: 0px; 5px;" class="{if $task->searchAttribute('state') && $task->getAttribute('state')->value=='Выполнена'}ttovar_green{elseif $task->getIsOver()}ttovar_red{else}ttovar{/if}">
 
                     <div style="width: 500px; float:left; margin-left: 5px;">
@@ -9,7 +9,37 @@
                     </div>
 
 
-                    <div style="width: 250px; float:right;">
+                    <div style="width: 280px; float:right;">
+
+                        <button>Действия</button>
+                        <ul id="task_action">
+                            {if_allowed resource="{$controller}/showDiscussion"}
+                                <li><a href="{$this->url(['controller' => $controller,'action' => 'showDiscussion', 'idTask' => $task->id])}">обсуждение</a></li>
+                            {/if_allowed}
+
+                            {if_allowed resource="{$controller}/showAcl"}
+                            <li><a href="{$this->url(['controller' => $controller,'action' => 'showAcl', 'idTask' => $task->id])}">права</a></li>
+                            {/if_allowed}
+
+
+                            {if_allowed resource="{$controller}/view"}
+                            <li><a href="{$this->url(['controller' => $controller,'action' => 'view', 'id' => $task->id])}">просмотреть</a></li>
+                            {/if_allowed}
+
+                            {if_allowed resource="{$controller}/edit"}
+                                {if_object_allowed type="{$controller|capitalize}" object="{$task}" priv="write"}
+                                <li><a href="#" onclick="task.editDialog('{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $task->id])}', {if !$task->hasParent()}0{else}{$task->getFirstParent()->id}{/if}, '{if !$task->hasParent()}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => 0])}{else}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->getFirstParent()->id])}{/if}');">редактировать</a></li>
+                                {/if_object_allowed}
+                            {/if_allowed}
+
+                            {if_allowed resource="{$controller}/delete"}
+                            <li><a href="#" onclick="task.deleteDialog('{$task->title}', '{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $task->id])}', {if !$task->hasParent()}0{else}{$task->getFirstParent()->id}{/if}, '{if !$task->hasParent()}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => 0])}{else}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->getFirstParent()->id])}{/if}');" style="color: #830000">удалить</a></li>
+                            {/if_allowed}
+
+                        </ul>
+
+
+
                         {if_allowed resource="{$controller}/showDiscussion"}
                             <a href="{$this->url(['controller' => $controller,'action' => 'showDiscussion', 'idTask' => $task->id])}">обсуждение</a>
                         {/if_allowed}
@@ -30,7 +60,7 @@
                         {/if_allowed}
 
                         {if_allowed resource="{$controller}/delete"}
-                            <a href="{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $task->id])}" onclick="return confirmDelete('{$task->title}');" style="color: #830000">удалить</a>
+                            <a href="#" onclick="task.deleteDialog('{$task->title}', '{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $task->id])}', {if !$task->hasParent()}0{else}{$task->getFirstParent()->id}{/if}, '{if !$task->hasParent()}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => 0])}{else}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->getFirstParent()->id])}{/if}');" style="color: #830000">удалить</a>
                         {/if_allowed}
 
                     </div>

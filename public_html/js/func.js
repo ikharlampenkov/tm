@@ -8,7 +8,7 @@
 
 
 var task = {
-    addDialog:function (rq_url) { // Функция вывода диалогового окна
+    addDialog:function (rq_url, parent, show_url) { // Функция вывода диалогового окна
         if ($('#addDialog').length < 1) // создаем блок диалогового окна
         {
             $('body').append('<div id="addDialog" ></div>');
@@ -24,10 +24,10 @@ var task = {
                 width:830,
                 buttons:{
                     Добавить:function () {
-                        task.send(rq_url)
+                        task.send(rq_url, parent, show_url);
                     },
                     Отмена:function () {
-                        $('#addDialog').dialog('close')
+                        $('#addDialog').dialog('close');
                     }
                 }
             });
@@ -35,30 +35,31 @@ var task = {
         }, 'html');
     },
 
-    send:function (rq_url) {
+    send:function (rq_url, parent, show_url) {
         var data_form = {}; // данные которые будем отправлять
         $('#addDialog').find('input,textarea,select').each(function () { // ищем в цикле все поля формы в диалоговом окне
             data_form[$(this).attr('name')] = $(this).val(); // записываем
         });
 
         $.ajax({
-          type: 'POST',
-          url: rq_url,
-          data: data_form,
-          success: function (data) {
-            if (data != '') {
-                $('#addDialog').html(data);
-                //$('#exception_message').append(data);
-                //$('#exception').css('display', 'block');
+            type:'POST',
+            url:rq_url,
+            data:data_form,
+            success:function (data) {
+                if (data != '') {
+                    $('#addDialog').html(data);
+                    //$('#exception_message').append(data);
+                    //$('#exception').css('display', 'block');
+                }
+                else {
+                    task.openTask(show_url, parent, true);
+                    $('#addDialog').dialog('close');
+                }
             }
-            else {
-                $('#addDialog').dialog('close')
-            }
-          }
         }, 'html');
     },
 
-    openTask: function(rg_url, parent, isReload) {
+    openTask:function (rg_url, parent, isReload) {
         isReload = isReload || false;
 
         if ($('#subtask_' + parent).html() != '' && !isReload) {
@@ -74,7 +75,7 @@ var task = {
         }, 'html');
     },
 
-    editDialog: function(rq_url, parent, show_url) {
+    editDialog:function (rq_url, parent, show_url) {
         if ($('#editDialog').length < 1) // создаем блок диалогового окна
         {
             $('body').append('<div id="editDialog" ></div>');
@@ -104,14 +105,14 @@ var task = {
     sendEdit:function (rq_url, parent, show_url) {
         var data_form = {}; // данные которые будем отправлять
         $('#editDialog').find('input,textarea,select').each(function () { // ищем в цикле все поля формы в диалоговом окне
-                data_form[$(this).attr('name')] = $(this).val(); // записываем
+            data_form[$(this).attr('name')] = $(this).val(); // записываем
         });
 
         $.ajax({
-            type: 'POST',
-            url: rq_url,
-            data: data_form,
-            success: function (data) {
+            type:'POST',
+            url:rq_url,
+            data:data_form,
+            success:function (data) {
                 if (data != '') {
                     $('#editDialog').html(data);
                 }
@@ -122,5 +123,39 @@ var task = {
                 }
             }
         }, 'html');
+    },
+
+    deleteDialog:function (task_title, rg_url, parent, show_url) {
+        if ($('#deleteDialog').length < 1) // создаем блок диалогового окна
+        {
+            $('body').append('<div id="deleteDialog" ></div>');
+        } else {
+            $('#deleteDialog').dialog('close'); // на всякий случай закрываем
+        }
+
+        var html = '<div>Вы действительно хотите удалить задачу:<br/><b>' + task_title + '?</b></div>';
+
+        $('#deleteDialog').html(html).dialog({
+            title:'Удалить задачу',
+            modal:true,
+            height:220,
+            width:500,
+            buttons:{
+                Удалить:function () {
+                    $.get(rg_url, function (data) {
+                        if (data == '') {
+                            task.openTask(show_url, parent, true);
+                            $('#deleteDialog').dialog('close');
+                        } else {
+                            $('#deleteDialog').append(data);
+                        }
+                    });
+                },
+                Отмена:function () {
+                    $('#deleteDialog').dialog('close');
+                }
+            }
+        });
     }
+
 }

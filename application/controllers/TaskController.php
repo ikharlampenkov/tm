@@ -13,6 +13,7 @@ class TaskController extends Zend_Controller_Action
         $this->_helper->AjaxContext()->addActionContext('add', 'html')->initContext('html');
         $this->_helper->AjaxContext()->addActionContext('showTaskBlock', 'html')->initContext('html');
         $this->_helper->AjaxContext()->addActionContext('edit', 'html')->initContext('html');
+        $this->_helper->AjaxContext()->addActionContext('delete', 'html')->initContext('html');
     }
 
     public function indexAction()
@@ -184,10 +185,13 @@ class TaskController extends Zend_Controller_Action
         $oTask = TM_Task_Task::getInstanceById($this->getRequest()->getParam('id'));
         try {
             $oTask->deleteFromDB();
-            $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
+            if($this->_request->isXmlHttpRequest()) {
+                exit;
+            } else {
+                $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
+            }
         } catch (Exception $e) {
-            throw new Exception($e->getMessage());
-
+            $this->view->assign('exception_msg', $e->getMessage());
         }
         // action body
     }

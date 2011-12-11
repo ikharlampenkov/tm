@@ -34,6 +34,22 @@ function mainmenu() {
 
 $(document).ready(function () {
     mainmenu();
+
+    $(function() {
+        var btn = $(".task_list button").each(function()  {
+            $(this).button({
+                icons: {
+                    secondary: "ui-icon-triangle-1-s"
+                }
+            });
+        });
+
+        $("ul[id*='task_action_']").menu({
+                select: function(event, ui) {
+                    //$("#log").append("<div>Selected " + ui.item.text() + "</div>");
+                },
+                trigger : btn});
+    });
 });
 
 
