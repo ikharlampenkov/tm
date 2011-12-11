@@ -1,13 +1,11 @@
 html, body {
     margin: 0px;
     padding: 0px;
-    font: normal 12px/16px "Trebuchet MS", Tahoma;
-    background:#2a2a2a;
-    color:#454545;
-    width:100%;
+    font: normal 14px/16px "Trebuchet MS", Tahoma;
+    background: #2a2a2a;
+    color: #454545;
+    width: 100%;
 }
-
-
 
 img {
     border: 0;
@@ -22,9 +20,6 @@ ul {
     padding: 0;
     margin: 0;
 }
-
-
-
 
 table {
     width: 100%;
@@ -198,4 +193,49 @@ a {
     padding-top: 5px;
 }
 
-.content {width:100%; background-color: #ffffff;; margin:0 3% 0 0; min-height: 800px; }
+.content {
+    width: 100%;
+    background-color: #ffffff;;
+    margin: 0 3% 0 0;
+    min-height: 800px;
+}
+
+li.task_list {
+    list-style: none;
+}
+
+.ui-menu {
+    width: 200px;
+    position: absolute;
+    z-index: 5000;
+}
+
+.ui-popup {
+    position: absolute;
+    z-index: 5000;
+}
+
+.task_action_menu {
+    display: none;
+    width: 130px;
+    border: 1px solid gray;
+    padding: 5px;
+    background: lightgray;
+    outline: none;
+}
+
+.action {
+    padding: 2px;
+}
+
+.file_info {
+    width: 250px;
+    border: 1px solid gray;
+    padding: 2px;
+    background: lightgray;
+    font-size: 12px;
+    outline: none;
+    position: absolute;
+    z-index: 5000;
+    display: none;
+}

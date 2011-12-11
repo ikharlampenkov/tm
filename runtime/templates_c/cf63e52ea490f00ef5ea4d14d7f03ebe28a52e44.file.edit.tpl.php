@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-11-27 20:44:29
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-11 21:19:16
          compiled from "F:\www\tm\application/views/scripts\user/edit.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:101994ed23ebd48d858-99359090%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_smarty_tpl->decodeProperties(array (
     'cf63e52ea490f00ef5ea4d14d7f03ebe28a52e44' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\user/edit.tpl',
-      1 => 1321546724,
+      1 => 1322745364,
       2 => 'file',
     ),
   ),
@@ -23,7 +23,7 @@ $_smarty_tpl->decodeProperties(array (
 " method="post">
     <table>
         <tr>
-            <td class="ttovar" width="200">Логин</td>
+            <td class="ttovar_title">Логин</td>
             <td class="ttovar"><input name="data[login]" value="<?php echo $_smarty_tpl->getVariable('user')->value->login;?>
 "/></td>
         </tr>
@@ -52,6 +52,20 @@ if ($_smarty_tpl->_count($_from) > 0){
             </select>
             </td>
         </tr>
+    <?php if ($_smarty_tpl->getVariable('attributeHashList')->value!==false){?>
+        <?php  $_smarty_tpl->tpl_vars['attributeHash'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->getVariable('attributeHashList')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+if ($_smarty_tpl->_count($_from) > 0){
+    foreach ($_from as $_smarty_tpl->tpl_vars['attributeHash']->key => $_smarty_tpl->tpl_vars['attributeHash']->value){
+?>
+            <tr>
+                <td class="ttovar_title"><?php echo $_smarty_tpl->getVariable('attributeHash')->value->title;?>
+</td>
+                <td class="ttovar"><?php echo $_smarty_tpl->getVariable('attributeHash')->value->type->getHTMLFrom($_smarty_tpl->tpl_vars['attributeHash']->value,$_smarty_tpl->getVariable('user')->value);?>
+</td>
+            </tr>
+        <?php }} ?>
+    <?php }?>
     </table>
     <input id="save" name="save" type="submit" value="Сохранить"/>
 </form>

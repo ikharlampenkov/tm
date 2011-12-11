@@ -544,6 +544,30 @@ class TM_Task_Task
         }
     } // end of member function getParent
 
+    public function getFirstParent()
+    {
+        if (is_null($this->_parentTask) || empty($this->_parentTask)) {
+            try {
+                $sql = 'SELECT * FROM tm_task_relation WHERE child_id=' . $this->_id;
+                $result = $this->_db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+
+                if (isset($result[0]['parent_id'])) {
+                    foreach ($result as $res) {
+                        $this->_parentTask[] = TM_Task_Task::getInstanceById($res['parent_id']);
+                    }
+                } else {
+                    $this->_parentTask = array();
+                }
+                print_r($this->_parentTask[0]);
+                return $this->_parentTask[0];
+            } catch (Exception $e) {
+                throw new Exception($e->getMessage());
+            }
+        } else {
+            return $this->_parentTask[0];
+        }
+    }
+
     /**
      * @return bool
      */
@@ -743,13 +767,16 @@ class TM_Task_Task
         $now = time();
         $deadline = time();
 
+        if ($this->searchAttribute('state') && trim($this->getAttribute('state')->value) == 'Выполнена') {
+            $deadline = $now;
+        } else {
         if ($this->searchAttribute('deadline')) {
             $deadline = strtotime($this->getAttribute('deadline')->value);
+        }
         }
 
         $diff = $deadline - $now;
         return $diff;
-
     }
 
     public function getIsOver()
@@ -767,6 +794,43 @@ class TM_Task_Task
         } else {
             return true;
         }
+    }
+
+    public function getTaskStatistic()
+    {
+        $statArray = array('is_complite' => 0, 'is_do' => 0, 'is_out' => 0, 'is_problem' => 0, 'doc_count' => 0, 'discuss_count' => 0);
+        $this->getChild();
+
+        foreach ($this->_childTask as $child) {
+            if ($child->searchAttribute('state')) {
+                if (trim($child->getAttribute('state')->value) == 'Выполнена') {
+                    $statArray['is_complite'] += 1;
+                } elseif(trim($child->getAttribute('state')->value) == 'Возникли вопросы') {
+                    $statArray['is_problem'] += 1;
+                } elseif (trim($child->getAttribute('state')->value) == 'Не выполнена' && !$this->getIsOver()) {
+                    $statArray['is_do'] += 1;
+                } elseif (trim($child->getAttribute('state')->value) == 'Не выполнена' && $this->getIsOver()) {
+                    $statArray['is_out'] += 1;
+                }
+            } else {
+                $statArray['is_do'] += 1;
+            }
+        }
+
+        $doc_count = TM_Document_Document::getDocumentByTask($this->_user, $this);
+        if ($doc_count) {
+            $statArray['doc_count'] = count($doc_count);
+        }
+
+        $discuss_count = TM_Discussion_Discussion::getDiscussionByTask($this->_user, $this);
+        if ($discuss_count) {
+            $statArray['discuss_count'] = count($discuss_count);
+        }
+        return $statArray;
+    }
+
+    public function calcDeadLine()
+    {
 
     }
 

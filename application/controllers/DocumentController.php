@@ -9,6 +9,8 @@ class DocumentController extends Zend_Controller_Action
     {
         $storage_data = Zend_Auth::getInstance()->getStorage()->read();
         $this->_user = TM_User_User::getInstanceById($storage_data->id);
+
+        $this->_helper->AjaxContext()->addActionContext('view', 'html')->initContext('html');
     }
 
     public function indexAction()

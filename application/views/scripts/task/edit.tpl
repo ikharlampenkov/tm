@@ -56,8 +56,12 @@
                 <td class="ttovar_title">Документ</td>
                 <td class="ttovar">
                     <a href="/files{$document->file->getSubPath()}/{$document->file->getName()}" target="_blank">{$document->title}</a>
+                    {if_allowed resource="document/edit"}
                     / <a href="{$this->url(['controller' => 'document','action' => 'edit', 'id' => $document->id])}">редактировать</a>
+                    {/if_allowed}
+                    {if_allowed resource="{$controller}/deleteLinkToDoc"}
                     / <a href="{$this->url(['controller' => $controller,'action' => 'deleteLinkToDoc', 'id' => $task->id, 'doc_id' => $document->id])}">удалить</a>
+                    {/if_allowed}
                 </td>
             </tr>
         {/foreach}

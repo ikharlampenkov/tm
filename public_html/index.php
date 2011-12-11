@@ -23,7 +23,7 @@ $application = new Zend_Application(
     APPLICATION_PATH . '/configs/application.ini'
 );
 
-ini_set('error_reporting', E_ALL);
+//ini_set('error_reporting', E_ALL);
 
 setlocale(LC_TIME, 'ru_RU.utf-8', 'rus_RUS.utf-8', 'Russian_Russia.utf-8');
 

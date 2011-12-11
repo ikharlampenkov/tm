@@ -13,6 +13,7 @@
 
     <script type="text/javascript" language="javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" language="javascript" src="/js/jquery-ui.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/jquery.form.js"></script>
     <script type="text/javascript" language="javascript" src="/js/menu.js"></script>
     <script type="text/javascript" language="javascript" src="/js/main.js"></script>
     <script type="text/javascript" language="javascript" src="/js/func.js"></script>
@@ -60,11 +61,8 @@
 {/if_allowed}
 {if_allowed resource="reports/index"}
     <li>
-        <a href="/reports/">Отчеты</a>
+        <a href="/reports/">Аналитика</a>
         <span>&nbsp;</span>
-        <ul class="list" id="prgms">
-            <li><a href="/program-for-ipod/">Программы для iPod и iPod touch</a></li>
-        </ul>
     </li>
 {/if_allowed}
 {if_allowed resource="discussion/index"}
@@ -80,9 +78,6 @@
     <li>
            <a href="/user/">Пользователи</a>
            <span>&nbsp;</span>
-           <ul class="list" id="prgms">
-               <li><a href="/information/">Познавательная информация</a></li>
-           </ul>
        </li>
 {/if_allowed}
 </ul>

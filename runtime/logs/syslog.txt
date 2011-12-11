@@ -1,3 +1,48 @@
 error   Can`t complit query: UPDATE tm_document SET file="Te——_Ajax" WHERE id=181 No error: 1366:: Error msg: Incorrect string value: '\xD1\xD1_Aja...' for column 'file' at row 1 ;  10.12.2011 00:00
 error   Can`t complit query: UPDATE tm_document SET file="E—e_—e——" WHERE id=182 No error: 1366:: Error msg: Incorrect string value: '\xD1e_\xD1e\xD1...' for column 'file' at row 1 ;  10.12.2011 00:02
 error   Can`t complit query: UPDATE tm_document SET file="P—o——o" WHERE id=183 No error: 1366:: Error msg: Incorrect string value: '\xD1o\xD1\xD1o' for column 'file' at row 1 ;  10.12.2011 00:07
+error   Can`t complit query: UPDATE tm_document SET file="Te——_dobavleniya" WHERE id=184 No error: 1366:: Error msg: Incorrect string value: '\xD1\xD1_dob...' for column 'file' at row 1 ;  11.12.2011 18:34
+error   Can`t complit query: SELECT tm_task_hash.attribute_key, title, tm_task_hash.type_id, list_value, required, sort_order
+                    FROM tm_task_hash LEFT JOIN (
+                        SELECT * FROM tm_task_attribute WHERE tm_task_attribute.task_id=
+                    ) t2 ON tm_task_hash.attribute_key=t2.attribute_key
+                    ORDER BY required DESC, sort_order, title No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') t2 ON tm_task_hash.attribute_key=t2.attribute_key
+                    ORDER B' at line 4 ;  11.12.2011 21:10
+error   Can`t complit query: SELECT tm_task_hash.attribute_key, title, tm_task_hash.type_id, list_value, required, sort_order
+                                FROM tm_task_hash LEFT JOIN (
+                                    SELECT * FROM tm_document_hash WHERE document_id=
+                                ) t2 ON tm_task_hash.attribute_key=t2.attribute_key
+                                ORDER BY t2.is_fill DESC, title No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') t2 ON tm_task_hash.attribute_key=t2.attribute_key
+                           ' at line 4 ;  11.12.2011 21:12
+error   Can`t complit query: SELECT tm_task_hash.attribute_key, title, tm_task_hash.type_id, list_value, 
+                    FROM tm_task_hash  ORDER BY title No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM tm_task_hash  ORDER BY title' at line 2 ;  11.12.2011 21:15
+error   Can`t complit query: SELECT tm_document_hash.attribute_key, title, tm_document_hash.type_id, list_value
+                    FROM tm_task_hash  ORDER BY title No error: 1054:: Error msg: Unknown column 'tm_document_hash.attribute_key' in 'field list' ;  11.12.2011 21:16
+error   Can`t complit query: SELECT tm_document_hash.attribute_key, title, tm_document_hash.type_id, list_value
+                    FROM tm_task_hash  ORDER BY title No error: 1054:: Error msg: Unknown column 'tm_document_hash.attribute_key' in 'field list' ;  11.12.2011 21:16
+error   Can`t complit query: SELECT tm_task_hash.attribute_key, title, tm_task_hash.type_id, list_value, required, sort_order
+                    FROM tm_task_hash LEFT JOIN (
+                        SELECT * FROM tm_task_attribute WHERE tm_user_attribute.user_id=
+                    ) t2 ON tm_task_hash.attribute_key=t2.attribute_key
+                     ORDER BY t2.is_fill DESC, title No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') t2 ON tm_task_hash.attribute_key=t2.attribute_key
+                     ORDER ' at line 4 ;  11.12.2011 21:16
+error   Can`t complit query: SELECT tm_document_hash.attribute_key, title, tm_document_hash.type_id, list_value
+                    FROM tm_document_hash  LEFT JOIN (
+                         SELECT * FROM tm_document_hash WHERE document_id=210
+                   ) t2 ON tm_document_hash.attribute_key=t2.attribute_key
+                   ORDER BY t2.is_fill DESC, title No error: 1052:: Error msg: Column 'title' in field list is ambiguous ;  11.12.2011 22:41
+error   Can`t complit query: SELECT tm_document_hash.attribute_key, title, tm_document_hash.type_id, list_value
+                    FROM tm_document_hash  LEFT JOIN (
+                         SELECT * FROM tm_document_hash WHERE document_id=210
+                   ) t2 ON tm_document_hash.attribute_key=t2.attribute_key
+                   ORDER BY t2.is_fill DESC, title No error: 1052:: Error msg: Column 'title' in field list is ambiguous ;  11.12.2011 22:41
+error   Can`t complit query: SELECT tm_document_hash.attribute_key, title, tm_document_hash.type_id, list_value
+                    FROM tm_document_hash  LEFT JOIN (
+                         SELECT * FROM tm_document_hash WHERE document_id=210
+                   ) t2 ON tm_document_hash.attribute_key=t2.attribute_key
+                   ORDER BY t2.is_fill DESC, title No error: 1052:: Error msg: Column 'title' in field list is ambiguous ;  11.12.2011 22:42
+error   Can`t complit query: SELECT tm_document_hash.attribute_key, title, tm_document_hash.type_id, list_value
+                    FROM tm_document_hash  LEFT JOIN (
+                         SELECT * FROM tm_document_hash WHERE document_id=210
+                   ) t2 ON tm_document_hash.attribute_key=t2.attribute_key
+                   ORDER BY t2.is_fill DESC, title No error: 1052:: Error msg: Column 'title' in field list is ambiguous ;  11.12.2011 22:42

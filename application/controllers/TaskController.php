@@ -11,7 +11,9 @@ class TaskController extends Zend_Controller_Action
         $this->_user = TM_User_User::getInstanceById($storage_data->id);
 
         $this->_helper->AjaxContext()->addActionContext('add', 'html')->initContext('html');
-        //$this->_helper->AjaxContext()->addActionContext('showtaskblock', 'html')->initContext('html');
+        $this->_helper->AjaxContext()->addActionContext('showTaskBlock', 'html')->initContext('html');
+        $this->_helper->AjaxContext()->addActionContext('edit', 'html')->initContext('html');
+        $this->_helper->AjaxContext()->addActionContext('delete', 'html')->initContext('html');
     }
 
     public function indexAction()
@@ -34,8 +36,6 @@ class TaskController extends Zend_Controller_Action
     {
         $parentId = $this->getRequest()->getParam('parent', 0);
         $this->view->assign('taskList', TM_Task_Task::getAllInstance($this->_user, $parentId));
-
-        $this->_helper->AjaxContext()->addActionContext('showTaskBlock', 'html')->initContext('html');
     }
 
     public function addAction()
@@ -101,7 +101,7 @@ class TaskController extends Zend_Controller_Action
                             $tempAcl->setIsRead($acl->getIsRead());
                             $tempAcl->setIsWrite($acl->getIsWrite());
                             $tempAcl->setIsExecutant($acl->getIsExecutant());
-                            //$tempAcl->saveToDb();
+                            $tempAcl->saveToDb();
                         }
                     }
                 }
@@ -154,7 +154,11 @@ class TaskController extends Zend_Controller_Action
 
             try {
                 $oTask->updateToDb();
-                $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
+                if($this->_request->isXmlHttpRequest()) {
+                    exit;
+                } else {
+                    $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
+                }
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -181,10 +185,13 @@ class TaskController extends Zend_Controller_Action
         $oTask = TM_Task_Task::getInstanceById($this->getRequest()->getParam('id'));
         try {
             $oTask->deleteFromDB();
-            $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
+            if($this->_request->isXmlHttpRequest()) {
+                exit;
+            } else {
+                $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
+            }
         } catch (Exception $e) {
-            throw new Exception($e->getMessage());
-
+            $this->view->assign('exception_msg', $e->getMessage());
         }
         // action body
     }

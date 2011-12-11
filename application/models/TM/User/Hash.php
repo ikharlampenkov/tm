@@ -305,6 +305,7 @@ class TM_User_Hash
         try {
             $db = StdLib_DB::getInstance();
 
+            /*
             if (!is_null($object)) {
                 $sql = 'SELECT COUNT(attribute_key) FROM tm_user_attribute WHERE user_id=' . $object->id;
                 $result = $db->query($sql, StdLib_DB::QUERY_MODE_NUM);
@@ -317,6 +318,19 @@ class TM_User_Hash
                           WHERE tm_user_attribute.user_id=' . $object->id . '
                           ORDER BY is_fill DESC, title';
             }
+            */
+
+            $sql = 'SELECT tm_user_hash.attribute_key, title, tm_user_hash.type_id, list_value
+                    FROM tm_user_hash ';
+            if (!is_null($object)) {
+                $sql .= 'LEFT JOIN (
+                        SELECT * FROM tm_user_attribute WHERE tm_user_attribute.user_id=' . $object->id . '
+                     ) t2 ON tm_user_hash.attribute_key=t2.attribute_key
+                     ORDER BY t2.is_fill DESC, title';
+            } else {
+                $sql .= ' ORDER BY title';
+            }
+
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {

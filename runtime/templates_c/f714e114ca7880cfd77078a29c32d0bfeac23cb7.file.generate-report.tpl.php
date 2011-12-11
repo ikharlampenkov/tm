@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-01 22:41:23
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-11 23:39:01
          compiled from "F:\www\tm\application/views/scripts\reports/generate-report.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:162424ed7a02376eca2-09225398%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:19164ee4dca50d3cf9-70632720%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'f714e114ca7880cfd77078a29c32d0bfeac23cb7' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\reports/generate-report.tpl',
-      1 => 1322754080,
+      1 => 1323621538,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '162424ed7a02376eca2-09225398',
+  'nocache_hash' => '19164ee4dca50d3cf9-70632720',
   'function' => 
   array (
   ),
@@ -24,9 +24,13 @@ $_smarty_tpl->decodeProperties(array (
     <tr>
         <td class="ttovar">Задача</td>
         <td class="ttovar" style="width: 130px;">Дата добавления</td>
-        <td class="ttovar" style="width: 130px;">Срок</td>
+        <td class="ttovar" style="width: 130px;">Выполнить до</td>
+        <td class="ttovar" style="width: 130px;">Затрачено</td>
+        <td class="ttovar" style="width: 130px;">Осталось</td>
         <td class="ttovar">Исполнитель</td>
-        <td class="ttovar">Статус</td>
+        <td class="ttovar">Ответственный</td>
+        <td class="ttovar">Кто принял</td>
+        <td class="ttovar">Кто поставил</td>
     </tr>
 
 <?php if ($_smarty_tpl->getVariable('taskList')->value!==false){?>
@@ -36,13 +40,17 @@ if ($_smarty_tpl->_count($_from) > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars['task']->key => $_smarty_tpl->tpl_vars['task']->value){
 ?>
         <tr>
-            <td class="ttovar"><?php echo $_smarty_tpl->getVariable('task')->value->title;?>
+            <td class="<?php if ($_smarty_tpl->getVariable('task')->value->searchAttribute('state')&&$_smarty_tpl->getVariable('task')->value->getAttribute('state')->value=='Выполнена'){?>ttovar_green<?php }elseif($_smarty_tpl->getVariable('task')->value->getIsOver()){?>ttovar_red<?php }else{ ?>ttovar<?php }?>"><?php echo $_smarty_tpl->getVariable('task')->value->title;?>
 </td>
-            <td class="ttovar"><?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('task')->value->datecreate,"%d.%m.%Y");?>
+            <td class="<?php if ($_smarty_tpl->getVariable('task')->value->searchAttribute('state')&&$_smarty_tpl->getVariable('task')->value->getAttribute('state')->value=='Выполнена'){?>ttovar_green<?php }elseif($_smarty_tpl->getVariable('task')->value->getIsOver()){?>ttovar_red<?php }else{ ?>ttovar<?php }?>"><?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('task')->value->datecreate,"%d.%m.%Y");?>
 </td>
-            <td class="ttovar"><?php if ($_smarty_tpl->getVariable('task')->value->searchAttribute('deadline')){?><?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('task')->value->getAttribute('deadline')->value,"%d.%m.%Y");?>
+            <td class="<?php if ($_smarty_tpl->getVariable('task')->value->searchAttribute('state')&&$_smarty_tpl->getVariable('task')->value->getAttribute('state')->value=='Выполнена'){?>ttovar_green<?php }elseif($_smarty_tpl->getVariable('task')->value->getIsOver()){?>ttovar_red<?php }else{ ?>ttovar<?php }?>"><?php if ($_smarty_tpl->getVariable('task')->value->searchAttribute('deadline')){?><?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('task')->value->getAttribute('deadline')->value,"%d.%m.%Y");?>
 <?php }?></td>
-            <td class="ttovar">
+            <td class="<?php if ($_smarty_tpl->getVariable('task')->value->searchAttribute('state')&&$_smarty_tpl->getVariable('task')->value->getAttribute('state')->value=='Выполнена'){?>ttovar_green<?php }elseif($_smarty_tpl->getVariable('task')->value->getIsOver()){?>ttovar_red<?php }else{ ?>ttovar<?php }?>"><?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('task')->value->getExecuteTime(),"%d");?>
+ дней</td>
+            <td class="<?php if ($_smarty_tpl->getVariable('task')->value->searchAttribute('state')&&$_smarty_tpl->getVariable('task')->value->getAttribute('state')->value=='Выполнена'){?>ttovar_green<?php }elseif($_smarty_tpl->getVariable('task')->value->getIsOver()){?>ttovar_red<?php }else{ ?>ttovar<?php }?>"><?php if ($_smarty_tpl->getVariable('task')->value->getLeftTime()!=0){?><?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('task')->value->getLeftTime(),"%d");?>
+<?php }else{ ?>0<?php }?> дней</td>
+            <td class="<?php if ($_smarty_tpl->getVariable('task')->value->searchAttribute('state')&&$_smarty_tpl->getVariable('task')->value->getAttribute('state')->value=='Выполнена'){?>ttovar_green<?php }elseif($_smarty_tpl->getVariable('task')->value->getIsOver()){?>ttovar_red<?php }else{ ?>ttovar<?php }?>">
                 <?php if (count($_smarty_tpl->getVariable('task')->value->getExecutant())>0){?>
                     <?php  $_smarty_tpl->tpl_vars['user'] = new Smarty_Variable;
  $_from = $_smarty_tpl->getVariable('task')->value->getExecutant(); if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -54,7 +62,11 @@ if ($_smarty_tpl->_count($_from) > 0){
                     <?php }} ?>
                 <?php }?>
             </td>
-            <td class="ttovar"><?php if ($_smarty_tpl->getVariable('task')->value->searchAttribute('state')){?><?php echo $_smarty_tpl->getVariable('task')->value->getAttribute('state')->value;?>
+            <td class="<?php if ($_smarty_tpl->getVariable('task')->value->searchAttribute('state')&&$_smarty_tpl->getVariable('task')->value->getAttribute('state')->value=='Выполнена'){?>ttovar_green<?php }elseif($_smarty_tpl->getVariable('task')->value->getIsOver()){?>ttovar_red<?php }else{ ?>ttovar<?php }?>"><?php if ($_smarty_tpl->getVariable('task')->value->searchAttribute('who_responsible')&&$_smarty_tpl->getVariable('task')->value->getAttribute('who_responsible')->value!='-'){?><?php echo TM_User_User::getInstanceById($_smarty_tpl->getVariable('task')->value->getAttribute('who_responsible')->value)->login;?>
+<?php }?></td>
+            <td class="<?php if ($_smarty_tpl->getVariable('task')->value->searchAttribute('state')&&$_smarty_tpl->getVariable('task')->value->getAttribute('state')->value=='Выполнена'){?>ttovar_green<?php }elseif($_smarty_tpl->getVariable('task')->value->getIsOver()){?>ttovar_red<?php }else{ ?>ttovar<?php }?>"><?php if ($_smarty_tpl->getVariable('task')->value->searchAttribute('who_adopted')){?><?php echo $_smarty_tpl->getVariable('task')->value->getAttribute('who_adopted')->value;?>
+<?php }?></td>
+            <td class="<?php if ($_smarty_tpl->getVariable('task')->value->searchAttribute('state')&&$_smarty_tpl->getVariable('task')->value->getAttribute('state')->value=='Выполнена'){?>ttovar_green<?php }elseif($_smarty_tpl->getVariable('task')->value->getIsOver()){?>ttovar_red<?php }else{ ?>ttovar<?php }?>"><?php if ($_smarty_tpl->getVariable('task')->value->searchAttribute('who_set')&&$_smarty_tpl->getVariable('task')->value->getAttribute('who_set')->value!='-'){?><?php echo TM_User_User::getInstanceById($_smarty_tpl->getVariable('task')->value->getAttribute('who_set')->value)->login;?>
 <?php }?></td>
         </tr>
         <?php $_template = new Smarty_Internal_Template("reports/taskblock.tpl", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);

@@ -34,6 +34,29 @@ function mainmenu() {
 
 $(document).ready(function () {
     mainmenu();
+    task.createSubMenu();
 });
 
+$(function () {
+    /*
+    var btn = $(".task_list button").each(function () {
+        $(this).button({
+            icons:{
+                secondary:"ui-icon-triangle-1-s"
+            }
+        }).next().menu({
+                trigger: $(this)
+            });
+    });
+    */
 
+
+
+    /*
+     $("ul[id*='task_action_']").menu({
+     select: function(event, ui) {
+     //$("#log").append("<div>Selected " + ui.item.text() + "</div>");
+     },
+     trigger : btn});
+     */
+});

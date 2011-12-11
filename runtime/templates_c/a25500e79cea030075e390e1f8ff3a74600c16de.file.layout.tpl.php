@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-10 13:38:08
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-11 23:24:51
          compiled from "F:\www\tm\application/layouts/scripts\layout.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:195524ee2fe50ebb9a0-92716411%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:216274ee4d9536fbd02-33250583%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a25500e79cea030075e390e1f8ff3a74600c16de' => 
     array (
       0 => 'F:\\www\\tm\\application/layouts/scripts\\layout.tpl',
-      1 => 1323499086,
+      1 => 1323620621,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '195524ee2fe50ebb9a0-92716411',
+  'nocache_hash' => '216274ee4d9536fbd02-33250583',
   'function' => 
   array (
   ),
@@ -35,6 +35,7 @@ $_smarty_tpl->decodeProperties(array (
 
     <script type="text/javascript" language="javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" language="javascript" src="/js/jquery-ui.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/jquery.form.js"></script>
     <script type="text/javascript" language="javascript" src="/js/menu.js"></script>
     <script type="text/javascript" language="javascript" src="/js/main.js"></script>
     <script type="text/javascript" language="javascript" src="/js/func.js"></script>
@@ -90,11 +91,8 @@ $_smarty_tpl->decodeProperties(array (
 <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>"reports/index")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>"reports/index"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
     <li>
-        <a href="/reports/">Отчеты</a>
+        <a href="/reports/">Аналитика</a>
         <span>&nbsp;</span>
-        <ul class="list" id="prgms">
-            <li><a href="/program-for-ipod/">Программы для iPod и iPod touch</a></li>
-        </ul>
     </li>
 <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>"reports/index"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
@@ -114,9 +112,6 @@ $_smarty_tpl->decodeProperties(array (
     <li>
            <a href="/user/">Пользователи</a>
            <span>&nbsp;</span>
-           <ul class="list" id="prgms">
-               <li><a href="/information/">Познавательная информация</a></li>
-           </ul>
        </li>
 <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>"user/index"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 

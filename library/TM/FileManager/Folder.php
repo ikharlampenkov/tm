@@ -27,7 +27,6 @@ class TM_FileManager_Folder extends TM_FileManager_File
     public function download($name)
     {
         $this->_name = $name;
-        echo $this->_path . $this->_subPath . '/' . $this->_name;
         $result = mkdir($this->_path . $this->_subPath . '/' . $this->_name, 0766);
         if ($result) {
             return $this->_name;
