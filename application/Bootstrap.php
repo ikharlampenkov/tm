@@ -119,10 +119,16 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             $auth->getStorage()->write($storage_data);
 
             $view = $this->getResource('View');
-            $view->assign('authUser', 'guest');
+            $view->assign('authUser', 'Гость');
         } else {
-           $view = $this->getResource('View');
-           $view->assign('authUser', $data->login);
+            $view = $this->getResource('View');
+
+            $oUser = TM_User_User::getInstanceById($data->id);
+            if ($oUser->searchAttribute('name')) {
+                $view->assign('authUser', $oUser->getAttribute('name')->value);
+            } else {
+                $view->assign('authUser', $data->login);
+            }
         }
     }
 

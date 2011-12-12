@@ -34,7 +34,7 @@
                 <div style="width: 120px; float: right;">
                     {if count($task->getExecutant())>0}
                         {foreach from=$task->getExecutant() item=user}
-                            <div>{$user->login}</div>
+                            <div>{if $user->searchAttribute('name')}{$user->getAttribute('name')->value}{else}{$user->login}{/if}</div>
                         {/foreach}
                         {else}&nbsp;
                     {/if}

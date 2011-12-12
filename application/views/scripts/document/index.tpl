@@ -87,7 +87,7 @@
 
 {if_allowed resource="{$controller}/index" priv="show-attribute-hash"}
 <br/>
-<div class="page"><h1>Список аттрибутов для документов</h1></div><br/>
+<div class="page"><h1>Список атрибутов для документов</h1></div><br/>
 
 <table width="100%">
     <tr>
@@ -111,7 +111,7 @@
 
 {if_allowed resource="{$controller}/index" priv="show-attribute-type"}
 <br/>
-<div class="page"><h1>Типы аттрибутов</h1></div><br/>
+<div class="page"><h1>Типы атрибутов</h1></div><br/>
 
 <table width="100%">
     <tr>

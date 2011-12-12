@@ -1,4 +1,4 @@
-<div style="background-color:#f0f0f0; padding:5px;"><h1>Права для роли {$role->title} <a href="{$this->url(['controller' => $controller, 'action'=> 'index'])}">Все роли</a></h1></div><br/>
+<div style="background-color:#f0f0f0; padding:5px;"><h1>Права для роли {$role->rtitle} <a href="{$this->url(['controller' => $controller, 'action'=> 'index'])}">Все роли</a></h1></div><br/>
 
 {if isset($exception_msg)}
 <div>Ошибка: {$exception_msg}</div><br/>
