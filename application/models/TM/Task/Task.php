@@ -7,6 +7,8 @@
 class TM_Task_Task
 {
 
+    const TASK_TYPE_PERIOD = 1;
+
     /** Aggregations: */
 
     /** Compositions: */
@@ -36,6 +38,16 @@ class TM_Task_Task
      * @access protected
      */
     protected $_dateCreate;
+
+    /**
+     * @var int
+     */
+    protected $_type = 1;
+
+    /**
+     * @var array - список возможный значений для типа задачи
+     */
+    protected $_typeList = array(1 => 'Период', 2 => 'Без учета времени', 3 => 'На дату');
 
     /**
      *
@@ -155,6 +167,35 @@ class TM_Task_Task
         $this->_dateCreate = date("Y-m-d H:i:s", strtotime($value));
     } // end of member function setDateCreate
 
+    /**
+     * @param int $type
+     */
+    public function setType($type)
+    {
+        if (key_exists($type, $this->_typeList)) {
+            $this->_type = $type;
+        } else {
+            $this->_type = 1;
+        }
+
+    }
+
+    /**
+     * @return int
+     */
+    public function getType()
+    {
+        return $this->_type;
+    }
+
+    /**
+     * @return array
+     */
+    public function getTypeList()
+    {
+        return $this->_typeList;
+    }
+
     public function __get($name)
     {
         $method = "get{$name}";
@@ -183,8 +224,9 @@ class TM_Task_Task
     public function insertToDb()
     {
         try {
-            $sql = 'INSERT INTO tm_task(title, user_id, date_create)
-                    VALUES ("' . $this->_title . '", ' . $this->_user->getId() . ', "' . $this->_dateCreate . '")';
+            $sql = 'INSERT INTO tm_task(title, user_id, date_create, type)
+                    VALUES ("' . $this->_title . '", ' . $this->_user->getId() . ',
+                            "' . $this->_dateCreate . '", ' . $this->_type . ')';
             $this->_db->query($sql);
 
             $this->_id = $this->_db->getLastInsertId();
@@ -205,7 +247,8 @@ class TM_Task_Task
     {
         try {
             $sql = 'UPDATE tm_task 
-                    SET title="' . $this->_title . '", user_id="' . $this->_user->getId() . '", date_create="' . $this->_dateCreate . '" 
+                    SET title="' . $this->_title . '", user_id="' . $this->_user->getId() . '",
+                        date_create="' . $this->_dateCreate . '", type=' . $this->_type . '
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
 
@@ -356,6 +399,7 @@ class TM_Task_Task
         $this->setId($values['id']);
         $this->setTitle($values['title']);
         $this->setDateCreate($values['date_create']);
+        $this->setType($values['type']);
 
         $o_user = TM_User_User::getInstanceById($values['user_id']);
         $this->setUser($o_user);
@@ -499,6 +543,30 @@ class TM_Task_Task
             return $this->_parentTask;
         }
     } // end of member function getParent
+
+    public function getFirstParent()
+    {
+        if (is_null($this->_parentTask) || empty($this->_parentTask)) {
+            try {
+                $sql = 'SELECT * FROM tm_task_relation WHERE child_id=' . $this->_id;
+                $result = $this->_db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+
+                if (isset($result[0]['parent_id'])) {
+                    foreach ($result as $res) {
+                        $this->_parentTask[] = TM_Task_Task::getInstanceById($res['parent_id']);
+                    }
+                } else {
+                    $this->_parentTask = array();
+                }
+                print_r($this->_parentTask[0]);
+                return $this->_parentTask[0];
+            } catch (Exception $e) {
+                throw new Exception($e->getMessage());
+            }
+        } else {
+            return $this->_parentTask[0];
+        }
+    }
 
     /**
      * @return bool
@@ -667,10 +735,12 @@ class TM_Task_Task
         try {
             $taskAcl = TM_Acl_TaskAcl::getAllInstance($this);
             $userArray = array();
+            if ($taskAcl) {
             foreach ($taskAcl as $acl) {
                 if ($acl->getIsExecutant()) {
                     $userArray[] = $acl->getUser();
                 }
+            }
             }
 
             return $userArray;
@@ -699,13 +769,16 @@ class TM_Task_Task
         $now = time();
         $deadline = time();
 
+        if ($this->searchAttribute('state') && trim($this->getAttribute('state')->value) == 'Выполнена') {
+            $deadline = $now;
+        } else {
         if ($this->searchAttribute('deadline')) {
             $deadline = strtotime($this->getAttribute('deadline')->value);
+        }
         }
 
         $diff = $deadline - $now;
         return $diff;
-
     }
 
     public function getIsOver()
@@ -723,9 +796,45 @@ class TM_Task_Task
         } else {
             return true;
         }
-
     }
 
+    public function getTaskStatistic()
+    {
+        $statArray = array('is_complite' => 0, 'is_do' => 0, 'is_out' => 0, 'is_problem' => 0, 'doc_count' => 0, 'discuss_count' => 0);
+        $this->getChild();
+
+        foreach ($this->_childTask as $child) {
+            if ($child->searchAttribute('state')) {
+                if (trim($child->getAttribute('state')->value) == 'Выполнена') {
+                    $statArray['is_complite'] += 1;
+                } elseif(trim($child->getAttribute('state')->value) == 'Возникли вопросы') {
+                    $statArray['is_problem'] += 1;
+                } elseif (trim($child->getAttribute('state')->value) == 'Не выполнена' && !$this->getIsOver()) {
+                    $statArray['is_do'] += 1;
+                } elseif (trim($child->getAttribute('state')->value) == 'Не выполнена' && $this->getIsOver()) {
+                    $statArray['is_out'] += 1;
+                }
+            } else {
+                $statArray['is_do'] += 1;
+            }
+        }
+
+        $doc_count = TM_Document_Document::getDocumentByTask($this->_user, $this);
+        if ($doc_count) {
+            $statArray['doc_count'] = count($doc_count);
+        }
+
+        $discuss_count = TM_Discussion_Discussion::getDiscussionByTask($this->_user, $this);
+        if ($discuss_count) {
+            $statArray['discuss_count'] = count($discuss_count);
+        }
+        return $statArray;
+    }
+
+    public function calcDeadLine()
+    {
+
+    }
 
 } // end of TM_Task_Task
 ?>

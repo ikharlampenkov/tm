@@ -1,23 +1,24 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-11-28 23:07:24
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-11 23:41:59
          compiled from "F:\www\tm\application/views/scripts\discussion/index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:73914ed3b1bce73ca9-57605354%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:924ee4dd57da69a9-83776757%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a4bcff7935961047d5c498b087fddf3d5e6df75f' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\discussion/index.tpl',
-      1 => 1322496442,
+      1 => 1323621717,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '73914ed3b1bce73ca9-57605354',
+  'nocache_hash' => '924ee4dd57da69a9-83776757',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
 <?php if (!is_callable('smarty_block_if_allowed')) include 'F:\www\tm\library\Smarty\plugins\block.if_allowed.php';
+if (!is_callable('smarty_modifier_capitalize')) include 'F:\www\tm\library\Smarty\plugins\modifier.capitalize.php';
 if (!is_callable('smarty_block_if_object_allowed')) include 'F:\www\tm\library\Smarty\plugins\block.if_object_allowed.php';
 if (!is_callable('smarty_modifier_date_format')) include 'F:\www\tm\library\Smarty\plugins\modifier.date_format.php';
 ?><div class="page"><h1><?php if (!isset($_smarty_tpl->getVariable('discussion',null,true,false)->value)){?>Обсуждение<?php }else{ ?>Тема: <?php echo $_smarty_tpl->getVariable('discussion')->value->title;?>
@@ -68,7 +69,8 @@ if ($_smarty_tpl->_count($_from) > 0){
 if ($_smarty_tpl->_count($_from) > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars['discussion']->key => $_smarty_tpl->tpl_vars['discussion']->value){
 ?>
-        <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_object_allowed', array('type'=>($_smarty_tpl->getVariable('controller')->value),'object'=>($_smarty_tpl->tpl_vars['discussion']->value))); $_block_repeat=true; smarty_block_if_object_allowed(array('type'=>($_smarty_tpl->getVariable('controller')->value),'object'=>($_smarty_tpl->tpl_vars['discussion']->value)), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
+        <?php ob_start();?><?php echo smarty_modifier_capitalize($_smarty_tpl->getVariable('controller')->value);?>
+<?php $_tmp1=ob_get_clean();?><?php $_smarty_tpl->smarty->_tag_stack[] = array('if_object_allowed', array('type'=>$_tmp1,'object'=>($_smarty_tpl->tpl_vars['discussion']->value))); $_block_repeat=true; smarty_block_if_object_allowed(array('type'=>$_tmp1,'object'=>($_smarty_tpl->tpl_vars['discussion']->value)), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
         <tr>
             <td class="ttovar">
@@ -80,15 +82,17 @@ if ($_smarty_tpl->_count($_from) > 0){
                     <?php echo $_smarty_tpl->getVariable('discussion')->value->message;?>
 
                 <?php }?></td>
-            <td class="ttovar"><?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('discussion')->value->datecreate,"%d.%m.%Y");?>
+            <td class="ttovar"><?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('discussion')->value->datecreate,"%d %B %Y");?>
 </td>
             <td class="tedit">
+                <?php if (!$_smarty_tpl->getVariable('discussion')->value->isMessage){?>
                 <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/showAcl")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/showAcl"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
                  <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'showAcl','idDiscussion'=>$_smarty_tpl->getVariable('discussion')->value->id));?>
 ">права</a>
                 <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/showAcl"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
+                <?php }?>
             </td>
             <td class="tedit">
                 <?php if ($_smarty_tpl->getVariable('discussion')->value->isTopic()){?>
@@ -101,7 +105,7 @@ if ($_smarty_tpl->_count($_from) > 0){
                     <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/deleteTopic")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/deleteTopic"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
                     <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'deleteTopic','id'=>$_smarty_tpl->getVariable('discussion')->value->id));?>
-" onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('discussion')->value->id;?>
+" onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('discussion')->value->message;?>
 ');" style="color: #830000">удалить</a>
                     <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/deleteTopic"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
@@ -115,7 +119,7 @@ if ($_smarty_tpl->_count($_from) > 0){
                     <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/delete")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/delete"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
                     <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'delete','id'=>$_smarty_tpl->getVariable('discussion')->value->id));?>
-" onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('discussion')->value->id;?>
+" onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('discussion')->value->message;?>
 ');" style="color: #830000">удалить</a>
                     <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/delete"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
@@ -123,7 +127,7 @@ if ($_smarty_tpl->_count($_from) > 0){
             </td>
 
         </tr>
-        <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_object_allowed(array('type'=>($_smarty_tpl->getVariable('controller')->value),'object'=>($_smarty_tpl->tpl_vars['discussion']->value)), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
+        <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_object_allowed(array('type'=>$_tmp1,'object'=>($_smarty_tpl->tpl_vars['discussion']->value)), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
     <?php }} ?>
 <?php }?>

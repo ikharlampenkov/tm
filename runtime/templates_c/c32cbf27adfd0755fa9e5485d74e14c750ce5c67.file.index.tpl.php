@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-01 23:19:11
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-09 21:46:55
          compiled from "F:\www\tm\application/views/scripts\document/index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:16574ed7a8ffd52531-97487797%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:47144ee21f5faf9d60-42570233%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'c32cbf27adfd0755fa9e5485d74e14c750ce5c67' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\document/index.tpl',
-      1 => 1322756349,
+      1 => 1323432815,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '16574ed7a8ffd52531-97487797',
+  'nocache_hash' => '47144ee21f5faf9d60-42570233',
   'function' => 
   array (
   ),
@@ -122,7 +122,7 @@ if ($_smarty_tpl->_count($_from) > 0){
                     <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/deleteFolder")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/deleteFolder"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
                     <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'deleteFolder','id'=>$_smarty_tpl->getVariable('document')->value->id));?>
-" onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('document')->value->id;?>
+" onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('document')->value->title;?>
 ');" style="color: #830000">удалить</a>
                     <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/deleteFolder"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
@@ -147,7 +147,7 @@ if ($_smarty_tpl->_count($_from) > 0){
                     <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/delete")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/delete"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
                     <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'delete','id'=>$_smarty_tpl->getVariable('document')->value->id));?>
-" onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('document')->value->id;?>
+" onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('document')->value->title;?>
 ');" style="color: #830000">удалить</a>
                     <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/delete"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
@@ -189,7 +189,7 @@ if ($_smarty_tpl->_count($_from) > 0){
             <td class="tedit"><a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'editAttributeHash','key'=>$_smarty_tpl->getVariable('attributeHash')->value->attributeKey));?>
 ">редактировать</a><br/>
                 <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'deleteAttributeHash','key'=>$_smarty_tpl->getVariable('attributeHash')->value->attributeKey));?>
-" onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('attributeHash')->value->attributeKey;?>
+" onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('attributeHash')->value->title;?>
 ');" style="color: #830000">удалить</a></td>
         </tr>
     <?php }} ?>
@@ -224,7 +224,7 @@ if ($_smarty_tpl->_count($_from) > 0){
             <td class="tedit"><a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'editAttributeType','id'=>$_smarty_tpl->getVariable('attributeType')->value->id));?>
 ">редактировать</a><br/>
                 <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'deleteAttributeType','id'=>$_smarty_tpl->getVariable('attributeType')->value->id));?>
-" onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('attributeType')->value->id;?>
+" onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('attributeType')->value->title;?>
 ');" style="color: #830000">удалить</a></td>
         </tr>
     <?php }} ?>

@@ -24,7 +24,7 @@
         </tr>
         <tr>
             <td class="ttovar_title">Дата создания</td>
-            <td class="ttovar"><input name="data[date_create]" value="{$discussion->dateCreate|date_format:"%d.%m.%Y %H:%M:%S"}"/></td>
+            <td class="ttovar"><input name="data[date_create]" value="{$discussion->dateCreate|date_format:"%d.%m.%Y %H:%M:%S"}" class="datepicker"/></td>
         </tr>
     </table>
     <input id="save" name="save" type="submit" value="Сохранить"/>

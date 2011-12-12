@@ -22,7 +22,7 @@ class TM_Attribute_AttributeTypeDate extends TM_Attribute_AttributeType {
         } else {
             $html .= date('d.m.Y H:i:s');
         }
-        $html .= '"/>';
+        $html .= '" class="datepicker"/>';
         echo $html;
     }
 

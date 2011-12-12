@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-11-27 19:31:44
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-10 14:37:04
          compiled from "F:\www\tm\application/views/scripts\user/show-role-acl.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3534ed22db0727e77-32155849%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_smarty_tpl->decodeProperties(array (
     'c859e9beaf28fe37a43dd17679c185beff15165a' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\user/show-role-acl.tpl',
-      1 => 1322397101,
+      1 => 1322978742,
       2 => 'file',
     ),
   ),
@@ -52,7 +52,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 ][privileges]" value="<?php ob_start();?><?php echo $_smarty_tpl->getVariable('resource')->value->id;?>
 <?php $_tmp3=ob_get_clean();?><?php if (isset($_smarty_tpl->getVariable('roleAcl',null,true,false)->value[$_tmp3])){?><?php ob_start();?><?php echo $_smarty_tpl->getVariable('resource')->value->id;?>
 <?php $_tmp4=ob_get_clean();?><?php echo $_smarty_tpl->getVariable('roleAcl')->value[$_tmp4]->privileges;?>
-<?php }?>"/></td>
+<?php }else{ ?>show<?php }?>"/></td>
         </tr>
     <?php }} ?>
 <?php }?>

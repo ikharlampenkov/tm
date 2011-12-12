@@ -38,9 +38,11 @@
                 {/if}</td>
             <td class="ttovar">{$discussion->datecreate|date_format:"%d %B %Y"}</td>
             <td class="tedit">
+                {if !$discussion->isMessage}
                 {if_allowed resource="{$controller}/showAcl"}
                  <a href="{$this->url(['controller' => $controller,'action' => 'showAcl', 'idDiscussion' => $discussion->id])}">права</a>
                 {/if_allowed}
+                {/if}
             </td>
             <td class="tedit">
                 {if $discussion->isTopic()}

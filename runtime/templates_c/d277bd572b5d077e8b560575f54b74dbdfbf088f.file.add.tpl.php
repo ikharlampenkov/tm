@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-11-27 22:09:06
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-12 00:15:01
          compiled from "F:\www\tm\application/views/scripts\document/add.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:94334ed252923fa6b0-97974564%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:79124ee4e515979bb0-40713060%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'd277bd572b5d077e8b560575f54b74dbdfbf088f' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\document/add.tpl',
-      1 => 1322059244,
+      1 => 1323623679,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '94334ed252923fa6b0-97974564',
+  'nocache_hash' => '79124ee4e515979bb0-40713060',
   'function' => 
   array (
   ),
@@ -54,7 +54,7 @@ if ($_smarty_tpl->_count($_from) > 0){
         <tr>
             <td class="ttovar_title">Дата создания</td>
             <td class="ttovar"><input name="data[date_create]" value="<?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('document')->value->dateCreate,"%d.%m.%Y %H:%M:%S");?>
-"/></td>
+" class="datepicker"/></td>
         </tr>
         <tr>
             <td class="ttovar_title">Файл</td>

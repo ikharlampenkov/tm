@@ -360,6 +360,7 @@ class TM_Task_Hash
         try {
             $db = StdLib_DB::getInstance();
 
+            /*
             if (!is_null($object)) {
                 $sql = 'SELECT COUNT(attribute_key) FROM tm_task_attribute WHERE task_id=' . $object->id;
                 $result = $db->query($sql, StdLib_DB::QUERY_MODE_NUM);
@@ -370,7 +371,22 @@ class TM_Task_Hash
             if (!is_null($object) && isset($result[0][0]) && $result[0][0] > 0) {
                 $sql .= ' LEFT JOIN tm_task_attribute ON tm_task_hash.attribute_key=tm_task_attribute.attribute_key
                           WHERE tm_task_attribute.task_id=' . $object->id . ' 
-                          ORDER BY required, sort_order, is_fill DESC, title';
+                          ORDER BY required DESC, sort_order, is_fill DESC, title';
+            } else {
+                $sql .= ' ORDER BY required DESC, sort_order, title';
+            }
+
+            print_r($sql);
+            */
+
+            $sql = 'SELECT tm_task_hash.attribute_key, title, tm_task_hash.type_id, list_value, required, sort_order
+                    FROM tm_task_hash ';
+
+            if (!is_null($object)) {
+            $sql .= ' LEFT JOIN (
+                        SELECT * FROM tm_task_attribute WHERE tm_task_attribute.task_id=' . $object->id . '
+                    ) t2 ON tm_task_hash.attribute_key=t2.attribute_key
+                    ORDER BY required DESC, sort_order, title';
             } else {
                 $sql .= ' ORDER BY required DESC, sort_order, title';
             }

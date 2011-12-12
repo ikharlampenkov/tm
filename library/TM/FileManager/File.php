@@ -105,17 +105,18 @@ class TM_FileManager_File
      */
     public function download($field)
     {
+
         if (isset($_FILES[$field]) && $_FILES[$field]['error'] == 0) {
             $this->_ext = $this->extractExt($_FILES[$field]['name']);
             $tempFileName = 'file_' . date('d-m-Y-H-i-s') . '.' . $this->_ext;
             $result = copy($_FILES[$field]['tmp_name'], $this->_path . $this->_subPath . '/' . $tempFileName);
 
             if ($result) {
-                chmod($this->_path . $this->_subPath . $tempFileName, 0766);
+                chmod($this->_path . $this->_subPath . '/' . $tempFileName, 0766);
                 $this->_name = $tempFileName;
                 return $this->_name;
             } else {
-                throw new Exception('Can not upload file');
+                throw new Exception('Can not upload file ' . $this->_path . $this->_subPath . '/' . $tempFileName . ' res ' . $result);
             }
         } else {
             return false;

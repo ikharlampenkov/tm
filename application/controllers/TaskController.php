@@ -9,6 +9,11 @@ class TaskController extends Zend_Controller_Action
     {
         $storage_data = Zend_Auth::getInstance()->getStorage()->read();
         $this->_user = TM_User_User::getInstanceById($storage_data->id);
+
+        $this->_helper->AjaxContext()->addActionContext('add', 'html')->initContext('html');
+        $this->_helper->AjaxContext()->addActionContext('showTaskBlock', 'html')->initContext('html');
+        $this->_helper->AjaxContext()->addActionContext('edit', 'html')->initContext('html');
+        $this->_helper->AjaxContext()->addActionContext('delete', 'html')->initContext('html');
     }
 
     public function indexAction()
@@ -27,11 +32,18 @@ class TaskController extends Zend_Controller_Action
         $this->view->assign('attributeHashList', TM_Task_Hash::getAllInstance());
     }
 
+    public function showtaskblockAction()
+    {
+        $parentId = $this->getRequest()->getParam('parent', 0);
+        $this->view->assign('taskList', TM_Task_Task::getAllInstance($this->_user, $parentId));
+    }
+
     public function addAction()
     {
         $oTask = new TM_Task_Task();
         $oTask->setUser($this->_user);
         $oTask->setDateCreate(date('d.m.Y H:i:s'));
+        $oTask->setType(TM_Task_Task::TASK_TYPE_PERIOD);
 
         if ($this->getRequest()->getParam('parent', 0) != 0) {
             $oTask->addParent(TM_Task_Task::getInstanceById($this->getRequest()->getParam('parent', 0)));
@@ -41,6 +53,7 @@ class TaskController extends Zend_Controller_Action
             $data = $this->getRequest()->getParam('data');
             $oTask->setTitle($data['title']);
             $oTask->setDateCreate($data['date_create']);
+            $oTask->setType($data['type']);
 
             if (!empty($data['parentTask'])) {
                 $parentTask = TM_Task_Task::getInstanceById($data['parentTask']);
@@ -93,8 +106,11 @@ class TaskController extends Zend_Controller_Action
                     }
                 }
 
-
-                $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
+                if($this->_request->isXmlHttpRequest()) {
+                    exit;
+                } else {
+                    $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
+                }
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -103,6 +119,7 @@ class TaskController extends Zend_Controller_Action
 
         $this->view->assign('parentList', TM_Task_Task::getAllInstance($this->_user));
         $this->view->assign('task', $oTask);
+        $this->view->assign('taskTypeList', $oTask->getTypeList());
     }
 
     public function editAction()
@@ -113,6 +130,7 @@ class TaskController extends Zend_Controller_Action
             $data = $this->getRequest()->getParam('data');
             $oTask->setTitle($data['title']);
             $oTask->setDateCreate($data['date_create']);
+            $oTask->setType($data['type']);
 
             if (!empty($data['parentTask'])) {
                 $oTask->addParent(TM_Task_Task::getInstanceById($data['parentTask']));
@@ -136,7 +154,11 @@ class TaskController extends Zend_Controller_Action
 
             try {
                 $oTask->updateToDb();
-                $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
+                if($this->_request->isXmlHttpRequest()) {
+                    exit;
+                } else {
+                    $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
+                }
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -147,6 +169,7 @@ class TaskController extends Zend_Controller_Action
         $this->view->assign('attributeHashList', TM_Task_Hash::getAllInstance($oTask));
         $this->view->assign('documentList', TM_Document_Document::getDocumentByTask($this->_user, $oTask));
         $this->view->assign('task', $oTask);
+        $this->view->assign('taskTypeList', $oTask->getTypeList());
     }
 
     public function viewAction()
@@ -162,10 +185,13 @@ class TaskController extends Zend_Controller_Action
         $oTask = TM_Task_Task::getInstanceById($this->getRequest()->getParam('id'));
         try {
             $oTask->deleteFromDB();
-            $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
+            if($this->_request->isXmlHttpRequest()) {
+                exit;
+            } else {
+                $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
+            }
         } catch (Exception $e) {
-            throw new Exception($e->getMessage());
-
+            $this->view->assign('exception_msg', $e->getMessage());
         }
         // action body
     }

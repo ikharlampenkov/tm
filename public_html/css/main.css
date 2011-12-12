@@ -1,4 +1,25 @@
-body { margin: 0px; padding: 0px; font-family: tahoma; }
+html, body {
+    margin: 0px;
+    padding: 0px;
+    font: normal 14px/16px "Trebuchet MS", Tahoma;
+    background: #2a2a2a;
+    color: #454545;
+    width: 100%;
+}
+
+img {
+    border: 0;
+}
+
+div {
+    vertical-align: top;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
 table {
     width: 100%;
@@ -26,6 +47,10 @@ textarea {
     height: 200px;
 }
 
+.input_ajax {
+    width: 600px;
+}
+
 #save {
     width: 100px;
 }
@@ -34,67 +59,183 @@ textarea {
     color: #69aefc;
     font-weight: bold;
 }
+
 .menu:hover {
     color: #69aefc;
     font-weight: bold;
     text-decoration: none;
 }
+
 .rmenu {
     color: #1465c0;
 }
+
 .rmenu:hover {
     color: #1465c0;
     text-decoration: none;
 }
 
 .page {
-    background-color:#f0f0f0;
-    padding:5px;
+    background-color: #f0f0f0;
+    padding: 5px;
 }
 
 .tedit {
-    background-color:#ebf4ff; padding: 10px; width:100px;
+    background-color: #ebf4ff;
+    padding: 10px;
+    width: 100px;
 }
 
 .tdel {
-    background-color:#ebf4ff; padding: 10px; width:50px;
+    background-color: #ebf4ff;
+    padding: 10px;
+    width: 50px;
 }
 
 a.tdel {
     color: #830000;
 }
+
 a.tedit {
     color: #1465c0;
 }
+
 .ttovar {
-    background-color:#f7f7f7;
+    background-color: #f7f7f7;
     padding: 10px;
 }
+
 .ttovar_title {
-    background-color:#f7f7f7;
+    background-color: #f7f7f7;
     padding: 10px;
     width: 210px;
 }
+
 .ttovarred {
-    background-color:#ffdede; padding: 10px;
+    background-color: #ffdede;
+    padding: 10px;
 }
 
 .ttovar_green {
-    background-color:#ccffcc;
+    background-color: #ccffcc;
     padding: 10px;
 }
 
 .ttovar_red {
-    background-color:#ffcccc;
+    background-color: #ffcccc;
     padding: 10px;
 }
 
 .ttovar_title_requared {
-    background-color:#f7f7f7;
+    background-color: #f7f7f7;
     padding: 10px;
     width: 210px;
     color: #ff9ea0;
 }
 
+a {
+    color: #1465c0
+}
 
-a { color:#1465c0}
+.head {
+    padding-top: 10px;
+    height: 83px;
+}
+
+.head .logo {
+    padding-top: 25px;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.head_left {
+    float: left;
+    padding-left: 20px;
+}
+
+.login {
+    width: 200px;
+    height: 150px;
+    position: absolute;
+    top: 30px;
+    left: 73%;
+    background: url('/i/login.gif') no-repeat;
+    padding-top: 5px;
+    padding-left: 20px;
+}
+
+.unlogged a {
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-family: Trebuchet MS;
+    color: #777;
+    line-height: 23px;
+}
+
+.unlogged a.opene {
+    text-decoration: none;
+    border-bottom: 1px dashed;
+}
+
+.unlogged a.regge {
+    font-size: 11px;
+    color: #777;
+    text-decoration: none;
+    border-bottom: 1px dashed;
+}
+
+.unlogged a:hover {
+    color: #666;
+}
+
+.unlogged {
+    color: #ccc;
+    padding-top: 5px;
+}
+
+.content {
+    width: 100%;
+    background-color: #ffffff;;
+    margin: 0 3% 0 0;
+    min-height: 800px;
+}
+
+li.task_list {
+    list-style: none;
+}
+
+.ui-menu {
+    width: 200px;
+    position: absolute;
+    z-index: 5000;
+}
+
+.ui-popup {
+    position: absolute;
+    z-index: 5000;
+}
+
+.task_action_menu {
+    display: none;
+    width: 130px;
+    border: 1px solid gray;
+    padding: 5px;
+    background: lightgray;
+    outline: none;
+}
+
+.action {
+    padding: 2px;
+}
+
+.file_info {
+    width: 250px;
+    border: 1px solid gray;
+    padding: 2px;
+    background: lightgray;
+    font-size: 12px;
+    outline: none;
+    position: absolute;
+    z-index: 5000;
+    display: none;
+}
