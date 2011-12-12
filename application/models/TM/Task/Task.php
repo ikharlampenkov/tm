@@ -736,11 +736,11 @@ class TM_Task_Task
             $taskAcl = TM_Acl_TaskAcl::getAllInstance($this);
             $userArray = array();
             if ($taskAcl) {
-            foreach ($taskAcl as $acl) {
-                if ($acl->getIsExecutant()) {
-                    $userArray[] = $acl->getUser();
+                foreach ($taskAcl as $acl) {
+                    if ($acl->getIsExecutant()) {
+                        $userArray[] = $acl->getUser();
+                    }
                 }
-            }
             }
 
             return $userArray;
@@ -772,9 +772,9 @@ class TM_Task_Task
         if ($this->searchAttribute('state') && trim($this->getAttribute('state')->value) == 'Выполнена') {
             $deadline = $now;
         } else {
-        if ($this->searchAttribute('deadline')) {
-            $deadline = strtotime($this->getAttribute('deadline')->value);
-        }
+            if ($this->searchAttribute('deadline')) {
+                $deadline = strtotime($this->getAttribute('deadline')->value);
+            }
         }
 
         $diff = $deadline - $now;
@@ -807,7 +807,7 @@ class TM_Task_Task
             if ($child->searchAttribute('state')) {
                 if (trim($child->getAttribute('state')->value) == 'Выполнена') {
                     $statArray['is_complite'] += 1;
-                } elseif(trim($child->getAttribute('state')->value) == 'Возникли вопросы') {
+                } elseif (trim($child->getAttribute('state')->value) == 'Возникли вопросы') {
                     $statArray['is_problem'] += 1;
                 } elseif (trim($child->getAttribute('state')->value) == 'Не выполнена' && !$this->getIsOver()) {
                     $statArray['is_do'] += 1;
@@ -833,6 +833,37 @@ class TM_Task_Task
 
     public function calcDeadLine()
     {
+
+    }
+
+    public static function getTaskByExecutant(TM_User_User $user)
+    {
+        try {
+            $db = StdLib_DB::getInstance();
+
+            $sql = 'SELECT id, title, tm_task.user_id, date_create, type
+                    FROM tm_task LEFT JOIN (
+                        SELECT * FROM tm_task_attribute WHERE attribute_key="deadline"
+                    )t2 ON tm_task.id = t2.task_id LEFT JOIN (SELECT * FROM tm_task_attribute WHERE attribute_key="state") t3 ON tm_task.id = t3.task_id, tm_acl_task
+                    WHERE tm_task.id=tm_acl_task.task_id
+                      AND is_executant=1
+                      AND tm_acl_task.user_id=' . $user->id . '
+                      ORDER BY t3.attribute_value DESC, t2.attribute_value, title';
+            //echo $sql;
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+
+            if (isset($result[0])) {
+                $retArray = array();
+                foreach ($result as $res) {
+                    $retArray[] = TM_Task_Task::getInstanceByArray($user, $res);
+                }
+                return $retArray;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
 
     }
 

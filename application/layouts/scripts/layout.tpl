@@ -8,12 +8,15 @@
     <meta name="publisher-email" content=""/>
 
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/jquery-ui-timepicker-addon.css"/>
     <link rel="stylesheet" type="text/css" href="/css/main.css"/>
     <link rel="stylesheet" type="text/css" href="/css/menu.css"/>
 
     <script type="text/javascript" language="javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" language="javascript" src="/js/jquery-ui.js"></script>
     <script type="text/javascript" language="javascript" src="/js/i18n/jquery.ui.datepicker-ru.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/jquery-ui.timepicker.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/i18n/jquery.ui.timepicker-ru.js"></script>
     <script type="text/javascript" language="javascript" src="/js/jquery.form.js"></script>
     <script type="text/javascript" language="javascript" src="/js/menu.js"></script>
     <script type="text/javascript" language="javascript" src="/js/main.js"></script>

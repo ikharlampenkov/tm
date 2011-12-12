@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-12 00:19:56
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-12 21:42:17
          compiled from "F:\www\tm\application/layouts/scripts\layout.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:36164ee4e63ce028b4-63123470%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:113084ee612c9da16e9-83353809%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a25500e79cea030075e390e1f8ff3a74600c16de' => 
     array (
       0 => 'F:\\www\\tm\\application/layouts/scripts\\layout.tpl',
-      1 => 1323623993,
+      1 => 1323700816,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '36164ee4e63ce028b4-63123470',
+  'nocache_hash' => '113084ee612c9da16e9-83353809',
   'function' => 
   array (
   ),
@@ -30,12 +30,15 @@ $_smarty_tpl->decodeProperties(array (
     <meta name="publisher-email" content=""/>
 
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/jquery-ui-timepicker-addon.css"/>
     <link rel="stylesheet" type="text/css" href="/css/main.css"/>
     <link rel="stylesheet" type="text/css" href="/css/menu.css"/>
 
     <script type="text/javascript" language="javascript" src="/js/jquery.js"></script>
     <script type="text/javascript" language="javascript" src="/js/jquery-ui.js"></script>
     <script type="text/javascript" language="javascript" src="/js/i18n/jquery.ui.datepicker-ru.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/jquery-ui.timepicker.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/i18n/jquery.ui.timepicker-ru.js"></script>
     <script type="text/javascript" language="javascript" src="/js/jquery.form.js"></script>
     <script type="text/javascript" language="javascript" src="/js/menu.js"></script>
     <script type="text/javascript" language="javascript" src="/js/main.js"></script>

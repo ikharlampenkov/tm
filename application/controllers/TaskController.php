@@ -14,6 +14,7 @@ class TaskController extends Zend_Controller_Action
         $this->_helper->AjaxContext()->addActionContext('showTaskBlock', 'html')->initContext('html');
         $this->_helper->AjaxContext()->addActionContext('edit', 'html')->initContext('html');
         $this->_helper->AjaxContext()->addActionContext('delete', 'html')->initContext('html');
+        $this->_helper->AjaxContext()->addActionContext('view', 'html')->initContext('html');
     }
 
     public function indexAction()
@@ -398,6 +399,10 @@ class TaskController extends Zend_Controller_Action
                 $oDiscussion->setParent(TM_Discussion_Discussion::getInstanceById($data['parent']));
             }
 
+            if (isset($data['to']) && $data['to'] != '') {
+                $oDiscussion->setToUser(TM_User_User::getInstanceById($data['to']));
+            }
+
             try {
                 $oDiscussion->insertToDb();
                 $oDiscussion->setLinkToTask($oTask);
@@ -444,6 +449,8 @@ class TaskController extends Zend_Controller_Action
         $this->view->assign('discussionList', TM_Discussion_Discussion::getDiscussionTreeByTask($this->_user, $oTask));
         $this->view->assign('topic', $oTopic);
         $this->view->assign('task', $oTask);
+
+        $this->view->assign('userList', TM_User_User::getAllInstance());
     }
 
 }

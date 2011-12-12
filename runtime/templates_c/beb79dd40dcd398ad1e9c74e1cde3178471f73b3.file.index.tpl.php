@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-12 19:48:33
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-12 23:31:20
          compiled from "F:\www\tm\application/views/scripts\task/index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:181114ee4c7fb492346-35176892%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:220204ee62c58e77797-00379564%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'beb79dd40dcd398ad1e9c74e1cde3178471f73b3' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\task/index.tpl',
-      1 => 1323693630,
+      1 => 1323707450,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '181114ee4c7fb492346-35176892',
+  'nocache_hash' => '220204ee62c58e77797-00379564',
   'function' => 
   array (
   ),
@@ -97,8 +97,9 @@ if ($_smarty_tpl->_count($_from) > 0){
 
                             <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/view")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/view"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
-                                <li class="action"><img src="/i/task.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'view','id'=>$_smarty_tpl->getVariable('task')->value->id));?>
-">просмотреть</a></li>
+                                <li class="action"><img src="/i/task.png"/>&nbsp;<a href="javascript:void(0)" onclick="task.viewTask('<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'view','id'=>$_smarty_tpl->getVariable('task')->value->id));?>
+', <?php echo $_smarty_tpl->getVariable('task')->value->id;?>
+);">просмотреть</a></li>
                             <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/view"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
 

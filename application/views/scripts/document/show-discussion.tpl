@@ -27,7 +27,7 @@
                     </div>
                 {/if}
                 <div style="color: #555555; font-size: 11px; line-height: 15px; margin: 5px 0px 0px 0px;">
-                    {$discussion->user->login} {$discussion->datecreate|date_format:"%d.%m.%Y"}
+                    {if $discussion->user->searchAttribute('name')}{$discussion->user->getAttribute('name')->value}{else}{$discussion->user->login}{/if} {$discussion->datecreate|date_format:"%d.%m.%Y"}
                     <button style="font-size: 11px; height: 18px; margin: 1px; padding: 1px;" onclick="comment_reply_on({$discussion->id})">Ответить</button>
                 </div>
             </div>

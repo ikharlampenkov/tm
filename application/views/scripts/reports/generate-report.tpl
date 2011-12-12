@@ -1,5 +1,9 @@
 <div class="page"><h1>Отчет</h1></div><br/>
 
+<div class="sub-menu">
+    <img src="/i/printer.png"/>&nbsp;<a href="javascript:window.open('{$this->url(['controller' => $controller,'action' => 'print'])}','','…');" onclick="">печать</a>
+</div>
+
 <ul>
     <li class="task_list">
         <div style="padding: 5px 0px 5px; 5px; width: 100%; height: 30px; margin: 0px; 5px;" class="ttovar">
@@ -88,8 +92,7 @@
                 <div style="width: 120px; float: right;">
                     {if count($task->getExecutant())>0}
                         {foreach from=$task->getExecutant() item=user}
-                            <div>{if $user->searchAttribute('name')}{$user->getAttribute('name')->value}{else}{$user->login}{/if}{if $user->searchAttribute('position') && $user->getAttribute('position')->value != ''}, {$user->getAttribute('position')->value}{/if}
-                            </div>
+                            <div>{if $user->searchAttribute('name')}{$user->getAttribute('name')->value}{else}{$user->login}{/if}{if $user->searchAttribute('position') && $user->getAttribute('position')->value != ''}, {$user->getAttribute('position')->value}{/if}</div>
                         {/foreach}
                         {else}&nbsp;
                     {/if}
@@ -114,7 +117,7 @@
                 </div>
 
                 <div style="width: 120px; float: right;">
-                    {$task->datecreate|date_format:"%d.%m.%Y"}
+                    {$task->datecreate|date_format:"%d %B %Y"}
                 </div>
 
             </div>

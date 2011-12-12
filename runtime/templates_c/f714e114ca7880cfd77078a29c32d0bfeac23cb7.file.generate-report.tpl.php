@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-12 20:36:57
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-12 22:07:47
          compiled from "F:\www\tm\application/views/scripts\reports/generate-report.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:272214ee60379683c73-07133167%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:299754ee618c3895398-38473304%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'f714e114ca7880cfd77078a29c32d0bfeac23cb7' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\reports/generate-report.tpl',
-      1 => 1323697014,
+      1 => 1323702356,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '272214ee60379683c73-07133167',
+  'nocache_hash' => '299754ee618c3895398-38473304',
   'function' => 
   array (
   ),
@@ -19,6 +19,11 @@ $_smarty_tpl->decodeProperties(array (
 )); /*/%%SmartyHeaderCode%%*/?>
 <?php if (!is_callable('smarty_modifier_date_format')) include 'F:\www\tm\library\Smarty\plugins\modifier.date_format.php';
 ?><div class="page"><h1>Отчет</h1></div><br/>
+
+<div class="sub-menu">
+    <img src="/i/printer.png"/>&nbsp;<a href="javascript:window.open('<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'print'));?>
+','','…');" onclick="">печать</a>
+</div>
 
 <ul>
     <li class="task_list">
@@ -129,8 +134,7 @@ if ($_smarty_tpl->_count($_from) > 0){
                             <div><?php if ($_smarty_tpl->getVariable('user')->value->searchAttribute('name')){?><?php echo $_smarty_tpl->getVariable('user')->value->getAttribute('name')->value;?>
 <?php }else{ ?><?php echo $_smarty_tpl->getVariable('user')->value->login;?>
 <?php }?><?php if ($_smarty_tpl->getVariable('user')->value->searchAttribute('position')&&$_smarty_tpl->getVariable('user')->value->getAttribute('position')->value!=''){?>, <?php echo $_smarty_tpl->getVariable('user')->value->getAttribute('position')->value;?>
-<?php }?>
-                            </div>
+<?php }?></div>
                         <?php }} ?>
                         <?php }else{ ?>&nbsp;
                     <?php }?>
@@ -158,7 +162,7 @@ if ($_smarty_tpl->_count($_from) > 0){
                 </div>
 
                 <div style="width: 120px; float: right;">
-                    <?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('task')->value->datecreate,"%d.%m.%Y");?>
+                    <?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('task')->value->datecreate,"%d %B %Y");?>
 
                 </div>
 

@@ -81,8 +81,8 @@
 {if $attributeHashList!==false}
     {foreach from=$attributeHashList item=attributeHash}
         <tr>
-            <td class="ttovar">{$attributeHash->attributeKey}</td>
             <td class="ttovar">{$attributeHash->title}</td>
+            <td class="ttovar">{$attributeHash->attributeKey}</td>
             <td class="ttovar">{$attributeHash->type->title}</td>
             <td class="tedit">
                 <a href="{$this->url(['controller' => $controller,'action' => 'editAttributeHash', 'key' => $attributeHash->attributeKey])}">редактировать</a><br/>

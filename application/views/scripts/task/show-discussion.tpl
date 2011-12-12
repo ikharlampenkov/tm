@@ -6,6 +6,7 @@
 
 <ul id="comment-list" style="padding: 0; margin: 0;">
     {foreach from=$discussionList item=discussion}
+        {if is_null($discussion->toUser) || $discussion->toUser->id==$authUserId || $discussion->user->id==$authUserId}
         {if !$discussion->hasParent() && $openul}</ul>{assign var="openul" value=false}{/if}
         {if $discussion->hasParent() && !$openul}
         <ul style="margin-left: 20px; padding: 0px;">{assign var="openul" value=true}{/if}
@@ -32,11 +33,12 @@
                     </div>
                 {/if}
                 <div style="color: #555555; font-size: 11px; line-height: 15px; margin: 5px 0px 0px 0px;">
-                    {$discussion->user->login} {$discussion->datecreate|date_format:"%d.%m.%Y"}
+                    {if $discussion->user->searchAttribute('name')}{$discussion->user->getAttribute('name')->value}{else}{$discussion->user->login}{/if} {$discussion->datecreate|date_format:"%d.%m.%Y"}
                     <button style="font-size: 11px; height: 18px; margin: 1px; padding: 1px;" onclick="comment_reply_on({$discussion->id})">Ответить</button>
                 </div>
             </div>
         </li>
+        {/if}
 
     {/foreach}
 </ul>
@@ -70,6 +72,15 @@
         <div>
             <div style="font-size: 14px; font-weight: bold; padding: 0px 0px 5px 0px; margin: 0px 0px 5px 0px;">Добавить комментарий</div>
             <textarea name="data[message]"></textarea><br/>
+
+            <div style="font-size: 14px; font-weight: bold; padding: 0px 0px 5px 0px; margin: 0px 0px 5px 0px;">Лично для</div>
+            <select name="data[to]">
+                <option value="" selected="selected">Всем</option>
+                {foreach from=$userList item=user}
+                    <option value="{$user->id}">{if $user->searchAttribute('name')}{$user->getAttribute('name')->value}{else}{$user->login}{/if}</option>
+                {/foreach}
+            </select>
+
 
             <div style="font-size: 14px; font-weight: bold; padding: 0px 0px 5px 0px; margin: 0px 0px 5px 0px;">Загрузить документ</div>
             <div>

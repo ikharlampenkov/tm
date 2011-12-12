@@ -23,7 +23,7 @@
 
 
                         {if_allowed resource="{$controller}/view"}
-                            <li class="action"><img src="/i/task.png"/>&nbsp;<a href="{$this->url(['controller' => $controller,'action' => 'view', 'id' => $task->id])}">просмотреть</a></li>
+                            <li class="action"><img src="/i/task.png"/>&nbsp;<a href="javascript:void(0)" onclick="task.viewTask('{$this->url(['controller' => $controller, 'action' => 'view', 'id' => $task->id])}', {$task->id});">просмотреть</a></li>
                         {/if_allowed}
 
                         {if_allowed resource="{$controller}/add"}

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-11-27 22:04:56
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-12 21:44:53
          compiled from "F:\www\tm\application/views/scripts\user/add.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:305564ed25198cd42e9-23806063%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:157114ee61364f39438-18022967%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '585d38bf3619a7c446eb41d960008834815cae65' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\user/add.tpl',
-      1 => 1321547700,
+      1 => 1323700989,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '305564ed25198cd42e9-23806063',
+  'nocache_hash' => '157114ee61364f39438-18022967',
   'function' => 
   array (
   ),
@@ -34,7 +34,7 @@ $_smarty_tpl->decodeProperties(array (
         <tr>
             <td class="ttovar">Дата создания</td>
             <td class="ttovar"><input name="data[date_create]" value="<?php echo smarty_modifier_date_format(time(),"%d.%m.%Y %H:%M:%S");?>
-"/></td>
+" class="datepicker"/></td>
         </tr>
         <tr>
             <td class="ttovar">Роль</td>

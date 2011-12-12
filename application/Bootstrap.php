@@ -120,6 +120,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
             $view = $this->getResource('View');
             $view->assign('authUser', 'Гость');
+            $view->assign('authUserId', 0);
         } else {
             $view = $this->getResource('View');
 
@@ -132,8 +133,9 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
                 }
             } else {
                 $view->assign('authUser', $data->login);
-
             }
+
+            $view->assign('authUserId', $data->id);
         }
     }
 

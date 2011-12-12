@@ -12,7 +12,7 @@
         </tr>
         <tr>
             <td class="ttovar">Дата создания</td>
-            <td class="ttovar"><input name="data[date_create]" value="{$user->datecreate}"/></td>
+            <td class="ttovar"><input name="data[date_create]" value="{$user->datecreate|date_format:"%d.%m.%Y %H:%M"}" class="datepicker"/></td>
         </tr>
         <tr>
             <td class="ttovar">Роль</td>
