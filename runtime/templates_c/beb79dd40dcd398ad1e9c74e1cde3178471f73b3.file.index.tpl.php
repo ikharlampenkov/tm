@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-11 22:10:51
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-12 19:48:33
          compiled from "F:\www\tm\application/views/scripts\task/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:181114ee4c7fb492346-35176892%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_smarty_tpl->decodeProperties(array (
     'beb79dd40dcd398ad1e9c74e1cde3178471f73b3' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\task/index.tpl',
-      1 => 1323616234,
+      1 => 1323693630,
       2 => 'file',
     ),
   ),
@@ -183,7 +183,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-attribute-hash")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-attribute-hash"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
 <br/>
-<div class="page"><h1>Список аттрибутов для задач</h1></div><br/>
+<div class="page"><h1>Список атрибутов для задач</h1></div><br/>
 
 <table width="100%">
     <tr>
@@ -233,7 +233,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-attribute-type")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-attribute-type"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
 <br/>
-<div class="page"><h1>Типы аттрибутов</h1></div><br/>
+<div class="page"><h1>Типы атрибутов</h1></div><br/>
 
 <table width="100%">
     <tr>

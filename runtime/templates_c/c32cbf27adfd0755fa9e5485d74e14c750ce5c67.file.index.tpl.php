@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-09 21:46:55
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-12 19:48:38
          compiled from "F:\www\tm\application/views/scripts\document/index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:47144ee21f5faf9d60-42570233%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:246444ee5f8266b1c78-70405321%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'c32cbf27adfd0755fa9e5485d74e14c750ce5c67' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\document/index.tpl',
-      1 => 1323432815,
+      1 => 1323693630,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '47144ee21f5faf9d60-42570233',
+  'nocache_hash' => '246444ee5f8266b1c78-70405321',
   'function' => 
   array (
   ),
@@ -165,7 +165,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-attribute-hash")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-attribute-hash"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
 <br/>
-<div class="page"><h1>Список аттрибутов для документов</h1></div><br/>
+<div class="page"><h1>Список атрибутов для документов</h1></div><br/>
 
 <table width="100%">
     <tr>
@@ -202,7 +202,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-attribute-type")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-attribute-type"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
 <br/>
-<div class="page"><h1>Типы аттрибутов</h1></div><br/>
+<div class="page"><h1>Типы атрибутов</h1></div><br/>
 
 <table width="100%">
     <tr>

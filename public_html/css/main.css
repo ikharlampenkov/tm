@@ -154,11 +154,11 @@ a {
 }
 
 .login {
-    width: 200px;
+    width: 300px;
     height: 150px;
     position: absolute;
     top: 30px;
-    left: 73%;
+    left: 70%;
     background: url('/i/login.gif') no-repeat;
     padding-top: 5px;
     padding-left: 20px;

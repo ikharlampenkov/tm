@@ -5,6 +5,7 @@
         <td class="ttovar" align="center" colspan="3"><a href="{$this->url(['controller' => $controller,'action' => 'add'])}">добавить</a></td>
     </tr>
     <tr>
+        <td class="ttovar">ФИО</td>
         <td class="ttovar">Логин</td>
         <td class="ttovar">Роль</td>
         <td class="ttovar"></td>
@@ -13,6 +14,7 @@
 {if $userList!==false}
     {foreach from=$userList item=user}
         <tr>
+            <td class="ttovar">{if $user->searchAttribute('name')}{$user->getAttribute('name')->value}{else}-{/if}</td>
             <td class="ttovar">{$user->login}</td>
             <td class="ttovar">{$user->role->rtitle}</td>
             <td class="tedit"><a href="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $user->id])}">редактировать</a><br/>
@@ -69,7 +71,7 @@
 
 
 <br/>
-<div class="page"><h1>Список аттрибутов для пользователей</h1></div><br/>
+<div class="page"><h1>Список атрибутов для пользователей</h1></div><br/>
 
 <table width="100%">
     <tr>
@@ -93,7 +95,7 @@
 </table>
 
 <br/>
-<div class="page"><h1>Типы аттрибутов</h1></div><br/>
+<div class="page"><h1>Типы атрибутов</h1></div><br/>
 
 <table width="100%">
     <tr>

@@ -119,7 +119,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 
 
 <br/>
-<div class="page"><h1>Список аттрибутов для пользователей</h1></div><br/>
+<div class="page"><h1>Список атрибутов для пользователей</h1></div><br/>
 
 <table width="100%">
     <tr>
@@ -154,7 +154,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 </table>
 
 <br/>
-<div class="page"><h1>Типы аттрибутов</h1></div><br/>
+<div class="page"><h1>Типы атрибутов</h1></div><br/>
 
 <table width="100%">
     <tr>

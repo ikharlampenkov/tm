@@ -31,7 +31,7 @@ var task = {
                     }
                 }
             });
-            $( ".datepicker" ).datepicker($.datepicker.regional[ "ru" ]);
+            $(".datepicker").datepicker($.datepicker.regional[ "ru" ]);
             $('#exception').css('display', 'none');
         }, 'html');
     },
@@ -112,7 +112,7 @@ var task = {
                     }
                 }
             });
-            $( ".datepicker" ).datepicker($.datepicker.regional[ "ru" ]);
+            $(".datepicker").datepicker($.datepicker.regional[ "ru" ]);
             $('#exception').css('display', 'none');
         }, 'html');
     },
@@ -179,7 +179,7 @@ var task = {
             }
         }).next().popup();
     }
-}
+};
 
 var doc = {
     showInfo:function (rq_url, id) {
@@ -202,4 +202,23 @@ var doc = {
             }).popup('open');
         }, 'html');
     }
-}
+};
+
+var reports = {
+    openTask:function (rg_url, parent, isReload) {
+        isReload = isReload || false;
+
+        if ($('#subtask_' + parent).html() != '' && !isReload) {
+            $('#subtask_' + parent).hide();
+            $('#subtask_' + parent).empty();
+            return;
+        }
+
+        $.get(rg_url, '', function (data) {
+            $('#subtask_' + parent).empty();
+            $('#subtask_' + parent).append(data);
+            $('#subtask_' + parent).show();
+        }, 'html');
+    }
+};
+

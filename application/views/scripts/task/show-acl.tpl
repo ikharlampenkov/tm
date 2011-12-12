@@ -17,7 +17,7 @@
 {if $userList!==false}
     {foreach from=$userList item=user}
         <tr>
-            <td class="ttovar_title">{$user->login}</td>
+            <td class="ttovar_title">{if $user->searchAttribute('name')}{$user->getAttribute('name')->value}{else}{$user->login}{/if}</td>
             <td class="ttovar"><input type="checkbox" name="data[{$user->id}][is_read]" {if isset($taskAcl[{$user->id}]) && $taskAcl[{$user->id}]->isRead}checked="checked"{/if} /></td>
             <td class="ttovar"><input type="checkbox" name="data[{$user->id}][is_write]" {if isset($taskAcl[{$user->id}]) && $taskAcl[{$user->id}]->isWrite}checked="checked"{/if} /></td>
             <td class="ttovar"><input type="checkbox" name="data[{$user->id}][is_executant]" {if isset($taskAcl[{$user->id}]) && $taskAcl[{$user->id}]->isExecutant}checked="checked"{/if} /></td>
