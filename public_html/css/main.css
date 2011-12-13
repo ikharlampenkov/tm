@@ -76,8 +76,14 @@ textarea {
 }
 
 .page {
-    background-color: #f0f0f0;
+    background-color: #ffffff;
     padding: 5px;
+}
+
+.page_block {
+    float: right;
+    margin-top:-27px;
+    width: 300px;
 }
 
 .tedit {
@@ -134,7 +140,7 @@ a.tedit {
 }
 
 a {
-    color: #1465c0
+    color: #000000;
 }
 
 .head {
@@ -242,17 +248,16 @@ li.task_list {
 
 .index_block {
     width: 100%;
-    border: 1px solid #777;
     min-height: 250px;
 }
 
 .index_block_title {
     height: 30px;
-    background-color: #d1d1d1;
-    text-align: center;
+    text-align: left;
     vertical-align: middle;
     padding: 0;
     margin: 0;
+    font-size: 20px;
 }
 
 .index_block_content {

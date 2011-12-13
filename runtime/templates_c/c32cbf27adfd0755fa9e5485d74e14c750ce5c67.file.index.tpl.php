@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-12 19:48:38
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-13 22:29:49
          compiled from "F:\www\tm\application/views/scripts\document/index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:246444ee5f8266b1c78-70405321%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:183284ee76f6da0adc5-83423413%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'c32cbf27adfd0755fa9e5485d74e14c750ce5c67' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\document/index.tpl',
-      1 => 1323693630,
+      1 => 1323789657,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '246444ee5f8266b1c78-70405321',
+  'nocache_hash' => '183284ee76f6da0adc5-83423413',
   'function' => 
   array (
   ),
@@ -21,8 +21,27 @@ $_smarty_tpl->decodeProperties(array (
 if (!is_callable('smarty_modifier_capitalize')) include 'F:\www\tm\library\Smarty\plugins\modifier.capitalize.php';
 if (!is_callable('smarty_block_if_object_allowed')) include 'F:\www\tm\library\Smarty\plugins\block.if_object_allowed.php';
 if (!is_callable('smarty_modifier_date_format')) include 'F:\www\tm\library\Smarty\plugins\modifier.date_format.php';
-?><div class="page"><h1><?php if (!isset($_smarty_tpl->getVariable('document',null,true,false)->value)){?>Документы<?php }else{ ?>Документ: <?php echo $_smarty_tpl->getVariable('document')->value->title;?>
-<?php }?></h1></div><br/>
+?><div class="page">
+    <h1><?php if (!isset($_smarty_tpl->getVariable('document',null,true,false)->value)){?>Документы<?php }else{ ?>Документ: <?php echo $_smarty_tpl->getVariable('document')->value->title;?>
+<?php }?></h1>
+
+    <div class="page_block">
+        <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-attribute-hash")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-attribute-hash"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
+
+            <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'viewHash'));?>
+">Список атрибутов</a>
+        <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-attribute-hash"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
+
+
+        <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-attribute-type")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-attribute-type"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
+
+            <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'viewAttributeType'));?>
+">Типы атрибутов</a>
+        <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-attribute-type"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
+
+        </div>
+
+</div><br/>
 
 <?php if (isset($_smarty_tpl->getVariable('breadcrumbs',null,true,false)->value)){?>
     <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'index','parent'=>0));?>
@@ -161,75 +180,3 @@ if ($_smarty_tpl->_count($_from) > 0){
 <?php }?>
 
 </table>
-
-<?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-attribute-hash")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-attribute-hash"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
-
-<br/>
-<div class="page"><h1>Список атрибутов для документов</h1></div><br/>
-
-<table width="100%">
-    <tr>
-        <td class="ttovar" align="center" colspan="3"><a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'addAttributeHash'));?>
-">добавить</a></td>
-    </tr>
-
-<?php if ($_smarty_tpl->getVariable('attributeHashList')->value!==false){?>
-    <?php  $_smarty_tpl->tpl_vars['attributeHash'] = new Smarty_Variable;
- $_from = $_smarty_tpl->getVariable('attributeHashList')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-if ($_smarty_tpl->_count($_from) > 0){
-    foreach ($_from as $_smarty_tpl->tpl_vars['attributeHash']->key => $_smarty_tpl->tpl_vars['attributeHash']->value){
-?>
-        <tr>
-            <td class="ttovar"><?php echo $_smarty_tpl->getVariable('attributeHash')->value->attributeKey;?>
-</td>
-            <td class="ttovar"><?php echo $_smarty_tpl->getVariable('attributeHash')->value->title;?>
-</td>
-            <td class="ttovar"><?php echo $_smarty_tpl->getVariable('attributeHash')->value->type->title;?>
-</td>
-            <td class="tedit"><a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'editAttributeHash','key'=>$_smarty_tpl->getVariable('attributeHash')->value->attributeKey));?>
-">редактировать</a><br/>
-                <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'deleteAttributeHash','key'=>$_smarty_tpl->getVariable('attributeHash')->value->attributeKey));?>
-" onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('attributeHash')->value->title;?>
-');" style="color: #830000">удалить</a></td>
-        </tr>
-    <?php }} ?>
-<?php }?>
-
-</table>
-<?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-attribute-hash"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
-
-
-<?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-attribute-type")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-attribute-type"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
-
-<br/>
-<div class="page"><h1>Типы атрибутов</h1></div><br/>
-
-<table width="100%">
-    <tr>
-        <td class="ttovar" align="center" colspan="3"><a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'addAttributeType'));?>
-">добавить</a></td>
-    </tr>
-
-<?php if ($_smarty_tpl->getVariable('attributeTypeList')->value!==false){?>
-    <?php  $_smarty_tpl->tpl_vars['attributeType'] = new Smarty_Variable;
- $_from = $_smarty_tpl->getVariable('attributeTypeList')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-if ($_smarty_tpl->_count($_from) > 0){
-    foreach ($_from as $_smarty_tpl->tpl_vars['attributeType']->key => $_smarty_tpl->tpl_vars['attributeType']->value){
-?>
-        <tr>
-            <td class="ttovar"><?php echo $_smarty_tpl->getVariable('attributeType')->value->title;?>
-</td>
-            <td class="ttovar"><?php echo $_smarty_tpl->getVariable('attributeType')->value->handler;?>
-</td>
-            <td class="tedit"><a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'editAttributeType','id'=>$_smarty_tpl->getVariable('attributeType')->value->id));?>
-">редактировать</a><br/>
-                <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'deleteAttributeType','id'=>$_smarty_tpl->getVariable('attributeType')->value->id));?>
-" onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('attributeType')->value->title;?>
-');" style="color: #830000">удалить</a></td>
-        </tr>
-    <?php }} ?>
-<?php }?>
-
-
-</table>
-<?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-attribute-type"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>

@@ -480,18 +480,19 @@ class TM_Discussion_Discussion
         try {
             $db = StdLib_DB::getInstance();
 
-            $sql = '';
-
             $sql = 'SELECT * FROM tm_discussion
-                    WHERE is_message=1 AND to_user_id=' . $user->id;
-
-            $sql .= ' ORDER BY date_create DESC';
+                    WHERE is_message=1
+                      AND parent_id IS NULL
+                      AND (to_user_id=' . $user->id . ' OR (user_id= ' . $user->id . ' AND to_user_id IS NOT NULL))
+                    ORDER BY date_create DESC';
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
                 $retArray = array();
                 foreach ($result as $res) {
-                    $retArray[] = TM_Discussion_Discussion::getInstanceByArray($user, $res);
+                    $temp = TM_Discussion_Discussion::getInstanceByArray($user, $res);
+                    $retArray[] = $temp;
+                    $temp->getChildTree($user, $temp->getId(), $retArray);
                 }
                 return $retArray;
             } else {
@@ -586,6 +587,24 @@ class TM_Discussion_Discussion
                     $temp->getChildTree($user, $temp->getId(), $retArray);
                 }
                 return $retArray;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
+    public function getTask()
+    {
+        try {
+            $db = StdLib_DB::getInstance();
+            $sql = 'SELECT task_id FROM tm_task_discussion
+                        WHERE discussion_id=' . $this->getId();
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+
+            if (isset($result[0]['task_id'])) {
+                return TM_Task_Task::getInstanceById($result[0]['task_id']);
             } else {
                 return false;
             }

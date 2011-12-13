@@ -28,15 +28,22 @@ class TaskController extends Zend_Controller_Action
             $this->view->assign('task', $curTask);
             $this->view->assign('breadcrumbs', $curTask->getPathToTask());
         }
-
-        $this->view->assign('attributeTypeList', TM_Attribute_AttributeType::getAllInstance(new TM_Task_AttributeTypeMapper()));
-        $this->view->assign('attributeHashList', TM_Task_Hash::getAllInstance());
     }
 
     public function showtaskblockAction()
     {
         $parentId = $this->getRequest()->getParam('parent', 0);
         $this->view->assign('taskList', TM_Task_Task::getAllInstance($this->_user, $parentId));
+    }
+
+    public function viewattributetypeAction()
+    {
+        $this->view->assign('attributeTypeList', TM_Attribute_AttributeType::getAllInstance(new TM_Task_AttributeTypeMapper()));
+    }
+
+    public function viewhashAction()
+    {
+        $this->view->assign('attributeHashList', TM_Task_Hash::getAllInstance());
     }
 
     public function addAction()
@@ -270,7 +277,7 @@ class TaskController extends Zend_Controller_Action
 
             try {
                 $oType->insertToDb();
-                $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
+                $this->_redirect('/task/viewAttributeType');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -293,7 +300,7 @@ class TaskController extends Zend_Controller_Action
 
             try {
                 $oType->updateToDb();
-                $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
+                $this->_redirect('/task/viewAttributeType');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -308,7 +315,7 @@ class TaskController extends Zend_Controller_Action
         $oType = TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Task_AttributeTypeMapper(), $this->getRequest()->getParam('id'));
         try {
             $oType->deleteFromDB();
-            $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
+            $this->_redirect('/task/viewAttributeType');
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -332,7 +339,7 @@ class TaskController extends Zend_Controller_Action
 
             try {
                 $oHash->insertToDb();
-                $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
+                $this->_redirect('/task/viewHash');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -358,7 +365,7 @@ class TaskController extends Zend_Controller_Action
 
             try {
                 $oHash->updateToDb();
-                $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
+                $this->_redirect('/task/viewHash');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -374,7 +381,7 @@ class TaskController extends Zend_Controller_Action
         $oHash = TM_Task_Hash::getInstanceById($this->getRequest()->getParam('key'));
         try {
             $oHash->deleteFromDB();
-            $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
+            $this->_redirect('/task/viewHash');
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
