@@ -1,23 +1,23 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-10 14:37:04
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-12 21:15:33
          compiled from "F:\www\tm\application/views/scripts\user/show-role-acl.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:3534ed22db0727e77-32155849%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:12254ee60c85b158d4-67420153%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'c859e9beaf28fe37a43dd17679c185beff15165a' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\user/show-role-acl.tpl',
-      1 => 1322978742,
+      1 => 1323699331,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '3534ed22db0727e77-32155849',
+  'nocache_hash' => '12254ee60c85b158d4-67420153',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
-<div style="background-color:#f0f0f0; padding:5px;"><h1>Права для роли <?php echo $_smarty_tpl->getVariable('role')->value->title;?>
+<div style="background-color:#f0f0f0; padding:5px;"><h1>Права для роли <?php echo $_smarty_tpl->getVariable('role')->value->rtitle;?>
  <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'index'));?>
 ">Все роли</a></h1></div><br/>
 
@@ -42,8 +42,10 @@ if ($_smarty_tpl->_count($_from) > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars['resource']->key => $_smarty_tpl->tpl_vars['resource']->value){
 ?>
         <tr>
-            <td class="ttovar_title"><?php echo $_smarty_tpl->getVariable('resource')->value->title;?>
-</td>
+            <td class="ttovar_title"><?php if ($_smarty_tpl->getVariable('resource')->value->rtitle!=''){?><?php echo $_smarty_tpl->getVariable('resource')->value->rtitle;?>
+ (<?php echo $_smarty_tpl->getVariable('resource')->value->title;?>
+)<?php }else{ ?><?php echo $_smarty_tpl->getVariable('resource')->value->title;?>
+<?php }?></td>
             <td class="ttovar"><input type="checkbox" name="data[<?php echo $_smarty_tpl->getVariable('resource')->value->id;?>
 ][is_allow]" <?php ob_start();?><?php echo $_smarty_tpl->getVariable('resource')->value->id;?>
 <?php $_tmp1=ob_get_clean();?><?php ob_start();?><?php echo $_smarty_tpl->getVariable('resource')->value->id;?>

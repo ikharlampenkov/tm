@@ -54,6 +54,13 @@ class TM_Discussion_Discussion
      */
     protected $_user = null;
 
+    /**
+     *
+     * @var TM_User_User
+     * @access protected
+     */
+    protected $_toUser = null;
+
     protected $_isFirst = false;
 
     protected $_isMessage = false;
@@ -261,6 +268,22 @@ class TM_Discussion_Discussion
         return $this->_document;
     }
 
+    /**
+     * @param \TM_User_User $toUser
+     */
+    public function setToUser($toUser)
+    {
+        $this->_toUser = $toUser;
+    }
+
+    /**
+     * @return \TM_User_User
+     */
+    public function getToUser()
+    {
+        return $this->_toUser;
+    }
+
     public function __get($name)
     {
         $method = "get{$name}";
@@ -308,9 +331,11 @@ class TM_Discussion_Discussion
     public function insertToDb()
     {
         try {
-            $sql = 'INSERT INTO tm_discussion(message, user_id, date_create, is_first, is_message, topic_id, parent_id)
+            $sql = 'INSERT INTO tm_discussion(message, user_id, date_create, is_first, is_message, topic_id, parent_id, to_user_id)
                     VALUES ("' . $this->_message . '", ' . $this->_user->getId() . ', "' . $this->_dateCreate . '", 
-                             ' . $this->_prepareBool($this->_isFirst) . ', ' . $this->_prepareBool($this->_isMessage) . ', ' . $this->_prepareNull($this->_topic->id) . ', ' . $this->_prepareNull($this->_parent->id) . ')';
+                             ' . $this->_prepareBool($this->_isFirst) . ', ' . $this->_prepareBool($this->_isMessage) . ',
+                             ' . $this->_prepareNull($this->_topic->id) . ', ' . $this->_prepareNull($this->_parent->id) . ',
+                             ' . $this->_prepareNull($this->_toUser->id) . ')';
             $this->_db->query($sql);
 
             $this->_id = $this->_db->getLastInsertId();
@@ -334,7 +359,8 @@ class TM_Discussion_Discussion
             $sql = 'UPDATE tm_discussion
                     SET message="' . $this->_message . '", user_id="' . $this->_user->getId() . '", date_create="' . $this->_dateCreate . '",
                         is_first=' . $this->_prepareBool($this->_isFirst) . ', is_message=' . $this->_prepareBool($this->_isMessage) . ',
-                        topic_id=' . $this->_prepareNull($this->_topic->id) . ', parent_id=' . $this->_prepareNull($this->_parent->id) . '
+                        topic_id=' . $this->_prepareNull($this->_topic->id) . ', parent_id=' . $this->_prepareNull($this->_parent->id) . ',
+                        to_user_id=' . $this->_prepareNull($this->_toUser->id) . '
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
 
@@ -448,6 +474,33 @@ class TM_Discussion_Discussion
             throw new Exception($e->getMessage());
         }
     } // end of member function getAllInstance
+
+    public static function getPrivateDiscussion(TM_User_User $user)
+    {
+        try {
+            $db = StdLib_DB::getInstance();
+
+            $sql = '';
+
+            $sql = 'SELECT * FROM tm_discussion
+                    WHERE is_message=1 AND to_user_id=' . $user->id;
+
+            $sql .= ' ORDER BY date_create DESC';
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+
+            if (isset($result[0])) {
+                $retArray = array();
+                foreach ($result as $res) {
+                    $retArray[] = TM_Discussion_Discussion::getInstanceByArray($user, $res);
+                }
+                return $retArray;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
 
     /**
      *
@@ -582,7 +635,7 @@ class TM_Discussion_Discussion
             throw new Exception($e->getMessage());
         }
     }
-    
+
     public function setLinkToTask($task)
     {
         try {
@@ -753,6 +806,11 @@ class TM_Discussion_Discussion
         $oDocumentList = TM_Document_Document::getDocumentByDiscussion($o_user, $this);
         if ($oDocumentList !== false) {
             $this->setDocument($oDocumentList);
+        }
+
+        $oToUser = TM_User_User::getInstanceById($values['to_user_id']);
+        if ($oToUser !== false) {
+            $this->setToUser($oToUser);
         }
 
     } // end of member function fillFromArray

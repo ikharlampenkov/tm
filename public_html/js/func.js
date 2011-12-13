@@ -31,7 +31,7 @@ var task = {
                     }
                 }
             });
-            $(".datepicker").datepicker($.datepicker.regional[ "ru" ]);
+            $(".datepicker").datetimepicker();
             $('#exception').css('display', 'none');
         }, 'html');
     },
@@ -112,7 +112,7 @@ var task = {
                     }
                 }
             });
-            $(".datepicker").datepicker($.datepicker.regional[ "ru" ]);
+            $(".datepicker").datetimepicker();
             $('#exception').css('display', 'none');
         }, 'html');
     },
@@ -178,6 +178,29 @@ var task = {
                 secondary:"ui-icon-triangle-1-s"
             }
         }).next().popup();
+    },
+
+    viewTask:function (rq_url, id) {
+        if ($('#viewDialog').length < 1) // создаем блок диалогового окна
+        {
+            $('body').append('<div id="viewDialog" ></div>');
+        } else {
+            $('#viewDialog').dialog('close'); // на всякий случай закрываем
+        }
+
+        $.get(rq_url, '', function (data) { // посылаем пост запрос для вывода формы
+            $('#viewDialog').html(data).dialog({
+                title:'Информация о задаче',
+                modal:true,
+                height:550,
+                width:830,
+                buttons:{
+                    Закрыть:function () {
+                        $('#viewDialog').dialog('close');
+                    }
+                }
+            });
+        }, 'html');
     }
 };
 

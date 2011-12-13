@@ -35,7 +35,7 @@ function mainmenu() {
 $(document).ready(function () {
     mainmenu();
     task.createSubMenu();
-    $( ".datepicker" ).datepicker($.datepicker.regional[ "ru" ]);
+    $( ".datepicker" ).datetimepicker();
 });
 
 $(function () {

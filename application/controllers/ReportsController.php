@@ -35,6 +35,12 @@ class ReportsController extends Zend_Controller_Action
         $this->view->assign('taskList', TM_Task_Task::getAllInstance($this->_user, $parentId));
     }
 
+    public function printAction()
+    {
+        $this->view->assign('taskList', TM_Task_Task::getAllInstance($this->_user));
+        $this->_helper->layout->disableLayout();
+    }
+
 
 }
 

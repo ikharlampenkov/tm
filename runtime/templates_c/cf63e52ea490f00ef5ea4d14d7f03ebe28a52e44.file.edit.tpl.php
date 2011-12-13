@@ -1,23 +1,24 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-11 21:19:16
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-12 21:43:34
          compiled from "F:\www\tm\application/views/scripts\user/edit.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:101994ed23ebd48d858-99359090%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:247634ee613164497a6-25688561%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'cf63e52ea490f00ef5ea4d14d7f03ebe28a52e44' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\user/edit.tpl',
-      1 => 1322745364,
+      1 => 1323701011,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '101994ed23ebd48d858-99359090',
+  'nocache_hash' => '247634ee613164497a6-25688561',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
-<h1>Редактировать пользователя</h1>
+<?php if (!is_callable('smarty_modifier_date_format')) include 'F:\www\tm\library\Smarty\plugins\modifier.date_format.php';
+?><h1>Редактировать пользователя</h1>
 
 <form action="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'edit','id'=>$_smarty_tpl->getVariable('user')->value->id));?>
 " method="post">
@@ -34,8 +35,8 @@ $_smarty_tpl->decodeProperties(array (
         </tr>
         <tr>
             <td class="ttovar">Дата создания</td>
-            <td class="ttovar"><input name="data[date_create]" value="<?php echo $_smarty_tpl->getVariable('user')->value->datecreate;?>
-"/></td>
+            <td class="ttovar"><input name="data[date_create]" value="<?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('user')->value->datecreate,"%d.%m.%Y %H:%M");?>
+" class="datepicker"/></td>
         </tr>
         <tr>
             <td class="ttovar">Роль</td>

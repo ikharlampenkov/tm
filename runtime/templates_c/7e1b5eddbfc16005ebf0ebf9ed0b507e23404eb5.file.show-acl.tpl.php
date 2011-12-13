@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-11 17:33:35
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-12 22:42:13
          compiled from "F:\www\tm\application/views/scripts\task/show-acl.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:305364ed26751222e87-02193976%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:259434ee620d50665d8-03663229%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '7e1b5eddbfc16005ebf0ebf9ed0b507e23404eb5' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\task/show-acl.tpl',
-      1 => 1322411856,
+      1 => 1323697090,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '305364ed26751222e87-02193976',
+  'nocache_hash' => '259434ee620d50665d8-03663229',
   'function' => 
   array (
   ),
@@ -44,8 +44,9 @@ if ($_smarty_tpl->_count($_from) > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars['user']->key => $_smarty_tpl->tpl_vars['user']->value){
 ?>
         <tr>
-            <td class="ttovar_title"><?php echo $_smarty_tpl->getVariable('user')->value->login;?>
-</td>
+            <td class="ttovar_title"><?php if ($_smarty_tpl->getVariable('user')->value->searchAttribute('name')){?><?php echo $_smarty_tpl->getVariable('user')->value->getAttribute('name')->value;?>
+<?php }else{ ?><?php echo $_smarty_tpl->getVariable('user')->value->login;?>
+<?php }?></td>
             <td class="ttovar"><input type="checkbox" name="data[<?php echo $_smarty_tpl->getVariable('user')->value->id;?>
 ][is_read]" <?php ob_start();?><?php echo $_smarty_tpl->getVariable('user')->value->id;?>
 <?php $_tmp1=ob_get_clean();?><?php ob_start();?><?php echo $_smarty_tpl->getVariable('user')->value->id;?>

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-10 13:37:27
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-12 20:45:48
          compiled from "F:\www\tm\application/views/scripts\user/index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:69834ee2304c70cbf2-54969502%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:166144ee6058c3d1824-85829697%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'adce21d5e4bd44928444e8e78142d735bf514e9d' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\user/index.tpl',
-      1 => 1323451314,
+      1 => 1323697528,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '69834ee2304c70cbf2-54969502',
+  'nocache_hash' => '166144ee6058c3d1824-85829697',
   'function' => 
   array (
   ),
@@ -25,6 +25,7 @@ $_smarty_tpl->decodeProperties(array (
 ">добавить</a></td>
     </tr>
     <tr>
+        <td class="ttovar">ФИО</td>
         <td class="ttovar">Логин</td>
         <td class="ttovar">Роль</td>
         <td class="ttovar"></td>
@@ -37,6 +38,8 @@ if ($_smarty_tpl->_count($_from) > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars['user']->key => $_smarty_tpl->tpl_vars['user']->value){
 ?>
         <tr>
+            <td class="ttovar"><?php if ($_smarty_tpl->getVariable('user')->value->searchAttribute('name')){?><?php echo $_smarty_tpl->getVariable('user')->value->getAttribute('name')->value;?>
+<?php }else{ ?>-<?php }?></td>
             <td class="ttovar"><?php echo $_smarty_tpl->getVariable('user')->value->login;?>
 </td>
             <td class="ttovar"><?php echo $_smarty_tpl->getVariable('user')->value->role->rtitle;?>
@@ -134,9 +137,9 @@ if ($_smarty_tpl->_count($_from) > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars['attributeHash']->key => $_smarty_tpl->tpl_vars['attributeHash']->value){
 ?>
         <tr>
-            <td class="ttovar"><?php echo $_smarty_tpl->getVariable('attributeHash')->value->attributeKey;?>
-</td>
             <td class="ttovar"><?php echo $_smarty_tpl->getVariable('attributeHash')->value->title;?>
+</td>
+            <td class="ttovar"><?php echo $_smarty_tpl->getVariable('attributeHash')->value->attributeKey;?>
 </td>
             <td class="ttovar"><?php echo $_smarty_tpl->getVariable('attributeHash')->value->type->title;?>
 </td>

@@ -4,7 +4,7 @@
         <li id="task_{$task->id}" class="task_list">
             <div style="padding: 5px 0px 5px; 5px; width: 100%; height: 30px; margin: 0px; 5px;" class="{if $task->searchAttribute('state') && $task->getAttribute('state')->value=='Выполнена'}ttovar_green{elseif $task->getIsOver()}ttovar_red{else}ttovar{/if}">
 
-                <div style="width: 500px; float:left; margin-left: 5px;">
+                <div style=" float:left; margin-left: 5px;">
                     <img src="/i/{if !$task->hasParent()|| $task->getChild()}task_group.png{else}task.png{/if}"/>&nbsp;
                     <a href="javascript:void(0)" onclick="task.openTask('{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->id])}', {$task->id});">{$task->title}</a>
                 </div>
@@ -23,7 +23,7 @@
 
 
                         {if_allowed resource="{$controller}/view"}
-                            <li class="action"><img src="/i/task.png"/>&nbsp;<a href="{$this->url(['controller' => $controller,'action' => 'view', 'id' => $task->id])}">просмотреть</a></li>
+                            <li class="action"><img src="/i/task.png"/>&nbsp;<a href="javascript:void(0)" onclick="task.viewTask('{$this->url(['controller' => $controller, 'action' => 'view', 'id' => $task->id])}', {$task->id});">просмотреть</a></li>
                         {/if_allowed}
 
                         {if_allowed resource="{$controller}/add"}

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-11 22:58:22
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-13 00:13:13
          compiled from "F:\www\tm\application/views/scripts\task/show-discussion.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:236954ee4d31ec00505-88763050%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:245544ee636291cf400-86571088%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'b4215f633b9f778911980e1a88bcd4ac12ec123f' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\task/show-discussion.tpl',
-      1 => 1323618955,
+      1 => 1323709990,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '236954ee4d31ec00505-88763050',
+  'nocache_hash' => '245544ee636291cf400-86571088',
   'function' => 
   array (
   ),
@@ -32,6 +32,7 @@ if (!is_callable('smarty_modifier_date_format')) include 'F:\www\tm\library\Smar
 if ($_smarty_tpl->_count($_from) > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars['discussion']->key => $_smarty_tpl->tpl_vars['discussion']->value){
 ?>
+        <?php if (is_null($_smarty_tpl->getVariable('discussion')->value->toUser)||$_smarty_tpl->getVariable('discussion')->value->toUser->id==$_smarty_tpl->getVariable('authUserId')->value||$_smarty_tpl->getVariable('discussion')->value->user->id==$_smarty_tpl->getVariable('authUserId')->value){?>
         <?php if (!$_smarty_tpl->getVariable('discussion')->value->hasParent()&&$_smarty_tpl->getVariable('openul')->value){?></ul><?php $_smarty_tpl->tpl_vars["openul"] = new Smarty_variable(false, null, null);?><?php }?>
         <?php if ($_smarty_tpl->getVariable('discussion')->value->hasParent()&&!$_smarty_tpl->getVariable('openul')->value){?>
         <ul style="margin-left: 20px; padding: 0px;"><?php $_smarty_tpl->tpl_vars["openul"] = new Smarty_variable(true, null, null);?><?php }?>
@@ -68,14 +69,16 @@ if ($_smarty_tpl->_count($_from) > 0){
                     </div>
                 <?php }?>
                 <div style="color: #555555; font-size: 11px; line-height: 15px; margin: 5px 0px 0px 0px;">
-                    <?php echo $_smarty_tpl->getVariable('discussion')->value->user->login;?>
- <?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('discussion')->value->datecreate,"%d.%m.%Y");?>
+                    <?php if ($_smarty_tpl->getVariable('discussion')->value->user->searchAttribute('name')){?><?php echo $_smarty_tpl->getVariable('discussion')->value->user->getAttribute('name')->value;?>
+<?php }else{ ?><?php echo $_smarty_tpl->getVariable('discussion')->value->user->login;?>
+<?php }?> <?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('discussion')->value->datecreate,"%d.%m.%Y");?>
 
                     <button style="font-size: 11px; height: 18px; margin: 1px; padding: 1px;" onclick="comment_reply_on(<?php echo $_smarty_tpl->getVariable('discussion')->value->id;?>
 )">Ответить</button>
                 </div>
             </div>
         </li>
+        <?php }?>
 
     <?php }} ?>
 </ul>
@@ -111,6 +114,22 @@ if ($_smarty_tpl->_count($_from) > 0){
         <div>
             <div style="font-size: 14px; font-weight: bold; padding: 0px 0px 5px 0px; margin: 0px 0px 5px 0px;">Добавить комментарий</div>
             <textarea name="data[message]"></textarea><br/>
+
+            <div style="font-size: 14px; font-weight: bold; padding: 0px 0px 5px 0px; margin: 0px 0px 5px 0px;">Лично для</div>
+            <select name="data[to]">
+                <option value="" selected="selected">Всем</option>
+                <?php  $_smarty_tpl->tpl_vars['user'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->getVariable('userList')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+if ($_smarty_tpl->_count($_from) > 0){
+    foreach ($_from as $_smarty_tpl->tpl_vars['user']->key => $_smarty_tpl->tpl_vars['user']->value){
+?>
+                    <option value="<?php echo $_smarty_tpl->getVariable('user')->value->id;?>
+"><?php if ($_smarty_tpl->getVariable('user')->value->searchAttribute('name')){?><?php echo $_smarty_tpl->getVariable('user')->value->getAttribute('name')->value;?>
+<?php }else{ ?><?php echo $_smarty_tpl->getVariable('user')->value->login;?>
+<?php }?></option>
+                <?php }} ?>
+            </select>
+
 
             <div style="font-size: 14px; font-weight: bold; padding: 0px 0px 5px 0px; margin: 0px 0px 5px 0px;">Загрузить документ</div>
             <div>

@@ -1,4 +1,17 @@
-<div class="page"><h1>{if !isset($task)}Проекты{else}{if !$task->hasParent()}Проект{elseif $task->getChild()}Группа задач{else}Задача:{/if} {$task->title}{/if}</h1></div><br/>
+<div class="page">
+    <h1 style="width: 300px;">{if !isset($task)}Проекты{else}{if !$task->hasParent()}Проект{elseif $task->getChild()}Группа задач{else}Задача:{/if} {$task->title}{/if}</h1>
+
+    <div class="page_block">
+    {if_allowed resource="{$controller}/index" priv="show-attribute-hash"}
+        <a href="{$this->url(['controller' => $controller, 'action' => 'viewHash'])}">Список атрибутов</a>
+    {/if_allowed}
+
+    {if_allowed resource="{$controller}/index" priv="show-attribute-type"}
+        <a href="{$this->url(['controller' => $controller, 'action' => 'viewAttributeType'])}">Типы атрибутов</a>
+    {/if_allowed}
+    </div>
+
+</div><br/>
 
 {if isset($breadcrumbs)}
 <a href="{$this->url(['controller' => $controller,'action' => 'index', 'parent' => 0])}">/..</a>
@@ -31,7 +44,7 @@
                 <div style="padding: 5px 0px 5px; 5px; width: 100%; height: 30px; margin: 0px; 5px;" class="{if $task->searchAttribute('state') && $task->getAttribute('state')->value=='Выполнена'}ttovar_green{elseif $task->getIsOver()}ttovar_red{else}ttovar{/if}">
 
                     <div style="width: 500px; float:left; margin-left: 5px; vertical-align: middle;">
-                        <img src="/i/{if !$task->hasParent()|| $task->getChild()}task_group.png{else}task.png{/if}" />&nbsp;
+                        <img src="/i/{if !$task->hasParent()|| $task->getChild()}task_group.png{else}task.png{/if}"/>&nbsp;
                         <a href="javascript:void(0)" onclick="task.openTask('{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->id])}', {$task->id});">{$task->title}</a>
                     </div>
 
@@ -50,11 +63,11 @@
 
 
                             {if_allowed resource="{$controller}/view"}
-                                <li class="action"><img src="/i/task.png"/>&nbsp;<a href="{$this->url(['controller' => $controller,'action' => 'view', 'id' => $task->id])}">просмотреть</a></li>
+                                <li class="action"><img src="/i/task.png"/>&nbsp;<a href="javascript:void(0)" onclick="task.viewTask('{$this->url(['controller' => $controller, 'action' => 'view', 'id' => $task->id])}', {$task->id});">просмотреть</a></li>
                             {/if_allowed}
 
                             {if_allowed resource="{$controller}/add"}
-                                <li class="action"><img src="/i/add.png"/>&nbsp;<a href="javascript:void(0)" onclick="task.addDialog('{$this->url(['controller' => $controller,'action' => 'add', 'parent' => {$task->id}])}', {$task->id}, '{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => {$task->id}])}');">добавить задачу</a></li>
+                                <li class="action"><img src="/i/add.png"/>&nbsp;<a href="javascript:void(0)" onclick="task.addDialog('{$this->url(['controller' => $controller, 'action' => 'add', 'parent' => {$task->id}])}', {$task->id}, '{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => {$task->id}])}');">добавить задачу</a></li>
                             {/if_allowed}
 
                             {if_allowed resource="{$controller}/edit"}
@@ -87,7 +100,7 @@
                             <img src="/i/is_problem.png" title="Проблемные" alt="Проблемные"/>&nbsp;{$stat.is_problem}
                             <img src="/i/discussion_mini.png" title="Кол-во комментариев" alt="Кол-во комментариев"/>&nbsp;{$stat.discuss_count}
                             <img src="/i/in_doc.png" title="Кол-во документов" alt="Кол-во документов"/>&nbsp;{$stat.doc_count}
-                        {else}&nbsp;
+                            {else}&nbsp;
                         {/if}
                     </div>
 
@@ -149,64 +162,3 @@
 
 </table>
 *}
-
-{if_allowed resource="{$controller}/index" priv="show-attribute-hash"}
-<br/>
-<div class="page"><h1>Список атрибутов для задач</h1></div><br/>
-
-<table width="100%">
-    <tr>
-        <td class="ttovar" align="center" colspan="6"><a href="{$this->url(['controller' => $controller,'action' => 'addAttributeHash'])}">добавить</a></td>
-    </tr>
-    <tr>
-        <td class="ttovar">Ключ</td>
-        <td class="ttovar">Название</td>
-        <td class="ttovar">Тип</td>
-        <td class="ttovar">Обязательное</td>
-        <td class="ttovar">Порядок сортировки</td>
-        <td class="ttovar"></td>
-    </tr>
-
-    {if $attributeHashList!==false}
-        {foreach from=$attributeHashList item=attributeHash}
-            <tr>
-                <td class="ttovar">{$attributeHash->attributeKey}</td>
-                <td class="ttovar">{$attributeHash->title}</td>
-                <td class="ttovar">{$attributeHash->type->title}</td>
-                <td class="ttovar">{if $attributeHash->isRequired}Да{else}Нет{/if}</td>
-                <td class="ttovar">{$attributeHash->sortOrder}</td>
-                <td class="tedit">
-                    <a href="{$this->url(['controller' => $controller,'action' => 'editAttributeHash', 'key' => $attributeHash->attributeKey])}">редактировать</a><br/>
-                    <a href="{$this->url(['controller' => $controller,'action' => 'deleteAttributeHash', 'key' => $attributeHash->attributeKey])}" onclick="return confirmDelete('{$attributeHash->title}');" style="color: #830000">удалить</a>
-                </td>
-            </tr>
-        {/foreach}
-    {/if}
-
-</table>
-{/if_allowed}
-
-{if_allowed resource="{$controller}/index" priv="show-attribute-type"}
-<br/>
-<div class="page"><h1>Типы атрибутов</h1></div><br/>
-
-<table width="100%">
-    <tr>
-        <td class="ttovar" align="center" colspan="3"><a href="{$this->url(['controller' => $controller,'action' => 'addAttributeType'])}">добавить</a></td>
-    </tr>
-
-    {if $attributeTypeList!==false}
-        {foreach from=$attributeTypeList item=attributeType}
-            <tr>
-                <td class="ttovar">{$attributeType->title}</td>
-                <td class="ttovar">{$attributeType->handler}</td>
-                <td class="tedit">
-                    <a href="{$this->url(['controller' => $controller,'action' => 'editAttributeType', 'id' => $attributeType->id])}">редактировать</a><br/>
-                    <a href="{$this->url(['controller' => $controller,'action' => 'deleteAttributeType', 'id' => $attributeType->id])}" onclick="return confirmDelete('{$attributeType->title}');" style="color: #830000">удалить</a>
-                </td>
-            </tr>
-        {/foreach}
-    {/if}
-
-</table>
-{/if_allowed}
