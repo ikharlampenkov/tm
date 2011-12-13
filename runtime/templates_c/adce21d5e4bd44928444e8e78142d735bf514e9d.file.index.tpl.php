@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-13 22:32:58
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-14 00:47:11
          compiled from "F:\www\tm\application/views/scripts\user/index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:199714ee7702a4d5850-14147692%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:118304ee78f9f107c82-25715352%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'adce21d5e4bd44928444e8e78142d735bf514e9d' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\user/index.tpl',
-      1 => 1323789657,
+      1 => 1323798428,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '199714ee7702a4d5850-14147692',
+  'nocache_hash' => '118304ee78f9f107c82-25715352',
   'function' => 
   array (
   ),
@@ -47,7 +47,8 @@ $_smarty_tpl->decodeProperties(array (
 
 <table width="100%">
     <tr>
-        <td class="ttovar" align="center" colspan="3"><a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'add'));?>
+        <td class="ttovar" align="center" colspan="3">
+            <img src="/i/add.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'add'));?>
 ">добавить</a></td>
     </tr>
     <tr>
@@ -70,9 +71,10 @@ if ($_smarty_tpl->_count($_from) > 0){
 </td>
             <td class="ttovar"><?php echo $_smarty_tpl->getVariable('user')->value->role->rtitle;?>
 </td>
-            <td class="tedit"><a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'edit','id'=>$_smarty_tpl->getVariable('user')->value->id));?>
+            <td class="tedit">
+                <img src="/i/edit.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'edit','id'=>$_smarty_tpl->getVariable('user')->value->id));?>
 ">редактировать</a><br/>
-                <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'delete','id'=>$_smarty_tpl->getVariable('user')->value->id));?>
+                <img src="/i/delete.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'delete','id'=>$_smarty_tpl->getVariable('user')->value->id));?>
 " onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('user')->value->login;?>
 ');" style="color: #830000">удалить</a></td>
         </tr>
@@ -86,7 +88,8 @@ if ($_smarty_tpl->_count($_from) > 0){
 
 <table width="100%">
     <tr>
-        <td class="ttovar" align="center" colspan="3"><a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'addRole'));?>
+        <td class="ttovar" align="center" colspan="3">
+            <img src="/i/add.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'addRole'));?>
 ">добавить</a></td>
     </tr>
 
@@ -97,23 +100,19 @@ if ($_smarty_tpl->_count($_from) > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars['role']->key => $_smarty_tpl->tpl_vars['role']->value){
 ?>
         <tr>
-            <td class="ttovar"><?php echo $_smarty_tpl->getVariable('role')->value->rtitle;?>
+            <td class="ttovar"><img src="/i/group.png"/>&nbsp;<?php echo $_smarty_tpl->getVariable('role')->value->rtitle;?>
 </td>
             <td class="ttovar"><?php echo $_smarty_tpl->getVariable('role')->value->title;?>
 </td>
-            <td class="tedit"><a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'showRoleAcl','idRole'=>$_smarty_tpl->getVariable('role')->value->id));?>
+            <td class="tedit"><img src="/i/comanda.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'showRoleAcl','idRole'=>$_smarty_tpl->getVariable('role')->value->id));?>
 ">права</a></td>
-            <td class="tedit"><a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'editRole','id'=>$_smarty_tpl->getVariable('role')->value->id));?>
+            <td class="tedit">
+                <img src="/i/edit.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'editRole','id'=>$_smarty_tpl->getVariable('role')->value->id));?>
 ">редактировать</a><br/>
-                <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'deleteRole','id'=>$_smarty_tpl->getVariable('role')->value->id));?>
+                <img src="/i/delete.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'deleteRole','id'=>$_smarty_tpl->getVariable('role')->value->id));?>
 " onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('role')->value->rtitle;?>
 ');" style="color: #830000">удалить</a></td>
         </tr>
     <?php }} ?>
 <?php }?>
 </table>
-
-
-
-
-
