@@ -45,6 +45,12 @@
 <a name="top"></a>
 
 <ul class="menu_up">
+{if_allowed resource="index/index"}
+    <li>
+        <a href="/" >Начальная</a></td>
+        <span>&nbsp;</span>
+    </li>
+{/if_allowed}
 {if_allowed resource="task/index"}
     <li>
         <a href="/task/" >Проекты</a></td>

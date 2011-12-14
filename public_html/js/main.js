@@ -23,6 +23,15 @@ function comment_reply_on(id) {
     $('#add_form').hide();
 }
 
+function comment_reply_on2(id, to_user, to_task) {
+    $('#replay_on_message').html($('#message_' + id).html());
+    $('#parent').val(id);
+    $('#to_user').val(to_user);
+    $('#to_task').val(to_task);
+
+    $('#replay_form').show();
+}
+
 function mainmenu() {
     $(".menu_up ul").css({display:"none"});
     $(".menu_up li").hover(function () {
@@ -35,22 +44,21 @@ function mainmenu() {
 $(document).ready(function () {
     mainmenu();
     task.createSubMenu();
-    $( ".datepicker" ).datetimepicker();
+    $(".datepicker").datetimepicker();
 });
 
 $(function () {
     /*
-    var btn = $(".task_list button").each(function () {
-        $(this).button({
-            icons:{
-                secondary:"ui-icon-triangle-1-s"
-            }
-        }).next().menu({
-                trigger: $(this)
-            });
-    });
-    */
-
+     var btn = $(".task_list button").each(function () {
+     $(this).button({
+     icons:{
+     secondary:"ui-icon-triangle-1-s"
+     }
+     }).next().menu({
+     trigger: $(this)
+     });
+     });
+     */
 
 
     /*

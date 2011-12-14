@@ -57,3 +57,4 @@ error   Can`t complit query: SELECT id, title, tm_task.user_id, date_create, typ
                       AND is_executant=1
                       AND user_id=1
                       ORDER BY title No error: 1052:: Error msg: Column 'user_id' in where clause is ambiguous ;  12.12.2011 22:53
+error   Can`t complit query: UPDATE tm_document SET file="NÑjno" WHERE id=185 No error: 1366:: Error msg: Incorrect string value: '\xD1jno' for column 'file' at row 1 ;  13.12.2011 22:23

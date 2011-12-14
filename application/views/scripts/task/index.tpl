@@ -36,6 +36,27 @@
 </div>
 *}
 
+<ul>
+    <li class="task_list">
+        <div style="padding: 5px 0px 5px; 5px; width: 100%; height: 30px; margin: 0px; 5px;" class="ttovar">
+            <div style="float:left; margin-left: 5px; vertical-align: middle;">
+                Название
+            </div>
+
+            <div style="width: 120px; float: right;">
+                &nbsp;
+            </div>
+
+            <div style="width: 120px; float: right;">
+                Выполнить до
+            </div>
+            <div style="width: 200px; float: right;">
+                &nbsp;
+            </div>
+        </div>
+    </li>
+</ul>
+
 <ul id="subtask_0">
 {if $taskList!==false}
     {foreach from=$taskList item=task}
@@ -43,9 +64,22 @@
             <li id="task_{$task->id}" class="task_list">
                 <div style="padding: 5px 0px 5px; 5px; width: 100%; height: 30px; margin: 0px; 5px;" class="{if $task->searchAttribute('state') && $task->getAttribute('state')->value=='Выполнена'}ttovar_green{elseif $task->getIsOver()}ttovar_red{else}ttovar{/if}">
 
-                    <div style="width: 500px; float:left; margin-left: 5px; vertical-align: middle;">
+                    <div style="float:left; margin-left: 5px; vertical-align: middle;">
                         <img src="/i/{if !$task->hasParent()|| $task->getChild()}task_group.png{else}task.png{/if}"/>&nbsp;
-                        <a href="javascript:void(0)" onclick="task.openTask('{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->id])}', {$task->id});">{$task->title}</a>
+                        <a href="javascript:void(0)" onclick="
+                            {if !$task->hasParent()|| $task->getChild()}
+                                    task.openTask('{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->id])}', {$task->id});
+                                {else}
+                                {if_allowed resource="{$controller}/edit"}
+                                    {if_object_allowed type="{$controller|capitalize}" object="{$task}" priv="write"}
+                                            task.editDialog('{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $task->id])}', {if !$task->hasParent()}0{else}{$task->getFirstParent()->id}{/if}, '{if !$task->hasParent()}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => 0])}{else}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->getFirstParent()->id])}{/if}');
+                                    {/if_object_allowed}
+                                {/if_allowed}
+                                {if_allowed resource="{$controller}/view"}
+                                        task.viewTask('{$this->url(['controller' => $controller, 'action' => 'view', 'id' => $task->id])}', {$task->id});
+                                {/if_allowed}
+                            {/if}
+                                ">{$task->title}</a>
                     </div>
 
 

@@ -22,11 +22,10 @@
                     <td valign="middle" align="center">
                         <form method="post" action="/login/" style="margin:0px; padding:0px;">
 
-                            <table cellpadding="10" cellspacing="0" border="0" style="background-color: #69aefc; width: 300px; height: 100px;">
+                            <table cellpadding="10" cellspacing="0" border="0" style="background-color: #373737; width: 300px; height: 100px;">
 
                                 <tr>
-                                    <td></td>
-                                    <td style="font-size:26px; color: white;padding-left: 25px;"></td>
+                                    <td colspan="2" style="font-size:30px; color: #ffffff; padding-left: 25px; text-align: center;">{$title}</td>
                                 </tr>
                                 <tr>
                                     <td style="color:white">Логин: </td>

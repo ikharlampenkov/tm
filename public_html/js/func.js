@@ -60,24 +60,26 @@ var task = {
         }, 'html');
     },
 
-    openTask:function (rg_url, parent, isReload) {
+    openTask:function (rg_url, parent, isReload, prefics) {
         isReload = isReload || false;
+        prefics = prefics || '';
 
-        if ($('#subtask_' + parent).html() != '' && !isReload) {
-            $('#subtask_' + parent).hide();
-            $('#subtask_' + parent).empty();
+        if ($('#' + prefics + 'subtask_' + parent).html() != '' && !isReload) {
+            $('#' + prefics + 'subtask_' + parent).hide();
+            $('#' + prefics + 'subtask_' + parent).empty();
             return;
         }
 
         $.get(rg_url, '', function (data) {
-            $('#subtask_' + parent).empty();
-            $('#subtask_' + parent).append(data);
+            $('#' + prefics + 'subtask_' + parent).empty();
+            $('#' + prefics + 'subtask_' + parent).append(data);
             task.createSubMenu();
-            $('#subtask_' + parent).show();
+            $('#' + prefics + 'subtask_' + parent).show();
         }, 'html');
     },
 
-    editDialog:function (rq_url, parent, show_url) {
+    editDialog:function (rq_url, parent, show_url, prefics) {
+        prefics = prefics || '';
         if ($('#editDialog').length < 1) // создаем блок диалогового окна
         {
             $('body').append('<div id="editDialog" ></div>');
@@ -99,7 +101,7 @@ var task = {
                                     $('#editDialog').html(responseText);
                                 }
                                 else {
-                                    task.openTask(show_url, parent, true);
+                                    task.openTask(show_url, parent, true, prefics);
                                     $('#editDialog').dialog('close');
                                 }
                             }
