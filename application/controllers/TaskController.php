@@ -68,8 +68,14 @@ class TaskController extends Zend_Controller_Action
                 $oTask->addParent($parentTask);
             }
 
+
             try {
                 $oTask->insertToDb();
+                foreach ($data['attribute'] as $key => $value) {
+                    $oTask->setAttribute($key, $value);
+                }
+
+                $oTask->updateToDb();
 
                 $oDocument = new TM_Document_Document();
                 $oDocument->setUser($this->_user);
@@ -114,7 +120,7 @@ class TaskController extends Zend_Controller_Action
                     }
                 }
 
-                if($this->_request->isXmlHttpRequest()) {
+                if ($this->_request->isXmlHttpRequest()) {
                     exit;
                 } else {
                     $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
@@ -126,6 +132,7 @@ class TaskController extends Zend_Controller_Action
         }
 
         $this->view->assign('parentList', TM_Task_Task::getAllInstance($this->_user));
+        $this->view->assign('attributeHashList', TM_Task_Hash::getAllInstance());
         $this->view->assign('task', $oTask);
         $this->view->assign('taskTypeList', $oTask->getTypeList());
     }
@@ -162,7 +169,7 @@ class TaskController extends Zend_Controller_Action
 
             try {
                 $oTask->updateToDb();
-                if($this->_request->isXmlHttpRequest()) {
+                if ($this->_request->isXmlHttpRequest()) {
                     exit;
                 } else {
                     $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
@@ -193,7 +200,7 @@ class TaskController extends Zend_Controller_Action
         $oTask = TM_Task_Task::getInstanceById($this->getRequest()->getParam('id'));
         try {
             $oTask->deleteFromDB();
-            if($this->_request->isXmlHttpRequest()) {
+            if ($this->_request->isXmlHttpRequest()) {
                 exit;
             } else {
                 $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));

@@ -230,6 +230,8 @@ class TM_Task_Task
             $this->_db->query($sql);
 
             $this->_id = $this->_db->getLastInsertId();
+
+            //$this->saveAttributeList();
             $this->saveParent();
             //$this->saveChild();
         } catch (Exception $e) {
