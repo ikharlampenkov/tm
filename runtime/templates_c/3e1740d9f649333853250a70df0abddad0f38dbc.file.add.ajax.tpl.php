@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-12 00:24:57
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-16 20:27:12
          compiled from "F:\www\tm\application/views/scripts\task/add.ajax.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:273434ee4e769360dd2-29438006%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:167574eeb4730512334-43482184%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '3e1740d9f649333853250a70df0abddad0f38dbc' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\task/add.ajax.tpl',
-      1 => 1323624145,
+      1 => 1324042029,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '273434ee4e769360dd2-29438006',
+  'nocache_hash' => '167574eeb4730512334-43482184',
   'function' => 
   array (
   ),
@@ -82,4 +82,18 @@ $_template->assign('subtask',$_smarty_tpl->getVariable('parent')->value->getChil
         <td class="ttovar"><input name="data[date_create]" value="<?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('task')->value->dateCreate,"%d.%m.%Y %H:%M:%S");?>
 " class="datepicker input_ajax"/></td>
     </tr>
+<?php if ($_smarty_tpl->getVariable('attributeHashList')->value!==false){?>
+    <?php  $_smarty_tpl->tpl_vars['attributeHash'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->getVariable('attributeHashList')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+if ($_smarty_tpl->_count($_from) > 0){
+    foreach ($_from as $_smarty_tpl->tpl_vars['attributeHash']->key => $_smarty_tpl->tpl_vars['attributeHash']->value){
+?>
+        <tr>
+            <td class="<?php if ($_smarty_tpl->getVariable('attributeHash')->value->isRequired){?>ttovar_title_requared<?php }else{ ?>ttovar_title<?php }?>"><?php echo $_smarty_tpl->getVariable('attributeHash')->value->title;?>
+<?php if ($_smarty_tpl->getVariable('attributeHash')->value->isRequired){?>*<?php }?></td>
+            <td class="ttovar"><?php echo $_smarty_tpl->getVariable('attributeHash')->value->type->getHTMLFrom($_smarty_tpl->tpl_vars['attributeHash']->value,$_smarty_tpl->getVariable('task')->value);?>
+</td>
+        </tr>
+    <?php }} ?>
+<?php }?>
 </table>

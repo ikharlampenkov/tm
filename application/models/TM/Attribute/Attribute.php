@@ -174,7 +174,7 @@ class TM_Attribute_Attribute
      * @return TM_Attribute_Attribute
      * @access public
      */
-    public function __construct(TM_Attribute_AttributeMapper $mapper, $object)
+    public function __construct(TM_Attribute_AttributeMapper $mapper, &$object)
     {
         $this->_mapper = $mapper;
         $this->_db = StdLib_DB::getInstance();

@@ -20,7 +20,7 @@ var task = {
             $('#addDialog').html(data).dialog({
                 title:'Добавить задачу',
                 modal:true,
-                height:320,
+                height:550,
                 width:830,
                 buttons:{
                     Добавить:function () {

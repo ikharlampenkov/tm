@@ -39,7 +39,7 @@ class StdLib_Functions
             " " => "_", "." => "", "/" => "_", "«" => "", "»" => "",
             "'" => "", "\"" => ""
         );
-        return strtr($str, $tr);
+        return iconv ("UTF-8", "UTF-8//IGNORE", strtr($str, $tr));
     }
 
     static public function getFileExt($fname)
