@@ -108,6 +108,7 @@ a.tedit {
 
 .ttovar {
     background-color: #f7f7f7;
+    color: #000000;
     padding: 10px;
 }
 
@@ -119,16 +120,19 @@ a.tedit {
 
 .ttovarred {
     background-color: #ffdede;
+    color: #ffdede;
     padding: 10px;
 }
 
 .ttovar_green {
-    background-color: #ccffcc;
+    /* background-color: #ccffcc; */
+    color: #418600;
     padding: 10px;
 }
 
 .ttovar_red {
-    background-color: #ffcccc;
+    /*  background-color: #ffcccc; */
+    color: #c13e2e;
     padding: 10px;
 }
 

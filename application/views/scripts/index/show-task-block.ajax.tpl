@@ -2,7 +2,7 @@
     {foreach from=$taskList item=task}
         {if_object_allowed type="Task" object="{$task}" priv="executant"}
         <li id="task_task_{$task->id}" class="task_list">
-            <div style="padding: 5px 0px 5px; 5px; width: 100%; height: 30px; margin: 0px; 5px;" class="{if $task->searchAttribute('state') && $task->getAttribute('state')->value=='Выполнена'}ttovar_green{elseif $task->getIsOver()}ttovar_red{else}ttovar{/if}">
+            <div style="padding: 5px 0px 5px; 5px; width: 100%; height: 30px; margin: 0px; 5px;" class="ttovar">
 
                 <div style="width: 500px; float:left; margin-left: 5px; vertical-align: middle;">
                     <img src="/i/{if !$task->hasParent()|| $task->getChild()}task_group.png{else}task.png{/if}"/>&nbsp;
@@ -20,7 +20,7 @@
                             {/if_allowed}
                         {/if}
 
-                            ">{$task->title}</a>
+                            " class="{if $task->searchAttribute('state') && $task->getAttribute('state')->value=='Выполнена'}ttovar_green{elseif $task->getIsOver()}ttovar_red{else}ttovar{/if}">{$task->title}</a>
                 </div>
 
                 <div style="width: 120px; float:right;">
