@@ -13,6 +13,7 @@
     height: 50px;
     margin-right: 1.5%;
     padding: 12px 25px 0 44px;
+    vertical-align: middle;
 }
 
 .menu_up li:hover {

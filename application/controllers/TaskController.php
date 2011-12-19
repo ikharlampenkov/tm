@@ -260,7 +260,8 @@ class TaskController extends Zend_Controller_Action
                     }
                 }
 
-                $this->_redirect('/task/showAcl/parent/' . $this->getRequest()->getParam('parent', 0) . '/idTask/' . $this->getRequest()->getParam('idTask'));
+                $this->_redirect('/task/');
+                //$this->_redirect('/task/showAcl/parent/' . $this->getRequest()->getParam('parent', 0) . '/idTask/' . $this->getRequest()->getParam('idTask'));
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
