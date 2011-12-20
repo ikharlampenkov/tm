@@ -1,9 +1,9 @@
 {if $taskList!==false}
     {foreach from=$taskList item=task}
     <li id="task_{$task->id}" class="task_list">
-        <div style="padding: 5px 0px 5px; 5px; width: 100%; height: 45px; margin: 0px; 5px;" class="ttovar">
+        <div class="task_block">
 
-            <div style="width: 500px; float:left; margin-left: 5px; vertical-align: middle;">
+            <div class="task_title">
                 <img src="/i/{if !$task->hasParent()|| $task->getChild()}task_group.png{else}task.png{/if}"/>&nbsp;
                 <a href="javascript:void(0)" onclick="
                     {if !$task->hasParent()|| $task->getChild()}
@@ -18,7 +18,7 @@
                                 task.viewTask('{$this->url(['controller' => 'task', 'action' => 'view', 'id' => $task->id])}', {$task->id});
                         {/if_allowed}
                     {/if}
-                        " class="{if $task->searchAttribute('state') && $task->getAttribute('state')->value=='Выполнена'}ttovar_green{elseif $task->getIsOver()}ttovar_red{else}ttovar{/if}">{$task->title}</a>
+                        " class="{if $task->searchAttribute('state') && $task->getAttribute('state')->value=='Выполнена'}task_green{elseif $task->getIsOver()}task_red{else}task_gray{/if}">{$task->title}</a>
             </div>
 
 
@@ -68,18 +68,18 @@
                 {/if}
             </div>
 
-            <div style="width: 120px; float: right;">
+            <div style="width: 75px; float: right;">
                 {if $task->getLeftTime() != 0}
                     {$task->getLeftTime()|date_format:"%d"}
                     {else}0
                 {/if} дней
             </div>
 
-            <div style="width: 120px; float: right;">
+            <div style="width: 75px; float: right;">
                 {$task->getExecuteTime()|date_format:"%d"} дней
             </div>
 
-            <div style="width: 120px; float:right;">
+            <div class="task_deadline">
                 {if $task->searchAttribute('deadline')}
                     {$task->getAttribute('deadline')->value|date_format:"%d %B %Y"}
                     {else}&nbsp;
@@ -87,10 +87,10 @@
             </div>
 
             <div style="width: 120px; float: right;">
-                {$task->datecreate|date_format:"%d.%m.%Y"}
+                {$task->datecreate|date_format:"%d %B %Y"}
             </div>
 
-            <div style="width: 200px; float: right;">
+            <div class="task_statistic">
                 {if !$task->hasParent()|| $task->getChild()}
                     {assign var="stat" value=$task->getTaskStatistic()}
                     <img src="/i/is_complite.png" title="Выполненных" alt="Выполненных"/>&nbsp;{$stat.is_complite}
@@ -105,6 +105,6 @@
 
         </div>
     </li>
-    <ul id="subtask_{$task->id}" style="display: none; margin-left: 20px;"></ul>
+    <ul id="subtask_{$task->id}" class="task_subtask"></ul>
     {/foreach}
 {/if}
