@@ -112,6 +112,10 @@ a.tedit {
     padding: 10px;
 }
 
+a.ttovar {
+    color: #000000;
+}
+
 .ttovar_title {
     background-color: #f7f7f7;
     padding: 10px;
@@ -130,10 +134,18 @@ a.tedit {
     padding: 10px;
 }
 
+a.ttovar_green {
+    color: #418600;
+}
+
 .ttovar_red {
     /*  background-color: #ffcccc; */
     color: #c13e2e;
     padding: 10px;
+}
+
+a.ttovar_red {
+    color: #c13e2e;
 }
 
 .ttovar_title_requared {
@@ -267,3 +279,66 @@ li.task_list {
 .index_block_content {
     margin: 5px;
 }
+
+
+/** Task **/
+
+a.task_green {
+    color: #418600;
+}
+
+a.task_red {
+    color: #c13e2e;
+}
+
+a.task_grey {
+    color: #000000;
+}
+
+.task_block {
+    padding: 5px 0 5px 5px;
+    width: 100%;
+    height: 30px;
+    margin: 0 5px;
+    border-bottom: 1px dashed #373737;
+    background-color: #f7f7f7;
+    color: #000000;
+}
+
+.task_block_title {
+    padding: 5px 0 5px 5px;
+    width: 100%;
+    height: 20px;
+    margin: 0 5px;
+    border-bottom: 1px dashed #373737;
+    background-color: #f7f7f7;
+    color: #000000;
+}
+
+.task_title {
+    float:left;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.task_action {
+    width: 120px;
+    float:right;
+}
+
+.task_statistic {
+    width: 200px;
+    float: right;
+}
+
+.task_deadline {
+    width: 120px;
+    float:right;
+}
+
+.task_subtask {
+    display: none;
+    margin-left: 20px;
+}
+
+
