@@ -1,4 +1,4 @@
-<div class="page"><h1>Отчеты</h1></div><br/>
+<div class="page"><h1>Аналитика</h1></div><br/>
 
 <a href="{$this->url(['controller' => $controller,'action' => 'generateReport'])}">Сформировать стандартный отчет</a><br/><br/>
 

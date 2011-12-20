@@ -42,6 +42,14 @@
     </tr>
     <tr>
         <td class="ttovar_title">Дата создания</td>
-        <td class="ttovar"><input name="data[date_create]" value="{$task->dateCreate|date_format:"%d.%m.%Y %H:%M:%S"}" class="input_ajax"/></td>
+        <td class="ttovar"><input name="data[date_create]" value="{$task->dateCreate|date_format:"%d.%m.%Y %H:%M:%S"}" class="datepicker input_ajax"/></td>
     </tr>
+{if $attributeHashList!==false}
+    {foreach from=$attributeHashList item=attributeHash}
+        <tr>
+            <td class="{if $attributeHash->isRequired}ttovar_title_requared{else}ttovar_title{/if}">{$attributeHash->title}{if $attributeHash->isRequired}*{/if}</td>
+            <td class="ttovar">{$attributeHash->type->getHTMLFrom($attributeHash, $task)}{*<input name="data[attribute][{$attributeHash->attributeKey}]" value="{if $task->searchAttribute($attributeHash->attributeKey)}{$task->getAttribute($attributeHash->attributeKey)->value}{/if}"/>*}</td>
+        </tr>
+    {/foreach}
+{/if}
 </table>

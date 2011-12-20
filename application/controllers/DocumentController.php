@@ -9,6 +9,8 @@ class DocumentController extends Zend_Controller_Action
     {
         $storage_data = Zend_Auth::getInstance()->getStorage()->read();
         $this->_user = TM_User_User::getInstanceById($storage_data->id);
+
+        $this->_helper->AjaxContext()->addActionContext('view', 'html')->initContext('html');
     }
 
     public function indexAction()
@@ -23,9 +25,17 @@ class DocumentController extends Zend_Controller_Action
             $this->view->assign('breadcrumbs', $curDocument->getPathToDocument());
         }
 
-        $this->view->assign('attributeTypeList', TM_Attribute_AttributeType::getAllInstance(new TM_Document_AttributeTypeMapper()));
-        $this->view->assign('attributeHashList', TM_Document_Hash::getAllInstance());
         $this->view->assign('parentId', $parentId);
+    }
+
+    public function viewattributetypeAction()
+    {
+        $this->view->assign('attributeTypeList', TM_Attribute_AttributeType::getAllInstance(new TM_Document_AttributeTypeMapper()));
+    }
+
+    public function viewhashAction()
+    {
+        $this->view->assign('attributeHashList', TM_Document_Hash::getAllInstance());
     }
 
     public function addAction()
@@ -263,7 +273,7 @@ class DocumentController extends Zend_Controller_Action
 
             try {
                 $oType->insertToDb();
-                $this->_redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
+                $this->_redirect('/document/viewAttributeType');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -286,7 +296,7 @@ class DocumentController extends Zend_Controller_Action
 
             try {
                 $oType->updateToDb();
-                $this->_redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
+                $this->_redirect('/document/viewAttributeType');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -301,7 +311,7 @@ class DocumentController extends Zend_Controller_Action
         $oType = TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Document_AttributeTypeMapper(), $this->getRequest()->getParam('id'));
         try {
             $oType->deleteFromDB();
-            $this->_redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
+            $this->_redirect('/document/viewAttributeType');
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -321,7 +331,7 @@ class DocumentController extends Zend_Controller_Action
 
             try {
                 $oHash->insertToDb();
-                $this->_redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
+                $this->_redirect('/document/viewHash');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -345,7 +355,7 @@ class DocumentController extends Zend_Controller_Action
 
             try {
                 $oHash->updateToDb();
-                $this->_redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
+                $this->_redirect('/document/viewHash');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -361,7 +371,7 @@ class DocumentController extends Zend_Controller_Action
         $oHash = TM_Document_Hash::getInstanceById($this->getRequest()->getParam('key'));
         try {
             $oHash->deleteFromDB();
-            $this->_redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
+            $this->_redirect('/document/viewHash');
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }

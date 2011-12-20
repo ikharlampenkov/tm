@@ -21,7 +21,13 @@ class TM_Attribute_AttributeTypeUserList extends TM_Attribute_AttributeType
                     $html .= 'selected="selected"';
                 }
             }
-            $html .= '>' . $value->login . '</option>';
+            $html .= '>';
+            if ($value->searchAttribute('name')) {
+                $html .= $value->getAttribute('name')->value;
+            } else {
+                $html .= $value->login;
+            }
+            $html .= '</option>';
         }
 
         $html .= '</select>';

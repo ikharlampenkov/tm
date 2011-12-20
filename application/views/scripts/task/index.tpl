@@ -1,4 +1,17 @@
-<div class="page"><h1>{if !isset($task)}Проекты{else}{if !$task->hasParent()}Проект{elseif $task->getChild()}Группа задач{else}Задача:{/if} {$task->title}{/if}</h1></div><br/>
+<div class="page">
+    <h1 style="width: 300px;">{if !isset($task)}Проекты{else}{if !$task->hasParent()}Проект{elseif $task->getChild()}Группа задач{else}Задача:{/if} {$task->title}{/if}</h1>
+
+    <div class="page_block">
+    {if_allowed resource="{$controller}/index" priv="show-attribute-hash"}
+        <a href="{$this->url(['controller' => $controller, 'action' => 'viewHash'])}">Список атрибутов</a>
+    {/if_allowed}
+
+    {if_allowed resource="{$controller}/index" priv="show-attribute-type"}
+        <a href="{$this->url(['controller' => $controller, 'action' => 'viewAttributeType'])}">Типы атрибутов</a>
+    {/if_allowed}
+    </div>
+
+</div><br/>
 
 {if isset($breadcrumbs)}
 <a href="{$this->url(['controller' => $controller,'action' => 'index', 'parent' => 0])}">/..</a>
@@ -11,94 +24,123 @@
 <br/><br/>
 {/if}
 
+{if_allowed resource="{$controller}/add"}
 <div class="sub-menu">
-    <a href="#" onclick="task.addDialog('{$this->url(['controller' => $controller,'action' => 'add'])}', 0, '{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => 0])}')">добавить</a>
+    <img src="/i/add.png"/>&nbsp;<a href="javascript:void(0)" onclick="task.addDialog('{$this->url(['controller' => $controller,'action' => 'add'])}', 0, '{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => 0])}')">добавить</a>
 </div>
+{/if_allowed}
 
 {*
 <div class="sub-menu">
-    <a href="#" onclick="task.addDialog('{$this->url(['controller' => $controller,'action' => 'add'])}', {if !$task->hasParent()}0{else}{$task->getFirstParent()->id}{/if}, '{if !$task->hasParent()}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => 0])}{else}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->getFirstParent()->id])}{/if}')">добавить</a>
+    <a href="javascript:void(0)" onclick="task.addDialog('{$this->url(['controller' => $controller,'action' => 'add'])}', {if !$task->hasParent()}0{else}{$task->getFirstParent()->id}{/if}, '{if !$task->hasParent()}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => 0])}{else}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->getFirstParent()->id])}{/if}')">добавить</a>
 </div>
 *}
+
+<ul>
+    <li class="task_list">
+        <div class="task_block_title">
+            <div class="task_title">
+                Название
+            </div>
+
+            <div style="width: 120px; float: right;">
+                Действия
+            </div>
+
+            <div style="width: 120px; float: right;">
+                Выполнить до
+            </div>
+            <div style="width: 200px; float: right;">
+                &nbsp;
+            </div>
+        </div>
+    </li>
+</ul>
 
 <ul id="subtask_0">
 {if $taskList!==false}
     {foreach from=$taskList item=task}
         {if_object_allowed type="{$controller|capitalize}" object="{$task}"}
             <li id="task_{$task->id}" class="task_list">
-                <div style="padding: 5px 0px 5px; 5px; width: 100%; height: 30px; margin: 0px; 5px;" class="{if $task->searchAttribute('state') && $task->getAttribute('state')->value=='Выполнена'}ttovar_green{elseif $task->getIsOver()}ttovar_red{else}ttovar{/if}">
+                <div class="task_block">
 
-                    <div style="width: 500px; float:left; margin-left: 5px; vertical-align: middle;">
-                        <a href="#" onclick="task.openTask('{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->id])}', {$task->id});">{$task->title}</a>
+                    <div class="task_title">
+                        <img src="/i/{if !$task->hasParent()|| $task->getChild()}task_group.png{else}task.png{/if}"/>&nbsp;
+                        <a href="javascript:void(0)" onclick="
+                            {if !$task->hasParent()|| $task->getChild()}
+                                    task.openTask('{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->id])}', {$task->id});
+                                {else}
+                                {if_allowed resource="{$controller}/edit"}
+                                    {if_object_allowed type="{$controller|capitalize}" object="{$task}" priv="write"}
+                                            task.editDialog('{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $task->id])}', {if !$task->hasParent()}0{else}{$task->getFirstParent()->id}{/if}, '{if !$task->hasParent()}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => 0])}{else}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->getFirstParent()->id])}{/if}');
+                                    {/if_object_allowed}
+                                {/if_allowed}
+                                {if_allowed resource="{$controller}/view"}
+                                        task.viewTask('{$this->url(['controller' => $controller, 'action' => 'view', 'id' => $task->id])}', {$task->id});
+                                {/if_allowed}
+                            {/if}
+                                " class="{if $task->searchAttribute('state') && $task->getAttribute('state')->value=='Выполнена'}task_green{elseif $task->getIsOver()}task_red{else}task_gray{/if}">{$task->title}</a>
                     </div>
 
 
-                    <div style="width: 280px; float:right;">
+                    <div class="task_action">
 
                         <button>Действия</button>
-                        <ul id="task_action_{$task_id}">
+                        <ul id="task_action_{$task->id}" class="task_action_menu">
                             {if_allowed resource="{$controller}/showDiscussion"}
-                                <li><a href="{$this->url(['controller' => $controller,'action' => 'showDiscussion', 'idTask' => $task->id])}">обсуждение</a></li>
+                                <li class="action"><img src="/i/discussion_mini.png"/>&nbsp;<a href="{$this->url(['controller' => $controller,'action' => 'showDiscussion', 'idTask' => $task->id])}">обсуждение</a></li>
                             {/if_allowed}
 
                             {if_allowed resource="{$controller}/showAcl"}
-                                <li><a href="{$this->url(['controller' => $controller,'action' => 'showAcl', 'idTask' => $task->id])}">права</a></li>
+                                <li class="action"><img src="/i/comanda.png"/>&nbsp;<a href="{$this->url(['controller' => $controller,'action' => 'showAcl', 'idTask' => $task->id])}">права</a></li>
                             {/if_allowed}
 
 
                             {if_allowed resource="{$controller}/view"}
-                                <li><a href="{$this->url(['controller' => $controller,'action' => 'view', 'id' => $task->id])}">просмотреть</a></li>
+                                <li class="action"><img src="/i/task.png"/>&nbsp;<a href="javascript:void(0)" onclick="task.viewTask('{$this->url(['controller' => $controller, 'action' => 'view', 'id' => $task->id])}', {$task->id});">просмотреть</a></li>
+                            {/if_allowed}
+
+                            {if_allowed resource="{$controller}/add"}
+                                <li class="action"><img src="/i/add.png"/>&nbsp;<a href="javascript:void(0)" onclick="task.addDialog('{$this->url(['controller' => $controller, 'action' => 'add', 'parent' => {$task->id}])}', {$task->id}, '{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => {$task->id}])}');">добавить задачу</a></li>
                             {/if_allowed}
 
                             {if_allowed resource="{$controller}/edit"}
                                 {if_object_allowed type="{$controller|capitalize}" object="{$task}" priv="write"}
-                                    <li><a href="#" onclick="task.editDialog('{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $task->id])}', {if !$task->hasParent()}0{else}{$task->getFirstParent()->id}{/if}, '{if !$task->hasParent()}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => 0])}{else}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->getFirstParent()->id])}{/if}');">редактировать</a></li>
+                                    <li class="action"><img src="/i/edit.png"/>&nbsp;<a href="javascript:void(0)" onclick="task.editDialog('{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $task->id])}', {if !$task->hasParent()}0{else}{$task->getFirstParent()->id}{/if}, '{if !$task->hasParent()}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => 0])}{else}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->getFirstParent()->id])}{/if}');">редактировать</a></li>
                                 {/if_object_allowed}
                             {/if_allowed}
 
                             {if_allowed resource="{$controller}/delete"}
-                                <li><a href="#" onclick="task.deleteDialog('{$task->title}', '{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $task->id])}', {if !$task->hasParent()}0{else}{$task->getFirstParent()->id}{/if}, '{if !$task->hasParent()}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => 0])}{else}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->getFirstParent()->id])}{/if}');" style="color: #830000">удалить</a></li>
+                                <li class="action"><img src="/i/delete.png"/>&nbsp;<a href="javascript:void(0)" onclick="task.deleteDialog('{$task->title}', '{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $task->id])}', {if !$task->hasParent()}0{else}{$task->getFirstParent()->id}{/if}, '{if !$task->hasParent()}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => 0])}{else}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->getFirstParent()->id])}{/if}');" style="color: #830000">удалить</a></li>
                             {/if_allowed}
 
                         </ul>
 
-                        {*
-                        {if_allowed resource="{$controller}/showDiscussion"}
-                            <a href="{$this->url(['controller' => $controller,'action' => 'showDiscussion', 'idTask' => $task->id])}">обсуждение</a>
-                        {/if_allowed}
-
-                        {if_allowed resource="{$controller}/showAcl"}
-                            <a href="{$this->url(['controller' => $controller,'action' => 'showAcl', 'idTask' => $task->id])}">права</a>
-                        {/if_allowed}
-
-
-                        {if_allowed resource="{$controller}/view"}
-                            <a href="{$this->url(['controller' => $controller,'action' => 'view', 'id' => $task->id])}">просмотреть</a>
-                        {/if_allowed}
-
-                        {if_allowed resource="{$controller}/edit"}
-                            {if_object_allowed type="{$controller|capitalize}" object="{$task}" priv="write"}
-                                <a href="#" onclick="task.editDialog('{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $task->id])}', {if !$task->hasParent()}0{else}{$task->getFirstParent()->id}{/if}, '{if !$task->hasParent()}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => 0])}{else}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->getFirstParent()->id])}{/if}');">редактировать</a>
-                            {/if_object_allowed}
-                        {/if_allowed}
-
-                        {if_allowed resource="{$controller}/delete"}
-                            <a href="#" onclick="task.deleteDialog('{$task->title}', '{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $task->id])}', {if !$task->hasParent()}0{else}{$task->getFirstParent()->id}{/if}, '{if !$task->hasParent()}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => 0])}{else}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->getFirstParent()->id])}{/if}');" style="color: #830000">удалить</a>
-                        {/if_allowed}
-                        *}
-
                     </div>
 
-                    <div style="width: 120px; float:right;">
+                    <div class="task_deadline">
                         {if $task->searchAttribute('deadline')}
                             {$task->getAttribute('deadline')->value|date_format:"%d %B %Y"}
                             {else}&nbsp;
                         {/if}
                     </div>
 
+                    <div class="task_statistic">
+                        {if !$task->hasParent()|| $task->getChild()}
+                            {assign var="stat" value=$task->getTaskStatistic()}
+                            <img src="/i/is_complite.png" title="Выполненных" alt="Выполненных"/>&nbsp;{$stat.is_complite}
+                            <img src="/i/task.png" title="Не выполненных" alt="Не выполненных">&nbsp;{$stat.is_do}
+                            <img src="/i/is_out.png" title="Просроченных" alt="Просроченных"/>&nbsp;{$stat.is_out}
+                            <img src="/i/is_problem.png" title="Возникли вопросы" alt="Возникли вопросы"/>&nbsp;{$stat.is_problem}
+                            <img src="/i/discussion_mini.png" title="Кол-во комментариев" alt="Кол-во комментариев"/>&nbsp;{$stat.discuss_count}
+                            <img src="/i/in_doc.png" title="Кол-во документов" alt="Кол-во документов"/>&nbsp;{$stat.doc_count}
+                            {else}&nbsp;
+                        {/if}
+                    </div>
+
                 </div>
             </li>
-            <ul id="subtask_{$task->id}" style="display: none; margin-left: 20px;"></ul>
+            <ul id="subtask_{$task->id}" class="task_subtask"></ul>
         {/if_object_allowed}
     {/foreach}
 {/if}
@@ -154,64 +196,3 @@
 
 </table>
 *}
-
-{if_allowed resource="{$controller}/index" priv="show-attribute-hash"}
-<br/>
-<div class="page"><h1>Список аттрибутов для задач</h1></div><br/>
-
-<table width="100%">
-    <tr>
-        <td class="ttovar" align="center" colspan="6"><a href="{$this->url(['controller' => $controller,'action' => 'addAttributeHash'])}">добавить</a></td>
-    </tr>
-    <tr>
-        <td class="ttovar">Ключ</td>
-        <td class="ttovar">Название</td>
-        <td class="ttovar">Тип</td>
-        <td class="ttovar">Обязательное</td>
-        <td class="ttovar">Порядок сортировки</td>
-        <td class="ttovar"></td>
-    </tr>
-
-    {if $attributeHashList!==false}
-        {foreach from=$attributeHashList item=attributeHash}
-            <tr>
-                <td class="ttovar">{$attributeHash->attributeKey}</td>
-                <td class="ttovar">{$attributeHash->title}</td>
-                <td class="ttovar">{$attributeHash->type->title}</td>
-                <td class="ttovar">{if $attributeHash->isRequired}Да{else}Нет{/if}</td>
-                <td class="ttovar">{$attributeHash->sortOrder}</td>
-                <td class="tedit">
-                    <a href="{$this->url(['controller' => $controller,'action' => 'editAttributeHash', 'key' => $attributeHash->attributeKey])}">редактировать</a><br/>
-                    <a href="{$this->url(['controller' => $controller,'action' => 'deleteAttributeHash', 'key' => $attributeHash->attributeKey])}" onclick="return confirmDelete('{$attributeHash->title}');" style="color: #830000">удалить</a>
-                </td>
-            </tr>
-        {/foreach}
-    {/if}
-
-</table>
-{/if_allowed}
-
-{if_allowed resource="{$controller}/index" priv="show-attribute-type"}
-<br/>
-<div class="page"><h1>Типы аттрибутов</h1></div><br/>
-
-<table width="100%">
-    <tr>
-        <td class="ttovar" align="center" colspan="3"><a href="{$this->url(['controller' => $controller,'action' => 'addAttributeType'])}">добавить</a></td>
-    </tr>
-
-    {if $attributeTypeList!==false}
-        {foreach from=$attributeTypeList item=attributeType}
-            <tr>
-                <td class="ttovar">{$attributeType->title}</td>
-                <td class="ttovar">{$attributeType->handler}</td>
-                <td class="tedit">
-                    <a href="{$this->url(['controller' => $controller,'action' => 'editAttributeType', 'id' => $attributeType->id])}">редактировать</a><br/>
-                    <a href="{$this->url(['controller' => $controller,'action' => 'deleteAttributeType', 'id' => $attributeType->id])}" onclick="return confirmDelete('{$attributeType->title}');" style="color: #830000">удалить</a>
-                </td>
-            </tr>
-        {/foreach}
-    {/if}
-
-</table>
-{/if_allowed}

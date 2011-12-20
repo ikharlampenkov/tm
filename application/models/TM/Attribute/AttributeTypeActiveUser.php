@@ -13,6 +13,7 @@ class TM_Attribute_AttributeTypeActiveUser extends TM_Attribute_AttributeType
     {
         $storage_data = Zend_Auth::getInstance()->getStorage()->read();
         $user = array_key_exists('login', $storage_data) ? $storage_data->login : 'guest';
+        $oUser = TM_User_User::getInstanceByLogin($user);
 
 
         $html = '<input type="checkbox" name="data[attribute][' . $hash->attributeKey . ']" value="' . $user . ' "';
@@ -29,10 +30,22 @@ class TM_Attribute_AttributeTypeActiveUser extends TM_Attribute_AttributeType
                 if ($object->getAttribute($hash->attributeKey)->value != $user) {
                     $html .= ' disabled="disabled" ';
                 }
-                $html .= ' /> ' . $object->getAttribute($hash->attributeKey)->value;
+                $html .= ' /> ';
+                $oUserTemp = TM_User_User::getInstanceByLogin($object->getAttribute($hash->attributeKey)->value);
+                if ($oUserTemp->searchAttribute('name')) {
+                    $html .= $oUserTemp->getAttribute('name')->value;
+                } else {
+                    $html .= $oUserTemp->login;
+                }
             }
         } else {
-            $html .= ' /> ' . $user;
+            $html .= ' /> ';
+
+            if ($oUser->searchAttribute('name')) {
+                $html .= $oUser->getAttribute('name')->value;
+            } else {
+                $html .= $oUser->login;
+            }
         }
         echo $html;
     }

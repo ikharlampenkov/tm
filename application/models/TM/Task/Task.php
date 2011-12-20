@@ -230,6 +230,8 @@ class TM_Task_Task
             $this->_db->query($sql);
 
             $this->_id = $this->_db->getLastInsertId();
+
+            //$this->saveAttributeList();
             $this->saveParent();
             //$this->saveChild();
         } catch (Exception $e) {
@@ -735,9 +737,11 @@ class TM_Task_Task
         try {
             $taskAcl = TM_Acl_TaskAcl::getAllInstance($this);
             $userArray = array();
-            foreach ($taskAcl as $acl) {
-                if ($acl->getIsExecutant()) {
-                    $userArray[] = $acl->getUser();
+            if ($taskAcl) {
+                foreach ($taskAcl as $acl) {
+                    if ($acl->getIsExecutant()) {
+                        $userArray[] = $acl->getUser();
+                    }
                 }
             }
 
@@ -767,13 +771,16 @@ class TM_Task_Task
         $now = time();
         $deadline = time();
 
-        if ($this->searchAttribute('deadline')) {
-            $deadline = strtotime($this->getAttribute('deadline')->value);
+        if ($this->searchAttribute('state') && trim($this->getAttribute('state')->value) == 'Выполнена') {
+            $deadline = $now;
+        } else {
+            if ($this->searchAttribute('deadline')) {
+                $deadline = strtotime($this->getAttribute('deadline')->value);
+            }
         }
 
         $diff = $deadline - $now;
         return $diff;
-
     }
 
     public function getIsOver()
@@ -790,6 +797,74 @@ class TM_Task_Task
             return false;
         } else {
             return true;
+        }
+    }
+
+    public function getTaskStatistic()
+    {
+        $statArray = array('is_complite' => 0, 'is_do' => 0, 'is_out' => 0, 'is_problem' => 0, 'doc_count' => 0, 'discuss_count' => 0);
+        $this->getChild();
+
+        foreach ($this->_childTask as $child) {
+            if ($child->searchAttribute('state')) {
+                if (trim($child->getAttribute('state')->value) == 'Выполнена') {
+                    $statArray['is_complite'] += 1;
+                } elseif (trim($child->getAttribute('state')->value) == 'Возникли вопросы') {
+                    $statArray['is_problem'] += 1;
+                } elseif (trim($child->getAttribute('state')->value) == 'Не выполнена' && !$this->getIsOver()) {
+                    $statArray['is_do'] += 1;
+                } elseif (trim($child->getAttribute('state')->value) == 'Не выполнена' && $this->getIsOver()) {
+                    $statArray['is_out'] += 1;
+                }
+            } else {
+                $statArray['is_do'] += 1;
+            }
+        }
+
+        $doc_count = TM_Document_Document::getDocumentByTask($this->_user, $this);
+        if ($doc_count) {
+            $statArray['doc_count'] = count($doc_count);
+        }
+
+        $discuss_count = TM_Discussion_Discussion::getDiscussionByTask($this->_user, $this);
+        if ($discuss_count) {
+            $statArray['discuss_count'] = count($discuss_count);
+        }
+        return $statArray;
+    }
+
+    public function calcDeadLine()
+    {
+
+    }
+
+    public static function getTaskByExecutant(TM_User_User $user)
+    {
+        try {
+            $db = StdLib_DB::getInstance();
+
+            $sql = 'SELECT id, title, tm_task.user_id, date_create, type
+                    FROM tm_task LEFT JOIN (
+                        SELECT * FROM tm_task_attribute WHERE attribute_key="deadline"
+                    )t2 ON tm_task.id = t2.task_id LEFT JOIN (SELECT * FROM tm_task_attribute WHERE attribute_key="state") t3 ON tm_task.id = t3.task_id, tm_acl_task
+                    WHERE tm_task.id=tm_acl_task.task_id
+                      AND is_executant=1
+                      AND tm_acl_task.user_id=' . $user->id . '
+                      ORDER BY t3.attribute_value DESC, t2.attribute_value, title';
+            //echo $sql;
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+
+            if (isset($result[0])) {
+                $retArray = array();
+                foreach ($result as $res) {
+                    $retArray[] = TM_Task_Task::getInstanceByArray($user, $res);
+                }
+                return $retArray;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
         }
 
     }

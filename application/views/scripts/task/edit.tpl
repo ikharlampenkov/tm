@@ -38,7 +38,7 @@
         </tr>
         <tr>
             <td class="ttovar_title">Дата создания</td>
-            <td class="ttovar"><input name="data[date_create]" value="{$task->dateCreate|date_format:"%d.%m.%Y %H:%M:%S"}"/></td>
+            <td class="ttovar"><input name="data[date_create]" value="{$task->dateCreate|date_format:"%d.%m.%Y %H:%M:%S"}" class="datepicker"/></td>
         </tr>
 
     {if $attributeHashList!==false}
@@ -56,8 +56,12 @@
                 <td class="ttovar_title">Документ</td>
                 <td class="ttovar">
                     <a href="/files{$document->file->getSubPath()}/{$document->file->getName()}" target="_blank">{$document->title}</a>
-                    / <a href="{$this->url(['controller' => 'document','action' => 'edit', 'id' => $document->id])}">редактировать</a>
-                    / <a href="{$this->url(['controller' => $controller,'action' => 'deleteLinkToDoc', 'id' => $task->id, 'doc_id' => $document->id])}">удалить</a>
+                    {if_allowed resource="document/edit"}
+                        / <a href="{$this->url(['controller' => 'document','action' => 'edit', 'id' => $document->id])}">редактировать</a>
+                    {/if_allowed}
+                    {if_allowed resource="{$controller}/deleteLinkToDoc"}
+                        / <a href="{$this->url(['controller' => $controller,'action' => 'deleteLinkToDoc', 'id' => $task->id, 'doc_id' => $document->id])}">удалить</a>
+                    {/if_allowed}
                 </td>
             </tr>
         {/foreach}

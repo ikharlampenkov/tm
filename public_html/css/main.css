@@ -2,12 +2,10 @@ html, body {
     margin: 0px;
     padding: 0px;
     font: normal 14px/16px "Trebuchet MS", Tahoma;
-    background:#2a2a2a;
-    color:#454545;
-    width:100%;
+    background: #2a2a2a;
+    color: #454545;
+    width: 100%;
 }
-
-
 
 img {
     border: 0;
@@ -22,7 +20,6 @@ ul {
     padding: 0;
     margin: 0;
 }
-
 
 table {
     width: 100%;
@@ -79,14 +76,20 @@ textarea {
 }
 
 .page {
-    background-color: #f0f0f0;
+    background-color: #ffffff;
     padding: 5px;
+}
+
+.page_block {
+    float: right;
+    margin-top:-27px;
+    width: 300px;
 }
 
 .tedit {
     background-color: #ebf4ff;
     padding: 10px;
-    width: 100px;
+    width: 120px;
 }
 
 .tdel {
@@ -105,7 +108,12 @@ a.tedit {
 
 .ttovar {
     background-color: #f7f7f7;
+    color: #000000;
     padding: 10px;
+}
+
+a.ttovar {
+    color: #000000;
 }
 
 .ttovar_title {
@@ -116,17 +124,28 @@ a.tedit {
 
 .ttovarred {
     background-color: #ffdede;
+    color: #ffdede;
     padding: 10px;
 }
 
 .ttovar_green {
-    background-color: #ccffcc;
+    /* background-color: #ccffcc; */
+    color: #418600;
     padding: 10px;
 }
 
+a.ttovar_green {
+    color: #418600;
+}
+
 .ttovar_red {
-    background-color: #ffcccc;
+    /*  background-color: #ffcccc; */
+    color: #c13e2e;
     padding: 10px;
+}
+
+a.ttovar_red {
+    color: #c13e2e;
 }
 
 .ttovar_title_requared {
@@ -137,7 +156,7 @@ a.tedit {
 }
 
 a {
-    color: #1465c0
+    color: #000000;
 }
 
 .head {
@@ -157,11 +176,11 @@ a {
 }
 
 .login {
-    width: 200px;
+    width: 300px;
     height: 150px;
     position: absolute;
     top: 30px;
-    left: 73%;
+    left: 70%;
     background: url('/i/login.gif') no-repeat;
     padding-top: 5px;
     padding-left: 20px;
@@ -196,10 +215,130 @@ a {
     padding-top: 5px;
 }
 
-.content {width:100%; background-color: #ffffff;; margin:0 3% 0 0; min-height: 800px; }
-
-
+.content {
+    width: 100%;
+    background-color: #ffffff;;
+    margin: 0 3% 0 0;
+    min-height: 800px;
+}
 
 li.task_list {
     list-style: none;
 }
+
+.ui-menu {
+    width: 200px;
+    position: absolute;
+    z-index: 5000;
+}
+
+.ui-popup {
+    position: absolute;
+    z-index: 5000;
+}
+
+.task_action_menu {
+    display: none;
+    width: 130px;
+    border: 1px solid gray;
+    padding: 5px;
+    background: lightgray;
+    outline: none;
+}
+
+.action {
+    padding: 2px;
+}
+
+.file_info {
+    width: 250px;
+    border: 1px solid gray;
+    padding: 2px;
+    background: lightgray;
+    font-size: 12px;
+    outline: none;
+    position: absolute;
+    z-index: 5000;
+    display: none;
+}
+
+.index_block {
+    width: 100%;
+    min-height: 250px;
+}
+
+.index_block_title {
+    height: 30px;
+    text-align: left;
+    vertical-align: middle;
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+}
+
+.index_block_content {
+    margin: 5px;
+}
+
+
+/** Task **/
+
+a.task_green {
+    color: #418600;
+}
+
+a.task_red {
+    color: #c13e2e;
+}
+
+a.task_grey {
+    color: #000000;
+}
+
+.task_block {
+    padding: 5px 0 5px 5px;
+    width: 100%;
+    height: 30px;
+    margin: 0 5px;
+    border-bottom: 1px dashed #373737;
+    background-color: #f7f7f7;
+    color: #000000;
+}
+
+.task_block_title {
+    padding: 5px 0 5px 5px;
+    width: 100%;
+    height: 20px;
+    margin: 0 5px;
+    border-bottom: 1px dashed #373737;
+    background-color: #f7f7f7;
+    color: #000000;
+}
+
+.task_title {
+    float:left;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.task_action {
+    width: 120px;
+    float:right;
+}
+
+.task_statistic {
+    width: 200px;
+    float: right;
+}
+
+.task_deadline {
+    width: 120px;
+    float:right;
+}
+
+.task_subtask {
+    display: none;
+    margin-left: 20px;
+}
+
+

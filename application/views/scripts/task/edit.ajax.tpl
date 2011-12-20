@@ -8,6 +8,7 @@
 <br/>
 {/if}
 
+<form action="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $task->id])}" method="post" enctype="multipart/form-data" id="editForm">
 <table width="100%">
     <tr>
         <td class="ttovar_title">Тип задачи</td>
@@ -41,7 +42,7 @@
     </tr>
     <tr>
         <td class="ttovar_title">Дата создания</td>
-        <td class="ttovar"><input name="data[date_create]" value="{$task->dateCreate|date_format:"%d.%m.%Y %H:%M:%S"}" class="input_ajax"/></td>
+        <td class="ttovar"><input name="data[date_create]" value="{$task->dateCreate|date_format:"%d.%m.%Y %H:%M:%S"}" class="datepicker input_ajax"/></td>
     </tr>
 
 {if $attributeHashList!==false}
@@ -74,3 +75,4 @@
     </tr>
 
 </table>
+    </form>

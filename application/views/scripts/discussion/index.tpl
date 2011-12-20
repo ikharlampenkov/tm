@@ -16,11 +16,11 @@
     <tr>
         <td class="ttovar" align="center" colspan="4">
             {if_allowed resource="{$controller}/addTopic"}
-            <a href="{$this->url(['controller' => $controller,'action' => 'addTopic'])}">добавить тему</a> /
+            <img src="/i/add.png"/>&nbsp;<a href="{$this->url(['controller' => $controller,'action' => 'addTopic'])}">добавить тему</a> /
             {/if_allowed}
             {if_allowed resource="{$controller}/add"}
             {if isset($parentId) && $parentId>0}
-            <a href="{$this->url(['controller' => $controller,'action' => 'add'])}">добавить комментарий</a>
+            <img src="/i/add.png"/>&nbsp;<a href="{$this->url(['controller' => $controller,'action' => 'add'])}">добавить комментарий</a>
             {/if}
             {/if_allowed}
         </td>
@@ -32,30 +32,34 @@
         <tr>
             <td class="ttovar">
                 {if $discussion->isTopic()}
+                    <img src="/i/discussion_mini.png"/>&nbsp;
                     <a href="{$this->url(['controller' => $controller,'action' => 'index', 'parent' => $discussion->id])}">{$discussion->message}</a>
                 {else}
+                    <img src="/i/comment.png"/>&nbsp;
                     {$discussion->message}
                 {/if}</td>
             <td class="ttovar">{$discussion->datecreate|date_format:"%d %B %Y"}</td>
             <td class="tedit">
+                {if !$discussion->isMessage}
                 {if_allowed resource="{$controller}/showAcl"}
-                 <a href="{$this->url(['controller' => $controller,'action' => 'showAcl', 'idDiscussion' => $discussion->id])}">права</a>
+                    <img src="/i/comanda.png"/>&nbsp;<a href="{$this->url(['controller' => $controller,'action' => 'showAcl', 'idDiscussion' => $discussion->id])}">права</a>
                 {/if_allowed}
+                {/if}
             </td>
             <td class="tedit">
                 {if $discussion->isTopic()}
                     {if_allowed resource="{$controller}/editTopic"}
-                    <a href="{$this->url(['controller' => $controller,'action' => 'editTopic', 'id' => $discussion->id])}">редактировать</a><br/>
+                        <img src="/i/edit.png"/>&nbsp;<a href="{$this->url(['controller' => $controller,'action' => 'editTopic', 'id' => $discussion->id])}">редактировать</a><br/>
                     {/if_allowed}
                     {if_allowed resource="{$controller}/deleteTopic"}
-                    <a href="{$this->url(['controller' => $controller,'action' => 'deleteTopic', 'id' => $discussion->id])}" onclick="return confirmDelete('{$discussion->message}');" style="color: #830000">удалить</a>
+                        <img src="/i/delete.png"/>&nbsp;<a href="{$this->url(['controller' => $controller,'action' => 'deleteTopic', 'id' => $discussion->id])}" onclick="return confirmDelete('{$discussion->message}');" style="color: #830000">удалить</a>
                     {/if_allowed}
                 {else}
                     {if_allowed resource="{$controller}/edit"}
-                    <a href="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $discussion->id])}">редактировать</a><br/>
+                        <img src="/i/edit.png"/>&nbsp;<a href="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $discussion->id])}">редактировать</a><br/>
                     {/if_allowed}
                     {if_allowed resource="{$controller}/delete"}
-                    <a href="{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $discussion->id])}" onclick="return confirmDelete('{$discussion->message}');" style="color: #830000">удалить</a>
+                        <img src="/i/delete.png"/>&nbsp;<a href="{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $discussion->id])}" onclick="return confirmDelete('{$discussion->message}');" style="color: #830000">удалить</a>
                     {/if_allowed}
                 {/if}
             </td>

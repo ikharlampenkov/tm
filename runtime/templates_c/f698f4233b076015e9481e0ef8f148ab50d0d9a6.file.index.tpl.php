@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-09 19:12:55
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-16 18:51:23
          compiled from "F:\www\tm\application/views/scripts\login/index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:121444ed0b12e619f12-61489000%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:81494eeb30bb54df69-79528830%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'f698f4233b076015e9481e0ef8f148ab50d0d9a6' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\login/index.tpl',
-      1 => 1321550100,
+      1 => 1324035388,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '121444ed0b12e619f12-61489000',
+  'nocache_hash' => '81494eeb30bb54df69-79528830',
   'function' => 
   array (
   ),
@@ -44,11 +44,11 @@ $_smarty_tpl->decodeProperties(array (
                     <td valign="middle" align="center">
                         <form method="post" action="/login/" style="margin:0px; padding:0px;">
 
-                            <table cellpadding="10" cellspacing="0" border="0" style="background-color: #69aefc; width: 300px; height: 100px;">
+                            <table cellpadding="10" cellspacing="0" border="0" style="background-color: #373737; width: 300px; height: 100px;">
 
                                 <tr>
-                                    <td></td>
-                                    <td style="font-size:26px; color: white;padding-left: 25px;"></td>
+                                    <td colspan="2" style="font-size:30px; color: #ffffff; padding-left: 25px; text-align: center;"><?php echo $_smarty_tpl->getVariable('title')->value;?>
+</td>
                                 </tr>
                                 <tr>
                                     <td style="color:white">Логин: </td>

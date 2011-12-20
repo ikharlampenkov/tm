@@ -119,14 +119,28 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             $auth->getStorage()->write($storage_data);
 
             $view = $this->getResource('View');
-            $view->assign('authUser', 'guest');
+            $view->assign('authUser', 'Гость');
+            $view->assign('authUserId', 0);
         } else {
-           $view = $this->getResource('View');
-           $view->assign('authUser', $data->login);
+            $view = $this->getResource('View');
+
+            if ($data->id != 0) {
+                $oUser = TM_User_User::getInstanceById($data->id);
+                if ($oUser->searchAttribute('name')) {
+                    $view->assign('authUser', $oUser->getAttribute('name')->value);
+                } else {
+                    $view->assign('authUser', $data->login);
+                }
+            } else {
+                $view->assign('authUser', $data->login);
+            }
+
+            $view->assign('authUserId', $data->id);
         }
     }
 
-    protected function _initAcl()
+    protected
+    function _initAcl()
     {
         Zend_Loader::loadClass('TM_Acl_Acl');
         Zend_Loader::loadClass('CheckAccess');
@@ -139,7 +153,8 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         return new TM_Acl_Acl();
     }
 
-    protected function _initViewParam()
+    protected
+    function _initViewParam()
     {
         Zend_Loader::loadClass('SetViewParam');
         Zend_Controller_Front::getInstance()->registerPlugin(new SetViewParam());

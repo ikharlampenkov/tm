@@ -13,11 +13,22 @@ class UserController extends Zend_Controller_Action
     {
         $this->view->assign('userRoleList', TM_User_Role::getAllInstance());
         $this->view->assign('userList', TM_User_User::getAllInstance());
-        $this->view->assign('userResourceList', TM_User_Resource::getAllInstance());
+    }
 
+    public function viewattributetypeAction()
+    {
         $this->view->assign('attributeTypeList', TM_Attribute_AttributeType::getAllInstance(new TM_User_AttributeTypeMapper()));
+    }
+
+    public function viewhashAction()
+    {
         $this->view->assign('attributeHashList', TM_User_Hash::getAllInstance());
     }
+
+    public function viewresourceAction()
+        {
+            $this->view->assign('userResourceList', TM_User_Resource::getAllInstance());
+        }
 
     public function addAction()
     {
@@ -125,7 +136,7 @@ class UserController extends Zend_Controller_Action
             $data = $this->getRequest()->getParam('data');
 
             try {
-                foreach($data as $idResource => $values) {
+                foreach ($data as $idResource => $values) {
                     $roleAcl = new TM_User_RoleAcl($oRole);
                     $roleAcl->setResource(TM_User_Resource::getInstanceById($idResource));
                     $roleAcl->setIsAllow($values['is_allow']);
@@ -155,13 +166,13 @@ class UserController extends Zend_Controller_Action
 
             try {
                 $oResource->insertToDb();
-                $this->_redirect('/user');
+                $this->_redirect('/user/viewResource');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
 
         }
-        
+
         $this->view->assign('resource', $oResource);
     }
 
@@ -176,7 +187,7 @@ class UserController extends Zend_Controller_Action
 
             try {
                 $oResource->updateToDb();
-                $this->_redirect('/user');
+                $this->_redirect('/user/viewResource');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -190,13 +201,13 @@ class UserController extends Zend_Controller_Action
         $oResource = TM_User_Resource::getInstanceById($this->getRequest()->getParam('id'));
         try {
             $oResource->deleteFromDB();
-            $this->_redirect('/user');
+            $this->_redirect('/user/viewResource');
         } catch (Exception $e) {
             $this->view->assign('exception_msg', $e->getMessage());
         }
     }
 
-     public function addattributetypeAction()
+    public function addattributetypeAction()
     {
         $oType = new TM_Attribute_AttributeType(new TM_User_AttributeTypeMapper());
 
@@ -209,7 +220,7 @@ class UserController extends Zend_Controller_Action
 
             try {
                 $oType->insertToDb();
-                $this->_redirect('/user/');
+                $this->_redirect('/user/viewAttributeType');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -232,7 +243,7 @@ class UserController extends Zend_Controller_Action
 
             try {
                 $oType->updateToDb();
-                $this->_redirect('/user/');
+                $this->_redirect('/user/viewAttributeType');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -247,7 +258,7 @@ class UserController extends Zend_Controller_Action
         $oType = TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_User_AttributeTypeMapper(), $this->getRequest()->getParam('id'));
         try {
             $oType->deleteFromDB();
-            $this->_redirect('/user/');
+            $this->_redirect('/user/viewAttributeType');
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -267,7 +278,7 @@ class UserController extends Zend_Controller_Action
 
             try {
                 $oHash->insertToDb();
-                $this->_redirect('/user/');
+                $this->_redirect('/user/viewHash');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -291,7 +302,7 @@ class UserController extends Zend_Controller_Action
 
             try {
                 $oHash->updateToDb();
-                $this->_redirect('/user/');
+                $this->_redirect('/user/viewHash');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -307,7 +318,7 @@ class UserController extends Zend_Controller_Action
         $oHash = TM_User_Hash::getInstanceById($this->getRequest()->getParam('key'));
         try {
             $oHash->deleteFromDB();
-            $this->_redirect('/user/');
+            $this->_redirect('/user/viewHash');
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -316,14 +327,14 @@ class UserController extends Zend_Controller_Action
     public function fillresourceAction()
     {
         $acl = new TM_Acl_Acl();
-        foreach($acl->getResources() as $resource) {
+        foreach ($acl->getResources() as $resource) {
             print_r($resource);
             $res = new TM_User_Resource();
             $res->setTitle($resource);
             try {
                 $res->insertToDB();
 
-            } catch(Exception $e) {
+            } catch (Exception $e) {
                 echo $e->getMessage();
             }
         }
