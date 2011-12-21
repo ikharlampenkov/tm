@@ -4,18 +4,18 @@
 
     {assign var="openul" value=false}
 
-<ul id="comment-list" style="padding: 0; margin: 0;">
+<ul id="comment-list">
     {foreach from=$discussionList item=discussion}
         {if is_null($discussion->toUser) || $discussion->toUser->id==$authUserId || $discussion->user->id==$authUserId}
         {if !$discussion->hasParent() && $openul}</ul>{assign var="openul" value=false}{/if}
         {if $discussion->hasParent() && !$openul}
-        <ul style="margin-left: 20px; padding: 0px;">{assign var="openul" value=true}{/if}
-        <li style="list-style: none; padding: 5px; background-color: #f7f7f7;">
-            <div style="padding: 5px;">
-                <div style="font-size: 12px; line-height: 16px;" id="message_{$discussion->id}">{$discussion->message}</div>
+        <ul class="discussion_submessage">{assign var="openul" value=true}{/if}
+        <li class="discussion_list">
+            <div class="discussion_block">
+                <div id="message_{$discussion->id}" class="{if $discussion->isRequest && !$discussion->isComplete}discussion_message_request{else}discussion_message{/if}">{$discussion->message}</div>
                 {if count($discussion->document) > 0}
-                    <div style="">
-                        <ul style="padding: 0; margin: 0;">
+                    <div>
+                        <ul>
                             {foreach from=$discussion->document item=document}
                                 <li style="list-style: none; padding: 0px; background-color: #f7f7f7;">
                                     <a href="/files{$document->file->getSubPath()}/{$document->file->getName()}" target="_blank" style="font-size: 11px;" id="doc_info_{$document->id}" onmouseover="doc.showInfo('{$this->url(['controller' => 'document','action' => 'view', 'id' => $document->id])}', {$document->id});">{$document->title}</a>
@@ -32,9 +32,10 @@
                         </ul>
                     </div>
                 {/if}
-                <div style="color: #555555; font-size: 11px; line-height: 15px; margin: 5px 0px 0px 0px;">
+                <div class="discussion_info">
                     {if $discussion->user->searchAttribute('name')}{$discussion->user->getAttribute('name')->value}{else}{$discussion->user->login}{/if} {$discussion->datecreate|date_format:"%d.%m.%Y"}
-                    <button style="font-size: 11px; height: 18px; margin: 1px; padding: 1px;" onclick="comment_reply_on({$discussion->id})">Ответить</button>
+                    <button onclick="comment_reply_on({$discussion->id})">Ответить</button>
+                    {if $discussion->isRequest}{if $discussion->isComplete}<img src="/i/is_complite.png" title="Выполнена" alt="Выполнена" border="0"/>{elseif $discussion->user->id==$authUserId}<button onclick="comment_complete_rq('{$this->url(['controller' => $controller,'action' => 'showDiscussion', 'idTask' => $task->id, 'is_complete' => $discussion->id])}');">Завершить</button>{/if}{/if}
                 </div>
             </div>
         </li>
@@ -70,7 +71,7 @@
 <div id="add_form">
     <form action="{$this->url(['controller' => $controller,'action' => 'showDiscussion', 'idTask' => $task->id])}" method="post" enctype="multipart/form-data">
         <div>
-            <div style="font-size: 14px; font-weight: bold; padding: 0px 0px 5px 0px; margin: 0px 0px 5px 0px;">Добавить комментарий</div>
+            <div style="font-size: 14px; font-weight: bold; padding: 0px 0px 5px 0px; margin: 0px 0px 5px 0px;">Добавить комментарий <span style="font-weight: normal; vertical-align: top;"><input type="checkbox" name="data[is_request]" style="width: 14px;" /> заявка</span></div>
             <textarea name="data[message]"></textarea><br/>
 
             <div style="font-size: 14px; font-weight: bold; padding: 0px 0px 5px 0px; margin: 0px 0px 5px 0px;">Лично для</div>
