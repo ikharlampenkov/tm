@@ -5,9 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a46b928-ce36-4d2c-8e4a-e9e052a0178c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/i/submenu.png" afterPath="$PROJECT_DIR$/public_html/i/submenu.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/i/discussion_big.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/i/doc_big.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/i/report_big.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/i/task_big.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/i/user_big.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/TM/Attribute/AttributeTypeActiveUserList.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Administrator.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Administrator.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/f698f4233b076015e9481e0ef8f148ab50d0d9a6.file.index.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/f698f4233b076015e9481e0ef8f148ab50d0d9a6.file.index.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/ReportsController.php" afterPath="$PROJECT_DIR$/application/controllers/ReportsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/TaskController.php" afterPath="$PROJECT_DIR$/application/controllers/TaskController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/layouts/scripts/layout.tpl" afterPath="$PROJECT_DIR$/application/layouts/scripts/layout.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Task/Task.php" afterPath="$PROJECT_DIR$/application/models/TM/Task/Task.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/index/index.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/index/index.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/index/show-task-block.ajax.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/index/show-task-block.ajax.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/reports/generate-report.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/reports/generate-report.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/reports/show-task-block.ajax.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/reports/show-task-block.ajax.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/task/index.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/task/index.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/task/show-acl.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/task/show-acl.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/task/show-task-block.ajax.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/task/show-task-block.ajax.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/user/add.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/user/add.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/user/edit.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/user/edit.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/StdLib/Functions.php" afterPath="$PROJECT_DIR$/library/StdLib/Functions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/css/main.css" afterPath="$PROJECT_DIR$/public_html/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/css/menu.css" afterPath="$PROJECT_DIR$/public_html/css/menu.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/func.js" afterPath="$PROJECT_DIR$/public_html/js/func.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/38e2babbb36ab1749b3ba5045f108a0079762741.file.show-task-block.ajax.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/38e2babbb36ab1749b3ba5045f108a0079762741.file.show-task-block.ajax.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/65e6baf5677e3fcedcdb42ef2afa3981730d9341.file.show-task-block.ajax.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/65e6baf5677e3fcedcdb42ef2afa3981730d9341.file.show-task-block.ajax.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/a25500e79cea030075e390e1f8ff3a74600c16de.file.layout.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/a25500e79cea030075e390e1f8ff3a74600c16de.file.layout.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/b2aac6fcce9bb0e3eeaf67af4b08b5d77457fb5f.file.index.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/b2aac6fcce9bb0e3eeaf67af4b08b5d77457fb5f.file.index.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/beb79dd40dcd398ad1e9c74e1cde3178471f73b3.file.index.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/beb79dd40dcd398ad1e9c74e1cde3178471f73b3.file.index.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/f714e114ca7880cfd77078a29c32d0bfeac23cb7.file.generate-report.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/f714e114ca7880cfd77078a29c32d0bfeac23cb7.file.generate-report.tpl.php" />
     </list>
     <ignored path="tm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,22 +98,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/application/views/scripts/document/view-attribute-type.tpl" />
-        <option value="$PROJECT_DIR$/application/views/scripts/document/view-hash.tpl" />
-        <option value="$PROJECT_DIR$/application/views/scripts/user/view-attribute-type.tpl" />
-        <option value="$PROJECT_DIR$/application/views/scripts/user/view-hash.tpl" />
         <option value="$PROJECT_DIR$/application/views/scripts/user/view-resource.tpl" />
         <option value="$PROJECT_DIR$/application/views/scripts/document/index.tpl" />
         <option value="$PROJECT_DIR$/application/views/scripts/discussion/index.tpl" />
         <option value="$PROJECT_DIR$/application/views/scripts/user/index.tpl" />
         <option value="$PROJECT_DIR$/application/views/scripts/task/add.ajax.tpl" />
-        <option value="$PROJECT_DIR$/public_html/js/func.js" />
         <option value="$PROJECT_DIR$/application/models/TM/Task/Task.php" />
         <option value="$PROJECT_DIR$/application/models/TM/Attribute/Attribute.php" />
         <option value="$PROJECT_DIR$/application/controllers/TaskController.php" />
         <option value="$PROJECT_DIR$/library/StdLib/Functions.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/task/edit.tpl" />
         <option value="$PROJECT_DIR$/application/views/scripts/task/add.tpl" />
+        <option value="$PROJECT_DIR$/application/controllers/ReportsController.php" />
+        <option value="$PROJECT_DIR$/application/views/scripts/reports/show-task-block.ajax.tpl" />
+        <option value="$PROJECT_DIR$/application/views/scripts/reports/generate-report.tpl" />
+        <option value="$PROJECT_DIR$/public_html/js/func.js" />
+        <option value="$PROJECT_DIR$/application/views/scripts/index/index.tpl" />
       </list>
     </option>
   </component>
@@ -152,6 +181,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -742,19 +772,18 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="reference.settings.deploy.options" />
+    <property name="recentsLimit" value="5" />
     <property name="DefaultHtmlFileTemplate" value="Xhtml" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PublishConfig" serverName="watson.timeweb.ru" serverId="60c178d7-55bc-4b3a-a403-0ae1cb4e2bd1">
     <servers>
@@ -858,13 +887,6 @@
       </JSRemoteDebuggerConfigurationSettings>
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
-      <JSDebuggerConfigurationSettings>
-        <option name="engineId" value="firefox" />
-        <option name="fileUrl" />
-      </JSDebuggerConfigurationSettings>
-      <method />
-    </configuration>
     <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="60c178d7-55bc-4b3a-a403-0ae1cb4e2bd1" server_name="watson.timeweb.ru">
       <method>
         <option name="FtpUpload" enabled="false">
@@ -873,6 +895,13 @@
         </option>
         <option name="PhingTarget" enabled="false" />
       </method>
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="firefox" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
     </configuration>
     <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
       <option name="VM_PARAMETERS" value="" />
@@ -961,11 +990,11 @@
     <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32958803" sideWeight="0.6701621" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3256705" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3256705" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854405" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21623065" sideWeight="0.32507148" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.40865386" sideWeight="0.6743295" order="0" side_tool="false" content_ui="tabs" x="20" y="68" width="485" height="1049" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4139957" sideWeight="0.6743295" order="0" side_tool="false" content_ui="tabs" x="20" y="68" width="485" height="1049" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3256705" sideWeight="0.5032467" order="7" side_tool="true" content_ui="tabs" />
@@ -1074,36 +1103,6 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/user/view-resource.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="48" selection-start="846" selection-end="846" vertical-scroll-proportion="-11.769231" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/discussion/index.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="40" selection-start="1656" selection-end="1656" vertical-scroll-proportion="0.64183676" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/document/index.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="61" selection-start="2446" selection-end="2446" vertical-scroll-proportion="1.0234693" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/task/index.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="84" selection-start="5303" selection-end="5336" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/user/index.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="63" selection-start="2456" selection-end="2456" vertical-scroll-proportion="0.7744898" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/TM/Task/Hash.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="357" column="27" selection-start="7858" selection-end="7858" vertical-scroll-proportion="0.09911243" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/TM/Attribute/Attribute.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="178" column="33" selection-start="3146" selection-end="3146" vertical-scroll-proportion="0.55177516" />
@@ -1129,11 +1128,6 @@
         <state line="23" column="0" selection-start="1206" selection-end="1206" vertical-scroll-proportion="0.5897436" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/js/func.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="27" selection-start="733" selection-end="733" vertical-scroll-proportion="0.5532544" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public_html/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="0" selection-start="553" selection-end="553" vertical-scroll-proportion="0.45266274" />
@@ -1144,14 +1138,65 @@
         <state line="221" column="21" selection-start="3745" selection-end="3745" vertical-scroll-proportion="0.3514329" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/TaskController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="17" selection-start="2599" selection-end="2599" vertical-scroll-proportion="0.30769232" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/task/add.ajax.tpl">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="0" selection-start="350" selection-end="350" vertical-scroll-proportion="0.26687598" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/TaskController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="9" selection-start="1318" selection-end="1559" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/ReportsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="101" selection-start="1092" selection-end="1092" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/index/show-task-block.ajax.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/task/index.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="155" column="341" selection-start="11297" selection-end="12581" vertical-scroll-proportion="-64.07692">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/reports/show-task-block.ajax.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="98" column="66" selection-start="6087" selection-end="6087" vertical-scroll-proportion="-25.923077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/func.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="267" column="44" selection-start="9105" selection-end="9105" vertical-scroll-proportion="0.8164868">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/reports/generate-report.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="58" column="61" selection-start="2085" selection-end="2085" vertical-scroll-proportion="30.961538">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/index/index.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="272" column="141" selection-start="17391" selection-end="17391" vertical-scroll-proportion="0.55510205">
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

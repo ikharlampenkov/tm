@@ -47,44 +47,44 @@
 <ul class="menu_up">
 {if_allowed resource="index/index"}
     <li>
-        <a href="/" >Начальная</a></td>
+        <img src="/i/house.png" alt="Начальная" style="float: left;"/>&nbsp;<a href="/">Начальная</a></td>
         <span>&nbsp;</span>
     </li>
 {/if_allowed}
 {if_allowed resource="task/index"}
     <li>
-        <a href="/task/" >Проекты</a></td>
+        <img src="/i/task_big.png" alt="Проекты" style="float: left;"/>&nbsp;<a href="/task/">Проекты</a></td>
         <span>&nbsp;</span>
     </li>
 {/if_allowed}
 {if_allowed resource="document/index"}
     <li>
-        <a href="/document/">Документы</a>
+        <img src="/i/doc_big.png" alt="Документы" style="float: left;"/>&nbsp;<a href="/document/">Документы</a>
         <span>&nbsp;</span>
-        {*
-        <ul class="list" id="prgms">
-            <li><a href="/program-for-iphone/">Программы для iPhone</a></li>
-        </ul>
-*}
+    {*
+            <ul class="list" id="prgms">
+                <li><a href="/program-for-iphone/">Программы для iPhone</a></li>
+            </ul>
+    *}
     </li>
 {/if_allowed}
 {if_allowed resource="reports/index"}
     <li>
-        <a href="/reports/">Аналитика</a>
+        <img src="/i/report_big.png" alt="Аналитика" style="float: left;"/>&nbsp;<a href="/reports/">Аналитика</a>
         <span>&nbsp;</span>
     </li>
 {/if_allowed}
 {if_allowed resource="discussion/index"}
     <li>
-        <a href="/discussion/">Обсуждение</a>
+        <img src="/i/discussion_big.png" alt="Обсуждение" style="float: left;"/>&nbsp;<a href="/discussion/">Обсуждение</a>
         <span>&nbsp;</span>
     </li>
 {/if_allowed}
 {if_allowed resource="user/index"}
     <li>
-           <a href="/user/">Пользователи</a>
-           <span>&nbsp;</span>
-       </li>
+        <img src="/i/user_big.png" alt="Пользователи" style="float: left;"/>&nbsp;<a href="/user/">Пользователи</a>
+        <span>&nbsp;</span>
+    </li>
 {/if_allowed}
 </ul>
 

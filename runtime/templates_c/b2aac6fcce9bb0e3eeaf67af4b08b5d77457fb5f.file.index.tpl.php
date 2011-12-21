@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-14 00:08:03
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-21 21:43:39
          compiled from "F:\www\tm\application/views/scripts\index/index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:305084ee78673d0d691-28126090%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:118764ef1f09ba42be9-02405293%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'b2aac6fcce9bb0e3eeaf67af4b08b5d77457fb5f' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\index/index.tpl',
-      1 => 1323796080,
+      1 => 1324478616,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '305084ee78673d0d691-28126090',
+  'nocache_hash' => '118764ef1f09ba42be9-02405293',
   'function' => 
   array (
   ),
@@ -45,9 +45,9 @@ if ($_smarty_tpl->_count($_from) > 0){
 
                                 <li id="task_task_<?php echo $_smarty_tpl->getVariable('task')->value->id;?>
 " class="task_list">
-                                    <div style="padding: 5px 0px 5px; 5px; width: 100%; height: 30px; margin: 0px; 5px;" class="<?php if ($_smarty_tpl->getVariable('task')->value->searchAttribute('state')&&$_smarty_tpl->getVariable('task')->value->getAttribute('state')->value=='Выполнена'){?>ttovar_green<?php }elseif($_smarty_tpl->getVariable('task')->value->getIsOver()){?>ttovar_red<?php }else{ ?>ttovar<?php }?>">
+                                    <div class="task_block">
 
-                                        <div style="width: 500px; float:left; margin-left: 5px; vertical-align: middle;">
+                                        <div class="task_title">
                                             <img src="/i/<?php if (!$_smarty_tpl->getVariable('task')->value->hasParent()||$_smarty_tpl->getVariable('task')->value->getChild()){?>task_group.png<?php }else{ ?>task.png<?php }?>"/>&nbsp;
                                             <a href="javascript:void(0)" onclick="
                                                 <?php if (!$_smarty_tpl->getVariable('task')->value->hasParent()||$_smarty_tpl->getVariable('task')->value->getChild()){?>
@@ -76,11 +76,11 @@ if ($_smarty_tpl->_count($_from) > 0){
 
                                                 <?php }?>
 
-                                                    "><?php echo $_smarty_tpl->getVariable('task')->value->title;?>
+                                                    " class="<?php if ($_smarty_tpl->getVariable('task')->value->searchAttribute('state')&&$_smarty_tpl->getVariable('task')->value->getAttribute('state')->value=='Выполнена'){?>task_green<?php }elseif($_smarty_tpl->getVariable('task')->value->getIsOver()){?>task_red<?php }else{ ?>task_gray<?php }?>"><?php echo $_smarty_tpl->getVariable('task')->value->title;?>
 </a>
                                         </div>
 
-                                        <div style="width: 120px; float:right;">
+                                        <div class="task_deadline">
                                             <?php if ($_smarty_tpl->getVariable('task')->value->searchAttribute('deadline')){?>
                                                 <?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('task')->value->getAttribute('deadline')->value,"%d %B %Y");?>
 
@@ -91,7 +91,7 @@ if ($_smarty_tpl->_count($_from) > 0){
                                     </div>
                                 </li>
                                 <ul id="task_subtask_<?php echo $_smarty_tpl->getVariable('task')->value->id;?>
-" style="display: none; margin-left: 20px;"></ul>
+" class="task_subtask"></ul>
                             <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_object_allowed(array('type'=>"Task",'object'=>($_smarty_tpl->tpl_vars['task']->value),'priv'=>"executant"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
                         <?php }} ?>
@@ -214,8 +214,8 @@ if ($_smarty_tpl->_count($_from) > 0){
 
                 <ul>
                     <li class="task_list">
-                        <div style="padding: 5px 0px 5px; 5px; width: 100%; height: 30px; margin: 0px; 5px;" class="ttovar">
-                            <div style="width: 500px; float:left; margin-left: 5px; vertical-align: middle;">
+                        <div class="task_block_title">
+                            <div class="task_title">
                                 Задача
                             </div>
 
@@ -231,19 +231,19 @@ if ($_smarty_tpl->_count($_from) > 0){
                             <div style="width: 120px; float: right;">
                                 Исполнитель
                             </div>
-                            <div style="width: 120px; float: right;">
+                            <div style="width: 75px; float: right;">
                                 Осталось
                             </div>
-                            <div style="width: 120px; float: right;">
+                            <div style="width: 75px; float: right;">
                                 Затрачено
                             </div>
-                            <div style="width: 120px; float: right;">
+                            <div class="task_deadline">
                                 Выполнить до
                             </div>
                             <div style="width: 120px; float: right;">
                                 Дата добавления
                             </div>
-                            <div style="width: 200px; float: right;">
+                            <div class="task_statistic">
                                 &nbsp;
                             </div>
 
@@ -260,9 +260,9 @@ if ($_smarty_tpl->_count($_from) > 0){
 ?>
                             <li id="task_<?php echo $_smarty_tpl->getVariable('task')->value->id;?>
 " class="task_list">
-                                <div style="padding: 5px 0px 5px; 5px; width: 100%; height: 45px; margin: 0px; 5px;" class="<?php if ($_smarty_tpl->getVariable('task')->value->searchAttribute('state')&&$_smarty_tpl->getVariable('task')->value->getAttribute('state')->value=='Выполнена'){?>ttovar_green<?php }elseif($_smarty_tpl->getVariable('task')->value->getIsOver()){?>ttovar_red<?php }else{ ?>ttovar<?php }?>">
+                                <div class="task_block">
 
-                                    <div style="width: 500px; float:left; margin-left: 5px; vertical-align: middle;">
+                                    <div class="task_title">
                                         <img src="/i/<?php if (!$_smarty_tpl->getVariable('task')->value->hasParent()||$_smarty_tpl->getVariable('task')->value->getChild()){?>task_group.png<?php }else{ ?>task.png<?php }?>"/>&nbsp;
                                         <a href="javascript:void(0)" onclick="
                                             <?php if (!$_smarty_tpl->getVariable('task')->value->hasParent()||$_smarty_tpl->getVariable('task')->value->getChild()){?>
@@ -272,15 +272,14 @@ if ($_smarty_tpl->_count($_from) > 0){
                                                 <?php }else{ ?>
                                                 <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>"task/edit")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>"task/edit"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
-                                                    <?php ob_start();?><?php echo smarty_modifier_capitalize($_smarty_tpl->getVariable('controller')->value);?>
-<?php $_tmp2=ob_get_clean();?><?php $_smarty_tpl->smarty->_tag_stack[] = array('if_object_allowed', array('type'=>$_tmp2,'object'=>($_smarty_tpl->tpl_vars['task']->value),'priv'=>"write")); $_block_repeat=true; smarty_block_if_object_allowed(array('type'=>$_tmp2,'object'=>($_smarty_tpl->tpl_vars['task']->value),'priv'=>"write"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
+                                                    <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_object_allowed', array('type'=>"Task",'object'=>($_smarty_tpl->tpl_vars['task']->value),'priv'=>"write")); $_block_repeat=true; smarty_block_if_object_allowed(array('type'=>"Task",'object'=>($_smarty_tpl->tpl_vars['task']->value),'priv'=>"write"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
                                                             task.editDialog('<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>'task','action'=>'edit','id'=>$_smarty_tpl->getVariable('task')->value->id));?>
 ', <?php if (!$_smarty_tpl->getVariable('task')->value->hasParent()){?>0<?php }else{ ?><?php echo $_smarty_tpl->getVariable('task')->value->getFirstParent()->id;?>
 <?php }?>, '<?php if (!$_smarty_tpl->getVariable('task')->value->hasParent()){?><?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>'reports','action'=>'showTaskBlock','parent'=>0));?>
 <?php }else{ ?><?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'showTaskBlock','parent'=>$_smarty_tpl->getVariable('task')->value->getFirstParent()->id));?>
 <?php }?>');
-                                                    <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_object_allowed(array('type'=>$_tmp2,'object'=>($_smarty_tpl->tpl_vars['task']->value),'priv'=>"write"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
+                                                    <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_object_allowed(array('type'=>"Task",'object'=>($_smarty_tpl->tpl_vars['task']->value),'priv'=>"write"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
                                                 <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>"task/edit"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
@@ -292,7 +291,7 @@ if ($_smarty_tpl->_count($_from) > 0){
                                                 <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>"task/view"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
                                             <?php }?>
-                                                "><?php echo $_smarty_tpl->getVariable('task')->value->title;?>
+                                                " class="<?php if ($_smarty_tpl->getVariable('task')->value->searchAttribute('state')&&$_smarty_tpl->getVariable('task')->value->getAttribute('state')->value=='Выполнена'){?>task_green<?php }elseif($_smarty_tpl->getVariable('task')->value->getIsOver()){?>task_red<?php }else{ ?>task_gray<?php }?>"><?php echo $_smarty_tpl->getVariable('task')->value->title;?>
 </a>
                                     </div>
 
@@ -356,7 +355,7 @@ if ($_smarty_tpl->_count($_from) > 0){
                                         <?php }?>
                                     </div>
 
-                                    <div style="width: 120px; float: right;">
+                                    <div style="width: 75px; float: right;">
                                         <?php if ($_smarty_tpl->getVariable('task')->value->getLeftTime()!=0){?>
                                             <?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('task')->value->getLeftTime(),"%d");?>
 
@@ -364,12 +363,12 @@ if ($_smarty_tpl->_count($_from) > 0){
                                         <?php }?> дней
                                     </div>
 
-                                    <div style="width: 120px; float: right;">
+                                    <div style="width: 75px; float: right;">
                                         <?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('task')->value->getExecuteTime(),"%d");?>
  дней
                                     </div>
 
-                                    <div style="width: 120px; float:right;">
+                                    <div class="task_deadline">
                                         <?php if ($_smarty_tpl->getVariable('task')->value->searchAttribute('deadline')){?>
                                             <?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('task')->value->getAttribute('deadline')->value,"%d %B %Y");?>
 
@@ -382,16 +381,25 @@ if ($_smarty_tpl->_count($_from) > 0){
 
                                     </div>
 
-                                    <div style="width: 200px; float: right;">
+                                    <div class="task_statistic">
                                         <?php if (!$_smarty_tpl->getVariable('task')->value->hasParent()||$_smarty_tpl->getVariable('task')->value->getChild()){?>
                                             <?php $_smarty_tpl->tpl_vars["stat"] = new Smarty_variable($_smarty_tpl->getVariable('task')->value->getTaskStatistic(), null, null);?>
-                                            <img src="/i/is_complite.png" title="Выполненных" alt="Выполненных"/>&nbsp;<?php echo $_smarty_tpl->getVariable('stat')->value['is_complite'];?>
-
-                                            <img src="/i/task.png" title="Не выполненных" alt="Не выполненных">&nbsp;<?php echo $_smarty_tpl->getVariable('stat')->value['is_do'];?>
-
-                                            <img src="/i/is_out.png" title="Просроченных" alt="Просроченных"/>&nbsp;<?php echo $_smarty_tpl->getVariable('stat')->value['is_out'];?>
-
-                                            <img src="/i/is_problem.png" title="Проблемные" alt="Проблемные"/>&nbsp;<?php echo $_smarty_tpl->getVariable('stat')->value['is_problem'];?>
+                                            <a href="javascript:void(0);" onclick="reports.openTask('<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>'reports','action'=>'showTaskBlock','parent'=>$_smarty_tpl->getVariable('task')->value->id));?>
+', <?php echo $_smarty_tpl->getVariable('task')->value->id;?>
+, true, '', 'Выполнена');"><img src="/i/is_complite.png" title="Выполненных" alt="Выполненных" border="0"/>&nbsp;<?php echo $_smarty_tpl->getVariable('stat')->value['is_complite'];?>
+</a>
+                                            <a href="javascript:void(0);" onclick="reports.openTask('<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>'reports','action'=>'showTaskBlock','parent'=>$_smarty_tpl->getVariable('task')->value->id));?>
+', <?php echo $_smarty_tpl->getVariable('task')->value->id;?>
+, true, '', 'Не выполнена');"><img src="/i/task.png" title="Не выполненных" alt="Не выполненных" border="0">&nbsp;<?php echo $_smarty_tpl->getVariable('stat')->value['is_do'];?>
+</a>
+                                            <a href="javascript:void(0);" onclick="reports.openTask('<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>'reports','action'=>'showTaskBlock','parent'=>$_smarty_tpl->getVariable('task')->value->id));?>
+', <?php echo $_smarty_tpl->getVariable('task')->value->id;?>
+, true, '', 'Не выполнена');"><img src="/i/is_out.png" title="Просроченных" alt="Просроченных" border="0"/>&nbsp;<?php echo $_smarty_tpl->getVariable('stat')->value['is_out'];?>
+</a>
+                                            <a href="javascript:void(0);" onclick="reports.openTask('<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>'reports','action'=>'showTaskBlock','parent'=>$_smarty_tpl->getVariable('task')->value->id));?>
+', <?php echo $_smarty_tpl->getVariable('task')->value->id;?>
+, true, '', 'Возникли вопросы');"><img src="/i/is_problem.png" title="Возникли вопросы" alt="Возникли вопросы" border="0"/>&nbsp;<?php echo $_smarty_tpl->getVariable('stat')->value['is_problem'];?>
+</a>
 
                                             <img src="/i/discussion_mini.png" title="Кол-во комментариев" alt="Кол-во комментариев"/>&nbsp;<?php echo $_smarty_tpl->getVariable('stat')->value['discuss_count'];?>
 
@@ -404,7 +412,7 @@ if ($_smarty_tpl->_count($_from) > 0){
                                 </div>
                             </li>
                             <ul id="subtask_<?php echo $_smarty_tpl->getVariable('task')->value->id;?>
-" style="display: none; margin-left: 20px;"></ul>
+" class="task_subtask"></ul>
                         <?php }} ?>
                     <?php }?>
                 </ul>

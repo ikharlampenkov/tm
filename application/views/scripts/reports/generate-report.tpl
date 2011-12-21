@@ -6,8 +6,8 @@
 
 <ul>
     <li class="task_list">
-        <div style="padding: 5px 0px 5px; 5px; width: 100%; height: 30px; margin: 0px; 5px;" class="ttovar">
-            <div style="width: 500px; float:left; margin-left: 5px; vertical-align: middle;">
+        <div class="task_block_title">
+            <div class="task_title">
                 Задача
             </div>
 
@@ -23,19 +23,19 @@
             <div style="width: 120px; float: right;">
                 Исполнитель
             </div>
-            <div style="width: 120px; float: right;">
+            <div style="width: 75px; float: right;">
                 Осталось
             </div>
-            <div style="width: 120px; float: right;">
+            <div style="width: 75px; float: right;">
                 Затрачено
             </div>
-            <div style="width: 120px; float: right;">
+            <div class="task_deadline">
                 Выполнить до
             </div>
             <div style="width: 120px; float: right;">
                 Дата добавления
             </div>
-            <div style="width: 200px; float: right;">
+            <div class="task_statistic">
                 &nbsp;
             </div>
 
@@ -47,16 +47,16 @@
 {if $taskList!==false}
     {foreach from=$taskList item=task}
         <li id="task_{$task->id}" class="task_list">
-            <div style="padding: 5px 0px 5px; 5px; width: 100%; height: 45px; margin: 0px; 5px;" class="{if $task->searchAttribute('state') && $task->getAttribute('state')->value=='Выполнена'}ttovar_green{elseif $task->getIsOver()}ttovar_red{else}ttovar{/if}">
+            <div class="task_block">
 
-                <div style="width: 500px; float:left; margin-left: 5px; vertical-align: middle;">
+                <div class="task_title">
                     <img src="/i/{if !$task->hasParent()|| $task->getChild()}task_group.png{else}task.png{/if}"/>&nbsp;
                     <a href="javascript:void(0)" onclick="
                         {if !$task->hasParent()|| $task->getChild()}
                                 reports.openTask('{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->id])}', {$task->id});
                             {else}
                             {if_allowed resource="task/edit"}
-                                {if_object_allowed type="{$controller|capitalize}" object="{$task}" priv="write"}
+                                {if_object_allowed type="Task" object="{$task}" priv="write"}
                                         task.editDialog('{$this->url(['controller' => 'task','action' => 'edit', 'id' => $task->id])}', {if !$task->hasParent()}0{else}{$task->getFirstParent()->id}{/if}, '{if !$task->hasParent()}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => 0])}{else}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->getFirstParent()->id])}{/if}');
                                 {/if_object_allowed}
                             {/if_allowed}
@@ -64,7 +64,7 @@
                                     task.viewTask('{$this->url(['controller' => 'task', 'action' => 'view', 'id' => $task->id])}', {$task->id});
                             {/if_allowed}
                         {/if}
-                            ">{$task->title}</a>
+                            " class="{if $task->searchAttribute('state') && $task->getAttribute('state')->value=='Выполнена'}task_green{elseif $task->getIsOver()}task_red{else}task_gray{/if}">{$task->title}</a>
                 </div>
 
 
@@ -114,18 +114,18 @@
                     {/if}
                 </div>
 
-                <div style="width: 120px; float: right;">
+                <div style="width: 75px; float: right;">
                     {if $task->getLeftTime() != 0}
                         {$task->getLeftTime()|date_format:"%d"}
                         {else}0
                     {/if} дней
                 </div>
 
-                <div style="width: 120px; float: right;">
+                <div style="width: 75px; float: right;">
                     {$task->getExecuteTime()|date_format:"%d"} дней
                 </div>
 
-                <div style="width: 120px; float:right;">
+                <div class="task_deadline">
                     {if $task->searchAttribute('deadline')}
                         {$task->getAttribute('deadline')->value|date_format:"%d %B %Y"}
                         {else}&nbsp;
@@ -136,13 +136,14 @@
                     {$task->datecreate|date_format:"%d %B %Y"}
                 </div>
 
-                <div style="width: 200px; float: right;">
+                <div class="task_statistic">
                     {if !$task->hasParent()|| $task->getChild()}
                         {assign var="stat" value=$task->getTaskStatistic()}
-                        <img src="/i/is_complite.png" title="Выполненных" alt="Выполненных"/>&nbsp;{$stat.is_complite}
-                        <img src="/i/task.png" title="Не выполненных" alt="Не выполненных">&nbsp;{$stat.is_do}
-                        <img src="/i/is_out.png" title="Просроченных" alt="Просроченных"/>&nbsp;{$stat.is_out}
-                        <img src="/i/is_problem.png" title="Проблемные" alt="Проблемные"/>&nbsp;{$stat.is_problem}
+                        <a href="javascript:void(0);" onclick="reports.openTask('{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->id])}', {$task->id}, true, '', 'Выполнена');"><img src="/i/is_complite.png" title="Выполненных" alt="Выполненных" border="0"/>&nbsp;{$stat.is_complite}</a>
+                        <a href="javascript:void(0);" onclick="reports.openTask('{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->id])}', {$task->id}, true, '', 'Не выполнена');"><img src="/i/task.png" title="Не выполненных" alt="Не выполненных" border="0">&nbsp;{$stat.is_do}</a>
+                        <a href="javascript:void(0);" onclick="reports.openTask('{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->id])}', {$task->id}, true, '', 'Не выполнена');"><img src="/i/is_out.png" title="Просроченных" alt="Просроченных" border="0"/>&nbsp;{$stat.is_out}</a>
+                        <a href="javascript:void(0);" onclick="reports.openTask('{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->id])}', {$task->id}, true, '', 'Возникли вопросы');"><img src="/i/is_problem.png" title="Возникли вопросы" alt="Возникли вопросы" border="0"/>&nbsp;{$stat.is_problem}</a>
+
                         <img src="/i/discussion_mini.png" title="Кол-во комментариев" alt="Кол-во комментариев"/>&nbsp;{$stat.discuss_count}
                         <img src="/i/in_doc.png" title="Кол-во документов" alt="Кол-во документов"/>&nbsp;{$stat.doc_count}
                         {else}&nbsp;
@@ -151,7 +152,7 @@
 
             </div>
         </li>
-        <ul id="subtask_{$task->id}" style="display: none; margin-left: 20px;"></ul>
+        <ul id="subtask_{$task->id}" class="task_subtask"></ul>
     {/foreach}
 {/if}
 </ul>

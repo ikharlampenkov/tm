@@ -60,7 +60,28 @@ var task = {
         }, 'html');
     },
 
-    openTask:function (rg_url, parent, isReload, prefics) {
+    openTask:function (rg_url, parent, isReload, prefics, filter) {
+        isReload = isReload || false;
+        prefics = prefics || '';
+        filter = filter || 'all';
+
+        if ($('#' + prefics + 'subtask_' + parent).html() != '' && !isReload) {
+            $('#' + prefics + 'subtask_' + parent).hide();
+            $('#' + prefics + 'subtask_' + parent).empty();
+            return;
+        }
+
+        rg_url += '/filter/' + filter;
+
+        $.get(rg_url, '', function (data) {
+            $('#' + prefics + 'subtask_' + parent).empty();
+            $('#' + prefics + 'subtask_' + parent).append(data);
+            task.createSubMenu();
+            $('#' + prefics + 'subtask_' + parent).show();
+        }, 'html');
+    },
+
+    openTaskFilter:function (rg_url, parent, isReload, prefics) {
         isReload = isReload || false;
         prefics = prefics || '';
 
@@ -230,14 +251,18 @@ var doc = {
 };
 
 var reports = {
-    openTask:function (rg_url, parent, isReload) {
+    openTask:function (rg_url, parent, isReload, prefics, filter) {
         isReload = isReload || false;
+        prefics = prefics || '';
+        filter = filter || 'all';
 
         if ($('#subtask_' + parent).html() != '' && !isReload) {
             $('#subtask_' + parent).hide();
             $('#subtask_' + parent).empty();
             return;
         }
+
+        rg_url += '/filter/' + filter;
 
         $.get(rg_url, '', function (data) {
             $('#subtask_' + parent).empty();

@@ -33,7 +33,13 @@ class TaskController extends Zend_Controller_Action
     public function showtaskblockAction()
     {
         $parentId = $this->getRequest()->getParam('parent', 0);
-        $this->view->assign('taskList', TM_Task_Task::getAllInstance($this->_user, $parentId));
+        $filter_raw = $this->getRequest()->getParam('filter', 'all');
+        if (is_array($filter_raw)) {
+            $filter = urldecode($filter_raw[count($filter_raw) - 1]);
+        } else {
+            $filter = urldecode($filter_raw);
+        }
+        $this->view->assign('taskList', TM_Task_Task::getAllInstance($this->_user, $parentId, $filter));
     }
 
     public function viewattributetypeAction()
@@ -260,7 +266,8 @@ class TaskController extends Zend_Controller_Action
                     }
                 }
 
-                $this->_redirect('/task/showAcl/parent/' . $this->getRequest()->getParam('parent', 0) . '/idTask/' . $this->getRequest()->getParam('idTask'));
+                $this->_redirect('/task/');
+                //$this->_redirect('/task/showAcl/parent/' . $this->getRequest()->getParam('parent', 0) . '/idTask/' . $this->getRequest()->getParam('idTask'));
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
