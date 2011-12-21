@@ -18,7 +18,7 @@
             <td class="ttovar">Роль</td>
             <td class="ttovar"><select name="data[role_id]">
             {foreach from=$userRoleList item=role}
-                <option value="{$role->id}">{$role->title}</option>
+                <option value="{$role->id}">{$role->rtitle}</option>
             {/foreach}
             </select>
             </td>

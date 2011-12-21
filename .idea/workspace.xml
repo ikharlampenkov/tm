@@ -3,7 +3,21 @@
   <component name="ChangeListManager">
     <list id="208ba09b-a62b-410e-864b-4a7f61a529f8" name="Default" comment="" />
     <list default="true" id="1e15cf3c-e4a0-4479-b6be-8d8a44301a05" name="New changelist" comment="Оформление">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/TM/Attribute/AttributeTypeActiveUserList.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/TaskController.php" afterPath="$PROJECT_DIR$/application/controllers/TaskController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Task/Task.php" afterPath="$PROJECT_DIR$/application/models/TM/Task/Task.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/index/index.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/index/index.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/index/show-task-block.ajax.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/index/show-task-block.ajax.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/reports/generate-report.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/reports/generate-report.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/reports/show-task-block.ajax.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/reports/show-task-block.ajax.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/task/index.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/task/index.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/task/show-task-block.ajax.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/task/show-task-block.ajax.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/user/add.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/user/add.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/user/edit.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/user/edit.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/css/main.css" afterPath="$PROJECT_DIR$/public_html/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/func.js" afterPath="$PROJECT_DIR$/public_html/js/func.js" />
     </list>
     <ignored path="tm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,19 +40,71 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="layout.tpl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/layouts/scripts/layout.tpl">
+      <file leaf-file-name="Task.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/TM/Task/Task.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="13" selection-start="3482" selection-end="3482" vertical-scroll-proportion="0.0">
+            <state line="340" column="27" selection-start="6943" selection-end="6943" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1324461469352" expanded="true" signature="8136:8157" placeholder="SELECT * FRO..tm_task..." />
+                <marker date="1324461469352" expanded="true" signature="8205:8318" placeholder="SELECT * FRO..tm_task..." />
+                <marker date="1324461469352" expanded="true" signature="12249:12305" placeholder="INSERT INTO ..." />
+                <marker date="1324461469352" expanded="true" signature="16120:16176" placeholder="INSERT INTO ..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.tpl" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/scripts/task/index.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="158" column="127" selection-start="12883" selection-end="12883" vertical-scroll-proportion="-20.307692">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="menu.css" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public_html/css/menu.css">
+      <file leaf-file-name="show-task-block.ajax.tpl" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/scripts/task/show-task-block.ajax.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="30" selection-start="255" selection-end="255" vertical-scroll-proportion="0.0194508">
+            <state line="97" column="123" selection-start="10071" selection-end="10071" vertical-scroll-proportion="0.6336207">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="func.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public_html/js/func.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="73" column="38" selection-start="2507" selection-end="2507" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Hash.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/TM/Task/Hash.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="256" column="52" selection-start="4771" selection-end="4778" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1323653836054" expanded="true" signature="8867:9001" placeholder="SELECT tm_ta..tm_task_hash..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TaskController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/TaskController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="63" selection-start="1309" selection-end="1309" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="standard_2.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_2.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="480" column="9" selection-start="14163" selection-end="14163" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -67,22 +133,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/application/views/scripts/user/index.tpl" />
-        <option value="$PROJECT_DIR$/application/views/scripts/user/view-resource.tpl" />
         <option value="$PROJECT_DIR$/application/controllers/UserController.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/login/index.tpl" />
         <option value="$PROJECT_DIR$/application/views/scripts/index/show-task-block.ajax.tpl" />
         <option value="$PROJECT_DIR$/application/views/scripts/index/index.tpl" />
         <option value="$PROJECT_DIR$/library/StdLib/Functions.php" />
         <option value="$PROJECT_DIR$/application/layouts/scripts/layout.tpl" />
-        <option value="$PROJECT_DIR$/application/controllers/TaskController.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/task/show-acl.tpl" />
         <option value="$PROJECT_DIR$/application/views/scripts/reports/show-task-block.ajax.tpl" />
         <option value="$PROJECT_DIR$/application/views/scripts/reports/generate-report.tpl" />
+        <option value="$PROJECT_DIR$/public_html/css/menu.css" />
+        <option value="$PROJECT_DIR$/application/models/TM/Task/Task.php" />
         <option value="$PROJECT_DIR$/public_html/css/main.css" />
+        <option value="$PROJECT_DIR$/public_html/js/func.js" />
+        <option value="$PROJECT_DIR$/application/controllers/TaskController.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/task/index.tpl" />
         <option value="$PROJECT_DIR$/application/views/scripts/task/show-task-block.ajax.tpl" />
-        <option value="$PROJECT_DIR$/public_html/css/menu.css" />
       </list>
     </option>
   </component>
@@ -677,15 +743,15 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="options.lastSelected" value="web.server" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="last.edited.regexp" value="\\\\\\\\\&quot;" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PublishConfig" serverName="timeweb" serverId="18d3169c-c6b0-4866-b0e2-1f1eb4b2354d">
     <servers>
@@ -813,18 +879,18 @@
     <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15461624" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3259177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2625139" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32964602" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2626802" sideWeight="0.26327434" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36485043" sideWeight="0.84538376" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3429487" sideWeight="0.84538376" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2625139" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15461624" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Phing Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995194" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -919,31 +985,6 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/index/show-task-block.ajax.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="119" selection-start="525" selection-end="525" vertical-scroll-proportion="-4.576923" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/index/index.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="181" column="0" selection-start="10856" selection-end="10856" vertical-scroll-proportion="0.31752872" />
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/mbstring.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="947" column="58" selection-start="29426" selection-end="29433" vertical-scroll-proportion="0.3327338" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/StdLib/DB.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.184669" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/runtime/logs/syslog.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.7375145" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/TM/Document/Document.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="691" column="40" selection-start="19009" selection-end="19009" vertical-scroll-proportion="0.31922197" />
@@ -952,11 +993,6 @@
     <entry file="file://$PROJECT_DIR$/library/StdLib/Functions.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="30" column="73" selection-start="1651" selection-end="1651" vertical-scroll-proportion="0.5567867" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/TaskController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="261" column="0" selection-start="10532" selection-end="10532" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/task/show-acl.tpl">
@@ -974,31 +1010,84 @@
         <state line="151" column="18" selection-start="7869" selection-end="7869" vertical-scroll-proportion="0.7313218" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/css/main.css">
+    <entry file="file://$PROJECT_DIR$/public_html/css/menu.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="336" column="1" selection-start="4389" selection-end="4389" vertical-scroll-proportion="0.79183674" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/task/index.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="142" column="41" selection-start="9147" selection-end="9167" vertical-scroll-proportion="-18.26923" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/task/show-task-block.ajax.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="18" selection-start="6434" selection-end="6434" vertical-scroll-proportion="0.7313218" />
+        <state line="14" column="30" selection-start="255" selection-end="255" vertical-scroll-proportion="0.0194508" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/layouts/scripts/layout.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="13" selection-start="3482" selection-end="3482" vertical-scroll-proportion="0.0">
+        <state line="87" column="13" selection-start="3482" selection-end="3482" vertical-scroll-proportion="0.5188679" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/TM/Task/Hash.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="256" column="52" selection-start="4771" selection-end="4778" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1323653836054" expanded="true" signature="8867:9001" placeholder="SELECT tm_ta..tm_task_hash..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/css/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="340" column="16" selection-start="4459" selection-end="4459" vertical-scroll-proportion="0.81496596">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public_html/css/menu.css">
+    <entry file="file://$PROJECT_DIR$/public_html/js/jquery.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="30" selection-start="255" selection-end="255" vertical-scroll-proportion="0.0194508">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="480" column="9" selection-start="14163" selection-end="14163" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/TM/Task/Task.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="340" column="27" selection-start="6943" selection-end="6943" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1324461469352" expanded="true" signature="8136:8157" placeholder="SELECT * FRO..tm_task..." />
+            <marker date="1324461469352" expanded="true" signature="8205:8318" placeholder="SELECT * FRO..tm_task..." />
+            <marker date="1324461469352" expanded="true" signature="12249:12305" placeholder="INSERT INTO ..." />
+            <marker date="1324461469352" expanded="true" signature="16120:16176" placeholder="INSERT INTO ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/TaskController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="63" selection-start="1309" selection-end="1309" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public_html/js/func.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="38" selection-start="2507" selection-end="2507" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/task/index.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="158" column="127" selection-start="12883" selection-end="12883" vertical-scroll-proportion="-20.307692">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/task/show-task-block.ajax.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="123" selection-start="10071" selection-end="10071" vertical-scroll-proportion="0.6336207">
           <folding />
         </state>
       </provider>

@@ -333,24 +333,42 @@ class TM_Task_Task
      *
      * @param TM_User_User $user
      * @param int $parentId
+     * @param string $filter фильтр по статусу, all - все
      * @return array
      * @static
      * @access public
      */
-    public static function getAllInstance(TM_User_User $user, $parentId = 0)
+    public static function getAllInstance(TM_User_User $user, $parentId = 0, $filter = 'all')
     {
         try {
             $db = StdLib_DB::getInstance();
 
             if ($parentId > 0) {
-                $sql = 'SELECT * FROM tm_task, tm_task_relation
-                        WHERE id=child_id AND parent_id=' . (int)$parentId;
+                if ($filter == 'all') {
+                    $sql = 'SELECT * FROM tm_task, tm_task_relation
+                            WHERE id=child_id AND parent_id=' . (int)$parentId;
+                } else {
+                    $oHash = TM_Task_Hash::getInstanceById('state');
+                    if (strpos($oHash->getValueList(true), $filter) !== false) {
+                        $sql = 'SELECT * FROM tm_task LEFT JOIN (
+                                    SELECT * FROM tm_task_attribute WHERE attribute_key="state"
+                                ) t2 ON tm_task.id=t2.task_id, tm_task_relation
+                                WHERE id=child_id AND parent_id=' . (int)$parentId . ' AND t2.attribute_value="' . $filter . '"';
+                    } else {
+                        $sql = 'SELECT * FROM tm_task, tm_task_relation
+                                WHERE id=child_id AND parent_id=' . (int)$parentId;
+                    }
+                }
+
+
             } elseif ($parentId === -1) {
                 $sql = 'SELECT * FROM tm_task';
             } else {
                 $sql = 'SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
                         WHERE parent_id IS NULL ';
             }
+
+            //
 
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 

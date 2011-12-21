@@ -177,7 +177,7 @@ a {
 
 .login {
     width: 300px;
-    height: 150px;
+    height: 60px;
     position: absolute;
     top: 30px;
     left: 70%;
@@ -277,7 +277,7 @@ li.task_list {
 }
 
 .index_block_content {
-    margin: 5px;
+    margin: 0;
 }
 
 
@@ -329,6 +329,11 @@ a.task_grey {
 .task_statistic {
     width: 200px;
     float: right;
+}
+
+.task_statistic a {
+    text-decoration: none;
+    vertical-align: top;
 }
 
 .task_deadline {
