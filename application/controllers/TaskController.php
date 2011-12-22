@@ -33,7 +33,13 @@ class TaskController extends Zend_Controller_Action
     public function showtaskblockAction()
     {
         $parentId = $this->getRequest()->getParam('parent', 0);
-        $this->view->assign('taskList', TM_Task_Task::getAllInstance($this->_user, $parentId));
+        $filter_raw = $this->getRequest()->getParam('filter', 'all');
+        if (is_array($filter_raw)) {
+            $filter = urldecode($filter_raw[count($filter_raw) - 1]);
+        } else {
+            $filter = urldecode($filter_raw);
+        }
+        $this->view->assign('taskList', TM_Task_Task::getAllInstance($this->_user, $parentId, $filter));
     }
 
     public function viewattributetypeAction()
@@ -400,6 +406,15 @@ class TaskController extends Zend_Controller_Action
         $oTask = TM_Task_Task::getInstanceById($this->getRequest()->getParam('idTask'));
         $oTopic = TM_Discussion_Discussion::getTopicByTask($this->_user, $oTask);
 
+
+        if ($this->getRequest()->getParam('is_complete')) {
+            $oDiscussion = TM_Discussion_Discussion::getInstanceById($this->getRequest()->getParam('is_complete'));
+            $oDiscussion->setIsComplete(true);
+
+            $oDiscussion->updateToDb();
+            $this->_redirect('/task/showDiscussion/parent/' . $this->getRequest()->getParam('parent', 0) . '/idTask/' . $this->getRequest()->getParam('idTask'));
+        }
+
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
             $oDiscussion = new TM_Discussion_Discussion();
@@ -416,6 +431,10 @@ class TaskController extends Zend_Controller_Action
 
             if (isset($data['to']) && $data['to'] != '') {
                 $oDiscussion->setToUser(TM_User_User::getInstanceById($data['to']));
+            }
+
+            if (isset($data['is_request']) && $data['is_request'] == 'on') {
+                $oDiscussion->setIsRequest(true);
             }
 
             try {

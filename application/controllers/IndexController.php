@@ -21,6 +21,14 @@ class IndexController extends Zend_Controller_Action
             $this->_redirect('/login');
         }
 
+        if ($this->getRequest()->getParam('is_complete')) {
+            $oDiscussion = TM_Discussion_Discussion::getInstanceById($this->getRequest()->getParam('is_complete'));
+            $oDiscussion->setIsComplete(true);
+
+            $oDiscussion->updateToDb();
+            $this->_redirect('/task/showDiscussion/parent/' . $this->getRequest()->getParam('parent', 0) . '/idTask/' . $this->getRequest()->getParam('idTask'));
+        }
+
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
@@ -42,6 +50,10 @@ class IndexController extends Zend_Controller_Action
 
             if (isset($data['to']) && $data['to'] != '') {
                 $oDiscussion->setToUser(TM_User_User::getInstanceById($data['to']));
+            }
+
+            if (isset($data['is_request']) && $data['is_request'] == 'on') {
+                $oDiscussion->setIsRequest(true);
             }
 
             try {
