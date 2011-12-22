@@ -53,3 +53,26 @@
     {/foreach}
 {/if}
 </table>
+
+<table width="100%">
+    <tr>
+        <td class="ttovar_title">Пользователь</td>
+        <td class="ttovar" style="width: 90px;">Чтение</td>
+        <td class="ttovar" style="width: 90px;">Запись</td>
+        <td class="ttovar" style="width: 90px;">Исполнитель</td>
+        <td class="ttovar"></td>
+    </tr>
+
+{if $userList!==false}
+    {foreach from=$userList item=user}
+        <tr>
+            <td class="ttovar_title">{if $user->searchAttribute('name')}{$user->getAttribute('name')->value}{else}{$user->login}{/if}</td>
+            <td class="ttovar"><input type="checkbox" name="dataacl[{$user->id}][is_read]" {if isset($taskAcl[{$user->id}])}{if $taskAcl[{$user->id}]->isRead}checked="checked"{/if}{else}checked="checked"{/if} /></td>
+            <td class="ttovar"><input type="checkbox" name="dataacl[{$user->id}][is_write]" {if isset($taskAcl[{$user->id}])}{if $taskAcl[{$user->id}]->isWrite}checked="checked"{/if}{else}checked="checked"{/if} /></td>
+            <td class="ttovar"><input type="checkbox" name="dataacl[{$user->id}][is_executant]" /></td>
+            <td class="ttovar"></td>
+        </tr>
+    {/foreach}
+{/if}
+
+</table>

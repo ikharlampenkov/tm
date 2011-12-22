@@ -19,7 +19,7 @@ class TM_Task_Task
      *
      * @access protected
      */
-    protected $_id;
+    protected $_id = 0;
 
     /**
      *
@@ -231,7 +231,7 @@ class TM_Task_Task
 
             $this->_id = $this->_db->getLastInsertId();
 
-            //$this->saveAttributeList();
+            $this->saveAttributeList();
             $this->saveParent();
             //$this->saveChild();
         } catch (Exception $e) {
@@ -704,7 +704,7 @@ class TM_Task_Task
             $oAttribute->setValue($value);
 
             $this->_attributeList[$key] = $oAttribute;
-            $oAttribute->insertToDB();
+            //$oAttribute->insertToDB();
         }
     }
 
@@ -721,7 +721,11 @@ class TM_Task_Task
     {
         if (!is_null($this->_attributeList) && !empty($this->_attributeList)) {
             foreach ($this->_attributeList as $attribute) {
-                $attribute->updateToDB();
+                try {
+                    $attribute->insertToDB();
+                } catch (Exception $e) {
+                    $attribute->updateToDB();
+                }
             }
         }
     }
