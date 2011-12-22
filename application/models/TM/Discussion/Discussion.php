@@ -66,6 +66,16 @@ class TM_Discussion_Discussion
     protected $_isMessage = false;
 
     /**
+     * @var bool - отметка для запроса
+     */
+    protected $_isRequest = false;
+
+    /**
+     * @var bool - индикатор завершенности запроса
+     */
+    protected $_isComplete = false;
+
+    /**
      * @var TM_Discussion_Discussion
      * @access protected
      */
@@ -284,6 +294,38 @@ class TM_Discussion_Discussion
         return $this->_toUser;
     }
 
+    /**
+     * @param boolean $isComplete
+     */
+    public function setIsComplete($isComplete)
+    {
+        $this->_isComplete = $isComplete;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getIsComplete()
+    {
+        return $this->_isComplete;
+    }
+
+    /**
+     * @param boolean $isRequest
+     */
+    public function setIsRequest($isRequest)
+    {
+        $this->_isRequest = $isRequest;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getIsRequest()
+    {
+        return $this->_isRequest;
+    }
+
     public function __get($name)
     {
         $method = "get{$name}";
@@ -331,11 +373,11 @@ class TM_Discussion_Discussion
     public function insertToDb()
     {
         try {
-            $sql = 'INSERT INTO tm_discussion(message, user_id, date_create, is_first, is_message, topic_id, parent_id, to_user_id)
+            $sql = 'INSERT INTO tm_discussion(message, user_id, date_create, is_first, is_message, topic_id, parent_id, to_user_id, is_request, is_complete)
                     VALUES ("' . $this->_message . '", ' . $this->_user->getId() . ', "' . $this->_dateCreate . '", 
                              ' . $this->_prepareBool($this->_isFirst) . ', ' . $this->_prepareBool($this->_isMessage) . ',
                              ' . $this->_prepareNull($this->_topic->id) . ', ' . $this->_prepareNull($this->_parent->id) . ',
-                             ' . $this->_prepareNull($this->_toUser->id) . ')';
+                             ' . $this->_prepareNull($this->_toUser->id) . ', ' . $this->_prepareBool($this->_isRequest) . ', ' . $this->_prepareBool($this->_isComplete) . ')';
             $this->_db->query($sql);
 
             $this->_id = $this->_db->getLastInsertId();
@@ -360,7 +402,8 @@ class TM_Discussion_Discussion
                     SET message="' . $this->_message . '", user_id="' . $this->_user->getId() . '", date_create="' . $this->_dateCreate . '",
                         is_first=' . $this->_prepareBool($this->_isFirst) . ', is_message=' . $this->_prepareBool($this->_isMessage) . ',
                         topic_id=' . $this->_prepareNull($this->_topic->id) . ', parent_id=' . $this->_prepareNull($this->_parent->id) . ',
-                        to_user_id=' . $this->_prepareNull($this->_toUser->id) . '
+                        to_user_id=' . $this->_prepareNull($this->_toUser->id) . ', is_request=' . $this->_prepareBool($this->_isRequest) . ',
+                        is_complete=' . $this->_prepareBool($this->_isComplete) . '
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
 
@@ -832,6 +875,8 @@ class TM_Discussion_Discussion
             $this->setToUser($oToUser);
         }
 
+        $this->setIsRequest($values['is_request']);
+        $this->setIsComplete($values['is_complete']);
     } // end of member function fillFromArray
 
 

@@ -32,6 +32,10 @@ function comment_reply_on2(id, to_user, to_task) {
     $('#replay_form').show();
 }
 
+function comment_complete_rq(rq_url) {
+    document.location.href = rq_url;
+}
+
 function mainmenu() {
     $(".menu_up ul").css({display:"none"});
     $(".menu_up li").hover(function () {

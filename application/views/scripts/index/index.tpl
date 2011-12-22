@@ -2,7 +2,7 @@
 
 <table>
 <tr>
-    <td style="width: 50%">
+    <td style="width: 49%">
     {if_allowed resource="{$controller}/index" priv="show-my-task"}
         <div class="index_block">
             <div class="index_block_title" style="">
@@ -56,11 +56,11 @@
         </div>
     {/if_allowed}
     </td>
-    <td style="width: 50%">
+    <td style="width: 50%;">
     {if_allowed resource="{$controller}/index" priv="show-my-discussion"}
         <div class="index_block">
             <div class="index_block_title" style="">
-                <span style="vertical-align: middle;">Личные сообщения</span>
+                <span style="vertical-align: middle;">Сообщения и заявки</span>
             </div>
             <div class="index_block_content">
 
@@ -71,13 +71,13 @@
                     {foreach from=$discussionList item=discussion}
                         {if !$discussion->hasParent() && $openul}</ul>{assign var="openul" value=false}{/if}
                         {if $discussion->hasParent() && !$openul}
-                        <ul style="margin-left: 20px; padding: 0px;">{assign var="openul" value=true}{/if}
-                        <li style="list-style: none; padding: 5px; background-color: #f7f7f7;">
-                            <div style="padding: 5px;">
-                                <div style="font-size: 12px; line-height: 16px;" id="message_{$discussion->id}">{$discussion->message}</div>
+                        <ul class="discussion_submessage">{assign var="openul" value=true}{/if}
+                        <li class="discussion_list">
+                            <div class="discussion_block">
+                                <div id="message_{$discussion->id}" class="{if $discussion->isRequest && !$discussion->isComplete}discussion_message_request{else}discussion_message{/if}">{$discussion->message}</div>
                                 {if count($discussion->document) > 0}
-                                    <div style="">
-                                        <ul style="padding: 0; margin: 0;">
+                                    <div>
+                                        <ul>
                                             {foreach from=$discussion->document item=document}
                                                 <li style="list-style: none; padding: 0px; background-color: #f7f7f7;">
                                                     <a href="/files{$document->file->getSubPath()}/{$document->file->getName()}" target="_blank" style="font-size: 11px;" id="doc_info_{$document->id}" onmouseover="doc.showInfo('{$this->url(['controller' => 'document','action' => 'view', 'id' => $document->id])}', {$document->id});">{$document->title}</a>
@@ -89,9 +89,10 @@
                                         </ul>
                                     </div>
                                 {/if}
-                                <div style="color: #555555; font-size: 11px; line-height: 15px; margin: 5px 0px 0px 0px;">
+                                <div class="discussion_info">
                                     {if $discussion->user->searchAttribute('name')}{$discussion->user->getAttribute('name')->value}{else}{$discussion->user->login}{/if} {$discussion->datecreate|date_format:"%d.%m.%Y"}
-                                    <button style="font-size: 11px; height: 18px; margin: 1px; padding: 1px;" onclick="comment_reply_on2({$discussion->id}, {$discussion->user->id}, {$discussion->getTask()->id});">Ответить</button>
+                                    <button onclick="comment_reply_on2({$discussion->id}, {$discussion->user->id}, {$discussion->getTask()->id});">Ответить</button>
+                                    {if $discussion->isRequest}{if $discussion->isComplete}<img src="/i/is_complite.png" title="Выполнена" alt="Выполнена" border="0"/>{elseif $discussion->user->id==$authUserId}<button onclick="comment_complete_rq('{$this->url(['controller' => $controller,'action' => 'showDiscussion', 'idTask' => $task->id, 'is_complete' => $discussion->id])}');">Завершить</button>{/if}{/if}
                                 </div>
                             </div>
                         </li>
@@ -187,7 +188,7 @@
                                                     reports.openTask('{$this->url(['controller' => 'reports','action' => 'showTaskBlock', 'parent' => $task->id])}', {$task->id});
                                                 {else}
                                                 {if_allowed resource="task/edit"}
-                                                    {if_object_allowed type="{$controller|capitalize}" object="{$task}" priv="write"}
+                                                    {if_object_allowed type="Task" object="{$task}" priv="write"}
                                                             task.editDialog('{$this->url(['controller' => 'task','action' => 'edit', 'id' => $task->id])}', {if !$task->hasParent()}0{else}{$task->getFirstParent()->id}{/if}, '{if !$task->hasParent()}{$this->url(['controller' => 'reports', 'action' => 'showTaskBlock', 'parent' => 0])}{else}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->getFirstParent()->id])}{/if}');
                                                     {/if_object_allowed}
                                                 {/if_allowed}
@@ -270,10 +271,11 @@
                                     <div class="task_statistic">
                                         {if !$task->hasParent()|| $task->getChild()}
                                             {assign var="stat" value=$task->getTaskStatistic()}
-                                            <img src="/i/is_complite.png" title="Выполненных" alt="Выполненных"/>&nbsp;{$stat.is_complite}
-                                            <img src="/i/task.png" title="Не выполненных" alt="Не выполненных">&nbsp;{$stat.is_do}
-                                            <img src="/i/is_out.png" title="Просроченных" alt="Просроченных"/>&nbsp;{$stat.is_out}
-                                            <img src="/i/is_problem.png" title="Возникли вопросы" alt="Возникли вопросы"/>&nbsp;{$stat.is_problem}
+                                            <a href="javascript:void(0);" onclick="reports.openTask('{$this->url(['controller' => 'reports', 'action' => 'showTaskBlock', 'parent' => $task->id])}', {$task->id}, true, '', 'Выполнена');"><img src="/i/is_complite.png" title="Выполненных" alt="Выполненных" border="0"/>&nbsp;{$stat.is_complite}</a>
+                                            <a href="javascript:void(0);" onclick="reports.openTask('{$this->url(['controller' => 'reports', 'action' => 'showTaskBlock', 'parent' => $task->id])}', {$task->id}, true, '', 'Не выполнена');"><img src="/i/task.png" title="Не выполненных" alt="Не выполненных" border="0">&nbsp;{$stat.is_do}</a>
+                                            <a href="javascript:void(0);" onclick="reports.openTask('{$this->url(['controller' => 'reports', 'action' => 'showTaskBlock', 'parent' => $task->id])}', {$task->id}, true, '', 'Не выполнена');"><img src="/i/is_out.png" title="Просроченных" alt="Просроченных" border="0"/>&nbsp;{$stat.is_out}</a>
+                                            <a href="javascript:void(0);" onclick="reports.openTask('{$this->url(['controller' => 'reports', 'action' => 'showTaskBlock', 'parent' => $task->id])}', {$task->id}, true, '', 'Возникли вопросы');"><img src="/i/is_problem.png" title="Возникли вопросы" alt="Возникли вопросы" border="0"/>&nbsp;{$stat.is_problem}</a>
+
                                             <img src="/i/discussion_mini.png" title="Кол-во комментариев" alt="Кол-во комментариев"/>&nbsp;{$stat.discuss_count}
                                             <img src="/i/in_doc.png" title="Кол-во документов" alt="Кол-во документов"/>&nbsp;{$stat.doc_count}
                                             {else}&nbsp;

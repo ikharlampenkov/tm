@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-13 00:13:13
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-21 23:39:28
          compiled from "F:\www\tm\application/views/scripts\task/show-discussion.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:245544ee636291cf400-86571088%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:108844ef20bc05ba027-75213408%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'b4215f633b9f778911980e1a88bcd4ac12ec123f' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\task/show-discussion.tpl',
-      1 => 1323709990,
+      1 => 1324485565,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '245544ee636291cf400-86571088',
+  'nocache_hash' => '108844ef20bc05ba027-75213408',
   'function' => 
   array (
   ),
@@ -26,7 +26,7 @@ if (!is_callable('smarty_modifier_date_format')) include 'F:\www\tm\library\Smar
 
     <?php $_smarty_tpl->tpl_vars["openul"] = new Smarty_variable(false, null, null);?>
 
-<ul id="comment-list" style="padding: 0; margin: 0;">
+<ul id="comment-list">
     <?php  $_smarty_tpl->tpl_vars['discussion'] = new Smarty_Variable;
  $_from = $_smarty_tpl->getVariable('discussionList')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 if ($_smarty_tpl->_count($_from) > 0){
@@ -35,15 +35,15 @@ if ($_smarty_tpl->_count($_from) > 0){
         <?php if (is_null($_smarty_tpl->getVariable('discussion')->value->toUser)||$_smarty_tpl->getVariable('discussion')->value->toUser->id==$_smarty_tpl->getVariable('authUserId')->value||$_smarty_tpl->getVariable('discussion')->value->user->id==$_smarty_tpl->getVariable('authUserId')->value){?>
         <?php if (!$_smarty_tpl->getVariable('discussion')->value->hasParent()&&$_smarty_tpl->getVariable('openul')->value){?></ul><?php $_smarty_tpl->tpl_vars["openul"] = new Smarty_variable(false, null, null);?><?php }?>
         <?php if ($_smarty_tpl->getVariable('discussion')->value->hasParent()&&!$_smarty_tpl->getVariable('openul')->value){?>
-        <ul style="margin-left: 20px; padding: 0px;"><?php $_smarty_tpl->tpl_vars["openul"] = new Smarty_variable(true, null, null);?><?php }?>
-        <li style="list-style: none; padding: 5px; background-color: #f7f7f7;">
-            <div style="padding: 5px;">
-                <div style="font-size: 12px; line-height: 16px;" id="message_<?php echo $_smarty_tpl->getVariable('discussion')->value->id;?>
-"><?php echo $_smarty_tpl->getVariable('discussion')->value->message;?>
+        <ul class="discussion_submessage"><?php $_smarty_tpl->tpl_vars["openul"] = new Smarty_variable(true, null, null);?><?php }?>
+        <li class="discussion_list">
+            <div class="discussion_block">
+                <div id="message_<?php echo $_smarty_tpl->getVariable('discussion')->value->id;?>
+" class="<?php if ($_smarty_tpl->getVariable('discussion')->value->isRequest&&!$_smarty_tpl->getVariable('discussion')->value->isComplete){?>discussion_message_request<?php }else{ ?>discussion_message<?php }?>"><?php echo $_smarty_tpl->getVariable('discussion')->value->message;?>
 </div>
                 <?php if (count($_smarty_tpl->getVariable('discussion')->value->document)>0){?>
-                    <div style="">
-                        <ul style="padding: 0; margin: 0;">
+                    <div>
+                        <ul>
                             <?php  $_smarty_tpl->tpl_vars['document'] = new Smarty_Variable;
  $_from = $_smarty_tpl->getVariable('discussion')->value->document; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 if ($_smarty_tpl->_count($_from) > 0){
@@ -68,13 +68,15 @@ if ($_smarty_tpl->_count($_from) > 0){
                         </ul>
                     </div>
                 <?php }?>
-                <div style="color: #555555; font-size: 11px; line-height: 15px; margin: 5px 0px 0px 0px;">
+                <div class="discussion_info">
                     <?php if ($_smarty_tpl->getVariable('discussion')->value->user->searchAttribute('name')){?><?php echo $_smarty_tpl->getVariable('discussion')->value->user->getAttribute('name')->value;?>
 <?php }else{ ?><?php echo $_smarty_tpl->getVariable('discussion')->value->user->login;?>
 <?php }?> <?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('discussion')->value->datecreate,"%d.%m.%Y");?>
 
-                    <button style="font-size: 11px; height: 18px; margin: 1px; padding: 1px;" onclick="comment_reply_on(<?php echo $_smarty_tpl->getVariable('discussion')->value->id;?>
+                    <button onclick="comment_reply_on(<?php echo $_smarty_tpl->getVariable('discussion')->value->id;?>
 )">Ответить</button>
+                    <?php if ($_smarty_tpl->getVariable('discussion')->value->isRequest){?><?php if ($_smarty_tpl->getVariable('discussion')->value->isComplete){?><img src="/i/is_complite.png" title="Выполнена" alt="Выполнена" border="0"/><?php }elseif($_smarty_tpl->getVariable('discussion')->value->user->id==$_smarty_tpl->getVariable('authUserId')->value){?><button onclick="comment_complete_rq('<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'showDiscussion','idTask'=>$_smarty_tpl->getVariable('task')->value->id,'is_complete'=>$_smarty_tpl->getVariable('discussion')->value->id));?>
+');">Завершить</button><?php }?><?php }?>
                 </div>
             </div>
         </li>
@@ -112,7 +114,7 @@ if ($_smarty_tpl->_count($_from) > 0){
     <form action="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'showDiscussion','idTask'=>$_smarty_tpl->getVariable('task')->value->id));?>
 " method="post" enctype="multipart/form-data">
         <div>
-            <div style="font-size: 14px; font-weight: bold; padding: 0px 0px 5px 0px; margin: 0px 0px 5px 0px;">Добавить комментарий</div>
+            <div style="font-size: 14px; font-weight: bold; padding: 0px 0px 5px 0px; margin: 0px 0px 5px 0px;">Добавить комментарий <span style="font-weight: normal; vertical-align: top;"><input type="checkbox" name="data[is_request]" style="width: 14px;" /> заявка</span></div>
             <textarea name="data[message]"></textarea><br/>
 
             <div style="font-size: 14px; font-weight: bold; padding: 0px 0px 5px 0px; margin: 0px 0px 5px 0px;">Лично для</div>

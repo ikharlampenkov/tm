@@ -359,16 +359,12 @@ class TM_Task_Task
                                 WHERE id=child_id AND parent_id=' . (int)$parentId;
                     }
                 }
-
-
             } elseif ($parentId === -1) {
                 $sql = 'SELECT * FROM tm_task';
             } else {
                 $sql = 'SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
                         WHERE parent_id IS NULL ';
             }
-
-            //
 
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
