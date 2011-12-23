@@ -70,7 +70,8 @@
             <td class="ttovar_title">Документ</td>
             <td class="ttovar">
                 Название&nbsp;<input name="data[document_title]" value="" style="width: 210px;"/>&nbsp;&nbsp;
-                <input type="file" name="file" style="width: 200px;"/>
+                <input type="file" name="file" style="width: 200px;"/><br/>
+                <textarea name="data[document_description]"></textarea>
             </td>
         </tr>
     </table>

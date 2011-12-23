@@ -121,7 +121,6 @@ class TM_Document_Document
      *
      *
      * @param int $value
-
      * @return void
      * @access protected
      */
@@ -134,7 +133,6 @@ class TM_Document_Document
      *
      *
      * @param string $value
-
      * @return void
      * @access public
      */
@@ -147,7 +145,6 @@ class TM_Document_Document
      *
      *
      * @param TM_User_User $value
-
      * @return void
      * @access public
      */
@@ -160,7 +157,6 @@ class TM_Document_Document
      *
      *
      * @param string $value
-
      * @return string
      * @access public
      */
@@ -221,7 +217,6 @@ class TM_Document_Document
      *
      *
      * @param TM_Document_Document $parent
-
      * @return void
      * @access public
      */
@@ -291,6 +286,7 @@ class TM_Document_Document
                     $this->_db->query($sql);
                 }
             }
+            $this->saveAttributeList();
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -321,7 +317,7 @@ class TM_Document_Document
                     $sql = 'UPDATE tm_document SET file="' . $fName . '" WHERE id=' . $this->_id;
                     $this->_db->query($sql);
                 }
-            } 
+            }
             $this->saveAttributeList();
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -337,7 +333,7 @@ class TM_Document_Document
     public function deleteFromDb()
     {
         try {
-        	/*
+            /*
             if (!$this->_isFolder) {
                 $this->_file->setSubPath($this->_parentDocument->getFile()->getName());
             }
@@ -356,7 +352,6 @@ class TM_Document_Document
      *
      *
      * @param int $id идентификатор задачи
-
      * @return TM_Document_Document
      * @static
      * @access public
@@ -406,7 +401,6 @@ class TM_Document_Document
      * @param TM_User_User $user
      * @param int $parentId
      * @param int $isFolder
-
      * @return array
      * @static
      * @access public
@@ -564,7 +558,7 @@ class TM_Document_Document
         }
     }
 
-    public function setLinkToDiscussion($discussion, $is_doc=0)
+    public function setLinkToDiscussion($discussion, $is_doc = 0)
     {
         try {
             $sql = 'INSERT INTO tm_discussion_document(discussion_id, document_id, is_doc)
@@ -591,7 +585,6 @@ class TM_Document_Document
      *
      *
      * @param array $values
-
      * @return void
      * @access public
      */
@@ -660,7 +653,7 @@ class TM_Document_Document
             $oAttribute->setValue($value);
 
             $this->_attributeList[$key] = $oAttribute;
-            $oAttribute->insertToDB();
+            //$oAttribute->insertToDB();
         }
     }
 
@@ -677,7 +670,11 @@ class TM_Document_Document
     {
         if (!is_null($this->_attributeList) && !empty($this->_attributeList)) {
             foreach ($this->_attributeList as $attribute) {
-                $attribute->updateToDB();
+                try {
+                    $attribute->insertToDB();
+                } catch (Exception $e) {
+                    $attribute->updateToDB();
+                }
             }
         }
     }

@@ -212,6 +212,8 @@ class TaskController extends Zend_Controller_Action
                 $oDocument->setTitle($data['document_title']);
                 $oDocument->setParent(TM_Document_Document::getDocumentFolderByTask($this->_user, $oTask));
 
+                $oDocument->setAttribute('description', $data['document_description']);
+
                 $oDocument->insertToDb();
                 $oDocument->setLinkToTask($oTask);
             }
@@ -549,6 +551,8 @@ class TaskController extends Zend_Controller_Action
                     $oDocument->setIsFolder(false);
                     $oDocument->setTitle($data['document_title']);
                     $oDocument->setParent(TM_Document_Document::getDocumentFolderByTask($this->_user, $oTask));
+
+                    $oDocument->setAttribute('description', $data['document_description']);
 
                     $oDocument->insertToDb();
                     $oDocument->setLinkToDiscussion($oDiscussion, 1);
