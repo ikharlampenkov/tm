@@ -58,6 +58,7 @@ class TM_Acl_TaskAcl extends TM_Acl_UserAcl
      */
     public function __construct($object)
     {
+
         parent::__construct($object);
         $this->_isExecutant = 0;
     }
@@ -72,7 +73,7 @@ class TM_Acl_TaskAcl extends TM_Acl_UserAcl
     {
         try {
             $sql = 'REPLACE INTO tm_acl_task(user_id, task_id, is_read, is_write, is_executant)
-                    VALUES (' . $this->_user->getId() . ', ' . $this->_object->getId() . ', ' . $this->_isRead . ', ' . $this->_isWrite . ', ' . $this->_isExecutant . ')';
+                    VALUES (' . $this->_user->getId() . ', ' . $this->_object->id . ', ' . $this->_isRead . ', ' . $this->_isWrite . ', ' . $this->_isExecutant . ')';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());

@@ -27,9 +27,11 @@
                     {if_allowed resource="{$controller}/showDiscussion"}
                         <a href="{$this->url(['controller' => $controller,'action' => 'showDiscussion', 'idTask' => $task->id])}"><img src="/i/discussion_mini.png" alt="обсуждение" title="обсуждение" border="0"/></a>
                     {/if_allowed}
+                    {*
                     {if_allowed resource="{$controller}/showAcl"}
                         &nbsp;<a href="{$this->url(['controller' => $controller,'action' => 'showAcl', 'idTask' => $task->id])}"><img src="/i/comanda.png" alt="права" title="права" border="0"/></a>
                     {/if_allowed}
+                    *}
                     {if_allowed resource="{$controller}/view"}
                         &nbsp;<a href="javascript:void(0)" onclick="task.viewTask('{$this->url(['controller' => $controller, 'action' => 'view', 'id' => $task->id])}', {$task->id});"><img src="/i/task.png" alt="просмотреть" title="просмотреть" border="0"/></a>
                     {/if_allowed}

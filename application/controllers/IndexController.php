@@ -29,6 +29,13 @@ class IndexController extends Zend_Controller_Action
             $this->_redirect('/task/showDiscussion/parent/' . $this->getRequest()->getParam('parent', 0) . '/idTask/' . $this->getRequest()->getParam('idTask'));
         }
 
+        if ($this->getRequest()->getParam('delete')) {
+            $oDiscussion = TM_Discussion_Discussion::getInstanceById($this->getRequest()->getParam('delete'));
+
+            $oDiscussion->deleteFromDb();
+            $this->_redirect('/task/showDiscussion/parent/' . $this->getRequest()->getParam('parent', 0) . '/idTask/' . $this->getRequest()->getParam('idTask'));
+        }
+
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');

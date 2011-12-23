@@ -93,6 +93,7 @@
                                     {if $discussion->user->searchAttribute('name')}{$discussion->user->getAttribute('name')->value}{else}{$discussion->user->login}{/if} {$discussion->datecreate|date_format:"%d.%m.%Y"}
                                     <button onclick="comment_reply_on2({$discussion->id}, {$discussion->user->id}, {$discussion->getTask()->id});">Ответить</button>
                                     {if $discussion->isRequest}{if $discussion->isComplete}<img src="/i/is_complite.png" title="Выполнена" alt="Выполнена" border="0"/>{elseif $discussion->user->id==$authUserId}<button onclick="comment_complete_rq('{$this->url(['controller' => $controller,'action' => 'showDiscussion', 'idTask' => $task->id, 'is_complete' => $discussion->id])}');">Завершить</button>{/if}{/if}
+                                    {if $discussion->user->id==$authUserId}<button onclick="comment_complete_rq('{$this->url(['controller' => $controller,'action' => 'showDiscussion', 'idTask' => $task->id, 'delete' => $discussion->id])}');">удалить</button> {/if}
                                 </div>
                             </div>
                         </li>
