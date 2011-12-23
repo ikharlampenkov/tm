@@ -307,7 +307,8 @@ class TaskController extends Zend_Controller_Action
         $oTask = TM_Task_Task::getInstanceById($this->getRequest()->getParam('id'));
         $oDocument = TM_Document_Document::getInstanceById($this->getRequest()->getParam('doc_id'));
         $oDocument->deleteLinkToTask($oTask);
-        $this->_redirect('/task/edit/parent/' . $this->getRequest()->getParam('parent', 0) . '/id/' . $this->getRequest()->getParam('id'));
+        $this->_redirect('/task/');
+        //$this->_redirect('/task/edit/parent/' . $this->getRequest()->getParam('parent', 0) . '/id/' . $this->getRequest()->getParam('id'));
     }
 
     public function showaclAction()
