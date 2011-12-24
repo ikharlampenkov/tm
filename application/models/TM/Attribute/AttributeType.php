@@ -4,10 +4,9 @@ require_once 'AttributeType.php';
 require_once 'Attribute.php';
 
 
-
 /**
  * class TM_Attribute_AttributeType
- * 
+ *
  */
 class TM_Attribute_AttributeType
 {
@@ -16,22 +15,22 @@ class TM_Attribute_AttributeType
 
     /** Compositions: */
 
-     /*** Attributes: ***/
+    /*** Attributes: ***/
 
     /**
-     * 
+     *
      * @access protected
      */
     protected $_id;
 
     /**
-     * 
+     *
      * @access protected
      */
     protected $_title;
 
     /**
-     * 
+     *
      * @access protected
      */
     protected $_handler;
@@ -50,42 +49,46 @@ class TM_Attribute_AttributeType
     protected $_db;
 
     /**
-     * 
+     *
      *
      * @return int
      * @access public
      */
-    public function getId( ) {
+    public function getId()
+    {
         return $this->_id;
     } // end of member function getId
 
     /**
-     * 
+     *
      *
      * @return string
      * @access public
      */
-    public function getTitle( ) {
+    public function getTitle()
+    {
         return $this->_db->prepareStringToOut($this->_title);
     } // end of member function getTitle
 
     /**
-     * 
+     *
      *
      * @return string
      * @access public
      */
-    public function getHandler( ) {
+    public function getHandler()
+    {
         return $this->_handler;
     } // end of member function getHandler
 
     /**
-     * 
+     *
      *
      * @return string
      * @access public
      */
-    public function getDescription( ) {
+    public function getDescription()
+    {
         return $this->_db->prepareStringToOut($this->_description);
     } // end of member function getDescription
 
@@ -93,51 +96,51 @@ class TM_Attribute_AttributeType
      *
      *
      * @param int $value
-
      * @return void
      * @access protected
      */
-    protected function setId( $value ) {
-        $this->_id = (int) $this->_db->prepareString($value);
+    protected function setId($value)
+    {
+        $this->_id = (int)$this->_db->prepareString($value);
     } // end of member function setId
 
     /**
-     * 
+     *
      *
      * @param string $value
-
      * @return void
      * @access public
      */
-    public function setTitle( $value ) {
+    public function setTitle($value)
+    {
         $this->_title = $this->_db->prepareString($value);
     } // end of member function setTitle
 
     /**
-     * 
+     *
      *
      * @param string $value
-
      * @return void
      * @access public
      */
-    public function setHandler( $value ) {
+    public function setHandler($value)
+    {
         $this->_handler = $this->_db->prepareString($value);
     } // end of member function setHandler
 
     /**
-     * 
+     *
      *
      * @param string $value
-
      * @return void
      * @access public
      */
-    public function setDescription( $value ) {
+    public function setDescription($value)
+    {
         $this->_description = $this->_db->prepareString($value);
     } // end of member function setDescription
 
-     public function __get($name)
+    public function __get($name)
     {
         $method = "get{$name}";
         if (method_exists($this, $method)) {
@@ -164,7 +167,7 @@ class TM_Attribute_AttributeType
      * @param $value
      * @return void
      */
-    public function getHTMLFrom($hash, $object, $value= '')
+    public function getHTMLFrom($hash, $object, $value = '')
     {
         $html = '<input name="data[attribute][' . $hash->attributeKey . ']" value="';
         if ($object->searchAttribute($hash->attributeKey)) {
@@ -174,12 +177,20 @@ class TM_Attribute_AttributeType
         echo $html;
     }
 
+    public function getHTML($hash, $object)
+    {
+        $html = '';
+        if ($object->searchAttribute($hash->attributeKey)) {
+            $html .= $object->getAttribute($hash->attributeKey)->value;
+        }
+        echo $html;
+    }
+
     /**
      *
      *
-
      * @return void
-       @access public
+    @access public
      */
     public function insertToDB()
     {
@@ -258,7 +269,8 @@ class TM_Attribute_AttributeType
      * @return void
      * @access public
      */
-    public function fillFromArray( $values ) {
+    public function fillFromArray($values)
+    {
         $this->setId($values['id']);
         $this->setTitle($values['title']);
         $this->setDescription($values['description']);

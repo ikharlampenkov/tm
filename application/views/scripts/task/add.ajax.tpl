@@ -8,7 +8,7 @@
 <br/>
 {/if}
 
-
+<form action="{$this->url(['controller' => $controller,'action' => 'add'])}" method="post" id="addForm">
 <table width="100%">
     <tr>
         <td class="ttovar_title">Тип задачи</td>
@@ -76,3 +76,4 @@
 {/if}
 
 </table>
+</form>

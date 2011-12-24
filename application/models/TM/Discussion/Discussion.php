@@ -429,6 +429,30 @@ class TM_Discussion_Discussion
         }
     } // end of member function deleteFromDb
 
+    public function toArchive()
+    {
+        try {
+            $sql = 'UPDATE tm_discussion SET is_archive=1
+                        WHERE id=' . $this->_id;
+            $this->_db->query($sql);
+
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
+    public function fromArchive()
+    {
+        try {
+            $sql = 'UPDATE tm_discussion SET is_archive=0
+                            WHERE id=' . $this->_id;
+            $this->_db->query($sql);
+
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
     /**
      *
      *
@@ -485,7 +509,7 @@ class TM_Discussion_Discussion
      * @static
      * @access public
      */
-    public static function getAllInstance(TM_User_User $user, $topicId = 0)
+    public static function getAllInstance(TM_User_User $user, $topicId = 0, $isArchive = false)
     {
         try {
             $db = StdLib_DB::getInstance();
@@ -496,9 +520,20 @@ class TM_Discussion_Discussion
                         WHERE topic_id=' . (int)$topicId;
             } elseif ($topicId == -1) {
                 $sql = 'SELECT * FROM tm_discussion ';
+                if ($isArchive) {
+                    $sql .= ' WHERE is_archive=1';
+                } else {
+                    $sql .= ' WHERE is_archive=0';
+                }
+
             } elseif ($topicId == 0) {
                 $sql = 'SELECT * FROM tm_discussion
                         WHERE topic_id IS NULL AND parent_id IS NULL AND is_message=0';
+                if ($isArchive) {
+                    $sql .= ' AND is_archive=1';
+                } else {
+                    $sql .= ' AND is_archive=0';
+                }
             }
 
             $sql .= ' ORDER BY parent_id';

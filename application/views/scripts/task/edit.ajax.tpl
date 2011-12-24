@@ -59,7 +59,7 @@
             <tr>
                 <td class="ttovar_title">Документ</td>
                 <td class="ttovar">
-                    <a href="/files{$document->file->getSubPath()}/{$document->file->getName()}" target="_blank">{$document->title}</a>
+                    <a href="/files{$document->file->getSubPath()}/{$document->file->getName()}" target="_blank" id="doc_info_{$document->id}" onmouseover="doc.showInfo('{$this->url(['controller' => 'document','action' => 'view', 'id' => $document->id])}', {$document->id});">{$document->title}</a>
                     / <a href="{$this->url(['controller' => 'document','action' => 'edit', 'id' => $document->id])}">редактировать</a>
                     / <a href="{$this->url(['controller' => $controller,'action' => 'deleteLinkToDoc', 'id' => $task->id, 'doc_id' => $document->id])}">удалить</a>
                 </td>
@@ -70,7 +70,8 @@
             <td class="ttovar_title">Документ</td>
             <td class="ttovar">
                 Название&nbsp;<input name="data[document_title]" value="" style="width: 210px;"/>&nbsp;&nbsp;
-                <input type="file" name="file" style="width: 200px;"/>
+                <input type="file" name="file" style="width: 200px;"/><br/>
+                <textarea name="data[document_description]"></textarea>
             </td>
         </tr>
     </table>

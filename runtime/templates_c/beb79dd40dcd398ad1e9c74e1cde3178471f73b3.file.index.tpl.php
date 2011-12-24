@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-21 21:03:37
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-24 15:18:27
          compiled from "F:\www\tm\application/views/scripts\task/index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:321584ef1e739950de1-30865573%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:59854ef58ad35bb8e0-23741855%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'beb79dd40dcd398ad1e9c74e1cde3178471f73b3' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\task/index.tpl',
-      1 => 1324475226,
+      1 => 1324708645,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '321584ef1e739950de1-30865573',
+  'nocache_hash' => '59854ef58ad35bb8e0-23741855',
   'function' => 
   array (
   ),
@@ -26,6 +26,13 @@ if (!is_callable('smarty_modifier_date_format')) include 'F:\www\tm\library\Smar
 <?php }?></h1>
 
     <div class="page_block">
+    <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-archive")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-archive"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
+
+        <img src="/i/zip.gif" alt="архив" title="архив" border="0"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'archive'));?>
+">Архив</a>
+    <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-archive"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
+
+
     <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-attribute-hash")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-attribute-hash"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
         <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'viewHash'));?>
@@ -78,14 +85,14 @@ if ($_smarty_tpl->_count($_from) > 0){
                 Название
             </div>
 
-            <div style="width: 120px; float: right;">
+            <div class="task_action">
                 Действия
             </div>
 
-            <div style="width: 120px; float: right;">
+            <div class="task_deadline">
                 Выполнить до
             </div>
-            <div style="width: 200px; float: right;">
+            <div class="task_statistic">
                 &nbsp;
             </div>
         </div>
@@ -148,12 +155,6 @@ if ($_smarty_tpl->_count($_from) > 0){
 "><img src="/i/discussion_mini.png" alt="обсуждение" title="обсуждение" border="0"/></a>
                         <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/showDiscussion"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
-                        <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/showAcl")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/showAcl"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
-
-                            &nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'showAcl','idTask'=>$_smarty_tpl->getVariable('task')->value->id));?>
-"><img src="/i/comanda.png" alt="права" title="права" border="0"/></a>
-                        <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/showAcl"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
-
                         <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/view")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/view"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
                             &nbsp;<a href="javascript:void(0)" onclick="task.viewTask('<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'view','id'=>$_smarty_tpl->getVariable('task')->value->id));?>
@@ -185,6 +186,15 @@ if ($_smarty_tpl->_count($_from) > 0){
 
                         <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/edit"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
+                        <?php if (!$_smarty_tpl->getVariable('task')->value->hasParent()){?>
+                            <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/toArchive")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/toArchive"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
+
+                                <a href="javascript:void(0)" onclick="task.toArchive('<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'toArchive','idTask'=>$_smarty_tpl->getVariable('task')->value->id));?>
+', 0, '<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'showTaskBlock','parent'=>0));?>
+')"><img src="/i/zip.gif" alt="в архив" title="в архив" border="0"/></a>
+                            <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/toArchive"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
+
+                        <?php }?>
                         <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/delete")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/delete"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
                             &nbsp;<a href="javascript:void(0)" onclick="task.deleteDialog('<?php echo $_smarty_tpl->getVariable('task')->value->title;?>
@@ -225,7 +235,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 ', <?php echo $_smarty_tpl->getVariable('task')->value->id;?>
 , true, '', 'Возникли вопросы');"><img src="/i/is_problem.png" title="Возникли вопросы" alt="Возникли вопросы" border="0"/>&nbsp;<?php echo $_smarty_tpl->getVariable('stat')->value['is_problem'];?>
 </a>
-                            
+
                             <img src="/i/discussion_mini.png" title="Кол-во комментариев" alt="Кол-во комментариев"/>&nbsp;<?php echo $_smarty_tpl->getVariable('stat')->value['discuss_count'];?>
 
                             <img src="/i/in_doc.png" title="Кол-во документов" alt="Кол-во документов"/>&nbsp;<?php echo $_smarty_tpl->getVariable('stat')->value['doc_count'];?>

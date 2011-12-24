@@ -59,7 +59,8 @@
             <div style="font-size: 14px; font-weight: bold; padding: 0px 0px 5px 0px; margin: 0px 0px 5px 0px;">Загрузить документ</div>
             <div>
                 Название документа&nbsp;<input name="data[document_title]" value="" style="width: 310px;"/>&nbsp;&nbsp;
-                <input type="file" name="file" style="width: 300px;"/>
+                <input type="file" name="file" style="width: 300px;"/><br/>
+                <textarea name="data[document_description]"></textarea>
             </div>
             <input type="hidden" name="data[parent]" value="" id="parent"/>
             <input id="save" name="save" type="submit" value="Отправить"/>
@@ -87,7 +88,8 @@
             <div style="font-size: 14px; font-weight: bold; padding: 0px 0px 5px 0px; margin: 0px 0px 5px 0px;">Загрузить документ</div>
             <div>
                 Название документа&nbsp;<input name="data[document_title]" value="" style="width: 310px;"/>&nbsp;&nbsp;
-                <input type="file" name="file" style="width: 300px;"/>
+                <input type="file" name="file" style="width: 300px;"/><br/>
+                <textarea name="data[document_description]"></textarea>
             </div>
 
             <input id="save" name="save" type="submit" value="Отправить"/>
