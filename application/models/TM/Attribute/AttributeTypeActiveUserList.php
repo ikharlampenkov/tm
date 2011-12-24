@@ -15,7 +15,7 @@ class TM_Attribute_AttributeTypeActiveUserList extends TM_Attribute_AttributeTyp
         $userId = array_key_exists('id', $storage_data) ? $storage_data->id : 0;
         //$oUser = TM_User_User::getInstanceById($user);
 
-        $html =  '<select name="data[attribute][' . $hash->attributeKey . ']" >';
+        $html = '<select name="data[attribute][' . $hash->attributeKey . ']" >';
         $html .= '<option value="-">-</option> ';
 
         foreach (TM_User_User::getAllInstance() as $value) {
@@ -39,6 +39,28 @@ class TM_Attribute_AttributeTypeActiveUserList extends TM_Attribute_AttributeTyp
         }
 
         $html .= '</select>';
+        echo $html;
+    }
+
+    public function getHTML($hash, $object)
+    {
+        $storage_data = Zend_Auth::getInstance()->getStorage()->read();
+        $userId = array_key_exists('id', $storage_data) ? $storage_data->id : 0;
+        //$oUser = TM_User_User::getInstanceById($user);
+
+        $html = '';
+
+        if ($object->searchAttribute($hash->attributeKey)) {
+            if ($object->getAttribute($hash->attributeKey)->value !== '-') {
+                $oUser = TM_User_User::getInstanceById($object->getAttribute($hash->attributeKey)->value);
+                if ($oUser->searchAttribute('name')) {
+                    $html .= $oUser->getAttribute('name')->value;
+                } else {
+                    $html .= $oUser->login;
+                }
+            }
+        }
+
         echo $html;
     }
 }

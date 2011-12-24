@@ -36,6 +36,7 @@
                     {if $discussion->user->searchAttribute('name')}{$discussion->user->getAttribute('name')->value}{else}{$discussion->user->login}{/if} {$discussion->datecreate|date_format:"%d.%m.%Y"}
                     <button onclick="comment_reply_on({$discussion->id})">Ответить</button>
                     {if $discussion->isRequest}{if $discussion->isComplete}<img src="/i/is_complite.png" title="Выполнена" alt="Выполнена" border="0"/>{elseif $discussion->user->id==$authUserId}<button onclick="comment_complete_rq('{$this->url(['controller' => $controller,'action' => 'showDiscussion', 'idTask' => $task->id, 'is_complete' => $discussion->id])}');">Завершить</button>{/if}{/if}
+                    {if $discussion->user->id==$authUserId}<button onclick="comment_complete_rq('{$this->url(['controller' => $controller,'action' => 'showDiscussion', 'idTask' => $task->id, 'delete' => $discussion->id])}');">удалить</button> {/if}
                 </div>
             </div>
         </li>
@@ -58,7 +59,8 @@
             <div style="font-size: 14px; font-weight: bold; padding: 0px 0px 5px 0px; margin: 0px 0px 5px 0px;">Загрузить документ</div>
             <div>
                 Название документа&nbsp;<input name="data[document_title]" value="" style="width: 310px;"/>&nbsp;&nbsp;
-                <input type="file" name="file" style="width: 300px;"/>
+                <input type="file" name="file" style="width: 300px;"/><br/>
+                <textarea name="data[document_description]"></textarea>
             </div>
             <input type="hidden" name="data[parent]" value="" id="parent"/>
             <input id="save" name="save" type="submit" value="Отправить"/>
@@ -86,7 +88,8 @@
             <div style="font-size: 14px; font-weight: bold; padding: 0px 0px 5px 0px; margin: 0px 0px 5px 0px;">Загрузить документ</div>
             <div>
                 Название документа&nbsp;<input name="data[document_title]" value="" style="width: 310px;"/>&nbsp;&nbsp;
-                <input type="file" name="file" style="width: 300px;"/>
+                <input type="file" name="file" style="width: 300px;"/><br/>
+                <textarea name="data[document_description]"></textarea>
             </div>
 
             <input id="save" name="save" type="submit" value="Отправить"/>

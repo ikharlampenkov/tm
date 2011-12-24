@@ -8,7 +8,8 @@
 
 
 var task = {
-    addDialog:function (rq_url, parent, show_url) { // Функция вывода диалогового окна
+    addDialog:function (rq_url, parent, show_url, prefics) { // Функция вывода диалогового окна
+        prefics = prefics || '';
         if ($('#addDialog').length < 1) // создаем блок диалогового окна
         {
             $('body').append('<div id="addDialog" ></div>');
@@ -24,7 +25,18 @@ var task = {
                 width:830,
                 buttons:{
                     Добавить:function () {
-                        task.send(rq_url, parent, show_url);
+                        $('#addForm').ajaxSubmit({
+                            success:function (responseText, statusText, xhr, $form) {
+                                if (responseText != '') {
+                                    $('#addDialog').html(responseText);
+                                }
+                                else {
+                                    task.openTask(show_url, parent, true, prefics);
+                                    $('#addDialog').dialog('close');
+                                }
+                            }
+                        });
+                        //task.send(rq_url, parent, show_url);
                     },
                     Отмена:function () {
                         $('#addDialog').dialog('close');
@@ -224,6 +236,45 @@ var task = {
                 }
             });
         }, 'html');
+    },
+
+    toArchive:function (rg_url, parent, show_url) {
+        $.get(rg_url, '', function (data) {
+            if (data == '') {
+                task.openTask(show_url, parent, true);
+            }
+        }, 'html');
+
+    },
+
+    fromArchive:function (rg_url, parent, show_url) {
+        $.get(rg_url, '', function (data) {
+            if (data == '') {
+                task.openTask(show_url, parent, true);
+            }
+        }, 'html');
+
+    },
+
+    showInfo:function (rq_url, id) {
+            if ($('#taskInfo').length < 1) {
+                $('body').append('<div id="taskInfo" class="task_info"></div>');
+            } else {
+                $('#fileInfo').empty();
+            }
+
+            $.get(rq_url, '', function (data) { // посылаем пост запрос для вывода формы
+                /*
+                 $('#doc_info_' + id).tooltip({
+                 content: data
+                 });
+                 */
+                $('#taskInfo').html(data).popup({
+                    position:{
+                        of:'#task_info_' + id
+                    }
+                }).popup('open');
+            }, 'html');
     }
 };
 

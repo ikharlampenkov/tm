@@ -15,12 +15,15 @@ class TaskController extends Zend_Controller_Action
         $this->_helper->AjaxContext()->addActionContext('edit', 'html')->initContext('html');
         $this->_helper->AjaxContext()->addActionContext('delete', 'html')->initContext('html');
         $this->_helper->AjaxContext()->addActionContext('view', 'html')->initContext('html');
+        $this->_helper->AjaxContext()->addActionContext('info', 'html')->initContext('html');
+        $this->_helper->AjaxContext()->addActionContext('toArchive', 'html')->initContext('html');
+        $this->_helper->AjaxContext()->addActionContext('fromArchive', 'html')->initContext('html');
+        $this->_helper->AjaxContext()->addActionContext('showArchiveBlock', 'html')->initContext('html');
     }
 
     public function indexAction()
     {
         $parentId = $this->getRequest()->getParam('parent', 0);
-        $this->view->assign('taskList', TM_Task_Task::getAllInstance($this->_user, $parentId));
 
         if ($parentId != 0) {
             $curTask = TM_Task_Task::getInstanceById($parentId);
@@ -28,6 +31,8 @@ class TaskController extends Zend_Controller_Action
             $this->view->assign('task', $curTask);
             $this->view->assign('breadcrumbs', $curTask->getPathToTask());
         }
+
+        $this->view->assign('taskList', TM_Task_Task::getAllInstance($this->_user, $parentId));
     }
 
     public function showtaskblockAction()
@@ -74,14 +79,15 @@ class TaskController extends Zend_Controller_Action
                 $oTask->addParent($parentTask);
             }
 
+            foreach ($data['attribute'] as $key => $value) {
+                $oTask->setAttribute($key, $value);
+            }
+
 
             try {
                 $oTask->insertToDb();
-                foreach ($data['attribute'] as $key => $value) {
-                    $oTask->setAttribute($key, $value);
-                }
 
-                $oTask->updateToDb();
+                //$oTask->updateToDb();
 
                 $oDocument = new TM_Document_Document();
                 $oDocument->setUser($this->_user);
@@ -112,6 +118,7 @@ class TaskController extends Zend_Controller_Action
                 $oDiscussion->insertToDb();
                 $oDiscussion->setLinkToTask($oTask);
 
+                /*
                 if (!empty($data['parentTask'])) {
                     $taskAcl = TM_Acl_TaskAcl::getAllInstance($parentTask);
                     if (!empty($taskAcl)) {
@@ -123,6 +130,41 @@ class TaskController extends Zend_Controller_Action
                             $tempAcl->setIsExecutant($acl->getIsExecutant());
                             $tempAcl->saveToDb();
                         }
+                    }
+                }
+                */
+
+                $oFolder = TM_Document_Document::getDocumentFolderByTask($this->_user, $oTask);
+                $folderAcl = TM_Acl_DocumentAcl::getAllInstance($oFolder);
+
+                $oTopic = TM_Discussion_Discussion::getTopicByTask($this->_user, $oTask);
+                $topicAcl = TM_Acl_DiscussionAcl::getAllInstance($oTopic);
+
+                $dataAcl = $this->getRequest()->getParam('dataacl');
+                foreach ($dataAcl as $idUser => $values) {
+
+                    $taskAcl = new TM_Acl_TaskAcl($oTask);
+
+                    $taskAcl->setUser(TM_User_User::getInstanceById($idUser));
+                    $taskAcl->setIsRead($values['is_read']);
+                    $taskAcl->setIsWrite($values['is_write']);
+                    $taskAcl->setIsExecutant($values['is_executant']);
+                    $taskAcl->saveToDb();
+
+                    if (empty($folderAcl)) {
+                        $tempAcl = new TM_Acl_DocumentAcl($oFolder);
+                        $tempAcl->setUser(TM_User_User::getInstanceById($idUser));
+                        $tempAcl->setIsRead($values['is_read']);
+                        $tempAcl->setIsWrite($values['is_write']);
+                        $tempAcl->saveToDb();
+                    }
+
+                    if (empty($topicAcl)) {
+                        $tempAcl = new TM_Acl_DiscussionAcl($oTopic);
+                        $tempAcl->setUser(TM_User_User::getInstanceById($idUser));
+                        $tempAcl->setIsRead($values['is_read']);
+                        $tempAcl->setIsWrite($values['is_write']);
+                        $tempAcl->saveToDb();
                     }
                 }
 
@@ -141,6 +183,12 @@ class TaskController extends Zend_Controller_Action
         $this->view->assign('attributeHashList', TM_Task_Hash::getAllInstance());
         $this->view->assign('task', $oTask);
         $this->view->assign('taskTypeList', $oTask->getTypeList());
+
+        $this->view->assign('userList', TM_User_User::getAllInstance());
+        if ($this->getRequest()->getParam('parent', 0) != 0) {
+            $this->view->assign('taskAcl', TM_Acl_TaskAcl::getAllInstance(TM_Task_Task::getInstanceById($this->getRequest()->getParam('parent', 0))));
+        }
+
     }
 
     public function editAction()
@@ -169,12 +217,51 @@ class TaskController extends Zend_Controller_Action
                 $oDocument->setTitle($data['document_title']);
                 $oDocument->setParent(TM_Document_Document::getDocumentFolderByTask($this->_user, $oTask));
 
+                $oDocument->setAttribute('description', $data['document_description']);
+
                 $oDocument->insertToDb();
                 $oDocument->setLinkToTask($oTask);
             }
 
+
             try {
                 $oTask->updateToDb();
+
+                $oFolder = TM_Document_Document::getDocumentFolderByTask($this->_user, $oTask);
+                $folderAcl = TM_Acl_DocumentAcl::getAllInstance($oFolder);
+
+                $oTopic = TM_Discussion_Discussion::getTopicByTask($this->_user, $oTask);
+                $topicAcl = TM_Acl_DiscussionAcl::getAllInstance($oTopic);
+
+                $dataAcl = $this->getRequest()->getParam('dataacl');
+                foreach ($dataAcl as $idUser => $values) {
+
+                    $taskAcl = new TM_Acl_TaskAcl($oTask);
+
+                    $taskAcl->setUser(TM_User_User::getInstanceById($idUser));
+                    $taskAcl->setIsRead($values['is_read']);
+                    $taskAcl->setIsWrite($values['is_write']);
+                    $taskAcl->setIsExecutant($values['is_executant']);
+                    $taskAcl->saveToDb();
+
+                    if (empty($folderAcl)) {
+                        $tempAcl = new TM_Acl_DocumentAcl($oFolder);
+                        $tempAcl->setUser(TM_User_User::getInstanceById($idUser));
+                        $tempAcl->setIsRead($values['is_read']);
+                        $tempAcl->setIsWrite($values['is_write']);
+                        $tempAcl->saveToDb();
+                    }
+
+                    if (empty($topicAcl)) {
+                        $tempAcl = new TM_Acl_DiscussionAcl($oTopic);
+                        $tempAcl->setUser(TM_User_User::getInstanceById($idUser));
+                        $tempAcl->setIsRead($values['is_read']);
+                        $tempAcl->setIsWrite($values['is_write']);
+                        $tempAcl->saveToDb();
+                    }
+                }
+
+
                 if ($this->_request->isXmlHttpRequest()) {
                     exit;
                 } else {
@@ -191,6 +278,9 @@ class TaskController extends Zend_Controller_Action
         $this->view->assign('documentList', TM_Document_Document::getDocumentByTask($this->_user, $oTask));
         $this->view->assign('task', $oTask);
         $this->view->assign('taskTypeList', $oTask->getTypeList());
+
+        $this->view->assign('taskAcl', TM_Acl_TaskAcl::getAllInstance($oTask));
+        $this->view->assign('userList', TM_User_User::getAllInstance());
     }
 
     public function viewAction()
@@ -200,6 +290,14 @@ class TaskController extends Zend_Controller_Action
         $this->view->assign('documentList', TM_Document_Document::getDocumentByTask($this->_user, $oTask));
         $this->view->assign('task', $oTask);
     }
+
+    public function infoAction()
+        {
+            $oTask = TM_Task_Task::getInstanceById($this->getRequest()->getParam('id'));
+            $this->view->assign('attributeHashList', TM_Task_Hash::getAllInstance($oTask));
+            $this->view->assign('documentList', TM_Document_Document::getDocumentByTask($this->_user, $oTask));
+            $this->view->assign('task', $oTask);
+        }
 
     public function deleteAction()
     {
@@ -222,7 +320,8 @@ class TaskController extends Zend_Controller_Action
         $oTask = TM_Task_Task::getInstanceById($this->getRequest()->getParam('id'));
         $oDocument = TM_Document_Document::getInstanceById($this->getRequest()->getParam('doc_id'));
         $oDocument->deleteLinkToTask($oTask);
-        $this->_redirect('/task/edit/parent/' . $this->getRequest()->getParam('parent', 0) . '/id/' . $this->getRequest()->getParam('id'));
+        $this->_redirect('/task/');
+        //$this->_redirect('/task/edit/parent/' . $this->getRequest()->getParam('parent', 0) . '/id/' . $this->getRequest()->getParam('id'));
     }
 
     public function showaclAction()
@@ -415,6 +514,13 @@ class TaskController extends Zend_Controller_Action
             $this->_redirect('/task/showDiscussion/parent/' . $this->getRequest()->getParam('parent', 0) . '/idTask/' . $this->getRequest()->getParam('idTask'));
         }
 
+        if ($this->getRequest()->getParam('delete')) {
+            $oDiscussion = TM_Discussion_Discussion::getInstanceById($this->getRequest()->getParam('delete'));
+
+            $oDiscussion->deleteFromDb();
+            $this->_redirect('/task/showDiscussion/parent/' . $this->getRequest()->getParam('parent', 0) . '/idTask/' . $this->getRequest()->getParam('idTask'));
+        }
+
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
             $oDiscussion = new TM_Discussion_Discussion();
@@ -460,6 +566,8 @@ class TaskController extends Zend_Controller_Action
                     $oDocument->setTitle($data['document_title']);
                     $oDocument->setParent(TM_Document_Document::getDocumentFolderByTask($this->_user, $oTask));
 
+                    $oDocument->setAttribute('description', $data['document_description']);
+
                     $oDocument->insertToDb();
                     $oDocument->setLinkToDiscussion($oDiscussion, 1);
 
@@ -487,4 +595,53 @@ class TaskController extends Zend_Controller_Action
         $this->view->assign('userList', TM_User_User::getAllInstance());
     }
 
+    public function archiveAction()
+    {
+        $this->view->assign('taskList', TM_Task_Task::getAllInstance($this->_user, 0, 'all', true));
+    }
+
+    public function showarchiveblockAction()
+    {
+        $parentId = $this->getRequest()->getParam('parent', 0);
+        $filter_raw = $this->getRequest()->getParam('filter', 'all');
+        if (is_array($filter_raw)) {
+            $filter = urldecode($filter_raw[count($filter_raw) - 1]);
+        } else {
+            $filter = urldecode($filter_raw);
+        }
+        $this->view->assign('taskList', TM_Task_Task::getAllInstance($this->_user, $parentId, $filter, true));
+    }
+
+    public function toarchiveAction()
+    {
+        $oTask = TM_Task_Task::getInstanceById($this->getRequest()->getParam('idTask'));
+        $oFolder = TM_Document_Document::getDocumentFolderByTask($this->_user, $oTask);
+        $oTopic = TM_Discussion_Discussion::getTopicByTask($this->_user, $oTask);
+
+        try {
+            $oTask->toArchive();
+            $oFolder->toArchive();
+            $oTopic->toArchive();
+        } catch (Exception $e) {
+
+        }
+    }
+
+    public function fromarchiveAction()
+    {
+        $oTask = TM_Task_Task::getInstanceById($this->getRequest()->getParam('idTask'));
+        $oFolder = TM_Document_Document::getDocumentFolderByTask($this->_user, $oTask);
+        $oTopic = TM_Discussion_Discussion::getTopicByTask($this->_user, $oTask);
+
+        try {
+            $oTask->fromArchive();
+            $oFolder->fromArchive();
+            $oTopic->fromArchive();
+        } catch (Exception $e) {
+
+        }
+    }
+
+
 }
+

@@ -25,7 +25,7 @@
     {if $task->searchAttribute($attributeHash->attributeKey)}
         <tr>
             <td class="ttovar_title">{$attributeHash->title}</td>
-            <td class="ttovar">{$task->getAttribute($attributeHash->attributeKey)->value}</td>
+            <td class="ttovar"> {$task->getAttribute($attributeHash->attributeKey)->value}</td>
         </tr>
     {/if}
     {/foreach}

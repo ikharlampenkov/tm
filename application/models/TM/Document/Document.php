@@ -121,7 +121,6 @@ class TM_Document_Document
      *
      *
      * @param int $value
-
      * @return void
      * @access protected
      */
@@ -134,7 +133,6 @@ class TM_Document_Document
      *
      *
      * @param string $value
-
      * @return void
      * @access public
      */
@@ -147,7 +145,6 @@ class TM_Document_Document
      *
      *
      * @param TM_User_User $value
-
      * @return void
      * @access public
      */
@@ -160,7 +157,6 @@ class TM_Document_Document
      *
      *
      * @param string $value
-
      * @return string
      * @access public
      */
@@ -221,7 +217,6 @@ class TM_Document_Document
      *
      *
      * @param TM_Document_Document $parent
-
      * @return void
      * @access public
      */
@@ -291,6 +286,7 @@ class TM_Document_Document
                     $this->_db->query($sql);
                 }
             }
+            $this->saveAttributeList();
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -321,7 +317,7 @@ class TM_Document_Document
                     $sql = 'UPDATE tm_document SET file="' . $fName . '" WHERE id=' . $this->_id;
                     $this->_db->query($sql);
                 }
-            } 
+            }
             $this->saveAttributeList();
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -337,7 +333,7 @@ class TM_Document_Document
     public function deleteFromDb()
     {
         try {
-        	/*
+            /*
             if (!$this->_isFolder) {
                 $this->_file->setSubPath($this->_parentDocument->getFile()->getName());
             }
@@ -352,11 +348,34 @@ class TM_Document_Document
         }
     } // end of member function deleteFromDb
 
+    public function toArchive()
+    {
+        try {
+            $sql = 'UPDATE tm_document SET is_archive=1
+                        WHERE id=' . $this->_id;
+            $this->_db->query($sql);
+
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
+    public function fromArchive()
+    {
+        try {
+            $sql = 'UPDATE tm_document SET is_archive=0
+                            WHERE id=' . $this->_id;
+            $this->_db->query($sql);
+
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
     /**
      *
      *
      * @param int $id идентификатор задачи
-
      * @return TM_Document_Document
      * @static
      * @access public
@@ -406,12 +425,12 @@ class TM_Document_Document
      * @param TM_User_User $user
      * @param int $parentId
      * @param int $isFolder
-
+     * @param bool $isArchive
      * @return array
      * @static
      * @access public
      */
-    public static function getAllInstance(TM_User_User $user, $parentId = 0, $isFolder = -1)
+    public static function getAllInstance(TM_User_User $user, $parentId = 0, $isFolder = -1, $isArchive = false)
     {
         try {
             $db = StdLib_DB::getInstance();
@@ -421,21 +440,34 @@ class TM_Document_Document
                         WHERE parent_id=' . (int)$parentId;
             } elseif ($parentId == -1) {
                 $sql = 'SELECT * FROM tm_document ';
+                if ($isArchive) {
+                    $sql .= ' WHERE is_archive=1 ';
+                } else {
+                    $sql .= ' WHERE is_archive=0 ';
+                }
+
             } elseif ($parentId == 0) {
                 $sql = 'SELECT * FROM tm_document
                         WHERE parent_id IS NULL ';
+                if ($isArchive) {
+                    $sql .= ' AND is_archive=1 ';
+                } else {
+                    $sql .= ' AND is_archive=0 ';
+                }
             }
 
+            /*
             if ($parentId == -1 && $isFolder != -1) {
                 $sql .= ' WHERE ';
             } elseif ($isFolder != -1) {
                 $sql .= ' AND ';
             }
+            */
 
             if ($isFolder == 1) {
-                $sql .= ' is_folder=1';
+                $sql .= ' AND is_folder=1';
             } elseif ($isFolder == 0) {
-                $sql .= ' is_folder=0';
+                $sql .= ' AND is_folder=0';
             }
 
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
@@ -564,7 +596,7 @@ class TM_Document_Document
         }
     }
 
-    public function setLinkToDiscussion($discussion, $is_doc=0)
+    public function setLinkToDiscussion($discussion, $is_doc = 0)
     {
         try {
             $sql = 'INSERT INTO tm_discussion_document(discussion_id, document_id, is_doc)
@@ -591,7 +623,6 @@ class TM_Document_Document
      *
      *
      * @param array $values
-
      * @return void
      * @access public
      */
@@ -660,7 +691,7 @@ class TM_Document_Document
             $oAttribute->setValue($value);
 
             $this->_attributeList[$key] = $oAttribute;
-            $oAttribute->insertToDB();
+            //$oAttribute->insertToDB();
         }
     }
 
@@ -677,7 +708,11 @@ class TM_Document_Document
     {
         if (!is_null($this->_attributeList) && !empty($this->_attributeList)) {
             foreach ($this->_attributeList as $attribute) {
-                $attribute->updateToDB();
+                try {
+                    $attribute->insertToDB();
+                } catch (Exception $e) {
+                    $attribute->updateToDB();
+                }
             }
         }
     }

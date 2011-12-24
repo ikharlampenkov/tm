@@ -27,6 +27,7 @@
           <actionMethod actionName="addAttribyteHash"/>
           <actionMethod actionName="editAttributeKey"/>
           <actionMethod actionName="showDiscussion"/>
+          <actionMethod actionName="archive"/>
         </controllerFile>
         <controllerFile controllerName="Reports">
           <actionMethod actionName="index"/>
@@ -90,6 +91,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Task">
             <viewScriptFile forActionName="showDiscussion"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Task">
+            <viewScriptFile forActionName="archive"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

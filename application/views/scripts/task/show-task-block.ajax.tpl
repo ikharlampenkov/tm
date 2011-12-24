@@ -27,9 +27,11 @@
                     {if_allowed resource="{$controller}/showDiscussion"}
                         <a href="{$this->url(['controller' => $controller,'action' => 'showDiscussion', 'idTask' => $task->id])}"><img src="/i/discussion_mini.png" alt="обсуждение" title="обсуждение" border="0"/></a>
                     {/if_allowed}
-                    {if_allowed resource="{$controller}/showAcl"}
-                        &nbsp;<a href="{$this->url(['controller' => $controller,'action' => 'showAcl', 'idTask' => $task->id])}"><img src="/i/comanda.png" alt="права" title="права" border="0"/></a>
-                    {/if_allowed}
+                {*
+                {if_allowed resource="{$controller}/showAcl"}
+                    &nbsp;<a href="{$this->url(['controller' => $controller,'action' => 'showAcl', 'idTask' => $task->id])}"><img src="/i/comanda.png" alt="права" title="права" border="0"/></a>
+                {/if_allowed}
+                *}
                     {if_allowed resource="{$controller}/view"}
                         &nbsp;<a href="javascript:void(0)" onclick="task.viewTask('{$this->url(['controller' => $controller, 'action' => 'view', 'id' => $task->id])}', {$task->id});"><img src="/i/task.png" alt="просмотреть" title="просмотреть" border="0"/></a>
                     {/if_allowed}
@@ -41,6 +43,11 @@
                             &nbsp;<a href="javascript:void(0)" onclick="task.editDialog('{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $task->id])}', {if !$task->hasParent()}0{else}{$task->getFirstParent()->id}{/if}, '{if !$task->hasParent()}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => 0])}{else}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->getFirstParent()->id])}{/if}');"><img src="/i/edit.png" alt="редактировать" title="редактировать" border="0"/></a>
                         {/if_object_allowed}
                     {/if_allowed}
+                    {if !$task->hasParent()}
+                        {if_allowed resource="{$controller}/toArchive"}
+                            <a href="javascript:void(0)" onclick="task.toArchive('{$this->url(['controller' => $controller,'action' => 'toArchive', 'idTask' => $task->id])}', 0, '{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => 0])}')"><img src="/i/zip.gif" alt="в архив" title="в архив" border="0"/></a>
+                        {/if_allowed}
+                    {/if}
                     {if_allowed resource="{$controller}/delete"}
                         &nbsp;<a href="javascript:void(0)" onclick="task.deleteDialog('{$task->title}', '{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $task->id])}', {if !$task->hasParent()}0{else}{$task->getFirstParent()->id}{/if}, '{if !$task->hasParent()}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => 0])}{else}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->getFirstParent()->id])}{/if}');" style="color: #830000"><img src="/i/delete.png" alt="удалить" title="удалить" border="0"/></a>
                     {/if_allowed}
