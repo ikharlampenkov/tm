@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list id="208ba09b-a62b-410e-864b-4a7f61a529f8" name="Default" comment="" />
-    <list default="true" id="1e15cf3c-e4a0-4479-b6be-8d8a44301a05" name="New changelist" comment="Заказы с сайта&#10;Описание документа">
+    <list default="true" id="1e15cf3c-e4a0-4479-b6be-8d8a44301a05" name="New changelist" comment="Вывод описания документа в задачах">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/TaskController.php" afterPath="$PROJECT_DIR$/application/controllers/TaskController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/task/edit.ajax.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/task/edit.ajax.tpl" />
     </list>
     <ignored path="tm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,65 +25,7 @@
     <favorites_list name="tm" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="TaskController.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/controllers/TaskController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="303" column="0" selection-start="12427" selection-end="12427" vertical-scroll-proportion="0.5365854">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Document.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/TM/Document/Document.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="501" column="9" selection-start="12780" selection-end="12780" vertical-scroll-proportion="-10.12">
-              <folding>
-                <marker date="1324627423784" expanded="true" signature="9739:9764" placeholder="SELECT * FRO..tm_document..." />
-                <marker date="1324627423784" expanded="true" signature="9832:9905" placeholder="SELECT * FRO..tm_document..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit.ajax.tpl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/scripts/task/edit.ajax.tpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="164" selection-start="3110" selection-end="3110" vertical-scroll-proportion="-12.423077">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="func.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public_html/js/func.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="242" column="4" selection-start="8620" selection-end="8620" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="show-discussion.tpl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/scripts/task/show-discussion.tpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="38" selection-start="1813" selection-end="1813" vertical-scroll-proportion="-15.692307">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Task.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/TM/Task/Task.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="726" column="45" selection-start="18903" selection-end="18903" vertical-scroll-proportion="-14.04">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -718,15 +658,15 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="options.lastSelected" value="web.server" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="last.edited.regexp" value="\\\\\\\\\&quot;" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
   </component>
   <component name="PublishConfig" serverName="timeweb" serverId="18d3169c-c6b0-4866-b0e2-1f1eb4b2354d">
     <servers>
@@ -854,24 +794,24 @@
     <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15461624" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3259177" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2625139" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32925472" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32964602" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2626802" sideWeight="0.26327434" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36485043" sideWeight="0.84538376" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3344017" sideWeight="0.67074525" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2625139" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15461624" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Phing Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995194" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -913,7 +853,7 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Заказы с сайта&#10;Описание документа" />
+    <option name="LAST_COMMIT_MESSAGE" value="Вывод описания документа в задачах" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -940,6 +880,7 @@
     <MESSAGE value="Атрибуты сверху справа" />
     <MESSAGE value="Оформление" />
     <MESSAGE value="Заказы с сайта&#10;Описание документа" />
+    <MESSAGE value="Вывод описания документа в задачах" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -968,110 +909,77 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/task/add.ajax.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="13" selection-start="883" selection-end="883" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="21" column="13" selection-start="883" selection-end="883" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/index/index.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="34" selection-start="7118" selection-end="7118" vertical-scroll-proportion="-22.23077">
-          <folding />
-        </state>
+        <state line="97" column="34" selection-start="7118" selection-end="7118" vertical-scroll-proportion="-22.23077" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/IndexController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="9" selection-start="1161" selection-end="1161" vertical-scroll-proportion="0.55510205">
-          <folding />
-        </state>
+        <state line="36" column="9" selection-start="1161" selection-end="1161" vertical-scroll-proportion="0.55510205" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="311" column="24" selection-start="4049" selection-end="4049" vertical-scroll-proportion="0.740136">
-          <folding />
-        </state>
+        <state line="311" column="24" selection-start="4049" selection-end="4049" vertical-scroll-proportion="0.740136" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/configs/application.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="884" selection-end="884" vertical-scroll-proportion="0.5782313">
-          <folding />
-        </state>
+        <state line="25" column="0" selection-start="884" selection-end="884" vertical-scroll-proportion="0.5782313" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/TM/Attribute/Attribute.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/TM/Attribute/AttributeMapper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/TM/Task/AttributeMapper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="13" selection-start="589" selection-end="589" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="31" column="13" selection-start="589" selection-end="589" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/TM/Task/Task.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="726" column="45" selection-start="18903" selection-end="18903" vertical-scroll-proportion="-14.04">
-          <folding />
-        </state>
+        <state line="726" column="45" selection-start="18903" selection-end="18903" vertical-scroll-proportion="0.5035868" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/TM/Document/Document.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="501" column="9" selection-start="12780" selection-end="12780" vertical-scroll-proportion="-10.12">
-          <folding>
-            <marker date="1324627423784" expanded="true" signature="9739:9764" placeholder="SELECT * FRO..tm_document..." />
-            <marker date="1324627423784" expanded="true" signature="9832:9905" placeholder="SELECT * FRO..tm_document..." />
-          </folding>
-        </state>
+        <state line="501" column="9" selection-start="12780" selection-end="12780" vertical-scroll-proportion="0.35633802" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/task/show-discussion.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="38" selection-start="1813" selection-end="1813" vertical-scroll-proportion="-15.692307">
-          <folding />
-        </state>
+        <state line="24" column="38" selection-start="1813" selection-end="1813" vertical-scroll-proportion="0.5862069" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/task/edit.ajax.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="164" selection-start="3110" selection-end="3110" vertical-scroll-proportion="-12.423077">
-          <folding />
-        </state>
+        <state line="61" column="164" selection-start="3110" selection-end="3110" vertical-scroll-proportion="0.46408045" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public_html/js/func.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="242" column="4" selection-start="8620" selection-end="8620" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="242" column="4" selection-start="8620" selection-end="8620" vertical-scroll-proportion="0.19455782" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/TaskController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="303" column="0" selection-start="12427" selection-end="12427" vertical-scroll-proportion="0.5365854">
-          <folding />
-        </state>
+        <state line="303" column="0" selection-start="12427" selection-end="12427" vertical-scroll-proportion="0.5365854" />
       </provider>
     </entry>
   </component>
