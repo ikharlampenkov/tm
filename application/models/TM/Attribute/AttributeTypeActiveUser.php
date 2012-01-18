@@ -49,4 +49,32 @@ class TM_Attribute_AttributeTypeActiveUser extends TM_Attribute_AttributeType
         }
         echo $html;
     }
+
+    public function getHTML($hash, $object)
+        {
+            $storage_data = Zend_Auth::getInstance()->getStorage()->read();
+            $user = array_key_exists('login', $storage_data) ? $storage_data->login : 'guest';
+            $oUser = TM_User_User::getInstanceByLogin($user);
+
+            $html = '';
+
+            if ($object->searchAttribute($hash->attributeKey)) {
+                if ($object->getAttribute($hash->attributeKey)->value !== '') {
+
+                    $oUserTemp = TM_User_User::getInstanceByLogin($object->getAttribute($hash->attributeKey)->value);
+                    if ($oUserTemp->searchAttribute('name')) {
+                        $html .= $oUserTemp->getAttribute('name')->value;
+                    } else {
+                        $html .= $oUserTemp->login;
+                    }
+                }
+            } else {
+                if ($oUser->searchAttribute('name')) {
+                    $html .= $oUser->getAttribute('name')->value;
+                } else {
+                    $html .= $oUser->login;
+                }
+            }
+            echo $html;
+        }
 }

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-12 21:43:34
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-25 21:40:29
          compiled from "F:\www\tm\application/views/scripts\user/edit.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:247634ee613164497a6-25688561%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:76624ef735dd404af1-85953673%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'cf63e52ea490f00ef5ea4d14d7f03ebe28a52e44' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\user/edit.tpl',
-      1 => 1323701011,
+      1 => 1324475226,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '247634ee613164497a6-25688561',
+  'nocache_hash' => '76624ef735dd404af1-85953673',
   'function' => 
   array (
   ),
@@ -47,7 +47,7 @@ if ($_smarty_tpl->_count($_from) > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars['role']->key => $_smarty_tpl->tpl_vars['role']->value){
 ?>
                 <option value="<?php echo $_smarty_tpl->getVariable('role')->value->id;?>
-" <?php if ($_smarty_tpl->getVariable('user')->value->role->id==$_smarty_tpl->getVariable('role')->value->id){?>selected="selected"<?php }?>><?php echo $_smarty_tpl->getVariable('role')->value->title;?>
+" <?php if ($_smarty_tpl->getVariable('user')->value->role->id==$_smarty_tpl->getVariable('role')->value->id){?>selected="selected"<?php }?>><?php echo $_smarty_tpl->getVariable('role')->value->rtitle;?>
 </option>
             <?php }} ?>
             </select>

@@ -19,4 +19,14 @@ class TM_Attribute_AttributeTypeText extends TM_Attribute_AttributeType {
         echo $html;
     }
 
+    public function getHTML($hash, $object)
+        {
+            $html = '';
+            if ($object->searchAttribute($hash->attributeKey)) {
+                $html .= $object->getAttribute($hash->attributeKey)->value;
+            }
+
+            echo $html;
+        }
+
 }

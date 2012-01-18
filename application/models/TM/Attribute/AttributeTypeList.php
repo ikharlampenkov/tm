@@ -12,7 +12,7 @@ class TM_Attribute_AttributeTypeList extends TM_Attribute_AttributeType
 
     public function getHTMLFrom($hash, $object)
     {
-        $html =  '<select name="data[attribute][' . $hash->attributeKey . ']" >';
+        $html = '<select name="data[attribute][' . $hash->attributeKey . ']" >';
 
         foreach ($hash->getValueList() as $value) {
             $html .= '<option value="' . str_replace('*', '', $value) . '" ';
@@ -27,6 +27,16 @@ class TM_Attribute_AttributeTypeList extends TM_Attribute_AttributeType
         }
 
         $html .= '</select>';
+        echo $html;
+    }
+
+    public function getHTML($hash, $object)
+    {
+        $html = '';
+        if ($object->searchAttribute($hash->attributeKey)) {
+            $html .= $object->getAttribute($hash->attributeKey)->value;
+        }
+
         echo $html;
     }
 

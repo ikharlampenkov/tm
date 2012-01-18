@@ -348,6 +348,18 @@ a.task_grey {
     margin-left: 20px;
 }
 
+.task_info {
+    width: 250px;
+    border: 1px solid gray;
+    padding: 2px;
+    background: lightgray;
+    font-size: 12px;
+    outline: none;
+    position: absolute;
+    z-index: 5000;
+    display: none;
+}
+
 
 /** Discussion **/
 

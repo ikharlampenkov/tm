@@ -348,6 +348,30 @@ class TM_Document_Document
         }
     } // end of member function deleteFromDb
 
+    public function toArchive()
+    {
+        try {
+            $sql = 'UPDATE tm_document SET is_archive=1
+                        WHERE id=' . $this->_id;
+            $this->_db->query($sql);
+
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
+    public function fromArchive()
+    {
+        try {
+            $sql = 'UPDATE tm_document SET is_archive=0
+                            WHERE id=' . $this->_id;
+            $this->_db->query($sql);
+
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
     /**
      *
      *
@@ -401,11 +425,12 @@ class TM_Document_Document
      * @param TM_User_User $user
      * @param int $parentId
      * @param int $isFolder
+     * @param bool $isArchive
      * @return array
      * @static
      * @access public
      */
-    public static function getAllInstance(TM_User_User $user, $parentId = 0, $isFolder = -1)
+    public static function getAllInstance(TM_User_User $user, $parentId = 0, $isFolder = -1, $isArchive = false)
     {
         try {
             $db = StdLib_DB::getInstance();
@@ -415,21 +440,34 @@ class TM_Document_Document
                         WHERE parent_id=' . (int)$parentId;
             } elseif ($parentId == -1) {
                 $sql = 'SELECT * FROM tm_document ';
+                if ($isArchive) {
+                    $sql .= ' WHERE is_archive=1 ';
+                } else {
+                    $sql .= ' WHERE is_archive=0 ';
+                }
+
             } elseif ($parentId == 0) {
                 $sql = 'SELECT * FROM tm_document
                         WHERE parent_id IS NULL ';
+                if ($isArchive) {
+                    $sql .= ' AND is_archive=1 ';
+                } else {
+                    $sql .= ' AND is_archive=0 ';
+                }
             }
 
+            /*
             if ($parentId == -1 && $isFolder != -1) {
                 $sql .= ' WHERE ';
             } elseif ($isFolder != -1) {
                 $sql .= ' AND ';
             }
+            */
 
             if ($isFolder == 1) {
-                $sql .= ' is_folder=1';
+                $sql .= ' AND is_folder=1';
             } elseif ($isFolder == 0) {
-                $sql .= ' is_folder=0';
+                $sql .= ' AND is_folder=0';
             }
 
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);

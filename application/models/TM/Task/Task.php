@@ -281,6 +281,30 @@ class TM_Task_Task
         }
     } // end of member function deleteFromDb
 
+    public function toArchive()
+    {
+        try {
+            $sql = 'UPDATE tm_task SET is_archive=1
+                    WHERE id=' . $this->_id;
+            $this->_db->query($sql);
+
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
+    public function fromArchive()
+    {
+        try {
+            $sql = 'UPDATE tm_task SET is_archive=0
+                        WHERE id=' . $this->_id;
+            $this->_db->query($sql);
+
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
     /**
      *
      *
@@ -334,11 +358,12 @@ class TM_Task_Task
      * @param TM_User_User $user
      * @param int $parentId
      * @param string $filter фильтр по статусу, all - все
+     * @param bool $isArchive - проект в архиве?
      * @return array
      * @static
      * @access public
      */
-    public static function getAllInstance(TM_User_User $user, $parentId = 0, $filter = 'all')
+    public static function getAllInstance(TM_User_User $user, $parentId = 0, $filter = 'all', $isArchive = false)
     {
         try {
             $db = StdLib_DB::getInstance();
@@ -361,9 +386,21 @@ class TM_Task_Task
                 }
             } elseif ($parentId === -1) {
                 $sql = 'SELECT * FROM tm_task';
+
+                if ($isArchive) {
+                    $sql .= ' WHERE is_archive=1';
+                } else {
+                    $sql .= ' WHERE is_archive=0';
+                }
+
             } else {
                 $sql = 'SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
                         WHERE parent_id IS NULL ';
+                if ($isArchive) {
+                    $sql .= ' AND is_archive=1';
+                } else {
+                    $sql .= ' AND is_archive=0';
+                }
             }
 
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
@@ -884,7 +921,6 @@ class TM_Task_Task
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-
     }
 
 } // end of TM_Task_Task

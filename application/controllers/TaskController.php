@@ -15,12 +15,15 @@ class TaskController extends Zend_Controller_Action
         $this->_helper->AjaxContext()->addActionContext('edit', 'html')->initContext('html');
         $this->_helper->AjaxContext()->addActionContext('delete', 'html')->initContext('html');
         $this->_helper->AjaxContext()->addActionContext('view', 'html')->initContext('html');
+        $this->_helper->AjaxContext()->addActionContext('info', 'html')->initContext('html');
+        $this->_helper->AjaxContext()->addActionContext('toArchive', 'html')->initContext('html');
+        $this->_helper->AjaxContext()->addActionContext('fromArchive', 'html')->initContext('html');
+        $this->_helper->AjaxContext()->addActionContext('showArchiveBlock', 'html')->initContext('html');
     }
 
     public function indexAction()
     {
         $parentId = $this->getRequest()->getParam('parent', 0);
-        $this->view->assign('taskList', TM_Task_Task::getAllInstance($this->_user, $parentId));
 
         if ($parentId != 0) {
             $curTask = TM_Task_Task::getInstanceById($parentId);
@@ -28,6 +31,8 @@ class TaskController extends Zend_Controller_Action
             $this->view->assign('task', $curTask);
             $this->view->assign('breadcrumbs', $curTask->getPathToTask());
         }
+
+        $this->view->assign('taskList', TM_Task_Task::getAllInstance($this->_user, $parentId));
     }
 
     public function showtaskblockAction()
@@ -285,6 +290,14 @@ class TaskController extends Zend_Controller_Action
         $this->view->assign('documentList', TM_Document_Document::getDocumentByTask($this->_user, $oTask));
         $this->view->assign('task', $oTask);
     }
+
+    public function infoAction()
+        {
+            $oTask = TM_Task_Task::getInstanceById($this->getRequest()->getParam('id'));
+            $this->view->assign('attributeHashList', TM_Task_Hash::getAllInstance($oTask));
+            $this->view->assign('documentList', TM_Document_Document::getDocumentByTask($this->_user, $oTask));
+            $this->view->assign('task', $oTask);
+        }
 
     public function deleteAction()
     {
@@ -582,4 +595,53 @@ class TaskController extends Zend_Controller_Action
         $this->view->assign('userList', TM_User_User::getAllInstance());
     }
 
+    public function archiveAction()
+    {
+        $this->view->assign('taskList', TM_Task_Task::getAllInstance($this->_user, 0, 'all', true));
+    }
+
+    public function showarchiveblockAction()
+    {
+        $parentId = $this->getRequest()->getParam('parent', 0);
+        $filter_raw = $this->getRequest()->getParam('filter', 'all');
+        if (is_array($filter_raw)) {
+            $filter = urldecode($filter_raw[count($filter_raw) - 1]);
+        } else {
+            $filter = urldecode($filter_raw);
+        }
+        $this->view->assign('taskList', TM_Task_Task::getAllInstance($this->_user, $parentId, $filter, true));
+    }
+
+    public function toarchiveAction()
+    {
+        $oTask = TM_Task_Task::getInstanceById($this->getRequest()->getParam('idTask'));
+        $oFolder = TM_Document_Document::getDocumentFolderByTask($this->_user, $oTask);
+        $oTopic = TM_Discussion_Discussion::getTopicByTask($this->_user, $oTask);
+
+        try {
+            $oTask->toArchive();
+            $oFolder->toArchive();
+            $oTopic->toArchive();
+        } catch (Exception $e) {
+
+        }
+    }
+
+    public function fromarchiveAction()
+    {
+        $oTask = TM_Task_Task::getInstanceById($this->getRequest()->getParam('idTask'));
+        $oFolder = TM_Document_Document::getDocumentFolderByTask($this->_user, $oTask);
+        $oTopic = TM_Discussion_Discussion::getTopicByTask($this->_user, $oTask);
+
+        try {
+            $oTask->fromArchive();
+            $oFolder->fromArchive();
+            $oTopic->fromArchive();
+        } catch (Exception $e) {
+
+        }
+    }
+
+
 }
+

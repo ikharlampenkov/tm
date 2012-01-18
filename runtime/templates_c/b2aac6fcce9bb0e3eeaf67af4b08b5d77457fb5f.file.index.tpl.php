@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-22 00:02:19
+<?php /* Smarty version Smarty-3.0.9, created on 2011-12-25 21:24:14
          compiled from "F:\www\tm\application/views/scripts\index/index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:117354ef2111b881522-11313585%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:58444ef7320e2d6443-06507528%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'b2aac6fcce9bb0e3eeaf67af4b08b5d77457fb5f' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\index/index.tpl',
-      1 => 1324486827,
+      1 => 1324645375,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '117354ef2111b881522-11313585',
+  'nocache_hash' => '58444ef7320e2d6443-06507528',
   'function' => 
   array (
   ),
@@ -166,8 +166,10 @@ if ($_smarty_tpl->_count($_from) > 0){
 , <?php echo $_smarty_tpl->getVariable('discussion')->value->user->id;?>
 , <?php echo $_smarty_tpl->getVariable('discussion')->value->getTask()->id;?>
 );">Ответить</button>
-                                    <?php if ($_smarty_tpl->getVariable('discussion')->value->isRequest){?><?php if ($_smarty_tpl->getVariable('discussion')->value->isComplete){?><img src="/i/is_complite.png" title="Выполнена" alt="Выполнена" border="0"/><?php }elseif($_smarty_tpl->getVariable('discussion')->value->user->id==$_smarty_tpl->getVariable('authUserId')->value){?><button onclick="comment_complete_rq('<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'showDiscussion','idTask'=>$_smarty_tpl->getVariable('task')->value->id,'is_complete'=>$_smarty_tpl->getVariable('discussion')->value->id));?>
+                                    <?php if ($_smarty_tpl->getVariable('discussion')->value->isRequest){?><?php if ($_smarty_tpl->getVariable('discussion')->value->isComplete){?><img src="/i/is_complite.png" title="Выполнена" alt="Выполнена" border="0"/><?php }elseif($_smarty_tpl->getVariable('discussion')->value->user->id==$_smarty_tpl->getVariable('authUserId')->value){?><button onclick="comment_complete_rq('<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'index','idTask'=>$_smarty_tpl->getVariable('task')->value->id,'is_complete'=>$_smarty_tpl->getVariable('discussion')->value->id));?>
 ');">Завершить</button><?php }?><?php }?>
+                                    <?php if ($_smarty_tpl->getVariable('discussion')->value->user->id==$_smarty_tpl->getVariable('authUserId')->value){?><button onclick="comment_complete_rq('<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'index','idTask'=>$_smarty_tpl->getVariable('task')->value->id,'delete'=>$_smarty_tpl->getVariable('discussion')->value->id));?>
+');">удалить</button> <?php }?>
                                 </div>
                             </div>
                         </li>
