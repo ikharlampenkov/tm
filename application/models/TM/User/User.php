@@ -112,7 +112,7 @@ class TM_User_User
     {
         try {
             $sql = 'INSERT INTO tm_user(login, password, role_id, date_create)
-                    VALUES ("' . $this->_login . '", ' . $this->_password  . ', ' . $this->_role->getId() . ', "' . $this->_dateCreate . '")';
+                    VALUES ("' . $this->_login . '", "' . $this->_password  . '", ' . $this->_role->getId() . ', "' . $this->_dateCreate . '")';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
