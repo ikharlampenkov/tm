@@ -146,24 +146,52 @@ class TaskController extends Zend_Controller_Action
                     $taskAcl = new TM_Acl_TaskAcl($oTask);
 
                     $taskAcl->setUser(TM_User_User::getInstanceById($idUser));
-                    $taskAcl->setIsRead($values['is_read']);
-                    $taskAcl->setIsWrite($values['is_write']);
-                    $taskAcl->setIsExecutant($values['is_executant']);
+                    if (isset($values['is_read'])) {
+                        $taskAcl->setIsRead($values['is_read']);
+                    } else {
+                        $taskAcl->setIsRead(0);
+                    }
+                    if (isset($values['is_write'])) {
+                        $taskAcl->setIsWrite($values['is_write']);
+                    } else {
+                        $taskAcl->setIsWrite(0);
+                    }
+                    if (isset($values['is_executant'])) {
+                        $taskAcl->setIsExecutant($values['is_executant']);
+                    } else {
+                        $taskAcl->setIsExecutant(0);
+                    }
                     $taskAcl->saveToDb();
 
                     if (empty($folderAcl)) {
                         $tempAcl = new TM_Acl_DocumentAcl($oFolder);
                         $tempAcl->setUser(TM_User_User::getInstanceById($idUser));
-                        $tempAcl->setIsRead($values['is_read']);
-                        $tempAcl->setIsWrite($values['is_write']);
+                        if (isset($values['is_read'])) {
+                            $tempAcl->setIsRead($values['is_read']);
+                        } else {
+                            $tempAcl->setIsRead(0);
+                        }
+                        if (isset($values['is_write'])) {
+                            $tempAcl->setIsWrite($values['is_write']);
+                        } else {
+                            $tempAcl->setIsWrite(0);
+                        }
                         $tempAcl->saveToDb();
                     }
 
                     if (empty($topicAcl)) {
                         $tempAcl = new TM_Acl_DiscussionAcl($oTopic);
                         $tempAcl->setUser(TM_User_User::getInstanceById($idUser));
-                        $tempAcl->setIsRead($values['is_read']);
-                        $tempAcl->setIsWrite($values['is_write']);
+                        if (isset($values['is_read'])) {
+                            $tempAcl->setIsRead($values['is_read']);
+                        } else {
+                            $tempAcl->setIsRead(0);
+                        }
+                        if (isset($values['is_write'])) {
+                            $tempAcl->setIsWrite($values['is_write']);
+                        } else {
+                            $tempAcl->setIsWrite(0);
+                        }
                         $tempAcl->saveToDb();
                     }
                 }
@@ -239,24 +267,52 @@ class TaskController extends Zend_Controller_Action
                     $taskAcl = new TM_Acl_TaskAcl($oTask);
 
                     $taskAcl->setUser(TM_User_User::getInstanceById($idUser));
-                    $taskAcl->setIsRead($values['is_read']);
-                    $taskAcl->setIsWrite($values['is_write']);
-                    $taskAcl->setIsExecutant($values['is_executant']);
+                    if (isset($values['is_read'])) {
+                        $taskAcl->setIsRead($values['is_read']);
+                    } else {
+                        $taskAcl->setIsRead(0);
+                    }
+                    if (isset($values['is_write'])) {
+                        $taskAcl->setIsWrite($values['is_write']);
+                    } else {
+                        $taskAcl->setIsWrite(0);
+                    }
+                    if (isset($values['is_executant'])) {
+                        $taskAcl->setIsExecutant($values['is_executant']);
+                    } else {
+                        $taskAcl->setIsExecutant(0);
+                    }
                     $taskAcl->saveToDb();
 
                     if (empty($folderAcl)) {
                         $tempAcl = new TM_Acl_DocumentAcl($oFolder);
                         $tempAcl->setUser(TM_User_User::getInstanceById($idUser));
-                        $tempAcl->setIsRead($values['is_read']);
-                        $tempAcl->setIsWrite($values['is_write']);
+                        if (isset($values['is_read'])) {
+                            $tempAcl->setIsRead($values['is_read']);
+                        } else {
+                            $tempAcl->setIsRead(0);
+                        }
+                        if (isset($values['is_write'])) {
+                            $tempAcl->setIsWrite($values['is_write']);
+                        } else {
+                            $tempAcl->setIsWrite(0);
+                        }
                         $tempAcl->saveToDb();
                     }
 
                     if (empty($topicAcl)) {
                         $tempAcl = new TM_Acl_DiscussionAcl($oTopic);
                         $tempAcl->setUser(TM_User_User::getInstanceById($idUser));
-                        $tempAcl->setIsRead($values['is_read']);
-                        $tempAcl->setIsWrite($values['is_write']);
+                        if (isset($values['is_read'])) {
+                            $tempAcl->setIsRead($values['is_read']);
+                        } else {
+                            $tempAcl->setIsRead(0);
+                        }
+                        if (isset($values['is_write'])) {
+                            $tempAcl->setIsWrite($values['is_write']);
+                        } else {
+                            $tempAcl->setIsWrite(0);
+                        }
                         $tempAcl->saveToDb();
                     }
                 }
@@ -292,12 +348,12 @@ class TaskController extends Zend_Controller_Action
     }
 
     public function infoAction()
-        {
-            $oTask = TM_Task_Task::getInstanceById($this->getRequest()->getParam('id'));
-            $this->view->assign('attributeHashList', TM_Task_Hash::getAllInstance($oTask));
-            $this->view->assign('documentList', TM_Document_Document::getDocumentByTask($this->_user, $oTask));
-            $this->view->assign('task', $oTask);
-        }
+    {
+        $oTask = TM_Task_Task::getInstanceById($this->getRequest()->getParam('id'));
+        $this->view->assign('attributeHashList', TM_Task_Hash::getAllInstance($oTask));
+        $this->view->assign('documentList', TM_Document_Document::getDocumentByTask($this->_user, $oTask));
+        $this->view->assign('task', $oTask);
+    }
 
     public function deleteAction()
     {
@@ -343,24 +399,52 @@ class TaskController extends Zend_Controller_Action
                     $taskAcl = new TM_Acl_TaskAcl($oTask);
 
                     $taskAcl->setUser(TM_User_User::getInstanceById($idUser));
-                    $taskAcl->setIsRead($values['is_read']);
-                    $taskAcl->setIsWrite($values['is_write']);
-                    $taskAcl->setIsExecutant($values['is_executant']);
+                    if (isset($values['is_read'])) {
+                        $taskAcl->setIsRead($values['is_read']);
+                    } else {
+                        $taskAcl->setIsRead(0);
+                    }
+                    if (isset($values['is_write'])) {
+                        $taskAcl->setIsWrite($values['is_write']);
+                    } else {
+                        $taskAcl->setIsWrite(0);
+                    }
+                    if (isset($values['is_executant'])) {
+                        $taskAcl->setIsExecutant($values['is_executant']);
+                    } else {
+                        $taskAcl->setIsExecutant(0);
+                    }
                     $taskAcl->saveToDb();
 
                     if (empty($folderAcl)) {
                         $tempAcl = new TM_Acl_DocumentAcl($oFolder);
                         $tempAcl->setUser(TM_User_User::getInstanceById($idUser));
-                        $tempAcl->setIsRead($values['is_read']);
-                        $tempAcl->setIsWrite($values['is_write']);
+                        if (isset($values['is_read'])) {
+                            $tempAcl->setIsRead($values['is_read']);
+                        } else {
+                            $tempAcl->setIsRead(0);
+                        }
+                        if (isset($values['is_write'])) {
+                            $tempAcl->setIsWrite($values['is_write']);
+                        } else {
+                            $tempAcl->setIsWrite(0);
+                        }
                         $tempAcl->saveToDb();
                     }
 
                     if (empty($topicAcl)) {
                         $tempAcl = new TM_Acl_DiscussionAcl($oTopic);
                         $tempAcl->setUser(TM_User_User::getInstanceById($idUser));
-                        $tempAcl->setIsRead($values['is_read']);
-                        $tempAcl->setIsWrite($values['is_write']);
+                        if (isset($values['is_read'])) {
+                            $tempAcl->setIsRead($values['is_read']);
+                        } else {
+                            $tempAcl->setIsRead(0);
+                        }
+                        if (isset($values['is_write'])) {
+                            $tempAcl->setIsWrite($values['is_write']);
+                        } else {
+                            $tempAcl->setIsWrite(0);
+                        }
                         $tempAcl->saveToDb();
                     }
                 }
