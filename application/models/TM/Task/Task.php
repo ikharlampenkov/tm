@@ -99,7 +99,7 @@ class TM_Task_Task
     /**
      *
      *
-     * @return User::TM_User_User
+     * @return TM_User_User
      * @access public
      */
     public function getUser()
@@ -723,6 +723,10 @@ class TM_Task_Task
         }
     }
 
+    /**
+     * @param $key
+     * @return TM_Attribute_Attribute
+     */
     public function getAttribute($key)
     {
         return $this->_attributeList[$key];

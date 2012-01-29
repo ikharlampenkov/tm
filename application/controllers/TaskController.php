@@ -196,6 +196,8 @@ class TaskController extends Zend_Controller_Action
                     }
                 }
 
+                TM_Activity_ActivityLogger::logMessage($this->_user, 'Проекты', 'Добавлена задача ' . $oTask->getTitle(), $oTask);
+
                 if ($this->_request->isXmlHttpRequest()) {
                     exit;
                 } else {
@@ -317,6 +319,7 @@ class TaskController extends Zend_Controller_Action
                     }
                 }
 
+                TM_Activity_ActivityLogger::logMessage($this->_user, 'Проекты', 'Изменения в задаче ' . $oTask->getTitle(), $oTask);
 
                 if ($this->_request->isXmlHttpRequest()) {
                     exit;
@@ -360,6 +363,8 @@ class TaskController extends Zend_Controller_Action
         $oTask = TM_Task_Task::getInstanceById($this->getRequest()->getParam('id'));
         try {
             $oTask->deleteFromDB();
+
+            TM_Activity_ActivityLogger::logMessage($this->_user, 'Проекты', 'Удалена задача ' . $oTask->getTitle(), $oTask);
             if ($this->_request->isXmlHttpRequest()) {
                 exit;
             } else {

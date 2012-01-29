@@ -301,6 +301,10 @@ class TM_User_User
         }
     }
 
+    /**
+     * @param $key
+     * @return TM_Attribute_Attribute
+     */
     public function getAttribute($key)
     {
         return $this->_attributeList[$key];
