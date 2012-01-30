@@ -3,7 +3,6 @@
 class UserController extends Zend_Controller_Action
 {
 
-
     public function init()
     {
         /* Initialize action controller here */
@@ -26,9 +25,9 @@ class UserController extends Zend_Controller_Action
     }
 
     public function viewresourceAction()
-        {
-            $this->view->assign('userResourceList', TM_User_Resource::getAllInstance());
-        }
+    {
+        $this->view->assign('userResourceList', TM_User_Resource::getAllInstance());
+    }
 
     public function addAction()
     {
@@ -153,6 +152,15 @@ class UserController extends Zend_Controller_Action
         $this->view->assign('role', $oRole);
         $this->view->assign('userResourceList', TM_User_Resource::getAllInstance());
         $this->view->assign('roleAcl', TM_User_RoleAcl::getAllInstance($oRole));
+    }
+
+    public function showuseraclAction()
+    {
+        $id = $this->getRequest()->getParam('id');
+        $oUser = TM_User_User::getInstanceById($id);
+
+        $this->view->assign('taskList', TM_Task_Task::getAllInstance($oUser));
+        $this->view->assign('user', $oUser);
     }
 
     public function addresourceAction()
@@ -341,3 +349,4 @@ class UserController extends Zend_Controller_Action
     }
 
 }
+
