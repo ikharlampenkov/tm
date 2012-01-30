@@ -129,7 +129,8 @@ class TM_User_User
     {
         try {
             $sql = 'UPDATE tm_user
-                    SET login="' . $this->_login . '", role_id="' . $this->_role->getId() . '", date_create="' . $this->_dateCreate . '"
+                    SET login="' . $this->_login . '", password="' . $this->_password  . '",
+                        role_id="' . $this->_role->getId() . '", date_create="' . $this->_dateCreate . '"
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
             $this->saveAttributeList();
@@ -300,6 +301,10 @@ class TM_User_User
         }
     }
 
+    /**
+     * @param $key
+     * @return TM_Attribute_Attribute
+     */
     public function getAttribute($key)
     {
         return $this->_attributeList[$key];

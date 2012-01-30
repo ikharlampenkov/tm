@@ -1,0 +1,159 @@
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (272, "deadline", 4, "23.01.2012 00:00:00", 0) No error: 1062:: Error msg: Duplicate entry '272-deadline' for key 'PRIMARY' ;  20.01.2012 22:32
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (272, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '272-description' for key 'PRIMARY' ;  20.01.2012 22:32
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (272, "prior", 3, "Средний", 0) No error: 1062:: Error msg: Duplicate entry '272-prior' for key 'PRIMARY' ;  20.01.2012 22:32
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (272, "reason_for_idle", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '272-reason_for_idle' for key 'PRIMARY' ;  20.01.2012 22:32
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (272, "state", 3, "Выполнена", 0) No error: 1062:: Error msg: Duplicate entry '272-state' for key 'PRIMARY' ;  20.01.2012 22:32
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (272, "who_responsible", 5, "-", 0) No error: 1062:: Error msg: Duplicate entry '272-who_responsible' for key 'PRIMARY' ;  20.01.2012 22:32
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (272, "who_set", 7, "7", 0) No error: 1062:: Error msg: Duplicate entry '272-who_set' for key 'PRIMARY' ;  20.01.2012 22:32
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (253, "deadline", 4, "23.01.2012 09:00:00", 0) No error: 1062:: Error msg: Duplicate entry '253-deadline' for key 'PRIMARY' ;  22.01.2012 22:02
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (253, "description", 2, "Поиск: Должен искать как по товару, так и по фирмам его продающих!
+Сделать Сначала поиск по товарам «ТОВАРЫ:» и то что нашлось. Ниже «Организации:» и то что нашлось.", 0) No error: 1062:: Error msg: Duplicate entry '253-description' for key 'PRIMARY' ;  22.01.2012 22:02
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (253, "prior", 3, "Средний", 0) No error: 1062:: Error msg: Duplicate entry '253-prior' for key 'PRIMARY' ;  22.01.2012 22:02
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (253, "reason_for_idle", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '253-reason_for_idle' for key 'PRIMARY' ;  22.01.2012 22:02
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (253, "state", 3, "Выполнена", 0) No error: 1062:: Error msg: Duplicate entry '253-state' for key 'PRIMARY' ;  22.01.2012 22:02
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (253, "who_responsible", 5, "11", 0) No error: 1062:: Error msg: Duplicate entry '253-who_responsible' for key 'PRIMARY' ;  22.01.2012 22:02
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (253, "who_set", 7, "12", 0) No error: 1062:: Error msg: Duplicate entry '253-who_set' for key 'PRIMARY' ;  22.01.2012 22:02
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (255, "deadline", 4, "23.01.2012 00:00:00", 0) No error: 1062:: Error msg: Duplicate entry '255-deadline' for key 'PRIMARY' ;  22.01.2012 22:20
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (255, "description", 2, "Если  товар располагается на первой странице, то его нужно редактировать прям с первой страницы! Естественно, если права у тебя есть к этому товару!", 0) No error: 1062:: Error msg: Duplicate entry '255-description' for key 'PRIMARY' ;  22.01.2012 22:20
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (255, "prior", 3, "Средний", 0) No error: 1062:: Error msg: Duplicate entry '255-prior' for key 'PRIMARY' ;  22.01.2012 22:20
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (255, "reason_for_idle", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '255-reason_for_idle' for key 'PRIMARY' ;  22.01.2012 22:20
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (255, "state", 3, "Выполнена", 0) No error: 1062:: Error msg: Duplicate entry '255-state' for key 'PRIMARY' ;  22.01.2012 22:20
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (255, "who_responsible", 5, "11", 0) No error: 1062:: Error msg: Duplicate entry '255-who_responsible' for key 'PRIMARY' ;  22.01.2012 22:20
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (255, "who_set", 7, "12", 0) No error: 1062:: Error msg: Duplicate entry '255-who_set' for key 'PRIMARY' ;  22.01.2012 22:20
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (256, "deadline", 4, "23.01.2012 09:00:00", 0) No error: 1062:: Error msg: Duplicate entry '256-deadline' for key 'PRIMARY' ;  22.01.2012 23:30
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (256, "description", 2, "4) При создании акции поля такие: сверху вниз
+1)	Полное название акции(отображается при открытии компании).
+2)	Сокращенное название акции ( до стольки то символов)  (отображается только в администраторской части)  название акции, это отображается как подпись к картинке! Чтоб вторая затемненная строка не возникала и не перекрывала лого магазина!
+3)	Информация об акции (сама надпись не выводится покупателю). Текст выводится красный!
+4)	Скидка, старая, новая цена! В таком же виде как есть!
+5)	Краткое описание товара или услуги! 
+6)	Все остальные поля убери!
+", 0) No error: 1062:: Error msg: Duplicate entry '256-description' for key 'PRIMARY' ;  22.01.2012 23:30
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (256, "prior", 3, "Средний", 0) No error: 1062:: Error msg: Duplicate entry '256-prior' for key 'PRIMARY' ;  22.01.2012 23:30
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (256, "reason_for_idle", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '256-reason_for_idle' for key 'PRIMARY' ;  22.01.2012 23:30
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (256, "state", 3, "Выполнена", 0) No error: 1062:: Error msg: Duplicate entry '256-state' for key 'PRIMARY' ;  22.01.2012 23:30
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (256, "who_responsible", 5, "11", 0) No error: 1062:: Error msg: Duplicate entry '256-who_responsible' for key 'PRIMARY' ;  22.01.2012 23:30
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (256, "who_set", 7, "12", 0) No error: 1062:: Error msg: Duplicate entry '256-who_set' for key 'PRIMARY' ;  22.01.2012 23:30
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (256, "deadline", 4, "23.01.2012 09:00:00", 0) No error: 1062:: Error msg: Duplicate entry '256-deadline' for key 'PRIMARY' ;  22.01.2012 23:42
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (256, "description", 2, "4) При создании акции поля такие: сверху вниз
+1)	Полное название акции(отображается при открытии компании).
+2)	Сокращенное название акции ( до стольки то символов)  (отображается только в администраторской части)  название акции, это отображается как подпись к картинке! Чтоб вторая затемненная строка не возникала и не перекрывала лого магазина!
+3)	Информация об акции (сама надпись не выводится покупателю). Текст выводится красный!
+4)	Скидка, старая, новая цена! В таком же виде как есть!
+5)	Краткое описание товара или услуги! 
+6)	Все остальные поля убери!
+", 0) No error: 1062:: Error msg: Duplicate entry '256-description' for key 'PRIMARY' ;  22.01.2012 23:42
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (256, "prior", 3, "Средний", 0) No error: 1062:: Error msg: Duplicate entry '256-prior' for key 'PRIMARY' ;  22.01.2012 23:42
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (256, "reason_for_idle", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '256-reason_for_idle' for key 'PRIMARY' ;  22.01.2012 23:42
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (256, "state", 3, "Выполнена", 0) No error: 1062:: Error msg: Duplicate entry '256-state' for key 'PRIMARY' ;  22.01.2012 23:42
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (256, "who_responsible", 5, "11", 0) No error: 1062:: Error msg: Duplicate entry '256-who_responsible' for key 'PRIMARY' ;  22.01.2012 23:42
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (256, "who_set", 7, "12", 0) No error: 1062:: Error msg: Duplicate entry '256-who_set' for key 'PRIMARY' ;  22.01.2012 23:42
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (255, "deadline", 4, "23.01.2012 00:00:00", 0) No error: 1062:: Error msg: Duplicate entry '255-deadline' for key 'PRIMARY' ;  22.01.2012 23:46
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (255, "description", 2, "Если  товар располагается на первой странице, то его нужно редактировать прям с первой страницы! Естественно, если права у тебя есть к этому товару!", 0) No error: 1062:: Error msg: Duplicate entry '255-description' for key 'PRIMARY' ;  22.01.2012 23:46
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (255, "prior", 3, "Средний", 0) No error: 1062:: Error msg: Duplicate entry '255-prior' for key 'PRIMARY' ;  22.01.2012 23:46
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (255, "reason_for_idle", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '255-reason_for_idle' for key 'PRIMARY' ;  22.01.2012 23:46
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (255, "state", 3, "Выполнена", 0) No error: 1062:: Error msg: Duplicate entry '255-state' for key 'PRIMARY' ;  22.01.2012 23:46
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (255, "who_responsible", 5, "11", 0) No error: 1062:: Error msg: Duplicate entry '255-who_responsible' for key 'PRIMARY' ;  22.01.2012 23:46
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (255, "who_set", 7, "12", 0) No error: 1062:: Error msg: Duplicate entry '255-who_set' for key 'PRIMARY' ;  22.01.2012 23:46
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (187, "deadline", 4, "23.01.2012 00:00:00", 0) No error: 1062:: Error msg: Duplicate entry '187-deadline' for key 'PRIMARY' ;  22.01.2012 23:48
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (187, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '187-description' for key 'PRIMARY' ;  22.01.2012 23:48
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (187, "prior", 3, "Средний", 0) No error: 1062:: Error msg: Duplicate entry '187-prior' for key 'PRIMARY' ;  22.01.2012 23:48
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (187, "reason_for_idle", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '187-reason_for_idle' for key 'PRIMARY' ;  22.01.2012 23:48
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (187, "state", 3, "Не выполнена", 0) No error: 1062:: Error msg: Duplicate entry '187-state' for key 'PRIMARY' ;  22.01.2012 23:48
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (187, "who_responsible", 5, "-", 0) No error: 1062:: Error msg: Duplicate entry '187-who_responsible' for key 'PRIMARY' ;  22.01.2012 23:48
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (187, "who_set", 7, "7", 0) No error: 1062:: Error msg: Duplicate entry '187-who_set' for key 'PRIMARY' ;  22.01.2012 23:48
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (187, "deadline", 4, "23.01.2012 00:00:00", 0) No error: 1062:: Error msg: Duplicate entry '187-deadline' for key 'PRIMARY' ;  22.01.2012 23:49
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (187, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '187-description' for key 'PRIMARY' ;  22.01.2012 23:49
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (187, "prior", 3, "Средний", 0) No error: 1062:: Error msg: Duplicate entry '187-prior' for key 'PRIMARY' ;  22.01.2012 23:49
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (187, "reason_for_idle", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '187-reason_for_idle' for key 'PRIMARY' ;  22.01.2012 23:49
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (187, "state", 3, "Не выполнена", 0) No error: 1062:: Error msg: Duplicate entry '187-state' for key 'PRIMARY' ;  22.01.2012 23:49
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (187, "who_responsible", 5, "-", 0) No error: 1062:: Error msg: Duplicate entry '187-who_responsible' for key 'PRIMARY' ;  22.01.2012 23:49
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (187, "who_set", 7, "7", 0) No error: 1062:: Error msg: Duplicate entry '187-who_set' for key 'PRIMARY' ;  22.01.2012 23:49
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (166, "deadline", 4, "20.01.2012 00:00:00", 0) No error: 1062:: Error msg: Duplicate entry '166-deadline' for key 'PRIMARY' ;  22.01.2012 23:52
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (166, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '166-description' for key 'PRIMARY' ;  22.01.2012 23:52
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (166, "prior", 3, "Средний", 0) No error: 1062:: Error msg: Duplicate entry '166-prior' for key 'PRIMARY' ;  22.01.2012 23:52
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (166, "reason_for_idle", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '166-reason_for_idle' for key 'PRIMARY' ;  22.01.2012 23:52
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (166, "state", 3, "Выполнена", 0) No error: 1062:: Error msg: Duplicate entry '166-state' for key 'PRIMARY' ;  22.01.2012 23:52
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (166, "who_adopted", 6, "admin", 0) No error: 1062:: Error msg: Duplicate entry '166-who_adopted' for key 'PRIMARY' ;  22.01.2012 23:52
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (166, "who_responsible", 5, "7", 0) No error: 1062:: Error msg: Duplicate entry '166-who_responsible' for key 'PRIMARY' ;  22.01.2012 23:52
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (166, "who_set", 5, "7", 0) No error: 1062:: Error msg: Duplicate entry '166-who_set' for key 'PRIMARY' ;  22.01.2012 23:52
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (195, "deadline", 4, "23.01.2012 00:00:00", 0) No error: 1062:: Error msg: Duplicate entry '195-deadline' for key 'PRIMARY' ;  30.01.2012 00:44
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (195, "description", 2, "О новой задаче, выполнено, поставлено время, просрочено, проблема, новое сообщение в обсуждениях.
+
+Создателю, ответственному, исполнителю, настроить оповещение всем кто имеет права.", 0) No error: 1062:: Error msg: Duplicate entry '195-description' for key 'PRIMARY' ;  30.01.2012 00:44
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (195, "prior", 3, "Средний", 0) No error: 1062:: Error msg: Duplicate entry '195-prior' for key 'PRIMARY' ;  30.01.2012 00:44
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (195, "reason_for_idle", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '195-reason_for_idle' for key 'PRIMARY' ;  30.01.2012 00:44
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (195, "state", 3, "Выполнена", 0) No error: 1062:: Error msg: Duplicate entry '195-state' for key 'PRIMARY' ;  30.01.2012 00:44
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (195, "who_responsible", 5, "-", 0) No error: 1062:: Error msg: Duplicate entry '195-who_responsible' for key 'PRIMARY' ;  30.01.2012 00:44
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (195, "who_set", 7, "7", 0) No error: 1062:: Error msg: Duplicate entry '195-who_set' for key 'PRIMARY' ;  30.01.2012 00:44

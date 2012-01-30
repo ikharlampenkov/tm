@@ -3,7 +3,40 @@
   <component name="ChangeListManager">
     <list id="208ba09b-a62b-410e-864b-4a7f61a529f8" name="Default" comment="" />
     <list default="true" id="1e15cf3c-e4a0-4479-b6be-8d8a44301a05" name="New changelist" comment="Пароль в SQL-запросе в кавычках теперь">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/files/Billing/Maeial/Billing/file_21-01-2012-15-39-42.docx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/files/Billing/Maeial/Billing/file_21-01-2012-15-40-19.docx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/files/Kzbakiy_en_negobeejeniya/Razaboa_PO_aya/file_20-01-2012-15-10-32.doc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/files/TaskDrive/Dizayn_ineeya/Ineey/file_21-01-2012-15-07-07.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/files/TaskDrive/Dizayn_ineeya/Ineey/file_21-01-2012-15-07-28.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/files/TaskDrive/Dizayn_ineeya/Ineey/file_21-01-2012-15-07-47.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/files/TaskDrive/Dizayn_ineeya/Ineey/file_21-01-2012-15-08-03.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/files/Teniekoe_zadanie_dlya_aya_Sae_peei/Poek_zadaniya/file_27-01-2012-07-41-36.docx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/TM/Activity/Activity.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/TM/Activity/ActivityLogger.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/models/TM/Activity/Notification.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/2c1c8201af1fff7fe93f0d457185b8fbdf1d8fd5.file.view-hash.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/2ceb6cc72ec31aa4022b38688a6ac0ffa2bb6f0e.file.edit.ajax.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/38e2babbb36ab1749b3ba5045f108a0079762741.file.show-task-block.ajax.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/3e1740d9f649333853250a70df0abddad0f38dbc.file.add.ajax.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/a4bcff7935961047d5c498b087fddf3d5e6df75f.file.index.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/d6c7ade64389275d74f30ea2d5e26d7c3deffb9e.file.parent-block.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/~Documents/sibdnevnik_tm.sql" />
+      <change type="DELETED" beforePath="E:\www\tm\public_html\files\Sayt_gpkoaeeru\file_23-12-2011-12-20-44.sql" afterPath="" />
+      <change type="DELETED" beforePath="E:\www\tm\public_html\files\Veb-ofis\file_11-12-2011-19-21-53.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\www\tm\public_html\files\Veb-ofis\file_11-12-2011-22-17-13.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\www\tm\public_html\files\Veb-ofis\file_11-12-2011-22-19-09.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\www\tm\public_html\files\Veb-ofis\file_11-12-2011-22-41-42.png" afterPath="" />
+      <change type="DELETED" beforePath="E:\www\tm\public_html\files\Zakaz__aya\file_23-12-2011-12-14-53.sql" afterPath="" />
+      <change type="DELETED" beforePath="E:\www\tm\public_html\files\Zakaz__aya\file_23-12-2011-12-16-36.sql" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/TaskController.php" afterPath="$PROJECT_DIR$/application/controllers/TaskController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Task/Task.php" afterPath="$PROJECT_DIR$/application/models/TM/Task/Task.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/User/User.php" afterPath="$PROJECT_DIR$/application/models/TM/User/User.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/task/add.ajax.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/task/add.ajax.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/task/edit.ajax.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/task/edit.ajax.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/logs/syslog.txt" afterPath="$PROJECT_DIR$/runtime/logs/syslog.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/~Documents/cl71252_tm.sql" afterPath="$PROJECT_DIR$/~Documents/cl71252_tm.sql" />
     </list>
     <ignored path="tm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,21 +59,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="User.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/TM/User/User.php">
+      <file leaf-file-name="Notification.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/models/TM/Activity/Notification.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="259" column="46" selection-start="5856" selection-end="5856" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1326882320095" expanded="true" signature="5314:5335" placeholder="SELECT * FRO..tm_user..." />
-              </folding>
+            <state line="80" column="29" selection-start="2193" selection-end="2193" vertical-scroll-proportion="0.6340136">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaskController.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/controllers/TaskController.php">
+      <file leaf-file-name="ActivityLogger.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/TM/Activity/ActivityLogger.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="236" column="1" selection-start="9749" selection-end="9749" vertical-scroll-proportion="0.019744484">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -69,7 +100,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/application/views/scripts/reports/show-task-block.ajax.tpl" />
         <option value="$PROJECT_DIR$/application/views/scripts/reports/generate-report.tpl" />
         <option value="$PROJECT_DIR$/public_html/css/menu.css" />
         <option value="$PROJECT_DIR$/application/models/TM/Task/Task.php" />
@@ -85,6 +115,7 @@
         <option value="$PROJECT_DIR$/application/views/scripts/task/edit.ajax.tpl" />
         <option value="$PROJECT_DIR$/application/controllers/TaskController.php" />
         <option value="$PROJECT_DIR$/application/models/TM/User/User.php" />
+        <option value="$PROJECT_DIR$/application/models/TM/Activity/Notification.php" />
       </list>
     </option>
   </component>
@@ -611,6 +642,32 @@
               <option name="myItemId" value="TM" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Activity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -712,6 +769,9 @@
             <mapping local="$PROJECT_DIR$" />
           </mappings>
         </serverdata>
+      </server>
+      <server id="ba198c0b-acaa-4be9-b2f6-73e3edd95f86">
+        <serverdata />
       </server>
       <server id="c2aa5c06-8e27-4038-b349-f6cd5308a264">
         <serverdata>
@@ -815,18 +875,18 @@
     <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15461624" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32964602" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2626802" sideWeight="0.26327434" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35576922" sideWeight="0.67074525" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36485043" sideWeight="0.84538376" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15461624" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Phing Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995194" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -924,21 +984,6 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public_html/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/task/add.ajax.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="13" selection-start="883" selection-end="883" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/index/index.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="34" selection-start="7118" selection-end="7118" vertical-scroll-proportion="-22.23077" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/IndexController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="36" column="9" selection-start="1161" selection-end="1161" vertical-scroll-proportion="0.55510205" />
@@ -996,12 +1041,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/TM/User/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="259" column="46" selection-start="5856" selection-end="5856" vertical-scroll-proportion="0.0" />
+        <state line="259" column="9" selection-start="5871" selection-end="5871" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/TaskController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="236" column="1" selection-start="9749" selection-end="9749" vertical-scroll-proportion="0.019744484">
+        <state line="236" column="0" selection-start="9818" selection-end="9818" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/TM/Acl/TaskAcl.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="111" column="27" selection-start="2299" selection-end="2299" vertical-scroll-proportion="0.39750692" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/TM/Activity/ActivityLogger.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/TM/Activity/Notification.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="80" column="29" selection-start="2193" selection-end="2193" vertical-scroll-proportion="0.6340136">
           <folding />
         </state>
       </provider>
