@@ -927,5 +927,38 @@ class TM_Task_Task
         }
     }
 
+    public function isRead(TM_User_User $user)
+    {
+        $aclList = TM_Acl_TaskAcl::getAllInstance($this);
+        if ($aclList !== false) {
+            if (isset($aclList[$user->getId()]) && $aclList[$user->getId()]->getIsRead()) {
+                return true;
+            } else return false;
+        } else
+            return false;
+    }
+
+    public function isWrite(TM_User_User $user)
+    {
+        $aclList = TM_Acl_TaskAcl::getAllInstance($this);
+        if ($aclList !== false) {
+            if (isset($aclList[$user->getId()]) && $aclList[$user->getId()]->getIsWrite()) {
+                return true;
+            } else return false;
+        } else
+            return false;
+    }
+
+    public function isExecutant(TM_User_User $user)
+       {
+           $aclList = TM_Acl_TaskAcl::getAllInstance($this);
+           if ($aclList !== false) {
+               if (isset($aclList[$user->getId()]) && $aclList[$user->getId()]->getIsExecutant()) {
+                   return true;
+               } else return false;
+           } else
+               return false;
+       }
+
 } // end of TM_Task_Task
 ?>

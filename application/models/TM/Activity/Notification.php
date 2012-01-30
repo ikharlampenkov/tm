@@ -71,18 +71,20 @@ class TM_Activity_Notification
             }
 
             $aclList = TM_Acl_TaskAcl::getAllInstance($object);
-            foreach ($aclList as $user_id => $acl) {
-                if ($acl->getIsExecutant() == 1) {
-                    $oUser = TM_User_User::getInstanceById($user_id);
-                    if ($oUser->searchAttribute('email')) {
-                        if ($oUser->getAttribute('email')->getValue() != '') {
-                            $email .= $oUser->getAttribute('email')->getValue() . ', ';
+            if ($aclList !== false) {
+                foreach ($aclList as $user_id => $acl) {
+                    if ($acl->getIsExecutant() == 1) {
+                        $oUser = TM_User_User::getInstanceById($user_id);
+                        if ($oUser->searchAttribute('email')) {
+                            if ($oUser->getAttribute('email')->getValue() != '') {
+                                $email .= $oUser->getAttribute('email')->getValue() . ', ';
+                            }
                         }
                     }
                 }
             }
 
-            mail($email, 'Оповещения от TaskDrive', $message);
+            mail($email, 'Оповещения от TaskDrive', str_replace('&quot;', '"', $message));
         } catch (Exception $e) {
             StdLib_Log::logMsg('Не могу разослать оповещение: ' . $message . ' для ' . $email . '. ' . $e->getMessage(), StdLib_Log::StdLib_Log_ERROR);
         }

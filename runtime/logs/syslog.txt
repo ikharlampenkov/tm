@@ -157,3 +157,18 @@ error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_ke
                     VALUES (195, "who_responsible", 5, "-", 0) No error: 1062:: Error msg: Duplicate entry '195-who_responsible' for key 'PRIMARY' ;  30.01.2012 00:44
 error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
                     VALUES (195, "who_set", 7, "7", 0) No error: 1062:: Error msg: Duplicate entry '195-who_set' for key 'PRIMARY' ;  30.01.2012 00:44
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (193, "deadline", 4, "23.01.2012 00:00:00", 0) No error: 1062:: Error msg: Duplicate entry '193-deadline' for key 'PRIMARY' ;  31.01.2012 00:06
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (193, "description", 2, "Срок - от первой самой ранней
+До последней самой поздней до конца срока выполнения.", 0) No error: 1062:: Error msg: Duplicate entry '193-description' for key 'PRIMARY' ;  31.01.2012 00:06
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (193, "prior", 3, "Средний", 0) No error: 1062:: Error msg: Duplicate entry '193-prior' for key 'PRIMARY' ;  31.01.2012 00:06
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (193, "reason_for_idle", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '193-reason_for_idle' for key 'PRIMARY' ;  31.01.2012 00:06
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (193, "state", 3, "Не выполнена", 0) No error: 1062:: Error msg: Duplicate entry '193-state' for key 'PRIMARY' ;  31.01.2012 00:06
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (193, "who_responsible", 5, "-", 0) No error: 1062:: Error msg: Duplicate entry '193-who_responsible' for key 'PRIMARY' ;  31.01.2012 00:06
+error   Can`t complit query: INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (193, "who_set", 7, "7", 0) No error: 1062:: Error msg: Duplicate entry '193-who_set' for key 'PRIMARY' ;  31.01.2012 00:06
