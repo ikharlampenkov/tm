@@ -35,6 +35,7 @@
             <td class="ttovar">{$user->login}</td>
             <td class="ttovar">{$user->role->rtitle}</td>
             <td class="tedit">
+                <img src="/i/task.png"/>&nbsp;<a href="{$this->url(['controller' => $controller,'action' => 'showPrivateTask', 'userId' => $user->id])}">задачи</a><br/>
                 <img src="/i/comanda.png"/>&nbsp;<a href="{$this->url(['controller' => $controller,'action' => 'showUserAcl', 'id' => $user->id])}">права</a><br/>
                 <img src="/i/edit.png"/>&nbsp;<a href="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $user->id])}">редактировать</a><br/>
                 <img src="/i/delete.png"/>&nbsp;<a href="{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $user->id])}" onclick="return confirmDelete('{$user->login}');" style="color: #830000">удалить</a></td>

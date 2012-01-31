@@ -176,12 +176,12 @@ a {
 }
 
 .login {
-    width: 300px;
+    width: 450px;
     height: 60px;
     position: absolute;
     top: 30px;
-    left: 70%;
-    background: url('/i/login.gif') no-repeat;
+    left: 58%;
+    background: url('/i/login.png') no-repeat;
     padding-top: 5px;
     padding-left: 20px;
 }

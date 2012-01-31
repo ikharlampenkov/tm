@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-24 15:03:05
+<?php /* Smarty version Smarty-3.0.9, created on 2012-01-31 21:34:22
          compiled from "F:\www\tm\application/layouts/scripts\layout.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:13434ef5873910ca33-56450871%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:277664f27fbee1de472-19513435%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a25500e79cea030075e390e1f8ff3a74600c16de' => 
     array (
       0 => 'F:\\www\\tm\\application/layouts/scripts\\layout.tpl',
-      1 => 1324478748,
+      1 => 1328020440,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '13434ef5873910ca33-56450871',
+  'nocache_hash' => '277664f27fbee1de472-19513435',
   'function' => 
   array (
   ),
@@ -122,7 +122,7 @@ $_smarty_tpl->decodeProperties(array (
 
 <div class="content">
 
-    <table border="0" cellpadding="20" width="100%">
+    <table border="0" cellpadding="10" width="100%">
         <tr>
             <td>
             <?php echo $_smarty_tpl->getVariable('this')->value->layout()->content;?>
