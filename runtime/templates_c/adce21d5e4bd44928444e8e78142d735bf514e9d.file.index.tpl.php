@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-25 21:40:25
+<?php /* Smarty version Smarty-3.0.9, created on 2012-01-31 00:19:13
          compiled from "F:\www\tm\application/views/scripts\user/index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:320774ef735d96c72a1-87511025%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:78174f26b9173e0a93-34414203%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'adce21d5e4bd44928444e8e78142d735bf514e9d' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\user/index.tpl',
-      1 => 1323798428,
+      1 => 1327943762,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '320774ef735d96c72a1-87511025',
+  'nocache_hash' => '78174f26b9173e0a93-34414203',
   'function' => 
   array (
   ),
@@ -72,6 +72,8 @@ if ($_smarty_tpl->_count($_from) > 0){
             <td class="ttovar"><?php echo $_smarty_tpl->getVariable('user')->value->role->rtitle;?>
 </td>
             <td class="tedit">
+                <img src="/i/comanda.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'showUserAcl','id'=>$_smarty_tpl->getVariable('user')->value->id));?>
+">права</a><br/>
                 <img src="/i/edit.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'edit','id'=>$_smarty_tpl->getVariable('user')->value->id));?>
 ">редактировать</a><br/>
                 <img src="/i/delete.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'delete','id'=>$_smarty_tpl->getVariable('user')->value->id));?>

@@ -299,7 +299,7 @@ a.task_grey {
 
 .task_block {
     padding: 5px 0 5px 5px;
-    width: 100%;
+    /*width: 100%;*/
     height: 30px;
     margin: 0 5px;
     border-bottom: 1px dashed #cccccc;

@@ -5,7 +5,7 @@ class UserController extends Zend_Controller_Action
 
     public function init()
     {
-        /* Initialize action controller here */
+        $this->_helper->AjaxContext()->addActionContext('showUserAclBlock', 'html')->initContext('html');
     }
 
     public function indexAction()
@@ -160,6 +160,16 @@ class UserController extends Zend_Controller_Action
         $oUser = TM_User_User::getInstanceById($id);
 
         $this->view->assign('taskList', TM_Task_Task::getAllInstance($oUser));
+        $this->view->assign('user', $oUser);
+    }
+
+    public function showuseraclblockAction()
+    {
+        $id = $this->getRequest()->getParam('userId');
+        $parentId = $this->getRequest()->getParam('parent', 0);
+        $oUser = TM_User_User::getInstanceById($id);
+
+        $this->view->assign('taskList', TM_Task_Task::getAllInstance($oUser, $parentId));
         $this->view->assign('user', $oUser);
     }
 

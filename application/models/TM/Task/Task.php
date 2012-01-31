@@ -949,5 +949,16 @@ class TM_Task_Task
             return false;
     }
 
+    public function isExecutant(TM_User_User $user)
+       {
+           $aclList = TM_Acl_TaskAcl::getAllInstance($this);
+           if ($aclList !== false) {
+               if (isset($aclList[$user->getId()]) && $aclList[$user->getId()]->getIsExecutant()) {
+                   return true;
+               } else return false;
+           } else
+               return false;
+       }
+
 } // end of TM_Task_Task
 ?>
