@@ -6,6 +6,7 @@ class UserController extends Zend_Controller_Action
     public function init()
     {
         $this->_helper->AjaxContext()->addActionContext('showUserAclBlock', 'html')->initContext('html');
+        $this->_helper->AjaxContext()->addActionContext('showPrivateTask', 'html')->initContext('html');
     }
 
     public function indexAction()
@@ -170,6 +171,15 @@ class UserController extends Zend_Controller_Action
         $oUser = TM_User_User::getInstanceById($id);
 
         $this->view->assign('taskList', TM_Task_Task::getAllInstance($oUser, $parentId));
+        $this->view->assign('user', $oUser);
+    }
+
+    public function showprivatetaskAction()
+    {
+        $id = $this->getRequest()->getParam('userId');
+        $oUser = TM_User_User::getInstanceById($id);
+
+        $this->view->assign('taskList', TM_Task_Task::getTaskByExecutant($oUser));
         $this->view->assign('user', $oUser);
     }
 
@@ -358,5 +368,7 @@ class UserController extends Zend_Controller_Action
         }
     }
 
+
 }
 
+?>

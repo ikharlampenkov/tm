@@ -903,13 +903,20 @@ class TM_Task_Task
             $db = StdLib_DB::getInstance();
 
             $sql = 'SELECT id, title, tm_task.user_id, date_create, type
-                    FROM tm_task LEFT JOIN (
+                    FROM tm_task
+                    LEFT JOIN (
                         SELECT * FROM tm_task_attribute WHERE attribute_key="deadline"
-                    )t2 ON tm_task.id = t2.task_id LEFT JOIN (SELECT * FROM tm_task_attribute WHERE attribute_key="state") t3 ON tm_task.id = t3.task_id, tm_acl_task
+                    )t2 ON tm_task.id = t2.task_id
+                    LEFT JOIN (
+                        SELECT * FROM tm_task_attribute WHERE attribute_key="state"
+                    ) t3 ON tm_task.id = t3.task_id
+                    LEFT JOIN (
+                        SELECT * FROM tm_task_attribute WHERE attribute_key="prior"
+                    ) t4 ON tm_task.id = t4.task_id, tm_acl_task
                     WHERE tm_task.id=tm_acl_task.task_id
                       AND is_executant=1
                       AND tm_acl_task.user_id=' . $user->id . '
-                      ORDER BY t3.attribute_value DESC, t2.attribute_value, title';
+                      ORDER BY t3.attribute_value DESC, t4.attribute_value, t2.attribute_value, title';
             //echo $sql;
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
