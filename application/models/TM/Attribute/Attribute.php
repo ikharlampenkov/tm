@@ -42,6 +42,11 @@ class TM_Attribute_Attribute
     protected $_value;
 
     /**
+     * @var int
+     */
+    protected $_attributeOrder = 0;
+
+    /**
      * @var TM_Attribute_AttributeMapper
      */
     protected $_mapper = null;
@@ -101,7 +106,6 @@ class TM_Attribute_Attribute
      *
      *
      * @param TM_Task_Task $value
-
      * @return void
      * @access protected
      */
@@ -115,7 +119,6 @@ class TM_Attribute_Attribute
      *
      *
      * @param string $value
-
      * @return void
      * @access public
      */
@@ -140,7 +143,6 @@ class TM_Attribute_Attribute
      *
      *
      * @param string $value
-
      * @return void
      * @access public
      */
@@ -153,13 +155,29 @@ class TM_Attribute_Attribute
     } // end of member function setValue
 
     /**
+     * @param int $attributeOrder
+     */
+    public function setAttributeOrder($attributeOrder)
+    {
+        $this->_attributeOrder = $attributeOrder;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAttributeOrder()
+    {
+        return $this->_attributeOrder;
+    }
+
+    /**
      *
      * @param string $name
      * @return mixed
      * @access public
      */
 
-     public function __get($name)
+    public function __get($name)
     {
         $method = "get{$name}";
         if (method_exists($this, $method)) {
@@ -258,9 +276,8 @@ class TM_Attribute_Attribute
      *
      *
      * @param array values
-
-     * @return
-     * @access public
+     * @return void
+    @access public
      */
     public function fillFromArray($values)
     {
@@ -269,7 +286,9 @@ class TM_Attribute_Attribute
 
         $this->setAttribyteKey($values['attribute_key']);
         $this->setValue($values['attribute_value']);
-    } // end of member function fillFromArray
+        $this->setAttributeOrder($values['attribute_order']);
+    }
+
 
 } // end of TM_Attribute_Attribute
 ?>

@@ -25,8 +25,12 @@
             </td>
         </tr>
         <tr>
-            <td class="ttovar_title">Список значений (через ||) </td>
+            <td class="ttovar_title">Список значений (через ||)</td>
             <td class="ttovar"><input name="data[list_value]" value="{$hash->listValue}"/></td>
+        </tr>
+        <tr>
+            <td class="ttovar_title">Список для сортировки значений (через ||)</td>
+            <td class="ttovar"><input name="data[list_order]" value="{$hash->listOrder}"/></td>
         </tr>
         <tr>
             <td class="ttovar_title">Обязательное</td>

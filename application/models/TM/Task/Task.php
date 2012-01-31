@@ -611,7 +611,7 @@ class TM_Task_Task
                 } else {
                     $this->_parentTask = array();
                 }
-                print_r($this->_parentTask[0]);
+
                 return $this->_parentTask[0];
             } catch (Exception $e) {
                 throw new Exception($e->getMessage());
@@ -735,7 +735,17 @@ class TM_Task_Task
     public function setAttribute($key, $value)
     {
         if ($this->searchAttribute($key)) {
+            $oHash = TM_Task_Hash::getInstanceById($key);
+
             $this->_attributeList[$key]->setValue($value);
+
+            if ($oHash->getType() instanceof TM_Attribute_AttributeTypeList) {
+                $keyO = array_search($value, $oHash->getValueList(false, true));
+                $temp = $oHash->getListOrder();
+                if ($key !== false && isset($temp[$keyO])) {
+                    $this->_attributeList[$key]->setAttributeOrder($temp[$keyO]);
+                }
+            }
 
         } else {
             $oHash = TM_Task_Hash::getInstanceById($key);
@@ -743,6 +753,14 @@ class TM_Task_Task
             $oAttribute->setAttribyteKey($key);
             $oAttribute->setType($oHash->getType());
             $oAttribute->setValue($value);
+
+            if ($oHash->getType() instanceof TM_Attribute_AttributeTypeList) {
+                $key = array_search($value, $oHash->getValueList(false, true));
+                $temp = $oHash->getListOrder();
+                if ($key !== false && isset($temp[$key])) {
+                    $oAttribute->setAttributeOrder($temp[$key]);
+                }
+            }
 
             $this->_attributeList[$key] = $oAttribute;
             //$oAttribute->insertToDB();
@@ -916,7 +934,7 @@ class TM_Task_Task
                     WHERE tm_task.id=tm_acl_task.task_id
                       AND is_executant=1
                       AND tm_acl_task.user_id=' . $user->id . '
-                      ORDER BY t3.attribute_value DESC, t4.attribute_value, t2.attribute_value, title';
+                      ORDER BY t3.attribute_value DESC, t4.attribute_order, t2.attribute_value, title';
             //echo $sql;
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
@@ -957,15 +975,15 @@ class TM_Task_Task
     }
 
     public function isExecutant(TM_User_User $user)
-       {
-           $aclList = TM_Acl_TaskAcl::getAllInstance($this);
-           if ($aclList !== false) {
-               if (isset($aclList[$user->getId()]) && $aclList[$user->getId()]->getIsExecutant()) {
-                   return true;
-               } else return false;
-           } else
-               return false;
-       }
+    {
+        $aclList = TM_Acl_TaskAcl::getAllInstance($this);
+        if ($aclList !== false) {
+            if (isset($aclList[$user->getId()]) && $aclList[$user->getId()]->getIsExecutant()) {
+                return true;
+            } else return false;
+        } else
+            return false;
+    }
 
 } // end of TM_Task_Task
 ?>
