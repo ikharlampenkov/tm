@@ -5,21 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a46b928-ce36-4d2c-8e4a-e9e052a0178c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/1dbb830adf4745b84fb91729ecf99d76ff3cfa3a.file.edit-attribute-hash.tpl.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/75ea76678d88fe43bbb536720b7c45b58e4a2d2e.file.view-attribute-type.tpl.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/9d7f822d62133a1cbc297747a710a8f727ebc2bf.file.show-private-task.tpl.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/c32cbf27adfd0755fa9e5485d74e14c750ce5c67.file.index.tpl.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/d277bd572b5d077e8b560575f54b74dbdfbf088f.file.add.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/TaskController.php" afterPath="$PROJECT_DIR$/application/controllers/TaskController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Attribute/Attribute.php" afterPath="$PROJECT_DIR$/application/models/TM/Attribute/Attribute.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Task/AttributeMapper.php" afterPath="$PROJECT_DIR$/application/models/TM/Task/AttributeMapper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Task/Hash.php" afterPath="$PROJECT_DIR$/application/models/TM/Task/Hash.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Task/Task.php" afterPath="$PROJECT_DIR$/application/models/TM/Task/Task.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/task/add-attribute-hash.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/task/add-attribute-hash.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/task/edit-attribute-hash.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/task/edit-attribute-hash.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/adce21d5e4bd44928444e8e78142d735bf514e9d.file.index.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/adce21d5e4bd44928444e8e78142d735bf514e9d.file.index.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/~Documents/sibdnevnik_tm.sql" afterPath="$PROJECT_DIR$/~Documents/sibdnevnik_tm.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/user/show-private-task.ajax.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/user/show-private-task.ajax.tpl" />
     </list>
     <ignored path="tm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -45,78 +32,7 @@
     <favorites_list name="tm" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Hash.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/TM/Task/Hash.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="86" column="6" selection-start="1281" selection-end="1281" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1328024017173" expanded="true" signature="9895:10041" placeholder="SELECT tm_ta..tm_task_hash..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Task.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/models/TM/Task/Task.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="942" column="43" selection-start="25762" selection-end="25762" vertical-scroll-proportion="0.7227319">
-              <folding>
-                <marker date="1328027599454" expanded="true" signature="8781:8802" placeholder="SELECT * FRO..tm_task..." />
-                <marker date="1328027599454" expanded="true" signature="9031:9144" placeholder="SELECT * FRO..tm_task..." />
-                <marker date="1328027599454" expanded="true" signature="13234:13290" placeholder="INSERT INTO ..." />
-                <marker date="1328027599454" expanded="true" signature="17058:17114" placeholder="INSERT INTO ..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AttributeMapper.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/TM/Task/AttributeMapper.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="44" selection-start="496" selection-end="496" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Attribute.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/TM/Attribute/Attribute.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="7" selection-start="391" selection-end="391" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add-attribute-hash.tpl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/scripts/task/add-attribute-hash.tpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="26" selection-start="924" selection-end="924" vertical-scroll-proportion="-14.384615">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit-attribute-hash.tpl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/scripts/task/edit-attribute-hash.tpl">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="13" selection-start="1085" selection-end="1085" vertical-scroll-proportion="-16.346153">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TaskController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/TaskController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="566" column="53" selection-start="23565" selection-end="23565" vertical-scroll-proportion="-23.28">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -153,7 +69,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/application/models/TM/Activity/ActivityLogger.php" />
         <option value="$PROJECT_DIR$/application/models/TM/User/User.php" />
         <option value="$PROJECT_DIR$/application/models/TM/Activity/Notification.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/user/child-task-block.tpl" />
@@ -169,6 +84,7 @@
         <option value="$PROJECT_DIR$/application/models/TM/Task/AttributeMapper.php" />
         <option value="$PROJECT_DIR$/runtime/logs/syslog.txt" />
         <option value="$PROJECT_DIR$/application/models/TM/Task/Task.php" />
+        <option value="$PROJECT_DIR$/application/views/scripts/user/show-private-task.ajax.tpl" />
       </list>
     </option>
   </component>
@@ -1046,7 +962,7 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854405" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854405" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36004272" sideWeight="0.32662836" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36004272" sideWeight="0.6704981" order="0" side_tool="false" content_ui="tabs" x="20" y="68" width="485" height="1049" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36004272" sideWeight="0.6704981" order="0" side_tool="false" content_ui="tabs" x="20" y="68" width="485" height="1049" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983795" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983795" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1150,16 +1066,6 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/user/show-user-acl.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="100" column="8" selection-start="6712" selection-end="6712" vertical-scroll-proportion="-9.807693" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/user/show-user-acl-block.ajax.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="10" selection-start="5299" selection-end="5299" vertical-scroll-proportion="-7.5" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/task/show-task-block.ajax.tpl">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -1205,28 +1111,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/task/add-attribute-hash.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="26" selection-start="924" selection-end="924" vertical-scroll-proportion="-14.384615">
+        <state line="22" column="26" selection-start="924" selection-end="924" vertical-scroll-proportion="0.37663645">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/task/edit-attribute-hash.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="13" selection-start="1085" selection-end="1085" vertical-scroll-proportion="-16.346153">
+        <state line="25" column="13" selection-start="1085" selection-end="1085" vertical-scroll-proportion="0.42799598">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/TM/Attribute/Attribute.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="7" selection-start="391" selection-end="391" vertical-scroll-proportion="0.0">
+        <state line="31" column="7" selection-start="391" selection-end="391" vertical-scroll-proportion="0.3670265">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/TM/Task/AttributeMapper.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="44" selection-start="496" selection-end="496" vertical-scroll-proportion="0.0">
+        <state line="27" column="44" selection-start="496" selection-end="496" vertical-scroll-proportion="0.4504416">
           <folding />
         </state>
       </provider>
@@ -1235,27 +1141,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="86" column="6" selection-start="1281" selection-end="1281" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1328024017173" expanded="true" signature="9895:10041" placeholder="SELECT tm_ta..tm_task_hash..." />
+            <marker date="1328024017173" expanded="true" signature="-1:-1" placeholder="SELECT tm_ta..tm_task_hash..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/TaskController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="566" column="53" selection-start="23565" selection-end="23565" vertical-scroll-proportion="-23.28">
+        <state line="566" column="53" selection-start="23565" selection-end="23565" vertical-scroll-proportion="0.59327215">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/TM/Task/Task.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="942" column="43" selection-start="25762" selection-end="25762" vertical-scroll-proportion="0.7227319">
+        <state line="942" column="43" selection-start="25762" selection-end="25762" vertical-scroll-proportion="-28.36">
           <folding>
-            <marker date="1328027599454" expanded="true" signature="8781:8802" placeholder="SELECT * FRO..tm_task..." />
-            <marker date="1328027599454" expanded="true" signature="9031:9144" placeholder="SELECT * FRO..tm_task..." />
-            <marker date="1328027599454" expanded="true" signature="13234:13290" placeholder="INSERT INTO ..." />
-            <marker date="1328027599454" expanded="true" signature="17058:17114" placeholder="INSERT INTO ..." />
+            <marker date="1328027599454" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..tm_task..." />
+            <marker date="1328027599454" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..tm_task..." />
+            <marker date="1328027599454" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1328027599454" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/user/show-private-task.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="26" selection-start="2577" selection-end="2829" vertical-scroll-proportion="0.75714284">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/user/show-private-task.ajax.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="22" selection-start="1934" selection-end="1934" vertical-scroll-proportion="0.57244897">
+          <folding />
         </state>
       </provider>
     </entry>
