@@ -31,7 +31,7 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
                 $isFill = 0;
             }
 
-            $sql = 'INSERT INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
+            $sql = 'REPLACE INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, is_fill)
                     VALUES (' . $attribute->task->getId() . ', "' . $attribute->attribyteKey . '", ' . $attribute->type->getId() . ', "' . $attribute->value . '", ' . $isFill . ')';
             $this->_db->query($sql);
         } catch (Exception $e) {
