@@ -105,6 +105,25 @@ class TM_Activity_Activity
     }
 
     /**
+     * Метод возвращает сообщение с учетом пользователя и времени
+     * @return string
+     */
+    public function getFullMessage()
+    {
+        $message = $this->_db->prepareStringToOut($this->_message);
+
+        $message .=  ' Пользователь: ';
+        if ($this->_user->searchAttribute('name')) {
+            $message .= $this->_user->getAttribute('name')->getValue();
+        } else {
+            $message .= $this->_user->getLogin();
+        }
+        $message .= '. Дата: ' . date('d.m.Y H:i', strtotime($this->_date));
+
+        return $message;
+    }
+
+    /**
      * @param string $razdel
      */
     public function setRazdel($razdel)

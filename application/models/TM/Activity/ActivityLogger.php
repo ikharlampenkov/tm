@@ -21,7 +21,7 @@ class TM_Activity_ActivityLogger
 
             if ($object instanceof TM_Task_Task) {
                 $oNotice = TM_Activity_Notification::getInstance();
-                $oNotice->sendMessage($message, $object);
+                $oNotice->sendMessage($oActivity->getFullMessage(), $object);
             }
         } catch (Exception $e) {
             StdLib_Log::logMsg('Не могу сделать запись об активности. ' . $e->getMessage(), StdLib_Log::StdLib_Log_ERROR);
