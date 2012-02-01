@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Янв 30 2012 г., 19:20
+-- Время создания: Янв 31 2012 г., 20:22
 -- Версия сервера: 5.0.77
 -- Версия PHP: 5.2.12
 
@@ -29,7 +29,7 @@ START TRANSACTION;
 --
 
 DROP TABLE IF EXISTS `tm_acl_discussion`;
-CREATE TABLE IF NOT EXISTS `tm_acl_discussion` (
+CREATE TABLE `tm_acl_discussion` (
   `user_id` int(10) unsigned NOT NULL,
   `discussion_id` int(10) unsigned NOT NULL,
   `is_read` tinyint(1) NOT NULL default '0',
@@ -160,6 +160,15 @@ INSERT INTO `tm_acl_discussion` (`user_id`, `discussion_id`, `is_read`, `is_writ
 (1, 313, 1, 1),
 (1, 314, 1, 1),
 (1, 315, 1, 1),
+(1, 316, 1, 1),
+(1, 317, 1, 1),
+(1, 318, 1, 1),
+(1, 319, 1, 1),
+(1, 320, 1, 1),
+(1, 321, 1, 1),
+(1, 322, 1, 1),
+(1, 323, 1, 1),
+(1, 324, 1, 1),
 (7, 188, 1, 1),
 (7, 197, 1, 1),
 (7, 198, 1, 1),
@@ -278,6 +287,15 @@ INSERT INTO `tm_acl_discussion` (`user_id`, `discussion_id`, `is_read`, `is_writ
 (7, 313, 1, 1),
 (7, 314, 1, 1),
 (7, 315, 1, 1),
+(7, 316, 1, 1),
+(7, 317, 1, 1),
+(7, 318, 1, 1),
+(7, 319, 1, 1),
+(7, 320, 1, 1),
+(7, 321, 1, 1),
+(7, 322, 1, 1),
+(7, 323, 1, 1),
+(7, 324, 1, 1),
 (9, 188, 1, 1),
 (9, 203, 1, 1),
 (9, 204, 1, 1),
@@ -389,6 +407,15 @@ INSERT INTO `tm_acl_discussion` (`user_id`, `discussion_id`, `is_read`, `is_writ
 (9, 313, 0, 0),
 (9, 314, 0, 0),
 (9, 315, 0, 0),
+(9, 316, 1, 1),
+(9, 317, 0, 0),
+(9, 318, 0, 0),
+(9, 319, 0, 0),
+(9, 320, 0, 0),
+(9, 321, 1, 1),
+(9, 322, 0, 0),
+(9, 323, 0, 0),
+(9, 324, 0, 0),
 (11, 198, 1, 1),
 (11, 203, 1, 1),
 (11, 204, 1, 1),
@@ -502,6 +529,15 @@ INSERT INTO `tm_acl_discussion` (`user_id`, `discussion_id`, `is_read`, `is_writ
 (11, 313, 1, 1),
 (11, 314, 1, 1),
 (11, 315, 1, 1),
+(11, 316, 1, 1),
+(11, 317, 1, 1),
+(11, 318, 1, 1),
+(11, 319, 1, 1),
+(11, 320, 1, 1),
+(11, 321, 1, 1),
+(11, 322, 1, 1),
+(11, 323, 1, 1),
+(11, 324, 1, 1),
 (12, 197, 1, 1),
 (12, 200, 1, 1),
 (12, 213, 1, 1),
@@ -604,6 +640,15 @@ INSERT INTO `tm_acl_discussion` (`user_id`, `discussion_id`, `is_read`, `is_writ
 (12, 313, 1, 1),
 (12, 314, 1, 1),
 (12, 315, 1, 1),
+(12, 316, 1, 1),
+(12, 317, 1, 1),
+(12, 318, 1, 1),
+(12, 319, 1, 1),
+(12, 320, 1, 1),
+(12, 321, 1, 1),
+(12, 322, 1, 1),
+(12, 323, 1, 1),
+(12, 324, 1, 1),
 (13, 230, 1, 1),
 (13, 231, 1, 1),
 (13, 232, 1, 1),
@@ -689,6 +734,15 @@ INSERT INTO `tm_acl_discussion` (`user_id`, `discussion_id`, `is_read`, `is_writ
 (13, 313, 0, 0),
 (13, 314, 0, 0),
 (13, 315, 0, 0),
+(13, 316, 1, 1),
+(13, 317, 0, 0),
+(13, 318, 0, 0),
+(13, 319, 0, 0),
+(13, 320, 0, 0),
+(13, 321, 1, 1),
+(13, 322, 0, 0),
+(13, 323, 0, 0),
+(13, 324, 0, 0),
 (14, 230, 1, 1),
 (14, 231, 1, 1),
 (14, 232, 1, 1),
@@ -773,7 +827,16 @@ INSERT INTO `tm_acl_discussion` (`user_id`, `discussion_id`, `is_read`, `is_writ
 (14, 312, 0, 0),
 (14, 313, 0, 0),
 (14, 314, 0, 0),
-(14, 315, 0, 0);
+(14, 315, 0, 0),
+(14, 316, 1, 1),
+(14, 317, 0, 0),
+(14, 318, 0, 0),
+(14, 319, 0, 0),
+(14, 320, 0, 0),
+(14, 321, 1, 1),
+(14, 322, 0, 0),
+(14, 323, 0, 0),
+(14, 324, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -782,7 +845,7 @@ INSERT INTO `tm_acl_discussion` (`user_id`, `discussion_id`, `is_read`, `is_writ
 --
 
 DROP TABLE IF EXISTS `tm_acl_document`;
-CREATE TABLE IF NOT EXISTS `tm_acl_document` (
+CREATE TABLE `tm_acl_document` (
   `user_id` int(10) unsigned NOT NULL,
   `document_id` int(10) unsigned NOT NULL,
   `is_read` tinyint(1) NOT NULL default '0',
@@ -913,6 +976,15 @@ INSERT INTO `tm_acl_document` (`user_id`, `document_id`, `is_read`, `is_write`) 
 (1, 345, 1, 1),
 (1, 349, 1, 1),
 (1, 352, 1, 1),
+(1, 353, 1, 1),
+(1, 354, 1, 1),
+(1, 355, 1, 1),
+(1, 356, 1, 1),
+(1, 357, 1, 1),
+(1, 358, 1, 1),
+(1, 359, 1, 1),
+(1, 362, 1, 1),
+(1, 363, 1, 1),
 (7, 199, 1, 1),
 (7, 200, 1, 1),
 (7, 223, 1, 1),
@@ -1029,6 +1101,15 @@ INSERT INTO `tm_acl_document` (`user_id`, `document_id`, `is_read`, `is_write`) 
 (7, 345, 1, 1),
 (7, 349, 1, 1),
 (7, 352, 1, 1),
+(7, 353, 1, 1),
+(7, 354, 1, 1),
+(7, 355, 1, 1),
+(7, 356, 1, 1),
+(7, 357, 1, 1),
+(7, 358, 1, 1),
+(7, 359, 1, 1),
+(7, 362, 1, 1),
+(7, 363, 1, 1),
 (9, 199, 1, 1),
 (9, 200, 1, 1),
 (9, 229, 1, 1),
@@ -1138,6 +1219,15 @@ INSERT INTO `tm_acl_document` (`user_id`, `document_id`, `is_read`, `is_write`) 
 (9, 345, 0, 0),
 (9, 349, 0, 0),
 (9, 352, 0, 0),
+(9, 353, 1, 1),
+(9, 354, 0, 0),
+(9, 355, 0, 0),
+(9, 356, 0, 0),
+(9, 357, 0, 0),
+(9, 358, 1, 1),
+(9, 359, 0, 0),
+(9, 362, 0, 0),
+(9, 363, 0, 0),
 (11, 200, 1, 1),
 (11, 224, 1, 1),
 (11, 229, 1, 1),
@@ -1250,6 +1340,15 @@ INSERT INTO `tm_acl_document` (`user_id`, `document_id`, `is_read`, `is_write`) 
 (11, 345, 1, 1),
 (11, 349, 1, 1),
 (11, 352, 1, 1),
+(11, 353, 1, 1),
+(11, 354, 1, 1),
+(11, 355, 1, 1),
+(11, 356, 1, 1),
+(11, 357, 1, 1),
+(11, 358, 1, 1),
+(11, 359, 1, 1),
+(11, 362, 1, 1),
+(11, 363, 1, 1),
 (12, 223, 1, 1),
 (12, 226, 1, 1),
 (12, 239, 1, 1),
@@ -1350,6 +1449,15 @@ INSERT INTO `tm_acl_document` (`user_id`, `document_id`, `is_read`, `is_write`) 
 (12, 345, 1, 1),
 (12, 349, 1, 1),
 (12, 352, 1, 1),
+(12, 353, 1, 1),
+(12, 354, 1, 1),
+(12, 355, 1, 1),
+(12, 356, 1, 1),
+(12, 357, 1, 1),
+(12, 358, 1, 1),
+(12, 359, 1, 1),
+(12, 362, 1, 1),
+(12, 363, 1, 1),
 (13, 256, 1, 1),
 (13, 257, 1, 1),
 (13, 258, 1, 1),
@@ -1433,6 +1541,15 @@ INSERT INTO `tm_acl_document` (`user_id`, `document_id`, `is_read`, `is_write`) 
 (13, 345, 0, 0),
 (13, 349, 0, 0),
 (13, 352, 0, 0),
+(13, 353, 1, 1),
+(13, 354, 0, 0),
+(13, 355, 0, 0),
+(13, 356, 0, 0),
+(13, 357, 0, 0),
+(13, 358, 1, 1),
+(13, 359, 0, 0),
+(13, 362, 0, 0),
+(13, 363, 0, 0),
 (14, 256, 1, 1),
 (14, 257, 1, 1),
 (14, 258, 1, 1),
@@ -1515,7 +1632,16 @@ INSERT INTO `tm_acl_document` (`user_id`, `document_id`, `is_read`, `is_write`) 
 (14, 344, 0, 0),
 (14, 345, 0, 0),
 (14, 349, 0, 0),
-(14, 352, 0, 0);
+(14, 352, 0, 0),
+(14, 353, 1, 1),
+(14, 354, 0, 0),
+(14, 355, 0, 0),
+(14, 356, 0, 0),
+(14, 357, 0, 0),
+(14, 358, 1, 1),
+(14, 359, 0, 0),
+(14, 362, 0, 0),
+(14, 363, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1524,7 +1650,7 @@ INSERT INTO `tm_acl_document` (`user_id`, `document_id`, `is_read`, `is_write`) 
 --
 
 DROP TABLE IF EXISTS `tm_acl_role`;
-CREATE TABLE IF NOT EXISTS `tm_acl_role` (
+CREATE TABLE `tm_acl_role` (
   `tm_user_role_id` int(10) unsigned NOT NULL,
   `tm_user_resource_id` int(10) unsigned NOT NULL,
   `is_allow` tinyint(1) NOT NULL default '0',
@@ -1621,6 +1747,8 @@ INSERT INTO `tm_acl_role` (`tm_user_role_id`, `tm_user_resource_id`, `is_allow`,
 (1, 90, 1, 'show'),
 (1, 91, 1, 'show'),
 (1, 92, 1, 'show'),
+(1, 93, 1, 'show'),
+(1, 94, 1, 'show'),
 (3, 1, 1, 'show'),
 (3, 2, 1, 'show'),
 (3, 3, 1, 'show'),
@@ -2168,7 +2296,7 @@ INSERT INTO `tm_acl_role` (`tm_user_role_id`, `tm_user_resource_id`, `is_allow`,
 --
 
 DROP TABLE IF EXISTS `tm_acl_task`;
-CREATE TABLE IF NOT EXISTS `tm_acl_task` (
+CREATE TABLE `tm_acl_task` (
   `user_id` int(10) unsigned NOT NULL,
   `task_id` int(10) unsigned NOT NULL,
   `is_read` tinyint(1) NOT NULL default '0',
@@ -2293,6 +2421,14 @@ INSERT INTO `tm_acl_task` (`user_id`, `task_id`, `is_read`, `is_write`, `is_exec
 (1, 300, 1, 1, 0),
 (1, 301, 1, 1, 0),
 (1, 302, 1, 1, 0),
+(1, 303, 1, 1, 0),
+(1, 304, 1, 1, 0),
+(1, 305, 1, 1, 0),
+(1, 306, 1, 1, 0),
+(1, 308, 1, 1, 0),
+(1, 309, 1, 1, 0),
+(1, 310, 1, 1, 0),
+(1, 311, 1, 1, 0),
 (7, 165, 1, 1, 0),
 (7, 166, 1, 1, 0),
 (7, 186, 1, 1, 0),
@@ -2402,6 +2538,14 @@ INSERT INTO `tm_acl_task` (`user_id`, `task_id`, `is_read`, `is_write`, `is_exec
 (7, 300, 1, 1, 0),
 (7, 301, 1, 1, 0),
 (7, 302, 1, 1, 0),
+(7, 303, 1, 1, 0),
+(7, 304, 1, 1, 0),
+(7, 305, 1, 1, 0),
+(7, 306, 1, 1, 0),
+(7, 308, 1, 1, 0),
+(7, 309, 1, 1, 0),
+(7, 310, 1, 1, 0),
+(7, 311, 1, 1, 0),
 (9, 165, 1, 1, 0),
 (9, 166, 1, 1, 0),
 (9, 186, 0, 0, 0),
@@ -2463,7 +2607,7 @@ INSERT INTO `tm_acl_task` (`user_id`, `task_id`, `is_read`, `is_write`, `is_exec
 (9, 255, 0, 0, 0),
 (9, 256, 0, 0, 0),
 (9, 257, 1, 1, 0),
-(9, 258, 1, 1, 0),
+(9, 258, 0, 0, 0),
 (9, 259, 1, 1, 0),
 (9, 260, 1, 1, 0),
 (9, 261, 1, 1, 0),
@@ -2507,6 +2651,14 @@ INSERT INTO `tm_acl_task` (`user_id`, `task_id`, `is_read`, `is_write`, `is_exec
 (9, 300, 0, 0, 0),
 (9, 301, 0, 0, 0),
 (9, 302, 0, 0, 0),
+(9, 303, 1, 1, 0),
+(9, 304, 0, 0, 0),
+(9, 305, 0, 0, 0),
+(9, 306, 0, 0, 0),
+(9, 308, 1, 1, 0),
+(9, 309, 0, 0, 0),
+(9, 310, 0, 0, 0),
+(9, 311, 0, 0, 0),
 (11, 165, 1, 1, 1),
 (11, 166, 1, 1, 1),
 (11, 186, 1, 1, 1),
@@ -2614,6 +2766,14 @@ INSERT INTO `tm_acl_task` (`user_id`, `task_id`, `is_read`, `is_write`, `is_exec
 (11, 300, 1, 1, 0),
 (11, 301, 1, 1, 0),
 (11, 302, 1, 1, 1),
+(11, 303, 1, 1, 0),
+(11, 304, 1, 1, 1),
+(11, 305, 1, 1, 0),
+(11, 306, 1, 1, 0),
+(11, 308, 1, 1, 0),
+(11, 309, 1, 1, 0),
+(11, 310, 1, 1, 0),
+(11, 311, 1, 1, 0),
 (12, 186, 1, 1, 0),
 (12, 187, 0, 0, 0),
 (12, 189, 1, 1, 0),
@@ -2715,6 +2875,14 @@ INSERT INTO `tm_acl_task` (`user_id`, `task_id`, `is_read`, `is_write`, `is_exec
 (12, 300, 1, 1, 0),
 (12, 301, 1, 1, 0),
 (12, 302, 1, 1, 0),
+(12, 303, 1, 1, 0),
+(12, 304, 1, 1, 0),
+(12, 305, 1, 1, 0),
+(12, 306, 1, 1, 0),
+(12, 308, 1, 1, 0),
+(12, 309, 1, 1, 0),
+(12, 310, 1, 1, 0),
+(12, 311, 1, 1, 0),
 (13, 186, 1, 1, 0),
 (13, 187, 0, 0, 0),
 (13, 192, 0, 0, 0),
@@ -2805,6 +2973,14 @@ INSERT INTO `tm_acl_task` (`user_id`, `task_id`, `is_read`, `is_write`, `is_exec
 (13, 300, 0, 0, 0),
 (13, 301, 0, 0, 0),
 (13, 302, 0, 0, 0),
+(13, 303, 1, 1, 0),
+(13, 304, 0, 0, 0),
+(13, 305, 0, 0, 0),
+(13, 306, 0, 0, 0),
+(13, 308, 1, 1, 0),
+(13, 309, 0, 0, 0),
+(13, 310, 0, 0, 0),
+(13, 311, 0, 0, 0),
 (14, 186, 1, 1, 0),
 (14, 187, 0, 0, 0),
 (14, 192, 0, 0, 0),
@@ -2894,7 +3070,15 @@ INSERT INTO `tm_acl_task` (`user_id`, `task_id`, `is_read`, `is_write`, `is_exec
 (14, 299, 0, 0, 0),
 (14, 300, 0, 0, 0),
 (14, 301, 0, 0, 0),
-(14, 302, 0, 0, 0);
+(14, 302, 0, 0, 0),
+(14, 303, 1, 1, 0),
+(14, 304, 0, 0, 0),
+(14, 305, 0, 0, 0),
+(14, 306, 0, 0, 0),
+(14, 308, 1, 1, 0),
+(14, 309, 0, 0, 0),
+(14, 310, 0, 0, 0),
+(14, 311, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -2903,7 +3087,7 @@ INSERT INTO `tm_acl_task` (`user_id`, `task_id`, `is_read`, `is_write`, `is_exec
 --
 
 DROP TABLE IF EXISTS `tm_activity`;
-CREATE TABLE IF NOT EXISTS `tm_activity` (
+CREATE TABLE `tm_activity` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `date_action` datetime NOT NULL,
   `user_id` int(10) unsigned NOT NULL,
@@ -2911,7 +3095,7 @@ CREATE TABLE IF NOT EXISTS `tm_activity` (
   `message` text NOT NULL,
   PRIMARY KEY  (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=33 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=54 ;
 
 --
 -- Дамп данных таблицы `tm_activity`
@@ -2949,7 +3133,28 @@ INSERT INTO `tm_activity` (`id`, `date_action`, `user_id`, `razdel`, `message`) 
 (29, '2012-01-30 14:59:11', 7, 'Проекты', 'Изменения в задаче Мониторинг СМИ'),
 (30, '2012-01-30 14:59:21', 7, 'Проекты', 'Изменения в задаче Мониторинг СМИ'),
 (31, '2012-01-30 19:04:54', 11, 'Проекты', 'Изменения в задаче Название поправить'),
-(32, '2012-01-30 19:18:48', 11, 'Проекты', 'Изменения в задаче Компании - должны быть видны только в своём городе, кроме &quot;мультигородских&quot;');
+(32, '2012-01-30 19:18:48', 11, 'Проекты', 'Изменения в задаче Компании - должны быть видны только в своём городе, кроме &quot;мультигородских&quot;'),
+(33, '2012-01-31 08:26:53', 12, 'Проекты', 'Добавлена задача Записать голоса - Введите лицевой счет и нажмите решетку.'),
+(34, '2012-01-31 08:27:18', 12, 'Проекты', 'Изменения в задаче Записать голоса - Введите лицевой счет и нажмите решетку'),
+(35, '2012-01-31 09:01:54', 12, 'Проекты', 'Добавлена задача Банера нижние на главной странице!'),
+(36, '2012-01-31 09:13:32', 12, 'Проекты', 'Добавлена задача Банера - В каждом городе свои!'),
+(37, '2012-01-31 09:14:05', 12, 'Проекты', 'Добавлена задача Приоритет товара при добавлении на первую страницу!'),
+(38, '2012-01-31 09:44:25', 12, 'Проекты', 'Добавлена задача РЭУ 19.РФ '),
+(39, '2012-01-31 09:47:16', 12, 'Проекты', 'Добавлена задача РЭУ19.рф'),
+(40, '2012-01-31 09:47:24', 12, 'Проекты', 'Удалена задача РЭУ 19.РФ '),
+(41, '2012-01-31 11:41:14', 12, 'Проекты', 'Добавлена задача Большая Беда!'),
+(42, '2012-01-31 11:41:45', 12, 'Проекты', 'Изменения в задаче Большая Беда!'),
+(43, '2012-01-31 11:42:45', 12, 'Проекты', 'Изменения в задаче Большая Беда!'),
+(44, '2012-01-31 11:42:57', 12, 'Проекты', 'Изменения в задаче Большая Беда!'),
+(45, '2012-01-31 11:43:41', 12, 'Проекты', 'Добавлена задача На почту приходит всякая чушь! Ссылка которая приходит неправильная - ведёт на страницу с ошибками!'),
+(46, '2012-01-31 12:00:51', 11, 'Проекты', 'Изменения в задаче Добавить Контактные листы'),
+(47, '2012-01-31 12:01:44', 11, 'Проекты', 'Изменения в задаче Добавить время выполнения к задаче'),
+(48, '2012-01-31 12:15:40', 11, 'Проекты', 'Изменения в задаче Региональный представитель'),
+(49, '2012-01-31 12:56:43', 12, 'Проекты', 'Добавлена задача Добавить поле почта!'),
+(50, '2012-01-31 12:57:23', 12, 'Проекты', 'Изменения в задаче Добавить поле почта!'),
+(51, '2012-01-31 12:58:03', 12, 'Проекты', 'Изменения в задаче Добавить поле почта!'),
+(52, '2012-01-31 18:28:51', 11, 'Проекты', 'Изменения в задаче Банера нижние на главной странице!'),
+(53, '2012-01-31 18:29:03', 11, 'Проекты', 'Изменения в задаче Банера нижние на главной странице!');
 
 -- --------------------------------------------------------
 
@@ -2958,7 +3163,7 @@ INSERT INTO `tm_activity` (`id`, `date_action`, `user_id`, `razdel`, `message`) 
 --
 
 DROP TABLE IF EXISTS `tm_discussion`;
-CREATE TABLE IF NOT EXISTS `tm_discussion` (
+CREATE TABLE `tm_discussion` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `message` text NOT NULL,
   `date_create` datetime NOT NULL,
@@ -2976,7 +3181,7 @@ CREATE TABLE IF NOT EXISTS `tm_discussion` (
   KEY `fk_tm_discussion_tm_user1` (`user_id`),
   KEY `topic_id` (`topic_id`),
   KEY `to_user_id` (`to_user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=316 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=325 ;
 
 --
 -- Дамп данных таблицы `tm_discussion`
@@ -3102,7 +3307,16 @@ INSERT INTO `tm_discussion` (`id`, `message`, `date_create`, `is_first`, `is_mes
 (312, 'Компании - должны быть видны только в своём городе, кроме \\"мультигородских\\"', '2012-01-30 14:23:50', 0, 0, 227, NULL, 12, NULL, 0, 0, 0),
 (313, 'Ссылка на оригинальный товар', '2012-01-30 14:32:50', 0, 0, 227, NULL, 12, NULL, 0, 0, 0),
 (314, 'Уменьшение названий!', '2012-01-30 14:48:54', 0, 0, 227, NULL, 12, NULL, 0, 0, 0),
-(315, 'Название поправить', '2012-01-30 14:53:30', 0, 0, 227, NULL, 12, NULL, 0, 0, 0);
+(315, 'Название поправить', '2012-01-30 14:53:30', 0, 0, 227, NULL, 12, NULL, 0, 0, 0),
+(316, 'Записать голоса - Введите лицевой счет и нажмите решетку.', '2012-01-31 08:26:53', 0, 0, 224, NULL, 12, NULL, 0, 0, 0),
+(317, 'Банера нижние на главной странице!', '2012-01-31 09:01:54', 0, 0, 227, NULL, 12, NULL, 0, 0, 0),
+(318, 'Банера - В каждом городе свои!', '2012-01-31 09:13:31', 0, 0, 227, NULL, 12, NULL, 0, 0, 0),
+(319, 'Приоритет товара при добавлении на первую страницу!', '2012-01-31 09:14:05', 0, 0, 227, NULL, 12, NULL, 0, 0, 0),
+(320, 'РЭУ 19.РФ ', '2012-01-31 09:44:25', 0, 0, 213, NULL, 12, NULL, 0, 0, 0),
+(321, 'РЭУ19.рф', '2012-01-31 09:47:16', 0, 0, 224, NULL, 12, NULL, 0, 0, 0),
+(322, 'Большая Беда!', '2012-01-31 11:41:14', 0, 0, 227, NULL, 12, NULL, 0, 0, 0),
+(323, 'На почту приходит всякая чушь! Ссылка которая приходит неправильная - ведёт на страницу с ошибками!', '2012-01-31 11:43:41', 0, 0, 227, NULL, 12, NULL, 0, 0, 0),
+(324, 'Добавить поле почта!', '2012-01-31 12:56:43', 0, 0, 227, NULL, 12, NULL, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -3111,7 +3325,7 @@ INSERT INTO `tm_discussion` (`id`, `message`, `date_create`, `is_first`, `is_mes
 --
 
 DROP TABLE IF EXISTS `tm_discussion_document`;
-CREATE TABLE IF NOT EXISTS `tm_discussion_document` (
+CREATE TABLE `tm_discussion_document` (
   `document_id` int(10) unsigned NOT NULL,
   `discussion_id` int(10) unsigned NOT NULL,
   `is_doc` tinyint(1) NOT NULL default '0',
@@ -3134,7 +3348,7 @@ INSERT INTO `tm_discussion_document` (`document_id`, `discussion_id`, `is_doc`) 
 --
 
 DROP TABLE IF EXISTS `tm_document`;
-CREATE TABLE IF NOT EXISTS `tm_document` (
+CREATE TABLE `tm_document` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `title` varchar(255) NOT NULL,
   `date_create` datetime NOT NULL,
@@ -3146,7 +3360,7 @@ CREATE TABLE IF NOT EXISTS `tm_document` (
   PRIMARY KEY  (`id`),
   KEY `fk_tm_document_tm_document1` (`parent_id`),
   KEY `fk_tm_document_tm_user1` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=353 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=365 ;
 
 --
 -- Дамп данных таблицы `tm_document`
@@ -3284,7 +3498,19 @@ INSERT INTO `tm_document` (`id`, `title`, `date_create`, `user_id`, `file`, `is_
 (349, 'Уменьшение названий!', '2012-01-30 14:48:54', 12, 'Umenenie_nazvaniy', 1, 253, 0),
 (350, 'Уменьшение', '2012-01-30 14:50:48', 12, 'file_30-01-2012-14-50-48.jpg', 0, 349, 0),
 (351, 'Уменьшение', '2012-01-30 14:50:52', 12, 'file_30-01-2012-14-50-52.jpg', 0, 349, 0),
-(352, 'Название поправить', '2012-01-30 14:53:30', 12, 'Nazvanie_popavi', 1, 253, 0);
+(352, 'Название поправить', '2012-01-30 14:53:30', 12, 'Nazvanie_popavi', 1, 253, 0),
+(353, 'Записать голоса - Введите лицевой счет и нажмите решетку.', '2012-01-31 08:26:52', 12, 'Zapia_goloa__Vvedie_lievoy_e_i_najmie_eek', 1, 250, 0),
+(354, 'Банера нижние на главной странице!', '2012-01-31 09:01:54', 12, 'Banea_nijnie_na_glavnoy_anie', 1, 253, 0),
+(355, 'Банера - В каждом городе свои!', '2012-01-31 09:13:31', 12, 'Banea__V_kajdom_goode_voi', 1, 253, 0),
+(356, 'Приоритет товара при добавлении на первую страницу!', '2012-01-31 09:14:05', 12, 'Pioie_ovaa_pi_dobavlenii_na_pev_ani', 1, 253, 0),
+(357, 'РЭУ 19.РФ ', '2012-01-31 09:44:25', 12, 'REU_19RF_', 1, 239, 0),
+(358, 'РЭУ19.рф', '2012-01-31 09:47:16', 12, 'REU19', 1, 250, 0),
+(359, 'Большая Беда!', '2012-01-31 11:41:14', 12, 'Bolaya_Beda', 1, 253, 0),
+(360, 'Беда!', '2012-01-31 11:42:44', 12, 'file_31-01-2012-11-42-45.jpg', 0, 359, 0),
+(361, 'Беда!', '2012-01-31 11:42:57', 12, 'file_31-01-2012-11-42-57.jpg', 0, 359, 0),
+(362, 'На почту приходит всякая чушь! Ссылка которая приходит неправильная - ведёт на страницу с ошибками!', '2012-01-31 11:43:41', 12, 'Na_po_piodi_vyakaya__Slka_kooaya_piodi_nepavilnaya__vedё_na_ani__oibkami', 1, 253, 0),
+(363, 'Добавить поле почта!', '2012-01-31 12:56:43', 12, 'Dobavi_pole_poa', 1, 253, 0),
+(364, 'Почта', '2012-01-31 12:57:23', 12, 'file_31-01-2012-12-57-23.jpg', 0, 363, 0);
 
 -- --------------------------------------------------------
 
@@ -3293,7 +3519,7 @@ INSERT INTO `tm_document` (`id`, `title`, `date_create`, `user_id`, `file`, `is_
 --
 
 DROP TABLE IF EXISTS `tm_document_attribute`;
-CREATE TABLE IF NOT EXISTS `tm_document_attribute` (
+CREATE TABLE `tm_document_attribute` (
   `document_id` int(10) unsigned NOT NULL,
   `attribute_key` varchar(255) NOT NULL,
   `type_id` int(10) unsigned NOT NULL,
@@ -3321,7 +3547,10 @@ INSERT INTO `tm_document_attribute` (`document_id`, `attribute_key`, `type_id`, 
 (347, 'description', 2, '', 0),
 (348, 'description', 2, '', 0),
 (350, 'description', 2, '', 0),
-(351, 'description', 2, '', 0);
+(351, 'description', 2, '', 0),
+(360, 'description', 2, '', 0),
+(361, 'description', 2, '', 0),
+(364, 'description', 2, '', 0);
 
 -- --------------------------------------------------------
 
@@ -3330,7 +3559,7 @@ INSERT INTO `tm_document_attribute` (`document_id`, `attribute_key`, `type_id`, 
 --
 
 DROP TABLE IF EXISTS `tm_document_attribute_type`;
-CREATE TABLE IF NOT EXISTS `tm_document_attribute_type` (
+CREATE TABLE `tm_document_attribute_type` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `title` varchar(50) NOT NULL,
   `handler` varchar(100) NOT NULL,
@@ -3355,7 +3584,7 @@ INSERT INTO `tm_document_attribute_type` (`id`, `title`, `handler`, `description
 --
 
 DROP TABLE IF EXISTS `tm_document_hash`;
-CREATE TABLE IF NOT EXISTS `tm_document_hash` (
+CREATE TABLE `tm_document_hash` (
   `document_id` int(10) unsigned default NULL,
   `attribute_key` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL,
@@ -3380,7 +3609,7 @@ INSERT INTO `tm_document_hash` (`document_id`, `attribute_key`, `title`, `type_i
 --
 
 DROP TABLE IF EXISTS `tm_task`;
-CREATE TABLE IF NOT EXISTS `tm_task` (
+CREATE TABLE `tm_task` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `title` varchar(255) NOT NULL,
   `user_id` int(10) unsigned NOT NULL,
@@ -3389,7 +3618,7 @@ CREATE TABLE IF NOT EXISTS `tm_task` (
   `is_archive` tinyint(1) NOT NULL default '0',
   PRIMARY KEY  (`id`),
   KEY `fk_tm_task_tm_user1` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=303 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=312 ;
 
 --
 -- Дамп данных таблицы `tm_task`
@@ -3506,7 +3735,15 @@ INSERT INTO `tm_task` (`id`, `title`, `user_id`, `date_create`, `type`, `is_arch
 (299, 'Компании - должны быть видны только в своём городе, кроме \\"мультигородских\\"', 12, '2012-01-30 14:22:46', 1, 0),
 (300, 'Ссылка на оригинальный товар', 12, '2012-01-30 14:26:00', 1, 0),
 (301, 'Уменьшение названий!', 12, '2012-01-30 14:47:30', 1, 0),
-(302, 'Название поправить', 12, '2012-01-30 14:52:30', 1, 0);
+(302, 'Название поправить', 12, '2012-01-30 14:52:30', 1, 0),
+(303, 'Записать голоса - Введите лицевой счет и нажмите решетку', 12, '2012-01-31 08:26:27', 1, 0),
+(304, 'Банера нижние на главной странице!', 12, '2012-01-31 09:00:51', 1, 0),
+(305, 'Банера - В каждом городе свои!', 12, '2012-01-31 09:08:00', 1, 0),
+(306, 'Приоритет товара при добавлении на первую страницу!', 12, '2012-01-31 09:13:39', 1, 0),
+(308, 'РЭУ19.рф', 12, '2012-01-31 09:46:53', 1, 0),
+(309, 'Большая Беда!', 12, '2012-01-31 11:40:48', 1, 0),
+(310, 'На почту приходит всякая чушь! Ссылка которая приходит неправильная - ведёт на страницу с ошибками!', 12, '2012-01-31 11:42:50', 1, 0),
+(311, 'Добавить поле почта!', 12, '2012-01-31 12:56:18', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -3515,7 +3752,7 @@ INSERT INTO `tm_task` (`id`, `title`, `user_id`, `date_create`, `type`, `is_arch
 --
 
 DROP TABLE IF EXISTS `tm_task_attribute`;
-CREATE TABLE IF NOT EXISTS `tm_task_attribute` (
+CREATE TABLE `tm_task_attribute` (
   `task_id` int(10) unsigned NOT NULL,
   `attribute_key` varchar(255) NOT NULL,
   `type_id` int(10) unsigned NOT NULL,
@@ -3793,8 +4030,9 @@ INSERT INTO `tm_task_attribute` (`task_id`, `attribute_key`, `type_id`, `attribu
 (223, 'state', 3, 'Не выполнена', 0),
 (223, 'who_responsible', 5, '-', 0),
 (223, 'who_set', 7, '7', 0),
-(224, 'deadline', 4, '23.01.2012 00:00', 0),
+(224, 'deadline', 4, '23.01.2012 00:00:00', 0),
 (224, 'description', 2, '1. ФИО\r\n2. Должность\r\n3. Телефон\r\n4. e-mail\r\n5. Адрес\r\n6. Организация\r\n7. По какому вопросу\r\n8. Аська\r\n', 0),
+(224, 'extime', 1, '', 0),
 (224, 'prior', 3, 'Средний', 0),
 (224, 'reason_for_idle', 2, '', 0),
 (224, 'state', 3, 'Не выполнена', 0),
@@ -4013,9 +4251,10 @@ INSERT INTO `tm_task_attribute` (`task_id`, `attribute_key`, `type_id`, `attribu
 (257, 'who_set', 7, '12', 0),
 (258, 'deadline', 4, '23.01.2012 00:00:00', 0),
 (258, 'description', 2, 'Роль: Региональный представитель! Тот же администратор, может всё но в конкретном городе! Редактирует пользователей только в конкретном городе!', 0),
+(258, 'extime', 1, '', 0),
 (258, 'prior', 3, 'Средний', 0),
 (258, 'reason_for_idle', 2, 'Нет в ТЗ. Это не такой простой вопрос как кажется. Будем ли мы брать за это дополнительные деньги?', 0),
-(258, 'state', 3, 'Возникли вопросы', 0),
+(258, 'state', 3, 'Выполнена', 0),
 (258, 'who_responsible', 5, '11', 0),
 (258, 'who_set', 7, '12', 0),
 (259, 'deadline', 4, '20.01.2012 12:24:21', 0),
@@ -4111,6 +4350,7 @@ INSERT INTO `tm_task_attribute` (`task_id`, `attribute_key`, `type_id`, `attribu
 (272, 'who_set', 7, '7', 0),
 (273, 'deadline', 4, '23.01.2012 00:00:00', 0),
 (273, 'description', 2, '', 0),
+(273, 'extime', 1, '', 0),
 (273, 'prior', 3, 'Средний', 0),
 (273, 'reason_for_idle', 2, '', 0),
 (273, 'state', 3, 'Не выполнена', 0),
@@ -4325,7 +4565,71 @@ INSERT INTO `tm_task_attribute` (`task_id`, `attribute_key`, `type_id`, `attribu
 (302, 'reason_for_idle', 2, '', 0),
 (302, 'state', 3, 'Выполнена', 0),
 (302, 'who_responsible', 5, '11', 0),
-(302, 'who_set', 7, '12', 0);
+(302, 'who_set', 7, '12', 0),
+(303, 'deadline', 4, '01.02.2012 00:00', 0),
+(303, 'description', 2, '', 0),
+(303, 'extime', 1, '', 0),
+(303, 'prior', 3, 'Средний', 0),
+(303, 'reason_for_idle', 2, '', 0),
+(303, 'state', 3, 'Не выполнена', 0),
+(303, 'who_responsible', 5, '-', 0),
+(303, 'who_set', 7, '12', 0),
+(304, 'deadline', 4, '31.01.2012 09:00:52', 0),
+(304, 'description', 2, 'Как то они не добавляются! он просто рядом вылазит и всё!', 0),
+(304, 'extime', 1, '', 0),
+(304, 'prior', 3, 'Средний', 0),
+(304, 'reason_for_idle', 2, '', 0),
+(304, 'state', 3, 'Выполнена', 0),
+(304, 'who_responsible', 5, '11', 0),
+(304, 'who_set', 7, '12', 0),
+(305, 'deadline', 4, '31.01.2012 09:08:01', 0),
+(305, 'description', 2, '', 0),
+(305, 'extime', 1, '', 0),
+(305, 'prior', 3, 'Средний', 0),
+(305, 'reason_for_idle', 2, '', 0),
+(305, 'state', 3, 'Не выполнена', 0),
+(305, 'who_responsible', 5, '11', 0),
+(305, 'who_set', 7, '12', 0),
+(306, 'deadline', 4, '31.01.2012 09:13:40', 0),
+(306, 'description', 2, '', 0),
+(306, 'extime', 1, '', 0),
+(306, 'prior', 3, 'Средний', 0),
+(306, 'reason_for_idle', 2, '', 0),
+(306, 'state', 3, 'Не выполнена', 0),
+(306, 'who_responsible', 5, '11', 0),
+(306, 'who_set', 7, '12', 0),
+(308, 'deadline', 4, '31.01.2012 09:46:54', 0),
+(308, 'description', 2, 'Вынести в отдельную папку, чтоб я сам мог всё редактировать (функционал меню)\nДобавить первую страничку!\nТолько чтоб база данных сохранилась, там она частично забита!', 0),
+(308, 'extime', 1, '', 0),
+(308, 'prior', 3, 'Средний', 0),
+(308, 'reason_for_idle', 2, '', 0),
+(308, 'state', 3, 'Не выполнена', 0),
+(308, 'who_responsible', 5, '11', 0),
+(308, 'who_set', 7, '12', 0),
+(309, 'deadline', 4, '31.01.2012 11:40:49', 0),
+(309, 'description', 2, '', 0),
+(309, 'extime', 1, '', 0),
+(309, 'prior', 3, 'Средний', 0),
+(309, 'reason_for_idle', 2, '', 0),
+(309, 'state', 3, 'Не выполнена', 0),
+(309, 'who_responsible', 5, '11', 0),
+(309, 'who_set', 7, '12', 0),
+(310, 'deadline', 4, '31.01.2012 11:42:51', 0),
+(310, 'description', 2, '', 0),
+(310, 'extime', 1, '', 0),
+(310, 'prior', 3, 'Средний', 0),
+(310, 'reason_for_idle', 2, '', 0),
+(310, 'state', 3, 'Не выполнена', 0),
+(310, 'who_responsible', 5, '11', 0),
+(310, 'who_set', 7, '12', 0),
+(311, 'deadline', 4, '31.01.2012 12:56:19', 0),
+(311, 'description', 2, 'И чтоб адрес почты скидывался на почту модератору магазина!', 0),
+(311, 'extime', 1, '', 0),
+(311, 'prior', 3, 'Средний', 0),
+(311, 'reason_for_idle', 2, '', 0),
+(311, 'state', 3, 'Не выполнена', 0),
+(311, 'who_responsible', 5, '11', 0),
+(311, 'who_set', 7, '12', 0);
 
 -- --------------------------------------------------------
 
@@ -4334,7 +4638,7 @@ INSERT INTO `tm_task_attribute` (`task_id`, `attribute_key`, `type_id`, `attribu
 --
 
 DROP TABLE IF EXISTS `tm_task_attribute_type`;
-CREATE TABLE IF NOT EXISTS `tm_task_attribute_type` (
+CREATE TABLE `tm_task_attribute_type` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `title` varchar(50) NOT NULL,
   `handler` varchar(100) NOT NULL,
@@ -4363,7 +4667,7 @@ INSERT INTO `tm_task_attribute_type` (`id`, `title`, `handler`, `description`) V
 --
 
 DROP TABLE IF EXISTS `tm_task_discussion`;
-CREATE TABLE IF NOT EXISTS `tm_task_discussion` (
+CREATE TABLE `tm_task_discussion` (
   `task_id` int(10) unsigned NOT NULL,
   `discussion_id` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`task_id`,`discussion_id`),
@@ -4486,7 +4790,15 @@ INSERT INTO `tm_task_discussion` (`task_id`, `discussion_id`) VALUES
 (299, 312),
 (300, 313),
 (301, 314),
-(302, 315);
+(302, 315),
+(303, 316),
+(304, 317),
+(305, 318),
+(306, 319),
+(308, 321),
+(309, 322),
+(310, 323),
+(311, 324);
 
 -- --------------------------------------------------------
 
@@ -4495,7 +4807,7 @@ INSERT INTO `tm_task_discussion` (`task_id`, `discussion_id`) VALUES
 --
 
 DROP TABLE IF EXISTS `tm_task_document`;
-CREATE TABLE IF NOT EXISTS `tm_task_document` (
+CREATE TABLE `tm_task_document` (
   `task_id` int(10) unsigned NOT NULL,
   `document_id` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`task_id`,`document_id`),
@@ -4630,7 +4942,18 @@ INSERT INTO `tm_task_document` (`task_id`, `document_id`) VALUES
 (300, 346),
 (301, 349),
 (301, 350),
-(302, 352);
+(302, 352),
+(303, 353),
+(304, 354),
+(305, 355),
+(306, 356),
+(308, 358),
+(309, 359),
+(309, 360),
+(309, 361),
+(310, 362),
+(311, 363),
+(311, 364);
 
 -- --------------------------------------------------------
 
@@ -4639,7 +4962,7 @@ INSERT INTO `tm_task_document` (`task_id`, `document_id`) VALUES
 --
 
 DROP TABLE IF EXISTS `tm_task_hash`;
-CREATE TABLE IF NOT EXISTS `tm_task_hash` (
+CREATE TABLE `tm_task_hash` (
   `task_id` int(10) unsigned default NULL,
   `attribute_key` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL,
@@ -4674,7 +4997,7 @@ INSERT INTO `tm_task_hash` (`task_id`, `attribute_key`, `title`, `type_id`, `lis
 --
 
 DROP TABLE IF EXISTS `tm_task_relation`;
-CREATE TABLE IF NOT EXISTS `tm_task_relation` (
+CREATE TABLE `tm_task_relation` (
   `parent_id` int(10) unsigned NOT NULL,
   `child_id` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`parent_id`,`child_id`),
@@ -4781,7 +5104,15 @@ INSERT INTO `tm_task_relation` (`parent_id`, `child_id`) VALUES
 (216, 299),
 (216, 300),
 (216, 301),
-(216, 302);
+(216, 302),
+(213, 303),
+(216, 304),
+(216, 305),
+(216, 306),
+(213, 308),
+(216, 309),
+(216, 310),
+(216, 311);
 
 -- --------------------------------------------------------
 
@@ -4790,7 +5121,7 @@ INSERT INTO `tm_task_relation` (`parent_id`, `child_id`) VALUES
 --
 
 DROP TABLE IF EXISTS `tm_user`;
-CREATE TABLE IF NOT EXISTS `tm_user` (
+CREATE TABLE `tm_user` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `login` varchar(32) NOT NULL,
   `password` varchar(32) NOT NULL,
@@ -4821,7 +5152,7 @@ INSERT INTO `tm_user` (`id`, `login`, `password`, `role_id`, `date_create`) VALU
 --
 
 DROP TABLE IF EXISTS `tm_user_attribute`;
-CREATE TABLE IF NOT EXISTS `tm_user_attribute` (
+CREATE TABLE `tm_user_attribute` (
   `user_id` int(10) unsigned NOT NULL,
   `attribute_key` varchar(255) NOT NULL,
   `type_id` int(10) unsigned NOT NULL,
@@ -4844,8 +5175,9 @@ INSERT INTO `tm_user_attribute` (`user_id`, `attribute_key`, `type_id`, `attribu
 (7, 'name', 1, 'Кудрявцев Дмитрий Александрович', 1),
 (7, 'organization', 1, 'ООО &quot;Инвойс Групп&quot;', 1),
 (7, 'position', 1, 'Технический директор', 1),
-(9, 'name', 1, 'Щеглов Сергей Валерьевич', 1),
-(9, 'organization', 1, 'ГП &quot;РЭК&quot;, ГП &quot;АЭЭ&quot;', 1),
+(9, 'email', 1, 'sergey_shtch@mail.ru', 1),
+(9, 'name', 1, 'Щеглов Сергей Валериевич', 1),
+(9, 'organization', 1, 'РЭК, ГП &quot;АЭЭ&quot;', 1),
 (9, 'position', 1, 'Системный администратор', 1),
 (11, 'email', 1, 'ivan87kharlampenkov@gmail.com', 1),
 (11, 'name', 1, 'Харлампенков Иван Евгеньевич', 1),
@@ -4869,7 +5201,7 @@ INSERT INTO `tm_user_attribute` (`user_id`, `attribute_key`, `type_id`, `attribu
 --
 
 DROP TABLE IF EXISTS `tm_user_attribute_type`;
-CREATE TABLE IF NOT EXISTS `tm_user_attribute_type` (
+CREATE TABLE `tm_user_attribute_type` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `title` varchar(50) NOT NULL,
   `handler` varchar(100) NOT NULL,
@@ -4894,7 +5226,7 @@ INSERT INTO `tm_user_attribute_type` (`id`, `title`, `handler`, `description`) V
 --
 
 DROP TABLE IF EXISTS `tm_user_hash`;
-CREATE TABLE IF NOT EXISTS `tm_user_hash` (
+CREATE TABLE `tm_user_hash` (
   `user_id` int(10) unsigned default NULL,
   `attribute_key` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL,
@@ -4922,7 +5254,7 @@ INSERT INTO `tm_user_hash` (`user_id`, `attribute_key`, `title`, `type_id`, `lis
 --
 
 DROP TABLE IF EXISTS `tm_user_profile`;
-CREATE TABLE IF NOT EXISTS `tm_user_profile` (
+CREATE TABLE `tm_user_profile` (
   `user_id` int(10) unsigned NOT NULL auto_increment,
   `profile_key` varchar(255) NOT NULL,
   `profile_value` text NOT NULL,
@@ -4942,13 +5274,13 @@ CREATE TABLE IF NOT EXISTS `tm_user_profile` (
 --
 
 DROP TABLE IF EXISTS `tm_user_resource`;
-CREATE TABLE IF NOT EXISTS `tm_user_resource` (
+CREATE TABLE `tm_user_resource` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `title` varchar(45) default NULL,
   `rtitle` varchar(255) NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `title` (`title`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=93 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=95 ;
 
 --
 -- Дамп данных таблицы `tm_user_resource`
@@ -5037,7 +5369,9 @@ INSERT INTO `tm_user_resource` (`id`, `title`, `rtitle`) VALUES
 (89, 'task/fromArchive', 'Проекты/Из архива'),
 (90, 'task/showArchiveBlock', 'Проекты/Просмотреть архив'),
 (91, 'task/info', 'Проекты/Показать информацию о задаче'),
-(92, 'user/showUserAcl', 'Пользователи/Показать права пользователя');
+(92, 'user/showUserAcl', 'Пользователи/Показать права пользователя'),
+(93, 'user/showUserAclBlock', 'Пользователи/Показать блок задач'),
+(94, 'user/showPrivateTask', 'Пользователи/Показать задачи пользователя');
 
 -- --------------------------------------------------------
 
@@ -5046,7 +5380,7 @@ INSERT INTO `tm_user_resource` (`id`, `title`, `rtitle`) VALUES
 --
 
 DROP TABLE IF EXISTS `tm_user_role`;
-CREATE TABLE IF NOT EXISTS `tm_user_role` (
+CREATE TABLE `tm_user_role` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `title` varchar(32) NOT NULL,
   `rtitle` varchar(255) NOT NULL,

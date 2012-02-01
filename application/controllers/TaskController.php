@@ -536,6 +536,7 @@ class TaskController extends Zend_Controller_Action
             $oHash->setTitle($data['title']);
             $oHash->setType(TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Task_AttributeTypeMapper(), $data['type_id']));
             $oHash->setValueList($data['list_value']);
+            $oHash->setListOrder($data['list_order']);
             $oHash->setIsRequired($data['required']);
             $oHash->setSortOrder($data['sort_order']);
 
@@ -562,6 +563,7 @@ class TaskController extends Zend_Controller_Action
             $oHash->setTitle($data['title']);
             $oHash->setType(TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Task_AttributeTypeMapper(), $data['type_id']));
             $oHash->setValueList($data['list_value']);
+            $oHash->setListOrder($data['list_order']);
             $oHash->setIsRequired($data['required']);
             $oHash->setSortOrder($data['sort_order']);
 
