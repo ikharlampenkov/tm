@@ -59,7 +59,7 @@
                                 {/if_object_allowed}
                             {/if_allowed}
                         {/if}
-                            " class="{if $task->searchAttribute('state') && $task->getAttribute('state')->value=='Выполнена'}task_green{elseif $task->getIsOver()}task_red{else}task_gray{/if}">{$task->title}</a>
+                            " class="{if $task->isRead($user) || $task->isWrite($user) || $task->isExecutant($user) || $task->user->id==$user->id}task_has_access{else}task_no_access{/if}">{$task->title}</a>
                 </div>
 
 

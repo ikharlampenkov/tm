@@ -297,6 +297,14 @@ a.task_grey {
     color: #000000;
 }
 
+a.task_has_access {
+    color: #000000;
+}
+
+a.task_no_access {
+    color: #a9a9a9;
+}
+
 .task_block {
     padding: 5px 0 5px 5px;
     /*width: 100%;*/
