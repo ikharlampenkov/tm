@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2012-01-31 00:13:48
+<?php /* Smarty version Smarty-3.0.9, created on 2012-02-04 23:37:43
          compiled from "F:\www\tm\application/views/scripts\user/show-user-acl.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:284104f26cfcc86b4d8-37400057%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:32754f2d5ed7a8fed0-24902301%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'dd969df4b1671f7772d4364ec0f36d292f294cfc' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\user/show-user-acl.tpl',
-      1 => 1327943625,
+      1 => 1328373461,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '284104f26cfcc86b4d8-37400057',
+  'nocache_hash' => '32754f2d5ed7a8fed0-24902301',
   'function' => 
   array (
   ),
@@ -36,6 +36,9 @@ if (!is_callable('smarty_block_if_object_allowed')) include 'F:\www\tm\library\S
 <div>Ошибка: <?php echo $_smarty_tpl->getVariable('exception_msg')->value;?>
 </div><br/>
 <?php }?>
+
+<form action="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'showUserAcl','id'=>$_smarty_tpl->getVariable('user')->value->id));?>
+" method="POST">
 
 <ul>
     <li class="task_list">
@@ -99,7 +102,7 @@ if ($_smarty_tpl->_count($_from) > 0){
                             <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>"task/edit"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
                         <?php }?>
-                            " class="<?php if ($_smarty_tpl->getVariable('task')->value->searchAttribute('state')&&$_smarty_tpl->getVariable('task')->value->getAttribute('state')->value=='Выполнена'){?>task_green<?php }elseif($_smarty_tpl->getVariable('task')->value->getIsOver()){?>task_red<?php }else{ ?>task_gray<?php }?>"><?php echo $_smarty_tpl->getVariable('task')->value->title;?>
+                            " class="<?php if ($_smarty_tpl->getVariable('task')->value->isRead($_smarty_tpl->getVariable('user')->value)||$_smarty_tpl->getVariable('task')->value->isWrite($_smarty_tpl->getVariable('user')->value)||$_smarty_tpl->getVariable('task')->value->isExecutant($_smarty_tpl->getVariable('user')->value)||$_smarty_tpl->getVariable('task')->value->user->id==$_smarty_tpl->getVariable('user')->value->id){?>task_has_access<?php }else{ ?>task_no_access<?php }?>"><?php echo $_smarty_tpl->getVariable('task')->value->title;?>
 </a>
                 </div>
 
@@ -185,6 +188,8 @@ if ($_smarty_tpl->_count($_from) > 0){
                 <div class="task_deadline">
                     <input type="checkbox" name="data[<?php echo $_smarty_tpl->getVariable('task')->value->id;?>
 ][is_read]" <?php if ($_smarty_tpl->getVariable('task')->value->isRead($_smarty_tpl->getVariable('user')->value)){?>checked="checked" <?php }?> />
+                    <input type="hidden" name="data[<?php echo $_smarty_tpl->getVariable('task')->value->id;?>
+][fake]" value="1" />
                 </div>
 
 
@@ -195,4 +200,7 @@ if ($_smarty_tpl->_count($_from) > 0){
     <?php }} ?>
 <?php }?>
 </ul>
+
+    <input id="save" name="save" type="submit" value="Сохранить"/>
+</form>
 

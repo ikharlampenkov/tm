@@ -12,6 +12,8 @@
 <div>Ошибка: {$exception_msg}</div><br/>
 {/if}
 
+<form action="{$this->url(['controller' => $controller,'action' => 'showUserAcl', 'id' => $user->id])}" method="POST">
+
 <ul>
     <li class="task_list">
         <div class="task_block_title">
@@ -59,7 +61,7 @@
                                 {/if_object_allowed}
                             {/if_allowed}
                         {/if}
-                            " class="{if $task->searchAttribute('state') && $task->getAttribute('state')->value=='Выполнена'}task_green{elseif $task->getIsOver()}task_red{else}task_gray{/if}">{$task->title}</a>
+                            " class="{if $task->isRead($user) || $task->isWrite($user) || $task->isExecutant($user) || $task->user->id==$user->id}task_has_access{else}task_no_access{/if}">{$task->title}</a>
                 </div>
 
 
@@ -107,6 +109,7 @@
                 </div>
                 <div class="task_deadline">
                     <input type="checkbox" name="data[{$task->id}][is_read]" {if $task->isRead($user)}checked="checked" {/if} />
+                    <input type="hidden" name="data[{$task->id}][fake]" value="1" />
                 </div>
 
 
@@ -116,6 +119,9 @@
     {/foreach}
 {/if}
 </ul>
+
+    <input id="save" name="save" type="submit" value="Сохранить"/>
+</form>
 
 {*
 <table width="100%">

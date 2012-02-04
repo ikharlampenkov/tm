@@ -24,7 +24,7 @@
                                                         task.openTask('{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->id])}', {$task->id});
                                                     {else}
                                                     {if_allowed resource="task/edit"}
-                                                        {if_object_allowed type="{$controller|capitalize}" object="{$task}" priv="write"}
+                                                        {if_object_allowed type="Task" object="{$task}" priv="write"}
                                                                 task.editDialog('{$this->url(['controller' => 'task', 'action' => 'edit', 'id' => $task->id])}', 0, '{$this->url(['controller' => $controller, 'action' => 'showTaskBlock', 'parent' => 0])}', 'task_');
                                                         {/if_object_allowed}
                                                     {/if_allowed}
