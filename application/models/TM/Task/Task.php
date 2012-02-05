@@ -597,6 +597,10 @@ class TM_Task_Task
         }
     } // end of member function getParent
 
+    /**
+     * @return TM_Task_Task
+     * @throws Exception
+     */
     public function getFirstParent()
     {
         if (is_null($this->_parentTask) || empty($this->_parentTask)) {
@@ -910,9 +914,31 @@ class TM_Task_Task
         return $statArray;
     }
 
-    public function calcDeadLine()
+    public function reCalculateDeadLine()
     {
+        try {
+            $sql = 'SELECT MAX(STR_TO_DATE( attribute_value, "%d.%m.%Y %H:%i")) as max_date, id
+                    FROM tm_task
+                    LEFT JOIN (
+                        SELECT * FROM tm_task_attribute WHERE attribute_key="deadline"
+                    )t2 ON tm_task.id = t2.task_id, tm_task_relation
+                    WHERE tm_task.id=tm_task_relation.child_id
+                      AND parent_id=' . $this->_id;
+            $result = $this->_db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+            //echo $sql;
 
+            if (isset($result[0]['max_date'])) {
+                $this->setAttribute('deadline', date('d.m.Y H:i', strtotime($result[0]['max_date'])));
+                $this->saveAttributeList();
+
+                if ($this->hasParent()) {
+                    //echo 111;
+                    $this->getFirstParent()->reCalculateDeadLine();
+                }
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
     }
 
     public static function getTaskByExecutant(TM_User_User $user)

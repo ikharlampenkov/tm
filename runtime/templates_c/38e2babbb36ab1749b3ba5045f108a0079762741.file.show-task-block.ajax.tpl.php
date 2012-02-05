@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-26 22:48:08
+<?php /* Smarty version Smarty-3.0.9, created on 2012-02-05 20:09:58
          compiled from "F:\www\tm\application/views/scripts\task/show-task-block.ajax.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:148964ef89738a5b0b3-33467386%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:15124f2e7fa66747b4-03397147%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '38e2babbb36ab1749b3ba5045f108a0079762741' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\task/show-task-block.ajax.tpl',
-      1 => 1324708220,
+      1 => 1328371775,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '148964ef89738a5b0b3-33467386',
+  'nocache_hash' => '15124f2e7fa66747b4-03397147',
   'function' => 
   array (
   ),
@@ -116,6 +116,7 @@ if ($_smarty_tpl->_count($_from) > 0){
                         <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/toArchive"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
                     <?php }?>
+                    <?php if ($_smarty_tpl->getVariable('task')->value->user->id==$_smarty_tpl->getVariable('authUserId')->value||$_smarty_tpl->getVariable('task')->value->user->title=='admin'){?>
                     <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/delete")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/delete"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
                         &nbsp;<a href="javascript:void(0)" onclick="task.deleteDialog('<?php echo $_smarty_tpl->getVariable('task')->value->title;?>
@@ -126,6 +127,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 <?php }?>');" style="color: #830000"><img src="/i/delete.png" alt="удалить" title="удалить" border="0"/></a>
                     <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/delete"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
+                    <?php }?>
                 </div>
 
                 <div class="task_deadline">

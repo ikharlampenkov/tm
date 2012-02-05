@@ -198,6 +198,10 @@ class TaskController extends Zend_Controller_Action
 
                 TM_Activity_ActivityLogger::logMessage($this->_user, 'Проекты', 'Добавлена задача ' . $oTask->getTitle(), $oTask);
 
+                if (!empty($data['parentTask'])) {
+                    $oTask->getFirstParent()->reCalculateDeadLine();
+                }
+
                 if ($this->_request->isXmlHttpRequest()) {
                     exit;
                 } else {
@@ -320,6 +324,10 @@ class TaskController extends Zend_Controller_Action
                 }
 
                 TM_Activity_ActivityLogger::logMessage($this->_user, 'Проекты', 'Изменения в задаче ' . $oTask->getTitle(), $oTask);
+
+                if (!empty($data['parentTask'])) {
+                    $oTask->getFirstParent()->reCalculateDeadLine();
+                }
 
                 if ($this->_request->isXmlHttpRequest()) {
                     exit;
