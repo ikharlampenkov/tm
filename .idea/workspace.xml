@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a46b928-ce36-4d2c-8e4a-e9e052a0178c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/files/Ekonom_poeionalno/Bolaya_Beda/file_31-01-2012-11-42-45.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/files/Ekonom_poeionalno/Bolaya_Beda/file_31-01-2012-11-42-57.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/files/Ekonom_poeionalno/Dobavi_pole_poa/file_31-01-2012-12-57-23.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/files/Ekonom_poeionalno/Koyaok__pedpmoom/file_02-02-2012-12-08-45.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/~Documents/file_27-01-2012-07-41-36.docx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/42a17846790583747f76520810158092694bed2f.file.view.ajax.tpl.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/configs/application.ini" afterPath="$PROJECT_DIR$/application/configs/application.ini" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/TaskController.php" afterPath="$PROJECT_DIR$/application/controllers/TaskController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Activity/Notification.php" afterPath="$PROJECT_DIR$/application/models/TM/Activity/Notification.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Task/Task.php" afterPath="$PROJECT_DIR$/application/models/TM/Task/Task.php" />
     </list>
     <ignored path="tm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,68 +37,7 @@
     <favorites_list name="tm" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Task.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/TM/Task/Task.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="989" column="0" selection-start="27360" selection-end="27360" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1328461093458" expanded="true" signature="8781:8802" placeholder="SELECT * FRO..tm_task..." />
-                <marker date="1328461093458" expanded="true" signature="9031:9144" placeholder="SELECT * FRO..tm_task..." />
-                <marker date="1328461093458" expanded="true" signature="13234:13290" placeholder="INSERT INTO ..." />
-                <marker date="1328461093458" expanded="true" signature="17127:17183" placeholder="INSERT INTO ..." />
-                <marker date="1328461093458" expanded="true" signature="24631:25027" placeholder="SELECT * FRO..tm_task..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="application.ini" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/configs/application.ini">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="0" selection-start="1215" selection-end="1232" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Notification.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/models/TM/Activity/Notification.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="17" selection-start="2259" selection-end="2259" vertical-scroll-proportion="0.68302256">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DB.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/library/StdLib/DB.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="46" selection-start="783" selection-end="783" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AttributeTypeDate.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/TM/Attribute/AttributeTypeDate.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="40" selection-start="938" selection-end="947" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TaskController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/TaskController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="334" column="25" selection-start="14103" selection-end="14103" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -1015,20 +956,20 @@
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854405" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32958803" sideWeight="0.6701621" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854405" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3256705" sideWeight="0.5032467" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3256705" sideWeight="0.49107143" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854405" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854405" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36004272" sideWeight="0.32662836" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37446582" sideWeight="0.6714559" order="0" side_tool="false" content_ui="tabs" x="20" y="68" width="485" height="1049" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3256705" sideWeight="0.5032467" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37446582" sideWeight="0.6704981" order="0" side_tool="false" content_ui="tabs" x="20" y="68" width="485" height="1049" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983795" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3256705" sideWeight="0.49107143" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983795" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854405" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Phing Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995194" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1075,7 +1016,7 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Срок верхней задачи собирается из всех внутренних" />
+    <option name="LAST_COMMIT_MESSAGE" value="Статус верхней задачи собирается из всех внутренних" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1088,7 +1029,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Атрибуты для Задач" />
     <MESSAGE value="Задачи, начаты документы" />
     <MESSAGE value="Для документов создается папка" />
     <MESSAGE value="Добавлен тип атрибута Дата&#10;Сделана связка между Задачей и документами:&#10;- при создании задачи добавляется папка&#10;- документ загружается в папку для задачи&#10;Сделана связка между обсуждением и задачей&#10;- при создании задачи создается тема в обсуждении" />
@@ -1113,6 +1053,7 @@
     <MESSAGE value="Возможно задать порядок сортировки для атрибута списка" />
     <MESSAGE value="Возможно задать порядок сортировки для атрибута списка&#10;Отображается приоритет при обновлении страницы через AJAX" />
     <MESSAGE value="Срок верхней задачи собирается из всех внутренних" />
+    <MESSAGE value="Статус верхней задачи собирается из всех внутренних" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1180,36 +1121,9 @@
         <state line="165" column="18" selection-start="5248" selection-end="5248" vertical-scroll-proportion="0.07017544" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/TaskController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="334" column="25" selection-start="14103" selection-end="14103" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/TM/Attribute/AttributeTypeDate.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="40" selection-start="938" selection-end="947" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/TM/Task/Task.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="989" column="0" selection-start="27360" selection-end="27360" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1328461093458" expanded="true" signature="8781:8802" placeholder="SELECT * FRO..tm_task..." />
-            <marker date="1328461093458" expanded="true" signature="9031:9144" placeholder="SELECT * FRO..tm_task..." />
-            <marker date="1328461093458" expanded="true" signature="13234:13290" placeholder="INSERT INTO ..." />
-            <marker date="1328461093458" expanded="true" signature="17127:17183" placeholder="INSERT INTO ..." />
-            <marker date="1328461093458" expanded="true" signature="24631:25027" placeholder="SELECT * FRO..tm_task..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/configs/application.ini">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="0" selection-start="1215" selection-end="1232" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1221,9 +1135,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/configs/application.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="0" selection-start="1215" selection-end="1259" vertical-scroll-proportion="0.65063787">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/TM/Task/Task.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="978" column="0" selection-start="27005" selection-end="27005" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1328461093458" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..tm_task..." />
+            <marker date="1328461093458" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..tm_task..." />
+            <marker date="1328461093458" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1328461093458" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
+            <marker date="1328461093458" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..tm_task..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/TM/Activity/Notification.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="17" selection-start="2259" selection-end="2259" vertical-scroll-proportion="0.68302256">
+        <state line="71" column="0" selection-start="1636" selection-end="1636" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/TaskController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="331" column="17" selection-start="14017" selection-end="14017" vertical-scroll-proportion="0.5238569">
           <folding />
         </state>
       </provider>
