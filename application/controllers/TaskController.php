@@ -200,6 +200,7 @@ class TaskController extends Zend_Controller_Action
 
                 if (!empty($data['parentTask'])) {
                     $oTask->getFirstParent()->reCalculateDeadLine();
+                    $oTask->getFirstParent()->reCalculateState();
                 }
 
                 if ($this->_request->isXmlHttpRequest()) {
@@ -327,6 +328,7 @@ class TaskController extends Zend_Controller_Action
 
                 if (!empty($data['parentTask'])) {
                     $oTask->getFirstParent()->reCalculateDeadLine();
+                    $oTask->getFirstParent()->reCalculateState();
                 }
 
                 if ($this->_request->isXmlHttpRequest()) {
