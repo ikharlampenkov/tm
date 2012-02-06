@@ -970,7 +970,7 @@ class TM_Task_Task
 
                 //echo $is_complite;
                 //echo $is_no_complite;
-                if ($is_complite > $is_no_complite) {
+                if ($is_no_complite == 0) {
                     $newState = 'Выполнена';
                 }
 
