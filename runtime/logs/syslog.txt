@@ -1,0 +1,1 @@
+error   Can`t complit query: SELECT * FROM tm_task, tm_task_relation WHERE tm_task.id=tm_task_relation=child_id AND parent_id=186 No error: 1054:: Error msg: Unknown column 'tm_task_relation' in 'where clause' ;  05.02.2012 22:50

@@ -63,6 +63,7 @@
                 </div>
                 <div class="task_deadline">
                     <input type="checkbox" name="data[{$task->id}][is_read]" {if $task->isRead($user)}checked="checked" {/if} />
+                    <input type="hidden" name="data[{$task->id}][fake]" value="1" />
                 </div>
 
 

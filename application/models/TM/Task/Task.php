@@ -597,6 +597,10 @@ class TM_Task_Task
         }
     } // end of member function getParent
 
+    /**
+     * @return TM_Task_Task
+     * @throws Exception
+     */
     public function getFirstParent()
     {
         if (is_null($this->_parentTask) || empty($this->_parentTask)) {
@@ -910,8 +914,79 @@ class TM_Task_Task
         return $statArray;
     }
 
-    public function calcDeadLine()
+    public function reCalculateDeadLine()
     {
+        try {
+            $sql = 'SELECT MAX(STR_TO_DATE( attribute_value, "%d.%m.%Y %H:%i")) as max_date, id
+                    FROM tm_task
+                    LEFT JOIN (
+                        SELECT * FROM tm_task_attribute WHERE attribute_key="deadline"
+                    )t2 ON tm_task.id = t2.task_id, tm_task_relation
+                    WHERE tm_task.id=tm_task_relation.child_id
+                      AND parent_id=' . $this->_id;
+            $result = $this->_db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+            //echo $sql;
+
+            if (isset($result[0]['max_date'])) {
+                $this->setAttribute('deadline', date('d.m.Y H:i', strtotime($result[0]['max_date'])));
+                $this->saveAttributeList();
+
+                if ($this->hasParent()) {
+                    //echo 111;
+                    $this->getFirstParent()->reCalculateDeadLine();
+                }
+            }
+        } catch (Exception $e) {
+            StdLib_Log::logMsg('Не могу пересчитать срок выполнения задачи ' . $e->getMessage(), StdLib_Log::StdLib_Log_ERROR);
+            throw new Exception($e->getMessage());
+        }
+    }
+
+    public function reCalculateState()
+    {
+        try {
+
+            $sql = 'SELECT attribute_value, title
+                    FROM tm_task
+                    LEFT JOIN (
+                        SELECT * FROM tm_task_attribute WHERE attribute_key="state"
+                    )t2 ON tm_task.id = t2.task_id, tm_task_relation
+                    WHERE tm_task.id=tm_task_relation.child_id
+                      AND parent_id=' . $this->_id;
+            $result = $this->_db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+            //echo $sql;
+
+            if (isset($result[0])) {
+                $is_complite = 0;
+                $is_no_complite = 0;
+                $newState = 'Не выполнена';
+                foreach ($result as $res) {
+                    if ($res['attribute_value'] == 'Выполнена') {
+                        $is_complite += 1;
+                    } else {
+                        $is_no_complite += 1;
+                    }
+                }
+
+                //echo $is_complite;
+                //echo $is_no_complite;
+                if ($is_no_complite == 0) {
+                    $newState = 'Выполнена';
+                }
+
+                $this->setAttribute('state', $newState);
+                $this->saveAttributeList();
+
+                if ($this->hasParent()) {
+                    $this->getFirstParent()->reCalculateState();
+                }
+
+            }
+
+        } catch (Exception $e) {
+            StdLib_Log::logMsg('Не могу пересчитать статус задачи ' . $e->getMessage(), StdLib_Log::StdLib_Log_ERROR);
+            throw new Exception($e->getMessage());
+        }
 
     }
 

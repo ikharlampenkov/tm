@@ -12,6 +12,8 @@
 <div>Ошибка: {$exception_msg}</div><br/>
 {/if}
 
+<form action="{$this->url(['controller' => $controller,'action' => 'showUserAcl', 'id' => $user->id])}" method="POST">
+
 <ul>
     <li class="task_list">
         <div class="task_block_title">
@@ -107,6 +109,7 @@
                 </div>
                 <div class="task_deadline">
                     <input type="checkbox" name="data[{$task->id}][is_read]" {if $task->isRead($user)}checked="checked" {/if} />
+                    <input type="hidden" name="data[{$task->id}][fake]" value="1" />
                 </div>
 
 
@@ -116,6 +119,9 @@
     {/foreach}
 {/if}
 </ul>
+
+    <input id="save" name="save" type="submit" value="Сохранить"/>
+</form>
 
 {*
 <table width="100%">
