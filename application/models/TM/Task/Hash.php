@@ -41,6 +41,11 @@ class TM_Task_Hash
     protected $_listValue = '';
 
     /**
+     * @var string
+     */
+    protected $_listOrder = '';
+
+    /**
      * @var bool
      */
     protected $_isRequired = false;
@@ -154,7 +159,7 @@ class TM_Task_Hash
         if (is_array($value)) {
             $this->_listValue = $this->_db->prepareString(implode('||', $value));
         } else {
-            $this->_listValue = $value;
+            $this->_listValue = $this->_db->prepareString(trim($value));
         }
     } // end of member function setValueList
 
@@ -165,15 +170,47 @@ class TM_Task_Hash
      * @return array|string
      * @access public
      */
-    public function getValueList($asString = false)
+    public function getValueList($asString = false, $isClear = false)
     {
         if ($asString) {
             return $this->_listValue;
         } else {
-            return explode('||', $this->_db->prepareStringToOut($this->_listValue));
+            if ($isClear) {
+                $temp = str_replace('*', '', $this->_listValue);
+            } else {
+                $temp = $this->_listValue;
+            }
+            return explode('||', $this->_db->prepareStringToOut($temp));
         }
 
     } // end of member function getValueList
+
+    /**
+     * @param string $listOrder
+     */
+    public function setListOrder($listOrder)
+    {
+        if (is_array($listOrder)) {
+            $this->_listOrder = $this->_db->prepareString(implode('||', $listOrder));
+        } else {
+            $this->_listOrder = $this->_db->prepareString(trim($listOrder));
+        }
+    }
+
+    /**
+     * @param bool $asString
+     * @return array|string
+     * @return string
+     */
+    public function getListOrder($asString = false)
+    {
+        if ($asString) {
+            return $this->_listOrder;
+        } else {
+            return explode('||', $this->_db->prepareStringToOut($this->_listOrder));
+        }
+    }
+
 
     /**
      * @param boolean $isRequired
@@ -254,9 +291,9 @@ class TM_Task_Hash
     public function insertToDb()
     {
         try {
-            $sql = 'INSERT INTO tm_task_hash(task_id, attribute_key, title, type_id, list_value, required, sort_order)
-                    VALUES (NULL, "' . $this->_attributeKey . '", "' . $this->_title . '", ' . $this->_type->getId() . ',
-                            "' . $this->_listValue . ' ", ' . $this->_prepareBool($this->_isRequired) . ', ' . $this->_sortOrder . ')';
+            $sql = 'INSERT INTO tm_task_hash(task_id, attribute_key, title, type_id, list_value, list_order, required, sort_order)
+                    VALUES (NULL, "' . $this->_attributeKey . '", "' . $this->_listOrder . '", "' . $this->_title . '", ' . $this->_type->getId() . ',
+                            "' . $this->_listValue . ' ",  ' . $this->_prepareBool($this->_isRequired) . ', ' . $this->_sortOrder . ')';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -276,8 +313,8 @@ class TM_Task_Hash
         try {
             $sql = 'UPDATE tm_task_hash
                     SET title="' . $this->_title . '", type_id=' . $this->_type->getId() . ',
-                        list_value="' . $this->_listValue . ' ", required=' . $this->_prepareBool($this->_isRequired) . ',
-                        sort_order=' . $this->_sortOrder . '
+                        list_value="' . $this->_listValue . ' ", list_order="' . $this->_listOrder . '",
+                        required=' . $this->_prepareBool($this->_isRequired) . ', sort_order=' . $this->_sortOrder . '
                     WHERE task_id IS NULL AND attribute_key="' . $this->_attributeKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
@@ -379,11 +416,11 @@ class TM_Task_Hash
             print_r($sql);
             */
 
-            $sql = 'SELECT tm_task_hash.attribute_key, title, tm_task_hash.type_id, list_value, required, sort_order
+            $sql = 'SELECT tm_task_hash.attribute_key, title, tm_task_hash.type_id, list_value, list_order, required, sort_order
                     FROM tm_task_hash ';
 
             if (!is_null($object)) {
-            $sql .= ' LEFT JOIN (
+                $sql .= ' LEFT JOIN (
                         SELECT * FROM tm_task_attribute WHERE tm_task_attribute.task_id=' . $object->id . '
                     ) t2 ON tm_task_hash.attribute_key=t2.attribute_key
                     ORDER BY required DESC, sort_order, title';
@@ -423,8 +460,8 @@ class TM_Task_Hash
 
         $this->setType(TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Task_AttributeTypeMapper(), $values['type_id']));
         $this->setValueList($values['list_value']);
+        $this->setListOrder($values['list_order']);
         $this->setIsRequired($values['required']);
         $this->setSortOrder($values['sort_order']);
     }
-
 }

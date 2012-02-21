@@ -70,7 +70,7 @@
             <td class="ttovar"><input type="checkbox" name="dataacl[{$user->id}][is_read]" {if isset($taskAcl[{$user->id}])}{if $taskAcl[{$user->id}]->isRead}checked="checked"{/if}{else}checked="checked"{/if} /></td>
             <td class="ttovar"><input type="checkbox" name="dataacl[{$user->id}][is_write]" {if isset($taskAcl[{$user->id}])}{if $taskAcl[{$user->id}]->isWrite}checked="checked"{/if}{else}checked="checked"{/if} /></td>
             <td class="ttovar"><input type="checkbox" name="dataacl[{$user->id}][is_executant]" /></td>
-            <td class="ttovar"></td>
+            <td class="ttovar"><input type="hidden" name="dataacl[{$user->id}][fake]" /></td>
         </tr>
     {/foreach}
 {/if}

@@ -3,10 +3,10 @@
 class UserController extends Zend_Controller_Action
 {
 
-
     public function init()
     {
-        /* Initialize action controller here */
+        $this->_helper->AjaxContext()->addActionContext('showUserAclBlock', 'html')->initContext('html');
+        $this->_helper->AjaxContext()->addActionContext('showPrivateTask', 'html')->initContext('html');
     }
 
     public function indexAction()
@@ -26,9 +26,9 @@ class UserController extends Zend_Controller_Action
     }
 
     public function viewresourceAction()
-        {
-            $this->view->assign('userResourceList', TM_User_Resource::getAllInstance());
-        }
+    {
+        $this->view->assign('userResourceList', TM_User_Resource::getAllInstance());
+    }
 
     public function addAction()
     {
@@ -153,6 +153,102 @@ class UserController extends Zend_Controller_Action
         $this->view->assign('role', $oRole);
         $this->view->assign('userResourceList', TM_User_Resource::getAllInstance());
         $this->view->assign('roleAcl', TM_User_RoleAcl::getAllInstance($oRole));
+    }
+
+    public function showuseraclAction()
+    {
+        $id = $this->getRequest()->getParam('id');
+        $oUser = TM_User_User::getInstanceById($id);
+
+        if ($this->getRequest()->isPost()) {
+            $data = $this->getRequest()->getParam('data');
+            foreach ($data as $taskId => $values) {
+                //print_r($values);
+
+                try {
+                    $oTask = TM_Task_Task::getInstanceById($taskId);
+
+                    $taskAcl = new TM_Acl_TaskAcl($oTask);
+
+                    $taskAcl->setUser($oUser);
+                    if (isset($values['is_read'])) {
+                        $taskAcl->setIsRead($values['is_read']);
+                    } else {
+                        $taskAcl->setIsRead(0);
+                    }
+                    if (isset($values['is_write'])) {
+                        $taskAcl->setIsWrite($values['is_write']);
+                    } else {
+                        $taskAcl->setIsWrite(0);
+                    }
+                    if (isset($values['is_executant'])) {
+                        $taskAcl->setIsExecutant($values['is_executant']);
+                    } else {
+                        $taskAcl->setIsExecutant(0);
+                    }
+                    $taskAcl->saveToDb();
+
+                    $oFolder = TM_Document_Document::getDocumentFolderByTask($oUser, $oTask);
+
+                    $folderAcl = new TM_Acl_DocumentAcl($oFolder);
+                    $folderAcl->setUser($oUser);
+                    if (isset($values['is_read'])) {
+                        $folderAcl->setIsRead($values['is_read']);
+                    } else {
+                        $folderAcl->setIsRead(0);
+                    }
+                    if (isset($values['is_write'])) {
+                        $folderAcl->setIsWrite($values['is_write']);
+                    } else {
+                        $folderAcl->setIsWrite(0);
+                    }
+                    $folderAcl->saveToDb();
+
+                    $oTopic = TM_Discussion_Discussion::getTopicByTask($oUser, $oTask);
+
+                    $discussionAcl = new TM_Acl_DiscussionAcl($oTopic);
+                    $discussionAcl->setUser($oUser);
+                    if (isset($values['is_read'])) {
+                        $discussionAcl->setIsRead($values['is_read']);
+                    } else {
+                        $discussionAcl->setIsRead(0);
+                    }
+                    if (isset($values['is_write'])) {
+                        $discussionAcl->setIsWrite($values['is_write']);
+                    } else {
+                        $discussionAcl->setIsWrite(0);
+                    }
+                    $discussionAcl->saveToDb();
+
+                } catch (Exception $e) {
+                    StdLib_Log::logMsg('Не могу изменить права. ' . $e->getMessage(), StdLib_Log::StdLib_Log_ERROR);
+                }
+            }
+
+            $this->_redirect('/user/showUserAcl/id/' . $oUser->getId());
+        }
+
+        $this->view->assign('taskList', TM_Task_Task::getAllInstance($oUser));
+        $this->view->assign('user', $oUser);
+    }
+
+    public function showuseraclblockAction()
+    {
+        $id = $this->getRequest()->getParam('userId');
+        $parentId = $this->getRequest()->getParam('parent', 0);
+        $oUser = TM_User_User::getInstanceById($id);
+
+        $this->view->assign('taskList', TM_Task_Task::getAllInstance($oUser, $parentId));
+        $this->view->assign('user', $oUser);
+    }
+
+    public function showprivatetaskAction()
+    {
+        $id = $this->getRequest()->getParam('userId');
+        $oUser = TM_User_User::getInstanceById($id);
+
+        $this->view->assign('taskList', TM_Task_Task::getTaskByExecutant($oUser));
+        $this->view->assign('user', $oUser);
     }
 
     public function addresourceAction()
@@ -340,4 +436,7 @@ class UserController extends Zend_Controller_Action
         }
     }
 
+
 }
+
+?>

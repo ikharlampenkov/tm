@@ -90,7 +90,7 @@
 
 <div class="content">
 
-    <table border="0" cellpadding="20" width="100%">
+    <table border="0" cellpadding="10" width="100%">
         <tr>
             <td>
             {$this->layout()->content}

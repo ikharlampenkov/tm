@@ -112,7 +112,7 @@ class TM_User_User
     {
         try {
             $sql = 'INSERT INTO tm_user(login, password, role_id, date_create)
-                    VALUES ("' . $this->_login . '", ' . $this->_password  . ', ' . $this->_role->getId() . ', "' . $this->_dateCreate . '")';
+                    VALUES ("' . $this->_login . '", "' . $this->_password  . '", ' . $this->_role->getId() . ', "' . $this->_dateCreate . '")';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -129,7 +129,8 @@ class TM_User_User
     {
         try {
             $sql = 'UPDATE tm_user
-                    SET login="' . $this->_login . '", role_id="' . $this->_role->getId() . '", date_create="' . $this->_dateCreate . '"
+                    SET login="' . $this->_login . '", password="' . $this->_password  . '",
+                        role_id="' . $this->_role->getId() . '", date_create="' . $this->_dateCreate . '"
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
             $this->saveAttributeList();
@@ -300,6 +301,10 @@ class TM_User_User
         }
     }
 
+    /**
+     * @param $key
+     * @return TM_Attribute_Attribute
+     */
     public function getAttribute($key)
     {
         return $this->_attributeList[$key];

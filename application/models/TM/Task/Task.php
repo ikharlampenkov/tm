@@ -99,7 +99,7 @@ class TM_Task_Task
     /**
      *
      *
-     * @return User::TM_User_User
+     * @return TM_User_User
      * @access public
      */
     public function getUser()
@@ -597,6 +597,10 @@ class TM_Task_Task
         }
     } // end of member function getParent
 
+    /**
+     * @return TM_Task_Task
+     * @throws Exception
+     */
     public function getFirstParent()
     {
         if (is_null($this->_parentTask) || empty($this->_parentTask)) {
@@ -611,7 +615,7 @@ class TM_Task_Task
                 } else {
                     $this->_parentTask = array();
                 }
-                print_r($this->_parentTask[0]);
+
                 return $this->_parentTask[0];
             } catch (Exception $e) {
                 throw new Exception($e->getMessage());
@@ -643,6 +647,7 @@ class TM_Task_Task
     public function addParent(TM_Task_Task $parent)
     {
         if ($this->searchParent($parent) === false) {
+            $this->_parentTask = array();
             $this->_parentTask[] = $parent;
         }
     } // end of member function addParent
@@ -723,6 +728,10 @@ class TM_Task_Task
         }
     }
 
+    /**
+     * @param $key
+     * @return TM_Attribute_Attribute
+     */
     public function getAttribute($key)
     {
         return $this->_attributeList[$key];
@@ -731,7 +740,17 @@ class TM_Task_Task
     public function setAttribute($key, $value)
     {
         if ($this->searchAttribute($key)) {
+            $oHash = TM_Task_Hash::getInstanceById($key);
+
             $this->_attributeList[$key]->setValue($value);
+
+            if ($oHash->getType() instanceof TM_Attribute_AttributeTypeList) {
+                $keyO = array_search($value, $oHash->getValueList(false, true));
+                $temp = $oHash->getListOrder();
+                if ($key !== false && isset($temp[$keyO])) {
+                    $this->_attributeList[$key]->setAttributeOrder($temp[$keyO]);
+                }
+            }
 
         } else {
             $oHash = TM_Task_Hash::getInstanceById($key);
@@ -739,6 +758,14 @@ class TM_Task_Task
             $oAttribute->setAttribyteKey($key);
             $oAttribute->setType($oHash->getType());
             $oAttribute->setValue($value);
+
+            if ($oHash->getType() instanceof TM_Attribute_AttributeTypeList) {
+                $key = array_search($value, $oHash->getValueList(false, true));
+                $temp = $oHash->getListOrder();
+                if ($key !== false && isset($temp[$key])) {
+                    $oAttribute->setAttributeOrder($temp[$key]);
+                }
+            }
 
             $this->_attributeList[$key] = $oAttribute;
             //$oAttribute->insertToDB();
@@ -888,8 +915,79 @@ class TM_Task_Task
         return $statArray;
     }
 
-    public function calcDeadLine()
+    public function reCalculateDeadLine()
     {
+        try {
+            $sql = 'SELECT MAX(STR_TO_DATE( attribute_value, "%d.%m.%Y %H:%i")) as max_date, id
+                    FROM tm_task
+                    LEFT JOIN (
+                        SELECT * FROM tm_task_attribute WHERE attribute_key="deadline"
+                    )t2 ON tm_task.id = t2.task_id, tm_task_relation
+                    WHERE tm_task.id=tm_task_relation.child_id
+                      AND parent_id=' . $this->_id;
+            $result = $this->_db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+            //echo $sql;
+
+            if (isset($result[0]['max_date'])) {
+                $this->setAttribute('deadline', date('d.m.Y H:i', strtotime($result[0]['max_date'])));
+                $this->saveAttributeList();
+
+                if ($this->hasParent()) {
+                    //echo 111;
+                    $this->getFirstParent()->reCalculateDeadLine();
+                }
+            }
+        } catch (Exception $e) {
+            StdLib_Log::logMsg('Не могу пересчитать срок выполнения задачи ' . $e->getMessage(), StdLib_Log::StdLib_Log_ERROR);
+            throw new Exception($e->getMessage());
+        }
+    }
+
+    public function reCalculateState()
+    {
+        try {
+
+            $sql = 'SELECT attribute_value, title
+                    FROM tm_task
+                    LEFT JOIN (
+                        SELECT * FROM tm_task_attribute WHERE attribute_key="state"
+                    )t2 ON tm_task.id = t2.task_id, tm_task_relation
+                    WHERE tm_task.id=tm_task_relation.child_id
+                      AND parent_id=' . $this->_id;
+            $result = $this->_db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+            //echo $sql;
+
+            if (isset($result[0])) {
+                $is_complite = 0;
+                $is_no_complite = 0;
+                $newState = 'Не выполнена';
+                foreach ($result as $res) {
+                    if ($res['attribute_value'] == 'Выполнена') {
+                        $is_complite += 1;
+                    } else {
+                        $is_no_complite += 1;
+                    }
+                }
+
+                //echo $is_complite;
+                //echo $is_no_complite;
+                if ($is_no_complite == 0) {
+                    $newState = 'Выполнена';
+                }
+
+                $this->setAttribute('state', $newState);
+                $this->saveAttributeList();
+
+                if ($this->hasParent()) {
+                    $this->getFirstParent()->reCalculateState();
+                }
+
+            }
+
+        } catch (Exception $e) {
+            StdLib_Log::logMsg('Не могу пересчитать статус задачи ' . $e->getMessage(), StdLib_Log::StdLib_Log_ERROR);
+            throw new Exception($e->getMessage());
+        }
 
     }
 
@@ -899,13 +997,20 @@ class TM_Task_Task
             $db = StdLib_DB::getInstance();
 
             $sql = 'SELECT id, title, tm_task.user_id, date_create, type
-                    FROM tm_task LEFT JOIN (
+                    FROM tm_task
+                    LEFT JOIN (
                         SELECT * FROM tm_task_attribute WHERE attribute_key="deadline"
-                    )t2 ON tm_task.id = t2.task_id LEFT JOIN (SELECT * FROM tm_task_attribute WHERE attribute_key="state") t3 ON tm_task.id = t3.task_id, tm_acl_task
+                    )t2 ON tm_task.id = t2.task_id
+                    LEFT JOIN (
+                        SELECT * FROM tm_task_attribute WHERE attribute_key="state"
+                    ) t3 ON tm_task.id = t3.task_id
+                    LEFT JOIN (
+                        SELECT * FROM tm_task_attribute WHERE attribute_key="prior"
+                    ) t4 ON tm_task.id = t4.task_id, tm_acl_task
                     WHERE tm_task.id=tm_acl_task.task_id
                       AND is_executant=1
                       AND tm_acl_task.user_id=' . $user->id . '
-                      ORDER BY t3.attribute_value DESC, t2.attribute_value, title';
+                      ORDER BY t3.attribute_value DESC, t4.attribute_order, t2.attribute_value, title';
             //echo $sql;
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
@@ -921,6 +1026,39 @@ class TM_Task_Task
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
+    }
+
+    public function isRead(TM_User_User $user)
+    {
+        $aclList = TM_Acl_TaskAcl::getAllInstance($this);
+        if ($aclList !== false) {
+            if (isset($aclList[$user->getId()]) && $aclList[$user->getId()]->getIsRead()) {
+                return true;
+            } else return false;
+        } else
+            return false;
+    }
+
+    public function isWrite(TM_User_User $user)
+    {
+        $aclList = TM_Acl_TaskAcl::getAllInstance($this);
+        if ($aclList !== false) {
+            if (isset($aclList[$user->getId()]) && $aclList[$user->getId()]->getIsWrite()) {
+                return true;
+            } else return false;
+        } else
+            return false;
+    }
+
+    public function isExecutant(TM_User_User $user)
+    {
+        $aclList = TM_Acl_TaskAcl::getAllInstance($this);
+        if ($aclList !== false) {
+            if (isset($aclList[$user->getId()]) && $aclList[$user->getId()]->getIsExecutant()) {
+                return true;
+            } else return false;
+        } else
+            return false;
     }
 
 } // end of TM_Task_Task

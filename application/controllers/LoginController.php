@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 class LoginController extends Zend_Controller_Action
 {
@@ -11,8 +11,10 @@ class LoginController extends Zend_Controller_Action
     public function indexAction()
     {
         $request = $this->getRequest();
+		
+		
 
-        if ($request->isPost()) {
+        if ($request->isPost() || $request->getParam('login', '') != '') {
             $o_userManager = TM_User_UserManager::getInstance();
             $o_userManager->setLogin($request->getParam('login'));
             $o_userManager->setPassword($request->getParam('psw'));

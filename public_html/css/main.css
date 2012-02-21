@@ -176,12 +176,12 @@ a {
 }
 
 .login {
-    width: 300px;
+    width: 450px;
     height: 60px;
     position: absolute;
     top: 30px;
-    left: 70%;
-    background: url('/i/login.gif') no-repeat;
+    left: 58%;
+    background: url('/i/login.png') no-repeat;
     padding-top: 5px;
     padding-left: 20px;
 }
@@ -297,9 +297,17 @@ a.task_grey {
     color: #000000;
 }
 
+a.task_has_access {
+    color: #000000;
+}
+
+a.task_no_access {
+    color: #a9a9a9;
+}
+
 .task_block {
     padding: 5px 0 5px 5px;
-    width: 100%;
+    /*width: 100%;*/
     height: 30px;
     margin: 0 5px;
     border-bottom: 1px dashed #cccccc;
