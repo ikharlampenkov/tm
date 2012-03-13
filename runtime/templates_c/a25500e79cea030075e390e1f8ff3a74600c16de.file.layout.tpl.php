@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2012-03-13 21:22:42
+<?php /* Smarty version Smarty-3.0.9, created on 2012-03-13 22:08:31
          compiled from "F:\www\tm\application/layouts/scripts\layout.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:277664f27fbee1de472-19513435%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:73484f5f62ef702373-37107412%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a25500e79cea030075e390e1f8ff3a74600c16de' => 
     array (
       0 => 'F:\\www\\tm\\application/layouts/scripts\\layout.tpl',
-      1 => 1331645462,
+      1 => 1331651308,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '277664f27fbee1de472-19513435',
+  'nocache_hash' => '73484f5f62ef702373-37107412',
   'function' => 
   array (
   ),
@@ -93,14 +93,6 @@ $_smarty_tpl->decodeProperties(array (
         <span>&nbsp;</span>
     </li>
 <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>"document/index"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
-
-<?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>"reports/index")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>"reports/index"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
-
-    <li>
-        <img src="/i/report_big.png" alt="Аналитика" style="float: left;"/>&nbsp;<a href="/reports/">Аналитика</a>
-        <span>&nbsp;</span>
-    </li>
-<?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>"reports/index"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
 <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>"discussion/index")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>"discussion/index"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
