@@ -1,3 +1,6 @@
+{include file="organization/index.tpl"}
+
+
 <div class="page">
     <h1>Пользователи</h1>
 

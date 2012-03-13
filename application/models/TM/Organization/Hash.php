@@ -14,7 +14,7 @@ class TM_Organization_Hash
      *
      * @access protected
      */
-    protected $_task;
+    protected $_organization;
 
     /**
      *
@@ -69,7 +69,7 @@ class TM_Organization_Hash
      */
     public function getOrganization()
     {
-        return $this->_task;
+        return $this->_organization;
     } // end of member function getOrganization
 
     /**
@@ -108,7 +108,7 @@ class TM_Organization_Hash
      */
     protected function setOrganization(TM_Organization_Organization $value)
     {
-        $this->_task = $value;
+        $this->_organization = $value;
 
     } // end of member function setOrganization
 
@@ -291,16 +291,16 @@ class TM_Organization_Hash
     public function insertToDb()
     {
         try {
-            $sql = 'INSERT INTO tm_task_hash(task_id, attribute_key, title, type_id, list_value, list_order, required, sort_order)
-                    VALUES (NULL, "' . $this->_attributeKey . '", "' . $this->_listOrder . '", "' . $this->_title . '", ' . $this->_type->getId() . ',
-                            "' . $this->_listValue . ' ",  ' . $this->_prepareBool($this->_isRequired) . ', ' . $this->_sortOrder . ')';
+            $sql = 'INSERT INTO tm_organization_hash(organization_id, attribute_key, title, type_id, list_value, list_order, required, sort_order)
+                    VALUES (NULL, "' . $this->_attributeKey . '", "' . $this->_title . '", ' . $this->_type->getId() . ',
+                            "' . $this->_listValue . ' ", "' . $this->_listOrder . '",  ' . $this->_prepareBool($this->_isRequired) . ', ' . $this->_sortOrder . ')';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
     } // end of member function insertToDb
 
-    //task_id, attribute_key, title, type_id, required, sort_order
+    //organization_id, attribute_key, title, type_id, required, sort_order
 
     /**
      *
@@ -311,11 +311,11 @@ class TM_Organization_Hash
     public function updateToDb()
     {
         try {
-            $sql = 'UPDATE tm_task_hash
+            $sql = 'UPDATE tm_organization_hash
                     SET title="' . $this->_title . '", type_id=' . $this->_type->getId() . ',
                         list_value="' . $this->_listValue . ' ", list_order="' . $this->_listOrder . '",
                         required=' . $this->_prepareBool($this->_isRequired) . ', sort_order=' . $this->_sortOrder . '
-                    WHERE task_id IS NULL AND attribute_key="' . $this->_attributeKey . '"';
+                    WHERE organization_id IS NULL AND attribute_key="' . $this->_attributeKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -331,8 +331,8 @@ class TM_Organization_Hash
     public function deleteFromDb()
     {
         try {
-            $sql = 'DELETE FROM tm_task_hash
-                    WHERE task_id IS NULL AND attribute_key="' . $this->_attributeKey . '"';
+            $sql = 'DELETE FROM tm_organization_hash
+                    WHERE organization_id IS NULL AND attribute_key="' . $this->_attributeKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -351,7 +351,7 @@ class TM_Organization_Hash
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_task_hash WHERE task_id IS NULL AND attribute_key="' . $key . '"';
+            $sql = 'SELECT * FROM tm_organization_hash WHERE organization_id IS NULL AND attribute_key="' . $key . '"';
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
@@ -397,32 +397,13 @@ class TM_Organization_Hash
         try {
             $db = StdLib_DB::getInstance();
 
-            /*
-            if (!is_null($object)) {
-                $sql = 'SELECT COUNT(attribute_key) FROM tm_task_attribute WHERE task_id=' . $object->id;
-                $result = $db->query($sql, StdLib_DB::QUERY_MODE_NUM);
-            }
-
-            $sql = 'SELECT tm_task_hash.attribute_key, title, tm_task_hash.type_id, list_value, required, sort_order  FROM tm_task_hash';
-
-            if (!is_null($object) && isset($result[0][0]) && $result[0][0] > 0) {
-                $sql .= ' LEFT JOIN tm_task_attribute ON tm_task_hash.attribute_key=tm_task_attribute.attribute_key
-                          WHERE tm_task_attribute.task_id=' . $object->id . ' 
-                          ORDER BY required DESC, sort_order, is_fill DESC, title';
-            } else {
-                $sql .= ' ORDER BY required DESC, sort_order, title';
-            }
-
-            print_r($sql);
-            */
-
-            $sql = 'SELECT tm_task_hash.attribute_key, title, tm_task_hash.type_id, list_value, list_order, required, sort_order
-                    FROM tm_task_hash ';
+            $sql = 'SELECT tm_organization_hash.attribute_key, title, tm_organization_hash.type_id, list_value, list_order, required, sort_order
+                    FROM tm_organization_hash ';
 
             if (!is_null($object)) {
                 $sql .= ' LEFT JOIN (
-                        SELECT * FROM tm_task_attribute WHERE tm_task_attribute.task_id=' . $object->id . '
-                    ) t2 ON tm_task_hash.attribute_key=t2.attribute_key
+                        SELECT * FROM tm_organization_attribute WHERE tm_organization_attribute.organization_id=' . $object->id . '
+                    ) t2 ON tm_organization_hash.attribute_key=t2.attribute_key
                     ORDER BY required DESC, sort_order, title';
             } else {
                 $sql .= ' ORDER BY required DESC, sort_order, title';
@@ -454,7 +435,7 @@ class TM_Organization_Hash
      */
     public function fillFromArray($values)
     {
-        //$this->setOrganization($values['task_id']);
+        //$this->setOrganization($values['organization_id']);
         $this->setAttributeKey($values['attribute_key']);
         $this->setTitle($values['title']);
 
