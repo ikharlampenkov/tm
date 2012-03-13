@@ -5,7 +5,60 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a46b928-ce36-4d2c-8e4a-e9e052a0178c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/files/Billing/Poek_v_enopak/file_22-02-2012-10-43-21.doc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/files/Billing/Poek_v_enopak/file_22-02-2012-11-33-10.doc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/files/Say_REK/Opianie_pogamm/file_16-02-2012-12-54-47.doc" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/04b25533a9e70f2d8becce6c95521ed62e4337c8.file.index.tpl.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/f714e114ca7880cfd77078a29c32d0bfeac23cb7.file.generate-report.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/~Documents/schema.mwb.bak" afterPath="$PROJECT_DIR$/~Documents/schema.mwb.bak" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/~Documents/schema.mwb" afterPath="$PROJECT_DIR$/~Documents/schema.mwb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Administrator.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Administrator.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.zfproject.xml" afterPath="$PROJECT_DIR$/.zfproject.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/configs/application.ini" afterPath="$PROJECT_DIR$/application/configs/application.ini" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/LoginController.php" afterPath="$PROJECT_DIR$/application/controllers/LoginController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/layouts/scripts/layout.tpl" afterPath="$PROJECT_DIR$/application/layouts/scripts/layout.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Activity/Activity.php" afterPath="$PROJECT_DIR$/application/models/TM/Activity/Activity.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Activity/ActivityLogger.php" afterPath="$PROJECT_DIR$/application/models/TM/Activity/ActivityLogger.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Activity/Notification.php" afterPath="$PROJECT_DIR$/application/models/TM/Activity/Notification.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Attribute/Attribute.php" afterPath="$PROJECT_DIR$/application/models/TM/Attribute/Attribute.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Task/AttributeMapper.php" afterPath="$PROJECT_DIR$/application/models/TM/Task/AttributeMapper.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Task/Task.php" afterPath="$PROJECT_DIR$/application/models/TM/Task/Task.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/user/child-task-block.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/user/child-task-block.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/user/index.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/user/index.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/user/show-private-task.ajax.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/user/show-private-task.ajax.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/user/show-private-task.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/user/show-private-task.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/user/show-user-acl-block.ajax.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/user/show-user-acl-block.ajax.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/user/show-user-acl.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/user/show-user-acl.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/logs/syslog.txt" afterPath="$PROJECT_DIR$/runtime/logs/syslog.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/199008187c3d8086f84cab59931c2bbb402c62b6.file.show-user-acl-block.ajax.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/199008187c3d8086f84cab59931c2bbb402c62b6.file.show-user-acl-block.ajax.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/1dbb830adf4745b84fb91729ecf99d76ff3cfa3a.file.edit-attribute-hash.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/1dbb830adf4745b84fb91729ecf99d76ff3cfa3a.file.edit-attribute-hash.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/259bfd6a3b1cb463c245653424fe9ea91f30c690.file.view-resource.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/259bfd6a3b1cb463c245653424fe9ea91f30c690.file.view-resource.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/2c1c8201af1fff7fe93f0d457185b8fbdf1d8fd5.file.view-hash.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/2c1c8201af1fff7fe93f0d457185b8fbdf1d8fd5.file.view-hash.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/2ceb6cc72ec31aa4022b38688a6ac0ffa2bb6f0e.file.edit.ajax.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/2ceb6cc72ec31aa4022b38688a6ac0ffa2bb6f0e.file.edit.ajax.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/38e2babbb36ab1749b3ba5045f108a0079762741.file.show-task-block.ajax.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/38e2babbb36ab1749b3ba5045f108a0079762741.file.show-task-block.ajax.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/3e1740d9f649333853250a70df0abddad0f38dbc.file.add.ajax.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/3e1740d9f649333853250a70df0abddad0f38dbc.file.add.ajax.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/42a17846790583747f76520810158092694bed2f.file.view.ajax.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/42a17846790583747f76520810158092694bed2f.file.view.ajax.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/50610206be2af9484a3529f8e92ab421196d76a7.file.add-resource.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/50610206be2af9484a3529f8e92ab421196d76a7.file.add-resource.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/65e6baf5677e3fcedcdb42ef2afa3981730d9341.file.show-task-block.ajax.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/65e6baf5677e3fcedcdb42ef2afa3981730d9341.file.show-task-block.ajax.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/6bd98d280a796f3cda2e89c2cc5268822c64cab8.file.child-task-block.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/6bd98d280a796f3cda2e89c2cc5268822c64cab8.file.child-task-block.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/75ea76678d88fe43bbb536720b7c45b58e4a2d2e.file.view-attribute-type.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/75ea76678d88fe43bbb536720b7c45b58e4a2d2e.file.view-attribute-type.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/9d7f822d62133a1cbc297747a710a8f727ebc2bf.file.show-private-task.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/9d7f822d62133a1cbc297747a710a8f727ebc2bf.file.show-private-task.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/a25500e79cea030075e390e1f8ff3a74600c16de.file.layout.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/a25500e79cea030075e390e1f8ff3a74600c16de.file.layout.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/a4bcff7935961047d5c498b087fddf3d5e6df75f.file.index.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/a4bcff7935961047d5c498b087fddf3d5e6df75f.file.index.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/adce21d5e4bd44928444e8e78142d735bf514e9d.file.index.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/adce21d5e4bd44928444e8e78142d735bf514e9d.file.index.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/b2aac6fcce9bb0e3eeaf67af4b08b5d77457fb5f.file.index.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/b2aac6fcce9bb0e3eeaf67af4b08b5d77457fb5f.file.index.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/beb79dd40dcd398ad1e9c74e1cde3178471f73b3.file.index.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/beb79dd40dcd398ad1e9c74e1cde3178471f73b3.file.index.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/c32cbf27adfd0755fa9e5485d74e14c750ce5c67.file.index.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/c32cbf27adfd0755fa9e5485d74e14c750ce5c67.file.index.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/c859e9beaf28fe37a43dd17679c185beff15165a.file.show-role-acl.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/c859e9beaf28fe37a43dd17679c185beff15165a.file.show-role-acl.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/cf63e52ea490f00ef5ea4d14d7f03ebe28a52e44.file.edit.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/cf63e52ea490f00ef5ea4d14d7f03ebe28a52e44.file.edit.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/d277bd572b5d077e8b560575f54b74dbdfbf088f.file.add.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/d277bd572b5d077e8b560575f54b74dbdfbf088f.file.add.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/d6c7ade64389275d74f30ea2d5e26d7c3deffb9e.file.parent-block.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/d6c7ade64389275d74f30ea2d5e26d7c3deffb9e.file.parent-block.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/dd969df4b1671f7772d4364ec0f36d292f294cfc.file.show-user-acl.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/dd969df4b1671f7772d4364ec0f36d292f294cfc.file.show-user-acl.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/f698f4233b076015e9481e0ef8f148ab50d0d9a6.file.index.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/f698f4233b076015e9481e0ef8f148ab50d0d9a6.file.index.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/~Documents/cl71252_tm.sql" afterPath="$PROJECT_DIR$/~Documents/cl71252_tm.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/~Documents/sibdnevnik_tm.sql" afterPath="$PROJECT_DIR$/~Documents/sibdnevnik_tm.sql" />
     </list>
     <ignored path="tm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -151,7 +204,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -720,6 +772,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Favorites" />
     </panes>
   </component>
@@ -851,6 +904,13 @@
       </JSRemoteDebuggerConfigurationSettings>
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="firefox" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
     <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="60c178d7-55bc-4b3a-a403-0ae1cb4e2bd1" server_name="watson.timeweb.ru">
       <method>
         <option name="FtpUpload" enabled="false">
@@ -859,13 +919,6 @@
         </option>
         <option name="PhingTarget" enabled="false" />
       </method>
-    </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
-      <JSDebuggerConfigurationSettings>
-        <option name="engineId" value="firefox" />
-        <option name="fileUrl" />
-      </JSDebuggerConfigurationSettings>
-      <method />
     </configuration>
     <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
       <option name="VM_PARAMETERS" value="" />
@@ -953,18 +1006,17 @@
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854405" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32958803" sideWeight="0.6701621" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32950193" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854405" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36004272" sideWeight="0.32662836" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3888889" sideWeight="0.6743295" order="0" side_tool="false" content_ui="tabs" x="20" y="68" width="485" height="1049" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39369658" sideWeight="0.6704981" order="0" side_tool="false" content_ui="tabs" x="20" y="68" width="485" height="1049" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3256705" sideWeight="0.5032467" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983795" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3256705" sideWeight="0.49107143" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3256705" sideWeight="0.49107143" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983795" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854405" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -972,6 +1024,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32888466" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854405" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
