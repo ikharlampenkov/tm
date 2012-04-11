@@ -110,7 +110,7 @@ class IndexController extends Zend_Controller_Action
         $this->view->assign('taskList', TM_Task_Task::getTaskByExecutant($this->_user));
         $this->view->assign('discussionList', TM_Discussion_Discussion::getPrivateDiscussion($this->_user));
 
-        $this->view->assign('taskListReports', TM_Task_Task::getAllInstance($this->_user));
+        //$this->view->assign('taskListReports', TM_Task_Task::getAllInstance($this->_user));
     }
 
     public function showtaskblockAction()

@@ -130,6 +130,7 @@
 </tr>
 <tr>
     <td colspan="2">
+        {*
     {if_allowed resource="{$controller}/index" priv="show-my-reports"}
         <div class="index_block">
             <div class="index_block_title" style="">
@@ -293,6 +294,7 @@
             </div>
         </div>
     {/if_allowed}
+    *}
     </td>
     <td style="width: 50%">
 

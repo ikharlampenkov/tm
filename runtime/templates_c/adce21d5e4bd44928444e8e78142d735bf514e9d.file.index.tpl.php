@@ -1,24 +1,28 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2012-01-31 22:22:42
+<?php /* Smarty version Smarty-3.0.9, created on 2012-03-14 00:09:47
          compiled from "F:\www\tm\application/views/scripts\user/index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:82754f280742afa0c7-83003260%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:182804f5f7f5bad6bd0-74109080%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'adce21d5e4bd44928444e8e78142d735bf514e9d' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\user/index.tpl',
-      1 => 1328021322,
+      1 => 1331658550,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '82754f280742afa0c7-83003260',
+  'nocache_hash' => '182804f5f7f5bad6bd0-74109080',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
 <?php if (!is_callable('smarty_block_if_allowed')) include 'F:\www\tm\library\Smarty\plugins\block.if_allowed.php';
-?><div class="page">
+?><?php $_template = new Smarty_Internal_Template("organization/index.tpl", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
+ echo $_template->getRenderedTemplate(); $_template->rendered_content = null;?><?php unset($_template);?>
+
+
+<div class="page">
     <h1>Пользователи</h1>
 
     <div class="page_block">

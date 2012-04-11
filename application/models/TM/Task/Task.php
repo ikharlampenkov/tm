@@ -647,6 +647,7 @@ class TM_Task_Task
     public function addParent(TM_Task_Task $parent)
     {
         if ($this->searchParent($parent) === false) {
+            $this->_parentTask = array();
             $this->_parentTask[] = $parent;
         }
     } // end of member function addParent

@@ -68,12 +68,14 @@
     *}
     </li>
 {/if_allowed}
+    {*
 {if_allowed resource="reports/index"}
     <li>
         <img src="/i/report_big.png" alt="Аналитика" style="float: left;"/>&nbsp;<a href="/reports/">Аналитика</a>
         <span>&nbsp;</span>
     </li>
 {/if_allowed}
+*}
 {if_allowed resource="discussion/index"}
     <li>
         <img src="/i/discussion_big.png" alt="Обсуждение" style="float: left;"/>&nbsp;<a href="/discussion/">Обсуждение</a>
