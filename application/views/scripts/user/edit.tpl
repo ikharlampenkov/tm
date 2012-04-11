@@ -23,6 +23,14 @@
             </select>
             </td>
         </tr>
+        <tr>
+            <td class="ttovar">Тип пользователя</td>
+            <td class="ttovar"><select name="data[is_client]">
+                <option value="0" {if $user->isClient==0}selected="selected"{/if}>Сотрудник</option>
+                <option value="1" {if $user->isClient==1}selected="selected"{/if}>Клиент</option>
+            </select>
+            </td>
+        </tr>
     {if $attributeHashList!==false}
         {foreach from=$attributeHashList item=attributeHash}
             <tr>
