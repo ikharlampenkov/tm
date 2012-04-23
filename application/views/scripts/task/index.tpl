@@ -30,7 +30,8 @@
 
 {if_allowed resource="{$controller}/add"}
 <div class="sub-menu">
-    <img src="/i/add.png"/>&nbsp;<a href="javascript:void(0)" onclick="task.addDialog('{$this->url(['controller' => $controller,'action' => 'add'])}', 0, '{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => 0])}')">добавить</a>
+    <img src="/i/add.png"/>&nbsp;<a href="javascript:void(0)" onclick="task.addDialog('{$this->url(['controller' => $controller,'action' => 'add'])}', 0, '{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => 0])}')">добавить</a> 
+    <a href="{$this->url(['controller' => $controller,'action' => 'showGantt'])}" >Диаграмма Ганта</a>
 </div>
 {/if_allowed}
 
