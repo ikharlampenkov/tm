@@ -2,27 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list id="208ba09b-a62b-410e-864b-4a7f61a529f8" name="Default" comment="" />
-    <list default="true" id="1e15cf3c-e4a0-4479-b6be-8d8a44301a05" name="New changelist" comment="Д">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/gantt/imgs/arr.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/gantt/imgs/bg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/gantt/imgs/bg_week.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/gantt/imgs/menu/menu_bg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/gantt/imgs/menu/menu_selection.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/gantt/imgs/menu/window_tr.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/gantt/imgs/minus.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/gantt/imgs/parentnode_filled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/gantt/imgs/plus.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/gantt/imgs/progress_bg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/gantt/imgs/progress_filled.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/task/gantt-block.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/task/show-gantt.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/gantt/dhtmlxcommon.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/gantt/dhtmlxgantt.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/js/gantt/dhtmlxgantt.js" />
+    <list default="true" id="1e15cf3c-e4a0-4479-b6be-8d8a44301a05" name="New changelist" comment="Диаграмма Ганта">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/TaskController.php" afterPath="$PROJECT_DIR$/application/controllers/TaskController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/layouts/scripts/layout.tpl" afterPath="$PROJECT_DIR$/application/layouts/scripts/layout.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Task/Task.php" afterPath="$PROJECT_DIR$/application/models/TM/Task/Task.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/task/gantt-block.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/task/gantt-block.tpl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/task/index.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/task/index.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/task/show-gantt.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/task/show-gantt.tpl" />
     </list>
     <ignored path="tm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,25 +34,39 @@
       <file leaf-file-name="TaskController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/TaskController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="0" selection-start="2528" selection-end="2528" vertical-scroll-proportion="0.0">
+            <state line="91" column="17" selection-start="3523" selection-end="3523" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add.ajax.tpl" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/scripts/task/add.ajax.tpl">
+      <file leaf-file-name="Task.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/TM/Task/Task.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="44" selection-start="1357" selection-end="1370" vertical-scroll-proportion="-15.692307">
-              <folding />
+            <state line="1061" column="5" selection-start="29984" selection-end="29984" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1335240159253" expanded="true" signature="8781:8802" placeholder="SELECT * FRO..tm_task..." />
+                <marker date="1335240159253" expanded="true" signature="9031:9144" placeholder="SELECT * FRO..tm_task..." />
+                <marker date="1335240159253" expanded="true" signature="13234:13290" placeholder="INSERT INTO ..." />
+                <marker date="1335240159253" expanded="true" signature="17169:17225" placeholder="INSERT INTO ..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show-gantt.tpl" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="show-gantt.tpl" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/scripts/task/show-gantt.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="4" selection-start="3816" selection-end="3816" vertical-scroll-proportion="1.1885813">
+            <state line="55" column="43" selection-start="1826" selection-end="1826" vertical-scroll-proportion="-22.846153">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.tpl" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/scripts/task/index.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="37" column="0" selection-start="1755" selection-end="1755" vertical-scroll-proportion="0.81261593">
               <folding />
             </state>
           </provider>
@@ -75,7 +75,7 @@
       <file leaf-file-name="gantt-block.tpl" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/scripts/task/gantt-block.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="33" selection-start="257" selection-end="257" vertical-scroll-proportion="0.0">
+            <state line="11" column="5" selection-start="446" selection-end="446" vertical-scroll-proportion="-7.1923075">
               <folding />
             </state>
           </provider>
@@ -105,7 +105,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/application/views/scripts/index/show-task-block.ajax.tpl" />
         <option value="$PROJECT_DIR$/application/views/scripts/task/show-task-block.ajax.tpl" />
         <option value="$PROJECT_DIR$/public_html/css/main.css" />
         <option value="$PROJECT_DIR$/application/views/scripts/user/show-user-acl.tpl" />
@@ -115,12 +114,13 @@
         <option value="$PROJECT_DIR$/application/views/scripts/user/edit.tpl" />
         <option value="$PROJECT_DIR$/application/controllers/UserController.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/user/index.tpl" />
-        <option value="$PROJECT_DIR$/application/views/scripts/task/index.tpl" />
         <option value="$PROJECT_DIR$/application/controllers/TaskController.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/task/showgantt.tpl" />
         <option value="$PROJECT_DIR$/application/layouts/scripts/layout.tpl" />
+        <option value="$PROJECT_DIR$/application/models/TM/Task/Task.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/task/gantt-block.tpl" />
         <option value="$PROJECT_DIR$/application/views/scripts/task/show-gantt.tpl" />
+        <option value="$PROJECT_DIR$/application/views/scripts/task/index.tpl" />
       </list>
     </option>
   </component>
@@ -179,6 +179,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -323,6 +324,54 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Task" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="layouts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -351,22 +400,21 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Favorites" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="options.lastSelected" value="web.server" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="last.edited.regexp" value="\\\\\\\\\&quot;" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
   </component>
   <component name="PublishConfig" serverName="invoicegroup.ru" serverId="c2aa5c06-8e27-4038-b349-f6cd5308a264">
     <servers>
@@ -509,7 +557,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2626802" sideWeight="0.26327434" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22061966" sideWeight="0.67074525" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22329059" sideWeight="0.67074525" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -559,7 +607,7 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Разграничение сотрудников и клиентов" />
+    <option name="LAST_COMMIT_MESSAGE" value="Диаграмма Ганта" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -593,6 +641,7 @@
     <MESSAGE value="теперь можно удалять только свои задачи, исключение для администратора системы" />
     <MESSAGE value="Раскраска списка прав пользователей" />
     <MESSAGE value="Разграничение сотрудников и клиентов" />
+    <MESSAGE value="Диаграмма Ганта" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -614,21 +663,6 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/index/index.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="65" selection-start="1990" selection-end="1990" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/user/edit.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="13" selection-start="1458" selection-end="1458" vertical-scroll-proportion="0.76727784" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/user/index.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="8" selection-start="3780" selection-end="3780" vertical-scroll-proportion="0.7313218" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/user/add.tpl">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="13" selection-start="967" selection-end="967" vertical-scroll-proportion="0.5754584" />
@@ -656,56 +690,76 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/task/archive.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="295" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="295" vertical-scroll-proportion="-0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/layouts/scripts/layout.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="0" selection-start="1944" selection-end="1944" vertical-scroll-proportion="0.6816038">
-          <folding />
-        </state>
+        <state line="34" column="0" selection-start="1944" selection-end="1944" vertical-scroll-proportion="0.6816038" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/task/index.tpl">
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/task/parent-block.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="5" selection-start="1304" selection-end="1304" vertical-scroll-proportion="0.5113773">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="363" vertical-scroll-proportion="-0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/TaskController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="0" selection-start="2528" selection-end="2528" vertical-scroll-proportion="0.0">
+        <state line="91" column="17" selection-start="3523" selection-end="3523" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/date.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="9" selection-start="636" selection-end="636" vertical-scroll-proportion="0.4473684">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_3.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="89" column="9" selection-start="2344" selection-end="2344" vertical-scroll-proportion="0.40272108">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/TM/Task/Task.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1061" column="5" selection-start="29984" selection-end="29984" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1335240159253" expanded="true" signature="8781:8802" placeholder="SELECT * FRO..tm_task..." />
+            <marker date="1335240159253" expanded="true" signature="9031:9144" placeholder="SELECT * FRO..tm_task..." />
+            <marker date="1335240159253" expanded="true" signature="13234:13290" placeholder="INSERT INTO ..." />
+            <marker date="1335240159253" expanded="true" signature="17169:17225" placeholder="INSERT INTO ..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/task/gantt-block.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="5" selection-start="446" selection-end="446" vertical-scroll-proportion="-7.1923075">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/task/add.ajax.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="44" selection-start="1357" selection-end="1370" vertical-scroll-proportion="-15.692307">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/task/parent-block.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="363" vertical-scroll-proportion="-0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/task/gantt-block.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="33" selection-start="257" selection-end="257" vertical-scroll-proportion="0.0">
+        <state line="35" column="102" selection-start="1524" selection-end="1610" vertical-scroll-proportion="-11.769231">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/task/show-gantt.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="4" selection-start="3816" selection-end="3816" vertical-scroll-proportion="1.1885813">
+        <state line="55" column="43" selection-start="1826" selection-end="1826" vertical-scroll-proportion="-22.846153">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/task/index.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="0" selection-start="1755" selection-end="1755" vertical-scroll-proportion="0.81261593">
           <folding />
         </state>
       </provider>

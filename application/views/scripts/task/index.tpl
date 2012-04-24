@@ -28,12 +28,13 @@
 <br/><br/>
 {/if}
 
-{if_allowed resource="{$controller}/add"}
 <div class="sub-menu">
+{if_allowed resource="{$controller}/add"}
     <img src="/i/add.png"/>&nbsp;<a href="javascript:void(0)" onclick="task.addDialog('{$this->url(['controller' => $controller,'action' => 'add'])}', 0, '{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => 0])}')">добавить</a> 
+{/if_allowed}
     <a href="{$this->url(['controller' => $controller,'action' => 'showGantt'])}" >Диаграмма Ганта</a>
 </div>
-{/if_allowed}
+
 
 {*
 <div class="sub-menu">

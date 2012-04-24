@@ -1061,5 +1061,19 @@ class TM_Task_Task
             return false;
     }
 
+    public function getEstHours()
+    {
+        $deadline = time();
+        if ($this->searchAttribute('deadline')) {
+            $deadline = strtotime($this->getAttribute('deadline')->value);
+        }
+
+        $startDate = strtotime($this->_dateCreate);
+
+        $diff = $deadline - $startDate;
+
+        return ceil($diff / 3600);
+    }
+
 } // end of TM_Task_Task
 ?>
