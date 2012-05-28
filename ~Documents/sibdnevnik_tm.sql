@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: localhost
--- Время создания: Мар 13 2012 г., 18:21
+-- Время создания: Мар 27 2012 г., 11:05
 -- Версия сервера: 5.0.77
 -- Версия PHP: 5.2.12
 
@@ -6708,6 +6708,26 @@ INSERT INTO `tm_activity` (`id`, `date_action`, `user_id`, `razdel`, `message`) 
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `tm_department`
+--
+
+DROP TABLE IF EXISTS `tm_department`;
+CREATE TABLE IF NOT EXISTS `tm_department` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `title` varchar(255) NOT NULL,
+  `organization_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY  (`id`),
+  KEY `fk_tm_department_tm_organization1` (`organization_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Дамп данных таблицы `tm_department`
+--
+
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `tm_discussion`
 --
 
@@ -7397,6 +7417,106 @@ CREATE TABLE IF NOT EXISTS `tm_document_hash` (
 
 INSERT INTO `tm_document_hash` (`document_id`, `attribute_key`, `title`, `type_id`, `list_value`) VALUES
 (NULL, 'description', 'Описание документа', 2, ' ');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `tm_organization`
+--
+
+DROP TABLE IF EXISTS `tm_organization`;
+CREATE TABLE IF NOT EXISTS `tm_organization` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `title` varchar(255) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Дамп данных таблицы `tm_organization`
+--
+
+INSERT INTO `tm_organization` (`id`, `title`) VALUES
+(1, 'ООО "ИнвойсГрупп"'),
+(2, 'ООО "ИнвойсГрупп"');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `tm_organization_attribute`
+--
+
+DROP TABLE IF EXISTS `tm_organization_attribute`;
+CREATE TABLE IF NOT EXISTS `tm_organization_attribute` (
+  `organization_id` int(10) unsigned NOT NULL,
+  `attribute_key` varchar(255) NOT NULL,
+  `type_id` int(10) unsigned NOT NULL,
+  `attribute_value` text NOT NULL,
+  `attribute_order` int(10) unsigned NOT NULL default '0',
+  `is_fill` tinyint(1) NOT NULL default '0',
+  PRIMARY KEY  (`organization_id`,`attribute_key`),
+  KEY `fk_tm_organization_attribute_tm_organization1` (`organization_id`),
+  KEY `fk_tm_organization_attribute_tm_organization_hash1` (`attribute_key`),
+  KEY `fk_tm_organization_attribute_tm_organization_attribute_type1` (`type_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `tm_organization_attribute`
+--
+
+INSERT INTO `tm_organization_attribute` (`organization_id`, `attribute_key`, `type_id`, `attribute_value`, `attribute_order`, `is_fill`) VALUES
+(2, 'inn', 1, '', 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `tm_organization_attribute_type`
+--
+
+DROP TABLE IF EXISTS `tm_organization_attribute_type`;
+CREATE TABLE IF NOT EXISTS `tm_organization_attribute_type` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `title` varchar(50) NOT NULL,
+  `handler` varchar(100) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  PRIMARY KEY  (`id`),
+  UNIQUE KEY `title_UNIQUE` (`title`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+
+--
+-- Дамп данных таблицы `tm_organization_attribute_type`
+--
+
+INSERT INTO `tm_organization_attribute_type` (`id`, `title`, `handler`, `description`) VALUES
+(1, 'Строка', 'TM_Attribute_AttributeType', 'Любое строковое значение'),
+(2, 'Текст', 'TM_Attribute_AttributeTypeText', 'Многострочный  текст'),
+(3, 'Список', 'TM_Attribute_AttributeTypeList', 'Список из возможных вариантов');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `tm_organization_hash`
+--
+
+DROP TABLE IF EXISTS `tm_organization_hash`;
+CREATE TABLE IF NOT EXISTS `tm_organization_hash` (
+  `organization_id` int(10) unsigned default NULL,
+  `attribute_key` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `type_id` int(10) unsigned NOT NULL,
+  `list_value` text,
+  `list_order` varchar(255) NOT NULL default '',
+  `required` tinyint(1) NOT NULL default '0',
+  `sort_order` int(11) NOT NULL default '1000',
+  PRIMARY KEY  (`attribute_key`),
+  KEY `fk_tm_organization_hash_tm_organization_attribute_type1` (`type_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Дамп данных таблицы `tm_organization_hash`
+--
+
+INSERT INTO `tm_organization_hash` (`organization_id`, `attribute_key`, `title`, `type_id`, `list_value`, `list_order`, `required`, `sort_order`) VALUES
+(NULL, 'inn', 'ИНН', 1, ' ', '', 0, 1000);
 
 -- --------------------------------------------------------
 
@@ -10536,6 +10656,12 @@ ALTER TABLE `tm_activity`
   ADD CONSTRAINT `tm_activity_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `tm_user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
+-- Ограничения внешнего ключа таблицы `tm_department`
+--
+ALTER TABLE `tm_department`
+  ADD CONSTRAINT `fk_tm_department_tm_organization1` FOREIGN KEY (`organization_id`) REFERENCES `tm_organization` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Ограничения внешнего ключа таблицы `tm_discussion`
 --
 ALTER TABLE `tm_discussion`
@@ -10571,6 +10697,20 @@ ALTER TABLE `tm_document_attribute`
 ALTER TABLE `tm_document_hash`
   ADD CONSTRAINT `fk_tm_document_hash_tm_document1` FOREIGN KEY (`document_id`) REFERENCES `tm_document` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_tm_document_hash_tm_document_attribute_type1` FOREIGN KEY (`type_id`) REFERENCES `tm_document_attribute_type` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Ограничения внешнего ключа таблицы `tm_organization_attribute`
+--
+ALTER TABLE `tm_organization_attribute`
+  ADD CONSTRAINT `fk_tm_organization_attribute_tm_organization_hash1` FOREIGN KEY (`attribute_key`) REFERENCES `tm_organization_hash` (`attribute_key`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_tm_organization_attribute_tm_organization1` FOREIGN KEY (`organization_id`) REFERENCES `tm_organization` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_tm_organization_attribute_tm_organization_attribute_type1` FOREIGN KEY (`type_id`) REFERENCES `tm_organization_attribute_type` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Ограничения внешнего ключа таблицы `tm_organization_hash`
+--
+ALTER TABLE `tm_organization_hash`
+  ADD CONSTRAINT `fk_tm_organization_hash_tm_organization_attribute_type1` FOREIGN KEY (`type_id`) REFERENCES `tm_organization_attribute_type` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Ограничения внешнего ключа таблицы `tm_task`

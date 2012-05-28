@@ -23,6 +23,14 @@
             </select>
             </td>
         </tr>
+        <tr>
+            <td class="ttovar">Тип пользователя</td>
+            <td class="ttovar"><select name="data[is_client]">
+                <option value="0">Сотрудник</option>
+                <option value="1">Клиент</option>
+            </select>
+            </td>
+        </tr>
     </table>
     <input id="save" name="save" type="submit" value="Сохранить"/>
 </form>

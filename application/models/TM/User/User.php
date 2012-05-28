@@ -9,7 +9,7 @@
 
 /**
  * class TM_User_User
- * 
+ *
  */
 class TM_User_User
 {
@@ -18,7 +18,7 @@ class TM_User_User
 
     /** Compositions: */
 
-     /*** Attributes: ***/
+    /*** Attributes: ***/
 
 
     protected $_id;
@@ -30,6 +30,8 @@ class TM_User_User
     protected $_role = null;
 
     protected $_dateCreate;
+
+    protected $_isClient = 0;
 
     /**
      * @var array
@@ -90,14 +92,26 @@ class TM_User_User
         return $this->_role;
     }
 
-    public function __get($name) {
+    public function setIsClient($isClient)
+    {
+        $this->_isClient = $isClient;
+    }
+
+    public function getIsClient()
+    {
+        return $this->_isClient;
+    }
+
+    public function __get($name)
+    {
         $method = "get{$name}";
         if (method_exists($this, $method)) {
             return $this->$method();
         }
     }
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->_db = StdLib_DB::getInstance();
 
     }
@@ -111,8 +125,8 @@ class TM_User_User
     public function insertToDb()
     {
         try {
-            $sql = 'INSERT INTO tm_user(login, password, role_id, date_create)
-                    VALUES ("' . $this->_login . '", "' . $this->_password  . '", ' . $this->_role->getId() . ', "' . $this->_dateCreate . '")';
+            $sql = 'INSERT INTO tm_user(login, password, role_id, date_create, is_client)
+                    VALUES ("' . $this->_login . '", "' . $this->_password . '", ' . $this->_role->getId() . ', "' . $this->_dateCreate . '", ' . $this->_isClient . ')';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -129,8 +143,9 @@ class TM_User_User
     {
         try {
             $sql = 'UPDATE tm_user
-                    SET login="' . $this->_login . '", password="' . $this->_password  . '",
-                        role_id="' . $this->_role->getId() . '", date_create="' . $this->_dateCreate . '"
+                    SET login="' . $this->_login . '", password="' . $this->_password . '",
+                        role_id="' . $this->_role->getId() . '", date_create="' . $this->_dateCreate . '",
+                        is_client=' . $this->_isClient . '
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
             $this->saveAttributeList();
@@ -160,7 +175,6 @@ class TM_User_User
      *
      *
      * @param int id
-
      * @return TM_User_User
      * @static
      * @access public
@@ -188,7 +202,6 @@ class TM_User_User
      *
      *
      * @param int id
-
      * @return TM_User_User
      * @static
      * @access public
@@ -216,7 +229,6 @@ class TM_User_User
      *
      *
      * @param array values
-
      * @return TM_User_User
      * @static
      * @access public
@@ -239,11 +251,14 @@ class TM_User_User
      * @static
      * @access public
      */
-    public static function getAllInstance()
+    public static function getAllInstance($is_client = -1)
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_user';
+            $sql = 'SELECT * FROM tm_user ';
+            if ($is_client !== -1) {
+                $sql .= ' WHERE is_client=' . $is_client;
+            }
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
@@ -264,7 +279,6 @@ class TM_User_User
      *
      *
      * @param array $values
-
      * @return void
      * @access public
      */
@@ -277,6 +291,8 @@ class TM_User_User
 
         $o_role = TM_User_Role::getInstanceById($values['role_id']);
         $this->setRole($o_role);
+
+        $this->setIsClient($values['is_client']);
 
         $this->getAttributeList();
     } // end of member function fillFromArray
