@@ -1,25 +1,24 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2012-03-14 00:09:47
+<?php /* Smarty version Smarty-3.0.9, created on 2012-05-28 20:05:10
          compiled from "F:\www\tm\application/views/scripts\user/index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:182804f5f7f5bad6bd0-74109080%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:304324fc37806aa8cb1-13081019%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'adce21d5e4bd44928444e8e78142d735bf514e9d' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\user/index.tpl',
-      1 => 1331658550,
+      1 => 1338209822,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '182804f5f7f5bad6bd0-74109080',
+  'nocache_hash' => '304324fc37806aa8cb1-13081019',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
 <?php if (!is_callable('smarty_block_if_allowed')) include 'F:\www\tm\library\Smarty\plugins\block.if_allowed.php';
-?><?php $_template = new Smarty_Internal_Template("organization/index.tpl", $_smarty_tpl->smarty, $_smarty_tpl, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null);
- echo $_template->getRenderedTemplate(); $_template->rendered_content = null;?><?php unset($_template);?>
+?>
 
 
 <div class="page">
@@ -49,6 +48,8 @@ $_smarty_tpl->decodeProperties(array (
     </div>
 </div><br/>
 
+<h3>Сотрудники</h3>
+
 <table width="100%">
     <tr>
         <td class="ttovar" align="center" colspan="3">
@@ -65,6 +66,49 @@ $_smarty_tpl->decodeProperties(array (
 <?php if ($_smarty_tpl->getVariable('userList')->value!==false){?>
     <?php  $_smarty_tpl->tpl_vars['user'] = new Smarty_Variable;
  $_from = $_smarty_tpl->getVariable('userList')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+if ($_smarty_tpl->_count($_from) > 0){
+    foreach ($_from as $_smarty_tpl->tpl_vars['user']->key => $_smarty_tpl->tpl_vars['user']->value){
+?>
+        <tr>
+            <td class="ttovar"><?php if ($_smarty_tpl->getVariable('user')->value->searchAttribute('name')){?><?php echo $_smarty_tpl->getVariable('user')->value->getAttribute('name')->value;?>
+<?php }else{ ?>-<?php }?></td>
+            <td class="ttovar"><?php echo $_smarty_tpl->getVariable('user')->value->login;?>
+</td>
+            <td class="ttovar"><?php echo $_smarty_tpl->getVariable('user')->value->role->rtitle;?>
+</td>
+            <td class="tedit">
+                <img src="/i/task.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'showPrivateTask','userId'=>$_smarty_tpl->getVariable('user')->value->id));?>
+">задачи</a><br/>
+                <img src="/i/comanda.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'showUserAcl','id'=>$_smarty_tpl->getVariable('user')->value->id));?>
+">права</a><br/>
+                <img src="/i/edit.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'edit','id'=>$_smarty_tpl->getVariable('user')->value->id));?>
+">редактировать</a><br/>
+                <img src="/i/delete.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'delete','id'=>$_smarty_tpl->getVariable('user')->value->id));?>
+" onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('user')->value->login;?>
+');" style="color: #830000">удалить</a></td>
+        </tr>
+    <?php }} ?>
+<?php }?>
+</table>
+
+<h3>Клиенты</h3>
+
+<table width="100%">
+    <tr>
+        <td class="ttovar" align="center" colspan="3">
+            <img src="/i/add.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'add'));?>
+">добавить</a></td>
+    </tr>
+    <tr>
+        <td class="ttovar">ФИО</td>
+        <td class="ttovar">Логин</td>
+        <td class="ttovar">Роль</td>
+        <td class="ttovar"></td>
+    </tr>
+
+<?php if ($_smarty_tpl->getVariable('userListClient')->value!==false){?>
+    <?php  $_smarty_tpl->tpl_vars['user'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->getVariable('userListClient')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 if ($_smarty_tpl->_count($_from) > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars['user']->key => $_smarty_tpl->tpl_vars['user']->value){
 ?>

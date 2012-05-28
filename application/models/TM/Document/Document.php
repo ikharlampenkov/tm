@@ -338,6 +338,11 @@ class TM_Document_Document
                 $this->_file->setSubPath($this->_parentDocument->getFile()->getName());
             }
             */
+            $docList = TM_Document_Document::getAllInstance($this->_user, $this->_id);
+            foreach ($docList as $doc) {
+                $doc->deleteFromDb();
+            }
+
             $this->_file->delete();
 
             $sql = 'DELETE FROM tm_document

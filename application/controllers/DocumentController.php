@@ -254,7 +254,6 @@ class DocumentController extends Zend_Controller_Action
             $this->_redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
-
         }
         // action body
     }
@@ -386,6 +385,12 @@ class DocumentController extends Zend_Controller_Action
             $temp = TM_Task_Task::getTaskByDocument($this->_user, $oDocument->getParent());
             $oTask = $temp[0];
             print_r($oTask);
+
+            if (is_null($oTask)) {
+                $temp = TM_Task_Task::getTaskByDocument($this->_user, $oDocument->getParent()->getParent());
+                $oTask = $temp[0];
+            }
+
             $parentTopic = TM_Discussion_Discussion::getTopicByTask($this->_user, $oTask);
 
 

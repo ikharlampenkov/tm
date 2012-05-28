@@ -1,14 +1,18 @@
 <h1>Добавить пользователя</h1>
 
+{if isset($exception_msg)}
+<div>Ошибка: {$exception_msg}</div><br/>
+{/if}
+
 <form action="{$this->url(['controller' => $controller,'action' => 'add'])}" method="post">
     <table>
         <tr>
             <td class="ttovar" width="200">Логин</td>
-            <td class="ttovar"><input name="data[login]" value=""/></td>
+            <td class="ttovar"><input name="data[login]" value="{$user->login}"/></td>
         </tr>
         <tr>
             <td class="ttovar">Пароль</td>
-            <td class="ttovar"><input name="data[password]" value=""/></td>
+            <td class="ttovar"><input name="data[password]" value="{$user->password}"/></td>
         </tr>
         <tr>
             <td class="ttovar">Дата создания</td>
