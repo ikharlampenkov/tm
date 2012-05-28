@@ -4,33 +4,11 @@
     <option name="ANALYSIS_IN_BACKGROUND" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9a46b928-ce36-4d2c-8e4a-e9e052a0178c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/organization/add-attribute-hash.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/organization/add-attribute-type.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/organization/add.ajax.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/organization/edit-attribute-hash.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/organization/edit-attribute-type.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/organization/edit.ajax.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/organization/info.ajax.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/organization/view-attribute-type.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/organization/view-hash.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/views/scripts/organization/view.ajax.tpl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/13427976f961140ef06ee5af49a87b408e833c30.file.view-hash.tpl.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/24611f7499b6c67bb151a82978d73f9bc47862d1.file.add.ajax.tpl.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/27badd82e68bbb6e9432b802a857426dd80c13a4.file.view-attribute-type.tpl.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/acbb19f7020248b63bd7436597349e1ca0bd70ab.file.add-attribute-hash.tpl.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/eb07f5a7d558f4c775448b94115a8257787694c7.file.index.tpl.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/eb2933f71571853d4b0e5ec619ed4e3f5559255b.file.edit-resource.tpl.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/~Documents/cl71252_tm (1).sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/~Documents/schema.mwb.bak" afterPath="$PROJECT_DIR$/~Documents/schema.mwb.bak" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/~Documents/schema.mwb" afterPath="$PROJECT_DIR$/~Documents/schema.mwb" />
+    <list default="true" id="9a46b928-ce36-4d2c-8e4a-e9e052a0178c" name="Default" comment="Операции с организациями">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/files/Ekonom_poeionalno/Kompanii__doljn_b_vidn_olko_v_voС‘m_goode_kome_mligoodki/file_30-01-2012-14-46-31.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/files/Ekonom_poeionalno/Kompanii__doljn_b_vidn_olko_v_voС‘m_goode_kome_mligoodki/file_30-01-2012-14-46-40.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/OrganizationController.php" afterPath="$PROJECT_DIR$/application/controllers/OrganizationController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Organization/Hash.php" afterPath="$PROJECT_DIR$/application/models/TM/Organization/Hash.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/organization/index.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/organization/index.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/user/index.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/user/index.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/logs/syslog.txt" afterPath="$PROJECT_DIR$/runtime/logs/syslog.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/adce21d5e4bd44928444e8e78142d735bf514e9d.file.index.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/adce21d5e4bd44928444e8e78142d735bf514e9d.file.index.tpl.php" />
     </list>
     <ignored path="tm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,7 +38,7 @@
       <file leaf-file-name="index.tpl" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/scripts/organization/index.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="92" selection-start="448" selection-end="465" vertical-scroll-proportion="-2.0131578">
+            <state line="9" column="92" selection-start="448" selection-end="465" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -69,7 +47,7 @@
       <file leaf-file-name="Hash.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/models/TM/Organization/Hash.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="295" column="86" selection-start="6147" selection-end="6147" vertical-scroll-proportion="0.5984">
+            <state line="295" column="86" selection-start="6147" selection-end="6147" vertical-scroll-proportion="0.025718609">
               <folding>
                 <marker date="1331659673336" expanded="true" signature="9226:9396" placeholder="SELECT tm_or..tm_organization_hash..." />
               </folding>
@@ -80,7 +58,7 @@
       <file leaf-file-name="index.tpl" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/scripts/user/index.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="37" selection-start="37" selection-end="37" vertical-scroll-proportion="-0.0">
+            <state line="0" column="37" selection-start="37" selection-end="37" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -89,7 +67,7 @@
       <file leaf-file-name="index.tpl" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/scripts/task/index.tpl">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="13" selection-start="0" selection-end="1649" vertical-scroll-proportion="-22.23077">
+            <state line="34" column="13" selection-start="0" selection-end="1649" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -124,14 +102,10 @@
     <option name="consoleInToolWindow" value="true" />
   </component>
   <component name="Git.Settings">
-    <option name="CHECKOUT_INCLUDE_TAGS" value="false" />
-    <option name="UPDATE_CHANGES_POLICY" value="STASH" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitLogSettings">
     <option name="myStructureFilterPaths" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///dummy.txt" root0="SKIP_INSPECTION" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
@@ -908,7 +882,7 @@
       <ConfigurationWrapper RunnerId="Basic" />
       <method />
     </configuration>
-    <configuration default="false" name="tm" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true" scope="Directory" path="$PROJECT_DIR$">
+    <configuration default="false" name="tm" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner directory="$PROJECT_DIR$" file="$PROJECT_DIR$" />
       <RunnerSettings RunnerId="PhpRunner" />
       <ConfigurationWrapper RunnerId="PhpRunner" />
@@ -1039,9 +1013,11 @@
     <option name="createChangelist" value="false" />
     <servers>
       <GitHub shared="false">
+        <commitMessageFormat>{id} {summary}</commitMessageFormat>
         <password>dfe7dfc5dfd8dfc3dfd9dfcfdfc6dfc6df92df9d</password>
         <option name="repoAuthor" value="ikharlampenkov" />
         <option name="repoName" value="tm" />
+        <option name="shouldFormatCommitMessage" value="false" />
         <option name="url" value="https://github.com" />
         <option name="useHttpAuthentication" value="true" />
         <option name="useProxy" value="false" />
@@ -1074,18 +1050,16 @@
     <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32958803" sideWeight="0.6701621" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32950193" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3256705" sideWeight="0.5032467" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3256705" sideWeight="0.49107143" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854405" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32917467" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854405" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36004272" sideWeight="0.32662836" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2815171" sideWeight="0.6704981" order="0" side_tool="false" content_ui="tabs" x="20" y="68" width="485" height="1049" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3344017" sideWeight="0.67082536" order="0" side_tool="false" content_ui="combo" x="20" y="68" width="485" height="1049" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3256705" sideWeight="0.5032467" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983795" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3253359" sideWeight="0.49107143" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983795" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854405" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1093,10 +1067,12 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32888466" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854405" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39942804" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32950193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -1132,8 +1108,11 @@
     <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="CREATE_PATCH_EXPAND_DETAILS_DEFAULT" value="true" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Классы для организации" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" value="Операции с организациями" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -1146,7 +1125,6 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
-    <MESSAGE value="Добавлена возможность назначать права роли&#10;" />
     <MESSAGE value="В шаблонах наложены ограничения по ролям&#10;Отображение разделов зависит от роли&#10;" />
     <MESSAGE value="Добавлены права для задач" />
     <MESSAGE value="Обсуждения для задач" />
@@ -1171,6 +1149,7 @@
     <MESSAGE value="Служебный" />
     <MESSAGE value="Убрана аналитика" />
     <MESSAGE value="Классы для организации" />
+    <MESSAGE value="Операции с организациями" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1190,118 +1169,86 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/application/controllers/OrganizationController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="136" column="44" selection-start="5088" selection-end="5088" vertical-scroll-proportion="-13.26">
-          <folding />
-        </state>
+        <state line="136" column="44" selection-start="5088" selection-end="5088" vertical-scroll-proportion="-13.26" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/organization/add-attribute-hash.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/organization/add-attribute-type.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/organization/add.ajax.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="251" selection-start="1444" selection-end="1456" vertical-scroll-proportion="-5.8157897">
-          <folding />
-        </state>
+        <state line="26" column="251" selection-start="1444" selection-end="1456" vertical-scroll-proportion="-5.8157897" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/organization/edit.ajax.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="980" selection-end="980" vertical-scroll-proportion="-4.9210525">
-          <folding />
-        </state>
+        <state line="22" column="0" selection-start="980" selection-end="980" vertical-scroll-proportion="-4.9210525" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/organization/info.ajax.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="5" selection-start="451" selection-end="451" vertical-scroll-proportion="-2.6842105">
-          <folding />
-        </state>
+        <state line="12" column="5" selection-start="451" selection-end="451" vertical-scroll-proportion="-2.6842105" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/organization/view-attribute-type.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/organization/view-hash.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="54" selection-start="125" selection-end="125" vertical-scroll-proportion="-0.65384614">
-          <folding />
-        </state>
+        <state line="1" column="54" selection-start="125" selection-end="125" vertical-scroll-proportion="-0.65384614" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/organization/view.ajax.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="8" selection-start="763" selection-end="763" vertical-scroll-proportion="0.4506893">
-          <folding />
-        </state>
+        <state line="25" column="8" selection-start="763" selection-end="763" vertical-scroll-proportion="0.4506893" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/task/show-task-block.ajax.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/task/add.ajax.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/TM/Task/Hash.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-4.954858" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/organization/index.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="92" selection-start="448" selection-end="465" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/TM/Organization/Hash.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="295" column="86" selection-start="6147" selection-end="6147" vertical-scroll-proportion="0.025718609">
+          <folding>
+            <marker date="1331659673336" expanded="true" signature="9226:9396" placeholder="SELECT tm_or..tm_organization_hash..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/user/index.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="37" selection-start="37" selection-end="37" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="37" selection-start="37" selection-end="37" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/task/index.tpl">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="13" selection-start="0" selection-end="1649" vertical-scroll-proportion="-22.23077">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/organization/index.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="92" selection-start="448" selection-end="465" vertical-scroll-proportion="-2.0131578">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/TM/Task/Hash.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-4.954858">
-          <folding>
-            <marker date="1328024017173" expanded="true" signature="-1:-1" placeholder="SELECT tm_ta..tm_task_hash..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/TM/Organization/Hash.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="295" column="86" selection-start="6147" selection-end="6147" vertical-scroll-proportion="0.5984">
-          <folding>
-            <marker date="1331659673336" expanded="true" signature="9226:9396" placeholder="SELECT tm_or..tm_organization_hash..." />
-          </folding>
-        </state>
+        <state line="34" column="13" selection-start="0" selection-end="1649" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
   </component>
