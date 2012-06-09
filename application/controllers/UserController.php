@@ -12,7 +12,8 @@ class UserController extends Zend_Controller_Action
     public function indexAction()
     {
         $this->view->assign('userRoleList', TM_User_Role::getAllInstance());
-        $this->view->assign('userList', TM_User_User::getAllInstance());
+        $this->view->assign('userList', TM_User_User::getAllInstance(0));
+        $this->view->assign('userListClient', TM_User_User::getAllInstance(1));
     }
 
     public function viewattributetypeAction()
@@ -32,6 +33,9 @@ class UserController extends Zend_Controller_Action
 
     public function addAction()
     {
+        $oUser = new TM_User_User();
+        $oUser->setDateCreate(date('Y-m-d'));
+
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
 
@@ -40,12 +44,18 @@ class UserController extends Zend_Controller_Action
             $oUser->setDateCreate($data['date_create']);
             $oUser->setPassword($data['password']);
             $oUser->setRole(TM_User_Role::getInstanceById($data['role_id']));
+            $oUser->setIsClient($data['is_client']);
 
-            $oUser->insertToDb();
-            $this->_redirect('/user');
+            try {
+                $oUser->insertToDb();
+                $this->_redirect('/user');
+            } catch (Exception $e) {
+                $this->view->assign('exception_msg', $e->getMessage());
+            }
         }
 
         $this->view->assign('userRoleList', TM_User_Role::getAllInstance());
+        $this->view->assign('user', $oUser);
     }
 
     public function editAction()
@@ -61,13 +71,18 @@ class UserController extends Zend_Controller_Action
             $oUser->setDateCreate($data['date_create']);
             $oUser->setPassword($data['password']);
             $oUser->setRole(TM_User_Role::getInstanceById($data['role_id']));
+            $oUser->setIsClient($data['is_client']);
 
             foreach ($data['attribute'] as $key => $value) {
                 $oUser->setAttribute($key, $value);
             }
 
-            $oUser->updateToDb();
-            $this->_redirect('/user');
+            try {
+                $oUser->updateToDb();
+                $this->_redirect('/user');
+            } catch (Exception $e) {
+                $this->view->assign('exception_msg', $e->getMessage());
+            }
         }
 
         $this->view->assign('userRoleList', TM_User_Role::getAllInstance());

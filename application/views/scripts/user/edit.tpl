@@ -1,5 +1,9 @@
 <h1>Редактировать пользователя</h1>
 
+{if isset($exception_msg)}
+<div>Ошибка: {$exception_msg}</div><br/>
+{/if}
+
 <form action="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $user->id])}" method="post">
     <table>
         <tr>
@@ -20,6 +24,14 @@
             {foreach from=$userRoleList item=role}
                 <option value="{$role->id}" {if $user->role->id==$role->id}selected="selected"{/if}>{$role->rtitle}</option>
             {/foreach}
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="ttovar">Тип пользователя</td>
+            <td class="ttovar"><select name="data[is_client]">
+                <option value="0" {if $user->isClient==0}selected="selected"{/if}>Сотрудник</option>
+                <option value="1" {if $user->isClient==1}selected="selected"{/if}>Клиент</option>
             </select>
             </td>
         </tr>

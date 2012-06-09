@@ -7,6 +7,7 @@
     <meta name="author-corporate" content=""/>
     <meta name="publisher-email" content=""/>
 
+    <link rel="stylesheet" type="text/css" href="/js/gantt/dhtmlxgantt.css"/>
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css"/>
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui-timepicker-addon.css"/>
     <link rel="stylesheet" type="text/css" href="/css/main.css"/>
@@ -18,6 +19,10 @@
     <script type="text/javascript" language="javascript" src="/js/jquery-ui.timepicker.js"></script>
     <script type="text/javascript" language="javascript" src="/js/i18n/jquery.ui.timepicker-ru.js"></script>
     <script type="text/javascript" language="javascript" src="/js/jquery.form.js"></script>
+
+    <script type="text/javascript" language="JavaScript" src="/js/gantt/dhtmlxcommon.js"></script>
+    <script type="text/javascript" language="JavaScript" src="/js/gantt/dhtmlxgantt.js"></script>
+
     <script type="text/javascript" language="javascript" src="/js/menu.js"></script>
     <script type="text/javascript" language="javascript" src="/js/main.js"></script>
     <script type="text/javascript" language="javascript" src="/js/func.js"></script>
@@ -26,7 +31,7 @@
 
 </head>
 
-<body>
+<body onload="createChartControl('GanttDiv')">
 
 <div class="head">
     <div class="login">

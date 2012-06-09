@@ -23,12 +23,13 @@ function smarty_block_if_object_allowed($params, $content, &$smarty, &$repeat)
             //Инициируем роль
             $storage_data = Zend_Auth::getInstance()->getStorage()->read();
             $user = $storage_data->id;
-
-            if ($storage_data->role === 'admin') {
+//|| $storage_data->role === 'adminsystem'
+            if ($storage_data->role === 'admin' || $storage_data->role === 'adminsystem') {
                 return $content;
             }
 
             $class = 'TM_Acl_' . $params['type'] . 'Acl';
+
             if (class_exists($class)) {
 
                 $aclList = call_user_func($class . '::getAllInstance', $params['object']);
@@ -36,11 +37,11 @@ function smarty_block_if_object_allowed($params, $content, &$smarty, &$repeat)
                 if (empty($aclList)) {
                     return false;
                 } else {
+
                     $privilege = 'read';
                     if (isset($params['priv'])) {
                         $privilege = $params['priv'];
                     }
-
 
                     if (array_key_exists($user, $aclList)) {
                         if ($privilege == 'read' && $aclList[$user]->getIsRead()) {
@@ -48,8 +49,10 @@ function smarty_block_if_object_allowed($params, $content, &$smarty, &$repeat)
                         } elseif ($privilege == 'write' && $aclList[$user]->getIsWrite()) {
                             return $content;
                         } elseif ($privilege == 'executant' && $aclList[$user]->getIsExecutant()) {
+                            //throw new Exception('444');
                             return $content;
                         } else {
+                            //throw new Exception('555');
                             return false;
                         }
                     } else {

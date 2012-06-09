@@ -57,6 +57,11 @@ class TaskController extends Zend_Controller_Action
         $this->view->assign('attributeHashList', TM_Task_Hash::getAllInstance());
     }
 
+    public function showganttAction()
+    {
+        $this->view->assign('taskList', TM_Task_Task::getAllInstance($this->_user));
+    }
+
     public function addAction()
     {
         $oTask = new TM_Task_Task();
