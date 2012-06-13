@@ -5,39 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a46b928-ce36-4d2c-8e4a-e9e052a0178c" name="Default" comment="Служебный">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/files/Zakaz__aya/file_23-12-2011-12-14-53.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/files/Zakaz__aya/file_23-12-2011-12-16-36.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/~Documents/cl71252_tm_backup.sql" />
-      <change type="DELETED" beforePath="F:\www\tm\public_html\files\Billing\Maeial\Billing\file_21-01-2012-15-39-42.docx" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\tm\public_html\files\Billing\Maeial\Billing\file_21-01-2012-15-40-19.docx" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\tm\public_html\files\Billing\Poek_v_enopak\file_22-02-2012-10-43-21.doc" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\tm\public_html\files\Billing\Poek_v_enopak\file_22-02-2012-11-33-10.doc" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\tm\public_html\files\Ekonom_poeionalno\Bolaya_Beda\file_31-01-2012-11-42-45.jpg" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\tm\public_html\files\Ekonom_poeionalno\Bolaya_Beda\file_31-01-2012-11-42-57.jpg" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\tm\public_html\files\Ekonom_poeionalno\Dobavi_pole_poa\file_31-01-2012-12-57-23.jpg" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\tm\public_html\files\Ekonom_poeionalno\Kompanii__doljn_b_vidn_olko_v_voС‘m_goode_kome_mligoodki\file_30-01-2012-14-46-31.jpg" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\tm\public_html\files\Ekonom_poeionalno\Kompanii__doljn_b_vidn_olko_v_voС‘m_goode_kome_mligoodki\file_30-01-2012-14-46-40.jpg" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\tm\public_html\files\Ekonom_poeionalno\Koyaok__pedpmoom\file_02-02-2012-12-08-45.jpg" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\tm\public_html\files\Ekonom_poeionalno\Slka_na_oiginalny_ova\file_30-01-2012-14-45-42.jpg" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\tm\public_html\files\Ekonom_poeionalno\Umenenie_nazvaniy\file_30-01-2012-14-50-48.jpg" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\tm\public_html\files\Ekonom_poeionalno\Umenenie_nazvaniy\file_30-01-2012-14-50-52.jpg" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\tm\public_html\files\Kzbakiy_en_negobeejeniya\Razaboa_PO_aya\file_20-01-2012-15-10-32.doc" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\tm\public_html\files\Say_REK\Opianie_pogamm\file_16-02-2012-12-54-47.doc" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\tm\public_html\files\TaskDrive\Dizayn_ineeya\Ineey\file_21-01-2012-15-07-07.jpg" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\tm\public_html\files\TaskDrive\Dizayn_ineeya\Ineey\file_21-01-2012-15-07-28.jpg" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\tm\public_html\files\TaskDrive\Dizayn_ineeya\Ineey\file_21-01-2012-15-07-47.jpg" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\tm\public_html\files\TaskDrive\Dizayn_ineeya\Ineey\file_21-01-2012-15-08-03.jpg" afterPath="" />
-      <change type="DELETED" beforePath="F:\www\tm\public_html\files\Teniekoe_zadanie_dlya_aya_Sae_peei\Poek_zadaniya\file_27-01-2012-07-41-36.docx" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/4594d93f2de1856e96a864acb840e5913358fa2e.file.edit-folder.tpl.php" />
+      <change type="DELETED" beforePath="F:\www\tm\.settings\org.eclipse.core.resources.prefs" afterPath="" />
+      <change type="DELETED" beforePath="F:\www\tm\.settings\org.eclipse.php.core.prefs" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/DocumentController.php" afterPath="$PROJECT_DIR$/application/controllers/DocumentController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/task/gantt-block.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/task/gantt-block.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/task/show-gantt.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/task/show-gantt.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/Smarty/plugins/block.if_object_allowed.php" afterPath="$PROJECT_DIR$/library/Smarty/plugins/block.if_object_allowed.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/index.php" afterPath="$PROJECT_DIR$/public_html/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/gantt/dhtmlxcommon.js" afterPath="$PROJECT_DIR$/public_html/js/gantt/dhtmlxcommon.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/gantt/dhtmlxgantt.css" afterPath="$PROJECT_DIR$/public_html/js/gantt/dhtmlxgantt.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/gantt/dhtmlxgantt.js" afterPath="$PROJECT_DIR$/public_html/js/gantt/dhtmlxgantt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/585d38bf3619a7c446eb41d960008834815cae65.file.add.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/585d38bf3619a7c446eb41d960008834815cae65.file.add.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/TaskController.php" afterPath="$PROJECT_DIR$/application/controllers/TaskController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Discussion/Discussion.php" afterPath="$PROJECT_DIR$/application/models/TM/Discussion/Discussion.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Document/Document.php" afterPath="$PROJECT_DIR$/application/models/TM/Document/Document.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/task/add.ajax.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/task/add.ajax.tpl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/StdLib/DB.php" afterPath="$PROJECT_DIR$/library/StdLib/DB.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/StdLib/DB/Driver.php" afterPath="$PROJECT_DIR$/library/StdLib/DB/Driver.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/StdLib/DB/mysql_db_driver.php" afterPath="$PROJECT_DIR$/library/StdLib/DB/mysql_db_driver.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/StdLib/DB/mysqli_db_driver.php" afterPath="$PROJECT_DIR$/library/StdLib/DB/mysqli_db_driver.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/TM/FileManager/Folder.php" afterPath="$PROJECT_DIR$/library/TM/FileManager/Folder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/logs/syslog.txt" afterPath="$PROJECT_DIR$/runtime/logs/syslog.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/3e1740d9f649333853250a70df0abddad0f38dbc.file.add.ajax.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/3e1740d9f649333853250a70df0abddad0f38dbc.file.add.ajax.tpl.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/~Documents/cl71252_tm.sql" afterPath="$PROJECT_DIR$/~Documents/cl71252_tm.sql" />
     </list>
     <ignored path="tm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,7 +46,62 @@
     <favorites_list name="tm" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="Folder.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/library/TM/FileManager/Folder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="37" column="16" selection-start="874" selection-end="874" vertical-scroll-proportion="-20.26923">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TaskController.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/controllers/TaskController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="351" column="13" selection-start="14843" selection-end="14843" vertical-scroll-proportion="1.0708661">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DB.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/library/StdLib/DB.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="206" column="41" selection-start="5310" selection-end="5310" vertical-scroll-proportion="-21.5">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Driver.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/library/StdLib/DB/Driver.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="56" selection-start="503" selection-end="503" vertical-scroll-proportion="-14.384615">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mysql_db_driver.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/library/StdLib/DB/mysql_db_driver.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="92" column="37" selection-start="2646" selection-end="2646" vertical-scroll-proportion="-13.076923">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mysqli_db_driver.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/library/StdLib/DB/mysqli_db_driver.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="99" column="22" selection-start="2861" selection-end="2861" vertical-scroll-proportion="-15.461538">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -97,15 +135,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/application/models/TM/Organization/Department.php" />
-        <option value="$PROJECT_DIR$/application/controllers/OrganizationController.php" />
-        <option value="$PROJECT_DIR$/application/views/scripts/organization/add.ajax.tpl" />
-        <option value="$PROJECT_DIR$/application/views/scripts/organization/edit.ajax.tpl" />
-        <option value="$PROJECT_DIR$/application/views/scripts/organization/info.ajax.tpl" />
-        <option value="$PROJECT_DIR$/application/views/scripts/organization/view-hash.tpl" />
-        <option value="$PROJECT_DIR$/application/views/scripts/organization/view.ajax.tpl" />
-        <option value="$PROJECT_DIR$/application/views/scripts/user/index.tpl" />
-        <option value="$PROJECT_DIR$/application/views/scripts/organization/index.tpl" />
         <option value="$PROJECT_DIR$/application/models/TM/Organization/Hash.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/user/add.tpl" />
         <option value="$PROJECT_DIR$/application/controllers/UserController.php" />
@@ -113,6 +142,15 @@
         <option value="$PROJECT_DIR$/application/models/TM/User/User.php" />
         <option value="$PROJECT_DIR$/application/controllers/DocumentController.php" />
         <option value="$PROJECT_DIR$/application/models/TM/Document/Document.php" />
+        <option value="$PROJECT_DIR$/application/models/TM/Discussion/Discussion.php" />
+        <option value="$PROJECT_DIR$/application/models/TM/Activity/Notification.php" />
+        <option value="$PROJECT_DIR$/application/views/scripts/task/add.ajax.tpl" />
+        <option value="$PROJECT_DIR$/library/StdLib/DB/Driver.php" />
+        <option value="$PROJECT_DIR$/library/StdLib/DB.php" />
+        <option value="$PROJECT_DIR$/library/StdLib/DB/mysqli_db_driver.php" />
+        <option value="$PROJECT_DIR$/library/StdLib/DB/mysql_db_driver.php" />
+        <option value="$PROJECT_DIR$/library/TM/FileManager/Folder.php" />
+        <option value="$PROJECT_DIR$/application/controllers/TaskController.php" />
       </list>
     </option>
   </component>
@@ -180,6 +218,16 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -208,7 +256,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="runtime" />
+              <option name="myItemId" value="~Documents" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -223,10 +271,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="runtime" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="logs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -275,6 +319,32 @@
               <option name="myItemId" value="library" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FileManager" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -291,6 +361,42 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="StdLib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="library" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StdLib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DB" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="library" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -624,6 +730,58 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Discussion" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Activity" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="layouts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -666,16 +824,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="configs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -811,6 +959,13 @@
       </JSRemoteDebuggerConfigurationSettings>
       <method />
     </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" value="firefox" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
     <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server" server_id="60c178d7-55bc-4b3a-a403-0ae1cb4e2bd1" server_name="watson.timeweb.ru">
       <method>
         <option name="FtpUpload" enabled="false">
@@ -819,13 +974,6 @@
         </option>
         <option name="PhingTarget" enabled="false" />
       </method>
-    </configuration>
-    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
-      <JSDebuggerConfigurationSettings>
-        <option name="engineId" value="firefox" />
-        <option name="fileUrl" />
-      </JSDebuggerConfigurationSettings>
-      <method />
     </configuration>
     <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
       <option name="VM_PARAMETERS" value="" />
@@ -923,19 +1071,19 @@
     <frame x="-8" y="-8" width="1936" height="1176" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14107485" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32958803" sideWeight="0.6701621" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32917467" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854405" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.36004272" sideWeight="0.32662836" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34631804" sideWeight="0.67082536" order="0" side_tool="false" content_ui="combo" x="20" y="68" width="485" height="1049" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.35005337" sideWeight="0.67082536" order="0" side_tool="false" content_ui="combo" x="20" y="68" width="485" height="1049" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3256705" sideWeight="0.5032467" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983795" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3253359" sideWeight="0.49107143" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32983795" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14107485" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Phing Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995194" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1041,74 +1189,9 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/task/show-task-block.ajax.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/task/add.ajax.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/TM/Task/Hash.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-4.954858" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/organization/index.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="92" selection-start="448" selection-end="465" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/task/index.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="13" selection-start="0" selection-end="1649" vertical-scroll-proportion="0.026771653" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/TM/Organization/Hash.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="295" column="86" selection-start="6147" selection-end="6147" vertical-scroll-proportion="0.025718609" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/user/index.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="37" selection-start="37" selection-end="37" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/document/add.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="17" selection-start="932" selection-end="932" vertical-scroll-proportion="-13.076923" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/TM/Task/Task.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="421" column="27" selection-start="9892" selection-end="9892" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="0" selection-start="2631" selection-end="2631" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/user/add.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="13" selection-start="1073" selection-end="1073" vertical-scroll-proportion="-18.307692" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/user/edit.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="13" selection-start="1151" selection-end="1151" vertical-scroll-proportion="-18.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/TM/User/User.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="136" column="9" selection-start="2638" selection-end="2638" vertical-scroll-proportion="0.7514586" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/library/TM/FileManager/Folder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="20" selection-start="841" selection-end="841" vertical-scroll-proportion="0.6873563" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/DocumentController.php">
@@ -1116,9 +1199,95 @@
         <state line="255" column="50" selection-start="10020" selection-end="10020" vertical-scroll-proportion="0.9515885" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/runtime/logs/syslog.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_7.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="535" column="9" selection-start="15962" selection-end="15962" vertical-scroll-proportion="0.5853081">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/TM/Activity/Notification.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="17" selection-start="2259" selection-end="2259" vertical-scroll-proportion="0.7914692">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/TM/Discussion/Discussion.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="369" column="19" selection-start="6404" selection-end="6404" vertical-scroll-proportion="-19.115385">
+          <folding>
+            <marker date="1339595220732" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..tm_discussion..." />
+            <marker date="1339595220732" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..tm_discussion..." />
+            <marker date="1339595220732" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..tm_discussion..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/TM/FileManager/Folder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="37" column="16" selection-start="874" selection-end="874" vertical-scroll-proportion="-20.26923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/StdLib/DB/mysql_db_driver.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="37" selection-start="2646" selection-end="2646" vertical-scroll-proportion="-13.076923">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/TM/Document/Document.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="345" column="35" selection-start="7858" selection-end="7858" vertical-scroll-proportion="0.8575668" />
+        <state line="271" column="55" selection-start="5148" selection-end="5148" vertical-scroll-proportion="0.3956044">
+          <folding>
+            <marker date="1339595115517" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..tm_document..." />
+            <marker date="1339595115517" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..tm_document..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/task/add.ajax.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="59" selection-start="2743" selection-end="2743" vertical-scroll-proportion="0.5090253">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/StdLib/DB/mysqli_db_driver.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="99" column="22" selection-start="2861" selection-end="2861" vertical-scroll-proportion="-15.461538">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/StdLib/DB/Driver.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="56" selection-start="503" selection-end="503" vertical-scroll-proportion="-14.384615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/library/StdLib/DB.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="206" column="41" selection-start="5310" selection-end="5310" vertical-scroll-proportion="-21.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/TaskController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="351" column="13" selection-start="14843" selection-end="14843" vertical-scroll-proportion="1.0708661">
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

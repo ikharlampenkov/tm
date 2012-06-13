@@ -348,7 +348,7 @@ class TM_Discussion_Discussion
         if (is_null($value) || empty($value)) {
             return 'NULL';
         } else {
-            return $value;
+            return $value->id;
         }
 
     }
@@ -362,7 +362,7 @@ class TM_Discussion_Discussion
     public function __construct()
     {
         $this->_db = StdLib_DB::getInstance();
-    } // end of member function __construct
+    }
 
     /**
      *
@@ -376,8 +376,8 @@ class TM_Discussion_Discussion
             $sql = 'INSERT INTO tm_discussion(message, user_id, date_create, is_first, is_message, topic_id, parent_id, to_user_id, is_request, is_complete)
                     VALUES ("' . $this->_message . '", ' . $this->_user->getId() . ', "' . $this->_dateCreate . '", 
                              ' . $this->_prepareBool($this->_isFirst) . ', ' . $this->_prepareBool($this->_isMessage) . ',
-                             ' . $this->_prepareNull($this->_topic->id) . ', ' . $this->_prepareNull($this->_parent->id) . ',
-                             ' . $this->_prepareNull($this->_toUser->id) . ', ' . $this->_prepareBool($this->_isRequest) . ', ' . $this->_prepareBool($this->_isComplete) . ')';
+                             ' . $this->_prepareNull($this->_topic) . ', ' . $this->_prepareNull($this->_parent) . ',
+                             ' . $this->_prepareNull($this->_toUser) . ', ' . $this->_prepareBool($this->_isRequest) . ', ' . $this->_prepareBool($this->_isComplete) . ')';
             $this->_db->query($sql);
 
             $this->_id = $this->_db->getLastInsertId();
@@ -401,8 +401,8 @@ class TM_Discussion_Discussion
             $sql = 'UPDATE tm_discussion
                     SET message="' . $this->_message . '", user_id="' . $this->_user->getId() . '", date_create="' . $this->_dateCreate . '",
                         is_first=' . $this->_prepareBool($this->_isFirst) . ', is_message=' . $this->_prepareBool($this->_isMessage) . ',
-                        topic_id=' . $this->_prepareNull($this->_topic->id) . ', parent_id=' . $this->_prepareNull($this->_parent->id) . ',
-                        to_user_id=' . $this->_prepareNull($this->_toUser->id) . ', is_request=' . $this->_prepareBool($this->_isRequest) . ',
+                        topic_id=' . $this->_prepareNull($this->_topic) . ', parent_id=' . $this->_prepareNull($this->_parent) . ',
+                        to_user_id=' . $this->_prepareNull($this->_toUser) . ', is_request=' . $this->_prepareBool($this->_isRequest) . ',
                         is_complete=' . $this->_prepareBool($this->_isComplete) . '
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
