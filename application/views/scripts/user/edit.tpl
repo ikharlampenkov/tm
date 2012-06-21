@@ -1,5 +1,9 @@
 <h1>Редактировать пользователя</h1>
 
+{if isset($exception_msg)}
+<div>Ошибка: {$exception_msg}</div><br/>
+{/if}
+
 <form action="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $user->id])}" method="post">
     <table>
         <tr>

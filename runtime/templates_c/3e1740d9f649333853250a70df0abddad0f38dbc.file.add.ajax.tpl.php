@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2011-12-26 22:47:02
+<?php /* Smarty version Smarty-3.0.9, created on 2012-06-13 21:41:54
          compiled from "F:\www\tm\application/views/scripts\task/add.ajax.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:216074ef896f6d14582-48993406%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:252134fd8a6b2ab7175-30238580%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '3e1740d9f649333853250a70df0abddad0f38dbc' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\task/add.ajax.tpl',
-      1 => 1324645375,
+      1 => 1339598511,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '216074ef896f6d14582-48993406',
+  'nocache_hash' => '252134fd8a6b2ab7175-30238580',
   'function' => 
   array (
   ),
@@ -121,14 +121,15 @@ if ($_smarty_tpl->_count($_from) > 0){
             <td class="ttovar"><input type="checkbox" name="dataacl[<?php echo $_smarty_tpl->getVariable('user')->value->id;?>
 ][is_read]" <?php ob_start();?><?php echo $_smarty_tpl->getVariable('user')->value->id;?>
 <?php $_tmp1=ob_get_clean();?><?php if (isset($_smarty_tpl->getVariable('taskAcl',null,true,false)->value[$_tmp1])){?><?php ob_start();?><?php echo $_smarty_tpl->getVariable('user')->value->id;?>
-<?php $_tmp2=ob_get_clean();?><?php if ($_smarty_tpl->getVariable('taskAcl')->value[$_tmp2]->isRead){?>checked="checked"<?php }?><?php }else{ ?>checked="checked"<?php }?> /></td>
+<?php $_tmp2=ob_get_clean();?><?php if ($_smarty_tpl->getVariable('taskAcl')->value[$_tmp2]->isRead){?>checked="checked"<?php }?><?php }?> /></td>
             <td class="ttovar"><input type="checkbox" name="dataacl[<?php echo $_smarty_tpl->getVariable('user')->value->id;?>
 ][is_write]" <?php ob_start();?><?php echo $_smarty_tpl->getVariable('user')->value->id;?>
 <?php $_tmp3=ob_get_clean();?><?php if (isset($_smarty_tpl->getVariable('taskAcl',null,true,false)->value[$_tmp3])){?><?php ob_start();?><?php echo $_smarty_tpl->getVariable('user')->value->id;?>
-<?php $_tmp4=ob_get_clean();?><?php if ($_smarty_tpl->getVariable('taskAcl')->value[$_tmp4]->isWrite){?>checked="checked"<?php }?><?php }else{ ?>checked="checked"<?php }?> /></td>
+<?php $_tmp4=ob_get_clean();?><?php if ($_smarty_tpl->getVariable('taskAcl')->value[$_tmp4]->isWrite){?>checked="checked"<?php }?><?php }?> /></td>
             <td class="ttovar"><input type="checkbox" name="dataacl[<?php echo $_smarty_tpl->getVariable('user')->value->id;?>
 ][is_executant]" /></td>
-            <td class="ttovar"></td>
+            <td class="ttovar"><input type="hidden" name="dataacl[<?php echo $_smarty_tpl->getVariable('user')->value->id;?>
+][fake]" /></td>
         </tr>
     <?php }} ?>
 <?php }?>

@@ -1,6 +1,7 @@
 <?php
 
-class StdLib_DB {
+class StdLib_DB
+{
     const QUERY_MODE_NUM = 1;
     const QUERY_MOD_ASSOC = 2;
     const QUERY_MOD_OBJECT = 3;
@@ -27,7 +28,8 @@ class StdLib_DB {
      * @static
      * @return StdLib_DB
      */
-    static function getInstance() {
+    static function getInstance()
+    {
         if (is_null(self::$_instance)) {
             $class = __CLASS__;
             self::$_instance = new $class();
@@ -35,7 +37,8 @@ class StdLib_DB {
         return self::$_instance;
     }
 
-    public function connect($dsn='') {
+    public function connect($dsn = '')
+    {
 
         if (empty($dsn)) {
             $dsn = Zend_Registry::get('production')->db->dsn;
@@ -70,7 +73,8 @@ class StdLib_DB {
      * @param int $mode 1-циф 2-ассоц 3-объект
      * @return array
      */
-    public function query($query, $mode = StdLib_DB::QUERY_MODE_NUM) {
+    public function query($query, $mode = StdLib_DB::QUERY_MODE_NUM)
+    {
         try {
             if (!$this->_conn) {
                 $this->connect();
@@ -89,7 +93,8 @@ class StdLib_DB {
         }
     }
 
-    public function prepareString($string) {
+    public function prepareString($string)
+    {
         try {
             if (!$this->_conn) {
                 $this->connect();
@@ -104,7 +109,8 @@ class StdLib_DB {
         }
     }
 
-    public function prepareArray($data) {
+    public function prepareArray($data)
+    {
         foreach ($data as $key => $value) {
             if (!is_array($value)) {
                 $data[$key] = self::prepareString($value);
@@ -115,12 +121,14 @@ class StdLib_DB {
         return $data;
     }
 
-    public function prepareStringToOut($string) {
+    public function prepareStringToOut($string)
+    {
         //echo preg_replace("(\\+)", '\"', $string);
         return str_replace('"', '&quot;', stripslashes(stripcslashes($string))); // stripslashes($string); //str_replace('"', '&quot;', preg_replace("(\\+\")", '\"', $string)); //str_replace('\\', '', $string)
     }
 
-    public function getNextID($table, $idname = 'id') {
+    public function getNextID($table, $idname = 'id')
+    {
         try {
             if (!$this->_conn) {
                 $this->connect();
@@ -132,7 +140,8 @@ class StdLib_DB {
         }
     }
 
-    public function getLastInsertID() {
+    public function getLastInsertID()
+    {
         try {
             if (!$this->_conn) {
                 $this->connect();
@@ -144,7 +153,8 @@ class StdLib_DB {
         }
     }
 
-    public function setCharset($charset) {
+    public function setCharset($charset)
+    {
         try {
             if (!$this->_conn) {
                 $this->connect();
@@ -156,7 +166,8 @@ class StdLib_DB {
         }
     }
 
-    public function setDB($dbname) {
+    public function setDB($dbname)
+    {
         try {
             if (!$this->_conn) {
                 $this->connect();
@@ -168,24 +179,65 @@ class StdLib_DB {
         }
     }
 
-    private function __construct() {
+    public function startTransaction()
+    {
+        try {
+            if (!$this->_conn) {
+                $this->connect();
+            }
+            $this->_driver->startTransaction();
+        } catch (StdLib_Exception $s_e) {
+            throw new Exception('Can`t start transaction.' . $s_e->getMessage());
+        }
 
     }
 
-    private function _prepareDSN($dsn) {
+    public function commitTransaction()
+    {
+        try {
+            if (!$this->_conn) {
+                $this->connect();
+            }
+            $this->_driver->commitTransaction();
+        } catch (StdLib_Exception $s_e) {
+            throw new Exception('Can`t commit transaction.' . $s_e->getMessage());
+        }
+    }
+
+    public function rollbackTransaction()
+    {
+        try {
+            if (!$this->_conn) {
+                $this->connect();
+            }
+            $this->_driver->rollbackTransaction();
+        } catch (StdLib_Exception $s_e) {
+            throw new Exception('Can`t rollback transaction.' . $s_e->getMessage());
+        }
+
+    }
+
+    private function __construct()
+    {
+
+    }
+
+    private function _prepareDSN($dsn)
+    {
         $result = parse_url($dsn);
         $this->_dsn['scheme'] = $result['scheme'];
         $this->_dsn['host'] = $result['host'];
         $this->_dsn['user'] = $result['user'];
         $this->_dsn['password'] = $result['pass'];
         $this->_dsn['db'] = str_replace('/', '', $result['path']);
-        
+
         if (!empty($result['port'])) {
             $this->_dsn['host'] .= ':' . $result['port'];
         }
     }
 
-    private function _loadDriver() {
+    private function _loadDriver()
+    {
 
         $module_name = $this->_dsn['scheme'] . '_db_driver';
 

@@ -119,12 +119,16 @@ class TM_User_User
     /**
      *
      *
+     * @throws Exception
      * @return void
      * @access public
      */
     public function insertToDb()
     {
         try {
+            if (TM_User_User::checkLogin($this->_login)) {
+                throw new Exception('Пользователь с таким логином существует');
+            }
             $sql = 'INSERT INTO tm_user(login, password, role_id, date_create, is_client)
                     VALUES ("' . $this->_login . '", "' . $this->_password . '", ' . $this->_role->getId() . ', "' . $this->_dateCreate . '", ' . $this->_isClient . ')';
             $this->_db->query($sql);
@@ -223,12 +227,31 @@ class TM_User_User
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getInstanceById
+    }
+
+    public static function checkLogin($login)
+    {
+        try {
+            $db = StdLib_DB::getInstance();
+            $sql = 'SELECT COUNT(id) AS cnt FROM tm_user WHERE login="' . $login . '"';
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+
+            if (isset($result[0]['cnt']) && $result[0]['cnt'] > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+
+    }
 
     /**
      *
      *
-     * @param array values
+     * @param array $values
+     * @throws Exception
      * @return TM_User_User
      * @static
      * @access public

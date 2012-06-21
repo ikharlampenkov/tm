@@ -164,7 +164,7 @@ class TM_Document_Document
     {
         $value = $this->_db->prepareString($value);
         $this->_dateCreate = date("Y-m-d H:i:s", strtotime($value));
-    } // end of member function setDateCreate
+    }
 
     public function setIsFolder($isFolder)
     {
@@ -211,7 +211,7 @@ class TM_Document_Document
     public function getParent()
     {
         return $this->_parentDocument;
-    } // end of member function getParent
+    }
 
     /**
      *
@@ -223,14 +223,14 @@ class TM_Document_Document
     public function setParent(TM_Document_Document $parent)
     {
         $this->_parentDocument = $parent;
-    } // end of member function addParent
+    }
 
     protected function _prepareNull($value)
     {
         if (is_null($value) || empty($value)) {
             return 'NULL';
         } else {
-            return $value;
+            return $value->id;
         }
 
     }
@@ -266,7 +266,7 @@ class TM_Document_Document
         try {
             $sql = 'INSERT INTO tm_document(title, user_id, date_create, file, is_folder, parent_id)
                     VALUES ("' . $this->_title . '", ' . $this->_user->getId() . ', "' . $this->_dateCreate . '", "",
-                             ' . $this->_prepareBool($this->_isFolder) . ', ' . $this->_prepareNull($this->_parentDocument->id) . ')';
+                             ' . $this->_prepareBool($this->_isFolder) . ', ' . $this->_prepareNull($this->_parentDocument) . ')';
             $this->_db->query($sql);
 
             $this->_id = $this->_db->getLastInsertId();
@@ -306,7 +306,7 @@ class TM_Document_Document
         try {
             $sql = 'UPDATE tm_document
                     SET title="' . $this->_title . '", user_id="' . $this->_user->getId() . '", date_create="' . $this->_dateCreate . '",
-                        is_folder=' . $this->_prepareBool($this->_isFolder) . ', parent_id=' . $this->_prepareNull($this->_parentDocument->id) . '
+                        is_folder=' . $this->_prepareBool($this->_isFolder) . ', parent_id=' . $this->_prepareNull($this->_parentDocument) . '
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
 
@@ -338,6 +338,11 @@ class TM_Document_Document
                 $this->_file->setSubPath($this->_parentDocument->getFile()->getName());
             }
             */
+            $docList = TM_Document_Document::getAllInstance($this->_user, $this->_id);
+            foreach ($docList as $doc) {
+                $doc->deleteFromDb();
+            }
+
             $this->_file->delete();
 
             $sql = 'DELETE FROM tm_document

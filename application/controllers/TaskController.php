@@ -88,7 +88,8 @@ class TaskController extends Zend_Controller_Action
                 $oTask->setAttribute($key, $value);
             }
 
-
+            $db = StdLib_DB::getInstance();
+            $db->startTransaction();
             try {
                 $oTask->insertToDb();
 
@@ -208,12 +209,14 @@ class TaskController extends Zend_Controller_Action
                     $oTask->getFirstParent()->reCalculateState();
                 }
 
+                $db->commitTransaction();
                 if ($this->_request->isXmlHttpRequest()) {
                     exit;
                 } else {
                     $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
                 }
             } catch (Exception $e) {
+                $db->rollbackTransaction();
                 $this->view->assign('exception_msg', $e->getMessage());
             }
 
@@ -263,7 +266,8 @@ class TaskController extends Zend_Controller_Action
                 $oDocument->setLinkToTask($oTask);
             }
 
-
+            $db = StdLib_DB::getInstance();
+            $db->startTransaction();
             try {
                 $oTask->updateToDb();
 
@@ -336,12 +340,14 @@ class TaskController extends Zend_Controller_Action
                     $oTask->getFirstParent()->reCalculateState();
                 }
 
+                $db->commitTransaction();
                 if ($this->_request->isXmlHttpRequest()) {
                     exit;
                 } else {
                     $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
                 }
             } catch (Exception $e) {
+                $db->rollbackTransaction();
                 $this->view->assign('exception_msg', $e->getMessage());
             }
 

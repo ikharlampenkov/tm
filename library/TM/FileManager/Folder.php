@@ -10,6 +10,10 @@
 class TM_FileManager_Folder extends TM_FileManager_File
 {
 
+    /**
+     * @param string $path
+     * @param string $name
+     */
     public function __construct($path, $name = '')
     {
         $this->_path = $path;
@@ -17,29 +21,30 @@ class TM_FileManager_Folder extends TM_FileManager_File
     }
 
     /**
-     *
-     *
-     * @param string $name
-
+     * @param string $name - название папки
      * @return string
-     * @access public
+     * @throws Exception
      */
     public function download($name)
     {
         $this->_name = $name;
+
+        if (file_exists($this->_path . $this->_subPath . '/' . $this->_name)) {
+            return $this->_name;
+        }
         $result = mkdir($this->_path . $this->_subPath . '/' . $this->_name, 0766);
         if ($result) {
             return $this->_name;
         } else {
-            throw new Exception('Can not upload file');
+            throw new Exception('Can not create folder');
         }
     }
 
     /**
      *
      *
+     * @throws Exception
      * @return void
-     * @access public
      */
     public function delete() {
         if (!empty($this->_name) && file_exists($this->_path . $this->_subPath . '/' . $this->_name)) {

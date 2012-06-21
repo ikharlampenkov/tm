@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2012-03-13 22:08:31
+<?php /* Smarty version Smarty-3.0.9, created on 2012-05-28 20:03:57
          compiled from "F:\www\tm\application/layouts/scripts\layout.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:73484f5f62ef702373-37107412%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:245274fc377bd9887a3-37978781%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a25500e79cea030075e390e1f8ff3a74600c16de' => 
     array (
       0 => 'F:\\www\\tm\\application/layouts/scripts\\layout.tpl',
-      1 => 1331651308,
+      1 => 1338209822,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '73484f5f62ef702373-37107412',
+  'nocache_hash' => '245274fc377bd9887a3-37978781',
   'function' => 
   array (
   ),
@@ -29,6 +29,7 @@ $_smarty_tpl->decodeProperties(array (
     <meta name="author-corporate" content=""/>
     <meta name="publisher-email" content=""/>
 
+    <link rel="stylesheet" type="text/css" href="/js/gantt/dhtmlxgantt.css"/>
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css"/>
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui-timepicker-addon.css"/>
     <link rel="stylesheet" type="text/css" href="/css/main.css"/>
@@ -40,6 +41,10 @@ $_smarty_tpl->decodeProperties(array (
     <script type="text/javascript" language="javascript" src="/js/jquery-ui.timepicker.js"></script>
     <script type="text/javascript" language="javascript" src="/js/i18n/jquery.ui.timepicker-ru.js"></script>
     <script type="text/javascript" language="javascript" src="/js/jquery.form.js"></script>
+
+    <script type="text/javascript" language="JavaScript" src="/js/gantt/dhtmlxcommon.js"></script>
+    <script type="text/javascript" language="JavaScript" src="/js/gantt/dhtmlxgantt.js"></script>
+
     <script type="text/javascript" language="javascript" src="/js/menu.js"></script>
     <script type="text/javascript" language="javascript" src="/js/main.js"></script>
     <script type="text/javascript" language="javascript" src="/js/func.js"></script>
@@ -49,7 +54,7 @@ $_smarty_tpl->decodeProperties(array (
 
 </head>
 
-<body>
+<body onload="createChartControl('GanttDiv')">
 
 <div class="head">
     <div class="login">

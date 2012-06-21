@@ -24,6 +24,7 @@ $application = new Zend_Application(
 );
 
 //ini_set('error_reporting', E_ALL);
+ini_set('memory_limit', '128M');
 
 setlocale(LC_TIME, 'ru_RU.utf-8', 'rus_RUS.utf-8', 'Russian_Russia.utf-8');
 
