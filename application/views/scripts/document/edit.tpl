@@ -4,7 +4,7 @@
 <div>Ошибка: {$exception_msg}</div><br/>
 {/if}
 
-<form action="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $document->id])}" method="post">
+<form action="{$this->url(['controller' => $controller,'action' => 'edit', 'id' => $document->id])}" method="post" enctype="multipart/form-data">
     <table width="100%">
         <tr>
             <td class="ttovar_title">Название</td>

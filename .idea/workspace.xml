@@ -3,60 +3,8 @@
   <component name="ChangeListManager">
     <list id="208ba09b-a62b-410e-864b-4a7f61a529f8" name="Default" comment="" />
     <list default="true" id="1e15cf3c-e4a0-4479-b6be-8d8a44301a05" name="New changelist" comment="Диаграмма Ганта, рабочая">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/~Documents/Беспокойство вызывает проблема защиты информации.docx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/files/Zakaz__aya/file_23-12-2011-12-14-53.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public_html/files/Zakaz__aya/file_23-12-2011-12-16-36.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/4594d93f2de1856e96a864acb840e5913358fa2e.file.edit-folder.tpl.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/runtime/templates_c/585d38bf3619a7c446eb41d960008834815cae65.file.add.tpl.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/~Documents/cl71252_tm_backup.sql" />
-      <change type="DELETED" beforePath="E:\www\tm\.settings\org.eclipse.core.resources.prefs" afterPath="" />
-      <change type="DELETED" beforePath="E:\www\tm\.settings\org.eclipse.php.core.prefs" afterPath="" />
-      <change type="DELETED" beforePath="E:\www\tm\public_html\files\Billing\Maeial\Billing\file_21-01-2012-15-39-42.docx" afterPath="" />
-      <change type="DELETED" beforePath="E:\www\tm\public_html\files\Billing\Maeial\Billing\file_21-01-2012-15-40-19.docx" afterPath="" />
-      <change type="DELETED" beforePath="E:\www\tm\public_html\files\Billing\Poek_v_enopak\file_22-02-2012-10-43-21.doc" afterPath="" />
-      <change type="DELETED" beforePath="E:\www\tm\public_html\files\Billing\Poek_v_enopak\file_22-02-2012-11-33-10.doc" afterPath="" />
-      <change type="DELETED" beforePath="E:\www\tm\public_html\files\Ekonom_poeionalno\Bolaya_Beda\file_31-01-2012-11-42-45.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\www\tm\public_html\files\Ekonom_poeionalno\Bolaya_Beda\file_31-01-2012-11-42-57.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\www\tm\public_html\files\Ekonom_poeionalno\Dobavi_pole_poa\file_31-01-2012-12-57-23.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\www\tm\public_html\files\Ekonom_poeionalno\Koyaok__pedpmoom\file_02-02-2012-12-08-45.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\www\tm\public_html\files\Ekonom_poeionalno\Slka_na_oiginalny_ova\file_30-01-2012-14-45-42.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\www\tm\public_html\files\Ekonom_poeionalno\Umenenie_nazvaniy\file_30-01-2012-14-50-48.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\www\tm\public_html\files\Ekonom_poeionalno\Umenenie_nazvaniy\file_30-01-2012-14-50-52.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\www\tm\public_html\files\Kzbakiy_en_negobeejeniya\Razaboa_PO_aya\file_20-01-2012-15-10-32.doc" afterPath="" />
-      <change type="DELETED" beforePath="E:\www\tm\public_html\files\Say_REK\Opianie_pogamm\file_16-02-2012-12-54-47.doc" afterPath="" />
-      <change type="DELETED" beforePath="E:\www\tm\public_html\files\TaskDrive\Dizayn_ineeya\Ineey\file_21-01-2012-15-07-07.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\www\tm\public_html\files\TaskDrive\Dizayn_ineeya\Ineey\file_21-01-2012-15-07-28.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\www\tm\public_html\files\TaskDrive\Dizayn_ineeya\Ineey\file_21-01-2012-15-07-47.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\www\tm\public_html\files\TaskDrive\Dizayn_ineeya\Ineey\file_21-01-2012-15-08-03.jpg" afterPath="" />
-      <change type="DELETED" beforePath="E:\www\tm\public_html\files\Teniekoe_zadanie_dlya_aya_Sae_peei\Poek_zadaniya\file_27-01-2012-07-41-36.docx" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/DocumentController.php" afterPath="$PROJECT_DIR$/application/controllers/DocumentController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/TaskController.php" afterPath="$PROJECT_DIR$/application/controllers/TaskController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/UserController.php" afterPath="$PROJECT_DIR$/application/controllers/UserController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Discussion/Discussion.php" afterPath="$PROJECT_DIR$/application/models/TM/Discussion/Discussion.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/Document/Document.php" afterPath="$PROJECT_DIR$/application/models/TM/Document/Document.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/TM/User/User.php" afterPath="$PROJECT_DIR$/application/models/TM/User/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/task/add.ajax.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/task/add.ajax.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/task/gantt-block.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/task/gantt-block.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/task/show-gantt.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/task/show-gantt.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/user/add.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/user/add.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/user/edit.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/user/edit.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/Smarty/plugins/block.if_object_allowed.php" afterPath="$PROJECT_DIR$/library/Smarty/plugins/block.if_object_allowed.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/StdLib/DB.php" afterPath="$PROJECT_DIR$/library/StdLib/DB.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/StdLib/DB/Driver.php" afterPath="$PROJECT_DIR$/library/StdLib/DB/Driver.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/StdLib/DB/mysql_db_driver.php" afterPath="$PROJECT_DIR$/library/StdLib/DB/mysql_db_driver.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/StdLib/DB/mysqli_db_driver.php" afterPath="$PROJECT_DIR$/library/StdLib/DB/mysqli_db_driver.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/library/TM/FileManager/Folder.php" afterPath="$PROJECT_DIR$/library/TM/FileManager/Folder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/index.php" afterPath="$PROJECT_DIR$/public_html/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/gantt/dhtmlxcommon.js" afterPath="$PROJECT_DIR$/public_html/js/gantt/dhtmlxcommon.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/gantt/dhtmlxgantt.css" afterPath="$PROJECT_DIR$/public_html/js/gantt/dhtmlxgantt.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public_html/js/gantt/dhtmlxgantt.js" afterPath="$PROJECT_DIR$/public_html/js/gantt/dhtmlxgantt.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/logs/syslog.txt" afterPath="$PROJECT_DIR$/runtime/logs/syslog.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/3e1740d9f649333853250a70df0abddad0f38dbc.file.add.ajax.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/3e1740d9f649333853250a70df0abddad0f38dbc.file.add.ajax.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/a25500e79cea030075e390e1f8ff3a74600c16de.file.layout.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/a25500e79cea030075e390e1f8ff3a74600c16de.file.layout.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/adce21d5e4bd44928444e8e78142d735bf514e9d.file.index.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/adce21d5e4bd44928444e8e78142d735bf514e9d.file.index.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/runtime/templates_c/beb79dd40dcd398ad1e9c74e1cde3178471f73b3.file.index.tpl.php" afterPath="$PROJECT_DIR$/runtime/templates_c/beb79dd40dcd398ad1e9c74e1cde3178471f73b3.file.index.tpl.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/~Documents/cl71252_tm.sql" afterPath="$PROJECT_DIR$/~Documents/cl71252_tm.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/document/edit.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/document/edit.tpl" />
     </list>
     <ignored path="tm.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -101,7 +49,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public_html/css/main.css" />
         <option value="$PROJECT_DIR$/application/views/scripts/user/show-user-acl.tpl" />
         <option value="$PROJECT_DIR$/application/views/scripts/user/show-user-acl-block.ajax.tpl" />
         <option value="$PROJECT_DIR$/application/models/TM/User/User.php" />
@@ -117,6 +64,7 @@
         <option value="$PROJECT_DIR$/application/views/scripts/task/show-gantt.tpl" />
         <option value="$PROJECT_DIR$/application/views/scripts/task/index.tpl" />
         <option value="$PROJECT_DIR$/application/controllers/DocumentController.php" />
+        <option value="$PROJECT_DIR$/application/views/scripts/document/edit.tpl" />
       </list>
     </option>
   </component>
@@ -293,7 +241,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="task" />
+              <option name="myItemId" value="document" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -377,6 +325,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TM" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Document" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="layouts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -411,15 +385,15 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="options.lastSelected" value="web.server" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="last.edited.regexp" value="\\\\\\\\\&quot;" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
   </component>
   <component name="PublishConfig" serverName="invoicegroup.ru" serverId="c2aa5c06-8e27-4038-b349-f6cd5308a264">
     <servers>
@@ -549,22 +523,22 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1928" height="1044" extended-state="7" />
+    <frame x="-4" y="-4" width="1928" height="1044" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15384616" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32804233" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3277592" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2626802" sideWeight="0.26327434" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23159018" sideWeight="0.8455027" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23425826" sideWeight="0.6722408" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.0" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15449736" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Phing Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995194" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -672,21 +646,6 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/models/TM/User/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="20" selection-start="1526" selection-end="1526" vertical-scroll-proportion="0.18775511" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="24" selection-start="1491" selection-end="1491" vertical-scroll-proportion="0.5782313" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/TM/Activity/ActivityLogger.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/Bootstrap.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.99199086" />
@@ -739,21 +698,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/TaskController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="6" selection-start="66" selection-end="68" vertical-scroll-proportion="224.94118">
-          <folding />
-        </state>
+        <state line="5" column="6" selection-start="66" selection-end="68" vertical-scroll-proportion="224.94118" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/TM/Task/Task.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1007" column="80" selection-start="28084" selection-end="28087" vertical-scroll-proportion="-5.6666665">
-          <folding />
+        <state line="1007" column="80" selection-start="28084" selection-end="28087" vertical-scroll-proportion="-5.6666665" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/TM/Document/Document.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="307" column="77" selection-start="6390" selection-end="6390" vertical-scroll-proportion="-11.115385">
+          <folding>
+            <marker date="1340251651181" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..tm_document..." />
+            <marker date="1340251651181" expanded="true" signature="-1:-1" placeholder="SELECT * FRO..tm_document..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/DocumentController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="386" column="30" selection-start="14596" selection-end="14596" vertical-scroll-proportion="0.39972338">
+        <state line="105" column="17" selection-start="3870" selection-end="3870" vertical-scroll-proportion="-16.038462">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/document/add.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="120" selection-start="223" selection-end="252" vertical-scroll-proportion="0.1440678">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/document/edit.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="21" selection-start="983" selection-end="983" vertical-scroll-proportion="0.5136691">
           <folding />
         </state>
       </provider>
