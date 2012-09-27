@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="/js/gantt/dhtmlxgantt.css"/>
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css"/>
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui-timepicker-addon.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="/css/main.css"/>
     <link rel="stylesheet" type="text/css" href="/css/menu.css"/>
 
@@ -19,6 +20,8 @@
     <script type="text/javascript" language="javascript" src="/js/jquery-ui.timepicker.js"></script>
     <script type="text/javascript" language="javascript" src="/js/i18n/jquery.ui.timepicker-ru.js"></script>
     <script type="text/javascript" language="javascript" src="/js/jquery.form.js"></script>
+
+    <script type="text/javascript" language="javascript" src="/js/bootstrap.min.js"></script>
 
     <script type="text/javascript" language="JavaScript" src="/js/gantt/dhtmlxcommon.js"></script>
     <script type="text/javascript" language="JavaScript" src="/js/gantt/dhtmlxgantt.js"></script>

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2012-05-28 20:03:57
+<?php /* Smarty version Smarty-3.0.9, created on 2012-09-27 22:26:29
          compiled from "F:\www\tm\application/layouts/scripts\layout.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:245274fc377bd9887a3-37978781%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:110850647025e66966-38484640%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a25500e79cea030075e390e1f8ff3a74600c16de' => 
     array (
       0 => 'F:\\www\\tm\\application/layouts/scripts\\layout.tpl',
-      1 => 1338209822,
+      1 => 1348759586,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '245274fc377bd9887a3-37978781',
+  'nocache_hash' => '110850647025e66966-38484640',
   'function' => 
   array (
   ),
@@ -32,6 +32,7 @@ $_smarty_tpl->decodeProperties(array (
     <link rel="stylesheet" type="text/css" href="/js/gantt/dhtmlxgantt.css"/>
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css"/>
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui-timepicker-addon.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="/css/main.css"/>
     <link rel="stylesheet" type="text/css" href="/css/menu.css"/>
 
@@ -41,6 +42,8 @@ $_smarty_tpl->decodeProperties(array (
     <script type="text/javascript" language="javascript" src="/js/jquery-ui.timepicker.js"></script>
     <script type="text/javascript" language="javascript" src="/js/i18n/jquery.ui.timepicker-ru.js"></script>
     <script type="text/javascript" language="javascript" src="/js/jquery.form.js"></script>
+
+    <script type="text/javascript" language="javascript" src="/js/bootstrap.min.js"></script>
 
     <script type="text/javascript" language="JavaScript" src="/js/gantt/dhtmlxcommon.js"></script>
     <script type="text/javascript" language="JavaScript" src="/js/gantt/dhtmlxgantt.js"></script>

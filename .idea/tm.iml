@@ -17,6 +17,16 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library name="PHARS">
+        <CLASSES>
+          <root url="phar://C:/Zend/ZendServer/share/ZendFramework/library/Zend/Service/WindowsAzure/CommandLine/Scaffolders/DefaultScaffolder.phar" />
+        </CLASSES>
+        <SOURCES>
+          <root url="phar://C:/Zend/ZendServer/share/ZendFramework/library/Zend/Service/WindowsAzure/CommandLine/Scaffolders/DefaultScaffolder.phar" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
 

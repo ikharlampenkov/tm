@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2012-05-28 20:05:10
+<?php /* Smarty version Smarty-3.0.9, created on 2012-09-27 22:41:14
          compiled from "F:\www\tm\application/views/scripts\user/index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:304324fc37806aa8cb1-13081019%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:166445064739a71a875-26197202%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'adce21d5e4bd44928444e8e78142d735bf514e9d' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\user/index.tpl',
-      1 => 1338209822,
+      1 => 1348760471,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '304324fc37806aa8cb1-13081019',
+  'nocache_hash' => '166445064739a71a875-26197202',
   'function' => 
   array (
   ),
@@ -50,12 +50,12 @@ $_smarty_tpl->decodeProperties(array (
 
 <h3>Сотрудники</h3>
 
+<div class="sub-menu">
+    <img src="/i/add.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'add'));?>
+">добавить</a>
+</div>
+
 <table width="100%">
-    <tr>
-        <td class="ttovar" align="center" colspan="3">
-            <img src="/i/add.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'add'));?>
-">добавить</a></td>
-    </tr>
     <tr>
         <td class="ttovar">ФИО</td>
         <td class="ttovar">Логин</td>
@@ -76,16 +76,22 @@ if ($_smarty_tpl->_count($_from) > 0){
 </td>
             <td class="ttovar"><?php echo $_smarty_tpl->getVariable('user')->value->role->rtitle;?>
 </td>
-            <td class="tedit">
-                <img src="/i/task.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'showPrivateTask','userId'=>$_smarty_tpl->getVariable('user')->value->id));?>
-">задачи</a><br/>
-                <img src="/i/comanda.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'showUserAcl','id'=>$_smarty_tpl->getVariable('user')->value->id));?>
-">права</a><br/>
-                <img src="/i/edit.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'edit','id'=>$_smarty_tpl->getVariable('user')->value->id));?>
-">редактировать</a><br/>
-                <img src="/i/delete.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'delete','id'=>$_smarty_tpl->getVariable('user')->value->id));?>
+            <td class="tedit" style="width: 20px; background-color: #f7f7f7;">
+                <div class="btn-group">
+                    <button style="border: 0" data-toggle="dropdown"><i class="icon-edit"></i></button>
+                    <ul class="dropdown-menu pull-right">
+                        <li><a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'showPrivateTask','userId'=>$_smarty_tpl->getVariable('user')->value->id));?>
+"><img src="/i/task.png"/>&nbsp;задачи</a></li>
+                        <li><a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'showUserAcl','id'=>$_smarty_tpl->getVariable('user')->value->id));?>
+"><img src="/i/comanda.png"/>&nbsp;права</a></li>
+                        <li><a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'edit','id'=>$_smarty_tpl->getVariable('user')->value->id));?>
+"><img src="/i/edit.png"/>&nbsp;редактировать</a></li>
+                        <li><a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'delete','id'=>$_smarty_tpl->getVariable('user')->value->id));?>
 " onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('user')->value->login;?>
-');" style="color: #830000">удалить</a></td>
+');" style="color: #830000"><img src="/i/delete.png"/>&nbsp;удалить</a></li>
+                    </ul>
+                </div>
+            </td>
         </tr>
     <?php }} ?>
 <?php }?>
@@ -93,12 +99,12 @@ if ($_smarty_tpl->_count($_from) > 0){
 
 <h3>Клиенты</h3>
 
+<div class="sub-menu">
+    <img src="/i/add.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'add'));?>
+">добавить</a>
+</div>
+
 <table width="100%">
-    <tr>
-        <td class="ttovar" align="center" colspan="3">
-            <img src="/i/add.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'add'));?>
-">добавить</a></td>
-    </tr>
     <tr>
         <td class="ttovar">ФИО</td>
         <td class="ttovar">Логин</td>
@@ -119,16 +125,22 @@ if ($_smarty_tpl->_count($_from) > 0){
 </td>
             <td class="ttovar"><?php echo $_smarty_tpl->getVariable('user')->value->role->rtitle;?>
 </td>
-            <td class="tedit">
-                <img src="/i/task.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'showPrivateTask','userId'=>$_smarty_tpl->getVariable('user')->value->id));?>
-">задачи</a><br/>
-                <img src="/i/comanda.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'showUserAcl','id'=>$_smarty_tpl->getVariable('user')->value->id));?>
-">права</a><br/>
-                <img src="/i/edit.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'edit','id'=>$_smarty_tpl->getVariable('user')->value->id));?>
-">редактировать</a><br/>
-                <img src="/i/delete.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'delete','id'=>$_smarty_tpl->getVariable('user')->value->id));?>
+            <td class="tedit" style="width: 20px; background-color: #f7f7f7;">
+                <div class="btn-group">
+                    <button style="border: 0" data-toggle="dropdown"><i class="icon-edit"></i></button>
+                    <ul class="dropdown-menu pull-right">
+                        <li><a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'showPrivateTask','userId'=>$_smarty_tpl->getVariable('user')->value->id));?>
+"><img src="/i/task.png"/>&nbsp;задачи</a></li>
+                        <li><a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'showUserAcl','id'=>$_smarty_tpl->getVariable('user')->value->id));?>
+"><img src="/i/comanda.png"/>&nbsp;права</a></li>
+                        <li><a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'edit','id'=>$_smarty_tpl->getVariable('user')->value->id));?>
+"><img src="/i/edit.png"/>&nbsp;редактировать</a></li>
+                        <li><a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'delete','id'=>$_smarty_tpl->getVariable('user')->value->id));?>
 " onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('user')->value->login;?>
-');" style="color: #830000">удалить</a></td>
+');" style="color: #830000"><img src="/i/delete.png"/>&nbsp;удалить</a></li>
+                    </ul>
+                </div>
+            </td>
         </tr>
     <?php }} ?>
 <?php }?>
@@ -138,13 +150,12 @@ if ($_smarty_tpl->_count($_from) > 0){
 <br/>
 <div style="background-color:#f0f0f0; padding:5px;"><h1>Роли</h1></div><br/>
 
-<table width="100%">
-    <tr>
-        <td class="ttovar" align="center" colspan="3">
-            <img src="/i/add.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'addRole'));?>
-">добавить</a></td>
-    </tr>
+<div class="sub-menu">
+    <img src="/i/add.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'addRole'));?>
+">добавить</a>
+</div>
 
+<table width="100%">
 <?php if ($_smarty_tpl->getVariable('userRoleList')->value!==false){?>
     <?php  $_smarty_tpl->tpl_vars['role'] = new Smarty_Variable;
  $_from = $_smarty_tpl->getVariable('userRoleList')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -156,14 +167,20 @@ if ($_smarty_tpl->_count($_from) > 0){
 </td>
             <td class="ttovar"><?php echo $_smarty_tpl->getVariable('role')->value->title;?>
 </td>
-            <td class="tedit"><img src="/i/comanda.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'showRoleAcl','idRole'=>$_smarty_tpl->getVariable('role')->value->id));?>
-">права</a></td>
-            <td class="tedit">
-                <img src="/i/edit.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'editRole','id'=>$_smarty_tpl->getVariable('role')->value->id));?>
-">редактировать</a><br/>
-                <img src="/i/delete.png"/>&nbsp;<a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'deleteRole','id'=>$_smarty_tpl->getVariable('role')->value->id));?>
+            <td class="tedit" style="width: 20px; background-color: #f7f7f7;">
+                <div class="btn-group">
+                    <button style="border: 0" data-toggle="dropdown"><i class="icon-edit"></i></button>
+                    <ul class="dropdown-menu pull-right">
+                        <li><a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'showRoleAcl','idRole'=>$_smarty_tpl->getVariable('role')->value->id));?>
+"><img src="/i/comanda.png"/>&nbsp;права</a></li>
+                        <li><a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'editRole','id'=>$_smarty_tpl->getVariable('role')->value->id));?>
+"><img src="/i/edit.png"/>&nbsp;редактировать</a></li>
+                        <li><a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'deleteRole','id'=>$_smarty_tpl->getVariable('role')->value->id));?>
 " onclick="return confirmDelete('<?php echo $_smarty_tpl->getVariable('role')->value->rtitle;?>
-');" style="color: #830000">удалить</a></td>
+');" style="color: #830000"><img src="/i/delete.png"/>&nbsp;удалить</a></li>
+                    </ul>
+                </div>
+            </td>
         </tr>
     <?php }} ?>
 <?php }?>
