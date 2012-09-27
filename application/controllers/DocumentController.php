@@ -384,7 +384,7 @@ class DocumentController extends Zend_Controller_Action
         if ($oTopic === false) {
             $temp = TM_Task_Task::getTaskByDocument($this->_user, $oDocument->getParent());
             $oTask = $temp[0];
-            print_r($oTask);
+            //print_r($oTask);
 
             if (is_null($oTask)) {
                 $temp = TM_Task_Task::getTaskByDocument($this->_user, $oDocument->getParent()->getParent());
