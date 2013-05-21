@@ -53,29 +53,29 @@
 <a name="top"></a>
 
 <ul class="menu_up">
-{if_allowed resource="index/index"}
-    <li>
-        <img src="/i/house.png" alt="Начальная" style="float: left;"/>&nbsp;<a href="/">Начальная</a></td>
-        <span>&nbsp;</span>
-    </li>
-{/if_allowed}
-{if_allowed resource="task/index"}
-    <li>
-        <img src="/i/task_big.png" alt="Проекты" style="float: left;"/>&nbsp;<a href="/task/">Проекты</a></td>
-        <span>&nbsp;</span>
-    </li>
-{/if_allowed}
-{if_allowed resource="document/index"}
-    <li>
-        <img src="/i/doc_big.png" alt="Документы" style="float: left;"/>&nbsp;<a href="/document/">Документы</a>
-        <span>&nbsp;</span>
-    {*
-            <ul class="list" id="prgms">
-                <li><a href="/program-for-iphone/">Программы для iPhone</a></li>
-            </ul>
-    *}
-    </li>
-{/if_allowed}
+    {if_allowed resource="index/index"}
+        <li>
+            <img src="/i/house.png" alt="Начальная" style="float: left;"/>&nbsp;<a href="/">Начальная</a></td>
+            <span>&nbsp;</span>
+        </li>
+    {/if_allowed}
+    {if_allowed resource="task/index"}
+        <li>
+            <img src="/i/task_big.png" alt="Проекты" style="float: left;"/>&nbsp;<a href="/task/">Проекты</a></td>
+            <span>&nbsp;</span>
+        </li>
+    {/if_allowed}
+    {if_allowed resource="document/index"}
+        <li>
+            <img src="/i/doc_big.png" alt="Документы" style="float: left;"/>&nbsp;<a href="/document/">Документы</a>
+            <span>&nbsp;</span>
+            {*
+                    <ul class="list" id="prgms">
+                        <li><a href="/program-for-iphone/">Программы для iPhone</a></li>
+                    </ul>
+            *}
+        </li>
+    {/if_allowed}
     {*
 {if_allowed resource="reports/index"}
     <li>
@@ -84,18 +84,24 @@
     </li>
 {/if_allowed}
 *}
-{if_allowed resource="discussion/index"}
-    <li>
-        <img src="/i/discussion_big.png" alt="Обсуждение" style="float: left;"/>&nbsp;<a href="/discussion/">Обсуждение</a>
-        <span>&nbsp;</span>
-    </li>
-{/if_allowed}
-{if_allowed resource="user/index"}
-    <li>
-        <img src="/i/user_big.png" alt="Пользователи" style="float: left;"/>&nbsp;<a href="/user/">Пользователи</a>
-        <span>&nbsp;</span>
-    </li>
-{/if_allowed}
+    {if_allowed resource="discussion/index"}
+        <li>
+            <img src="/i/discussion_big.png" alt="Обсуждение" style="float: left;"/>&nbsp;<a href="/discussion/">Обсуждение</a>
+            <span>&nbsp;</span>
+        </li>
+    {/if_allowed}
+    {if_allowed resource="user/index"}
+        <li>
+            <img src="/i/user_big.png" alt="Пользователи" style="float: left;"/>&nbsp;<a href="/user/">Пользователи</a>
+            <span>&nbsp;</span>
+
+            <ul class="list" id="prgms">
+                <li><a href="/user/index/userType/administrator/">Администраторы</a></li>
+                <li><a href="/user/index/userType/client/">Клиенты</a></li>
+                <li><a href="/user/index/userType/expert/">Эксперты</a></li>
+            </ul>
+        </li>
+    {/if_allowed}
 </ul>
 
 <div class="content">
@@ -103,7 +109,7 @@
     <table border="0" cellpadding="10" width="100%">
         <tr>
             <td>
-            {$this->layout()->content}
+                {$this->layout()->content}
             </td>
         </tr>
     </table>

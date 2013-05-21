@@ -12,3 +12,8 @@ error   Can`t complit query: INSERT INTO tm_user(login, password, role_id, date_
                     VALUES ("a.buydin", "987654", 7, "2012-05-28 00:00:00", 0) No error: 1062:: Error msg: Duplicate entry 'a.buydin' for key 'login_UNIQUE' ;  28.05.2012 20:26
 error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
                     VALUES (215, "description", 2, "Проверка", 0) No error: 1062:: Error msg: Duplicate entry '215-description' for key 'PRIMARY' ;  13.06.2012 22:08
+error   Can`t complit query: UPDATE tm_user
+                    SET login="admin", password="123",
+                        role_id="1", date_create="2011-11-16 16:26:00",
+                        type="administrator"
+                    WHERE id=1 No error: 1406:: Error msg: Data too long for column 'type' at row 1 ;  21.05.2013 23:36

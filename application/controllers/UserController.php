@@ -11,9 +11,12 @@ class UserController extends Zend_Controller_Action
 
     public function indexAction()
     {
+        $userType = $this->getRequest()->getParam('userType', 'client');
+
         $this->view->assign('userRoleList', TM_User_Role::getAllInstance());
-        $this->view->assign('userList', TM_User_User::getAllInstance(0));
-        $this->view->assign('userListClient', TM_User_User::getAllInstance(1));
+        $this->view->assign('userList', TM_User_User::getAllInstance($userType));
+        //$this->view->assign('userListClient', TM_User_User::getAllInstance(1));
+        $this->view->assign('userType', $userType);
     }
 
     public function viewattributetypeAction()
@@ -44,7 +47,7 @@ class UserController extends Zend_Controller_Action
             $oUser->setDateCreate($data['date_create']);
             $oUser->setPassword($data['password']);
             $oUser->setRole(TM_User_Role::getInstanceById($data['role_id']));
-            $oUser->setIsClient($data['is_client']);
+            $oUser->setType($data['type']);
 
             try {
                 $oUser->insertToDb();
@@ -71,7 +74,7 @@ class UserController extends Zend_Controller_Action
             $oUser->setDateCreate($data['date_create']);
             $oUser->setPassword($data['password']);
             $oUser->setRole(TM_User_Role::getInstanceById($data['role_id']));
-            $oUser->setIsClient($data['is_client']);
+            $oUser->setType($data['type']);
 
             foreach ($data['attribute'] as $key => $value) {
                 $oUser->setAttribute($key, $value);
