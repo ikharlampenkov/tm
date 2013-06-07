@@ -1,14 +1,17 @@
 <?php
 
-class mysqli_db_driver extends StdLib_DB_Driver {
+class mysqli_db_driver extends StdLib_DB_Driver
+{
 
     private $_connect = null;
 
-    public function __construct() {
+    public function __construct()
+    {
 
     }
 
-    public function connect($dsn) {
+    public function connect($dsn)
+    {
         if (is_array($dsn)) {
             $result = new mysqli($dsn['host'], $dsn['user'], $dsn['password']);
             if ($result != false) {
@@ -21,7 +24,8 @@ class mysqli_db_driver extends StdLib_DB_Driver {
         }
     }
 
-    public function query($sql, $mode = 1) {
+    public function query($sql, $mode = 1)
+    {
         $result = $this->_connect->query($sql);
         if ($result) {
             if (strpos($sql, 'SELECT') === 0) {
@@ -35,7 +39,8 @@ class mysqli_db_driver extends StdLib_DB_Driver {
         }
     }
 
-    public function setDB($db_name) {
+    public function setDB($db_name)
+    {
         if ($this->_connect->select_db($db_name)) {
             return true;
         } else {
@@ -44,7 +49,8 @@ class mysqli_db_driver extends StdLib_DB_Driver {
         }
     }
 
-    public function setCharset($charset) {
+    public function setCharset($charset)
+    {
         try {
             $this->query('SET CHARSET ' . $charset);
         } catch (StdLib_Exception $s_e) {
@@ -53,7 +59,8 @@ class mysqli_db_driver extends StdLib_DB_Driver {
         }
     }
 
-    public function prepareString($string) {
+    public function prepareString($string)
+    {
         $resultstr = $this->_connect->real_escape_string($string);
         if ($resultstr !== false) {
             return $resultstr;
@@ -62,7 +69,8 @@ class mysqli_db_driver extends StdLib_DB_Driver {
         }
     }
 
-    public function getNextId($table, $idname) {
+    public function getNextId($table, $idname)
+    {
         try {
             $sql = 'SELECT (max(' . $idname . ')+1) AS nextid FROM ' . $table;
             $id = $this->query($sql, 2);
@@ -77,7 +85,8 @@ class mysqli_db_driver extends StdLib_DB_Driver {
         }
     }
 
-    public function getLastInsertId() {
+    public function getLastInsertId()
+    {
         try {
             $sql = 'SELECT LAST_INSERT_ID()';
             $id = $this->query($sql);
@@ -92,13 +101,30 @@ class mysqli_db_driver extends StdLib_DB_Driver {
         }
     }
 
-    public function __destruct() {
+    public function startTransaction()
+    {
+        $this->query('START TRANSACTION');
+    }
+
+    public function commitTransaction()
+    {
+        $this->query('COMMIT');
+    }
+
+    public function rollbackTransaction()
+    {
+        $this->query('ROLLBACK');
+    }
+
+    public function __destruct()
+    {
         if (is_object($this->_connect)) {
             $this->_connect->close();
         }
     }
 
-    private function _prepareSelectQuery($result, $mode) {
+    private function _prepareSelectQuery($result, $mode)
+    {
         if ($result->num_rows > 0) {
             $_row = array();
             switch ($mode) {
@@ -123,14 +149,16 @@ class mysqli_db_driver extends StdLib_DB_Driver {
             return false;
     }
 
-    private function _prepareAllQuery($result) {
+    private function _prepareAllQuery($result)
+    {
         if ($this->_connect->affected_rows != -1) {
             return true;
         } else
             return false;
     }
 
-    private function _getError() {
+    private function _getError()
+    {
         if (is_object($this->_connect)) {
             $resultstr = 'No error: ' . $this->_connect->errno . ':: Error msg: ' . $this->_connect->error . ' ;';
         } else {

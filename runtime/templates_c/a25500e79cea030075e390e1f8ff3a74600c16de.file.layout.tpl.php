@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2012-05-28 20:03:57
+<?php /* Smarty version Smarty-3.0.9, created on 2013-05-18 22:57:46
          compiled from "F:\www\tm\application/layouts/scripts\layout.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:245274fc377bd9887a3-37978781%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:165805197a4fa883cf7-66925747%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a25500e79cea030075e390e1f8ff3a74600c16de' => 
     array (
       0 => 'F:\\www\\tm\\application/layouts/scripts\\layout.tpl',
-      1 => 1338209822,
+      1 => 1368892664,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '245274fc377bd9887a3-37978781',
+  'nocache_hash' => '165805197a4fa883cf7-66925747',
   'function' => 
   array (
   ),
@@ -32,6 +32,7 @@ $_smarty_tpl->decodeProperties(array (
     <link rel="stylesheet" type="text/css" href="/js/gantt/dhtmlxgantt.css"/>
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css"/>
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui-timepicker-addon.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="/css/main.css"/>
     <link rel="stylesheet" type="text/css" href="/css/menu.css"/>
 
@@ -41,6 +42,8 @@ $_smarty_tpl->decodeProperties(array (
     <script type="text/javascript" language="javascript" src="/js/jquery-ui.timepicker.js"></script>
     <script type="text/javascript" language="javascript" src="/js/i18n/jquery.ui.timepicker-ru.js"></script>
     <script type="text/javascript" language="javascript" src="/js/jquery.form.js"></script>
+
+    <script type="text/javascript" language="javascript" src="/js/bootstrap.min.js"></script>
 
     <script type="text/javascript" language="JavaScript" src="/js/gantt/dhtmlxcommon.js"></script>
     <script type="text/javascript" language="JavaScript" src="/js/gantt/dhtmlxgantt.js"></script>
@@ -75,45 +78,51 @@ $_smarty_tpl->decodeProperties(array (
 <a name="top"></a>
 
 <ul class="menu_up">
-<?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>"index/index")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>"index/index"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
+    <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>"index/index")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>"index/index"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
-    <li>
-        <img src="/i/house.png" alt="Начальная" style="float: left;"/>&nbsp;<a href="/">Начальная</a></td>
-        <span>&nbsp;</span>
-    </li>
-<?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>"index/index"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
+        <li>
+            <img src="/i/house.png" alt="Начальная" style="float: left;"/>&nbsp;<a href="/">Начальная</a></td>
+            <span>&nbsp;</span>
+        </li>
+    <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>"index/index"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
-<?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>"task/index")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>"task/index"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
+    <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>"task/index")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>"task/index"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
-    <li>
-        <img src="/i/task_big.png" alt="Проекты" style="float: left;"/>&nbsp;<a href="/task/">Проекты</a></td>
-        <span>&nbsp;</span>
-    </li>
-<?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>"task/index"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
+        <li>
+            <img src="/i/task_big.png" alt="Проекты" style="float: left;"/>&nbsp;<a href="/task/">Проекты</a></td>
+            <span>&nbsp;</span>
+        </li>
+    <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>"task/index"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
-<?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>"document/index")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>"document/index"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
+    <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>"document/index")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>"document/index"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
-    <li>
-        <img src="/i/doc_big.png" alt="Документы" style="float: left;"/>&nbsp;<a href="/document/">Документы</a>
-        <span>&nbsp;</span>
-    </li>
-<?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>"document/index"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
+        <li>
+            <img src="/i/doc_big.png" alt="Документы" style="float: left;"/>&nbsp;<a href="/document/">Документы</a>
+            <span>&nbsp;</span>
+        </li>
+    <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>"document/index"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
-<?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>"discussion/index")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>"discussion/index"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
+    <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>"discussion/index")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>"discussion/index"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
-    <li>
-        <img src="/i/discussion_big.png" alt="Обсуждение" style="float: left;"/>&nbsp;<a href="/discussion/">Обсуждение</a>
-        <span>&nbsp;</span>
-    </li>
-<?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>"discussion/index"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
+        <li>
+            <img src="/i/discussion_big.png" alt="Обсуждение" style="float: left;"/>&nbsp;<a href="/discussion/">Обсуждение</a>
+            <span>&nbsp;</span>
+        </li>
+    <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>"discussion/index"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
-<?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>"user/index")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>"user/index"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
+    <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>"user/index")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>"user/index"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
-    <li>
-        <img src="/i/user_big.png" alt="Пользователи" style="float: left;"/>&nbsp;<a href="/user/">Пользователи</a>
-        <span>&nbsp;</span>
-    </li>
-<?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>"user/index"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
+        <li>
+            <img src="/i/user_big.png" alt="Пользователи" style="float: left;"/>&nbsp;<a href="/user/">Пользователи</a>
+            <span>&nbsp;</span>
+
+            <ul class="list" id="prgms">
+                <li><a href="/user/index/userType/administrator/">Администраторы</a></li>
+                <li><a href="/user/index/userType/client/">Клиенты</a></li>
+                <li><a href="/user/index/userType/expert/">Эксперты</a></li>
+            </ul>
+        </li>
+    <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>"user/index"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
 </ul>
 
@@ -122,7 +131,7 @@ $_smarty_tpl->decodeProperties(array (
     <table border="0" cellpadding="10" width="100%">
         <tr>
             <td>
-            <?php echo $_smarty_tpl->getVariable('this')->value->layout()->content;?>
+                <?php echo $_smarty_tpl->getVariable('this')->value->layout()->content;?>
 
             </td>
         </tr>
