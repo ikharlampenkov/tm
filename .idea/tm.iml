@@ -11,9 +11,21 @@
       <library name="PHP 5.3.8">
         <CLASSES>
           <root url="file://C:/Zend/ZendServer/share/ZendFramework/library" />
+          <root url="file://C:/PHP/ZendFramework/library" />
         </CLASSES>
         <SOURCES>
           <root url="file://C:/Zend/ZendServer/share/ZendFramework/library" />
+          <root url="file://C:/PHP/ZendFramework/library" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="PHARS">
+        <CLASSES>
+          <root url="phar://C:/Zend/ZendServer/share/ZendFramework/library/Zend/Service/WindowsAzure/CommandLine/Scaffolders/DefaultScaffolder.phar" />
+        </CLASSES>
+        <SOURCES>
+          <root url="phar://C:/Zend/ZendServer/share/ZendFramework/library/Zend/Service/WindowsAzure/CommandLine/Scaffolders/DefaultScaffolder.phar" />
         </SOURCES>
       </library>
     </orderEntry>
