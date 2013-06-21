@@ -2,22 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list id="208ba09b-a62b-410e-864b-4a7f61a529f8" name="Default" comment="" />
-    <list default="true" id="1e15cf3c-e4a0-4479-b6be-8d8a44301a05" name="New changelist" comment="П">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/user/add.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/user/add.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/user/edit.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/user/edit.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/user/index.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/user/index.tpl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/layouts/scripts/layout.tpl" afterPath="$PROJECT_DIR$/application/layouts/scripts/layout.tpl" />
+    <list default="true" id="1e15cf3c-e4a0-4479-b6be-8d8a44301a05" name="New changelist" comment="Разделение пользователей на работников и администраторов">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/scripts/document/index.tpl" afterPath="$PROJECT_DIR$/application/views/scripts/document/index.tpl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="tm.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/" />
-    <file path="/Dummy.txt" changelist="1e15cf3c-e4a0-4479-b6be-8d8a44301a05" time="1371821278827" ignored="false" />
+    <file path="/Dummy.txt" changelist="1e15cf3c-e4a0-4479-b6be-8d8a44301a05" time="1371821361462" ignored="false" />
     <file path="/.gitignore" changelist="1e15cf3c-e4a0-4479-b6be-8d8a44301a05" time="1371821293988" ignored="false" />
     <file path="/add.tpl" changelist="1e15cf3c-e4a0-4479-b6be-8d8a44301a05" time="1371818893428" ignored="false" />
     <file path="/layout.tpl" changelist="1e15cf3c-e4a0-4479-b6be-8d8a44301a05" time="1371819182229" ignored="false" />
-    <file path="/index.tpl" changelist="1e15cf3c-e4a0-4479-b6be-8d8a44301a05" time="1371819201235" ignored="false" />
+    <file path="/index.tpl" changelist="1e15cf3c-e4a0-4479-b6be-8d8a44301a05" time="1371822201937" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +32,38 @@
     <favorites_list name="tm" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="DocumentController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/DocumentController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="50" selection-start="325" selection-end="325" vertical-scroll-proportion="-3.9230769">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.tpl" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/scripts/document/index.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="62" column="60" selection-start="2442" selection-end="2442" vertical-scroll-proportion="0.4576923">
+              <folding>
+                <element signature="n#style#0;n#a#1;n#td#5;n#tr#1;n#table#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#4;n#td#5;n#tr#1;n#table#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view.tpl" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/scripts/document/view.tpl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="12" selection-start="683" selection-end="683" vertical-scroll-proportion="-9.153846">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -61,7 +88,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/application/models/TM/Acl/UserAcl.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/task/add.ajax.tpl" />
         <option value="$PROJECT_DIR$/application/views/scripts/task/edit.ajax.tpl" />
         <option value="$PROJECT_DIR$/application/models/TM/Acl/TaskAcl.php" />
@@ -77,6 +103,7 @@
         <option value="$PROJECT_DIR$/application/layouts/scripts/layout.tpl" />
         <option value="$PROJECT_DIR$/application/views/scripts/user/index.tpl" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/application/views/scripts/document/index.tpl" />
       </list>
     </option>
   </component>
@@ -189,10 +216,6 @@
               <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -213,6 +236,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="document" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -444,24 +471,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tm" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="configs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope">
@@ -600,7 +609,11 @@
       <created>1371818281111</created>
       <updated>1371818281111</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Разделение пользователей на работников и администраторов">
+      <created>1371821373888</created>
+      <updated>1371821373888</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -695,7 +708,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Слияние" />
+    <option name="LAST_COMMIT_MESSAGE" value="Разделение пользователей на работников и администраторов" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -729,6 +742,7 @@
     <MESSAGE value="Служебный" />
     <MESSAGE value="Новый дамп БД" />
     <MESSAGE value="Слияние" />
+    <MESSAGE value="Разделение пользователей на работников и администраторов" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -746,21 +760,6 @@
     </PATH>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/task/show-task-block.ajax.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="22" selection-start="2676" selection-end="2676" vertical-scroll-proportion="0.5862069" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/TM/Task/Task.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="656" column="6" selection-start="16494" selection-end="16494" vertical-scroll-proportion="0.7702407" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/task/index.tpl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="90" column="0" selection-start="4734" selection-end="4734" vertical-scroll-proportion="2.9423077" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public_html/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="24" column="0" selection-start="707" selection-end="707" vertical-scroll-proportion="0.7846154" />
@@ -839,6 +838,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="6" selection-start="24" selection-end="24" vertical-scroll-proportion="0.030411448">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/DocumentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="50" selection-start="325" selection-end="325" vertical-scroll-proportion="-3.9230769">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/document/view.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="12" selection-start="683" selection-end="683" vertical-scroll-proportion="-9.153846">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/document/index.tpl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="60" selection-start="2442" selection-end="2442" vertical-scroll-proportion="0.4576923">
+          <folding>
+            <element signature="n#style#0;n#a#1;n#td#5;n#tr#1;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#4;n#td#5;n#tr#1;n#table#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
