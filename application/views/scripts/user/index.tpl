@@ -2,7 +2,7 @@
 
 
 <div class="page">
-    <h1>Пользователи / {if $userType == 'administrator'}Администраторы{elseif $userType == 'client'}Клиенты{elseif $userType == 'expert'}Эксперты{/if}</h1>
+    <h1>Пользователи / {if $userType == 'administrator'}Работники{elseif $userType == 'client'}Клиенты{/if}</h1>
 
     <div class="page_block">
     {if_allowed resource="{$controller}/index" priv="show-attribute-hash"}

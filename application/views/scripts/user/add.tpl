@@ -31,9 +31,8 @@
         <tr>
             <td class="ttovar">Тип пользователя</td>
             <td class="ttovar"><select name="data[type]">
-                    <option value="administrator" {if $user->type == 'administrator'}selected="selected"{/if}>Администраторы</option>
+                    <option value="administrator" {if $user->type == 'administrator'}selected="selected"{/if}>Работник</option>
                     <option value="client" {if $user->type == 'client'}selected="selected"{/if}>Клиент</option>
-                    <option value="expert" {if $user->type == 'expert'}selected="selected"{/if}>Эксперты</option>
                 </select>
             </td>
         </tr>

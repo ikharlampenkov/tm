@@ -96,9 +96,8 @@
             <span>&nbsp;</span>
 
             <ul class="list" id="prgms">
-                <li><a href="/user/index/userType/administrator/">Администраторы</a></li>
+                <li><a href="/user/index/userType/administrator/">Работники</a></li>
                 <li><a href="/user/index/userType/client/">Клиенты</a></li>
-                <li><a href="/user/index/userType/expert/">Эксперты</a></li>
             </ul>
         </li>
     {/if_allowed}
