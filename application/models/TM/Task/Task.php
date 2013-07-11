@@ -905,10 +905,8 @@ class TM_Task_Task
 
         $statArray['doc_count'] = TM_Document_Document::calculateCountDocumentByTask($this->_user, $this);
 
-        $discuss_count = TM_Discussion_Discussion::getDiscussionByTask($this->_user, $this);
-        if ($discuss_count) {
-            $statArray['discuss_count'] = count($discuss_count);
-        }
+        $statArray['discuss_count'] = TM_Discussion_Discussion::calculateCountDiscussionByTask($this->_user, $this);
+
         return $statArray;
     }
 

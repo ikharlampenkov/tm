@@ -645,6 +645,33 @@ class TM_Discussion_Discussion
         }
     }
 
+    /**
+     * Возвращает количество сообщений для задачи с учетом темы
+     * @param TM_User_User $user
+     * @param TM_Task_Task $task
+     * @return array|bool
+     * @throws Exception
+     */
+    public static function calculateCountDiscussionByTask(TM_User_User $user, TM_Task_Task $task)
+    {
+        try {
+            $db = StdLib_DB::getInstance();
+            $sql = 'SELECT COUNT(tm_discussion.id) AS cnt FROM tm_discussion, tm_task_discussion
+                        WHERE tm_discussion.is_message=1
+                          AND (tm_discussion.id=tm_task_discussion.discussion_id OR tm_discussion.topic_id=tm_task_discussion.discussion_id)
+                          AND tm_task_discussion.task_id=' . $task->getId();
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+
+            if (isset($result[0]['cnt'])) {
+                return $result[0]['cnt'];
+            } else {
+                return 0;
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
     public static function getDiscussionTreeByTask(TM_User_User $user, TM_Task_Task $task)
     {
         try {
