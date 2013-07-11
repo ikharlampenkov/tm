@@ -515,6 +515,33 @@ class TM_Document_Document
         }
     }
 
+    /**
+     * Возвращает количество документов для задачи с учетом папки
+     * @param TM_User_User $user
+     * @param TM_Task_Task $task
+     * @return int
+     * @throws Exception
+     */
+    public static function calculateCountDocumentByTask(TM_User_User $user, TM_Task_Task $task)
+    {
+        try {
+            $db = StdLib_DB::getInstance();
+            $sql = 'SELECT COUNT(tm_document.id) AS cnt FROM tm_document, tm_task_document
+                     WHERE tm_document.is_folder=0
+                       AND (tm_document.id=tm_task_document.document_id OR tm_document.parent_id=tm_task_document.document_id)
+                       AND task_id=' . $task->getId();
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+
+            if (isset($result[0]['cnt'])) {
+                return $result[0]['cnt'];
+            } else {
+                return 0;
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
     public static function getDocumentFolderByTask(TM_User_User $user, TM_Task_Task $task)
     {
         try {

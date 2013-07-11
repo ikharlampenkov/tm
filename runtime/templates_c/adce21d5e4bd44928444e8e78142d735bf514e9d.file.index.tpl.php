@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2013-05-21 23:42:15
+<?php /* Smarty version Smarty-3.0.9, created on 2013-07-11 23:24:27
          compiled from "F:\www\tm\application/views/scripts\user/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:21243519ba3e71fd1e3-73727181%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_smarty_tpl->decodeProperties(array (
     'adce21d5e4bd44928444e8e78142d735bf514e9d' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\user/index.tpl',
-      1 => 1369154525,
+      1 => 1373556199,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ $_smarty_tpl->decodeProperties(array (
 
 
 <div class="page">
-    <h1>Пользователи / <?php if ($_smarty_tpl->getVariable('userType')->value=='administrator'){?>Администраторы<?php }elseif($_smarty_tpl->getVariable('userType')->value=='client'){?>Клиенты<?php }elseif($_smarty_tpl->getVariable('userType')->value=='expert'){?>Эксперты<?php }?></h1>
+    <h1>Пользователи / <?php if ($_smarty_tpl->getVariable('userType')->value=='administrator'){?>Работники<?php }elseif($_smarty_tpl->getVariable('userType')->value=='client'){?>Клиенты<?php }?></h1>
 
     <div class="page_block">
     <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-attribute-hash")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-attribute-hash"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
