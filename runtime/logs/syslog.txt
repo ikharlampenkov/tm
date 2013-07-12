@@ -17,3 +17,21 @@ error   Can`t complit query: UPDATE tm_user
                         role_id="1", date_create="2011-11-16 16:26:00",
                         type="administrator"
                     WHERE id=1 No error: 1406:: Error msg: Data too long for column 'type' at row 1 ;  21.05.2013 23:36
+error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:35
+error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:35
+error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:35
+error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:36
+error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:36
+error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:36
+error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:36
+error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:37
+error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:37
+error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:37
+error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:37
+error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:37
+error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:37
+error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:37
+error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:40
+error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:41
+error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:43
+error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:43
