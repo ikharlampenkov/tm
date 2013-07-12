@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2013-05-18 22:57:46
+<?php /* Smarty version Smarty-3.0.9, created on 2013-07-11 23:14:10
          compiled from "F:\www\tm\application/layouts/scripts\layout.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:165805197a4fa883cf7-66925747%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_smarty_tpl->decodeProperties(array (
     'a25500e79cea030075e390e1f8ff3a74600c16de' => 
     array (
       0 => 'F:\\www\\tm\\application/layouts/scripts\\layout.tpl',
-      1 => 1368892664,
+      1 => 1373556199,
       2 => 'file',
     ),
   ),
@@ -117,9 +117,8 @@ $_smarty_tpl->decodeProperties(array (
             <span>&nbsp;</span>
 
             <ul class="list" id="prgms">
-                <li><a href="/user/index/userType/administrator/">Администраторы</a></li>
+                <li><a href="/user/index/userType/administrator/">Работники</a></li>
                 <li><a href="/user/index/userType/client/">Клиенты</a></li>
-                <li><a href="/user/index/userType/expert/">Эксперты</a></li>
             </ul>
         </li>
     <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>"user/index"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
