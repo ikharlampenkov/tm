@@ -258,6 +258,7 @@ class TM_Document_Document
     /**
      *
      *
+     * @throws Exception
      * @return void
      * @access public
      */
