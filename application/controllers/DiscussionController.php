@@ -18,7 +18,7 @@ class DiscussionController extends Zend_Controller_Action
 
         if ($parentId != 0) {
             $curDiscussion = TM_Discussion_Discussion::getInstanceById($parentId);
-            
+
             $this->view->assign('discussion', $curDiscussion);
             $this->view->assign('breadcrumbs', $curDiscussion->getPathToDiscussion());
         }
@@ -38,7 +38,7 @@ class DiscussionController extends Zend_Controller_Action
             $oDiscussion->setMessage($data['message']);
             $oDiscussion->setDateCreate($data['date_create']);
 
-           if (!empty($data['topic'])) {
+            if (!empty($data['topic'])) {
                 $oDiscussion->setTopic(TM_Discussion_Discussion::getInstanceById($data['topic']));
             }
 
@@ -62,7 +62,31 @@ class DiscussionController extends Zend_Controller_Action
                     }
                 }
 
-                $this->_redirect('/discussion/index/parent/' . $this->getRequest()->getParam('parent', 0));
+                if (!empty($data['document_title'])) {
+                    $oDocument = new TM_Document_Document();
+                    $oDocument->setUser($this->_user);
+                    $oDocument->setDateCreate(date('d.m.Y H:i:s'));
+                    $oDocument->setIsFolder(false);
+                    $oDocument->setTitle($data['document_title']);
+                    $oDocument->setParent(TM_Document_Document::getDocumentFolderByTask($this->_user, $oDiscussion->getTopic()->getTask()));
+
+                    $oDocument->setAttribute('description', $data['document_description']);
+
+                    $oDocument->insertToDb();
+                    $oDocument->setLinkToDiscussion($oDiscussion, 0);
+
+                    if (!empty($discussionAcl)) {
+                        foreach ($discussionAcl as $acl) {
+                            $tempAcl = new TM_Acl_DocumentAcl($oDocument);
+                            $tempAcl->setUser($acl->getUser());
+                            $tempAcl->setIsRead($acl->getIsRead());
+                            $tempAcl->setIsWrite($acl->getIsWrite());
+                            $tempAcl->saveToDb();
+                        }
+                    }
+                }
+
+                $this->redirect('/discussion/index/parent/' . $this->getRequest()->getParam('parent', 0));
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -94,7 +118,32 @@ class DiscussionController extends Zend_Controller_Action
 
             try {
                 $oDiscussion->updateToDb();
-                $this->_redirect('/discussion/index/parent/' . $this->getRequest()->getParam('parent', 0));
+
+                if (!empty($data['document_title'])) {
+                    $oDocument = new TM_Document_Document();
+                    $oDocument->setUser($this->_user);
+                    $oDocument->setDateCreate(date('d.m.Y H:i:s'));
+                    $oDocument->setIsFolder(false);
+                    $oDocument->setTitle($data['document_title']);
+                    $oDocument->setParent(TM_Document_Document::getDocumentFolderByTask($this->_user, $oDiscussion->getTopic()->getTask()));
+
+                    $oDocument->setAttribute('description', $data['document_description']);
+
+                    $oDocument->insertToDb();
+                    $oDocument->setLinkToDiscussion($oDiscussion, 0);
+
+                    if (!empty($discussionAcl)) {
+                        foreach ($discussionAcl as $acl) {
+                            $tempAcl = new TM_Acl_DocumentAcl($oDocument);
+                            $tempAcl->setUser($acl->getUser());
+                            $tempAcl->setIsRead($acl->getIsRead());
+                            $tempAcl->setIsWrite($acl->getIsWrite());
+                            $tempAcl->saveToDb();
+                        }
+                    }
+                }
+
+                $this->redirect('/discussion/index/parent/' . $this->getRequest()->getParam('parent', 0));
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -103,6 +152,7 @@ class DiscussionController extends Zend_Controller_Action
 
         $this->view->assign('parentList', TM_Discussion_Discussion::getParentList($this->_user, $this->getRequest()->getParam('parent', 0)));
         $this->view->assign('topicList', TM_Discussion_Discussion::getAllInstance($this->_user, -1));
+        $this->view->assign('documentList', TM_Document_Document::getDocumentByDiscussion($this->_user, $oDiscussion));
         $this->view->assign('discussion', $oDiscussion);
     }
 
@@ -126,7 +176,7 @@ class DiscussionController extends Zend_Controller_Action
             $data = $this->getRequest()->getParam('data');
 
             try {
-                foreach($data as $idUser => $values) {
+                foreach ($data as $idUser => $values) {
 
                     $discussionAcl = new TM_Acl_DiscussionAcl($oDiscussion);
 

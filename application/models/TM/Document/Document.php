@@ -264,6 +264,7 @@ class TM_Document_Document
      */
     public function insertToDb()
     {
+        $this->_db->startTransaction();
         try {
             $sql = 'INSERT INTO tm_document(title, user_id, date_create, file, is_folder, parent_id)
                     VALUES ("' . $this->_title . '", ' . $this->_user->getId() . ', "' . $this->_dateCreate . '", "",
@@ -288,7 +289,9 @@ class TM_Document_Document
                 }
             }
             $this->saveAttributeList();
+            $this->_db->commitTransaction();
         } catch (Exception $e) {
+            $this->_db->rollbackTransaction();
             throw new Exception($e->getMessage());
         }
     } // end of member function insertToDb
@@ -613,8 +616,8 @@ class TM_Document_Document
         try {
             $db = StdLib_DB::getInstance();
             $sql = 'SELECT * FROM tm_document, tm_discussion_document
-                    WHERE tm_document.is_folder=0
-                      AND tm_discussion_document.is_doc=1
+                    WHERE tm_document.is_folder=1
+                      AND tm_discussion_document.is_doc=0
                       AND tm_document.id=tm_discussion_document.document_id
                       AND tm_discussion_document.discussion_id=' . $discussion->getId();
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);

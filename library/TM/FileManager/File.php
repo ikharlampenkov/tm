@@ -45,7 +45,6 @@ class TM_FileManager_File
     /**
      *
      *
-
      * @return string
      * @access public
      */
@@ -79,9 +78,7 @@ class TM_FileManager_File
      *
      *
      * @param string $path
-
      * @param string $name
-
      * @return TM_FileManager_File
      * @access public
      */
@@ -99,13 +96,12 @@ class TM_FileManager_File
      *
      *
      * @param string $field
-
+     * @throws Exception
      * @return string
      * @access public
      */
     public function download($field)
     {
-
         if (isset($_FILES[$field]) && $_FILES[$field]['error'] == 0) {
             $this->_ext = $this->extractExt($_FILES[$field]['name']);
             $tempFileName = 'file_' . date('d-m-Y-H-i-s') . '.' . $this->_ext;
