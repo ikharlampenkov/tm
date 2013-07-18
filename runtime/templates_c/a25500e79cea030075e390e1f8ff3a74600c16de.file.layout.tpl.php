@@ -1,24 +1,24 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2013-07-11 23:14:10
+<?php /* Smarty version Smarty-3.0.9, created on 2013-07-18 22:55:06
          compiled from "F:\www\tm\application/layouts/scripts\layout.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:165805197a4fa883cf7-66925747%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1861451e80fda05bed3-42259191%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a25500e79cea030075e390e1f8ff3a74600c16de' => 
     array (
       0 => 'F:\\www\\tm\\application/layouts/scripts\\layout.tpl',
-      1 => 1373556199,
+      1 => 1374162876,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '165805197a4fa883cf7-66925747',
+  'nocache_hash' => '1861451e80fda05bed3-42259191',
   'function' => 
   array (
   ),
   'has_nocache_code' => false,
 )); /*/%%SmartyHeaderCode%%*/?>
 <?php if (!is_callable('smarty_block_if_allowed')) include 'F:\www\tm\library\Smarty\plugins\block.if_allowed.php';
-?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
@@ -57,7 +57,7 @@ $_smarty_tpl->decodeProperties(array (
 
 </head>
 
-<body onload="createChartControl('GanttDiv')">
+<body >
 
 <div class="head">
     <div class="login">
