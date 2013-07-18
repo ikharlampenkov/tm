@@ -3,7 +3,7 @@
 <div class="container">
 
 <div class="row">
-    <div class="span6" style="float: left; margin-left: 30px;">
+    <div class="span6">
 
         {if_allowed resource="{$controller}/index" priv="show-my-task"}
             <div class="index_block">
@@ -59,7 +59,7 @@
         {/if_allowed}
 
     </div>
-    <div class="span6" style="float: left; margin-left: 30px;">
+    <div class="span6">
 
         {if_allowed resource="{$controller}/index" priv="show-my-discussion"}
             <div class="index_block">
@@ -140,7 +140,7 @@
 </div>
 
 <div class="row">
-    <div class="span6" style="float: left; margin-left: 30px;">
+    <div class="span6">
         {*
     {if_allowed resource="{$controller}/index" priv="show-my-reports"}
         <div class="index_block">
@@ -308,7 +308,7 @@
     *}
 
     </div>
-    <div class="span6" style="float: left; margin-left: 30px;">
+    <div class="span6">
     </div>
 </div>
 </div>

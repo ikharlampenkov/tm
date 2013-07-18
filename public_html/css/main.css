@@ -180,7 +180,7 @@ a {
     height: 60px;
     position: absolute;
     top: 30px;
-    left: 58%;
+    right: 20px;
     background: url('/i/login.png') no-repeat;
     padding-top: 5px;
     padding-left: 20px;
@@ -218,8 +218,11 @@ a {
 .content {
     width: 100%;
     background-color: #ffffff;;
-    margin: 0 3% 0 0;
     min-height: 800px;
+}
+
+.inner_padding {
+    padding: 10px;
 }
 
 li.task_list {

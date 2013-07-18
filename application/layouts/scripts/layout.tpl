@@ -105,13 +105,9 @@
 
 <div class="content">
 
-    <table border="0" cellpadding="10" width="100%">
-        <tr>
-            <td>
-                {$this->layout()->content}
-            </td>
-        </tr>
-    </table>
+    <div class="inner_padding">
+        {$this->layout()->content}
+    </div>
 
 </div>
 

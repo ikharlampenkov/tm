@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2013-07-18 23:41:03
+<?php /* Smarty version Smarty-3.0.9, created on 2013-07-18 23:50:39
          compiled from "F:\www\tm\application/views/scripts\index/index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:138351e81a9fd311b8-78639450%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1651251e81cdfd251d4-31646071%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'b2aac6fcce9bb0e3eeaf67af4b08b5d77457fb5f' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\index/index.tpl',
-      1 => 1374165644,
+      1 => 1374166230,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '138351e81a9fd311b8-78639450',
+  'nocache_hash' => '1651251e81cdfd251d4-31646071',
   'function' => 
   array (
   ),
@@ -25,7 +25,7 @@ if (!is_callable('smarty_modifier_date_format')) include 'F:\www\tm\library\Smar
 <div class="container">
 
 <div class="row">
-    <div class="span6" style="float: left; margin-left: 30px;">
+    <div class="span6">
 
         <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-my-task")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-my-task"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
@@ -105,7 +105,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 
 
     </div>
-    <div class="span6" style="float: left; margin-left: 30px;">
+    <div class="span6">
 
         <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-my-discussion")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-my-discussion"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
