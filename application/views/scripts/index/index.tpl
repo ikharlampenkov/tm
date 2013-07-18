@@ -1,8 +1,10 @@
 {*{$this->action('index', 'task')}*}
 
-<table>
-<tr>
-    <td style="width: 49%">
+<div class="container">
+
+<div class="row">
+    <div class="span6" style="float: left; margin-left: 30px;">
+
         {if_allowed resource="{$controller}/index" priv="show-my-task"}
             <div class="index_block">
                 <div class="index_block_title" style="">
@@ -55,8 +57,10 @@
                 </div>
             </div>
         {/if_allowed}
-    </td>
-    <td style="width: 50%;">
+
+    </div>
+    <div class="span6" style="float: left; margin-left: 30px;">
+
         {if_allowed resource="{$controller}/index" priv="show-my-discussion"}
             <div class="index_block">
                 <div class="index_block_title" style="">
@@ -96,9 +100,10 @@
                                     {if $discussion->isRequest}{if $discussion->isComplete}
                                         <img src="/i/is_complite.png" title="Выполнена" alt="Выполнена" border="0"/>
                                     {elseif $discussion->user->id==$authUserId}
-                                        <button onclick="comment_complete_rq('{$this->url(['controller' => $controller,'action' => 'index', 'idTask' => $task->id, 'is_complete' => $discussion->id])}');">Завершить</button>{/if}{/if}
+                                    <button onclick="comment_complete_rq('{$this->url(['controller' => $controller,'action' => 'index', 'idTask' => $task->id, 'is_complete' => $discussion->id])}');">Завершить</button>{/if}{/if}
                                     {if $discussion->user->id==$authUserId}
-                                        <button onclick="comment_complete_rq('{$this->url(['controller' => $controller,'action' => 'index', 'idTask' => $task->id, 'delete' => $discussion->id])}');">удалить</button> {/if}
+                                        <button onclick="comment_complete_rq('{$this->url(['controller' => $controller,'action' => 'index', 'idTask' => $task->id, 'delete' => $discussion->id])}');">удалить</button>
+                                    {/if}
                                 </div>
                             </div>
                         </li>
@@ -131,10 +136,11 @@
                 </div>
             </div>
         {/if_allowed}
-    </td>
-</tr>
-<tr>
-    <td colspan="2">
+    </div>
+</div>
+
+<div class="row">
+    <div class="span6" style="float: left; margin-left: 30px;">
         {*
     {if_allowed resource="{$controller}/index" priv="show-my-reports"}
         <div class="index_block">
@@ -300,12 +306,13 @@
         </div>
     {/if_allowed}
     *}
-    </td>
-    <td style="width: 50%">
 
-    </td>
-</tr>
-</table>
+    </div>
+    <div class="span6" style="float: left; margin-left: 30px;">
+    </div>
+</div>
+</div>
+
 
 {*
 show,show-my-task,show-my-discussion,show-my-reports

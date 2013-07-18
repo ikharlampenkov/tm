@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2013-07-18 22:41:03
+<?php /* Smarty version Smarty-3.0.9, created on 2013-07-18 23:41:03
          compiled from "F:\www\tm\application/views/scripts\index/index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2545951e80c8f581648-06009919%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:138351e81a9fd311b8-78639450%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'b2aac6fcce9bb0e3eeaf67af4b08b5d77457fb5f' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\index/index.tpl',
-      1 => 1374162013,
+      1 => 1374165644,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2545951e80c8f581648-06009919',
+  'nocache_hash' => '138351e81a9fd311b8-78639450',
   'function' => 
   array (
   ),
@@ -22,9 +22,11 @@ if (!is_callable('smarty_block_if_object_allowed')) include 'F:\www\tm\library\S
 if (!is_callable('smarty_modifier_date_format')) include 'F:\www\tm\library\Smarty\plugins\modifier.date_format.php';
 ?>
 
-<table>
-<tr>
-    <td style="width: 49%">
+<div class="container">
+
+<div class="row">
+    <div class="span6" style="float: left; margin-left: 30px;">
+
         <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-my-task")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-my-task"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
             <div class="index_block">
@@ -101,8 +103,10 @@ if ($_smarty_tpl->_count($_from) > 0){
             </div>
         <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-my-task"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
-    </td>
-    <td style="width: 50%;">
+
+    </div>
+    <div class="span6" style="float: left; margin-left: 30px;">
+
         <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-my-discussion")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-my-discussion"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
             <div class="index_block">
@@ -168,11 +172,12 @@ if ($_smarty_tpl->_count($_from) > 0){
                                     <?php if ($_smarty_tpl->getVariable('discussion')->value->isRequest){?><?php if ($_smarty_tpl->getVariable('discussion')->value->isComplete){?>
                                         <img src="/i/is_complite.png" title="Выполнена" alt="Выполнена" border="0"/>
                                     <?php }elseif($_smarty_tpl->getVariable('discussion')->value->user->id==$_smarty_tpl->getVariable('authUserId')->value){?>
-                                        <button onclick="comment_complete_rq('<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'index','idTask'=>$_smarty_tpl->getVariable('task')->value->id,'is_complete'=>$_smarty_tpl->getVariable('discussion')->value->id));?>
+                                    <button onclick="comment_complete_rq('<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'index','idTask'=>$_smarty_tpl->getVariable('task')->value->id,'is_complete'=>$_smarty_tpl->getVariable('discussion')->value->id));?>
 ');">Завершить</button><?php }?><?php }?>
                                     <?php if ($_smarty_tpl->getVariable('discussion')->value->user->id==$_smarty_tpl->getVariable('authUserId')->value){?>
                                         <button onclick="comment_complete_rq('<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'index','idTask'=>$_smarty_tpl->getVariable('task')->value->id,'delete'=>$_smarty_tpl->getVariable('discussion')->value->id));?>
-');">удалить</button> <?php }?>
+');">удалить</button>
+                                    <?php }?>
                                 </div>
                             </div>
                         </li>
@@ -207,14 +212,16 @@ if ($_smarty_tpl->_count($_from) > 0){
             </div>
         <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/index",'priv'=>"show-my-discussion"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
-    </td>
-</tr>
-<tr>
-    <td colspan="2">
-    </td>
-    <td style="width: 50%">
+    </div>
+</div>
 
-    </td>
-</tr>
-</table>
+<div class="row">
+    <div class="span6">
+
+    </div>
+    <div class="span6">
+    </div>
+</div>
+</div>
+
 
