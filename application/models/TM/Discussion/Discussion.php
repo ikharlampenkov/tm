@@ -22,12 +22,10 @@
 
 class TM_Discussion_Discussion
 {
+    const ONLY_TOPIC = 1;
 
-    /** Aggregations: */
+    const ONLY_MESSAGE = 0;
 
-    /** Compositions: */
-
-    /*** Attributes: ***/
 
     /**
      *
@@ -145,6 +143,7 @@ class TM_Discussion_Discussion
      *
      *
      * @param int $value
+     *
      * @return void
      * @access protected
      */
@@ -157,6 +156,7 @@ class TM_Discussion_Discussion
      *
      *
      * @param string $value
+     *
      * @return void
      * @access public
      */
@@ -169,6 +169,7 @@ class TM_Discussion_Discussion
      *
      *
      * @param TM_User_User $value
+     *
      * @return void
      * @access public
      */
@@ -181,6 +182,7 @@ class TM_Discussion_Discussion
      *
      *
      * @param string $value
+     *
      * @return string
      * @access public
      */
@@ -242,6 +244,7 @@ class TM_Discussion_Discussion
      *
      *
      * @param TM_Discussion_Discussion $parent
+     *
      * @return void
      * @access public
      */
@@ -373,7 +376,8 @@ class TM_Discussion_Discussion
     public function insertToDb()
     {
         try {
-            $sql = 'INSERT INTO tm_discussion(message, user_id, date_create, is_first, is_message, topic_id, parent_id, to_user_id, is_request, is_complete)
+            $sql
+                = 'INSERT INTO tm_discussion(message, user_id, date_create, is_first, is_message, topic_id, parent_id, to_user_id, is_request, is_complete)
                     VALUES ("' . $this->_message . '", ' . $this->_user->getId() . ', "' . $this->_dateCreate . '", 
                              ' . $this->_prepareBool($this->_isFirst) . ', ' . $this->_prepareBool($this->_isMessage) . ',
                              ' . $this->_prepareNull($this->_topic) . ', ' . $this->_prepareNull($this->_parent) . ',
@@ -398,7 +402,8 @@ class TM_Discussion_Discussion
     public function updateToDb()
     {
         try {
-            $sql = 'UPDATE tm_discussion
+            $sql
+                = 'UPDATE tm_discussion
                     SET message="' . $this->_message . '", user_id="' . $this->_user->getId() . '", date_create="' . $this->_dateCreate . '",
                         is_first=' . $this->_prepareBool($this->_isFirst) . ', is_message=' . $this->_prepareBool($this->_isMessage) . ',
                         topic_id=' . $this->_prepareNull($this->_topic) . ', parent_id=' . $this->_prepareNull($this->_parent) . ',
@@ -421,7 +426,8 @@ class TM_Discussion_Discussion
     public function deleteFromDb()
     {
         try {
-            $sql = 'DELETE FROM tm_discussion
+            $sql
+                = 'DELETE FROM tm_discussion
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
         } catch (Exception $e) {
@@ -432,7 +438,8 @@ class TM_Discussion_Discussion
     public function toArchive()
     {
         try {
-            $sql = 'UPDATE tm_discussion SET is_archive=1
+            $sql
+                = 'UPDATE tm_discussion SET is_archive=1
                         WHERE id=' . $this->_id;
             $this->_db->query($sql);
 
@@ -444,7 +451,8 @@ class TM_Discussion_Discussion
     public function fromArchive()
     {
         try {
-            $sql = 'UPDATE tm_discussion SET is_archive=0
+            $sql
+                = 'UPDATE tm_discussion SET is_archive=0
                             WHERE id=' . $this->_id;
             $this->_db->query($sql);
 
@@ -456,7 +464,9 @@ class TM_Discussion_Discussion
     /**
      *
      *
-     * @param int $id идентификатор задачи
+     * @param int $id идентификатор сообщения
+     *
+     * @throws Exception
      * @return TM_Discussion_Discussion
      * @static
      * @access public
@@ -483,11 +493,12 @@ class TM_Discussion_Discussion
     /**
      *
      *
-     * @param $user
+     * @param       $user
      * @param array $values
+     *
+     * @throws Exception
      * @return TM_Discussion_Discussion
      * @static
-     * @access public
      */
     public static function getInstanceByArray($user, $values)
     {
@@ -504,22 +515,28 @@ class TM_Discussion_Discussion
      *
      *
      * @param TM_User_User $user
-     * @param int $topicId
+     * @param int          $topicId id темы
+     * @param int          $isTopic - тема или сообщения
+     * @param bool         $isArchive
+     *
+     * @throws Exception
      * @return array
      * @static
-     * @access public
      */
-    public static function getAllInstance(TM_User_User $user, $topicId = 0, $isArchive = false)
+    public static function getAllInstance(TM_User_User $user, $topicId = 0, $isTopic = 1, $isArchive = false)
     {
         try {
             $db = StdLib_DB::getInstance();
 
-            $sql = '';
+            $sql = 'SELECT * FROM tm_discussion ';
             if ($topicId > 0) {
-                $sql = 'SELECT * FROM tm_discussion
-                        WHERE topic_id=' . (int)$topicId;
+                $sql .= ' WHERE topic_id=' . (int)$topicId;
+                if ($isTopic == 1) {
+                    $sql .= ' AND is_message=0';
+                } else {
+                    $sql .= ' AND is_message=1';
+                }
             } elseif ($topicId == -1) {
-                $sql = 'SELECT * FROM tm_discussion ';
                 if ($isArchive) {
                     $sql .= ' WHERE is_archive=1';
                 } else {
@@ -527,8 +544,7 @@ class TM_Discussion_Discussion
                 }
 
             } elseif ($topicId == 0) {
-                $sql = 'SELECT * FROM tm_discussion
-                        WHERE topic_id IS NULL AND parent_id IS NULL AND is_message=0';
+                $sql .= ' WHERE topic_id IS NULL AND parent_id IS NULL AND is_message=0';
                 if ($isArchive) {
                     $sql .= ' AND is_archive=1';
                 } else {
@@ -551,14 +567,51 @@ class TM_Discussion_Discussion
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getAllInstance
+    }
+
+    /**
+     * Возвращает список сообщений в определенной теме в виде дерева
+     *
+     * @param TM_User_User $user пользователь
+     * @param              $topicId тема
+     *
+     * @return array|bool
+     * @throws Exception
+     */
+    public static function getDiscussionTree(TM_User_User $user, $topicId)
+    {
+        try {
+            $db = StdLib_DB::getInstance();
+            $sql = 'SELECT * FROM tm_discussion
+                     WHERE tm_discussion.is_message=1
+                       AND parent_id IS NULL
+                       AND topic_id=' . (int)$topicId . '
+                  ORDER BY date_create';
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+
+            if (isset($result[0])) {
+                $retArray = array();
+                foreach ($result as $res) {
+                    $temp = TM_Discussion_Discussion::getInstanceByArray($user, $res);
+                    $retArray[] = $temp;
+                    $temp->getChildTree($user, $temp->getId(), $retArray);
+                }
+                return $retArray;
+            } else {
+                return false;
+            }
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
 
     public static function getPrivateDiscussion(TM_User_User $user)
     {
         try {
             $db = StdLib_DB::getInstance();
 
-            $sql = 'SELECT * FROM tm_discussion
+            $sql
+                = 'SELECT * FROM tm_discussion
                     WHERE is_message=1
                       AND parent_id IS NULL
                       AND (to_user_id=' . $user->id . ' OR (user_id= ' . $user->id . ' AND to_user_id IS NOT NULL))
@@ -585,7 +638,9 @@ class TM_Discussion_Discussion
      *
      *
      * @param TM_User_User $user
-     * @param int $topicId
+     * @param int          $topicId
+     *
+     * @throws Exception
      * @return array
      * @static
      * @access public
@@ -597,10 +652,12 @@ class TM_Discussion_Discussion
 
             $sql = '';
             if ($topicId > 0) {
-                $sql = 'SELECT * FROM tm_discussion
+                $sql
+                    = 'SELECT * FROM tm_discussion
                         WHERE topic_id=' . (int)$topicId . ' AND is_message=1';
             } elseif ($topicId == 0) {
-                $sql = 'SELECT * FROM tm_discussion
+                $sql
+                    = 'SELECT * FROM tm_discussion
                         WHERE topic_id IS NOT NULL AND is_message=1 ';
             }
 
@@ -625,7 +682,8 @@ class TM_Discussion_Discussion
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_discussion, tm_task_discussion
+            $sql
+                = 'SELECT * FROM tm_discussion, tm_task_discussion
                     WHERE tm_discussion.is_message=1
                       AND tm_discussion.id=tm_task_discussion.discussion_id
                       AND tm_task_discussion.task_id=' . $task->getId() . ' ORDER BY tm_discussion.parent_id, date_create';
@@ -649,6 +707,7 @@ class TM_Discussion_Discussion
      * Возвращает количество сообщений для задачи с учетом темы
      * @param TM_User_User $user
      * @param TM_Task_Task $task
+     *
      * @return array|bool
      * @throws Exception
      */
@@ -656,7 +715,8 @@ class TM_Discussion_Discussion
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT COUNT(tm_discussion.id) AS cnt FROM tm_discussion, tm_task_discussion
+            $sql
+                = 'SELECT COUNT(tm_discussion.id) AS cnt FROM tm_discussion, tm_task_discussion
                         WHERE tm_discussion.is_message=1
                           AND (tm_discussion.id=tm_task_discussion.discussion_id OR tm_discussion.topic_id=tm_task_discussion.discussion_id)
                           AND tm_task_discussion.task_id=' . $task->getId();
@@ -676,7 +736,8 @@ class TM_Discussion_Discussion
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_discussion, tm_task_discussion
+            $sql
+                = 'SELECT * FROM tm_discussion, tm_task_discussion
                     WHERE tm_discussion.is_message=1
                       AND tm_discussion.id=tm_task_discussion.discussion_id
                       AND tm_task_discussion.task_id=' . $task->getId() . '
@@ -704,7 +765,8 @@ class TM_Discussion_Discussion
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT task_id FROM tm_task_discussion
+            $sql
+                = 'SELECT task_id FROM tm_task_discussion
                         WHERE discussion_id=' . $this->getId();
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
@@ -721,7 +783,8 @@ class TM_Discussion_Discussion
     public function getChildTree(TM_User_User $user, $parent_id, &$retArray)
     {
         try {
-            $sql = 'SELECT * FROM tm_discussion
+            $sql
+                = 'SELECT * FROM tm_discussion
                     WHERE tm_discussion.is_message=1
                       AND parent_id=' . $parent_id . '
                       ORDER BY date_create';
@@ -744,7 +807,8 @@ class TM_Discussion_Discussion
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_discussion, tm_task_discussion
+            $sql
+                = 'SELECT * FROM tm_discussion, tm_task_discussion
                     WHERE tm_discussion.is_message=0
                       AND tm_discussion.id=tm_task_discussion.discussion_id
                       AND tm_task_discussion.task_id=' . $task->getId();
@@ -784,7 +848,8 @@ class TM_Discussion_Discussion
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_discussion, tm_discussion_document
+            $sql
+                = 'SELECT * FROM tm_discussion, tm_discussion_document
                     WHERE tm_discussion.is_message=0
                       AND tm_discussion_document.is_doc=0
                       AND tm_discussion.id=tm_discussion_document.discussion_id
@@ -805,7 +870,8 @@ class TM_Discussion_Discussion
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_discussion, tm_discussion_document
+            $sql
+                = 'SELECT * FROM tm_discussion, tm_discussion_document
                     WHERE tm_discussion.is_message=1
                       AND tm_discussion_document.is_doc=0
                       AND tm_discussion.id=tm_discussion_document.discussion_id
@@ -833,7 +899,8 @@ class TM_Discussion_Discussion
     public function getChildTreeD(TM_User_User $user, $parent_id, &$retArray)
     {
         try {
-            $sql = 'SELECT * FROM tm_discussion
+            $sql
+                = 'SELECT * FROM tm_discussion
                     WHERE tm_discussion.is_message=1
                       AND parent_id=' . $parent_id . '
                       ORDER BY date_create';
@@ -856,7 +923,8 @@ class TM_Discussion_Discussion
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_discussion, tm_discussion_document
+            $sql
+                = 'SELECT * FROM tm_discussion, tm_discussion_document
                     WHERE tm_discussion.is_message=0
                       AND tm_discussion_document.is_doc=0
                       AND tm_discussion.id=tm_discussion_document.discussion_id
@@ -890,7 +958,8 @@ class TM_Discussion_Discussion
     public function deleteLinkToDocument($document)
     {
         try {
-            $sql = 'DELETE FROM tm_discussion_document
+            $sql
+                = 'DELETE FROM tm_discussion_document
                     WHERE document_id=' . $document->id . ' AND discussion_id=' . $this->_id;
             $this->_db->query($sql);
         } catch (Exception $e) {
@@ -902,6 +971,7 @@ class TM_Discussion_Discussion
      *
      *
      * @param array $values
+     *
      * @return void
      * @access public
      */

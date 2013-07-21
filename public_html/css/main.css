@@ -23,8 +23,8 @@ ul {
 
 table {
     width: 100%;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     vertical-align: top;
 }
 
@@ -39,11 +39,11 @@ tr {
 }
 
 input {
-    width: 100%;
+    width: 99%;
 }
 
 textarea {
-    width: 100%;
+    width: 99%;
     height: 200px;
 }
 
@@ -82,7 +82,7 @@ textarea {
 
 .page_block {
     float: right;
-    margin-top:-27px;
+    margin-top: -27px;
     width: 300px;
 }
 
@@ -189,7 +189,7 @@ a {
 .unlogged a {
     font-size: 14px;
     margin-bottom: 10px;
-    font-family: Trebuchet MS;
+    font-family: Trebuchet MS, sans-serif;
     color: #777;
     line-height: 23px;
 }
@@ -285,7 +285,6 @@ li.task_list {
     margin: 0;
 }
 
-
 /** Task **/
 
 a.task_green {
@@ -329,14 +328,14 @@ a.task_no_access {
 }
 
 .task_title {
-    float:left;
+    float: left;
     margin-left: 5px;
     vertical-align: middle;
 }
 
 .task_action {
     width: 120px;
-    float:right;
+    float: right;
 }
 
 .task_statistic {
@@ -351,7 +350,7 @@ a.task_no_access {
 
 .task_deadline {
     width: 120px;
-    float:right;
+    float: right;
 }
 
 .task_subtask {
@@ -371,8 +370,11 @@ a.task_no_access {
     display: none;
 }
 
-
 /** Discussion **/
+
+.discussion_date {
+    width: 120px;
+}
 
 .discussion_list {
     list-style: none;
@@ -415,6 +417,13 @@ a.task_no_access {
     margin-left: 20px;
     padding: 0;
 
+}
+
+.discussion_form_text {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 0 5px 0;
+    margin: 0 0 5px 0;
 }
 
 

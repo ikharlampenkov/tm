@@ -14,13 +14,24 @@ class DiscussionController extends Zend_Controller_Action
     public function indexAction()
     {
         $parentId = $this->getRequest()->getParam('parent', 0);
-        $this->view->assign('discussionList', TM_Discussion_Discussion::getAllInstance($this->_user, $parentId));
+        $this->view->assign('topicList', TM_Discussion_Discussion::getAllInstance($this->_user, $parentId, TM_Discussion_Discussion::ONLY_TOPIC));
+        //print_r(TM_Discussion_Discussion::getAllInstance($this->_user, $parentId, TM_Discussion_Discussion::ONLY_TOPIC));
 
         if ($parentId != 0) {
             $curDiscussion = TM_Discussion_Discussion::getInstanceById($parentId);
 
+            if ($this->getRequest()->getParam('is_complete')) {
+                $oDiscussion = TM_Discussion_Discussion::getInstanceById($this->getRequest()->getParam('is_complete'));
+                $oDiscussion->setIsComplete(true);
+
+                $oDiscussion->updateToDb();
+                $this->redirect('/discussion/index/parent/' . $this->getRequest()->getParam('parent', 0));
+            }
+
+            $this->view->assign('discussionList', TM_Discussion_Discussion::getDiscussionTree($this->_user, $parentId));
             $this->view->assign('discussion', $curDiscussion);
             $this->view->assign('breadcrumbs', $curDiscussion->getPathToDiscussion());
+            $this->view->assign('userList', TM_User_User::getAllInstance());
         }
         $this->view->assign('parentId', $parentId);
     }
@@ -44,6 +55,14 @@ class DiscussionController extends Zend_Controller_Action
 
             if (!empty($data['parent'])) {
                 $oDiscussion->setParent(TM_Discussion_Discussion::getInstanceById($data['parent']));
+            }
+
+            if (isset($data['to']) && $data['to'] != '') {
+                $oDiscussion->setToUser(TM_User_User::getInstanceById($data['to']));
+            }
+
+            if (isset($data['is_request']) && $data['is_request'] == 'on') {
+                $oDiscussion->setIsRequest(true);
             }
 
             try {
@@ -73,7 +92,7 @@ class DiscussionController extends Zend_Controller_Action
                     $oDocument->setAttribute('description', $data['document_description']);
 
                     $oDocument->insertToDb();
-                    $oDocument->setLinkToDiscussion($oDiscussion, 0);
+                    $oDocument->setLinkToDiscussion($oDiscussion, 1);
 
                     if (!empty($discussionAcl)) {
                         foreach ($discussionAcl as $acl) {
@@ -130,7 +149,7 @@ class DiscussionController extends Zend_Controller_Action
                     $oDocument->setAttribute('description', $data['document_description']);
 
                     $oDocument->insertToDb();
-                    $oDocument->setLinkToDiscussion($oDiscussion, 0);
+                    $oDocument->setLinkToDiscussion($oDiscussion, 1);
 
                     if (!empty($discussionAcl)) {
                         foreach ($discussionAcl as $acl) {

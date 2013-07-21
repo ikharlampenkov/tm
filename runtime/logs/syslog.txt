@@ -35,3 +35,4 @@ error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:40
 error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:41
 error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:43
 error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:43
+error   Can`t complit query:  WHERE topic_id IS NULL AND parent_id IS NULL AND is_message=0 AND is_archive=0 ORDER BY parent_id No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE topic_id IS NULL AND parent_id IS NULL AND is_message=0 AND is_archive=0 O' at line 1 ;  21.07.2013 20:31
