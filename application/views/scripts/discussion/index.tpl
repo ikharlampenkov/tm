@@ -1,11 +1,11 @@
-<div class="page"><h1>{if !isset($discussion)}Обсуждение{else}Тема: {$discussion->title}{/if}</h1></div><br/>
+<div class="page"><h1>{if !isset($discussion)}Обсуждение{else}Тема: {$discussion->message}{/if}</h1></div><br/>
 
 {if isset($breadcrumbs)}
     <a href="{$this->url(['controller' => $controller,'action' => 'index', 'parent' => 0])}">/..</a>
     {if !empty($breadcrumbs)}
     &nbsp;/
     {foreach from=$breadcrumbs item=crumb name=_crumb}
-    <a href="{$this->url(['controller' => $controller,'action' => 'index', 'parent' => $crumb->id])}">{$crumb->title}</a>&nbsp;/
+    <a href="{$this->url(['controller' => $controller,'action' => 'index', 'parent' => $crumb->id])}">{$crumb->message}</a>&nbsp;/
     {/foreach}
     {/if}
     <br/><br/>

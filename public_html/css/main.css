@@ -404,10 +404,11 @@ a.task_no_access {
 }
 
 .discussion_info button {
-    font-size: 11px;
+    font-size: 10px;
     height: 18px;
     margin: 1px;
     padding: 1px;
+    line-height: 1px;
 }
 
 .discussion_submessage {

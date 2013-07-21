@@ -945,9 +945,10 @@ class TM_Discussion_Discussion
     public function getPathToDiscussion(&$pathArray = array())
     {
         try {
-            if (!is_null($this->_parent)) {
-                $pathArray[] = $this->_parent;
-                $this->_parent->getPathToDiscussion($pathArray);
+
+            if (!is_null($this->_topic)) {
+                $pathArray[] = $this->_topic;
+                $this->_topic->getPathToDiscussion($pathArray);
             }
             return array_reverse($pathArray);
         } catch (Exception $e) {

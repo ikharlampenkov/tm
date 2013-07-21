@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2013-07-11 23:24:57
+<?php /* Smarty version Smarty-3.0.9, created on 2013-07-21 12:18:29
          compiled from "F:\www\tm\application/views/scripts\discussion/index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:230444f1c3e8047aca4-76241576%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:1592951eb6f25761949-40614732%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a4bcff7935961047d5c498b087fddf3d5e6df75f' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\discussion/index.tpl',
-      1 => 1373556199,
+      1 => 1374383904,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '230444f1c3e8047aca4-76241576',
+  'nocache_hash' => '1592951eb6f25761949-40614732',
   'function' => 
   array (
   ),
@@ -21,7 +21,7 @@ $_smarty_tpl->decodeProperties(array (
 if (!is_callable('smarty_modifier_capitalize')) include 'F:\www\tm\library\Smarty\plugins\modifier.capitalize.php';
 if (!is_callable('smarty_block_if_object_allowed')) include 'F:\www\tm\library\Smarty\plugins\block.if_object_allowed.php';
 if (!is_callable('smarty_modifier_date_format')) include 'F:\www\tm\library\Smarty\plugins\modifier.date_format.php';
-?><div class="page"><h1><?php if (!isset($_smarty_tpl->getVariable('discussion',null,true,false)->value)){?>Обсуждение<?php }else{ ?>Тема: <?php echo $_smarty_tpl->getVariable('discussion')->value->title;?>
+?><div class="page"><h1><?php if (!isset($_smarty_tpl->getVariable('discussion',null,true,false)->value)){?>Обсуждение<?php }else{ ?>Тема: <?php echo $_smarty_tpl->getVariable('discussion')->value->message;?>
 <?php }?></h1></div><br/>
 
 <?php if (isset($_smarty_tpl->getVariable('breadcrumbs',null,true,false)->value)){?>
@@ -35,7 +35,7 @@ if ($_smarty_tpl->_count($_from) > 0){
     foreach ($_from as $_smarty_tpl->tpl_vars['crumb']->key => $_smarty_tpl->tpl_vars['crumb']->value){
 ?>
     <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'index','parent'=>$_smarty_tpl->getVariable('crumb')->value->id));?>
-"><?php echo $_smarty_tpl->getVariable('crumb')->value->title;?>
+"><?php echo $_smarty_tpl->getVariable('crumb')->value->message;?>
 </a>&nbsp;/
     <?php }} ?>
     <?php }?>
