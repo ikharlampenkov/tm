@@ -6,10 +6,6 @@
  */
 class TM_FileManager_File
 {
-    /** Aggregations: */
-    /** Compositions: */
-    /*     * * Attributes: ** */
-
     /**
      *
      * @access protected
@@ -22,6 +18,9 @@ class TM_FileManager_File
      */
     protected $_path;
 
+    /**
+     * @var string
+     */
     protected $_subPath = '';
 
     /**
@@ -41,6 +40,13 @@ class TM_FileManager_File
      * @access protected
      */
     protected $_size;
+
+    /**
+     * Оригинальное название файла при загрузке
+     *
+     * @var string
+     */
+    protected $_originalName = '';
 
     /**
      *
@@ -74,11 +80,13 @@ class TM_FileManager_File
         return $this->_subPath;
     }
 
+
     /**
      *
      *
      * @param string $path
      * @param string $name
+     *
      * @return TM_FileManager_File
      * @access public
      */
@@ -96,6 +104,7 @@ class TM_FileManager_File
      *
      *
      * @param string $field
+     *
      * @throws Exception
      * @return string
      * @access public
@@ -110,6 +119,7 @@ class TM_FileManager_File
             if ($result) {
                 chmod($this->_path . $this->_subPath . '/' . $tempFileName, 0766);
                 $this->_name = $tempFileName;
+                $this->_originalName = $this->extractName($_FILES[$field]['name']);
                 return $this->_name;
             } else {
                 throw new Exception('Can not upload file ' . $this->_path . $this->_subPath . '/' . $tempFileName . ' res ' . $result);
@@ -119,11 +129,10 @@ class TM_FileManager_File
         }
     }
 
-// end of member function download
-
     /**
      *
      *
+     * @throws Exception
      * @return void
      * @access public
      */
@@ -138,9 +147,10 @@ class TM_FileManager_File
     }
 
     /**
-     *
+     * Возвращает расширение файла
      *
      * @param string $name
+     *
      * @return string
      * @access protected
      */
@@ -154,8 +164,36 @@ class TM_FileManager_File
         }
     }
 
-// end of member function extractExt
-}
+    /**
+     * Возвращает имя файла без расширения
+     *
+     * @param string $name
+     *
+     * @return string
+     */
+    protected function extractName($name)
+    {
+        if (!empty($name)) {
+            $tempInfo = pathinfo($name);
+            return $tempInfo['filename'];
+        } else {
+            return '';
+        }
+    }
 
-// end of File
-?>
+    /**
+     * Проверяем наличие файла для загрузки
+     *
+     * @param $field
+     *
+     * @return bool
+     */
+    public static function hasFileForUpload($field)
+    {
+        if (isset($_FILES[$field]) && $_FILES[$field]['error'] == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
