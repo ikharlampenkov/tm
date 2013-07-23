@@ -252,7 +252,7 @@ class TaskController extends Zend_Controller_Action
                 $oTask->setAttribute($key, $value);
             }
 
-            if (!empty($data['document_title'])) {
+            if (TM_FileManager_File::hasFileForUpload('file')) {
                 $oDocument = new TM_Document_Document();
                 $oDocument->setUser($this->_user);
                 $oDocument->setDateCreate(date('d.m.Y H:i:s'));
@@ -670,7 +670,7 @@ class TaskController extends Zend_Controller_Action
                     }
                 }
 
-                if (!empty($data['document_title'])) {
+                if (TM_FileManager_File::hasFileForUpload('file')) {
                     $oDocument = new TM_Document_Document();
                     $oDocument->setUser($this->_user);
                     $oDocument->setDateCreate(date('d.m.Y H:i:s'));
