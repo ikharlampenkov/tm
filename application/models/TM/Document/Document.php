@@ -42,8 +42,7 @@ class TM_Document_Document
     protected $_dateCreate;
 
     /**
-     *
-     * @access protected
+     * @var TM_User_User|null
      */
     protected $_user = null;
 
@@ -98,7 +97,7 @@ class TM_Document_Document
     /**
      *
      *
-     * @return User::TM_User_User
+     * @return TM_User_User
      * @access public
      */
     public function getUser()
@@ -121,6 +120,7 @@ class TM_Document_Document
      *
      *
      * @param int $value
+     *
      * @return void
      * @access protected
      */
@@ -133,6 +133,7 @@ class TM_Document_Document
      *
      *
      * @param string $value
+     *
      * @return void
      * @access public
      */
@@ -145,6 +146,7 @@ class TM_Document_Document
      *
      *
      * @param TM_User_User $value
+     *
      * @return void
      * @access public
      */
@@ -157,6 +159,7 @@ class TM_Document_Document
      *
      *
      * @param string $value
+     *
      * @return string
      * @access public
      */
@@ -217,6 +220,7 @@ class TM_Document_Document
      *
      *
      * @param TM_Document_Document $parent
+     *
      * @return void
      * @access public
      */
@@ -253,7 +257,7 @@ class TM_Document_Document
     {
         $this->_db = StdLib_DB::getInstance();
         //$this->_file = new TM_FileManager_File(Zend_Registry::get('production')->files->path);
-    } // end of member function __construct
+    }
 
     /**
      *
@@ -266,7 +270,8 @@ class TM_Document_Document
     {
         $this->_db->startTransaction();
         try {
-            $sql = 'INSERT INTO tm_document(title, user_id, date_create, file, is_folder, parent_id)
+            $sql
+                = 'INSERT INTO tm_document(title, user_id, date_create, file, is_folder, parent_id)
                     VALUES ("' . $this->_title . '", ' . $this->_user->getId() . ', "' . $this->_dateCreate . '", "",
                              ' . $this->_prepareBool($this->_isFolder) . ', ' . $this->_prepareNull($this->_parentDocument) . ')';
             $this->_db->query($sql);
@@ -279,6 +284,12 @@ class TM_Document_Document
                 if ($fName !== false) {
                     $sql = 'UPDATE tm_document SET file="' . $fName . '" WHERE id=' . $this->_id;
                     $this->_db->query($sql);
+
+                    if (empty($this->_title)) {
+                        $this->_title = $this->_file->getOriginalName();
+                        $sql = 'UPDATE tm_document SET title="' . $this->_title . '" WHERE id=' . $this->_id;
+                        $this->_db->query($sql);
+                    }
                 }
             } else {
                 $this->_file->setSubPath($this->getParentPath());
@@ -302,13 +313,16 @@ class TM_Document_Document
     /**
      *
      *
+     * @throws Exception
      * @return void
      * @access public
      */
     public function updateToDb()
     {
+        $this->_db->startTransaction();
         try {
-            $sql = 'UPDATE tm_document
+            $sql
+                = 'UPDATE tm_document
                     SET title="' . $this->_title . '", user_id="' . $this->_user->getId() . '", date_create="' . $this->_dateCreate . '",
                         is_folder=' . $this->_prepareBool($this->_isFolder) . ', parent_id=' . $this->_prepareNull($this->_parentDocument) . '
                     WHERE id=' . $this->_id;
@@ -320,10 +334,18 @@ class TM_Document_Document
                 if ($fName !== false) {
                     $sql = 'UPDATE tm_document SET file="' . $fName . '" WHERE id=' . $this->_id;
                     $this->_db->query($sql);
+
+                    if (empty($this->_title)) {
+                        $this->_title = $this->_file->getOriginalName();
+                        $sql = 'UPDATE tm_document SET title="' . $this->_title . '" WHERE id=' . $this->_id;
+                        $this->_db->query($sql);
+                    }
                 }
             }
             $this->saveAttributeList();
+            $this->_db->commitTransaction();
         } catch (Exception $e) {
+            $this->_db->rollbackTransaction();
             throw new Exception($e->getMessage());
         }
     } // end of member function updateToDb
@@ -331,17 +353,13 @@ class TM_Document_Document
     /**
      *
      *
+     * @throws Exception
      * @return void
      * @access public
      */
     public function deleteFromDb()
     {
         try {
-            /*
-            if (!$this->_isFolder) {
-                $this->_file->setSubPath($this->_parentDocument->getFile()->getName());
-            }
-            */
             $docList = TM_Document_Document::getAllInstance($this->_user, $this->_id);
             foreach ($docList as $doc) {
                 $doc->deleteFromDb();
@@ -349,18 +367,20 @@ class TM_Document_Document
 
             $this->_file->delete();
 
-            $sql = 'DELETE FROM tm_document
+            $sql
+                = 'DELETE FROM tm_document
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function deleteFromDb
+    }
 
     public function toArchive()
     {
         try {
-            $sql = 'UPDATE tm_document SET is_archive=1
+            $sql
+                = 'UPDATE tm_document SET is_archive=1
                         WHERE id=' . $this->_id;
             $this->_db->query($sql);
 
@@ -372,7 +392,8 @@ class TM_Document_Document
     public function fromArchive()
     {
         try {
-            $sql = 'UPDATE tm_document SET is_archive=0
+            $sql
+                = 'UPDATE tm_document SET is_archive=0
                             WHERE id=' . $this->_id;
             $this->_db->query($sql);
 
@@ -385,6 +406,8 @@ class TM_Document_Document
      *
      *
      * @param int $id идентификатор задачи
+     *
+     * @throws Exception
      * @return TM_Document_Document
      * @static
      * @access public
@@ -411,8 +434,9 @@ class TM_Document_Document
     /**
      *
      *
-     * @param $user
+     * @param       $user
      * @param array $values
+     *
      * @return TM_Document_Document
      * @static
      * @access public
@@ -432,9 +456,10 @@ class TM_Document_Document
      *
      *
      * @param TM_User_User $user
-     * @param int $parentId
-     * @param int $isFolder
-     * @param bool $isArchive
+     * @param int          $parentId
+     * @param int          $isFolder
+     * @param bool         $isArchive
+     *
      * @return array
      * @static
      * @access public
@@ -445,7 +470,8 @@ class TM_Document_Document
             $db = StdLib_DB::getInstance();
 
             if ($parentId > 0) {
-                $sql = 'SELECT * FROM tm_document
+                $sql
+                    = 'SELECT * FROM tm_document
                         WHERE parent_id=' . (int)$parentId;
             } elseif ($parentId == -1) {
                 $sql = 'SELECT * FROM tm_document ';
@@ -456,7 +482,8 @@ class TM_Document_Document
                 }
 
             } elseif ($parentId == 0) {
-                $sql = 'SELECT * FROM tm_document
+                $sql
+                    = 'SELECT * FROM tm_document
                         WHERE parent_id IS NULL ';
                 if ($isArchive) {
                     $sql .= ' AND is_archive=1 ';
@@ -499,7 +526,8 @@ class TM_Document_Document
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_document, tm_task_document
+            $sql
+                = 'SELECT * FROM tm_document, tm_task_document
                     WHERE tm_document.is_folder=0
                       AND tm_document.id=tm_task_document.document_id
                       AND tm_task_document.task_id=' . $task->getId();
@@ -523,6 +551,7 @@ class TM_Document_Document
      * Возвращает количество документов для задачи с учетом папки
      * @param TM_User_User $user
      * @param TM_Task_Task $task
+     *
      * @return int
      * @throws Exception
      */
@@ -530,7 +559,8 @@ class TM_Document_Document
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT COUNT(tm_document.id) AS cnt FROM tm_document, tm_task_document
+            $sql
+                = 'SELECT COUNT(tm_document.id) AS cnt FROM tm_document, tm_task_document
                      WHERE tm_document.is_folder=0
                        AND (tm_document.id=tm_task_document.document_id OR tm_document.parent_id=tm_task_document.document_id)
                        AND task_id=' . $task->getId();
@@ -550,7 +580,8 @@ class TM_Document_Document
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_document, tm_task_document
+            $sql
+                = 'SELECT * FROM tm_document, tm_task_document
                     WHERE tm_document.is_folder=1
                       AND tm_document.id=tm_task_document.document_id
                       AND tm_task_document.task_id=' . $task->getId();
@@ -590,7 +621,8 @@ class TM_Document_Document
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_document, tm_discussion_document
+            $sql
+                = 'SELECT * FROM tm_document, tm_discussion_document
                     WHERE tm_document.is_folder=0
                       AND tm_discussion_document.is_doc=1
                       AND tm_document.id=tm_discussion_document.document_id
@@ -615,7 +647,8 @@ class TM_Document_Document
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_document, tm_discussion_document
+            $sql
+                = 'SELECT * FROM tm_document, tm_discussion_document
                     WHERE tm_document.is_folder=1
                       AND tm_discussion_document.is_doc=0
                       AND tm_document.id=tm_discussion_document.document_id
@@ -635,7 +668,8 @@ class TM_Document_Document
     public function setLinkToDiscussion($discussion, $is_doc = 0)
     {
         try {
-            $sql = 'INSERT INTO tm_discussion_document(discussion_id, document_id, is_doc)
+            $sql
+                = 'INSERT INTO tm_discussion_document(discussion_id, document_id, is_doc)
                     VALUES(' . $discussion->id . ', ' . $this->_id . ', ' . $is_doc . ')';
             $this->_db->query($sql);
         } catch (Exception $e) {
@@ -646,7 +680,8 @@ class TM_Document_Document
     public function deleteLinkToDiscussion($discussion)
     {
         try {
-            $sql = 'DELETE FROM tm_discussion_document
+            $sql
+                = 'DELETE FROM tm_discussion_document
                     WHERE discussion_id=' . $discussion->id . ' AND document_id=' . $this->_id;
             $this->_db->query($sql);
         } catch (Exception $e) {
@@ -659,6 +694,7 @@ class TM_Document_Document
      *
      *
      * @param array $values
+     *
      * @return void
      * @access public
      */

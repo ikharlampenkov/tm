@@ -74,7 +74,7 @@ class DocumentController extends Zend_Controller_Action
                     }
                 }
 
-                $this->_redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
+                $this->redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -105,7 +105,7 @@ class DocumentController extends Zend_Controller_Action
 
             try {
                 $oDocument->updateToDb();
-                $this->_redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
+                $this->redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -123,7 +123,7 @@ class DocumentController extends Zend_Controller_Action
         $oDocument = TM_Document_Document::getInstanceById($this->getRequest()->getParam('id'));
         try {
             $oDocument->deleteFromDB();
-            $this->_redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
+            $this->redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
 
@@ -156,7 +156,7 @@ class DocumentController extends Zend_Controller_Action
                     $documentAcl->saveToDb();
                 }
 
-                $this->_redirect('/document/showAcl/parent/' . $this->getRequest()->getParam('parent', 0) . '/idDocument/' . $this->getRequest()->getParam('idDocument'));
+                $this->redirect('/document/showAcl/parent/' . $this->getRequest()->getParam('parent', 0) . '/idDocument/' . $this->getRequest()->getParam('idDocument'));
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }

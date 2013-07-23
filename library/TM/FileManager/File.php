@@ -80,6 +80,13 @@ class TM_FileManager_File
         return $this->_subPath;
     }
 
+    /**
+     * @return string
+     */
+    public function getOriginalName()
+    {
+        return $this->_originalName;
+    }
 
     /**
      *
