@@ -204,7 +204,7 @@ class DocumentController extends Zend_Controller_Action
                     }
                 }
 
-                $this->_redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
+                $this->redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -234,7 +234,7 @@ class DocumentController extends Zend_Controller_Action
 
             try {
                 $oDocument->updateToDb();
-                $this->_redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
+                $this->redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -251,7 +251,7 @@ class DocumentController extends Zend_Controller_Action
         $oDocument = TM_Document_Document::getInstanceById($this->getRequest()->getParam('id'));
         try {
             $oDocument->deleteFromDB();
-            $this->_redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
+            $this->redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -272,7 +272,7 @@ class DocumentController extends Zend_Controller_Action
 
             try {
                 $oType->insertToDb();
-                $this->_redirect('/document/viewAttributeType');
+                $this->redirect('/document/viewAttributeType');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -295,7 +295,7 @@ class DocumentController extends Zend_Controller_Action
 
             try {
                 $oType->updateToDb();
-                $this->_redirect('/document/viewAttributeType');
+                $this->redirect('/document/viewAttributeType');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -310,7 +310,7 @@ class DocumentController extends Zend_Controller_Action
         $oType = TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Document_AttributeTypeMapper(), $this->getRequest()->getParam('id'));
         try {
             $oType->deleteFromDB();
-            $this->_redirect('/document/viewAttributeType');
+            $this->redirect('/document/viewAttributeType');
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -330,7 +330,7 @@ class DocumentController extends Zend_Controller_Action
 
             try {
                 $oHash->insertToDb();
-                $this->_redirect('/document/viewHash');
+                $this->redirect('/document/viewHash');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -354,7 +354,7 @@ class DocumentController extends Zend_Controller_Action
 
             try {
                 $oHash->updateToDb();
-                $this->_redirect('/document/viewHash');
+                $this->redirect('/document/viewHash');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -370,7 +370,7 @@ class DocumentController extends Zend_Controller_Action
         $oHash = TM_Document_Hash::getInstanceById($this->getRequest()->getParam('key'));
         try {
             $oHash->deleteFromDB();
-            $this->_redirect('/document/viewHash');
+            $this->redirect('/document/viewHash');
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -467,7 +467,7 @@ class DocumentController extends Zend_Controller_Action
                     }
                 }
 
-                $this->_redirect('/document/showDiscussion/parent/' . $this->getRequest()->getParam('parent', 0) . '/idDocument/' . $this->getRequest()->getParam('idDocument'));
+                $this->redirect('/document/showDiscussion/parent/' . $this->getRequest()->getParam('parent', 0) . '/idDocument/' . $this->getRequest()->getParam('idDocument'));
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }

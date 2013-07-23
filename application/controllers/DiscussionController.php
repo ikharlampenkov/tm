@@ -180,7 +180,7 @@ class DiscussionController extends Zend_Controller_Action
         $oDiscussion = TM_Discussion_Discussion::getInstanceById($this->getRequest()->getParam('id'));
         try {
             $oDiscussion->deleteFromDB();
-            $this->_redirect('/discussion/index/parent/' . $this->getRequest()->getParam('parent', 0));
+            $this->redirect('/discussion/index/parent/' . $this->getRequest()->getParam('parent', 0));
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
 
@@ -205,7 +205,7 @@ class DiscussionController extends Zend_Controller_Action
                     $discussionAcl->saveToDb();
                 }
 
-                $this->_redirect('/discussion/showAcl/parent/' . $this->getRequest()->getParam('parent', 0) . '/idDiscussion/' . $this->getRequest()->getParam('idDiscussion'));
+                $this->redirect('/discussion/showAcl/parent/' . $this->getRequest()->getParam('parent', 0) . '/idDiscussion/' . $this->getRequest()->getParam('idDiscussion'));
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -251,7 +251,7 @@ class DiscussionController extends Zend_Controller_Action
                     }
                 }
 
-                $this->_redirect('/discussion/index/parent/' . $this->getRequest()->getParam('parent', 0));
+                $this->redirect('/discussion/index/parent/' . $this->getRequest()->getParam('parent', 0));
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -278,7 +278,7 @@ class DiscussionController extends Zend_Controller_Action
 
             try {
                 $oDiscussion->updateToDb();
-                $this->_redirect('/discussion/index/parent/' . $this->getRequest()->getParam('parent', 0));
+                $this->redirect('/discussion/index/parent/' . $this->getRequest()->getParam('parent', 0));
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -294,7 +294,7 @@ class DiscussionController extends Zend_Controller_Action
         $oDiscussion = TM_Discussion_Discussion::getInstanceById($this->getRequest()->getParam('id'));
         try {
             $oDiscussion->deleteFromDB();
-            $this->_redirect('/discussion/index/parent/' . $this->getRequest()->getParam('parent', 0));
+            $this->redirect('/discussion/index/parent/' . $this->getRequest()->getParam('parent', 0));
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
 

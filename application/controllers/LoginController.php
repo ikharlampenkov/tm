@@ -25,7 +25,7 @@ class LoginController extends Zend_Controller_Action
             $authResult = $auth->authenticate($o_userManager);
 
             if ($authResult->isValid()) {
-                $this->_redirect('/');
+                $this->redirect('/');
             } else {
                 $this->view->assign('result', $authResult->getMessages());
                 $this->view->assign('login_fail', true);
@@ -42,7 +42,7 @@ class LoginController extends Zend_Controller_Action
     public function logoutAction()
     {
         Zend_Auth::getInstance()->clearIdentity();
-        $this->_redirect('/login');
+        $this->redirect('/login');
     }
 
 }

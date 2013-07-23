@@ -47,7 +47,7 @@ class OrganizationController extends Zend_Controller_Action
                 if ($this->_request->isXmlHttpRequest()) {
                     exit;
                 } else {
-                    $this->_redirect('/user/index/');
+                    $this->redirect('/user/index/');
                 }
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
@@ -80,7 +80,7 @@ class OrganizationController extends Zend_Controller_Action
                 if ($this->_request->isXmlHttpRequest()) {
                     exit;
                 } else {
-                    $this->_redirect('/user/index/');
+                    $this->redirect('/user/index/');
                 }
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
@@ -116,7 +116,7 @@ class OrganizationController extends Zend_Controller_Action
             if ($this->_request->isXmlHttpRequest()) {
                 exit;
             } else {
-                $this->_redirect('/user/index/');
+                $this->redirect('/user/index/');
             }
         } catch (Exception $e) {
             $this->view->assign('exception_msg', $e->getMessage());
@@ -147,7 +147,7 @@ class OrganizationController extends Zend_Controller_Action
 
             try {
                 $oType->insertToDb();
-                $this->_redirect('/organization/viewAttributeType');
+                $this->redirect('/organization/viewAttributeType');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -170,7 +170,7 @@ class OrganizationController extends Zend_Controller_Action
 
             try {
                 $oType->updateToDb();
-                $this->_redirect('/organization/viewAttributeType');
+                $this->redirect('/organization/viewAttributeType');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -185,7 +185,7 @@ class OrganizationController extends Zend_Controller_Action
         $oType = TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Organization_AttributeTypeMapper(), $this->getRequest()->getParam('id'));
         try {
             $oType->deleteFromDB();
-            $this->_redirect('/organization/viewAttributeType');
+            $this->redirect('/organization/viewAttributeType');
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -210,7 +210,7 @@ class OrganizationController extends Zend_Controller_Action
 
             try {
                 $oHash->insertToDb();
-                $this->_redirect('/organization/viewHash');
+                $this->redirect('/organization/viewHash');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -237,7 +237,7 @@ class OrganizationController extends Zend_Controller_Action
 
             try {
                 $oHash->updateToDb();
-                $this->_redirect('/organization/viewHash');
+                $this->redirect('/organization/viewHash');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -253,7 +253,7 @@ class OrganizationController extends Zend_Controller_Action
         $oHash = TM_Organization_Hash::getInstanceById($this->getRequest()->getParam('key'));
         try {
             $oHash->deleteFromDB();
-            $this->_redirect('/organization/viewHash');
+            $this->redirect('/organization/viewHash');
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }

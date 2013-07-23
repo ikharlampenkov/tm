@@ -213,7 +213,7 @@ class TaskController extends Zend_Controller_Action
                 if ($this->_request->isXmlHttpRequest()) {
                     exit;
                 } else {
-                    $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
+                    $this->redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
                 }
             } catch (Exception $e) {
                 $db->rollbackTransaction();
@@ -344,7 +344,7 @@ class TaskController extends Zend_Controller_Action
                 if ($this->_request->isXmlHttpRequest()) {
                     exit;
                 } else {
-                    $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
+                    $this->redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
                 }
             } catch (Exception $e) {
                 $db->rollbackTransaction();
@@ -389,7 +389,7 @@ class TaskController extends Zend_Controller_Action
             if ($this->_request->isXmlHttpRequest()) {
                 exit;
             } else {
-                $this->_redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
+                $this->redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
             }
         } catch (Exception $e) {
             $this->view->assign('exception_msg', $e->getMessage());
@@ -402,8 +402,8 @@ class TaskController extends Zend_Controller_Action
         $oTask = TM_Task_Task::getInstanceById($this->getRequest()->getParam('id'));
         $oDocument = TM_Document_Document::getInstanceById($this->getRequest()->getParam('doc_id'));
         $oDocument->deleteLinkToTask($oTask);
-        $this->_redirect('/task/');
-        //$this->_redirect('/task/edit/parent/' . $this->getRequest()->getParam('parent', 0) . '/id/' . $this->getRequest()->getParam('id'));
+        $this->redirect('/task/');
+        //$this->redirect('/task/edit/parent/' . $this->getRequest()->getParam('parent', 0) . '/id/' . $this->getRequest()->getParam('id'));
     }
 
     public function showaclAction()
@@ -475,8 +475,8 @@ class TaskController extends Zend_Controller_Action
                     }
                 }
 
-                $this->_redirect('/task/');
-                //$this->_redirect('/task/showAcl/parent/' . $this->getRequest()->getParam('parent', 0) . '/idTask/' . $this->getRequest()->getParam('idTask'));
+                $this->redirect('/task/');
+                //$this->redirect('/task/showAcl/parent/' . $this->getRequest()->getParam('parent', 0) . '/idTask/' . $this->getRequest()->getParam('idTask'));
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -500,7 +500,7 @@ class TaskController extends Zend_Controller_Action
 
             try {
                 $oType->insertToDb();
-                $this->_redirect('/task/viewAttributeType');
+                $this->redirect('/task/viewAttributeType');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -523,7 +523,7 @@ class TaskController extends Zend_Controller_Action
 
             try {
                 $oType->updateToDb();
-                $this->_redirect('/task/viewAttributeType');
+                $this->redirect('/task/viewAttributeType');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -538,7 +538,7 @@ class TaskController extends Zend_Controller_Action
         $oType = TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Task_AttributeTypeMapper(), $this->getRequest()->getParam('id'));
         try {
             $oType->deleteFromDB();
-            $this->_redirect('/task/viewAttributeType');
+            $this->redirect('/task/viewAttributeType');
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -563,7 +563,7 @@ class TaskController extends Zend_Controller_Action
 
             try {
                 $oHash->insertToDb();
-                $this->_redirect('/task/viewHash');
+                $this->redirect('/task/viewHash');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -590,7 +590,7 @@ class TaskController extends Zend_Controller_Action
 
             try {
                 $oHash->updateToDb();
-                $this->_redirect('/task/viewHash');
+                $this->redirect('/task/viewHash');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -606,7 +606,7 @@ class TaskController extends Zend_Controller_Action
         $oHash = TM_Task_Hash::getInstanceById($this->getRequest()->getParam('key'));
         try {
             $oHash->deleteFromDB();
-            $this->_redirect('/task/viewHash');
+            $this->redirect('/task/viewHash');
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -623,14 +623,14 @@ class TaskController extends Zend_Controller_Action
             $oDiscussion->setIsComplete(true);
 
             $oDiscussion->updateToDb();
-            $this->_redirect('/task/showDiscussion/parent/' . $this->getRequest()->getParam('parent', 0) . '/idTask/' . $this->getRequest()->getParam('idTask'));
+            $this->redirect('/task/showDiscussion/parent/' . $this->getRequest()->getParam('parent', 0) . '/idTask/' . $this->getRequest()->getParam('idTask'));
         }
 
         if ($this->getRequest()->getParam('delete')) {
             $oDiscussion = TM_Discussion_Discussion::getInstanceById($this->getRequest()->getParam('delete'));
 
             $oDiscussion->deleteFromDb();
-            $this->_redirect('/task/showDiscussion/parent/' . $this->getRequest()->getParam('parent', 0) . '/idTask/' . $this->getRequest()->getParam('idTask'));
+            $this->redirect('/task/showDiscussion/parent/' . $this->getRequest()->getParam('parent', 0) . '/idTask/' . $this->getRequest()->getParam('idTask'));
         }
 
         if ($this->getRequest()->isPost()) {
@@ -694,7 +694,7 @@ class TaskController extends Zend_Controller_Action
                     }
                 }
 
-                $this->_redirect('/task/showDiscussion/parent/' . $this->getRequest()->getParam('parent', 0) . '/idTask/' . $this->getRequest()->getParam('idTask'));
+                $this->redirect('/task/showDiscussion/parent/' . $this->getRequest()->getParam('parent', 0) . '/idTask/' . $this->getRequest()->getParam('idTask'));
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }

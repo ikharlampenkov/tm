@@ -51,7 +51,7 @@ class UserController extends Zend_Controller_Action
 
             try {
                 $oUser->insertToDb();
-                $this->_redirect('/user');
+                $this->redirect('/user');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -82,7 +82,7 @@ class UserController extends Zend_Controller_Action
 
             try {
                 $oUser->updateToDb();
-                $this->_redirect('/user');
+                $this->redirect('/user');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -100,7 +100,7 @@ class UserController extends Zend_Controller_Action
         $oUser = TM_User_User::getInstanceById($id);
         $oUser->deleteFromDB();
 
-        $this->_redirect('/user');
+        $this->redirect('/user');
     }
 
     public function addroleAction()
@@ -113,7 +113,7 @@ class UserController extends Zend_Controller_Action
             $oRole->setRtitle($data['rtitle']);
 
             $oRole->insertToDb();
-            $this->_redirect('/user');
+            $this->redirect('/user');
         }
 
     }
@@ -130,7 +130,7 @@ class UserController extends Zend_Controller_Action
             $oRole->setRtitle($data['rtitle']);
 
             $oRole->updateToDb();
-            $this->_redirect('/user');
+            $this->redirect('/user');
         }
 
         $this->view->assign('role', TM_User_Role::getInstanceById($id));
@@ -143,7 +143,7 @@ class UserController extends Zend_Controller_Action
         $oRole = TM_User_Role::getInstanceById($id);
         $oRole->deleteFromDB();
 
-        $this->_redirect('/user');
+        $this->redirect('/user');
     }
 
     public function showroleaclAction()
@@ -162,7 +162,7 @@ class UserController extends Zend_Controller_Action
                     $roleAcl->saveToDb();
                 }
 
-                $this->_redirect('/user/showRoleAcl/idRole/' . $this->getRequest()->getParam('idRole'));
+                $this->redirect('/user/showRoleAcl/idRole/' . $this->getRequest()->getParam('idRole'));
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -243,7 +243,7 @@ class UserController extends Zend_Controller_Action
                 }
             }
 
-            $this->_redirect('/user/showUserAcl/id/' . $oUser->getId());
+            $this->redirect('/user/showUserAcl/id/' . $oUser->getId());
         }
 
         $this->view->assign('taskList', TM_Task_Task::getAllInstance($oUser));
@@ -280,7 +280,7 @@ class UserController extends Zend_Controller_Action
 
             try {
                 $oResource->insertToDb();
-                $this->_redirect('/user/viewResource');
+                $this->redirect('/user/viewResource');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -301,7 +301,7 @@ class UserController extends Zend_Controller_Action
 
             try {
                 $oResource->updateToDb();
-                $this->_redirect('/user/viewResource');
+                $this->redirect('/user/viewResource');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -315,7 +315,7 @@ class UserController extends Zend_Controller_Action
         $oResource = TM_User_Resource::getInstanceById($this->getRequest()->getParam('id'));
         try {
             $oResource->deleteFromDB();
-            $this->_redirect('/user/viewResource');
+            $this->redirect('/user/viewResource');
         } catch (Exception $e) {
             $this->view->assign('exception_msg', $e->getMessage());
         }
@@ -334,7 +334,7 @@ class UserController extends Zend_Controller_Action
 
             try {
                 $oType->insertToDb();
-                $this->_redirect('/user/viewAttributeType');
+                $this->redirect('/user/viewAttributeType');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -357,7 +357,7 @@ class UserController extends Zend_Controller_Action
 
             try {
                 $oType->updateToDb();
-                $this->_redirect('/user/viewAttributeType');
+                $this->redirect('/user/viewAttributeType');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -372,7 +372,7 @@ class UserController extends Zend_Controller_Action
         $oType = TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_User_AttributeTypeMapper(), $this->getRequest()->getParam('id'));
         try {
             $oType->deleteFromDB();
-            $this->_redirect('/user/viewAttributeType');
+            $this->redirect('/user/viewAttributeType');
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -392,7 +392,7 @@ class UserController extends Zend_Controller_Action
 
             try {
                 $oHash->insertToDb();
-                $this->_redirect('/user/viewHash');
+                $this->redirect('/user/viewHash');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -416,7 +416,7 @@ class UserController extends Zend_Controller_Action
 
             try {
                 $oHash->updateToDb();
-                $this->_redirect('/user/viewHash');
+                $this->redirect('/user/viewHash');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -432,7 +432,7 @@ class UserController extends Zend_Controller_Action
         $oHash = TM_User_Hash::getInstanceById($this->getRequest()->getParam('key'));
         try {
             $oHash->deleteFromDB();
-            $this->_redirect('/user/viewHash');
+            $this->redirect('/user/viewHash');
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }

@@ -18,7 +18,7 @@ class IndexController extends Zend_Controller_Action
         $auth = Zend_Auth::getInstance();
         $data = $auth->getStorage()->read();
         if ($data->role == 'guest') {
-            $this->_redirect('/login');
+            $this->redirect('/login');
         }
 
         if ($this->getRequest()->getParam('is_complete')) {
@@ -26,14 +26,14 @@ class IndexController extends Zend_Controller_Action
             $oDiscussion->setIsComplete(true);
 
             $oDiscussion->updateToDb();
-            $this->_redirect('/');
+            $this->redirect('/');
         }
 
         if ($this->getRequest()->getParam('delete')) {
             $oDiscussion = TM_Discussion_Discussion::getInstanceById($this->getRequest()->getParam('delete'));
 
             $oDiscussion->deleteFromDb();
-            $this->_redirect('/');
+            $this->redirect('/');
         }
 
 
@@ -100,7 +100,7 @@ class IndexController extends Zend_Controller_Action
                     }
                 }
 
-                $this->_redirect('/');
+                $this->redirect('/');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
