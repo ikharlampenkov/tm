@@ -88,7 +88,7 @@ var task = {
         $.get(rg_url, '', function (data) {
             $('#' + prefics + 'subtask_' + parent).empty();
             $('#' + prefics + 'subtask_' + parent).append(data);
-            task.createSubMenu();
+            //task.createSubMenu();
             $('#' + prefics + 'subtask_' + parent).show();
         }, 'html');
     },
@@ -106,7 +106,7 @@ var task = {
         $.get(rg_url, '', function (data) {
             $('#' + prefics + 'subtask_' + parent).empty();
             $('#' + prefics + 'subtask_' + parent).append(data);
-            task.createSubMenu();
+            //task.createSubMenu();
             $('#' + prefics + 'subtask_' + parent).show();
         }, 'html');
     },

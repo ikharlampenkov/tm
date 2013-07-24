@@ -47,7 +47,7 @@ function mainmenu() {
 
 $(document).ready(function () {
     mainmenu();
-    task.createSubMenu();
+    //task.createSubMenu();
     $(".datepicker").datetimepicker();
 });
 
