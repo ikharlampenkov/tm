@@ -11,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css"/>
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui-timepicker-addon.css"/>
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.min.css"/>
     <link rel="stylesheet" type="text/css" href="/css/main.css"/>
     <link rel="stylesheet" type="text/css" href="/css/menu.css"/>
 
