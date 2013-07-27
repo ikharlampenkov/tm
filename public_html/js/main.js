@@ -49,6 +49,9 @@ $(document).ready(function () {
     mainmenu();
     //task.createSubMenu();
     $(".datepicker").datetimepicker();
+
+    var bootstrapTooltip = $.fn.tooltip.noConflict();
+    $.fn.bootstrapTooltip = bootstrapTooltip;
 });
 
 $(function () {

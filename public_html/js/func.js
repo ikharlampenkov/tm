@@ -8,7 +8,7 @@
 
 
 var task = {
-    addDialog:function (rq_url, parent, show_url, prefics) { // Функция вывода диалогового окна
+    addDialog: function (rq_url, parent, show_url, prefics) { // Функция вывода диалогового окна
         prefics = prefics || '';
         if ($('#addDialog').length < 1) // создаем блок диалогового окна
         {
@@ -19,14 +19,14 @@ var task = {
 
         $.get(rq_url, '', function (data) { // посылаем пост запрос для вывода формы
             $('#addDialog').html(data).dialog({
-                title:'Добавить задачу',
-                modal:true,
-                height:550,
-                width:830,
-                buttons:{
-                    Добавить:function () {
+                title: 'Добавить задачу',
+                modal: true,
+                height: 550,
+                width: 830,
+                buttons: {
+                    Добавить: function () {
                         $('#addForm').ajaxSubmit({
-                            success:function (responseText, statusText, xhr, $form) {
+                            success: function (responseText, statusText, xhr, $form) {
                                 if (responseText != '') {
                                     $('#addDialog').html(responseText);
                                 }
@@ -38,7 +38,7 @@ var task = {
                         });
                         //task.send(rq_url, parent, show_url);
                     },
-                    Отмена:function () {
+                    Отмена: function () {
                         $('#addDialog').dialog('close');
                     }
                 }
@@ -48,17 +48,17 @@ var task = {
         }, 'html');
     },
 
-    send:function (rq_url, parent, show_url) {
+    send: function (rq_url, parent, show_url) {
         var data_form = {}; // данные которые будем отправлять
         $('#addDialog').find('input,textarea,select').each(function () { // ищем в цикле все поля формы в диалоговом окне
             data_form[$(this).attr('name')] = $(this).val(); // записываем
         });
 
         $.ajax({
-            type:'POST',
-            url:rq_url,
-            data:data_form,
-            success:function (data) {
+            type: 'POST',
+            url: rq_url,
+            data: data_form,
+            success: function (data) {
                 if (data != '') {
                     $('#addDialog').html(data);
                     //$('#exception_message').append(data);
@@ -72,7 +72,7 @@ var task = {
         }, 'html');
     },
 
-    openTask:function (rg_url, parent, isReload, prefics, filter) {
+    openTask: function (rg_url, parent, isReload, prefics, filter) {
         isReload = isReload || false;
         prefics = prefics || '';
         filter = filter || 'all';
@@ -93,7 +93,7 @@ var task = {
         }, 'html');
     },
 
-    openTaskFilter:function (rg_url, parent, isReload, prefics) {
+    openTaskFilter: function (rg_url, parent, isReload, prefics) {
         isReload = isReload || false;
         prefics = prefics || '';
 
@@ -111,7 +111,7 @@ var task = {
         }, 'html');
     },
 
-    editDialog:function (rq_url, parent, show_url, prefics) {
+    editDialog: function (rq_url, parent, show_url, prefics) {
         prefics = prefics || '';
         if ($('#editDialog').length < 1) // создаем блок диалогового окна
         {
@@ -122,14 +122,14 @@ var task = {
 
         $.get(rq_url, '', function (data) { // посылаем пост запрос для вывода формы
             $('#editDialog').html(data).dialog({
-                title:'Редактировать задачу',
-                modal:true,
-                height:550,
-                width:830,
-                buttons:{
-                    Сохранить:function () {
+                title: 'Редактировать задачу',
+                modal: true,
+                height: 550,
+                width: 830,
+                buttons: {
+                    Сохранить: function () {
                         $('#editForm').ajaxSubmit({
-                            success:function (responseText, statusText, xhr, $form) {
+                            success: function (responseText, statusText, xhr, $form) {
                                 if (responseText != '') {
                                     $('#editDialog').html(responseText);
                                 }
@@ -142,7 +142,7 @@ var task = {
 
                         //task.sendEdit(rq_url, parent, show_url);
                     },
-                    Отмена:function () {
+                    Отмена: function () {
                         $('#editDialog').dialog('close');
                     }
                 }
@@ -152,17 +152,17 @@ var task = {
         }, 'html');
     },
 
-    sendEdit:function (rq_url, parent, show_url) {
+    sendEdit: function (rq_url, parent, show_url) {
         var data_form = {}; // данные которые будем отправлять
         $('#editDialog').find('input,textarea,select').each(function () { // ищем в цикле все поля формы в диалоговом окне
             data_form[$(this).attr('name')] = $(this).val(); // записываем
         });
 
         $.ajax({
-            type:'POST',
-            url:rq_url,
-            data:data_form,
-            success:function (data) {
+            type: 'POST',
+            url: rq_url,
+            data: data_form,
+            success: function (data) {
                 if (data != '') {
                     $('#editDialog').html(data);
                 }
@@ -174,7 +174,7 @@ var task = {
         }, 'html');
     },
 
-    deleteDialog:function (task_title, rg_url, parent, show_url) {
+    deleteDialog: function (task_title, rg_url, parent, show_url) {
         if ($('#deleteDialog').length < 1) // создаем блок диалогового окна
         {
             $('body').append('<div id="deleteDialog" ></div>');
@@ -185,12 +185,12 @@ var task = {
         var html = '<div>Вы действительно хотите удалить задачу:<br/><b>' + task_title + '?</b></div>';
 
         $('#deleteDialog').html(html).dialog({
-            title:'Удалить задачу',
-            modal:true,
-            height:220,
-            width:500,
-            buttons:{
-                Удалить:function () {
+            title: 'Удалить задачу',
+            modal: true,
+            height: 220,
+            width: 500,
+            buttons: {
+                Удалить: function () {
                     $.get(rg_url, function (data) {
                         if (data == '') {
                             task.openTask(show_url, parent, true);
@@ -200,22 +200,22 @@ var task = {
                         }
                     });
                 },
-                Отмена:function () {
+                Отмена: function () {
                     $('#deleteDialog').dialog('close');
                 }
             }
         });
     },
 
-    createSubMenu:function () {
+    createSubMenu: function () {
         $(".task_list button").button({
-            icons:{
-                secondary:"ui-icon-triangle-1-s"
+            icons: {
+                secondary: "ui-icon-triangle-1-s"
             }
         }).next().popup();
     },
 
-    viewTask:function (rq_url, id) {
+    viewTask: function (rq_url, id) {
         if ($('#viewDialog').length < 1) // создаем блок диалогового окна
         {
             $('body').append('<div id="viewDialog" ></div>');
@@ -225,12 +225,12 @@ var task = {
 
         $.get(rq_url, '', function (data) { // посылаем пост запрос для вывода формы
             $('#viewDialog').html(data).dialog({
-                title:'Информация о задаче',
-                modal:true,
-                height:550,
-                width:830,
-                buttons:{
-                    Закрыть:function () {
+                title: 'Информация о задаче',
+                modal: true,
+                height: 550,
+                width: 830,
+                buttons: {
+                    Закрыть: function () {
                         $('#viewDialog').dialog('close');
                     }
                 }
@@ -238,7 +238,7 @@ var task = {
         }, 'html');
     },
 
-    toArchive:function (rg_url, parent, show_url) {
+    toArchive: function (rg_url, parent, show_url) {
         $.get(rg_url, '', function (data) {
             if (data == '') {
                 task.openTask(show_url, parent, true);
@@ -247,7 +247,7 @@ var task = {
 
     },
 
-    fromArchive:function (rg_url, parent, show_url) {
+    fromArchive: function (rg_url, parent, show_url) {
         $.get(rg_url, '', function (data) {
             if (data == '') {
                 task.openTask(show_url, parent, true);
@@ -256,53 +256,61 @@ var task = {
 
     },
 
-    showInfo:function (rq_url, id) {
-            if ($('#taskInfo').length < 1) {
-                $('body').append('<div id="taskInfo" class="task_info"></div>');
-            } else {
-                $('#fileInfo').empty();
-            }
+    showInfo: function (rq_url, id) {
+        if ($('#taskInfo').length < 1) {
+            $('body').append('<div id="taskInfo" title="Info"></div>');
+        } else {
+            $('#taskInfo').empty();
+        }
 
-            $.get(rq_url, '', function (data) { // посылаем пост запрос для вывода формы
-                /*
-                 $('#doc_info_' + id).tooltip({
-                 content: data
-                 });
-                 */
-                $('#taskInfo').html(data).popup({
-                    position:{
-                        of:'#task_info_' + id
-                    }
-                }).popup('open');
-            }, 'html');
+        $.get(rq_url, '', function (data) { // посылаем пост запрос для вывода формы
+            $('#taskInfo').html(data).tooltip({
+                tooltipClass: 'task_info',
+                position: {of: '#task_info_' + id},
+                content: data,
+                close: function (event, ui) {
+                    $('#taskInfo').empty();
+                }
+            }).tooltip('open');
+        }, 'html');
+    },
+
+    closeInfo: function () {
+        if ($('#taskInfo').length > 0) {
+            $('#taskInfo').tooltip('close').empty();
+        }
     }
 };
 
 var doc = {
-    showInfo:function (rq_url, id) {
+    showInfo: function (rq_url, id) {
         if ($('#fileInfo').length < 1) {
-            $('body').append('<div id="fileInfo" class="file_info"></div>');
+            $('body').append('<div id="fileInfo" title="Info"></div>');
         } else {
             $('#fileInfo').empty();
         }
 
         $.get(rq_url, '', function (data) { // посылаем пост запрос для вывода формы
-            /*
-             $('#doc_info_' + id).tooltip({
-             content: data
-             });
-             */
-            $('#fileInfo').html(data).popup({
-                position:{
-                    of:'#doc_info_' + id
+            $('#fileInfo').html(data).tooltip({
+                tooltipClass: 'file_info',
+                position: {of: '#doc_info_' + id},
+                content: data,
+                close: function (event, ui) {
+                    $('#fileInfo').empty();
                 }
-            }).popup('open');
+            }).tooltip('open');
         }, 'html');
+    },
+
+    closeInfo: function () {
+        if ($('#fileInfo').length > 0) {
+            $('#fileInfo').tooltip('close').empty();
+        }
     }
 };
 
 var reports = {
-    openTask:function (rg_url, parent, isReload, prefics, filter) {
+    openTask: function (rg_url, parent, isReload, prefics, filter) {
         isReload = isReload || false;
         prefics = prefics || '';
         filter = filter || 'all';
