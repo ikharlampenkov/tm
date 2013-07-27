@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2013-07-18 23:49:23
+<?php /* Smarty version Smarty-3.0.9, created on 2013-07-27 16:37:56
          compiled from "F:\www\tm\application/layouts/scripts\layout.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:283551e81c93644c10-55796315%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:3098651f394f4cb3151-06428938%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'a25500e79cea030075e390e1f8ff3a74600c16de' => 
     array (
       0 => 'F:\\www\\tm\\application/layouts/scripts\\layout.tpl',
-      1 => 1374166160,
+      1 => 1374917140,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '283551e81c93644c10-55796315',
+  'nocache_hash' => '3098651f394f4cb3151-06428938',
   'function' => 
   array (
   ),
@@ -33,6 +33,7 @@ $_smarty_tpl->decodeProperties(array (
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css"/>
     <link rel="stylesheet" type="text/css" href="/css/jquery-ui-timepicker-addon.css"/>
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.min.css"/>
     <link rel="stylesheet" type="text/css" href="/css/main.css"/>
     <link rel="stylesheet" type="text/css" href="/css/menu.css"/>
 
