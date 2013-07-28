@@ -260,7 +260,7 @@ var task = {
         if ($('#taskInfo').length < 1) {
             $('body').append('<div id="taskInfo" title="Info"></div>');
         } else {
-            $('#taskInfo').empty();
+            $('#taskInfo').tooltip('close').empty();
         }
 
         $.get(rq_url, '', function (data) { // посылаем пост запрос для вывода формы
@@ -272,6 +272,11 @@ var task = {
                     $('#taskInfo').empty();
                 }
             }).tooltip('open');
+            $('#task_info_' + id).mouseout(function () {
+                if ($('#taskInfo').length > 0) {
+                    $('#taskInfo').tooltip('close').empty();
+                }
+            });
         }, 'html');
     },
 
@@ -287,7 +292,7 @@ var doc = {
         if ($('#fileInfo').length < 1) {
             $('body').append('<div id="fileInfo" title="Info"></div>');
         } else {
-            $('#fileInfo').empty();
+            $('#fileInfo').tooltip('close').empty();
         }
 
         $.get(rq_url, '', function (data) { // посылаем пост запрос для вывода формы
@@ -299,6 +304,11 @@ var doc = {
                     $('#fileInfo').empty();
                 }
             }).tooltip('open');
+            $('#doc_info_' + id).mouseout(function () {
+                if ($('#fileInfo').length > 0) {
+                    $('#fileInfo').tooltip('close').empty();
+                }
+            });
         }, 'html');
     },
 

@@ -59,7 +59,7 @@
             <tr>
                 <td class="ttovar_title">Документ</td>
                 <td class="ttovar">
-                    <a href="/files{$document->file->getSubPath()}/{$document->file->getName()}" target="_blank" id="doc_info_{$document->id}" onmouseover="doc.showInfo('{$this->url(['controller' => 'document','action' => 'view', 'id' => $document->id])}', {$document->id});" onmouseout="doc.closeInfo();">{$document->title}</a>
+                    <a href="/files{$document->file->getSubPath()}/{$document->file->getName()}" target="_blank" id="doc_info_{$document->id}" onmouseover="doc.showInfo('{$this->url(['controller' => 'document','action' => 'view', 'id' => $document->id])}', {$document->id});">{$document->title}</a>
                     / <a href="{$this->url(['controller' => 'document','action' => 'edit', 'id' => $document->id])}">редактировать</a>
                     / <a href="{$this->url(['controller' => $controller,'action' => 'deleteLinkToDoc', 'id' => $task->id, 'doc_id' => $document->id])}">удалить</a>
                 </td>

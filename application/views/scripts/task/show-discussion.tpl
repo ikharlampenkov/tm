@@ -18,7 +18,7 @@
                         <ul>
                             {foreach from=$discussion->document item=document}
                                 <li style="list-style: none; padding: 0px; background-color: #f7f7f7;">
-                                    <a href="/files{$document->file->getSubPath()}/{$document->file->getName()}" target="_blank" style="font-size: 11px;" id="doc_info_{$document->id}" onmouseover="doc.showInfo('{$this->url(['controller' => 'document','action' => 'view', 'id' => $document->id])}', {$document->id});" onmouseout="doc.closeInfo();">{$document->title}</a>
+                                    <a href="/files{$document->file->getSubPath()}/{$document->file->getName()}" target="_blank" style="font-size: 11px;" id="doc_info_{$document->id}" onmouseover="doc.showInfo('{$this->url(['controller' => 'document','action' => 'view', 'id' => $document->id])}', {$document->id});">{$document->title}</a>
                                     {if_allowed resource="document/edit"}
                                         / <a href="{$this->url(['controller' => 'document','action' => 'edit', 'id' => $document->id])}" style="font-size: 11px;">редактировать</a>
                                     {/if_allowed}
