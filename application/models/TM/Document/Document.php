@@ -576,6 +576,25 @@ class TM_Document_Document
         }
     }
 
+    public function getDocumentStatistic()
+    {
+        $statArray = array('doc_count' => 0);
+        try {
+            $sql = 'SELECT COUNT(tm_document.id) AS cnt FROM tm_document
+                     WHERE tm_document.is_folder=0
+                       AND tm_document.parent_id=' . $this->_id;
+            $result = $this->_db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+            if (isset($result[0]['cnt'])) {
+                $statArray['doc_count'] = $result[0]['cnt'];
+            }
+
+            return $statArray;
+
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
+    }
+
     public static function getDocumentFolderByTask(TM_User_User $user, TM_Task_Task $task)
     {
         try {

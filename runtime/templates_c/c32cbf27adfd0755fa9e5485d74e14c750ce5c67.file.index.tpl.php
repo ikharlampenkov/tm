@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2013-07-18 23:50:33
+<?php /* Smarty version Smarty-3.0.9, created on 2013-07-28 22:39:16
          compiled from "F:\www\tm\application/views/scripts\document/index.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:271014f280c5ff17fd8-49821093%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:281851f53b24bf7cc1-14781256%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'c32cbf27adfd0755fa9e5485d74e14c750ce5c67' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\document/index.tpl',
-      1 => 1373556199,
+      1 => 1375025953,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '271014f280c5ff17fd8-49821093',
+  'nocache_hash' => '281851f53b24bf7cc1-14781256',
   'function' => 
   array (
   ),
@@ -63,34 +63,29 @@ if ($_smarty_tpl->_count($_from) > 0){
     <br/>
 <?php }?>
 
+<div class="sub-menu">
+    <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/addFolder")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/addFolder"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
-<table width="100%">
-
-    <tr>
-        <td class="ttovar" align="center" colspan="4">
-            <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/addFolder")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/addFolder"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
-
-                <img src="/i/add.png"/>
-                &nbsp;
-                <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'addFolder'));?>
+        <img src="/i/add.png"/>
+        &nbsp;
+        <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'addFolder'));?>
 ">добавить папку</a>
-                /
-            <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/addFolder"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
+    <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/addFolder"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
-            <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/add")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/add"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
+    <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/add")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/add"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
-            <?php if (isset($_smarty_tpl->getVariable('parentId',null,true,false)->value)&&$_smarty_tpl->getVariable('parentId')->value>0){?>
-                <img src="/i/add.png"/>
-                &nbsp;
-                <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'add'));?>
+    <?php if (isset($_smarty_tpl->getVariable('parentId',null,true,false)->value)&&$_smarty_tpl->getVariable('parentId')->value>0){?>
+        /
+        <img src="/i/add.png"/>
+        &nbsp;
+        <a href="<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'add'));?>
 ">добавить документ</a>
-            <?php }?>
-            <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/add"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
+    <?php }?>
+    <?php $_block_content = ob_get_clean(); $_block_repeat=false; echo smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/add"), $_block_content, $_smarty_tpl, $_block_repeat);  } array_pop($_smarty_tpl->smarty->_tag_stack);?>
 
-        </td>
-    </tr>
+</div>
 
-
+<table>
     <?php if ($_smarty_tpl->getVariable('documentList')->value!==false){?>
         <?php  $_smarty_tpl->tpl_vars['document'] = new Smarty_Variable;
  $_from = $_smarty_tpl->getVariable('documentList')->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -120,6 +115,15 @@ if ($_smarty_tpl->_count($_from) > 0){
                         <?php }?></td>
                     <td class="ttovar"><?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('document')->value->datecreate,"%d.%m.%Y");?>
 </td>
+                    <td class="ttovar doc_statistic">
+                        <?php if ($_smarty_tpl->getVariable('document')->value->isFolder){?>
+                            <?php $_smarty_tpl->tpl_vars["stat"] = new Smarty_variable($_smarty_tpl->getVariable('document')->value->getDocumentStatistic(), null, null);?>
+                            <img src="/i/in_doc.png" title="Кол-во документов" alt="Кол-во документов"/>
+                            &nbsp;<?php echo $_smarty_tpl->getVariable('stat')->value['doc_count'];?>
+
+                        <?php }else{ ?>&nbsp;
+                        <?php }?>
+                    </td>
                     <?php if (!$_smarty_tpl->getVariable('document')->value->isFolder){?>
                         <td class="tedit">
                             <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/showDiscussion")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>($_smarty_tpl->getVariable('controller')->value)."/showDiscussion"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>

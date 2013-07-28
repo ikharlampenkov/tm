@@ -26,28 +26,23 @@
     <br/>
 {/if}
 
+<div class="sub-menu">
+    {if_allowed resource="{$controller}/addFolder"}
+        <img src="/i/add.png"/>
+        &nbsp;
+        <a href="{$this->url(['controller' => $controller,'action' => 'addFolder'])}">добавить папку</a>
+    {/if_allowed}
+    {if_allowed resource="{$controller}/add"}
+    {if isset($parentId) && $parentId>0}
+        /
+        <img src="/i/add.png"/>
+        &nbsp;
+        <a href="{$this->url(['controller' => $controller,'action' => 'add'])}">добавить документ</a>
+    {/if}
+    {/if_allowed}
+</div>
 
-<table width="100%">
-
-    <tr>
-        <td class="ttovar" align="center" colspan="4">
-            {if_allowed resource="{$controller}/addFolder"}
-                <img src="/i/add.png"/>
-                &nbsp;
-                <a href="{$this->url(['controller' => $controller,'action' => 'addFolder'])}">добавить папку</a>
-                /
-            {/if_allowed}
-            {if_allowed resource="{$controller}/add"}
-            {if isset($parentId) && $parentId>0}
-                <img src="/i/add.png"/>
-                &nbsp;
-                <a href="{$this->url(['controller' => $controller,'action' => 'add'])}">добавить документ</a>
-            {/if}
-            {/if_allowed}
-        </td>
-    </tr>
-
-
+<table>
     {if $documentList!==false}
         {foreach from=$documentList item=document}
             {if_object_allowed type="{$controller|capitalize}" object="{$document}"}
@@ -65,6 +60,14 @@
                             {if $document->file->getName()}</a>{/if}
                         {/if}</td>
                     <td class="ttovar">{$document->datecreate|date_format:"%d.%m.%Y"}</td>
+                    <td class="ttovar doc_statistic">
+                        {if $document->isFolder}
+                            {assign var="stat" value=$document->getDocumentStatistic()}
+                            <img src="/i/in_doc.png" title="Кол-во документов" alt="Кол-во документов"/>
+                            &nbsp;{$stat.doc_count}
+                        {else}&nbsp;
+                        {/if}
+                    </td>
                     {if !$document->isFolder}
                         <td class="tedit">
                             {if_allowed resource="{$controller}/showDiscussion"}
