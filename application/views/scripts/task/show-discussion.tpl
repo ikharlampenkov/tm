@@ -58,7 +58,7 @@
 
             <div style="font-size: 14px; font-weight: bold; padding: 0px 0px 5px 0px; margin: 0px 0px 5px 0px;">Загрузить документ</div>
             <div>
-                Название документа&nbsp;<input name="data[document_title]" value="" style="width: 310px;"/>&nbsp;&nbsp;
+                Название документа&nbsp;<input type="text" name="data[document_title]" value="" style="width: 310px;"/>&nbsp;&nbsp;
                 <input type="file" name="file" style="width: 300px;"/><br/>
                 <textarea name="data[document_description]"></textarea>
             </div>
@@ -87,7 +87,7 @@
 
             <div style="font-size: 14px; font-weight: bold; padding: 0px 0px 5px 0px; margin: 0px 0px 5px 0px;">Загрузить документ</div>
             <div>
-                Название документа&nbsp;<input name="data[document_title]" value="" style="width: 310px;"/>&nbsp;&nbsp;
+                Название документа&nbsp;<input type="text" name="data[document_title]" value="" style="width: 310px;"/>&nbsp;&nbsp;
                 <input type="file" name="file" style="width: 300px;"/><br/>
                 <textarea name="data[document_description]"></textarea>
             </div>

@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2012-01-31 22:16:17
+<?php /* Smarty version Smarty-3.0.9, created on 2013-07-28 22:20:20
          compiled from "F:\www\tm\application/views/scripts\task/edit-attribute-hash.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:203444f2805c12e90f2-66644545%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:56251f536b46a32c8-58028372%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '1dbb830adf4745b84fb91729ecf99d76ff3cfa3a' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\task/edit-attribute-hash.tpl',
-      1 => 1328022974,
+      1 => 1375024818,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '203444f2805c12e90f2-66644545',
+  'nocache_hash' => '56251f536b46a32c8-58028372',
   'function' => 
   array (
   ),
@@ -29,12 +29,12 @@ $_smarty_tpl->decodeProperties(array (
     <table width="100%">
         <tr>
             <td class="ttovar_title">Ключ</td>
-            <td class="ttovar"><input name="data[attribute_key]" value="<?php echo $_smarty_tpl->getVariable('hash')->value->attributeKey;?>
+            <td class="ttovar"><input type="text" name="data[attribute_key]" value="<?php echo $_smarty_tpl->getVariable('hash')->value->attributeKey;?>
 "/></td>
         </tr>
         <tr>
             <td class="ttovar_title">Описание</td>
-            <td class="ttovar"><input name="data[title]" value="<?php echo $_smarty_tpl->getVariable('hash')->value->title;?>
+            <td class="ttovar"><input type="text" name="data[title]" value="<?php echo $_smarty_tpl->getVariable('hash')->value->title;?>
 "/></td>
         </tr>
         <tr>
@@ -55,12 +55,12 @@ if ($_smarty_tpl->_count($_from) > 0){
         </tr>
         <tr>
             <td class="ttovar_title">Список значений (через ||)</td>
-            <td class="ttovar"><input name="data[list_value]" value="<?php echo $_smarty_tpl->getVariable('hash')->value->getValueList(true);?>
+            <td class="ttovar"><input type="text" name="data[list_value]" value="<?php echo $_smarty_tpl->getVariable('hash')->value->getValueList(true);?>
 "/></td>
         </tr>
         <tr>
             <td class="ttovar_title">Список для сортировки значений (через ||)</td>
-            <td class="ttovar"><input name="data[list_order]" value="<?php echo $_smarty_tpl->getVariable('hash')->value->getListOrder(true);?>
+            <td class="ttovar"><input type="text" name="data[list_order]" value="<?php echo $_smarty_tpl->getVariable('hash')->value->getListOrder(true);?>
 "/></td>
         </tr>
         <tr>
@@ -69,7 +69,7 @@ if ($_smarty_tpl->_count($_from) > 0){
         </tr>
         <tr>
             <td class="ttovar_title">Порядок сортировки</td>
-            <td class="ttovar"><input name="data[sort_order]" value="<?php echo $_smarty_tpl->getVariable('hash')->value->sortOrder;?>
+            <td class="ttovar"><input type="text" name="data[sort_order]" value="<?php echo $_smarty_tpl->getVariable('hash')->value->sortOrder;?>
 "/></td>
         </tr>
     </table>

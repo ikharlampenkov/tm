@@ -19,7 +19,7 @@
         </tr>
         <tr>
             <td class="ttovar_title">Название</td>
-            <td class="ttovar"><input name="data[title]" value="{$task->title}"/></td>
+            <td class="ttovar"><input type="text" name="data[title]" value="{$task->title}"/></td>
         </tr>
         <tr>
             <td class="ttovar_title">Супер задача</td>
@@ -38,13 +38,13 @@
         </tr>
         <tr>
             <td class="ttovar_title">Дата создания</td>
-            <td class="ttovar"><input name="data[date_create]" value="{$task->dateCreate|date_format:"%d.%m.%Y %H:%M:%S"}" class="datepicker"/></td>
+            <td class="ttovar"><input type="text" name="data[date_create]" value="{$task->dateCreate|date_format:"%d.%m.%Y %H:%M:%S"}" class="datepicker"/></td>
         </tr>
     {if $attributeHashList!==false}
         {foreach from=$attributeHashList item=attributeHash}
             <tr>
                 <td class="{if $attributeHash->isRequired}ttovar_title_requared{else}ttovar_title{/if}">{$attributeHash->title}{if $attributeHash->isRequired}*{/if}</td>
-                <td class="ttovar">{$attributeHash->type->getHTMLFrom($attributeHash, $task)}{*<input name="data[attribute][{$attributeHash->attributeKey}]" value="{if $task->searchAttribute($attributeHash->attributeKey)}{$task->getAttribute($attributeHash->attributeKey)->value}{/if}"/>*}</td>
+                <td class="ttovar">{$attributeHash->type->getHTMLFrom($attributeHash, $task)}{*<input type="text" name="data[attribute][{$attributeHash->attributeKey}]" value="{if $task->searchAttribute($attributeHash->attributeKey)}{$task->getAttribute($attributeHash->attributeKey)->value}{/if}"/>*}</td>
             </tr>
         {/foreach}
     {/if}

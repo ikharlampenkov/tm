@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2013-07-28 21:36:51
+<?php /* Smarty version Smarty-3.0.9, created on 2013-07-28 22:10:17
          compiled from "F:\www\tm\application/views/scripts\task/edit.ajax.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:187951f52c830a44c2-36515345%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:2081751f53459810691-40978546%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '2ceb6cc72ec31aa4022b38688a6ac0ffa2bb6f0e' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\task/edit.ajax.tpl',
-      1 => 1375022168,
+      1 => 1375024208,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '187951f52c830a44c2-36515345',
+  'nocache_hash' => '2081751f53459810691-40978546',
   'function' => 
   array (
   ),
@@ -53,7 +53,7 @@ if ($_smarty_tpl->_count($_from) > 0){
         </tr>
         <tr>
             <td class="ttovar_title">Название</td>
-            <td class="ttovar"><input name="data[title]" value="<?php echo $_smarty_tpl->getVariable('task')->value->title;?>
+            <td class="ttovar"><input type="text" name="data[title]" value="<?php echo $_smarty_tpl->getVariable('task')->value->title;?>
 " class="input_ajax"/></td>
         </tr>
         <tr>
@@ -80,7 +80,7 @@ $_template->assign('subtask',$_smarty_tpl->getVariable('parent')->value->getChil
         </tr>
         <tr>
             <td class="ttovar_title">Дата создания</td>
-            <td class="ttovar"><input name="data[date_create]" value="<?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('task')->value->dateCreate,"%d.%m.%Y %H:%M:%S");?>
+            <td class="ttovar"><input type="text" name="data[date_create]" value="<?php echo smarty_modifier_date_format($_smarty_tpl->getVariable('task')->value->dateCreate,"%d.%m.%Y %H:%M:%S");?>
 " class="datepicker input_ajax"/></td>
         </tr>
 
@@ -126,7 +126,7 @@ if ($_smarty_tpl->_count($_from) > 0){
         <tr>
             <td class="ttovar_title">Документ</td>
             <td class="ttovar">
-                Название&nbsp;<input name="data[document_title]" value="" style="width: 210px;"/>&nbsp;&nbsp;
+                Название&nbsp;<input type="text" name="data[document_title]" value="" style="width: 210px;"/>&nbsp;&nbsp;
                 <input type="file" name="file" style="width: 200px;"/><br/>
                 <textarea name="data[document_description]"></textarea>
             </td>
