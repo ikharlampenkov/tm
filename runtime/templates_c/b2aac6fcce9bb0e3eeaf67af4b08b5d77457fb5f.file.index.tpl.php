@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2013-07-28 21:04:39
+<?php /* Smarty version Smarty-3.0.9, created on 2013-08-04 22:09:24
          compiled from "F:\www\tm\application/views/scripts\index/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:382151f524f79b6714-47170453%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_smarty_tpl->decodeProperties(array (
     'b2aac6fcce9bb0e3eeaf67af4b08b5d77457fb5f' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\index/index.tpl',
-      1 => 1375020027,
+      1 => 1375199864,
       2 => 'file',
     ),
   ),
@@ -146,7 +146,7 @@ if ($_smarty_tpl->_count($_from) > 0){
 " target="_blank" style="font-size: 11px;" id="doc_info_<?php echo $_smarty_tpl->getVariable('document')->value->id;?>
 " onmouseover="doc.showInfo('<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>'document','action'=>'view','id'=>$_smarty_tpl->getVariable('document')->value->id));?>
 ', <?php echo $_smarty_tpl->getVariable('document')->value->id;?>
-);" onmouseout="doc.closeInfo();"><?php echo $_smarty_tpl->getVariable('document')->value->title;?>
+);"><?php echo $_smarty_tpl->getVariable('document')->value->title;?>
 </a>
                                                     <?php $_smarty_tpl->smarty->_tag_stack[] = array('if_allowed', array('resource'=>"document/edit")); $_block_repeat=true; smarty_block_if_allowed(array('resource'=>"document/edit"), null, $_smarty_tpl, $_block_repeat);while ($_block_repeat) { ob_start();?>
 
