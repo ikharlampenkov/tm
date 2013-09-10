@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2013-05-21 23:36:44
+<?php /* Smarty version Smarty-3.0.9, created on 2013-09-10 22:28:54
          compiled from "F:\www\tm\application/views/scripts\user/edit.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:10487519ba29ce5a9f6-56708163%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_smarty_tpl->decodeProperties(array (
     'cf63e52ea490f00ef5ea4d14d7f03ebe28a52e44' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\user/edit.tpl',
-      1 => 1369154200,
+      1 => 1375199864,
       2 => 'file',
     ),
   ),
@@ -62,9 +62,8 @@ if ($_smarty_tpl->_count($_from) > 0){
         <tr>
             <td class="ttovar">Тип пользователя</td>
             <td class="ttovar"><select name="data[type]">
-                    <option value="administrator" <?php if ($_smarty_tpl->getVariable('user')->value->type=='administrator'){?>selected="selected"<?php }?>>Администраторы</option>
+                    <option value="administrator" <?php if ($_smarty_tpl->getVariable('user')->value->type=='administrator'){?>selected="selected"<?php }?>>Работник</option>
                     <option value="client" <?php if ($_smarty_tpl->getVariable('user')->value->type=='client'){?>selected="selected"<?php }?>>Клиент</option>
-                    <option value="expert" <?php if ($_smarty_tpl->getVariable('user')->value->type=='expert'){?>selected="selected"<?php }?>>Эксперты</option>
                 </select>
             </td>
         </tr>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.0.9, created on 2013-07-22 00:07:28
+<?php /* Smarty version Smarty-3.0.9, created on 2013-09-10 23:24:35
          compiled from "F:\www\tm\application/views/scripts\discussion/index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2772951ec15508dd4e9-49762493%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_smarty_tpl->decodeProperties(array (
     'a4bcff7935961047d5c498b087fddf3d5e6df75f' => 
     array (
       0 => 'F:\\www\\tm\\application/views/scripts\\discussion/index.tpl',
-      1 => 1374426300,
+      1 => 1375199864,
       2 => 'file',
     ),
   ),
@@ -214,7 +214,7 @@ if ($_smarty_tpl->_count($_from) > 0){
                         <?php if ($_smarty_tpl->getVariable('discussion')->value->isRequest){?><?php if ($_smarty_tpl->getVariable('discussion')->value->isComplete){?>
                             <img src="/i/is_complite.png" title="Выполнена" alt="Выполнена" border="0"/>
                         <?php }elseif($_smarty_tpl->getVariable('discussion')->value->user->id==$_smarty_tpl->getVariable('authUserId')->value){?>
-                        <button onclick="comment_complete_rq('<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'showDiscussion','idTask'=>$_smarty_tpl->getVariable('task')->value->id,'is_complete'=>$_smarty_tpl->getVariable('discussion')->value->id));?>
+                        <button onclick="comment_complete_rq('<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'index','parent'=>$_smarty_tpl->getVariable('parentId')->value,'is_complete'=>$_smarty_tpl->getVariable('discussion')->value->id));?>
 ');">Завершить</button><?php }?><?php }?>
                         <?php if ($_smarty_tpl->getVariable('discussion')->value->user->id==$_smarty_tpl->getVariable('authUserId')->value){?>
                             <button onclick="comment_complete_rq('<?php echo $_smarty_tpl->getVariable('this')->value->url(array('controller'=>$_smarty_tpl->getVariable('controller')->value,'action'=>'delete','id'=>$_smarty_tpl->getVariable('discussion')->value->id));?>
