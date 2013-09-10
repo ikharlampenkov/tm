@@ -105,15 +105,18 @@ class TM_Acl_TaskAcl extends TM_Acl_UserAcl
     /**
      *
      * @param $object
+     * @param $userId
+     *
+     * @throws Exception
      * @return array
      * @static
      * @access public
      */
-    public static function getAllInstance($object)
+    public static function getAllInstance($object, $userId)
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_acl_task WHERE task_id=' . $object->getId();
+            $sql = 'SELECT * FROM tm_acl_task WHERE task_id=' . $object->getId() . ' AND user_id=' . $userId;
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {

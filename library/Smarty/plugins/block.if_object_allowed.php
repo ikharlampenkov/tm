@@ -13,7 +13,8 @@
  * @param $content
  * @param $smarty
  * @param $repeat
- * @return
+ *
+ * @return bool
  */
 function smarty_block_if_object_allowed($params, $content, &$smarty, &$repeat)
 {
@@ -32,7 +33,7 @@ function smarty_block_if_object_allowed($params, $content, &$smarty, &$repeat)
 
             if (class_exists($class)) {
 
-                $aclList = call_user_func($class . '::getAllInstance', $params['object']);
+                $aclList = call_user_func($class . '::getAllInstance', $params['object'], $user);
 
                 if (empty($aclList)) {
                     return false;

@@ -67,17 +67,17 @@ class TM_Acl_DiscussionAcl extends TM_Acl_UserAcl
     } // end of member function getInstanceByArray
 
     /**
-     *
      * @param $object
-     * @return array
-     * @static
-     * @access public
+     * @param $userId
+     *
+     * @return array|bool
+     * @throws Exception
      */
-    public static function getAllInstance($object)
+    public static function getAllInstance($object, $userId)
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_acl_discussion WHERE discussion_id=' . $object->getId();
+            $sql = 'SELECT * FROM tm_acl_discussion WHERE discussion_id=' . $object->getId() . ' AND user_id=' . $userId;
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
