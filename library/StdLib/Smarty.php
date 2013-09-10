@@ -6,7 +6,9 @@
  * @link http://siteforever.ru
  */
 
-require_once 'Smarty/Smarty.class.php';
+//require_once 'Smarty/Smarty.class.php';
+require_once 'Smarty/SmartyBC.class.php';
+
 
 class StdLib_Smarty extends Zend_View_Abstract
 {
@@ -20,7 +22,7 @@ class StdLib_Smarty extends Zend_View_Abstract
 
     function __construct()
     {
-        $this->_smarty = new Smarty();
+        $this->_smarty = new SmartyBC();
     }
 
     /**
@@ -145,9 +147,12 @@ class StdLib_Smarty extends Zend_View_Abstract
     /**
      * Set the path to find the view script used by render()
      *
-     * @param string|array The directory (-ies) to set as the path. Note that
-     * the concrete view implentation may not necessarily support multiple
-     * directories.
+     * @param $path
+     *
+     * @throws Exception
+     * @internal param array|string $The directory (-ies) to set as the path. Note that
+     *           the concrete view implentation may not necessarily support multiple
+     *           directories.
      * @return void
      */
     public function setScriptPath($path)
@@ -185,10 +190,10 @@ class StdLib_Smarty extends Zend_View_Abstract
      */
     public function addPluginsPath($path)
     {
-        if (is_null($this->_smarty->plugins_dir)) {
-            $this->_smarty->plugins_dir = array($path);
+        if (is_null($this->_smarty->getPluginsDir())) {
+            $this->_smarty->setPluginsDir(array($path));
         } else {
-            $this->_smarty->plugins_dir[] = $path;
+            $this->_smarty->addPluginsDir($path);
         }
     }
 

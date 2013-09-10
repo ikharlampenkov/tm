@@ -15,7 +15,7 @@
  * @param $repeat
  * @return 
  */
-function smarty_block_if_allowed($params, $content, &$smarty, &$repeat) {
+function smarty_block_if_allowed($params, $content, Smarty_Internal_Template $template, &$repeat) {
     if (! $repeat) {
         if (isset($content)) {
             $acl = Zend_Controller_Front::getInstance()->getParam('bootstrap')->getResource('acl');

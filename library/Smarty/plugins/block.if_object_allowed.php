@@ -9,14 +9,15 @@
 
 
 /**
- * @param $params
- * @param $content
- * @param $smarty
- * @param $repeat
+ * @param                          $params
+ * @param                          $content
+ * @param Smarty_Internal_Template $template
+ * @param                          $repeat
  *
+ * @internal param $smarty
  * @return bool
  */
-function smarty_block_if_object_allowed($params, $content, &$smarty, &$repeat)
+function smarty_block_if_object_allowed($params, $content, Smarty_Internal_Template $template, &$repeat)
 {
     if (!$repeat) {
         if (isset($content)) {
