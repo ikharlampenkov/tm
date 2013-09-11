@@ -1025,7 +1025,7 @@ class TM_Task_Task
 
     public function isRead(TM_User_User $user)
     {
-        $aclList = TM_Acl_TaskAcl::getAllInstance($this);
+        $aclList = TM_Acl_TaskAcl::getAllInstance($this, $user->getId());
         if ($aclList !== false) {
             if (isset($aclList[$user->getId()]) && $aclList[$user->getId()]->getIsRead()) {
                 return true;
@@ -1036,7 +1036,7 @@ class TM_Task_Task
 
     public function isWrite(TM_User_User $user)
     {
-        $aclList = TM_Acl_TaskAcl::getAllInstance($this);
+        $aclList = TM_Acl_TaskAcl::getAllInstance($this, $user->getId());
         if ($aclList !== false) {
             if (isset($aclList[$user->getId()]) && $aclList[$user->getId()]->getIsWrite()) {
                 return true;
@@ -1047,7 +1047,7 @@ class TM_Task_Task
 
     public function isExecutant(TM_User_User $user)
     {
-        $aclList = TM_Acl_TaskAcl::getAllInstance($this);
+        $aclList = TM_Acl_TaskAcl::getAllInstance($this, $user->getId());
         if ($aclList !== false) {
             if (isset($aclList[$user->getId()]) && $aclList[$user->getId()]->getIsExecutant()) {
                 return true;
