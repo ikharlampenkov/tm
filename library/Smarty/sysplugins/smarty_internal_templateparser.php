@@ -3058,7 +3058,7 @@ static public $yy_action = array(
 #line 3054 "smarty_internal_templateparser.php"
 #line 1208 "smarty_internal_templateparser.y"
     function yy_r195(){
-    $this->_retvalue = new _smarty_code($this, '(string)'.$this->yystack[$this->yyidx + -1]->minor);
+    $this->_retvalue = new _smarty_code($this, ''.$this->yystack[$this->yyidx + -1]->minor); //(string)
     }
 #line 3059 "smarty_internal_templateparser.php"
 #line 1216 "smarty_internal_templateparser.y"
@@ -3068,7 +3068,7 @@ static public $yy_action = array(
 #line 3064 "smarty_internal_templateparser.php"
 #line 1224 "smarty_internal_templateparser.y"
     function yy_r199(){
-    $this->_retvalue = new _smarty_code($this, '(string)('.$this->yystack[$this->yyidx + -1]->minor.')');
+    $this->_retvalue = new _smarty_code($this, '('.$this->yystack[$this->yyidx + -1]->minor.')'); //(string)
     }
 #line 3069 "smarty_internal_templateparser.php"
 #line 1228 "smarty_internal_templateparser.y"

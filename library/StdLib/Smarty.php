@@ -6,8 +6,8 @@
  * @link http://siteforever.ru
  */
 
-//require_once 'Smarty/Smarty.class.php';
-require_once 'Smarty/SmartyBC.class.php';
+require_once 'Smarty/Smarty.class.php';
+//require_once 'Smarty/SmartyBC.class.php';
 
 
 class StdLib_Smarty extends Zend_View_Abstract
@@ -22,7 +22,7 @@ class StdLib_Smarty extends Zend_View_Abstract
 
     function __construct()
     {
-        $this->_smarty = new SmartyBC();
+        $this->_smarty = new Smarty();
     }
 
     /**
@@ -138,10 +138,10 @@ class StdLib_Smarty extends Zend_View_Abstract
      */
     public function getScriptPaths()
     {
-        if (is_array($this->_smarty->template_dir)) {
-            return $this->_smarty->template_dir;
+        if (is_array($this->_smarty->getTemplateDir())) {
+            return $this->_smarty->getTemplateDir();
         }
-        return array($this->_smarty->template_dir);
+        return array($this->_smarty->getTemplateDir());
     }
 
     /**
@@ -171,7 +171,7 @@ class StdLib_Smarty extends Zend_View_Abstract
      */
     public function setCompilePath($path)
     {
-        $this->_smarty->compile_dir = $path;
+        $this->_smarty->setCompileDir($path);
     }
 
     /**
@@ -180,7 +180,7 @@ class StdLib_Smarty extends Zend_View_Abstract
      */
     public function getCompilePath()
     {
-        return $this->_smarty->compile_dir;
+        return $this->_smarty->getCompileDir();
     }
 
     /**
