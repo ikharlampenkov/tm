@@ -167,7 +167,7 @@ abstract class TM_Acl_UserAcl
      * @static
      * @access public
      */
-    abstract public static function getAllInstance($object, $userId);
+    abstract public static function getAllInstance($object, $userId = null);
 
     /**
      *

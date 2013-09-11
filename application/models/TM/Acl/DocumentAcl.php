@@ -19,6 +19,7 @@ class TM_Acl_DocumentAcl extends TM_Acl_UserAcl
 
     /**
      * @param $object
+     *
      * @return TM_Acl_DocumentAcl
      */
     public function __construct($object)
@@ -29,16 +30,34 @@ class TM_Acl_DocumentAcl extends TM_Acl_UserAcl
 
     /**
      *
+     * @param $object
      *
-     * @return void
+     * @param null $userId
+     *
+     * @throws Exception
+     * @return array
+     * @static
      * @access public
      */
-    public function saveToDb()
+    public static function getAllInstance($object, $userId = null)
     {
         try {
-            $sql = 'REPLACE INTO tm_acl_document(user_id, document_id, is_read, is_write)
-                    VALUES (' . $this->_user->getId() . ', ' . $this->_object->getId() . ', ' . $this->_isRead . ', ' . $this->_isWrite . ')';
-            $this->_db->query($sql);
+            $db = StdLib_DB::getInstance();
+            $sql = 'SELECT * FROM tm_acl_document WHERE document_id=' . $object->getId();
+            if ($userId != null) {
+                $sql .= ' AND user_id=' . $userId;
+            }
+            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
+
+            if (isset($result[0])) {
+                $retArray = array();
+                foreach ($result as $res) {
+                    $retArray[$res['user_id']] = TM_Acl_DocumentAcl::getInstanceByArray($object, $res);
+                }
+                return $retArray;
+            } else {
+                return false;
+            }
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -50,7 +69,8 @@ class TM_Acl_DocumentAcl extends TM_Acl_UserAcl
      *
      * @param $object
      * @param array $values
-
+     *
+     * @throws Exception
      * @return TM_Acl_DocumentAcl
      * @static
      * @access public
@@ -68,39 +88,9 @@ class TM_Acl_DocumentAcl extends TM_Acl_UserAcl
 
     /**
      *
-     * @param $object
-     *
-     * @throws Exception
-     * @return array
-     * @static
-     * @access public
-     */
-    public static function getAllInstance($object, $userId)
-    {
-        try {
-            $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_acl_document WHERE document_id=' . $object->getId() . ' AND user_id=' . $userId;
-            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
-
-            if (isset($result[0])) {
-                $retArray = array();
-                foreach ($result as $res) {
-                    $retArray[$res['user_id']] = TM_Acl_DocumentAcl::getInstanceByArray($object, $res);
-                }
-                return $retArray;
-            } else {
-                return false;
-            }
-        } catch (Exception $e) {
-            throw new Exception($e->getMessage());
-        }
-    } // end of member function getAllInstance
-
-    /**
-     *
      *
      * @param array $values
-
+     *
      * @return void
      * @access public
      */
@@ -109,6 +99,24 @@ class TM_Acl_DocumentAcl extends TM_Acl_UserAcl
         $this->setUser(TM_User_User::getInstanceById($values['user_id']));
         $this->setIsRead($values['is_read']);
         $this->setIsWrite($values['is_write']);
+    } // end of member function getAllInstance
+
+    /**
+     *
+     *
+     * @throws Exception
+     * @return void
+     * @access public
+     */
+    public function saveToDb()
+    {
+        try {
+            $sql = 'REPLACE INTO tm_acl_document(user_id, document_id, is_read, is_write)
+                    VALUES (' . $this->_user->getId() . ', ' . $this->_object->getId() . ', ' . $this->_isRead . ', ' . $this->_isWrite . ')';
+            $this->_db->query($sql);
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage());
+        }
     } // end of member function fillFromArray
 
 }

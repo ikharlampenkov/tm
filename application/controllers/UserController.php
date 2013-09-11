@@ -207,36 +207,42 @@ class UserController extends Zend_Controller_Action
                     $taskAcl->saveToDb();
 
                     $oFolder = TM_Document_Document::getDocumentFolderByTask($oUser, $oTask);
-
-                    $folderAcl = new TM_Acl_DocumentAcl($oFolder);
-                    $folderAcl->setUser($oUser);
-                    if (isset($values['is_read'])) {
-                        $folderAcl->setIsRead($values['is_read']);
+                    if ($oFolder != false) {
+                        $folderAcl = new TM_Acl_DocumentAcl($oFolder);
+                        $folderAcl->setUser($oUser);
+                        if (isset($values['is_read'])) {
+                            $folderAcl->setIsRead($values['is_read']);
+                        } else {
+                            $folderAcl->setIsRead(0);
+                        }
+                        if (isset($values['is_write'])) {
+                            $folderAcl->setIsWrite($values['is_write']);
+                        } else {
+                            $folderAcl->setIsWrite(0);
+                        }
+                        $folderAcl->saveToDb();
                     } else {
-                        $folderAcl->setIsRead(0);
+                        StdLib_Log::logMsg('Отсутствует папка для задачи с id' . $oTask->getId() . ' и названием ' . $oTask->getTitle(), StdLib_Log::StdLib_Log_INFO);
                     }
-                    if (isset($values['is_write'])) {
-                        $folderAcl->setIsWrite($values['is_write']);
-                    } else {
-                        $folderAcl->setIsWrite(0);
-                    }
-                    $folderAcl->saveToDb();
 
                     $oTopic = TM_Discussion_Discussion::getTopicByTask($oUser, $oTask);
-
-                    $discussionAcl = new TM_Acl_DiscussionAcl($oTopic);
-                    $discussionAcl->setUser($oUser);
-                    if (isset($values['is_read'])) {
-                        $discussionAcl->setIsRead($values['is_read']);
+                    if ($oTopic != false) {
+                        $discussionAcl = new TM_Acl_DiscussionAcl($oTopic);
+                        $discussionAcl->setUser($oUser);
+                        if (isset($values['is_read'])) {
+                            $discussionAcl->setIsRead($values['is_read']);
+                        } else {
+                            $discussionAcl->setIsRead(0);
+                        }
+                        if (isset($values['is_write'])) {
+                            $discussionAcl->setIsWrite($values['is_write']);
+                        } else {
+                            $discussionAcl->setIsWrite(0);
+                        }
+                        $discussionAcl->saveToDb();
                     } else {
-                        $discussionAcl->setIsRead(0);
+                        StdLib_Log::logMsg('Отсутствует тема обсуждения для задачи с id' . $oTask->getId() . ' и названием ' . $oTask->getTitle(), StdLib_Log::StdLib_Log_INFO);
                     }
-                    if (isset($values['is_write'])) {
-                        $discussionAcl->setIsWrite($values['is_write']);
-                    } else {
-                        $discussionAcl->setIsWrite(0);
-                    }
-                    $discussionAcl->saveToDb();
 
                 } catch (Exception $e) {
                     StdLib_Log::logMsg('Не могу изменить права. ' . $e->getMessage(), StdLib_Log::StdLib_Log_ERROR);

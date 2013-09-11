@@ -54,6 +54,7 @@ class TM_Acl_TaskAcl extends TM_Acl_UserAcl
 
     /**
      * @param $object
+     *
      * @return TM_Acl_TaskAcl
      */
     public function __construct($object)
@@ -86,7 +87,7 @@ class TM_Acl_TaskAcl extends TM_Acl_UserAcl
      *
      * @param $object
      * @param array $values
-
+     *
      * @return TM_Acl_TaskAcl
      * @static
      * @access public
@@ -112,11 +113,14 @@ class TM_Acl_TaskAcl extends TM_Acl_UserAcl
      * @static
      * @access public
      */
-    public static function getAllInstance($object, $userId)
+    public static function getAllInstance($object, $userId = null)
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_acl_task WHERE task_id=' . $object->getId() . ' AND user_id=' . $userId;
+            $sql = 'SELECT * FROM tm_acl_task WHERE task_id=' . $object->getId();
+            if ($userId != null) {
+                $sql .= ' AND user_id=' . $userId;
+            }
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
@@ -137,7 +141,7 @@ class TM_Acl_TaskAcl extends TM_Acl_UserAcl
      *
      *
      * @param array $values
-
+     *
      * @return void
      * @access public
      */
