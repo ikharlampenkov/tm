@@ -1,4 +1,4 @@
 public_html/files
 public_html/files.tar.bz2
 .idea
-runtime/templates_c
+runtime/templates_c/*.tpl.php
