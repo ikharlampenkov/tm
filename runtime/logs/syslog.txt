@@ -1,41 +1,177 @@
-error   Can`t complit query: SELECT * FROM tm_task, tm_task_relation WHERE tm_task.id=tm_task_relation=child_id AND parent_id=186 No error: 1054:: Error msg: Unknown column 'tm_task_relation' in 'where clause' ;  05.02.2012 22:50
-error   Can`t complit query: INSERT INTO tm_organization_hash(organization_id, attribute_key, title, type_id, list_value, list_order, required, sort_order)
-                    VALUES (NULL, "inn", "", "ИНН", 1,
-                            " ",  0, 1000) No error: 1054:: Error msg: Unknown column 'organization_id' in 'field list' ;  14.03.2012 00:22
-error   Can`t complit query: INSERT INTO tm_organization_hash(organization_id, attribute_key, title, type_id, list_value, list_order, required, sort_order)
-                    VALUES (NULL, "inn", "Array", "ИНН", 1,
-                            " ",  0, 1000) No error: 1366:: Error msg: Incorrect integer value: 'ИНН' for column 'type_id' at row 1 ;  14.03.2012 00:25
-error   Can`t complit query: INSERT INTO tm_organization_hash(organization_id, attribute_key, title, type_id, list_value, list_order, required, sort_order)
-                    VALUES (NULL, "inn", "", "ИНН", 1,
-                            " ",  0, 1000) No error: 1366:: Error msg: Incorrect integer value: 'ИНН' for column 'type_id' at row 1 ;  14.03.2012 00:26
-error   Can`t complit query: INSERT INTO tm_user(login, password, role_id, date_create, is_client)
-                    VALUES ("a.buydin", "987654", 7, "2012-05-28 00:00:00", 0) No error: 1062:: Error msg: Duplicate entry 'a.buydin' for key 'login_UNIQUE' ;  28.05.2012 20:26
+
 error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
-                    VALUES (215, "description", 2, "Проверка", 0) No error: 1062:: Error msg: Duplicate entry '215-description' for key 'PRIMARY' ;  13.06.2012 22:08
-error   Can`t complit query: UPDATE tm_user
-                    SET login="admin", password="123",
-                        role_id="1", date_create="2011-11-16 16:26:00",
-                        type="administrator"
-                    WHERE id=1 No error: 1406:: Error msg: Data too long for column 'type' at row 1 ;  21.05.2013 23:36
-error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:35
-error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:35
-error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:35
-error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:36
-error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:36
-error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:36
-error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:36
-error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:37
-error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:37
-error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:37
-error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:37
-error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:37
-error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:37
-error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:37
-error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:40
-error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:41
-error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:43
-error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  10.07.2013 22:43
-error   Can`t complit query:  WHERE topic_id IS NULL AND parent_id IS NULL AND is_message=0 AND is_archive=0 ORDER BY parent_id No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE topic_id IS NULL AND parent_id IS NULL AND is_message=0 AND is_archive=0 O' at line 1 ;  21.07.2013 20:31
-error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  27.07.2013 19:49
-error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  27.07.2013 19:49
-error   Can`t complit query: SELECT * FROM tm_acl_document WHERE document_id=215 AND user_id= No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 ;  10.09.2013 23:15
+                    VALUES (314, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '314-description' for key 'PRIMARY' ;  21.06.2012 08:33
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (314, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '314-description' for key 'PRIMARY' ;  21.06.2012 08:38
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (314, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '314-description' for key 'PRIMARY' ;  21.06.2012 08:41
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (314, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '314-description' for key 'PRIMARY' ;  21.06.2012 11:11
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (314, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '314-description' for key 'PRIMARY' ;  22.06.2012 06:15
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (314, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '314-description' for key 'PRIMARY' ;  22.06.2012 12:12
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (314, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '314-description' for key 'PRIMARY' ;  22.06.2012 13:33
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (314, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '314-description' for key 'PRIMARY' ;  22.06.2012 13:35
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (314, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '314-description' for key 'PRIMARY' ;  25.06.2012 05:28
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (504, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '504-description' for key 'PRIMARY' ;  19.08.2013 08:57
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (504, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '504-description' for key 'PRIMARY' ;  19.08.2013 08:59
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (453, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '453-description' for key 'PRIMARY' ;  19.08.2013 09:05
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (453, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '453-description' for key 'PRIMARY' ;  19.08.2013 09:05
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (453, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '453-description' for key 'PRIMARY' ;  19.08.2013 09:05
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (452, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '452-description' for key 'PRIMARY' ;  19.08.2013 09:06
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (484, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '484-description' for key 'PRIMARY' ;  19.08.2013 11:31
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (591, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '591-description' for key 'PRIMARY' ;  19.08.2013 11:35
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (448, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '448-description' for key 'PRIMARY' ;  19.08.2013 13:31
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (527, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '527-description' for key 'PRIMARY' ;  19.08.2013 13:48
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (345, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '345-description' for key 'PRIMARY' ;  19.08.2013 14:21
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (345, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '345-description' for key 'PRIMARY' ;  19.08.2013 14:23
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (597, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '597-description' for key 'PRIMARY' ;  21.08.2013 07:52
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (604, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '604-description' for key 'PRIMARY' ;  23.08.2013 06:39
+error   Can`t complit query: SELECT * FROM tm_acl_task WHERE task_id=181 AND user_id= No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 ;  11.09.2013 08:51
+error   Can`t complit query: SELECT * FROM tm_acl_document WHERE document_id=597 AND user_id= No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 ;  11.09.2013 09:34
+error   Can`t complit query: SELECT * FROM tm_acl_task WHERE task_id=181 AND user_id= No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 ;  11.09.2013 11:43
+error   Can`t complit query: SELECT * FROM tm_acl_task WHERE task_id=308 AND user_id= No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 ;  11.09.2013 12:20
+error   Can`t complit query: SELECT * FROM tm_acl_document WHERE document_id=244 AND user_id= No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 ;  11.09.2013 13:39
+error   Can`t complit query: SELECT * FROM tm_acl_document WHERE document_id=244 AND user_id= No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 ;  11.09.2013 13:39
+error   Can`t complit query: SELECT * FROM tm_acl_document WHERE document_id=253 AND user_id= No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 ;  11.09.2013 13:39
+error   Can`t complit query: SELECT * FROM tm_acl_document WHERE document_id=257 AND user_id= No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 ;  11.09.2013 13:39
+error   Can`t complit query: SELECT * FROM tm_acl_document WHERE document_id=265 AND user_id= No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 ;  11.09.2013 13:41
+error   Can`t complit query: SELECT * FROM tm_acl_document WHERE document_id=648 AND user_id= No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 ;  11.09.2013 13:41
+error   Can`t complit query: SELECT * FROM tm_acl_document WHERE document_id=265 AND user_id= No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 ;  11.09.2013 13:41
+error   Can`t complit query: SELECT * FROM tm_acl_task WHERE task_id=197 AND user_id= No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 ;  11.09.2013 13:41
+error   Can`t complit query: SELECT * FROM tm_acl_task WHERE task_id=197 AND user_id= No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 ;  11.09.2013 13:41
+error   Can`t complit query: SELECT * FROM tm_acl_task WHERE task_id=197 AND user_id= No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 ;  11.09.2013 13:41
+error   Can`t complit query: SELECT * FROM tm_acl_task WHERE task_id=197 AND user_id= No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 ;  11.09.2013 13:41
+error   Can`t complit query: SELECT * FROM tm_acl_task WHERE task_id=197 AND user_id= No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 ;  11.09.2013 13:41
+error   Can`t complit query: SELECT * FROM tm_acl_task WHERE task_id=197 AND user_id= No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 ;  11.09.2013 13:41
+error   Can`t complit query: SELECT * FROM tm_acl_task WHERE task_id=197 AND user_id= No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 ;  11.09.2013 13:41
+error   Can`t complit query: SELECT * FROM tm_acl_document WHERE document_id=265 AND user_id= No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 ;  11.09.2013 13:43
+error   Can`t complit query: SELECT * FROM tm_acl_document WHERE document_id=215 AND user_id= No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 ;  11.09.2013 13:44
+error   Can`t complit query: SELECT * FROM tm_acl_task WHERE task_id=193 AND user_id= No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 ;  11.09.2013 13:44
+error   Can`t complit query: SELECT * FROM tm_acl_task WHERE task_id=193 AND user_id= No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1 ;  11.09.2013 13:44
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (608, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '608-description' for key 'PRIMARY' ;  11.09.2013 14:06
+info   Отсутствует папка для задачи с id194 и названием МУП ЖКУ Белогорск (Тисульский район) (потери)  11.09.2013 14:26
+info   Отсутствует тема обсуждения для задачи с id194 и названием МУП ЖКУ Белогорск (Тисульский район) (потери)  11.09.2013 14:26
+info   Отсутствует папка для задачи с id204 и названием ОАО СУЭК-Кузбасс ПЕ Спецналадка  11.09.2013 14:26
+info   Отсутствует папка для задачи с id269 и названием ООО Авангард  11.09.2013 14:26
+info   Отсутствует тема обсуждения для задачи с id269 и названием ООО Авангард  11.09.2013 14:26
+info   Отсутствует папка для задачи с id291 и названием МУП Жилищно-коммунальное управление Кемеровского района   11.09.2013 14:26
+info   Отсутствует папка для задачи с id292 и названием МУП Жилищно-коммунальное управление Кемеровского района   11.09.2013 14:26
+info   Отсутствует папка для задачи с id293 и названием ООО Обогатительная фабрика Прокопьевскуголь  11.09.2013 14:26
+info   Отсутствует папка для задачи с id295 и названием ООО Структурное Подразделение Рельсосварочное Предприятие  11.09.2013 14:26
+info   Отсутствует папка для задачи с id296 и названием ООО Теплотех  11.09.2013 14:26
+info   Отсутствует папка для задачи с id297 и названием ОАО Тепловодоканал-Сервис  11.09.2013 14:26
+info   Отсутствует папка для задачи с id194 и названием МУП ЖКУ Белогорск (Тисульский район) (потери)  11.09.2013 14:26
+info   Отсутствует тема обсуждения для задачи с id194 и названием МУП ЖКУ Белогорск (Тисульский район) (потери)  11.09.2013 14:26
+info   Отсутствует папка для задачи с id204 и названием ОАО СУЭК-Кузбасс ПЕ Спецналадка  11.09.2013 14:26
+info   Отсутствует папка для задачи с id269 и названием ООО Авангард  11.09.2013 14:26
+info   Отсутствует тема обсуждения для задачи с id269 и названием ООО Авангард  11.09.2013 14:26
+info   Отсутствует папка для задачи с id291 и названием МУП Жилищно-коммунальное управление Кемеровского района   11.09.2013 14:26
+info   Отсутствует папка для задачи с id292 и названием МУП Жилищно-коммунальное управление Кемеровского района   11.09.2013 14:26
+info   Отсутствует папка для задачи с id293 и названием ООО Обогатительная фабрика Прокопьевскуголь  11.09.2013 14:26
+info   Отсутствует папка для задачи с id295 и названием ООО Структурное Подразделение Рельсосварочное Предприятие  11.09.2013 14:26
+info   Отсутствует папка для задачи с id296 и названием ООО Теплотех  11.09.2013 14:26
+info   Отсутствует папка для задачи с id297 и названием ОАО Тепловодоканал-Сервис  11.09.2013 14:26
+info   Отсутствует папка для задачи с id194 и названием МУП ЖКУ Белогорск (Тисульский район) (потери)  11.09.2013 14:29
+info   Отсутствует тема обсуждения для задачи с id194 и названием МУП ЖКУ Белогорск (Тисульский район) (потери)  11.09.2013 14:29
+info   Отсутствует папка для задачи с id204 и названием ОАО СУЭК-Кузбасс ПЕ Спецналадка  11.09.2013 14:29
+info   Отсутствует папка для задачи с id269 и названием ООО Авангард  11.09.2013 14:29
+info   Отсутствует тема обсуждения для задачи с id269 и названием ООО Авангард  11.09.2013 14:29
+info   Отсутствует папка для задачи с id291 и названием МУП Жилищно-коммунальное управление Кемеровского района   11.09.2013 14:29
+info   Отсутствует папка для задачи с id292 и названием МУП Жилищно-коммунальное управление Кемеровского района   11.09.2013 14:29
+info   Отсутствует папка для задачи с id293 и названием ООО Обогатительная фабрика Прокопьевскуголь  11.09.2013 14:29
+info   Отсутствует папка для задачи с id295 и названием ООО Структурное Подразделение Рельсосварочное Предприятие  11.09.2013 14:29
+info   Отсутствует папка для задачи с id296 и названием ООО Теплотех  11.09.2013 14:29
+info   Отсутствует папка для задачи с id297 и названием ОАО Тепловодоканал-Сервис  11.09.2013 14:29
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (655, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '655-description' for key 'PRIMARY' ;  11.09.2013 15:42
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (655, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '655-description' for key 'PRIMARY' ;  11.09.2013 15:47
+info   Отсутствует папка для задачи с id194 и названием МУП ЖКУ Белогорск (Тисульский район) (потери)  12.09.2013 13:13
+info   Отсутствует тема обсуждения для задачи с id194 и названием МУП ЖКУ Белогорск (Тисульский район) (потери)  12.09.2013 13:13
+info   Отсутствует папка для задачи с id204 и названием ОАО СУЭК-Кузбасс ПЕ Спецналадка  12.09.2013 13:13
+info   Отсутствует папка для задачи с id269 и названием ООО Авангард  12.09.2013 13:13
+info   Отсутствует тема обсуждения для задачи с id269 и названием ООО Авангард  12.09.2013 13:13
+info   Отсутствует папка для задачи с id291 и названием МУП Жилищно-коммунальное управление Кемеровского района   12.09.2013 13:13
+info   Отсутствует папка для задачи с id292 и названием МУП Жилищно-коммунальное управление Кемеровского района   12.09.2013 13:13
+info   Отсутствует папка для задачи с id293 и названием ООО Обогатительная фабрика Прокопьевскуголь  12.09.2013 13:13
+info   Отсутствует папка для задачи с id295 и названием ООО Структурное Подразделение Рельсосварочное Предприятие  12.09.2013 13:13
+info   Отсутствует папка для задачи с id296 и названием ООО Теплотех  12.09.2013 13:13
+info   Отсутствует папка для задачи с id297 и названием ОАО Тепловодоканал-Сервис  12.09.2013 13:13
+info   Отсутствует папка для задачи с id310 и названием ООО СПК Чистогорский    12.09.2013 13:13
+info   Отсутствует папка для задачи с id194 и названием МУП ЖКУ Белогорск (Тисульский район) (потери)  16.09.2013 12:57
+info   Отсутствует тема обсуждения для задачи с id194 и названием МУП ЖКУ Белогорск (Тисульский район) (потери)  16.09.2013 12:57
+info   Отсутствует папка для задачи с id204 и названием ОАО СУЭК-Кузбасс ПЕ Спецналадка  16.09.2013 12:57
+info   Отсутствует папка для задачи с id269 и названием ООО Авангард  16.09.2013 12:57
+info   Отсутствует тема обсуждения для задачи с id269 и названием ООО Авангард  16.09.2013 12:57
+info   Отсутствует папка для задачи с id291 и названием МУП Жилищно-коммунальное управление Кемеровского района   16.09.2013 12:57
+info   Отсутствует папка для задачи с id292 и названием МУП Жилищно-коммунальное управление Кемеровского района   16.09.2013 12:57
+info   Отсутствует папка для задачи с id293 и названием ООО Обогатительная фабрика Прокопьевскуголь  16.09.2013 12:57
+info   Отсутствует папка для задачи с id295 и названием ООО Структурное Подразделение Рельсосварочное Предприятие  16.09.2013 12:57
+info   Отсутствует папка для задачи с id296 и названием ООО Теплотех  16.09.2013 12:57
+info   Отсутствует папка для задачи с id297 и названием ОАО Тепловодоканал-Сервис  16.09.2013 12:57
+info   Отсутствует папка для задачи с id310 и названием ООО СПК Чистогорский    16.09.2013 12:57
+error   Can`t complit query: SELECT tm_document_hash.attribute_key, title, tm_document_hash.type_id, list_value
+                    FROM tm_document_hash  LEFT JOIN (
+                         SELECT * FROM tm_document_attribute WHERE document_id=
+                   ) t2 ON tm_document_hash.attribute_key=t2.attribute_key
+                   ORDER BY t2.is_fill DESC, title No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') t2 ON tm_document_hash.attribute_key=t2.attribute_key
+                   ORDE' at line 4 ;  17.09.2013 12:42
+info   Отсутствует папка для задачи с id194 и названием МУП ЖКУ Белогорск (Тисульский район) (потери)  18.09.2013 10:30
+info   Отсутствует тема обсуждения для задачи с id194 и названием МУП ЖКУ Белогорск (Тисульский район) (потери)  18.09.2013 10:30
+info   Отсутствует папка для задачи с id204 и названием ОАО СУЭК-Кузбасс ПЕ Спецналадка  18.09.2013 10:30
+info   Отсутствует папка для задачи с id222 и названием ФГЛПУ НКЦОЗШ  18.09.2013 10:30
+info   Отсутствует папка для задачи с id269 и названием ООО Авангард  18.09.2013 10:30
+info   Отсутствует тема обсуждения для задачи с id269 и названием ООО Авангард  18.09.2013 10:30
+info   Отсутствует папка для задачи с id291 и названием МУП Жилищно-коммунальное управление Кемеровского района   18.09.2013 10:30
+info   Отсутствует папка для задачи с id292 и названием МУП Жилищно-коммунальное управление Кемеровского района   18.09.2013 10:30
+info   Отсутствует папка для задачи с id293 и названием ООО Обогатительная фабрика Прокопьевскуголь  18.09.2013 10:30
+info   Отсутствует папка для задачи с id295 и названием ООО Структурное Подразделение Рельсосварочное Предприятие  18.09.2013 10:30
+info   Отсутствует папка для задачи с id296 и названием ООО Теплотех  18.09.2013 10:30
+info   Отсутствует папка для задачи с id297 и названием ОАО Тепловодоканал-Сервис  18.09.2013 10:30
+info   Отсутствует папка для задачи с id310 и названием ООО СПК Чистогорский    18.09.2013 10:30
+info   Отсутствует папка для задачи с id194 и названием МУП ЖКУ Белогорск (Тисульский район) (потери)  20.09.2013 11:10
+info   Отсутствует тема обсуждения для задачи с id194 и названием МУП ЖКУ Белогорск (Тисульский район) (потери)  20.09.2013 11:10
+info   Отсутствует папка для задачи с id204 и названием ОАО СУЭК-Кузбасс ПЕ Спецналадка  20.09.2013 11:10
+info   Отсутствует папка для задачи с id222 и названием ФГЛПУ НКЦОЗШ  20.09.2013 11:10
+info   Отсутствует папка для задачи с id269 и названием ООО Авангард  20.09.2013 11:10
+info   Отсутствует тема обсуждения для задачи с id269 и названием ООО Авангард  20.09.2013 11:10
+info   Отсутствует папка для задачи с id291 и названием МУП Жилищно-коммунальное управление Кемеровского района   20.09.2013 11:10
+info   Отсутствует папка для задачи с id292 и названием МУП Жилищно-коммунальное управление Кемеровского района   20.09.2013 11:10
+info   Отсутствует папка для задачи с id293 и названием ООО Обогатительная фабрика Прокопьевскуголь  20.09.2013 11:10
+info   Отсутствует папка для задачи с id295 и названием ООО Структурное Подразделение Рельсосварочное Предприятие  20.09.2013 11:10
+info   Отсутствует папка для задачи с id296 и названием ООО Теплотех  20.09.2013 11:10
+info   Отсутствует папка для задачи с id297 и названием ОАО Тепловодоканал-Сервис  20.09.2013 11:10
+info   Отсутствует папка для задачи с id310 и названием ООО СПК Чистогорский    20.09.2013 11:10
+info   Отсутствует папка для задачи с id194 и названием МУП ЖКУ Белогорск (Тисульский район) (потери)  20.09.2013 11:14
+info   Отсутствует тема обсуждения для задачи с id194 и названием МУП ЖКУ Белогорск (Тисульский район) (потери)  20.09.2013 11:14
+info   Отсутствует папка для задачи с id204 и названием ОАО СУЭК-Кузбасс ПЕ Спецналадка  20.09.2013 11:14
+info   Отсутствует папка для задачи с id222 и названием ФГЛПУ НКЦОЗШ  20.09.2013 11:14
+info   Отсутствует папка для задачи с id269 и названием ООО Авангард  20.09.2013 11:14
+info   Отсутствует тема обсуждения для задачи с id269 и названием ООО Авангард  20.09.2013 11:14
+info   Отсутствует папка для задачи с id291 и названием МУП Жилищно-коммунальное управление Кемеровского района   20.09.2013 11:14
+info   Отсутствует папка для задачи с id292 и названием МУП Жилищно-коммунальное управление Кемеровского района   20.09.2013 11:14
+info   Отсутствует папка для задачи с id293 и названием ООО Обогатительная фабрика Прокопьевскуголь  20.09.2013 11:14
+info   Отсутствует папка для задачи с id295 и названием ООО Структурное Подразделение Рельсосварочное Предприятие  20.09.2013 11:14
+info   Отсутствует папка для задачи с id296 и названием ООО Теплотех  20.09.2013 11:14
+info   Отсутствует папка для задачи с id297 и названием ОАО Тепловодоканал-Сервис  20.09.2013 11:14
+info   Отсутствует папка для задачи с id310 и названием ООО СПК Чистогорский    20.09.2013 11:14
