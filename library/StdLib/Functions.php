@@ -19,7 +19,7 @@ class StdLib_Functions
 
     static public function translitIt($str)
     {
-        $str = preg_replace('/([^A-Za-zА-Яа-я0-9 ]*)/', '', $str);
+        $str = mb_ereg_replace('/([^A-Za-zА-Яа-я0-9 ]*)/', '', $str);
         $str = str_replace(' ', '_', $str);
 
         $tr = array(
@@ -37,22 +37,11 @@ class StdLib_Functions
             "ц" => "ts", "ч" => "ch", "ш" => "sh", "щ" => "sch", "ъ" => "y",
             "ы" => "yi", "ь" => "", "э" => "e", "ю" => "yu", "я" => "ya"
         );
-        $rus = array_keys($tr);
-        $lat = array_values($tr);
+        //$rus = array_keys($tr);
+        //$lat = array_values($tr);
 
-        // шипящие, сопящие и некоторые гласные:
-        //$rus = array('ё','ж','ц','ч','ш','щ','ю','я','Ё','Ж','Ц','Ч','Ш','Щ','Ю','Я');
-        //$lat = array('yo','zh','tc','ch','sh','sh','yu','ya','YO','ZH','TC','CH','SH','SH','YU','YA');
-        //$string = mb_convert_encoding(str_replace($rus, $lat , $str), "UTF-8", "UTF-8");
-
-        //echo $string;
-        // остальной алфавит:
-        //$string = strtr($string, $tr); //"АБВГДЕЗИЙКЛМНОПРСТУФХЪЫЬЭабвгдезийклмнопрстуфхъыьэ", "ABVGDEZIJKLMNOPRSTUFH_I_Eabvgdezijklmnoprstufh_i_e"
-        //return $string;
-
-        //echo str_replace($rus, $lat, $str);
-        return mb_convert_encoding(str_replace($rus, $lat, $str), "UTF-8", "UTF-8");
-        //return mb_convert_encoding(strtr($str, $tr), "UTF-8", "UTF-8");  //iconv ("UTF-8", "UTF-8//TRANSLIT", strtr($str, $tr));
+        return strtr($str, $tr);
+        //return mb_convert_encoding(str_replace($rus, $lat, $str), "UTF-8", "UTF-8");
     }
 
     static public function getFileExt($fname)
