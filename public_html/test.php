@@ -31,11 +31,13 @@ function mb_str_replace($search, $replace, $subject)
     return $subject;
 }
 
-$str = 'ООО Кузбасская Энергосетевая Компания';
+mb_internal_encoding('UTF-8');
+echo mb_regex_encoding();
+$str = 'ООО Кузбасская ""\,^#$Энергосетевая Компания';
 echo $str . "<br/>\r\n";
 
-//$str = preg_replace('/([^A-Za-zА-Яа-я0-9 ]*)/', '', $str);
-$str = mb_ereg_replace('/([^A-Za-zА-Яа-я0-9 ]*)/', '', $str);
+$str = mb_convert_encoding(preg_replace(mb_convert_encoding('/([^A-Za-zА-Яа-я0-9 ]*)/', 'windows-1251', 'UTF-8'), '', mb_convert_encoding($str, 'windows-1251', 'UTF-8')), 'UTF-8', 'windows-1251');
+//$str = mb_ereg_replace('([^A-Za-zА-Яа-я0-9 ]*)', '', $str);
 echo 'preg ' . $str . "<br/>\r\n";
 $str = str_replace(' ', '_', $str);
 echo '_ replace ' . $str . "<br/>\r\n";

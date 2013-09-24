@@ -19,7 +19,7 @@ class StdLib_Functions
 
     static public function translitIt($str)
     {
-        $str = mb_ereg_replace('/([^A-Za-zА-Яа-я0-9 ]*)/', '', $str);
+        $str = mb_convert_encoding(preg_replace(mb_convert_encoding('/([^A-Za-zА-Яа-я0-9 ]*)/', 'windows-1251', 'UTF-8'), '', mb_convert_encoding($str, 'windows-1251', 'UTF-8')), 'UTF-8', 'windows-1251');
         $str = str_replace(' ', '_', $str);
 
         $tr = array(
