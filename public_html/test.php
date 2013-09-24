@@ -6,7 +6,7 @@
  * Time: 21:27
  * To change this template use File | Settings | File Templates.
  */
-include_once 'C:/www/tm/library/Smarty/plugins/shared.mb_str_replace.php';
+//include_once 'C:/www/tm/library/Smarty/plugins/shared.mb_str_replace.php';
 function mb_str_replace($search, $replace, $subject)
 {
     if (is_array($subject)) {
@@ -34,8 +34,11 @@ function mb_str_replace($search, $replace, $subject)
 $str = 'ООО Кузбасская Энергосетевая Компания';
 echo $str . "<br/>\r\n";
 
-$str = preg_replace('/([^A-Za-zА-Яа-я0-9 ]*)/', '', $str);
+//$str = preg_replace('/([^A-Za-zА-Яа-я0-9 ]*)/', '', $str);
+$str = mb_ereg_replace('/([^A-Za-zА-Яа-я0-9 ]*)/', '', $str);
+echo 'preg ' . $str . "<br/>\r\n";
 $str = str_replace(' ', '_', $str);
+echo '_ replace ' . $str . "<br/>\r\n";
 echo 'test' . "<br/>\r\n";
 
 $table = array(
@@ -110,15 +113,24 @@ $table = array(
 
 $rus = 'А Б В Г Д Е Ё Ж З И Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ь Ы Ъ Э Ю Я а б в г д е ё ж з и й к л м н о п р с т у ф х ц ч ш щ ь ы ъ э ю я';
 $lat = 'A B V G D E YO ZH Z I J K L M N O P R S T U F H C CH SH CSH  Y  E YU YA a b v g d e yo zh z i j k l m n o p r s t u f h c ch sh csh  y  e yu ya';
+
+$rus_cp1251 = mb_convert_encoding($rus, 'windows-1251', 'UTF-8');
+$lat_cp1251 = mb_convert_encoding($lat, 'windows-1251', 'UTF-8');
+
+$str_cp1251 = mb_convert_encoding($str, 'windows-1251', 'UTF-8');
+//echo $str_cp1251;
+
+$output = str_replace(explode(' ', $rus_cp1251), explode(' ', $lat_cp1251), $str_cp1251);
+
 //echo implode(' ', array_keys($table));
-echo implode(' ', array_values($table));
+//echo implode(' ', array_values($table));
 
 //$output = str_replace(array_keys($table), array_values($table), $str);
 //$output = mb_str_replace(array_keys($table), array_values($table), $str);
 //$output = smarty_mb_str_replace(array_keys($table), array_values($table), $str);
-//echo $output;
+//echo 'output ' . $output;
 
-/*
+
 $tr = array(
     "А" => "A", "Б" => "B", "В" => "V", "Г" => "G",
     "Д" => "D", "Е" => "E", "Ж" => "J", "З" => "Z", "И" => "I",
@@ -144,10 +156,10 @@ $lat = array_values($tr);
 
 //echo $string;
 // остальной алфавит:
-//$string = strtr($string, $tr); //"АБВГДЕЗИЙКЛМНОПРСТУФХЪЫЬЭабвгдезийклмнопрстуфхъыьэ", "ABVGDEZIJKLMNOPRSTUFH_I_Eabvgdezijklmnoprstufh_i_e"
+$str = strtr($str, $tr); //"АБВГДЕЗИЙКЛМНОПРСТУФХЪЫЬЭабвгдезийклмнопрстуфхъыьэ", "ABVGDEZIJKLMNOPRSTUFH_I_Eabvgdezijklmnoprstufh_i_e"
 //return $string;
+echo $str;
 
 //echo str_replace($rus, $lat, $str);
-echo mb_convert_encoding(str_replace($rus, $lat, $str), "UTF-8", "UTF-8");
+//echo mb_convert_encoding(str_replace($rus, $lat, $str), "UTF-8", "UTF-8");
 //return mb_convert_encoding(strtr($str, $tr), "UTF-8", "UTF-8");  //iconv ("UTF-8", "UTF-8//TRANSLIT", strtr($str, $tr));
-*/
