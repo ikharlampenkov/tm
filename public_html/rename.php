@@ -9,7 +9,7 @@
 
 function translitIt($str)
 {
-    $str = mb_ereg_replace('/([^A-Za-zА-Яа-я0-9 ]*)/', '', $str);
+    $str = mb_convert_encoding(preg_replace(mb_convert_encoding('/([^A-Za-zА-Яа-я0-9 ]*)/', 'windows-1251', 'UTF-8'), '', mb_convert_encoding($str, 'windows-1251', 'UTF-8')), 'UTF-8', 'windows-1251');
     $str = str_replace(' ', '_', $str);
 
     $tr = array(
@@ -35,13 +35,15 @@ function translitIt($str)
 }
 
 $dir = realpath(dirname(__FILE__)) . '/files/';
+$subdir = '';
 echo $dir;
 
-$pdo = new PDO('mysql:dbname=cl71252_tm;host=localhost', 'cl71252_tm', 'e10adc39h');
+$pdo = new PDO('mysql:dbname=cl71252_tm;host=localhost', 'cl71252_tm', 'e10adc39h', array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''));
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 
 $selectStatement = $pdo->prepare('SELECT * FROM tm_document WHERE is_folder=1 ORDER BY id');
+$selectStatement2 = $pdo->prepare('SELECT * FROM tm_document WHERE id=:id');
 $updateStatement = $pdo->prepare('UPDATE tm_document SET file=:file WHERE id=:id');
 
 try {
@@ -49,19 +51,32 @@ try {
     $folderList = $selectStatement->fetchAll();
 
     foreach ($folderList as $folder) {
-        if ($folder['file'] != '' && file_exists($dir . $folder['file'])) {
-            echo $folder['file'];
-            $newFile = translitIt($folder['title']);
-            $result = rename($dir . $folder['file'], $dir . $newFile);
 
-            if ($result == true) {
-                try {
-                    $updateStatement->execute(array('file' => $newFile, 'id' => $folder['id']));
-                } catch (Exception $ex) {
-                    echo $ex->getMessage();
-                }
+        if ($folder['file'] != '') {
+            if ($folder['parent_id'] != '') {
+                $selectStatement2->execute(array('id' => $folder['parent_id']));
+                $parent = $selectStatement2->fetch();
+                $subdir = $parent['file'];
             } else {
-                echo 'bad ' . $folder['title'] . "\r\n";
+                $subdir = '';
+            }
+
+            if (file_exists($dir . $subdir . $folder['file'])) {
+                echo $folder['file'] . "\r\n";
+                echo $folder['title'] . "\r\n";
+
+                $newFile = translitIt($folder['title']);
+                $result = rename($dir . $subdir . $folder['file'], $dir . $subdir . $newFile);
+
+                if ($result == true) {
+                    try {
+                        $updateStatement->execute(array('file' => $newFile, 'id' => $folder['id']));
+                    } catch (Exception $ex) {
+                        echo $ex->getMessage();
+                    }
+                } else {
+                    echo 'bad ' . $folder['title'] . "\r\n";
+                }
             }
         }
 
