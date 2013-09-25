@@ -1,5 +1,6 @@
 public_html/files
 public_html/files.tar.bz2
 public_html/files.zip
+public_html/files.*
 .idea
 runtime/templates_c/*.tpl.php
