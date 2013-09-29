@@ -18,17 +18,17 @@
 
 .menu_up li:hover {
     /* background: url(/i/ar.gif) no-repeat 20px 21px #202020; */
-    background-color: #202020;
+    background-color: #286b7b;
 }
 
 .menu_up li a {
     font: bold 14px/18px Tahoma;
     text-decoration: underline;
-    color: #888888;
+    color: #ffffff;
 }
 
 .menu_up li a:hover {
-    color: #5a5a5a;
+    color: #ffffff;
 }
 
 .menu_up li sup {
@@ -43,7 +43,7 @@
 }
 
 .menu_up .list {
-    background: #202020;
+    background: #286b7b;
     margin: 0 0 0 -44px;
     padding: 7px 0 25px 0;
 }
@@ -89,7 +89,7 @@
 
 .menu_up .list li a:hover {
     text-decoration: underline;
-    color: #777;
+    color: #ffffff;
 }
 
 #sub-menu {

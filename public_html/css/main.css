@@ -2,8 +2,8 @@ html, body {
     margin: 0;
     padding: 0;
     font: normal 14px/16px "Trebuchet MS", Tahoma;
-    background: #2a2a2a;
-    color: #454545;
+    background: #47abc2;
+    color: #ffffff;
     width: 100%;
 }
 
@@ -211,7 +211,7 @@ a {
 }
 
 .unlogged {
-    color: #ccc;
+    color: #ffffff;
     padding-top: 5px;
 }
 
@@ -331,6 +331,7 @@ a.task_no_access {
     float: left;
     margin-left: 5px;
     vertical-align: middle;
+    overflow: hidden;
 }
 
 .task_action {
