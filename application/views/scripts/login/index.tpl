@@ -1,56 +1,46 @@
+<!DOCTYPE html>
+<html class="login-page">
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
 
-<html>
-    <head>
-        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-        <meta name="DESCRIPTION" content="{$description}" />
-        <meta name="keywords" content="{$keywords}" />
-        <meta name="author-corporate" content="" />
-        <meta name="publisher-email" content="" />
+    <script type="text/javascript" language="javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" language="javascript" src="/js/bootstrap.min.js"></script>
 
-        <style>
-            body { margin: 0px; padding: 0px; font-family: tahoma; }
-        </style>
+    <title>{$title}</title>
+</head>
+<body class="login-page">
+<div id="login">
+    <form method="post" id="login-form" action="/login/">
 
-        <title>{$title}</title>
+        <div style="padding-left: 0;">
+            <h1 style="text-align: center; padding-top: 0; margin: 0;" class="left">&nbsp;&nbsp;<a href="#">{$title}</a></h1>
+        </div>
+        <div class="clear"></div>
+        <div class="padding20"></div>
 
-    </head>
+        {if isset($login_fail)}
+            <div class="alert">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Внимание!</strong> {$result.loginFailed}
+            </div>
+        {/if}
 
-    <body>
+        Логин
+        <div class="padding10"></div>
+        <input name="login" type="text" />
 
-            <table style="width: 100%; height: 100%;" cellpadding="10" cellspacing="10" border="0">
-                <tr>
-                    <td valign="middle" align="center">
-                        <form method="post" action="/login/" style="margin:0px; padding:0px;">
+        <div class="padding10"></div>
 
-                            <table cellpadding="10" cellspacing="0" border="0" style="background-color: #373737; width: 300px; height: 100px;">
+        Пароль
+        <div class="padding10"></div>
+        <input type="password" name="psw" />
 
-                                <tr>
-                                    <td colspan="2" style="font-size:30px; color: #ffffff; padding-left: 25px; text-align: center;">{$title}</td>
-                                </tr>
-                                <tr>
-                                    <td style="color:white">Логин: </td>
-                                    <td><input name="login" type="text" style="width:190px;border:10px;font-size: 16px;" /></td>
-                                </tr>
-                                <tr>
-                                    <td style="color:white">Пароль:</td>
-                                    <td><input name="psw" type="password" style="width:190px;border:10px;font-size: 16px;" /></td>
-                                </tr>
-                                <tr>
-                                    <td>&nbsp;</td>
-                                    <td><input type="submit" value="Войти" style="width:190px;font-size: 16px;"/></td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>{if isset($login_fail)}<div style="color:white; font-weight:bold; font-size:12px;">{$result.loginFailed}</div>{/if}</td>
-                                </tr>
-
-
-                            </table>
-                        </form>
-
-                    </td>
-                </tr>
-            </table>
-
-    </body>
+        <div class="padding20"></div>
+        <input type="submit" class="btn btn-large btn-primary" value="Войти" />
+    </form>
+</div>
+</body>
 </html>
