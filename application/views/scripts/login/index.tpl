@@ -16,7 +16,7 @@
     <form method="post" id="login-form" action="/login/">
 
         <div style="padding-left: 0;">
-            <h1 style="text-align: center; padding-top: 0; margin: 0;" class="left">&nbsp;&nbsp;<a href="#">{$title}</a></h1>
+            <h1 style="text-align: center; padding-top: 0; margin: 0;" class="left"><a href="#">{$title}</a></h1>
         </div>
         <div class="clear"></div>
         <div class="padding20"></div>
