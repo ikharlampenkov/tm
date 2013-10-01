@@ -56,7 +56,7 @@
                             <img src="/i/folder.png"/>&nbsp;<a href="{$this->url(['controller' => $controller,'action' => 'index', 'parent' => $document->id])}">{$document->title}</a>
                         {else}
                             <img src="/i/document.png"/>&nbsp;
-                            {if $document->file->getName()}<a href="/files{$document->file->getSubPath()}/{$document->file->getName()}">{/if}
+                            {if $document->file->getName()}<a href="/files{$document->file->getSubPath()}/{$document->file->getName()}" target="_blank">{/if}
                             {if $document->title != ''}{$document->title}{else}Загрузить{/if}
                             {if $document->file->getName()}</a>{/if}
                         {/if}</td>
