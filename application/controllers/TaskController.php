@@ -70,7 +70,7 @@ class TaskController extends Zend_Controller_Action
         $oTask->setType(TM_Task_Task::TASK_TYPE_PERIOD);
 
         if ($this->getRequest()->getParam('parent', 0) != 0) {
-            $oTask->addParent(TM_Task_Task::getInstanceById($this->getRequest()->getParam('parent', 0)));
+            $oTask->setParent(TM_Task_Task::getInstanceById($this->getRequest()->getParam('parent', 0)));
         }
 
         if ($this->getRequest()->isPost()) {
@@ -81,7 +81,7 @@ class TaskController extends Zend_Controller_Action
 
             if (!empty($data['parentTask'])) {
                 $parentTask = TM_Task_Task::getInstanceById($data['parentTask']);
-                $oTask->addParent($parentTask);
+                $oTask->setParent($parentTask);
             }
 
             foreach ($data['attribute'] as $key => $value) {
@@ -205,8 +205,8 @@ class TaskController extends Zend_Controller_Action
                 TM_Activity_ActivityLogger::logMessage($this->_user, 'Проекты', 'Добавлена задача ' . $oTask->getTitle(), $oTask);
 
                 if (!empty($data['parentTask'])) {
-                    $oTask->getFirstParent()->reCalculateDeadLine();
-                    $oTask->getFirstParent()->reCalculateState();
+                    $oTask->getParent()->reCalculateDeadLine();
+                    $oTask->getParent()->reCalculateState();
                 }
 
                 $db->commitTransaction();
@@ -245,7 +245,7 @@ class TaskController extends Zend_Controller_Action
             $oTask->setType($data['type']);
 
             if (!empty($data['parentTask'])) {
-                $oTask->addParent(TM_Task_Task::getInstanceById($data['parentTask']));
+                $oTask->setParent(TM_Task_Task::getInstanceById($data['parentTask']));
             }
 
             foreach ($data['attribute'] as $key => $value) {
@@ -336,8 +336,8 @@ class TaskController extends Zend_Controller_Action
                 TM_Activity_ActivityLogger::logMessage($this->_user, 'Проекты', 'Изменения в задаче ' . $oTask->getTitle(), $oTask);
 
                 if (!empty($data['parentTask'])) {
-                    $oTask->getFirstParent()->reCalculateDeadLine();
-                    $oTask->getFirstParent()->reCalculateState();
+                    $oTask->getParent()->reCalculateDeadLine();
+                    $oTask->getParent()->reCalculateState();
                 }
 
                 $db->commitTransaction();

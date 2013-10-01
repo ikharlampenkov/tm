@@ -28,6 +28,11 @@ class TM_Task_Task
     protected $_title;
 
     /**
+     * @var TM_Task_Task|null
+     */
+    protected $_parent = null;
+
+    /**
      * @var TM_User_User
      * @access protected
      */
@@ -94,7 +99,15 @@ class TM_Task_Task
     public function getTitle()
     {
         return $this->_db->prepareStringToOut($this->_title);
-    } // end of member function getTitle
+    }
+
+    /**
+     * @return null|TM_Task_Task
+     */
+    public function getParent()
+    {
+        return $this->_parent;
+    }
 
     /**
      *
@@ -122,6 +135,7 @@ class TM_Task_Task
      *
      *
      * @param int $value
+     *
      * @return void
      * @access protected
      */
@@ -134,6 +148,7 @@ class TM_Task_Task
      *
      *
      * @param string $value
+     *
      * @return void
      * @access public
      */
@@ -143,9 +158,18 @@ class TM_Task_Task
     } // end of member function setTitle
 
     /**
+     * @param TM_Task_Task|null $value
+     */
+    public function setParent(TM_Task_Task $value)
+    {
+        $this->_parent = $value;
+    }
+
+    /**
      *
      *
      * @param TM_User_User $value
+     *
      * @return void
      * @access public
      */
@@ -158,6 +182,7 @@ class TM_Task_Task
      *
      *
      * @param string $value
+     *
      * @return string
      * @access public
      */
@@ -198,9 +223,25 @@ class TM_Task_Task
 
     public function __get($name)
     {
-        $method = "get{$name}";
+        $method = 'get' . ucfirst($name);
         if (method_exists($this, $method)) {
             return $this->$method();
+        } else {
+            throw new Exception('Can not fnd mthod ' . $method . ' in class ' . __CLASS__);
+        }
+    }
+
+    /**
+     * @param TM_task_Task $value
+     *
+     * @return string|int
+     */
+    protected function _prepareNull($value)
+    {
+        if ($value == null) {
+            return 'NULL';
+        } else {
+            return $value->getId();
         }
     }
 
@@ -213,53 +254,52 @@ class TM_Task_Task
     public function __construct()
     {
         $this->_db = StdLib_DB::getInstance();
-    } // end of member function __construct
+    }
 
     /**
      *
-     *
+     * @throws Exception
      * @return void
      * @access public
      */
     public function insertToDb()
     {
         try {
-            $sql = 'INSERT INTO tm_task(title, user_id, date_create, type)
-                    VALUES ("' . $this->_title . '", ' . $this->_user->getId() . ',
+            $sql
+                = 'INSERT INTO tm_task(title, user_id, parent_id, date_create, type)
+                    VALUES ("' . $this->_title . '", ' . $this->_user->getId() . ', ' . $this->_prepareNull($this->_parent) . ',
                             "' . $this->_dateCreate . '", ' . $this->_type . ')';
             $this->_db->query($sql);
 
             $this->_id = $this->_db->getLastInsertId();
-
             $this->saveAttributeList();
-            $this->saveParent();
-            //$this->saveChild();
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function insertToDb
+    }
 
     /**
      *
      *
+     * @throws Exception
      * @return void
      * @access public
      */
     public function updateToDb()
     {
         try {
-            $sql = 'UPDATE tm_task 
-                    SET title="' . $this->_title . '", user_id="' . $this->_user->getId() . '",
+            $sql
+                = 'UPDATE tm_task
+                    SET title="' . $this->_title . '", parent_id=' . $this->_prepareNull($this->_parent) . ', user_id="' . $this->_user->getId() . '",
                         date_create="' . $this->_dateCreate . '", type=' . $this->_type . '
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
 
-            $this->saveParent();
             $this->saveAttributeList();
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function updateToDb
+    }
 
     /**
      *
@@ -270,24 +310,18 @@ class TM_Task_Task
     public function deleteFromDb()
     {
         try {
-            $this->deleteAllParent();
-            $this->saveParent();
-
-            $sql = 'DELETE FROM tm_task
-                    WHERE id=' . $this->_id;
+            $sql = 'DELETE FROM tm_task WHERE id=' . $this->_id;
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function deleteFromDb
+    }
 
     public function toArchive()
     {
         try {
-            $sql = 'UPDATE tm_task SET is_archive=1
-                    WHERE id=' . $this->_id;
+            $sql = 'UPDATE tm_task SET is_archive=1 WHERE id=' . $this->_id;
             $this->_db->query($sql);
-
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -296,10 +330,8 @@ class TM_Task_Task
     public function fromArchive()
     {
         try {
-            $sql = 'UPDATE tm_task SET is_archive=0
-                        WHERE id=' . $this->_id;
+            $sql = 'UPDATE tm_task SET is_archive=0 WHERE id=' . $this->_id;
             $this->_db->query($sql);
-
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -309,6 +341,7 @@ class TM_Task_Task
      *
      *
      * @param int $id идентификатор задачи
+     *
      * @return TM_Task_Task
      * @static
      * @access public
@@ -330,13 +363,15 @@ class TM_Task_Task
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getInstanceById
+    }
 
     /**
      *
      *
-     * @param $user
+     * @param       $user
      * @param array $values
+     *
+     * @throws Exception
      * @return TM_Task_Task
      * @static
      * @access public
@@ -356,9 +391,11 @@ class TM_Task_Task
      *
      *
      * @param TM_User_User $user
-     * @param int $parentId
-     * @param string $filter фильтр по статусу, all - все
-     * @param bool $isArchive - проект в архиве?
+     * @param int          $parentId
+     * @param string       $filter    фильтр по статусу, all - все
+     * @param bool         $isArchive - проект в архиве?
+     *
+     * @throws Exception
      * @return array
      * @static
      * @access public
@@ -370,18 +407,17 @@ class TM_Task_Task
 
             if ($parentId > 0) {
                 if ($filter == 'all') {
-                    $sql = 'SELECT * FROM tm_task, tm_task_relation
-                            WHERE id=child_id AND parent_id=' . (int)$parentId;
+                    $sql = 'SELECT * FROM tm_task WHERE parent_id=' . (int)$parentId;
                 } else {
                     $oHash = TM_Task_Hash::getInstanceById('state');
                     if (strpos($oHash->getValueList(true), $filter) !== false) {
-                        $sql = 'SELECT * FROM tm_task LEFT JOIN (
+                        $sql
+                            = 'SELECT * FROM tm_task LEFT JOIN (
                                     SELECT * FROM tm_task_attribute WHERE attribute_key="state"
-                                ) t2 ON tm_task.id=t2.task_id, tm_task_relation
-                                WHERE id=child_id AND parent_id=' . (int)$parentId . ' AND t2.attribute_value="' . $filter . '"';
+                                ) t2 ON tm_task.id=t2.task_id
+                                WHERE parent_id=' . (int)$parentId . ' AND t2.attribute_value="' . $filter . '"';
                     } else {
-                        $sql = 'SELECT * FROM tm_task, tm_task_relation
-                                WHERE id=child_id AND parent_id=' . (int)$parentId;
+                        $sql = 'SELECT * FROM tm_task WHERE parent_id=' . (int)$parentId;
                     }
                 }
             } elseif ($parentId === -1) {
@@ -394,8 +430,8 @@ class TM_Task_Task
                 }
 
             } else {
-                $sql = 'SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
-                        WHERE parent_id IS NULL ';
+                $sql
+                    = 'SELECT * FROM tm_task WHERE parent_id IS NULL ';
                 if ($isArchive) {
                     $sql .= ' AND is_archive=1';
                 } else {
@@ -444,6 +480,7 @@ class TM_Task_Task
      *
      *
      * @param array $values
+     *
      * @return void
      * @access public
      */
@@ -457,13 +494,17 @@ class TM_Task_Task
         $o_user = TM_User_User::getInstanceById($values['user_id']);
         $this->setUser($o_user);
 
-        $this->getParent();
+        if ($values['parent_id'] != null) {
+            $this->setParent(TM_Task_Task::getInstanceById($values['parent_id']));
+        }
+
         $this->getAttributeList();
-    } // end of member function fillFromArray
+    }
 
     /**
+     * Метод возвращает список потомков для данной задачи
      *
-     *
+     * @throws Exception
      * @return array
      * @access public
      */
@@ -471,12 +512,12 @@ class TM_Task_Task
     {
         if (is_null($this->_childTask) || empty($this->_childTask)) {
             try {
-                $sql = 'SELECT * FROM tm_task_relation WHERE parent_id=' . $this->_id;
+                $sql = 'SELECT * FROM tm_task WHERE parent_id=' . $this->_id;
                 $result = $this->_db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
-                if (isset($result[0]['child_id'])) {
+                if (isset($result[0]['id'])) {
                     foreach ($result as $res) {
-                        $this->_childTask[] = TM_Task_Task::getInstanceById($res['child_id']);
+                        $this->_childTask[] = TM_Task_Task::getInstanceByArray($this->_user, $res);
                     }
                 } else {
                     $this->_childTask = array();
@@ -506,6 +547,7 @@ class TM_Task_Task
      *
      *
      * @param TM_Task_Task $child
+     *
      * @return void
      * @access public
      */
@@ -521,6 +563,7 @@ class TM_Task_Task
      *
      *
      * @param TM_Task_Task $child
+     *
      * @return void
      * @access public
      */
@@ -569,141 +612,13 @@ class TM_Task_Task
     }
 
     /**
-     *
-     *
-     * @return array
-     * @access public
-     */
-    public function getParent()
-    {
-        if (is_null($this->_parentTask) || empty($this->_parentTask)) {
-            try {
-                $sql = 'SELECT * FROM tm_task_relation WHERE child_id=' . $this->_id;
-                $result = $this->_db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
-
-                if (isset($result[0]['parent_id'])) {
-                    foreach ($result as $res) {
-                        $this->_parentTask[] = TM_Task_Task::getInstanceById($res['parent_id']);
-                    }
-                } else {
-                    $this->_parentTask = array();
-                }
-                return $this->_parentTask;
-            } catch (Exception $e) {
-                throw new Exception($e->getMessage());
-            }
-        } else {
-            return $this->_parentTask;
-        }
-    } // end of member function getParent
-
-    /**
-     * @return TM_Task_Task
-     * @throws Exception
-     */
-    public function getFirstParent()
-    {
-        if (is_null($this->_parentTask) || empty($this->_parentTask)) {
-            try {
-                $sql = 'SELECT * FROM tm_task_relation WHERE child_id=' . $this->_id;
-                $result = $this->_db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
-
-                if (isset($result[0]['parent_id'])) {
-                    foreach ($result as $res) {
-                        $this->_parentTask[] = TM_Task_Task::getInstanceById($res['parent_id']);
-                    }
-                } else {
-                    $this->_parentTask = array();
-                }
-
-                return $this->_parentTask[0];
-            } catch (Exception $e) {
-                throw new Exception($e->getMessage());
-            }
-        } else {
-            return $this->_parentTask[0];
-        }
-    }
-
-    /**
      * @return bool
      */
     public function hasParent()
     {
-        if (!empty($this->_parentTask)) {
+        if ($this->_parent !== null) {
             return true;
         } else {
-            return false;
-        }
-    }
-
-    /**
-     *
-     *
-     * @param TM_Task_Task $parent
-     * @return void
-     * @access public
-     */
-    public function addParent(TM_Task_Task $parent)
-    {
-        if ($this->searchParent($parent) === false) {
-            $this->_parentTask = array();
-            $this->_parentTask[] = $parent;
-        }
-    } // end of member function addParent
-
-    /**
-     *
-     *
-     * @param TM_Task_Task $parent
-     * @return void
-     * @access public
-     */
-    public function deleteParent($parent)
-    {
-        $key = $this->searchParent($parent);
-        if ($key !== false) {
-            unset($this->_parentTask[$key]);
-        }
-    } // end of member function deleteParent
-
-    public function deleteAllParent()
-    {
-        $this->_parentTask = array();
-    }
-
-    protected function saveParent()
-    {
-        try {
-            $sql = 'DELETE FROM tm_task_relation WHERE child_id=' . $this->_id;
-            $this->_db->query($sql);
-
-            if (!is_null($this->_parentTask) && !empty($this->_parentTask)) {
-                $sql = 'INSERT INTO tm_task_relation(parent_id, child_id) VALUES';
-
-                foreach ($this->_parentTask as $parent) {
-                    $sql .= '(' . $parent->getId() . ', ' . $this->_id . '), ';
-                }
-
-                $sql = substr($sql, 0, strlen($sql) - 2);
-                $this->_db->query($sql);
-            }
-
-        } catch (Exception $e) {
-            throw new Exception($e->getMessage());
-        }
-    }
-
-    public function searchParent(TM_Task_Task $needle)
-    {
-        if (is_null($this->_parentTask)) {
-            return false;
-        } else {
-            foreach ($this->_parentTask as $key => $child) {
-                if ($child->_id == $needle->getId()) {
-                    return $key;
-                }
-            }
             return false;
         }
     }
@@ -730,6 +645,7 @@ class TM_Task_Task
 
     /**
      * @param $key
+     *
      * @return TM_Attribute_Attribute
      */
     public function getAttribute($key)
@@ -913,13 +829,13 @@ class TM_Task_Task
     public function reCalculateDeadLine()
     {
         try {
-            $sql = 'SELECT MAX(STR_TO_DATE( attribute_value, "%d.%m.%Y %H:%i")) as max_date, id
+            $sql
+                = 'SELECT MAX(STR_TO_DATE( attribute_value, "%d.%m.%Y %H:%i")) as max_date, id
                     FROM tm_task
                     LEFT JOIN (
                         SELECT * FROM tm_task_attribute WHERE attribute_key="deadline"
-                    )t2 ON tm_task.id = t2.task_id, tm_task_relation
-                    WHERE tm_task.id=tm_task_relation.child_id
-                      AND parent_id=' . $this->_id;
+                    )t2 ON tm_task.id = t2.task_id
+                    WHERE parent_id=' . $this->_id;
             $result = $this->_db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
             //echo $sql;
 
@@ -927,9 +843,8 @@ class TM_Task_Task
                 $this->setAttribute('deadline', date('d.m.Y H:i', strtotime($result[0]['max_date'])));
                 $this->saveAttributeList();
 
-                if ($this->hasParent()) {
-                    //echo 111;
-                    $this->getFirstParent()->reCalculateDeadLine();
+                if ($this->_parent != null) {
+                    $this->_parent->reCalculateDeadLine();
                 }
             }
         } catch (Exception $e) {
@@ -942,13 +857,13 @@ class TM_Task_Task
     {
         try {
 
-            $sql = 'SELECT attribute_value, title
+            $sql
+                = 'SELECT attribute_value, title
                     FROM tm_task
                     LEFT JOIN (
                         SELECT * FROM tm_task_attribute WHERE attribute_key="state"
-                    )t2 ON tm_task.id = t2.task_id, tm_task_relation
-                    WHERE tm_task.id=tm_task_relation.child_id
-                      AND parent_id=' . $this->_id;
+                    )t2 ON tm_task.id = t2.task_id
+                    WHERE parent_id=' . $this->_id;
             $result = $this->_db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
             //echo $sql;
 
@@ -973,12 +888,10 @@ class TM_Task_Task
                 $this->setAttribute('state', $newState);
                 $this->saveAttributeList();
 
-                if ($this->hasParent()) {
-                    $this->getFirstParent()->reCalculateState();
+                if ($this->_parent != null) {
+                    $this->_parent->reCalculateState();
                 }
-
             }
-
         } catch (Exception $e) {
             StdLib_Log::logMsg('Не могу пересчитать статус задачи ' . $e->getMessage(), StdLib_Log::StdLib_Log_ERROR);
             throw new Exception($e->getMessage());
@@ -991,7 +904,8 @@ class TM_Task_Task
         try {
             $db = StdLib_DB::getInstance();
 
-            $sql = 'SELECT id, title, tm_task.user_id, date_create, type
+            $sql
+                = 'SELECT id, title, tm_task.user_id, parent_id, date_create, type
                     FROM tm_task
                     LEFT JOIN (
                         SELECT * FROM tm_task_attribute WHERE attribute_key="deadline"
@@ -1029,9 +943,12 @@ class TM_Task_Task
         if ($aclList !== false) {
             if (isset($aclList[$user->getId()]) && $aclList[$user->getId()]->getIsRead()) {
                 return true;
-            } else return false;
-        } else
+            } else {
+                return false;
+            }
+        } else {
             return false;
+        }
     }
 
     public function isWrite(TM_User_User $user)
@@ -1040,9 +957,12 @@ class TM_Task_Task
         if ($aclList !== false) {
             if (isset($aclList[$user->getId()]) && $aclList[$user->getId()]->getIsWrite()) {
                 return true;
-            } else return false;
-        } else
+            } else {
+                return false;
+            }
+        } else {
             return false;
+        }
     }
 
     public function isExecutant(TM_User_User $user)
@@ -1051,9 +971,12 @@ class TM_Task_Task
         if ($aclList !== false) {
             if (isset($aclList[$user->getId()]) && $aclList[$user->getId()]->getIsExecutant()) {
                 return true;
-            } else return false;
-        } else
+            } else {
+                return false;
+            }
+        } else {
             return false;
+        }
     }
 
     public function getEstHours()
@@ -1070,5 +993,4 @@ class TM_Task_Task
         return ceil($diff / 3600);
     }
 
-} // end of TM_Task_Task
-?>
+}

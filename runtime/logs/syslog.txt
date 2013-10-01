@@ -181,3 +181,5 @@ error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  01.10.2013 21:52
 error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  01.10.2013 21:52
 error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  01.10.2013 21:52
 error   Can`t select db cl71252_tmNo error: :: Error msg:  ;  01.10.2013 21:52
+error   Can`t complit query: SELECT * FROM tm_task LEFT JOIN tm_task_relation ON id = child_id
+                        WHERE parent_id IS NULL  AND is_archive=0 No error: 1052:: Error msg: Column 'parent_id' in where clause is ambiguous ;  01.10.2013 22:51
