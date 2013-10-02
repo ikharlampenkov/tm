@@ -46,13 +46,25 @@ class TM_FileManager_Folder extends TM_FileManager_File
      * @throws Exception
      * @return void
      */
-    public function delete() {
+    public function delete()
+    {
         if (!empty($this->_name) && file_exists($this->_path . $this->_subPath . '/' . $this->_name)) {
             $result = rmdir($this->_path . $this->_subPath . '/' . $this->_name);
             if ($result === false) {
                 throw new Exception('Can not delete folder ' . $this->_subPath . '/' . $this->_name);
             }
         }
+    }
+
+    public function move($to)
+    {
+        if (!empty($to)) {
+            $result = rename($this->_path . $this->_subPath . '/' . $this->_name, $to);
+            if ($result === false) {
+                throw new Exception('Can not move folder from ' . $this->_subPath . '/' . $this->_name . ' to ' . $to);
+            }
+        }
+
     }
 
 }

@@ -239,36 +239,51 @@ class TaskController extends Zend_Controller_Action
         $oTask = TM_Task_Task::getInstanceById($this->getRequest()->getParam('id'));
 
         if ($this->getRequest()->isPost()) {
+            $db = StdLib_DB::getInstance();
+            $db->startTransaction();
+
             $data = $this->getRequest()->getParam('data');
             $oTask->setTitle($data['title']);
             $oTask->setDateCreate($data['date_create']);
             $oTask->setType($data['type']);
 
-            if (!empty($data['parentTask'])) {
-                $oTask->setParent(TM_Task_Task::getInstanceById($data['parentTask']));
-            }
-
-            foreach ($data['attribute'] as $key => $value) {
-                $oTask->setAttribute($key, $value);
-            }
-
-            if (TM_FileManager_File::hasFileForUpload('file')) {
-                $oDocument = new TM_Document_Document();
-                $oDocument->setUser($this->_user);
-                $oDocument->setDateCreate(date('d.m.Y H:i:s'));
-                $oDocument->setIsFolder(false);
-                $oDocument->setTitle($data['document_title']);
-                $oDocument->setParent(TM_Document_Document::getDocumentFolderByTask($this->_user, $oTask));
-
-                $oDocument->setAttribute('description', $data['document_description']);
-
-                $oDocument->insertToDb();
-                $oDocument->setLinkToTask($oTask);
-            }
-
-            $db = StdLib_DB::getInstance();
-            $db->startTransaction();
             try {
+                if (!empty($data['parentTask'])) {
+                    $oParent = TM_Task_Task::getInstanceById($data['parentTask']);
+                    if ($oTask->hasParent() && $oTask->getParent()->getId() !== $oParent->getId()) {
+                        //смена родителя у папки для задачи
+                        $tempFolder = TM_Document_Document::getDocumentFolderByTask($this->_user, $oTask);
+                        $tempFolder->setParent(TM_Document_Document::getDocumentFolderByTask($this->_user, $oTask->getParent()));
+                        $tempFolder->updateToDb();
+
+                        //смена родителя у обсуждения для задачи
+                        $tempTopic = TM_Discussion_Discussion::getTopicByTask($this->_user, $oTask);
+                        $tempTopic->setTopic(TM_Discussion_Discussion::getTopicByTask($this->_user, $oTask->getParent()));
+                        $tempTopic->updateToDb();
+                    }
+
+                    $oTask->setParent($oParent);
+                }
+
+                foreach ($data['attribute'] as $key => $value) {
+                    $oTask->setAttribute($key, $value);
+                }
+
+                if (TM_FileManager_File::hasFileForUpload('file')) {
+                    $oDocument = new TM_Document_Document();
+                    $oDocument->setUser($this->_user);
+                    $oDocument->setDateCreate(date('d.m.Y H:i:s'));
+                    $oDocument->setIsFolder(false);
+                    $oDocument->setTitle($data['document_title']);
+                    $oDocument->setParent(TM_Document_Document::getDocumentFolderByTask($this->_user, $oTask));
+
+                    $oDocument->setAttribute('description', $data['document_description']);
+
+                    $oDocument->insertToDb();
+                    $oDocument->setLinkToTask($oTask);
+                }
+
+
                 $oTask->updateToDb();
 
                 $oFolder = TM_Document_Document::getDocumentFolderByTask($this->_user, $oTask);

@@ -226,7 +226,12 @@ class TM_Document_Document
      */
     public function setParent(TM_Document_Document $parent)
     {
+        if ($this->_parentDocument != null && $this->_parentDocument->getId() != $parent->getId()) {
+            $this->_file->move($parent->getFile()->getPath() . $parent->getFile()->getSubPath() . '/' . $parent->getFile()->getName());
+        }
+
         $this->_parentDocument = $parent;
+        $this->_file->setSubPath($this->getParentPath());
     }
 
     protected function _prepareNull($value)
@@ -456,9 +461,9 @@ class TM_Document_Document
      *
      *
      * @param TM_User_User $user
-     * @param int          $parentId
-     * @param int          $isFolder
-     * @param bool         $isArchive
+     * @param int $parentId
+     * @param int $isFolder
+     * @param bool $isArchive
      *
      * @return array
      * @static
