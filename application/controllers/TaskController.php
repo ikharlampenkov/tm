@@ -210,7 +210,7 @@ class TaskController extends Zend_Controller_Action
                 }
 
                 $db->commitTransaction();
-                if ($this->_request->isXmlHttpRequest()) {
+                if ($this->_request->isXmlHttpRequest() || true) {
                     exit;
                 } else {
                     $this->redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));
@@ -250,19 +250,32 @@ class TaskController extends Zend_Controller_Action
             try {
                 if (!empty($data['parentTask'])) {
                     $oParent = TM_Task_Task::getInstanceById($data['parentTask']);
-                    if ($oTask->hasParent() && $oTask->getParent()->getId() !== $oParent->getId()) {
+                    if (($oTask->hasParent() && $oTask->getParent()->getId() !== $oParent->getId()) || !$oTask->hasParent()) {
                         //смена родителя у папки для задачи
                         $tempFolder = TM_Document_Document::getDocumentFolderByTask($this->_user, $oTask);
-                        $tempFolder->setParent(TM_Document_Document::getDocumentFolderByTask($this->_user, $oTask->getParent()));
+                        $tempFolder->setParent(TM_Document_Document::getDocumentFolderByTask($this->_user, $oParent));
                         $tempFolder->updateToDb();
 
                         //смена родителя у обсуждения для задачи
                         $tempTopic = TM_Discussion_Discussion::getTopicByTask($this->_user, $oTask);
-                        $tempTopic->setTopic(TM_Discussion_Discussion::getTopicByTask($this->_user, $oTask->getParent()));
+                        $tempTopic->setTopic(TM_Discussion_Discussion::getTopicByTask($this->_user, $oParent));
                         $tempTopic->updateToDb();
                     }
 
                     $oTask->setParent($oParent);
+                } else {
+                    if ($oTask->hasParent()) {
+                        //смена родителя у папки для задачи
+                        $tempFolder = TM_Document_Document::getDocumentFolderByTask($this->_user, $oTask);
+                        $tempFolder->setParent(null);
+                        $tempFolder->updateToDb();
+
+                        //смена родителя у обсуждения для задачи
+                        $tempTopic = TM_Discussion_Discussion::getTopicByTask($this->_user, $oTask);
+                        $tempTopic->setTopic(null);
+                        $tempTopic->updateToDb();
+                    }
+                    $oTask->setParent(null);
                 }
 
                 foreach ($data['attribute'] as $key => $value) {
@@ -356,7 +369,8 @@ class TaskController extends Zend_Controller_Action
                 }
 
                 $db->commitTransaction();
-                if ($this->_request->isXmlHttpRequest()) {
+
+                if ($this->_request->isXmlHttpRequest() || true) {
                     exit;
                 } else {
                     $this->redirect('/task/index/parent/' . $this->getRequest()->getParam('parent', 0));

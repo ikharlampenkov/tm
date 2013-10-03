@@ -59,9 +59,10 @@ class TM_FileManager_Folder extends TM_FileManager_File
     public function move($to)
     {
         if (!empty($to)) {
-            $result = rename($this->_path . $this->_subPath . '/' . $this->_name, $to);
+            $result = rename($this->_path . $this->_subPath . '/' . $this->_name . '/', $to . '/');
             if ($result === false) {
-                throw new Exception('Can not move folder from ' . $this->_subPath . '/' . $this->_name . ' to ' . $to);
+                StdLib_Log::logMsg('Can not move folder from ' . $this->_path . $this->_subPath . '/' . $this->_name . ' to ' . $to, StdLib_Log::StdLib_Log_ERROR);
+                throw new Exception('Can not move folder from ' . $this->_path . $this->_subPath . '/' . $this->_name . ' to ' . $to);
             }
         }
 

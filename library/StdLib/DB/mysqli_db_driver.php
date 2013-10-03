@@ -103,17 +103,20 @@ class mysqli_db_driver extends StdLib_DB_Driver
 
     public function startTransaction()
     {
+        $this->query('SET AUTOCOMMIT=0');
         $this->query('START TRANSACTION');
     }
 
     public function commitTransaction()
     {
         $this->query('COMMIT');
+        $this->query('SET AUTOCOMMIT=1');
     }
 
     public function rollbackTransaction()
     {
         $this->query('ROLLBACK');
+        $this->query('SET AUTOCOMMIT=1');
     }
 
     public function __destruct()

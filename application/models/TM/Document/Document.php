@@ -224,12 +224,16 @@ class TM_Document_Document
      * @return void
      * @access public
      */
-    public function setParent(TM_Document_Document $parent)
+    public function setParent($parent, $fill = 0)
     {
-        if ($this->_parentDocument != null && $this->_parentDocument->getId() != $parent->getId()) {
-            $this->_file->move($parent->getFile()->getPath() . $parent->getFile()->getSubPath() . '/' . $parent->getFile()->getName());
+        if ($fill == 0) {
+            if ($parent != null && (($this->_parentDocument != null && $this->_parentDocument->getId() != $parent->getId()) || $this->_parentDocument == null)) {
+                StdLib_Log::logMsg('TO ' . $parent->getFile()->getPath() . $parent->getFile()->getSubPath() . '/' . $parent->getFile()->getName(), StdLib_Log::StdLib_Log_INFO);
+                $this->_file->move($parent->getFile()->getPath() . $parent->getFile()->getSubPath() . '/' . $parent->getFile()->getName());
+            } elseif ($this->_parentDocument != null && $parent == null) {
+                $this->_file->move($this->_parentDocument->getFile()->getPath());
+            }
         }
-
         $this->_parentDocument = $parent;
         $this->_file->setSubPath($this->getParentPath());
     }
@@ -461,9 +465,9 @@ class TM_Document_Document
      *
      *
      * @param TM_User_User $user
-     * @param int $parentId
-     * @param int $isFolder
-     * @param bool $isArchive
+     * @param int          $parentId
+     * @param int          $isFolder
+     * @param bool         $isArchive
      *
      * @return array
      * @static
@@ -473,6 +477,7 @@ class TM_Document_Document
     {
         try {
             $db = StdLib_DB::getInstance();
+            $sql = '';
 
             if ($parentId > 0) {
                 $sql
@@ -585,7 +590,8 @@ class TM_Document_Document
     {
         $statArray = array('doc_count' => 0);
         try {
-            $sql = 'SELECT COUNT(tm_document.id) AS cnt FROM tm_document
+            $sql
+                = 'SELECT COUNT(tm_document.id) AS cnt FROM tm_document
                      WHERE tm_document.is_folder=0
                        AND tm_document.parent_id=' . $this->_id;
             $result = $this->_db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
@@ -741,7 +747,7 @@ class TM_Document_Document
 
         $oDocument = TM_Document_Document::getInstanceById($values['parent_id']);
         if ($oDocument !== false) {
-            $this->setParent($oDocument);
+            $this->setParent($oDocument, 1);
         }
 
         $this->_file->setSubPath($this->getParentPath());

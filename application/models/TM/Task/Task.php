@@ -160,7 +160,7 @@ class TM_Task_Task
     /**
      * @param TM_Task_Task|null $value
      */
-    public function setParent(TM_Task_Task $value)
+    public function setParent($value)
     {
         $this->_parent = $value;
     }
