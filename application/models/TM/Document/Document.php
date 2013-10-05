@@ -220,13 +220,14 @@ class TM_Document_Document
      *
      *
      * @param TM_Document_Document $parent
+     * @param int                  $fill
      *
      * @return void
      * @access public
      */
     public function setParent($parent, $fill = 0)
     {
-        if ($fill == 0) {
+        if ($fill == 0 && $this->_isFolder == 1) {
             if ($parent != null && (($this->_parentDocument != null && $this->_parentDocument->getId() != $parent->getId()) || $this->_parentDocument == null)) {
                 StdLib_Log::logMsg('TO ' . $parent->getFile()->getPath() . $parent->getFile()->getSubPath() . '/' . $parent->getFile()->getName(), StdLib_Log::StdLib_Log_INFO);
                 $this->_file->move($parent->getFile()->getPath() . $parent->getFile()->getSubPath() . '/' . $parent->getFile()->getName());

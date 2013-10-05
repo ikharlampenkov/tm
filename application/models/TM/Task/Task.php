@@ -582,7 +582,7 @@ class TM_Task_Task
             $this->_db->query($sql);
 
             if (!is_null($this->_childTask) && !empty($this->_childTask)) {
-                $sql = 'INSERT INTO tm_task_relation(parent_id, child_id) VALUES';
+                $sql = 'INSERT INTO tm_task_relation(parent_id, child_id) VALUES ';
 
                 foreach ($this->_childTask as $child) {
                     $sql .= '(' . $this->_id . ', ' . $child->getId() . '), ';
