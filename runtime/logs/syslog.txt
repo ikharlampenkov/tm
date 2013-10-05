@@ -200,3 +200,16 @@ info   TO F:\www\tm\application/../public_html/files/OOO_SDSTeplo  04.10.2013 00
 error   Can not move folder from /OOO_Teplo_plyus to F:\www\tm\application/../public_html/files/OOO_SDSTeplo  04.10.2013 00:22
 info   TO F:\www\tm\application/../public_html/files/OOO_SDSTeplo  04.10.2013 00:31
 error   Can not move folder from F:\www\tm\application/../public_html/files/OOO_Teplo_plyus to F:\www\tm\application/../public_html/files/OOO_SDSTeplo  04.10.2013 00:31
+info   TO F:\www\tm\application/../public_html/files/OOO_Teplo_plyus  05.10.2013 16:45
+error   Can not move folder from F:\www\tm\application/../public_html/files/OOO_SDSEnergo to F:\www\tm\application/../public_html/files/OOO_Teplo_plyus  05.10.2013 16:45
+info   TO F:\www\tm\application/../public_html/files/OOO_Teplo_plyus  05.10.2013 18:37
+error   Can not move folder from F:\www\tm\application/../public_html/files/OOO_SDSEnergo to F:\www\tm\application/../public_html/files/OOO_Teplo_plyus  05.10.2013 18:37
+info   TO F:\www\tm\application/../public_html/files/OOO_SDSEnergo  05.10.2013 18:38
+info   TO F:\www\tm\application/../public_html/files/OOO_Teplo_plyus  05.10.2013 18:54
+error   Can not move folder from F:\www\tm\application/../public_html/files/OOO_SDSEnergo to F:\www\tm\application/../public_html/files/OOO_Teplo_plyus  05.10.2013 18:54
+info   TO F:\www\tm\application/../public_html/files/OOO_Teplo_plyus/OOO_SDSEnergo  05.10.2013 21:39
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (648, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '648-description' for key 'PRIMARY' ;  05.10.2013 21:39
+error   Can not move folder from F:\www\tm\application/../public_html/files/OOO_Teplo_plyus/OOO_SDSEnergo to F:\www\tm\application/../public_html/files  05.10.2013 21:40
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (648, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '648-description' for key 'PRIMARY' ;  05.10.2013 21:44

@@ -229,10 +229,12 @@ class TM_Document_Document
     {
         if ($fill == 0 && $this->_isFolder == 1) {
             if ($parent != null && (($this->_parentDocument != null && $this->_parentDocument->getId() != $parent->getId()) || $this->_parentDocument == null)) {
-                StdLib_Log::logMsg('TO ' . $parent->getFile()->getPath() . $parent->getFile()->getSubPath() . '/' . $parent->getFile()->getName(), StdLib_Log::StdLib_Log_INFO);
-                $this->_file->move($parent->getFile()->getPath() . $parent->getFile()->getSubPath() . '/' . $parent->getFile()->getName());
+                $to = $parent->getFile()->getPath() . $parent->getFile()->getSubPath() . '/' . $parent->getFile()->getName() . '/' . $this->_file->getName();
+                StdLib_Log::logMsg('TO ' . $to, StdLib_Log::StdLib_Log_INFO);
+                $this->_file->move($to);
             } elseif ($this->_parentDocument != null && $parent == null) {
-                $this->_file->move($this->_parentDocument->getFile()->getPath());
+                $to = $this->_parentDocument->getFile()->getPath() . '/' . $this->_file->getName();
+                $this->_file->move($to);
             }
         }
         $this->_parentDocument = $parent;
