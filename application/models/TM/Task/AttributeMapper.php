@@ -85,10 +85,10 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
     /**
      *
      *
-     * @param $object
-
+     * @param        $object
      * @param string $key
-
+     *
+     * @throws Exception
      * @return Attribute::TM_Attribute_Attribute
      * @static
      * @access public
@@ -116,9 +116,9 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
      *
      *
      * @param $object
-
+     *
+     * @throws Exception
      * @return array
-     * @static
      * @access public
      */
     public function getAllInstance($object)
@@ -129,10 +129,14 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
+                $retArray = new TM_Attribute_AttribyteCollection($object, $result, $this);
+
+                /*
                 $retArray = array();
                 foreach ($result as $res) {
                     $retArray[] = TM_Attribute_Attribute::getInstanceByArray($this, $object, $res);
                 }
+                */
                 return $retArray;
             } else {
                 return false;
@@ -145,9 +149,10 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
 
     /**
      *
-     * @param $object
+     * @param       $object
      * @param array $values
      *
+     * @throws Exception
      * @return TM_Attribute_Attribute
      * @access public
      */
