@@ -9,29 +9,26 @@
 
 abstract class TM_Collection implements Iterator
 {
-    protected $object = null;
-
     protected $mapper;
     protected $total = 0;
     protected $raw = array();
 
     private $_result;
     private $_pointer = 0;
-    private $_objects = array();
+    protected  $objects = array();
 
     /**
-     * @param null  $object
+     *
      * @param array $raw
      * @param null  $mapper
      */
-    public function __construct($object = null, array $raw = null, $mapper = null)
+    public function __construct(array $raw = null, $mapper = null)
     {
         if (!is_null($raw) && !is_null($mapper)) {
             $this->raw = $raw;
             $this->total = count($raw);
         }
         $this->mapper = $mapper;
-        $this->object = $object;
     }
 
     public function add($object)
@@ -42,7 +39,7 @@ abstract class TM_Collection implements Iterator
         }
 
         $this->notifyAccess();
-        $this->_objects[$this->total] = $object;
+        $this->objects[$this->total] = $object;
         $this->total++;
     }
 
@@ -53,21 +50,23 @@ abstract class TM_Collection implements Iterator
 
     }
 
-    private function _getRow($num)
+    protected function _getRow($num)
     {
         $this->notifyAccess();
         if ($num >= $this->total || $num < 0) {
             return null;
         }
 
-        if (isset($this->_objects[$num])) {
-            return $this->_objects[$num];
+        if (isset($this->objects[$num])) {
+            return $this->objects[$num];
         }
 
         if (isset($this->raw[$num])) {
-            $this->_objects[$num] = $this->mapper->getInstanceByArray($this->object, $this->raw[$num]);
-            return $this->_objects[$num];
+            $this->objects[$num] = $this->mapper->getInstanceByArray($this->raw[$num]);
+            return $this->objects[$num];
         }
+
+        return null;
     }
 
     public function rewind()

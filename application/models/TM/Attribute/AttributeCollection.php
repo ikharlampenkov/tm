@@ -12,8 +12,16 @@
  */
 class TM_Attribute_AttributeCollection extends TM_Collection
 {
+    private $_object = null;
 
     private $_run = false;
+
+    public function __construct($object = null, array $raw = null, $mapper = null)
+    {
+        parent::__construct($raw, $mapper);
+
+        $this->_object = $object;
+    }
 
     public function targetClass()
     {
@@ -28,5 +36,22 @@ class TM_Attribute_AttributeCollection extends TM_Collection
         }
         $this->_run = true;
 
+    }
+
+    protected function _getRow($num)
+    {
+        $this->notifyAccess();
+        if ($num >= $this->total || $num < 0) {
+            return null;
+        }
+
+        if (isset($this->objects[$num])) {
+            return $this->objects[$num];
+        }
+
+        if (isset($this->raw[$num])) {
+            $this->objects[$num] = $this->mapper->getInstanceByArray($this->_object, $this->raw[$num]);
+            return $this->objects[$num];
+        }
     }
 }
