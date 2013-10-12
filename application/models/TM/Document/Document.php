@@ -27,7 +27,7 @@ class TM_Document_Document
      *
      * @access protected
      */
-    protected $_id;
+    protected $_id = -1;
 
     /**
      *
@@ -227,7 +227,7 @@ class TM_Document_Document
      */
     public function setParent($parent, $fill = 0)
     {
-        if ($fill == 0 && $this->_isFolder == 1) {
+        if ($fill == 0 && $this->_isFolder == 1 && $this->_id > 0) {
             if ($parent != null && (($this->_parentDocument != null && $this->_parentDocument->getId() != $parent->getId()) || $this->_parentDocument == null)) {
                 $to = $parent->getFile()->getPath() . $parent->getFile()->getSubPath() . '/' . $parent->getFile()->getName() . '/' . $this->_file->getName();
                 StdLib_Log::logMsg('TO ' . $to, StdLib_Log::StdLib_Log_INFO);

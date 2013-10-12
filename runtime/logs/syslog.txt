@@ -213,3 +213,5 @@ error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attr
 error   Can not move folder from F:\www\tm\application/../public_html/files/OOO_Teplo_plyus/OOO_SDSEnergo to F:\www\tm\application/../public_html/files  05.10.2013 21:40
 error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
                     VALUES (648, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '648-description' for key 'PRIMARY' ;  05.10.2013 21:44
+info   TO F:\www\tm\application/../public_html/files/Zakazyi_s_sayta/  12.10.2013 22:32
+error   Can not move folder from F:\www\tm\application/../public_html/files/ to F:\www\tm\application/../public_html/files/Zakazyi_s_sayta/  12.10.2013 22:32
