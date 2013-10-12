@@ -2,28 +2,32 @@
 
 /**
  * class TM_User_AttributeType
- * 
+ *
  */
 class TM_User_AttributeTypeMapper extends TM_Attribute_AttributeTypeMapper
 {
 
-    public function __construct() {
-       parent::__construct();
+    public function __construct()
+    {
+        parent::__construct();
 
     }
 
     /**
      *
      *
-
+     * @param $type
+     *
+     * @throws Exception
      * @return void
-       @access public
+    @access public
      */
     public function insertToDB($type)
     {
         try {
-            $sql = 'INSERT INTO tm_user_attribute_type(title, `handler`, description)
-                    VALUES ("' . $type->title . '", "' . $type->handler . '", "' . $type->description  . '")';
+            $sql
+                = 'INSERT INTO tm_user_attribute_type(title, `handler`, description)
+                    VALUES ("' . $type->title . '", "' . $type->handler . '", "' . $type->description . '")';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -34,15 +38,19 @@ class TM_User_AttributeTypeMapper extends TM_Attribute_AttributeTypeMapper
     /**
      *
      *
+     * @param $type
+     *
+     * @throws Exception
      * @return void
      * @access public
      */
     public function updateToDB($type)
     {
         try {
-            $sql = 'UPDATE tm_user_attribute_type
-                    SET title="' . $type->title . '", `handler`="' . $type->handler . '", description="' . $type->description  . '"
-                    WHERE id=' .  $type->id ;
+            $sql
+                = 'UPDATE tm_user_attribute_type
+                    SET title="' . $type->title . '", `handler`="' . $type->handler . '", description="' . $type->description . '"
+                    WHERE id=' . $type->id;
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -52,8 +60,11 @@ class TM_User_AttributeTypeMapper extends TM_Attribute_AttributeTypeMapper
     /**
      *
      *
-     * @return
-     * @access public
+     * @param $type
+     *
+     * @throws Exception
+     * @return void
+    @access public
      */
     public function deleteFromDB($type)
     {
@@ -69,14 +80,15 @@ class TM_User_AttributeTypeMapper extends TM_Attribute_AttributeTypeMapper
      *
      *
      * @param int $id
-
+     *
+     * @throws Exception
      * @return TM_Attribute_AttributeType
      * @access public
      */
     public function getInstanceById($id)
     {
         try {
-           $db = StdLib_DB::getInstance();
+            $db = StdLib_DB::getInstance();
             $sql = 'SELECT * FROM tm_user_attribute_type WHERE id=' . (int)$id;
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
@@ -96,25 +108,15 @@ class TM_User_AttributeTypeMapper extends TM_Attribute_AttributeTypeMapper
     /**
      *
      *
+     * @throws Exception
      * @return array
      * @access public
      */
     public function getAllInstance()
     {
         try {
-            $db = StdLib_DB::getInstance();
             $sql = 'SELECT * FROM tm_user_attribute_type';
-            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
-
-            if (isset($result[0])) {
-                $retArray = array();
-                foreach ($result as $res) {
-                    $retArray[] = TM_Attribute_AttributeTypeFactory::getAttributeTypeByArray($this, $res);
-                }
-                return $retArray;
-            } else {
-                return false;
-            }
+            return new TM_Attribute_AttributeTypeDeferredCollection($sql, $this);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -124,7 +126,8 @@ class TM_User_AttributeTypeMapper extends TM_Attribute_AttributeTypeMapper
      *
      *
      * @param array $values
-
+     *
+     * @throws Exception
      * @return TM_Attribute_AttributeType
      * @access public
      */
@@ -142,12 +145,14 @@ class TM_User_AttributeTypeMapper extends TM_Attribute_AttributeTypeMapper
 
     /**
      * @param int $id
+     *
+     * @throws Exception
      * @return bool|array
      */
     public function selectFromDB($id)
     {
         try {
-           $db = StdLib_DB::getInstance();
+            $db = StdLib_DB::getInstance();
             $sql = 'SELECT * FROM tm_user_attribute_type WHERE id=' . (int)$id;
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
@@ -160,5 +165,4 @@ class TM_User_AttributeTypeMapper extends TM_Attribute_AttributeTypeMapper
             throw new Exception($e->getMessage());
         }
     }
-} // end of TM_User_AttributeType
-?>
+}

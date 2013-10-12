@@ -11,7 +11,7 @@ class TM_User_Hash
 {
 
     /**
-     *
+     * @var TM_User_User
      * @access protected
      */
     protected $_user;
@@ -29,7 +29,7 @@ class TM_User_Hash
     protected $_title;
 
     /**
-     *
+     * @var TM_Attribute_AttributeType
      * @access protected
      */
     protected $_type = null;
@@ -48,24 +48,24 @@ class TM_User_Hash
     /**
      *
      *
-     * @return User::TM_User_User
+     * @return TM_User_User
      * @access public
      */
     public function getUser()
     {
         return $this->_user;
-    } // end of member function getUser
+    }
 
     /**
      *
      *
-     * @return Attribute::TM_Attribute_AttribyteType
+     * @return TM_Attribute_AttributeType
      * @access public
      */
     public function getType()
     {
         return $this->_type;
-    } // end of member function getType
+    }
 
     /**
      *
@@ -76,7 +76,7 @@ class TM_User_Hash
     public function getAttributeKey()
     {
         return $this->_attributeKey;
-    } // end of member function getAttribyteKey
+    }
 
     public function setAttributeKey($value)
     {
@@ -86,16 +86,15 @@ class TM_User_Hash
     /**
      *
      *
-     * @param User::TM_User_User value
-
-     * @return
-     * @access protected
+     * @param \TM_User_User $value value
+     *
+     * @return void
      */
     protected function setUser(TM_User_User $value)
     {
         $this->_user = $value;
 
-    } // end of member function setUser
+    }
 
     /**
      *
@@ -106,37 +105,39 @@ class TM_User_Hash
     public function getTitle()
     {
         return $this->_db->prepareStringToOut($this->_title);
-    } // end of member function getTitle
+    }
 
     /**
      *
      *
      * @param TM_Attribute_AttributeType $value
+     *
      * @return void
      * @access protected
      */
-    public function setType(TM_Attribute_AttributeType $value ) {
+    public function setType(TM_Attribute_AttributeType $value)
+    {
         $this->_type = $value;
-    } // end of member function setType
+    }
 
     /**
      *
      *
      * @param string $value
-
+     *
      * @return void
      * @access public
      */
     public function setTitle($value)
     {
         $this->_title = $this->_db->prepareString($value);
-    } // end of member function setTitle
+    }
 
-     /**
+    /**
      *
      *
      * @param array|string $value
-
+     *
      * @return void
      * @access public
      */
@@ -147,12 +148,13 @@ class TM_User_Hash
         } else {
             $this->_listValue = $value;
         }
-    } // end of member function setValueList
+    }
 
     /**
      *
      *
      * @param bool $asString
+     *
      * @return array|string
      * @access public
      */
@@ -164,10 +166,12 @@ class TM_User_Hash
             return explode('||', $this->_db->prepareStringToOut($this->_listValue));
         }
 
-    } // end of member function getValueList
+    }
 
     /**
      * @param $name
+     *
+     * @throws Exception
      * @return mixed
      */
     public function __get($name)
@@ -175,80 +179,86 @@ class TM_User_Hash
         $method = "get{$name}";
         if (method_exists($this, $method)) {
             return $this->$method();
+        } else {
+            throw new Exception('Can not find method ' . $method . ' in class ' . __CLASS__);
         }
     }
 
     /**
      *
      *
-
      * @return TM_User_Hash
      * @access public
      */
     public function __construct()
     {
         $this->_db = StdLib_DB::getInstance();
-    } // end of member function __construct
+    }
 
     /**
      *
      *
+     * @throws Exception
      * @return void
      * @access public
      */
     public function insertToDb()
     {
         try {
-            $sql = 'INSERT INTO tm_user_hash(user_id, attribute_key, title, type_id, list_value)
+            $sql
+                = 'INSERT INTO tm_user_hash(user_id, attribute_key, title, type_id, list_value)
                     VALUES (NULL, "' . $this->_attributeKey . '", "' . $this->_title . '", ' . $this->_type->getId() . ', "' . $this->_listValue . ' ")';
             $this->_db->query($sql);
-
-            $this->_id = $this->_db->getLastInsertId();
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function insertToDb
+    }
 
     /**
      *
      *
+     * @throws Exception
      * @return void
      * @access public
      */
     public function updateToDb()
     {
         try {
-            $sql = 'UPDATE tm_user_hash
+            $sql
+                = 'UPDATE tm_user_hash
                     SET title="' . $this->_title . '", type_id=' . $this->_type->getId() . ', list_value="' . $this->_listValue . ' "
                     WHERE user_id IS NULL AND attribute_key="' . $this->_attributeKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function updateToDb
+    }
 
     /**
      *
      *
+     * @throws Exception
      * @return void
      * @access public
      */
     public function deleteFromDb()
     {
         try {
-            $sql = 'DELETE FROM tm_user_hash
+            $sql
+                = 'DELETE FROM tm_user_hash
                     WHERE user_id IS NULL AND attribute_key="' . $this->_attributeKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function deleteFromDb
+    }
 
     /**
      *
      *
      * @param int $key идентификатор задачи
-
+     *
+     * @throws Exception
      * @return TM_User_Hash
      * @static
      * @access public
@@ -270,14 +280,15 @@ class TM_User_Hash
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getInstanceById
+    }
 
     /**
      *
      *
      * @param array $values
-
-     * @return User::TM_User_Hash
+     *
+     * @throws Exception
+     * @return TM_User_Hash
      * @static
      * @access public
      */
@@ -290,12 +301,13 @@ class TM_User_Hash
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getInstanceByArray
+    }
 
     /**
      *
-     * @param $object
-
+     * @param TM_User_User $object
+     *
+     * @throws Exception
      * @return array
      * @static
      * @access public
@@ -320,10 +332,12 @@ class TM_User_Hash
             }
             */
 
-            $sql = 'SELECT tm_user_hash.attribute_key, title, tm_user_hash.type_id, list_value
+            $sql
+                = 'SELECT tm_user_hash.attribute_key, title, tm_user_hash.type_id, list_value
                     FROM tm_user_hash ';
             if (!is_null($object)) {
-                $sql .= 'LEFT JOIN (
+                $sql
+                    .= 'LEFT JOIN (
                         SELECT * FROM tm_user_attribute WHERE tm_user_attribute.user_id=' . $object->id . '
                      ) t2 ON tm_user_hash.attribute_key=t2.attribute_key
                      ORDER BY t2.is_fill DESC, title';
@@ -345,14 +359,14 @@ class TM_User_Hash
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getAllInstance
+    }
 
 
     /**
      *
      *
      * @param array $values
-
+     *
      * @return void
      * @access public
      */
@@ -361,8 +375,9 @@ class TM_User_Hash
         $this->setAttributeKey($values['attribute_key']);
         $this->setTitle($values['title']);
 
-        $this->setType(TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_User_AttributeTypeMapper(), $values['type_id']));
+        $oMapper = new TM_User_AttributeTypeMapper();
+        $this->setType($oMapper->getInstanceById($values['type_id']));
+        unset($oMapper);
         $this->setValueList($values['list_value']);
-    } // end of member function fillFromArray
-
+    }
 }
