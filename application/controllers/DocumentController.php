@@ -30,7 +30,8 @@ class DocumentController extends Zend_Controller_Action
 
     public function viewattributetypeAction()
     {
-        $this->view->assign('attributeTypeList', TM_Attribute_AttributeType::getAllInstance(new TM_Document_AttributeTypeMapper()));
+        $oMapper = new TM_Document_AttributeTypeMapper();
+        $this->view->assign('attributeTypeList', $oMapper->getAllInstance());
     }
 
     public function viewhashAction()
@@ -261,7 +262,8 @@ class DocumentController extends Zend_Controller_Action
 
     public function addattributetypeAction()
     {
-        $oType = new TM_Attribute_AttributeType(new TM_Document_AttributeTypeMapper());
+        $oMapper = new TM_Document_AttributeTypeMapper();
+        $oType = new TM_Attribute_AttributeType();
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
@@ -271,7 +273,7 @@ class DocumentController extends Zend_Controller_Action
             $oType->setHandler($data['handler']);
 
             try {
-                $oType->insertToDb();
+                $oMapper->insertToDb($oType);
                 $this->redirect('/document/viewAttributeType');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
@@ -284,7 +286,8 @@ class DocumentController extends Zend_Controller_Action
 
     public function editattributetypeAction()
     {
-        $oType = TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Document_AttributeTypeMapper(), $this->getRequest()->getParam('id'));
+        $oMapper = new TM_Document_AttributeTypeMapper();
+        $oType = $oMapper->getInstanceById($this->getRequest()->getParam('id'));
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
@@ -294,7 +297,7 @@ class DocumentController extends Zend_Controller_Action
             $oType->setHandler($data['handler']);
 
             try {
-                $oType->updateToDb();
+                $oMapper->updateToDb($oType);
                 $this->redirect('/document/viewAttributeType');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
@@ -307,9 +310,10 @@ class DocumentController extends Zend_Controller_Action
 
     public function deleteattributetypeAction()
     {
-        $oType = TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Document_AttributeTypeMapper(), $this->getRequest()->getParam('id'));
+        $oMapper = new TM_Document_AttributeTypeMapper();
+        $oType = $oMapper->getInstanceById($this->getRequest()->getParam('id'));
         try {
-            $oType->deleteFromDB();
+            $oMapper->deleteFromDB($oType);
             $this->redirect('/document/viewAttributeType');
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -318,6 +322,7 @@ class DocumentController extends Zend_Controller_Action
 
     public function addattributehashAction()
     {
+        $oMapper = new TM_Document_AttributeTypeMapper();
         $oHash = new TM_Document_Hash();
 
         if ($this->getRequest()->isPost()) {
@@ -325,7 +330,7 @@ class DocumentController extends Zend_Controller_Action
 
             $oHash->setAttributeKey($data['attribute_key']);
             $oHash->setTitle($data['title']);
-            $oHash->setType(TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Document_AttributeTypeMapper(), $data['type_id']));
+            $oHash->setType($oMapper->getInstanceById($data['type_id']));
             $oHash->setValueList($data['list_value']);
 
             try {
@@ -338,18 +343,19 @@ class DocumentController extends Zend_Controller_Action
         }
 
         $this->view->assign('hash', $oHash);
-        $this->view->assign('attributeTypeList', TM_Attribute_AttributeType::getAllInstance(new TM_Document_AttributeTypeMapper()));
+        $this->view->assign('attributeTypeList', $oMapper->getAllInstance());
     }
 
     public function editattributehashAction()
     {
+        $oMapper = new TM_Document_AttributeTypeMapper();
         $oHash = TM_Document_Hash::getInstanceById($this->getRequest()->getParam('key'));
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
 
             $oHash->setTitle($data['title']);
-            $oHash->setType(TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Document_AttributeTypeMapper(), $data['type_id']));
+            $oHash->setType($oMapper->getInstanceById($data['type_id']));
             $oHash->setValueList($data['list_value']);
 
             try {
@@ -362,7 +368,7 @@ class DocumentController extends Zend_Controller_Action
         }
 
         $this->view->assign('hash', $oHash);
-        $this->view->assign('attributeTypeList', TM_Attribute_AttributeType::getAllInstance(new TM_Document_AttributeTypeMapper()));
+        $this->view->assign('attributeTypeList', $oMapper->getAllInstance());
     }
 
     public function deleteattributehashAction()
@@ -479,16 +485,3 @@ class DocumentController extends Zend_Controller_Action
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

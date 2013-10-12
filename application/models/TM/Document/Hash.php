@@ -29,7 +29,7 @@ class TM_Document_Hash
     protected $_title;
 
     /**
-     *
+     * @var TM_Attribute_AttributeType
      * @access protected
      */
     protected $_type = null;
@@ -48,24 +48,24 @@ class TM_Document_Hash
     /**
      *
      *
-     * @return Document::TM_Document_Document
+     * @return TM_Document_Document
      * @access public
      */
     public function getDocument()
     {
         return $this->_document;
-    } // end of member function getDocument
+    }
 
     /**
      *
      *
-     * @return Attribute::TM_Attribute_AttribyteType
+     * @return TM_Attribute_AttributeType
      * @access public
      */
     public function getType()
     {
         return $this->_type;
-    } // end of member function getType
+    }
 
     /**
      *
@@ -76,7 +76,7 @@ class TM_Document_Hash
     public function getAttributeKey()
     {
         return $this->_attributeKey;
-    } // end of member function getAttribyteKey
+    }
 
     public function setAttributeKey($value)
     {
@@ -86,16 +86,16 @@ class TM_Document_Hash
     /**
      *
      *
-     * @param Document::TM_Document_Document value
-
-     * @return
-     * @access protected
+     * @param TM_Document_Document $value
+     *
+     * @return void
+    @access protected
      */
     protected function setDocument(TM_Document_Document $value)
     {
         $this->_document = $value;
 
-    } // end of member function setDocument
+    }
 
     /**
      *
@@ -106,37 +106,39 @@ class TM_Document_Hash
     public function getTitle()
     {
         return $this->_db->prepareStringToOut($this->_title);
-    } // end of member function getTitle
+    }
 
     /**
      *
      *
      * @param TM_Attribute_AttributeType $value
+     *
      * @return void
      * @access protected
      */
-    public function setType(TM_Attribute_AttributeType $value ) {
+    public function setType(TM_Attribute_AttributeType $value)
+    {
         $this->_type = $value;
-    } // end of member function setType
+    }
 
     /**
      *
      *
      * @param string $value
-
+     *
      * @return void
      * @access public
      */
     public function setTitle($value)
     {
         $this->_title = $this->_db->prepareString($value);
-    } // end of member function setTitle
+    }
 
-     /**
+    /**
      *
      *
      * @param array|string $value
-
+     *
      * @return void
      * @access public
      */
@@ -147,12 +149,13 @@ class TM_Document_Hash
         } else {
             $this->_listValue = $value;
         }
-    } // end of member function setValueList
+    }
 
     /**
      *
      *
      * @param bool $asString
+     *
      * @return array|string
      * @access public
      */
@@ -164,42 +167,47 @@ class TM_Document_Hash
             return explode('||', $this->_db->prepareStringToOut($this->_listValue));
         }
 
-    } // end of member function getValueList
+    }
 
     /**
      * @param $name
+     *
+     * @throws Exception
      * @return mixed
      */
     public function __get($name)
     {
-        $method = "get{$name}";
+        $method = 'get' . ucfirst($name);
         if (method_exists($this, $method)) {
             return $this->$method();
+        } else {
+            throw new Exception('Can not find method ' . $method . ' in class ' . __CLASS__);
         }
     }
 
     /**
      *
      *
-
      * @return TM_Document_Hash
      * @access public
      */
     public function __construct()
     {
         $this->_db = StdLib_DB::getInstance();
-    } // end of member function __construct
+    }
 
     /**
      *
      *
+     * @throws Exception
      * @return void
      * @access public
      */
     public function insertToDb()
     {
         try {
-            $sql = 'INSERT INTO tm_document_hash(document_id, attribute_key, title, type_id, list_value)
+            $sql
+                = 'INSERT INTO tm_document_hash(document_id, attribute_key, title, type_id, list_value)
                     VALUES (NULL, "' . $this->_attributeKey . '", "' . $this->_title . '", ' . $this->_type->getId() . ', "' . $this->_listValue . ' ")';
             $this->_db->query($sql);
 
@@ -207,49 +215,54 @@ class TM_Document_Hash
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function insertToDb
+    }
 
     /**
      *
      *
-     * @return
+     * @throws Exception
+     * @return void
      * @access public
      */
     public function updateToDb()
     {
         try {
-            $sql = 'UPDATE tm_document_hash
+            $sql
+                = 'UPDATE tm_document_hash
                     SET title="' . $this->_title . '", type_id=' . $this->_type->getId() . ', list_value="' . $this->_listValue . ' "
                     WHERE document_id IS NULL AND attribute_key="' . $this->_attributeKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function updateToDb
+    }
 
     /**
      *
      *
+     * @throws Exception
      * @return void
      * @access public
      */
     public function deleteFromDb()
     {
         try {
-            $sql = 'DELETE FROM tm_document_hash
+            $sql
+                = 'DELETE FROM tm_document_hash
                     WHERE document_id IS NULL AND attribute_key="' . $this->_attributeKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function deleteFromDb
+    }
 
     /**
      *
      *
      * @param int $key идентификатор задачи
-
-     * @return TM_Document_Document
+     *
+     * @throws Exception
+     * @return TM_Document_Hash
      * @static
      * @access public
      */
@@ -270,14 +283,15 @@ class TM_Document_Hash
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getInstanceById
+    }
 
     /**
      *
      *
      * @param array $values
-
-     * @return Document::TM_Document_Document
+     *
+     * @throws Exception
+     * @return TM_Document_Document
      * @static
      * @access public
      */
@@ -290,12 +304,13 @@ class TM_Document_Hash
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getInstanceByArray
+    }
 
     /**
      *
      * @param $object
-
+     *
+     * @throws Exception
      * @return array
      * @static
      * @access public
@@ -320,11 +335,13 @@ class TM_Document_Hash
             }
             */
 
-            $sql = 'SELECT tm_document_hash.attribute_key, title, tm_document_hash.type_id, list_value
+            $sql
+                = 'SELECT tm_document_hash.attribute_key, title, tm_document_hash.type_id, list_value
                     FROM tm_document_hash ';
 
             if (!is_null($object)) {
-            $sql .=' LEFT JOIN (
+                $sql
+                    .= ' LEFT JOIN (
                          SELECT * FROM tm_document_attribute WHERE document_id=' . $object->id . '
                    ) t2 ON tm_document_hash.attribute_key=t2.attribute_key
                    ORDER BY t2.is_fill DESC, title';
@@ -346,14 +363,13 @@ class TM_Document_Hash
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getAllInstance
-
+    }
 
     /**
      *
      *
      * @param array $values
-
+     *
      * @return void
      * @access public
      */
@@ -362,8 +378,9 @@ class TM_Document_Hash
         $this->setAttributeKey($values['attribute_key']);
         $this->setTitle($values['title']);
 
-        $this->setType(TM_Document_AttributeTypeFactory::getAttributeTypeById(new TM_Document_AttributeTypeMapper(), $values['type_id']));
+        $oMapper = new TM_Document_AttributeTypeMapper();
+        $this->setType($oMapper->getInstanceById($values['type_id']));
+        unset($oMapper);
         $this->setValueList($values['list_value']);
-    } // end of member function fillFromArray
-
+    }
 }
