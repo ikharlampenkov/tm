@@ -26,7 +26,7 @@
         </tr>
         <tr>
             <td class="ttovar_title">Список значений (через ||) </td>
-            <td class="ttovar"><input name="data[list_value]" value="{$hash->listValue}"/></td>
+            <td class="ttovar"><input name="data[list_value]" value="{$hash->getValueList(true)}"/></td>
         </tr>
     </table>
     <input id="save" name="save" type="submit" value="Сохранить"/>
