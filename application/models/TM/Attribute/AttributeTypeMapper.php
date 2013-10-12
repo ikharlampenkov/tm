@@ -6,8 +6,9 @@
  * Time: 20:16
  * To change this template use File | Settings | File Templates.
  */
- 
-abstract class TM_Attribute_AttributeTypeMapper {
+
+abstract class TM_Attribute_AttributeTypeMapper
+{
 
     /**
      * @var TM_Attribute_AttributeType
@@ -20,7 +21,6 @@ abstract class TM_Attribute_AttributeTypeMapper {
     protected $_db;
 
     /**
-
      * @return TM_Attribute_AttributeTypeMapper
      * @access public
      */
@@ -32,6 +32,8 @@ abstract class TM_Attribute_AttributeTypeMapper {
     /**
      *
      *
+     * @param $type
+     *
      * @return void void
      * @abstract
      * @access public
@@ -41,6 +43,8 @@ abstract class TM_Attribute_AttributeTypeMapper {
     /**
      *
      *
+     * @param $type
+     *
      * @return void
      * @abstract
      * @access public
@@ -49,6 +53,8 @@ abstract class TM_Attribute_AttributeTypeMapper {
 
     /**
      *
+     *
+     * @param $type
      *
      * @return void
      * @abstract
@@ -60,36 +66,38 @@ abstract class TM_Attribute_AttributeTypeMapper {
      *
      *
      * @param int $id
-
-     * @return Attribute::TM_Attribute_AttributeType
+     *
+     * @return TM_Attribute_AttributeType
      * @abstract
      * @access public
      */
-    abstract public function getInstanceById( $id );
+    abstract public function getInstanceById($id);
 
     /**
      *
      *
      * @param array $values
-
-     * @return Attribute::TM_Attribute_Attribute
+     *
+     * @return TM_Attribute_AttributeType
      * @access public
      */
-    abstract public function getInstanceByArray( $values );
+    abstract public function getInstanceByArray($values);
 
     /**
      *
      *
-     * @return void array
+     * @return TM_Attribute_AttributeTypeCollection
      * @abstract
      * @access public
      */
-    abstract public function getAllInstance( );
+    abstract public function getAllInstance();
 
     /**
      * @abstract
+     *
      * @param int $id
-     * @return void
+     *
+     * @return array
      */
     abstract public function selectFromDB($id);
 

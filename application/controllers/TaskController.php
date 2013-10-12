@@ -49,7 +49,8 @@ class TaskController extends Zend_Controller_Action
 
     public function viewattributetypeAction()
     {
-        $this->view->assign('attributeTypeList', TM_Attribute_AttributeType::getAllInstance(new TM_Task_AttributeTypeMapper()));
+        $mapper = new TM_Task_AttributeTypeMapper();
+        $this->view->assign('attributeTypeList', $mapper->getAllInstance());
     }
 
     public function viewhashAction()
@@ -518,7 +519,8 @@ class TaskController extends Zend_Controller_Action
 
     public function addattributetypeAction()
     {
-        $oType = new TM_Attribute_AttributeType(new TM_Task_AttributeTypeMapper());
+        $oMapper = new TM_Task_AttributeTypeMapper();
+        $oType = new TM_Attribute_AttributeType();
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
@@ -528,7 +530,7 @@ class TaskController extends Zend_Controller_Action
             $oType->setHandler($data['handler']);
 
             try {
-                $oType->insertToDb();
+                $oMapper->insertToDB($oType);
                 $this->redirect('/task/viewAttributeType');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
@@ -541,7 +543,8 @@ class TaskController extends Zend_Controller_Action
 
     public function editattributetypeAction()
     {
-        $oType = TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Task_AttributeTypeMapper(), $this->getRequest()->getParam('id'));
+        $oMapper = new TM_Task_AttributeTypeMapper();
+        $oType = TM_Attribute_AttributeTypeFactory::getAttributeTypeById($oMapper, $this->getRequest()->getParam('id'));
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
@@ -551,7 +554,7 @@ class TaskController extends Zend_Controller_Action
             $oType->setHandler($data['handler']);
 
             try {
-                $oType->updateToDb();
+                $oMapper->updateToDb($oType);
                 $this->redirect('/task/viewAttributeType');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
@@ -564,9 +567,10 @@ class TaskController extends Zend_Controller_Action
 
     public function deleteattributetypeAction()
     {
+        $oMapper = new TM_Task_AttributeTypeMapper();
         $oType = TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Task_AttributeTypeMapper(), $this->getRequest()->getParam('id'));
         try {
-            $oType->deleteFromDB();
+            $oMapper->deleteFromDB($oType);
             $this->redirect('/task/viewAttributeType');
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -579,12 +583,14 @@ class TaskController extends Zend_Controller_Action
         $oHash->setIsRequired(false);
         $oHash->setSortOrder(1000);
 
+        $oMapper = new TM_Task_AttributeTypeMapper();
+
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
 
             $oHash->setAttributeKey($data['attribute_key']);
             $oHash->setTitle($data['title']);
-            $oHash->setType(TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Task_AttributeTypeMapper(), $data['type_id']));
+            $oHash->setType($oMapper->getInstanceById($data['type_id']));
             $oHash->setValueList($data['list_value']);
             $oHash->setListOrder($data['list_order']);
             $oHash->setIsRequired($data['required']);
@@ -600,18 +606,19 @@ class TaskController extends Zend_Controller_Action
         }
 
         $this->view->assign('hash', $oHash);
-        $this->view->assign('attributeTypeList', TM_Attribute_AttributeType::getAllInstance(new TM_Task_AttributeTypeMapper()));
+        $this->view->assign('attributeTypeList', $oMapper->getAllInstance());
     }
 
     public function editattributehashAction()
     {
+        $oMapper = new TM_Task_AttributeTypeMapper();
         $oHash = TM_Task_Hash::getInstanceById($this->getRequest()->getParam('key'));
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
 
             $oHash->setTitle($data['title']);
-            $oHash->setType(TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Task_AttributeTypeMapper(), $data['type_id']));
+            $oHash->setType($oMapper->getInstanceById($data['type_id']));
             $oHash->setValueList($data['list_value']);
             $oHash->setListOrder($data['list_order']);
             $oHash->setIsRequired($data['required']);
@@ -627,7 +634,7 @@ class TaskController extends Zend_Controller_Action
         }
 
         $this->view->assign('hash', $oHash);
-        $this->view->assign('attributeTypeList', TM_Attribute_AttributeType::getAllInstance(new TM_Task_AttributeTypeMapper()));
+        $this->view->assign('attributeTypeList', $oMapper->getAllInstance());
     }
 
     public function deleteattributehashAction()
