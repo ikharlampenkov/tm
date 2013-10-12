@@ -227,7 +227,7 @@ class TM_Task_Task
         if (method_exists($this, $method)) {
             return $this->$method();
         } else {
-            throw new Exception('Can not fnd mthod ' . $method . ' in class ' . __CLASS__);
+            throw new Exception('Can not find method ' . $method . ' in class ' . __CLASS__);
         }
     }
 
