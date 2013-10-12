@@ -8,9 +8,9 @@
  */
 
 /**
- * Class TM_Attribute_AttribyteCollection
+ * Class TM_Attribute_AttributeCollection
  */
-class TM_Attribute_AttribyteCollection extends TM_Collection
+class TM_Attribute_AttributeCollection extends TM_Collection
 {
 
     private $_run = false;

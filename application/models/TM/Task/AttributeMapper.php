@@ -129,7 +129,7 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
-                $retArray = new TM_Attribute_AttribyteCollection($object, $result, $this);
+                $retArray = new TM_Attribute_AttributeCollection($object, $result, $this);
 
                 /*
                 $retArray = array();
