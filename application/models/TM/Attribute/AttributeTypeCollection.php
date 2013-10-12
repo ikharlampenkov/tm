@@ -7,6 +7,12 @@
  * To change this template use File | Settings | File Templates.
  */
 
-class TM_Attribute_AttributeTypeCollection {
+class TM_Attribute_AttributeTypeCollection extends TM_Collection
+{
+
+    public function targetClass()
+    {
+        return 'TM_Attribute_AttributeType';
+    }
 
 }
