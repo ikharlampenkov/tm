@@ -16,6 +16,7 @@ class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
      *
      *
      * @param TM_Attribute_Attribute $attribute
+     * @throws Exception
      * @return void
      * @access public
      */
@@ -29,7 +30,7 @@ class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
             }
 
             $sql = 'INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
-                    VALUES (' . $attribute->task->getId() . ', "' . $attribute->attribyteKey . '", ' . $attribute->type->getId() . ', "' . $attribute->value . '", ' . $isFill . ')';
+                    VALUES (' . $attribute->getObject()->getId() . ', "' . $attribute->attribyteKey . '", ' . $attribute->type->getId() . ', "' . $attribute->value . '", ' . $isFill . ')';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -39,10 +40,11 @@ class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
     /**
      *
      * @param $attribute
+     * @throws Exception
      * @return void
      * @access public
      */
-    public function updateToDb($attribute)
+    public function updateToDb(TM_Attribute_Attribute $attribute)
     {
         try {
             if (!empty($attribute->value)) {
@@ -53,7 +55,7 @@ class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
 
             $sql = 'UPDATE tm_document_attribute
                     SET type_id="' . $attribute->type->getId() . '", attribute_value="' . $attribute->value . '", is_fill=' . $isFill . ' 
-                    WHERE document_id=' . $attribute->task->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
+                    WHERE document_id=' . $attribute->getObject()->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -66,11 +68,11 @@ class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
      * @return void
      * @access public
      */
-    public function deleteFromDb($attribute)
+    public function deleteFromDb(TM_Attribute_Attribute $attribute)
     {
         try {
             $sql = 'DELETE FROM tm_document_attribute
-                    WHERE document_id=' . $attribute->task->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
+                    WHERE document_id=' . $attribute->getObject()->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -118,19 +120,8 @@ class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
     public function getAllInstance($object)
     {
         try {
-            $db = StdLib_DB::getInstance();
             $sql = 'SELECT * FROM tm_document_attribute WHERE document_id=' . $object->getId();
-            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
-
-            if (isset($result[0])) {
-                $retArray = array();
-                foreach ($result as $res) {
-                    $retArray[] = TM_Attribute_Attribute::getInstanceByArray($this, $object, $res);
-                }
-                return $retArray;
-            } else {
-                return false;
-            }
+            return new TM_Attribute_AttributeDeferredCollection($object, $sql, $this);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -139,9 +130,11 @@ class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
 
     /**
      *
-     * @param TM_Document_Document $document
+     * @param $object
      * @param array $values
      *
+     * @throws Exception
+     * @internal param \TM_Document_Document $document
      * @return TM_Attribute_Attribute
      * @access public
      */
@@ -155,5 +148,4 @@ class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
             throw new Exception($e->getMessage());
         }
     }
-} // end of TM_Document_AttributeMapper
-?>
+}

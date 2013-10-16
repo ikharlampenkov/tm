@@ -11,17 +11,11 @@ require_once 'Attribute.php';
 class TM_Attribute_Attribute
 {
 
-    /** Aggregations: */
-
-    /** Compositions: */
-
-    /*** Attributes: ***/
-
     /**
      *
      * @access protected
      */
-    protected $_task = null;
+    protected $_object = null;
 
     /**
      *
@@ -61,24 +55,24 @@ class TM_Attribute_Attribute
     /**
      *
      *
-     * @return Task::TM_Task_Task
+     * @return TM_Task_Task
      * @access public
      */
-    public function getTask()
+    public function getObject()
     {
-        return $this->_task;
-    } // end of member function getTask
+        return $this->_object;
+    }
 
     /**
      *
      *
-     * @return Attribute::TM_Attribute_AttribyteType
+     * @return TM_Attribute_AttributeType
      * @access public
      */
     public function getType()
     {
         return $this->_type;
-    } // end of member function getType
+    }
 
     /**
      *
@@ -89,7 +83,7 @@ class TM_Attribute_Attribute
     public function getAttribyteKey()
     {
         return $this->_attribyteKey;
-    } // end of member function getAttribyteKey
+    }
 
     /**
      *
@@ -100,7 +94,7 @@ class TM_Attribute_Attribute
     public function getValue()
     {
         return $this->_db->prepareStringToOut($this->_value);
-    } // end of member function getValue
+    }
 
     /**
      *
@@ -109,11 +103,11 @@ class TM_Attribute_Attribute
      * @return void
      * @access protected
      */
-    protected function setTask(TM_Task_Task $value)
+    protected function setObject(TM_Task_Task $value)
     {
-        $this->_task = $value;
+        $this->_object = $value;
 
-    } // end of member function setTask
+    }
 
     /**
      *
@@ -125,7 +119,7 @@ class TM_Attribute_Attribute
     public function setAttribyteKey($value)
     {
         $this->_attribyteKey = $this->_db->prepareString($value);
-    } // end of member function setAttribyteKey
+    }
 
     /**
      *
@@ -137,7 +131,7 @@ class TM_Attribute_Attribute
     public function setType(TM_Attribute_AttributeType $value)
     {
         $this->_type = $value;
-    } // end of member function setType
+    }
 
     /**
      *
@@ -152,7 +146,7 @@ class TM_Attribute_Attribute
             $this->_value = 1;
         }
         $this->_value = trim($this->_db->prepareString($value));
-    } // end of member function setValue
+    }
 
     /**
      * @param int $attributeOrder
@@ -173,122 +167,123 @@ class TM_Attribute_Attribute
     /**
      *
      * @param string $name
+     * @throws Exception
      * @return mixed
      * @access public
      */
 
     public function __get($name)
     {
-        $method = "get{$name}";
+        $method = 'get' . ucfirst($name);
         if (method_exists($this, $method)) {
             return $this->$method();
+        } else {
+            throw new Exception('Can not find method ' . $method . ' in class ' . __CLASS__);
         }
     }
 
     /**
      *
-     * @param TM_Attribute_AttributeMapper $mapper
      * @param $object
+     * @internal param \TM_Attribute_AttributeMapper $mapper
      * @return TM_Attribute_Attribute
      * @access public
      */
-    public function __construct(TM_Attribute_AttributeMapper $mapper, &$object)
+    public function __construct(&$object)
     {
-        $this->_mapper = $mapper;
         $this->_db = StdLib_DB::getInstance();
-        $this->_task = $object;
+        $this->_object = $object;
     }
 
-    public function insertToDB()
-    {
-        $this->_mapper->insertToDB($this);
-    }
+    /*
+        public function insertToDB()
+        {
+            $this->_mapper->insertToDB($this);
+        }
 
 
-    /**
-     *
-     *
-     * @return void
-     * @access public
-     */
-    public function updateToDB()
-    {
-        $this->_mapper->updateToDB($this);
-    }
+        /**
+         *
+         *
+         * @return void
+         * @access public
+         *
+        public function updateToDB()
+        {
+            $this->_mapper->updateToDB($this);
+        }
 
-    /**
-     *
-     *
-     * @return void
-     * @access public
-     */
-    public function deleteFromDB()
-    {
-        $this->_mapper->deleteFromDB($this);
-    }
+        /**
+         *
+         *
+         * @return void
+         * @access public
+         *
+        public function deleteFromDB()
+        {
+            $this->_mapper->deleteFromDB($this);
+        }
 
-    /**
-     *
-     *
-     * @param TM_Attribute_AttributeMapper $mapper
-     * @param $object
-     * @param string $key
-     * @return TM_Attribute_Attribute
-     * @static
-     * @access public
-     */
-    public static function getInstanceByKey(TM_Attribute_AttributeMapper $mapper, $object, $key)
-    {
+        /**
+         *
+         *
+         * @param TM_Attribute_AttributeMapper $mapper
+         * @param $object
+         * @param string $key
+         * @return TM_Attribute_Attribute
+         * @static
+         * @access public
+         *
+        public static function getInstanceByKey(TM_Attribute_AttributeMapper $mapper, $object, $key)
+        {
 
-        return $mapper->getInstanceByKey($object, $key);
-    }
+            return $mapper->getInstanceByKey($object, $key);
+        }
 
-    /**
-     *
-     *
-     * @param TM_Attribute_AttributeMapper $mapper
-     * @param $object
-     * @return array
-     * @static
-     * @access public
-     */
-    public static function getAllInstance(TM_Attribute_AttributeMapper $mapper, $object)
-    {
-        return $mapper->getAllInstance($object);
-    }
+        /**
+         *
+         *
+         * @param TM_Attribute_AttributeMapper $mapper
+         * @param $object
+         * @return array
+         * @static
+         * @access public
+         *
+        public static function getAllInstance(TM_Attribute_AttributeMapper $mapper, $object)
+        {
+            return $mapper->getAllInstance($object);
+        }
 
-    /**
-     *
-     *
-     * @param TM_Attribute_AttributeMapper $mapper
-     * @param $object
-     * @param array $values
-     * @return TM_Attribute_Attribute
-     * @static
-     * @access public
-     */
-    public static function getInstanceByArray(TM_Attribute_AttributeMapper $mapper, $object, $values)
-    {
-        return $mapper->getInstanceByArray($object, $values);
-    }
+        /**
+         *
+         *
+         * @param TM_Attribute_AttributeMapper $mapper
+         * @param $object
+         * @param array $values
+         * @return TM_Attribute_Attribute
+         * @static
+         * @access public
+         *
+        public static function getInstanceByArray(TM_Attribute_AttributeMapper $mapper, $object, $values)
+        {
+            return $mapper->getInstanceByArray($object, $values);
+        }
 
-    /**
-     *
-     *
-     * @param array values
-     * @return void
-    @access public
-     */
+        /**
+         *
+         *
+         * @param array values
+         * @return void
+        @access public
+         */
     public function fillFromArray($values)
     {
-        $o_type = TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Task_AttributeTypeMapper(), $values['type_id']);
+        $oMapper = new TM_Task_AttributeTypeMapper();
+        $o_type = $oMapper->getInstanceById($values['type_id']);
         $this->setType($o_type);
 
         $this->setAttribyteKey($values['attribute_key']);
         $this->setValue($values['attribute_value']);
         $this->setAttributeOrder($values['attribute_order']);
     }
-
-
-} // end of TM_Attribute_Attribute
-?>
+}

@@ -253,9 +253,11 @@ class TM_Document_Document
 
     public function __get($name)
     {
-        $method = "get{$name}";
+        $method = 'get' . ucfirst($name);
         if (method_exists($this, $method)) {
             return $this->$method();
+        } else {
+            throw new Exception('Can not find method ' . $method . ' in class ' . __CLASS__);
         }
     }
 
@@ -762,12 +764,14 @@ class TM_Document_Document
     {
         if (is_null($this->_attributeList) || empty($this->_attributeList)) {
             try {
-                $attributeList = TM_Attribute_Attribute::getAllInstance(new TM_Document_AttributeMapper(), $this);
+                $oMapper = new TM_Document_AttributeMapper();
+                $attributeList = $oMapper->getAllInstance($this);
                 if ($attributeList !== false) {
                     foreach ($attributeList as $attribute) {
                         $this->_attributeList[$attribute->attribyteKey] = $attribute;
                     }
                 }
+                unset($oMapper);
 
                 return $this->_attributeList;
             } catch (Exception $e) {
@@ -790,7 +794,7 @@ class TM_Document_Document
 
         } else {
             $oHash = TM_Document_Hash::getInstanceById($key);
-            $oAttribute = new TM_Attribute_Attribute(new TM_Document_AttributeMapper(), $this);
+            $oAttribute = new TM_Attribute_Attribute($this);
             $oAttribute->setAttribyteKey($key);
             $oAttribute->setType($oHash->getType());
             $oAttribute->setValue($value);
@@ -812,13 +816,15 @@ class TM_Document_Document
     protected function saveAttributeList()
     {
         if (!is_null($this->_attributeList) && !empty($this->_attributeList)) {
+            $oMapper = new TM_Document_AttributeMapper();
             foreach ($this->_attributeList as $attribute) {
                 try {
-                    $attribute->insertToDB();
+                    $oMapper->insertToDB($attribute);
                 } catch (Exception $e) {
-                    $attribute->updateToDB();
+                    $oMapper->updateToDB($attribute);
                 }
             }
+            unset($oMapper);
         }
     }
 
@@ -857,5 +863,4 @@ class TM_Document_Document
 
     }
 
-} // end of TM_Document_Document
-?>
+}

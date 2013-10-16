@@ -34,7 +34,7 @@ class TM_User_AttributeMapper extends TM_Attribute_AttributeMapper
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function insertToDb
+    }
 
     /**
      *
@@ -42,7 +42,7 @@ class TM_User_AttributeMapper extends TM_Attribute_AttributeMapper
      * @return void
      * @access public
      */
-    public function updateToDb($attribute)
+    public function updateToDb(TM_Attribute_Attribute $attribute)
     {
         try {
             if (!empty($attribute->value)) {
@@ -58,7 +58,7 @@ class TM_User_AttributeMapper extends TM_Attribute_AttributeMapper
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function updateToDb
+    }
 
     /**
      *
@@ -66,7 +66,7 @@ class TM_User_AttributeMapper extends TM_Attribute_AttributeMapper
      * @return void
      * @access public
      */
-    public function deleteFromDb($attribute)
+    public function deleteFromDb(TM_Attribute_Attribute $attribute)
     {
         try {
             $sql = 'DELETE FROM tm_user_attribute
@@ -75,7 +75,7 @@ class TM_User_AttributeMapper extends TM_Attribute_AttributeMapper
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function deleteFromDb
+    }
 
     /**
      *
@@ -104,13 +104,13 @@ class TM_User_AttributeMapper extends TM_Attribute_AttributeMapper
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getInstanceByKey
+    }
 
     /**
      *
      *
      * @param $object
-
+     * @throws Exception
      * @return array
      * @static
      * @access public
@@ -118,23 +118,12 @@ class TM_User_AttributeMapper extends TM_Attribute_AttributeMapper
     public function getAllInstance($object)
     {
         try {
-            $db = StdLib_DB::getInstance();
             $sql = 'SELECT * FROM tm_user_attribute WHERE user_id=' . $object->getId();
-            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
-
-            if (isset($result[0])) {
-                $retArray = array();
-                foreach ($result as $res) {
-                    $retArray[] = TM_Attribute_Attribute::getInstanceByArray($this, $object, $res);
-                }
-                return $retArray;
-            } else {
-                return false;
-            }
+            return new TM_Attribute_AttributeDeferredCollection($object, $sql, $this);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getAllInstance
+    }
 
 
     /**
@@ -142,6 +131,7 @@ class TM_User_AttributeMapper extends TM_Attribute_AttributeMapper
      * @param TM_User_User $object
      * @param array $values
      *
+     * @throws Exception
      * @return TM_Attribute_Attribute
      * @access public
      */
@@ -155,5 +145,4 @@ class TM_User_AttributeMapper extends TM_Attribute_AttributeMapper
             throw new Exception($e->getMessage());
         }
     }
-} // end of TM_User_AttributeMapper
-?>
+}

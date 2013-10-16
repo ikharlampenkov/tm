@@ -19,6 +19,7 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
      *
      *
      * @param TM_Attribute_Attribute $attribute
+     * @throws Exception
      * @return void
      * @access public
      */
@@ -38,11 +39,12 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function insertToDb
+    }
 
     /**
      *
      * @param $attribute
+     * @throws Exception
      * @return void
      * @access public
      */
@@ -63,12 +65,14 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function updateToDb
+    }
 
     /**
      *
      *
-     * @return
+     * @param $attribute
+     * @throws Exception
+     * @return void
      * @access public
      */
     public function deleteFromDb($attribute)
@@ -80,7 +84,7 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function deleteFromDb
+    }
 
     /**
      *
@@ -89,7 +93,7 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
      * @param string $key
      *
      * @throws Exception
-     * @return Attribute::TM_Attribute_Attribute
+     * @return TM_Attribute_Attribute
      * @static
      * @access public
      */
@@ -110,12 +114,12 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getInstanceByKey
+    }
 
     /**
      *
      *
-     * @param $object
+     * @param TM_Task_Task $object
      *
      * @throws Exception
      * @return array
@@ -124,27 +128,13 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
     public function getAllInstance($object)
     {
         try {
-            $db = StdLib_DB::getInstance();
             $sql = 'SELECT * FROM tm_task_attribute WHERE task_id=' . $object->getId();
-            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
-            if (isset($result[0])) {
-                $retArray = new TM_Attribute_AttributeCollection($object, $result, $this);
-
-                /*
-                $retArray = array();
-                foreach ($result as $res) {
-                    $retArray[] = TM_Attribute_Attribute::getInstanceByArray($this, $object, $res);
-                }
-                */
-                return $retArray;
-            } else {
-                return false;
-            }
+            return new TM_Attribute_AttributeDeferredCollection($object, $sql, $this);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getAllInstance
+    }
 
 
     /**
@@ -166,5 +156,4 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
             throw new Exception($e->getMessage());
         }
     }
-} // end of TM_Task_Attribute
-?>
+}

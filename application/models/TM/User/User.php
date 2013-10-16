@@ -271,6 +271,8 @@ class TM_User_User
     /**
      *
      *
+     * @param string $type
+     * @throws Exception
      * @return array
      * @static
      * @access public
@@ -325,7 +327,9 @@ class TM_User_User
     {
         if (is_null($this->_attributeList) || empty($this->_attributeList)) {
             try {
-                $attributeList = TM_Attribute_Attribute::getAllInstance(new TM_User_AttributeMapper(), $this);
+                $oMapper = new TM_User_AttributeMapper();
+                $attributeList = $oMapper->getAllInstance($this);
+                unset($oMapper);
                 if ($attributeList !== false) {
                     foreach ($attributeList as $attribute) {
                         $this->_attributeList[$attribute->attribyteKey] = $attribute;
@@ -357,13 +361,14 @@ class TM_User_User
 
         } else {
             $oHash = TM_User_Hash::getInstanceById($key);
-            $oAttribute = new TM_Attribute_Attribute(new TM_User_AttributeMapper(), $this);
+            $oMapper = new TM_User_AttributeMapper();
+            $oAttribute = new TM_Attribute_Attribute($this);
             $oAttribute->setAttribyteKey($key);
             $oAttribute->setType($oHash->getType());
             $oAttribute->setValue($value);
 
             $this->_attributeList[$key] = $oAttribute;
-            $oAttribute->insertToDB();
+            $oMapper->insertToDB($oAttribute);
         }
     }
 
@@ -379,9 +384,11 @@ class TM_User_User
     protected function saveAttributeList()
     {
         if (!is_null($this->_attributeList) && !empty($this->_attributeList)) {
+            $oMapper = new TM_User_AttributeMapper();
             foreach ($this->_attributeList as $attribute) {
-                $attribute->updateToDB();
+                $oMapper->updateToDB($attribute);
             }
+            unset($oMapper);
         }
     }
 

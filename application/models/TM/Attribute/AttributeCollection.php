@@ -14,8 +14,6 @@ class TM_Attribute_AttributeCollection extends TM_Collection
 {
     private $_object = null;
 
-    private $_run = false;
-
     public function __construct($object = null, array $raw = null, $mapper = null)
     {
         parent::__construct($raw, $mapper);
@@ -26,16 +24,6 @@ class TM_Attribute_AttributeCollection extends TM_Collection
     public function targetClass()
     {
         return 'TM_Attribute_Attribute';
-    }
-
-
-    protected function notifyAccess()
-    {
-        if (!$this->_run) {
-            //$this->raw = $this->mapper->
-        }
-        $this->_run = true;
-
     }
 
     protected function _getRow($num)

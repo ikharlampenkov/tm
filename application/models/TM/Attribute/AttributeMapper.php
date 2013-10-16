@@ -37,27 +37,29 @@ abstract class TM_Attribute_AttributeMapper {
     /**
      *
      *
+     * @param $attribute
      * @return void
      * @abstract
      * @access public
      */
-    abstract public function updateToDB($attribute);
+    abstract public function updateToDB(TM_Attribute_Attribute $attribute);
 
     /**
      *
      *
+     * @param $attribute
      * @return void
      * @abstract
      * @access public
      */
-    abstract public function deleteFromDB($attribute);
+    abstract public function deleteFromDB(TM_Attribute_Attribute $attribute);
 
     /**
      *
      *
      * @param $object
      * @param int $key
-     * @return Attribute::TM_Attribute_Attribute
+     * @return TM_Attribute_Attribute
      * @abstract
      * @access public
      */
@@ -68,7 +70,7 @@ abstract class TM_Attribute_AttributeMapper {
      *
      * @param $object
      * @param array $values
-     * @return Attribute::TM_Attribute_Attribute
+     * @return TM_Attribute_Attribute
      * @access public
      */
     abstract public function getInstanceByArray($object, $values);

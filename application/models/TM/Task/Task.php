@@ -9,12 +9,6 @@ class TM_Task_Task
 
     const TASK_TYPE_PERIOD = 1;
 
-    /** Aggregations: */
-
-    /** Compositions: */
-
-    /*** Attributes: ***/
-
     /**
      *
      * @access protected
@@ -391,9 +385,9 @@ class TM_Task_Task
      *
      *
      * @param TM_User_User $user
-     * @param int          $parentId
-     * @param string       $filter    фильтр по статусу, all - все
-     * @param bool         $isArchive - проект в архиве?
+     * @param int $parentId
+     * @param string $filter    фильтр по статусу, all - все
+     * @param bool $isArchive - проект в архиве?
      *
      * @throws Exception
      * @return array
@@ -627,7 +621,9 @@ class TM_Task_Task
     {
         if (is_null($this->_attributeList) || empty($this->_attributeList)) {
             try {
-                $attributeList = TM_Attribute_Attribute::getAllInstance(new TM_Task_AttributeMapper(), $this);
+                $oMapper = new TM_Task_AttributeMapper();
+                $attributeList = $oMapper->getAllInstance($this);
+                unset($oMapper);
                 if ($attributeList !== false) {
                     foreach ($attributeList as $attribute) {
                         $this->_attributeList[$attribute->attribyteKey] = $attribute;
@@ -670,7 +666,8 @@ class TM_Task_Task
 
         } else {
             $oHash = TM_Task_Hash::getInstanceById($key);
-            $oAttribute = new TM_Attribute_Attribute(new TM_Task_AttributeMapper(), $this);
+
+            $oAttribute = new TM_Attribute_Attribute($this);
             $oAttribute->setAttribyteKey($key);
             $oAttribute->setType($oHash->getType());
             $oAttribute->setValue($value);
@@ -700,16 +697,23 @@ class TM_Task_Task
     protected function saveAttributeList()
     {
         if (!is_null($this->_attributeList) && !empty($this->_attributeList)) {
+            $oMapper = new TM_Task_AttributeMapper();
             foreach ($this->_attributeList as $attribute) {
                 try {
-                    $attribute->insertToDB();
+                    $oMapper->insertToDB($attribute);
                 } catch (Exception $e) {
-                    $attribute->updateToDB();
+                    $oMapper->updateToDB($attribute);
                 }
             }
+            unset($oMapper);
         }
     }
 
+    /**
+     * @param array $pathArray
+     * @return array
+     * @throws Exception
+     */
     public function getPathToTask(&$pathArray = array())
     {
         try {

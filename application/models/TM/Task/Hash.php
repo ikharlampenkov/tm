@@ -75,7 +75,7 @@ class TM_Task_Hash
     /**
      *
      *
-     * @return Attribute::TM_Attribute_AttribyteType
+     * @return TM_Attribute_AttributeType
      * @access public
      */
     public function getType()
