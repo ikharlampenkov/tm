@@ -2,9 +2,13 @@
 
 class UserController extends Zend_Controller_Action
 {
+    protected $_user = null;
 
     public function init()
     {
+        $storage_data = Zend_Auth::getInstance()->getStorage()->read();
+        $this->_user = TM_User_User::getInstanceById($storage_data->id);
+
         $this->_helper->AjaxContext()->addActionContext('showUserAclBlock', 'html')->initContext('html');
         $this->_helper->AjaxContext()->addActionContext('showPrivateTask', 'html')->initContext('html');
     }
@@ -17,6 +21,8 @@ class UserController extends Zend_Controller_Action
         $this->view->assign('userList', TM_User_User::getAllInstance($userType));
         //$this->view->assign('userListClient', TM_User_User::getAllInstance(1));
         $this->view->assign('userType', $userType);
+
+        //$this->view->assign('organizationList', TM_Organization_Organization::getAllInstance($this->_user));
     }
 
     public function viewattributetypeAction()

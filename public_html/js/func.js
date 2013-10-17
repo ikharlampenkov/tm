@@ -341,3 +341,68 @@ var reports = {
     }
 };
 
+var organization = {
+    addDialog: function (rq_url, parent, show_url, prefics) { // Функция вывода диалогового окна
+        prefics = prefics || '';
+        if ($('#addDialog').length < 1) // создаем блок диалогового окна
+        {
+            $('body').append('<div id="addDialog" ></div>');
+        } else {
+            $('#addDialog').dialog('close'); // на всякий случай закрываем
+        }
+
+        $.get(rq_url, '', function (data) { // посылаем пост запрос для вывода формы
+            $('#addDialog').html(data).dialog({
+                title: 'Добавить организацию',
+                modal: true,
+                height: 550,
+                width: 830,
+                buttons: {
+                    Добавить: function () {
+                        $('#addForm').ajaxSubmit({
+                            success: function (responseText, statusText, xhr, $form) {
+                                if (responseText != '') {
+                                    $('#addDialog').html(responseText);
+                                }
+                                else {
+                                    organization.openOrganization(show_url, parent, true, prefics);
+                                    $('#addDialog').dialog('close');
+                                }
+                            }
+                        });
+                        //task.send(rq_url, parent, show_url);
+                    },
+                    Отмена: function () {
+                        $('#addDialog').dialog('close');
+                    }
+                }
+            });
+            $(".datepicker").datetimepicker();
+            $('#exception').css('display', 'none');
+        }, 'html');
+    },
+
+    openOrganization: function (rg_url, parent, isReload, prefics, filter) {
+        isReload = isReload || false;
+        prefics = prefics || '';
+        filter = filter || 'all';
+
+        if ($('#' + prefics + 'subtask_' + parent).html() != '' && !isReload) {
+            $('#' + prefics + 'subtask_' + parent).hide();
+            $('#' + prefics + 'subtask_' + parent).empty();
+            return;
+        }
+
+        rg_url += '/filter/' + filter;
+
+        $.get(rg_url, '', function (data) {
+            $('#' + prefics + 'subtask_' + parent).empty();
+            $('#' + prefics + 'subtask_' + parent).append(data);
+            //task.createSubMenu();
+            $('#' + prefics + 'subtask_' + parent).show();
+        }, 'html');
+    }
+
+
+}
+

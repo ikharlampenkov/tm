@@ -19,6 +19,8 @@ class TM_Organization_AttributeMapper extends TM_Attribute_AttributeMapper
      *
      *
      * @param TM_Attribute_Attribute $attribute
+     *
+     * @throws Exception
      * @return void
      * @access public
      */
@@ -31,22 +33,25 @@ class TM_Organization_AttributeMapper extends TM_Attribute_AttributeMapper
                 $isFill = 0;
             }
 
-            $sql = 'REPLACE INTO tm_organization_attribute(organization_id, attribute_key, type_id, attribute_value, attribute_order, is_fill)
-                    VALUES (' . $attribute->task->getId() . ', "' . $attribute->attribyteKey . '", ' . $attribute->type->getId() . ',
+            $sql
+                = 'REPLACE INTO tm_organization_attribute(organization_id, attribute_key, type_id, attribute_value, attribute_order, is_fill)
+                    VALUES (' . $attribute->getObject()->getId() . ', "' . $attribute->attribyteKey . '", ' . $attribute->type->getId() . ',
                            "' . $attribute->value . '", ' . $attribute->attributeOrder . ', ' . $isFill . ')';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function insertToDb
+    }
 
     /**
      *
-     * @param $attribute
+     * @param \TM_Attribute_Attribute $attribute
+     *
+     * @throws Exception
      * @return void
      * @access public
      */
-    public function updateToDb($attribute)
+    public function updateToDb(TM_Attribute_Attribute $attribute)
     {
         try {
             if (!empty($attribute->value)) {
@@ -55,41 +60,46 @@ class TM_Organization_AttributeMapper extends TM_Attribute_AttributeMapper
                 $isFill = 0;
             }
 
-            $sql = 'UPDATE tm_organization_attribute
+            $sql
+                = 'UPDATE tm_organization_attribute
                     SET type_id="' . $attribute->type->getId() . '", attribute_value="' . $attribute->value . '",
                         attribute_order=' . $attribute->attributeOrder . ', is_fill=' . $isFill . '
-                    WHERE organization_id=' . $attribute->task->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
+                    WHERE organization_id=' . $attribute->getObject()->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function updateToDb
+    }
 
     /**
      *
      *
-     * @return
+     * @param TM_Attribute_Attribute $attribute
+     *
+     * @throws Exception
+     * @return void
      * @access public
      */
-    public function deleteFromDb($attribute)
+    public function deleteFromDb(TM_Attribute_Attribute $attribute)
     {
         try {
-            $sql = 'DELETE FROM tm_organization_attribute
-                    WHERE organization_id=' . $attribute->task->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
+            $sql
+                = 'DELETE FROM tm_organization_attribute
+                    WHERE organization_id=' . $attribute->getObject()->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function deleteFromDb
+    }
 
     /**
      *
      *
-     * @param $object
-
+     * @param        $object
      * @param string $key
-
-     * @return Attribute::TM_Attribute_Attribute
+     *
+     * @throws Exception
+     * @return TM_Attribute_Attribute
      * @static
      * @access public
      */
@@ -101,7 +111,7 @@ class TM_Organization_AttributeMapper extends TM_Attribute_AttributeMapper
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
-                $o = new TM_Attribute_Attribute($object, $this);
+                $o = new TM_Attribute_Attribute($object);
                 $o->fillFromArray($result[0]);
                 return $o;
             } else {
@@ -110,13 +120,14 @@ class TM_Organization_AttributeMapper extends TM_Attribute_AttributeMapper
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getInstanceByKey
+    }
 
     /**
      *
      *
      * @param $object
-
+     *
+     * @throws Exception
      * @return array
      * @static
      * @access public
@@ -124,42 +135,31 @@ class TM_Organization_AttributeMapper extends TM_Attribute_AttributeMapper
     public function getAllInstance($object)
     {
         try {
-            $db = StdLib_DB::getInstance();
             $sql = 'SELECT * FROM tm_organization_attribute WHERE organization_id=' . $object->getId();
-            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
-
-            if (isset($result[0])) {
-                $retArray = array();
-                foreach ($result as $res) {
-                    $retArray[] = TM_Attribute_Attribute::getInstanceByArray($this, $object, $res);
-                }
-                return $retArray;
-            } else {
-                return false;
-            }
+            return new TM_Attribute_AttributeDeferredCollection($object, $sql, $this);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getAllInstance
+    }
 
 
     /**
      *
-     * @param $object
+     * @param       $object
      * @param array $values
      *
+     * @throws Exception
      * @return TM_Attribute_Attribute
      * @access public
      */
     public function getInstanceByArray($object, $values)
     {
         try {
-            $o = new TM_Attribute_Attribute($this, $object);
+            $o = new TM_Attribute_Attribute($object);
             $o->fillFromArray($values);
             return $o;
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
     }
-} // end of TM_Organization_Attribute
-?>
+}

@@ -6,13 +6,6 @@
  */
 class TM_Organization_Organization
 {
-
-    /** Aggregations: */
-
-    /** Compositions: */
-
-    /*** Attributes: ***/
-
     /**
      *
      * @access protected
@@ -64,6 +57,7 @@ class TM_Organization_Organization
      *
      *
      * @param int $value
+     *
      * @return void
      * @access protected
      */
@@ -76,6 +70,7 @@ class TM_Organization_Organization
      *
      *
      * @param string $value
+     *
      * @return void
      * @access public
      */
@@ -112,7 +107,8 @@ class TM_Organization_Organization
     public function insertToDb()
     {
         try {
-            $sql = 'INSERT INTO tm_organization(title)
+            $sql
+                = 'INSERT INTO tm_organization(title)
                     VALUES ("' . $this->_title . '")';
             $this->_db->query($sql);
 
@@ -133,7 +129,8 @@ class TM_Organization_Organization
     public function updateToDb()
     {
         try {
-            $sql = 'UPDATE tm_organization
+            $sql
+                = 'UPDATE tm_organization
                     SET title="' . $this->_title . '"
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
@@ -153,7 +150,8 @@ class TM_Organization_Organization
     public function deleteFromDb()
     {
         try {
-            $sql = 'DELETE FROM tm_organization
+            $sql
+                = 'DELETE FROM tm_organization
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
         } catch (Exception $e) {
@@ -165,6 +163,7 @@ class TM_Organization_Organization
      *
      *
      * @param int $id идентификатор задачи
+     *
      * @return TM_Organization_Organization
      * @static
      * @access public
@@ -191,8 +190,9 @@ class TM_Organization_Organization
     /**
      *
      *
-     * @param $user
+     * @param       $user
      * @param array $values
+     *
      * @return TM_Organization_Organization
      * @static
      * @access public
@@ -243,6 +243,7 @@ class TM_Organization_Organization
      *
      *
      * @param array $values
+     *
      * @return void
      * @access public
      */
@@ -262,7 +263,9 @@ class TM_Organization_Organization
     {
         if (is_null($this->_attributeList) || empty($this->_attributeList)) {
             try {
-                $attributeList = TM_Attribute_Attribute::getAllInstance(new TM_Organization_AttributeMapper(), $this);
+                $oMapper = new TM_Organization_AttributeMapper();
+                $attributeList = $oMapper->getAllInstance($this);
+                unset($oMapper);
                 if ($attributeList !== false) {
                     foreach ($attributeList as $attribute) {
                         $this->_attributeList[$attribute->attribyteKey] = $attribute;
@@ -280,6 +283,7 @@ class TM_Organization_Organization
 
     /**
      * @param $key
+     *
      * @return TM_Attribute_Attribute
      */
     public function getAttribute($key)
@@ -304,7 +308,7 @@ class TM_Organization_Organization
 
         } else {
             $oHash = TM_Organization_Hash::getInstanceById($key);
-            $oAttribute = new TM_Attribute_Attribute(new TM_Organization_AttributeMapper(), $this);
+            $oAttribute = new TM_Attribute_Attribute($this);
             $oAttribute->setAttribyteKey($key);
             $oAttribute->setType($oHash->getType());
             $oAttribute->setValue($value);
@@ -334,15 +338,16 @@ class TM_Organization_Organization
     protected function saveAttributeList()
     {
         if (!is_null($this->_attributeList) && !empty($this->_attributeList)) {
+            $oMapper = new TM_Organization_AttributeMapper();
             foreach ($this->_attributeList as $attribute) {
                 try {
-                    $attribute->insertToDB();
+                    $oMapper->insertToDB($attribute);
                 } catch (Exception $e) {
-                    $attribute->updateToDB();
+                    $oMapper->updateToDB($attribute);
                 }
             }
+            unset($oMapper);
         }
     }
 
-} // end of TM_Organization_Organization
-?>
+}

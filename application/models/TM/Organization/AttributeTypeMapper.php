@@ -15,9 +15,11 @@ class TM_Organization_AttributeTypeMapper extends TM_Attribute_AttributeTypeMapp
     /**
      *
      *
-
+     * @param $type
+     *
+     * @throws Exception
      * @return void
-       @access public
+     * @access public
      */
     public function insertToDB($type)
     {
@@ -34,6 +36,9 @@ class TM_Organization_AttributeTypeMapper extends TM_Attribute_AttributeTypeMapp
     /**
      *
      *
+     * @param $type
+     *
+     * @throws Exception
      * @return void
      * @access public
      */
@@ -52,8 +57,11 @@ class TM_Organization_AttributeTypeMapper extends TM_Attribute_AttributeTypeMapp
     /**
      *
      *
-     * @return
-     * @access public
+     * @param $type
+     *
+     * @throws Exception
+     * @return void
+    @access public
      */
     public function deleteFromDB($type)
     {
@@ -69,8 +77,9 @@ class TM_Organization_AttributeTypeMapper extends TM_Attribute_AttributeTypeMapp
      *
      *
      * @param int $id
-
-     * @return Attribute::TM_Attribute_AttributeType
+     *
+     * @throws Exception
+     * @return TM_Attribute_AttributeType
      * @access public
      */
     public function getInstanceById($id)
@@ -96,25 +105,15 @@ class TM_Organization_AttributeTypeMapper extends TM_Attribute_AttributeTypeMapp
     /**
      *
      *
+     * @throws Exception
      * @return array
      * @access public
      */
     public function getAllInstance()
     {
         try {
-            $db = StdLib_DB::getInstance();
             $sql = 'SELECT * FROM tm_organization_attribute_type';
-            $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
-
-            if (isset($result[0])) {
-                $retArray = array();
-                foreach ($result as $res) {
-                    $retArray[] = TM_Attribute_AttributeTypeFactory::getAttributeTypeByArray($this, $res);
-                }
-                return $retArray;
-            } else {
-                return false;
-            }
+            return new TM_Attribute_AttributeTypeDeferredCollection($sql, $this);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -124,8 +123,9 @@ class TM_Organization_AttributeTypeMapper extends TM_Attribute_AttributeTypeMapp
      *
      *
      * @param array $values
-
-     * @return Attribute::TM_Attribute_Attribute
+     *
+     * @throws Exception
+     * @return TM_Attribute_Attribute
      * @access public
      */
     public function getInstanceByArray($values)
@@ -142,7 +142,9 @@ class TM_Organization_AttributeTypeMapper extends TM_Attribute_AttributeTypeMapp
 
     /**
      * @param int $id
-     * @return void
+     *
+     * @throws Exception
+     * @return array|boolean
      */
     public function selectFromDB($id)
     {
