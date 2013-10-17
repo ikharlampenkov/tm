@@ -33,7 +33,7 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
             }
 
             $sql = 'REPLACE INTO tm_task_attribute(task_id, attribute_key, type_id, attribute_value, attribute_order, is_fill)
-                    VALUES (' . $attribute->task->getId() . ', "' . $attribute->attribyteKey . '", ' . $attribute->type->getId() . ',
+                    VALUES (' . $attribute->getObject()->getId() . ', "' . $attribute->attribyteKey . '", ' . $attribute->type->getId() . ',
                            "' . $attribute->value . '", ' . $attribute->attributeOrder . ', ' . $isFill . ')';
             $this->_db->query($sql);
         } catch (Exception $e) {
@@ -48,7 +48,7 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
      * @return void
      * @access public
      */
-    public function updateToDb($attribute)
+    public function updateToDb(TM_Attribute_Attribute $attribute)
     {
         try {
             if (!empty($attribute->value)) {
@@ -60,7 +60,7 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
             $sql = 'UPDATE tm_task_attribute
                     SET type_id="' . $attribute->type->getId() . '", attribute_value="' . $attribute->value . '",
                         attribute_order=' . $attribute->attributeOrder . ', is_fill=' . $isFill . '
-                    WHERE task_id=' . $attribute->task->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
+                    WHERE task_id=' . $attribute->getObject()->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -75,11 +75,11 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
      * @return void
      * @access public
      */
-    public function deleteFromDb($attribute)
+    public function deleteFromDb(TM_Attribute_Attribute $attribute)
     {
         try {
             $sql = 'DELETE FROM tm_task_attribute
-                    WHERE task_id=' . $attribute->task->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
+                    WHERE task_id=' . $attribute->getObject()->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -105,7 +105,7 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
-                $o = new TM_Attribute_Attribute($object, $this);
+                $o = new TM_Attribute_Attribute($object);
                 $o->fillFromArray($result[0]);
                 return $o;
             } else {
@@ -149,7 +149,7 @@ class TM_Task_AttributeMapper extends TM_Attribute_AttributeMapper
     public function getInstanceByArray($object, $values)
     {
         try {
-            $o = new TM_Attribute_Attribute($this, $object);
+            $o = new TM_Attribute_Attribute($object);
             $o->fillFromArray($values);
             return $o;
         } catch (Exception $e) {

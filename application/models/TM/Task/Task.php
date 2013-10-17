@@ -624,6 +624,7 @@ class TM_Task_Task
                 $oMapper = new TM_Task_AttributeMapper();
                 $attributeList = $oMapper->getAllInstance($this);
                 unset($oMapper);
+
                 if ($attributeList !== false) {
                     foreach ($attributeList as $attribute) {
                         $this->_attributeList[$attribute->attribyteKey] = $attribute;

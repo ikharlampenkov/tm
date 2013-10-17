@@ -97,7 +97,7 @@ class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
-                $o = new TM_Attribute_Attribute($object, $this);
+                $o = new TM_Attribute_Attribute($object);
                 $o->fillFromArray($result[0]);
                 return $o;
             } else {
@@ -141,7 +141,7 @@ class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
     public function getInstanceByArray($object, $values)
     {
         try {
-            $o = new TM_Attribute_Attribute($this, $object);
+            $o = new TM_Attribute_Attribute($object);
             $o->fillFromArray($values);
             return $o;
         } catch (Exception $e) {

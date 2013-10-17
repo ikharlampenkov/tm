@@ -16,6 +16,8 @@ class TM_User_AttributeMapper extends TM_Attribute_AttributeMapper
      *
      *
      * @param TM_Attribute_Attribute $attribute
+     *
+     * @throws Exception
      * @return void
      * @access public
      */
@@ -29,7 +31,7 @@ class TM_User_AttributeMapper extends TM_Attribute_AttributeMapper
             }
 
             $sql = 'INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
-                    VALUES (' . $attribute->task->getId() . ', "' . $attribute->attribyteKey . '", ' . $attribute->type->getId() . ', "' . $attribute->value . '", ' . $isFill . ')';
+                    VALUES (' . $attribute->getObject()->getId() . ', "' . $attribute->attribyteKey . '", ' . $attribute->type->getId() . ', "' . $attribute->value . '", ' . $isFill . ')';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -38,7 +40,9 @@ class TM_User_AttributeMapper extends TM_Attribute_AttributeMapper
 
     /**
      *
-     * @param $attribute
+     * @param \TM_Attribute_Attribute $attribute
+     *
+     * @throws Exception
      * @return void
      * @access public
      */
@@ -53,7 +57,7 @@ class TM_User_AttributeMapper extends TM_Attribute_AttributeMapper
 
             $sql = 'UPDATE tm_user_attribute
                     SET type_id="' . $attribute->type->getId() . '", attribute_value="' . $attribute->value . '", is_fill=' . $isFill . ' 
-                    WHERE user_id=' . $attribute->task->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
+                    WHERE user_id=' . $attribute->getObject()->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -62,7 +66,9 @@ class TM_User_AttributeMapper extends TM_Attribute_AttributeMapper
 
     /**
      *
-     * @param $attribute
+     * @param \TM_Attribute_Attribute $attribute
+     *
+     * @throws Exception
      * @return void
      * @access public
      */
@@ -70,7 +76,7 @@ class TM_User_AttributeMapper extends TM_Attribute_AttributeMapper
     {
         try {
             $sql = 'DELETE FROM tm_user_attribute
-                    WHERE user_id=' . $attribute->task->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
+                    WHERE user_id=' . $attribute->getObject()->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -80,10 +86,11 @@ class TM_User_AttributeMapper extends TM_Attribute_AttributeMapper
     /**
      *
      *
-     * @param $object
+     * @param        $object
      * @param string $key
      *
-     * @return Attribute::TM_Attribute_Attribute
+     * @throws Exception
+     * @return TM_Attribute_Attribute
      * @static
      * @access public
      */
@@ -95,7 +102,7 @@ class TM_User_AttributeMapper extends TM_Attribute_AttributeMapper
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
-                $o = new TM_Attribute_Attribute($object, $this);
+                $o = new TM_Attribute_Attribute($object);
                 $o->fillFromArray($result[0]);
                 return $o;
             } else {
@@ -138,7 +145,7 @@ class TM_User_AttributeMapper extends TM_Attribute_AttributeMapper
     public function getInstanceByArray($object, $values)
     {
         try {
-            $o = new TM_Attribute_Attribute($this, $object);
+            $o = new TM_Attribute_Attribute($object);
             $o->fillFromArray($values);
             return $o;
         } catch (Exception $e) {
