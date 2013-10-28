@@ -39,6 +39,11 @@ class TM_Task_Task
     protected $_dateCreate;
 
     /**
+     * @var bool указатель на VIP
+     */
+    protected $_isVip = false;
+
+    /**
      * @var int
      */
     protected $_type = 1;
@@ -215,6 +220,22 @@ class TM_Task_Task
         return $this->_typeList;
     }
 
+    /**
+     * @param boolean $isVip
+     */
+    public function setIsVip($isVip)
+    {
+        $this->_isVip = $isVip;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getIsVip()
+    {
+        return $this->_isVip;
+    }
+
     public function __get($name)
     {
         $method = 'get' . ucfirst($name);
@@ -386,7 +407,7 @@ class TM_Task_Task
      *
      * @param TM_User_User $user
      * @param int $parentId
-     * @param string $filter    фильтр по статусу, all - все
+     * @param string $filter фильтр по статусу, all - все
      * @param bool $isArchive - проект в архиве?
      *
      * @throws Exception
@@ -484,6 +505,7 @@ class TM_Task_Task
         $this->setTitle($values['title']);
         $this->setDateCreate($values['date_create']);
         $this->setType($values['type']);
+        $this->setIsVip($values['is_vip']);
 
         $o_user = TM_User_User::getInstanceById($values['user_id']);
         $this->setUser($o_user);
