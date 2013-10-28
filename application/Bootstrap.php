@@ -36,10 +36,10 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
         // Настраиваем рендер
         $viewRenderer->setView($view)
-                ->setViewBasePathSpec($view->getEngine()->template_dir)
-                ->setViewScriptPathSpec(':controller/:action.:suffix')
-                ->setViewScriptPathNoControllerSpec(':action.:suffix')
-                ->setViewSuffix($options['resources']['view']['viewSuffix']);
+            ->setViewBasePathSpec($view->getEngine()->template_dir)
+            ->setViewScriptPathSpec(':controller/:action.:suffix')
+            ->setViewScriptPathNoControllerSpec(':action.:suffix')
+            ->setViewSuffix($options['resources']['view']['viewSuffix']);
 
         $view->assign('title', $options['tm']['title']);
         $view->assign('description', $options['smarty']['default']['desc']);
@@ -103,6 +103,12 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
         $db = StdLib_DB::getInstance();
         $db->debug = $options['db']['debug'];
+
+        $writer = new Zend_Log_Writer_Stream($options['log']['path'] . '/zend_log.log');
+        $log = new Zend_Log();
+        $log->addWriter($writer);
+        $log->registerErrorHandler();
+        return $log;
     }
 
     protected function _initAuth()
