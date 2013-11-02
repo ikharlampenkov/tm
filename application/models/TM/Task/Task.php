@@ -456,6 +456,8 @@ class TM_Task_Task
                 }
             }
 
+            $sql .= ' ORDER BY is_vip DESC, id';
+
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
@@ -948,7 +950,7 @@ class TM_Task_Task
                     WHERE tm_task.id=tm_acl_task.task_id
                       AND is_executant=1
                       AND tm_acl_task.user_id=' . $user->id . '
-                      ORDER BY t3.attribute_value DESC, t4.attribute_order, t2.attribute_value, title';
+                      ORDER BY is_vip DESC, t3.attribute_value DESC, t4.attribute_order, t2.attribute_value, title';
             //echo $sql;
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
