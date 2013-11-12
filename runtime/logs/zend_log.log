@@ -1,0 +1,21 @@
+2013-11-02T13:55:37+07:00 NOTICE (5): Undefined index: is_vip
+2013-11-02T13:55:37+07:00 NOTICE (5): Undefined index: is_vip
+2013-11-02T13:55:37+07:00 NOTICE (5): Undefined index: is_vip
+2013-11-02T13:55:37+07:00 NOTICE (5): Undefined index: is_vip
+2013-11-02T14:02:43+07:00 NOTICE (5): Undefined index: is_vip
+2013-11-02T14:02:43+07:00 NOTICE (5): Undefined index: is_vip
+2013-11-02T14:02:43+07:00 NOTICE (5): Undefined index: is_vip
+2013-11-02T14:02:43+07:00 NOTICE (5): Undefined index: is_vip
+2013-11-02T14:04:48+07:00 NOTICE (5): Undefined index: is_vip
+2013-11-02T14:04:48+07:00 NOTICE (5): Undefined index: is_vip
+2013-11-02T14:04:48+07:00 NOTICE (5): Undefined index: is_vip
+2013-11-02T14:04:48+07:00 NOTICE (5): Undefined index: is_vip
+2013-11-02T14:39:09+07:00 NOTICE (5): Undefined index: vip
+2013-11-02T14:39:12+07:00 WARN (4): mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
+2013-11-02T14:40:21+07:00 WARN (4): mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
+2013-11-02T14:45:40+07:00 WARN (4): mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
+2013-11-02T14:46:56+07:00 WARN (4): mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
+2013-11-02T14:48:20+07:00 WARN (4): mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
+2013-11-02T23:06:57+07:00 CRIT (2): 
+2013-11-02T23:06:57+07:00 CRIT (2): Request Parameters
+2013-11-02T23:57:24+07:00 WARN (4): mail(): Failed to connect to mailserver at "localhost" port 25, verify your "SMTP" and "smtp_port" setting in php.ini or use ini_set()

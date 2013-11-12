@@ -130,7 +130,8 @@ class TM_User_User
             if (TM_User_User::checkLogin($this->_login)) {
                 throw new Exception('Пользователь с таким логином существует');
             }
-            $sql = 'INSERT INTO tm_user(login, password, role_id, date_create, type)
+            $sql
+                = 'INSERT INTO tm_user(login, password, role_id, date_create, type)
                     VALUES ("' . $this->_login . '", "' . $this->_password . '", ' . $this->_role->getId() . ', "' . $this->_dateCreate . '", "' . $this->_type . '")';
             $this->_db->query($sql);
         } catch (Exception $e) {
@@ -147,7 +148,8 @@ class TM_User_User
     public function updateToDb()
     {
         try {
-            $sql = 'UPDATE tm_user
+            $sql
+                = 'UPDATE tm_user
                     SET login="' . $this->_login . '", password="' . $this->_password . '",
                         role_id="' . $this->_role->getId() . '", date_create="' . $this->_dateCreate . '",
                         type="' . $this->_type . '"
@@ -168,7 +170,8 @@ class TM_User_User
     public function deleteFromDb()
     {
         try {
-            $sql = 'DELETE FROM tm_user
+            $sql
+                = 'DELETE FROM tm_user
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
         } catch (Exception $e) {
@@ -179,7 +182,9 @@ class TM_User_User
     /**
      *
      *
-     * @param int id
+     * @param int $id
+     *
+     * @throws Exception
      * @return TM_User_User
      * @static
      * @access public
@@ -206,7 +211,9 @@ class TM_User_User
     /**
      *
      *
-     * @param int id
+     * @param int $login
+     *
+     * @throws Exception
      * @return TM_User_User
      * @static
      * @access public
@@ -252,6 +259,7 @@ class TM_User_User
      *
      *
      * @param array $values
+     *
      * @throws Exception
      * @return TM_User_User
      * @static
@@ -272,6 +280,7 @@ class TM_User_User
      *
      *
      * @param string $type
+     *
      * @throws Exception
      * @return array
      * @static
@@ -305,6 +314,7 @@ class TM_User_User
      *
      *
      * @param array $values
+     *
      * @return void
      * @access public
      */
@@ -347,6 +357,7 @@ class TM_User_User
 
     /**
      * @param $key
+     *
      * @return TM_Attribute_Attribute
      */
     public function getAttribute($key)
@@ -386,7 +397,11 @@ class TM_User_User
         if (!is_null($this->_attributeList) && !empty($this->_attributeList)) {
             $oMapper = new TM_User_AttributeMapper();
             foreach ($this->_attributeList as $attribute) {
-                $oMapper->updateToDB($attribute);
+                try {
+                    $oMapper->insertToDb($attribute);
+                } catch (Exception $e) {
+                    $oMapper->updateToDB($attribute);
+                }
             }
             unset($oMapper);
         }

@@ -85,6 +85,12 @@ class TaskController extends Zend_Controller_Action
                 $oTask->setParent($parentTask);
             }
 
+            if (isset($data['is_vip']) && $data['is_vip'] == 'on') {
+                $oTask->setIsVip(true);
+            } else {
+                $oTask->setIsVip(false);
+            }
+
             foreach ($data['attribute'] as $key => $value) {
                 $oTask->setAttribute($key, $value);
             }
@@ -277,6 +283,12 @@ class TaskController extends Zend_Controller_Action
                         $tempTopic->updateToDb();
                     }
                     $oTask->setParent(null);
+                }
+
+                if (isset($data['is_vip']) && $data['is_vip'] == 'on') {
+                    $oTask->setIsVip(true);
+                } else {
+                    $oTask->setIsVip(false);
                 }
 
                 foreach ($data['attribute'] as $key => $value) {

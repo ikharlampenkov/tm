@@ -215,3 +215,18 @@ error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attr
                     VALUES (648, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '648-description' for key 'PRIMARY' ;  05.10.2013 21:44
 info   TO F:\www\tm\application/../public_html/files/Zakazyi_s_sayta/  12.10.2013 22:32
 error   Can not move folder from F:\www\tm\application/../public_html/files/ to F:\www\tm\application/../public_html/files/Zakazyi_s_sayta/  12.10.2013 22:32
+error   Can`t complit query: SELECT id, title, tm_task.user_id, parent_id, date_create, type, is_vip
+                    FROM tm_task
+                    LEFT JOIN (
+                        SELECT * FROM tm_task_attribute WHERE attribute_key="deadline"
+                    )t2 ON tm_task.id = t2.task_id
+                    LEFT JOIN (
+                        SELECT * FROM tm_task_attribute WHERE attribute_key="state"
+                    ) t3 ON tm_task.id = t3.task_id
+                    LEFT JOIN (
+                        SELECT * FROM tm_task_attribute WHERE attribute_key="prior"
+                    ) t4 ON tm_task.id = t4.task_id, tm_acl_task
+                    WHERE tm_task.id=tm_acl_task.task_id
+                      AND is_executant=1
+                      AND tm_acl_task.user_id=1
+                      ORDER BY t3.attribute_value DESC, t4.attribute_order, t2.attribute_value, title No error: 1054:: Error msg: Unknown column 'is_vip' in 'field list' ;  02.11.2013 23:06

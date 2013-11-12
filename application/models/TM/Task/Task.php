@@ -39,6 +39,11 @@ class TM_Task_Task
     protected $_dateCreate;
 
     /**
+     * @var bool указатель на VIP
+     */
+    protected $_isVip = false;
+
+    /**
      * @var int
      */
     protected $_type = 1;
@@ -82,7 +87,7 @@ class TM_Task_Task
     public function getId()
     {
         return $this->_id;
-    } // end of member function getId
+    }
 
     /**
      *
@@ -112,7 +117,7 @@ class TM_Task_Task
     public function getUser()
     {
         return $this->_user;
-    } // end of member function getUser
+    }
 
     /**
      *
@@ -123,7 +128,7 @@ class TM_Task_Task
     public function getDateCreate()
     {
         return $this->_dateCreate;
-    } // end of member function getDateCreate
+    }
 
     /**
      *
@@ -136,7 +141,7 @@ class TM_Task_Task
     protected function setId($value)
     {
         $this->_id = (int)$value;
-    } // end of member function setId
+    }
 
     /**
      *
@@ -149,7 +154,7 @@ class TM_Task_Task
     public function setTitle($value)
     {
         $this->_title = $this->_db->prepareString($value);
-    } // end of member function setTitle
+    }
 
     /**
      * @param TM_Task_Task|null $value
@@ -170,7 +175,7 @@ class TM_Task_Task
     public function setUser(TM_User_User $value)
     {
         $this->_user = $value;
-    } // end of member function setUser
+    }
 
     /**
      *
@@ -184,14 +189,14 @@ class TM_Task_Task
     {
         $value = $this->_db->prepareString($value);
         $this->_dateCreate = date("Y-m-d H:i:s", strtotime($value));
-    } // end of member function setDateCreate
+    }
 
     /**
      * @param int $type
      */
     public function setType($type)
     {
-        if (key_exists($type, $this->_typeList)) {
+        if (array_key_exists($type, $this->_typeList)) {
             $this->_type = $type;
         } else {
             $this->_type = 1;
@@ -213,6 +218,22 @@ class TM_Task_Task
     public function getTypeList()
     {
         return $this->_typeList;
+    }
+
+    /**
+     * @param boolean $isVip
+     */
+    public function setIsVip($isVip)
+    {
+        $this->_isVip = $isVip;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getIsVip()
+    {
+        return $this->_isVip;
     }
 
     public function __get($name)
@@ -260,9 +281,9 @@ class TM_Task_Task
     {
         try {
             $sql
-                = 'INSERT INTO tm_task(title, user_id, parent_id, date_create, type)
+                = 'INSERT INTO tm_task(title, user_id, parent_id, date_create, type, is_vip)
                     VALUES ("' . $this->_title . '", ' . $this->_user->getId() . ', ' . $this->_prepareNull($this->_parent) . ',
-                            "' . $this->_dateCreate . '", ' . $this->_type . ')';
+                            "' . $this->_dateCreate . '", ' . $this->_type . ', ' . (int)$this->_isVip . ')';
             $this->_db->query($sql);
 
             $this->_id = $this->_db->getLastInsertId();
@@ -285,7 +306,7 @@ class TM_Task_Task
             $sql
                 = 'UPDATE tm_task
                     SET title="' . $this->_title . '", parent_id=' . $this->_prepareNull($this->_parent) . ', user_id="' . $this->_user->getId() . '",
-                        date_create="' . $this->_dateCreate . '", type=' . $this->_type . '
+                        date_create="' . $this->_dateCreate . '", type=' . $this->_type . ', is_vip=' . (int)$this->_isVip . '
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
 
@@ -297,7 +318,8 @@ class TM_Task_Task
 
     /**
      *
-     *
+     * Удаляет запись о задаче из БД
+     * @throws Exception
      * @return void
      * @access public
      */
@@ -336,6 +358,7 @@ class TM_Task_Task
      *
      * @param int $id идентификатор задачи
      *
+     * @throws Exception
      * @return TM_Task_Task
      * @static
      * @access public
@@ -379,14 +402,14 @@ class TM_Task_Task
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getInstanceByArray
+    }
 
     /**
      *
      *
      * @param TM_User_User $user
      * @param int $parentId
-     * @param string $filter    фильтр по статусу, all - все
+     * @param string $filter фильтр по статусу, all - все
      * @param bool $isArchive - проект в архиве?
      *
      * @throws Exception
@@ -433,6 +456,8 @@ class TM_Task_Task
                 }
             }
 
+            $sql .= ' ORDER BY is_vip DESC, id';
+
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
@@ -447,7 +472,7 @@ class TM_Task_Task
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getAllInstance
+    }
 
     public static function getTaskByDocument(TM_User_User $user, TM_Document_Document $document)
     {
@@ -484,6 +509,7 @@ class TM_Task_Task
         $this->setTitle($values['title']);
         $this->setDateCreate($values['date_create']);
         $this->setType($values['type']);
+        $this->setIsVip($values['is_vip']);
 
         $o_user = TM_User_User::getInstanceById($values['user_id']);
         $this->setUser($o_user);
@@ -523,7 +549,7 @@ class TM_Task_Task
         } else {
             return $this->_childTask;
         }
-    } // end of member function getChild
+    }
 
     /**
      * @return bool
@@ -551,7 +577,7 @@ class TM_Task_Task
             $this->_childTask[] = $child;
         }
 
-    } // end of member function addChild
+    }
 
     /**
      *
@@ -567,7 +593,7 @@ class TM_Task_Task
         if ($key !== false) {
             unset($this->_childTask[$key]);
         }
-    } // end of member function deleteChild
+    }
 
     protected function saveChild()
     {
@@ -910,7 +936,7 @@ class TM_Task_Task
             $db = StdLib_DB::getInstance();
 
             $sql
-                = 'SELECT id, title, tm_task.user_id, parent_id, date_create, type
+                = 'SELECT id, title, tm_task.user_id, parent_id, date_create, type, is_vip
                     FROM tm_task
                     LEFT JOIN (
                         SELECT * FROM tm_task_attribute WHERE attribute_key="deadline"
@@ -924,7 +950,7 @@ class TM_Task_Task
                     WHERE tm_task.id=tm_acl_task.task_id
                       AND is_executant=1
                       AND tm_acl_task.user_id=' . $user->id . '
-                      ORDER BY t3.attribute_value DESC, t4.attribute_order, t2.attribute_value, title';
+                      ORDER BY is_vip DESC, t3.attribute_value DESC, t4.attribute_order, t2.attribute_value, title';
             //echo $sql;
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
