@@ -66,9 +66,9 @@ class TM_Task_Task
     protected $_parentTask = array();
 
     /**
-     * @var array
+     * @var TM_Attribute_AttributeCollection
      */
-    protected $_attributeList = array();
+    protected $_attributeList = null;
 
     /**
      *
@@ -645,17 +645,19 @@ class TM_Task_Task
 
     public function getAttributeList()
     {
-        if (is_null($this->_attributeList) || empty($this->_attributeList)) {
+        if (is_null($this->_attributeList)) {
             try {
                 $oMapper = new TM_Task_AttributeMapper();
-                $attributeList = $oMapper->getAllInstance($this);
+                $this->_attributeList = $oMapper->getAllInstance($this);
                 unset($oMapper);
 
+                /*
                 if ($attributeList !== false) {
                     foreach ($attributeList as $attribute) {
                         $this->_attributeList[$attribute->attribyteKey] = $attribute;
                     }
                 }
+                */
 
                 return $this->_attributeList;
             } catch (Exception $e) {
@@ -673,7 +675,8 @@ class TM_Task_Task
      */
     public function getAttribute($key)
     {
-        return $this->_attributeList[$key];
+        return $this->_attributeList->at($key);
+        //return $this->_attributeList[$key];
     }
 
     public function setAttribute($key, $value)
@@ -681,13 +684,13 @@ class TM_Task_Task
         if ($this->searchAttribute($key)) {
             $oHash = TM_Task_Hash::getInstanceById($key);
 
-            $this->_attributeList[$key]->setValue($value);
+            $this->_attributeList->at($key)->setValue($value);
 
             if ($oHash->getType() instanceof TM_Attribute_AttributeTypeList) {
                 $keyO = array_search($value, $oHash->getValueList(false, true));
                 $temp = $oHash->getListOrder();
                 if ($key !== false && isset($temp[$keyO])) {
-                    $this->_attributeList[$key]->setAttributeOrder($temp[$keyO]);
+                    $this->_attributeList->at($key)->setAttributeOrder($temp[$keyO]);
                 }
             }
 
@@ -707,23 +710,23 @@ class TM_Task_Task
                 }
             }
 
-            $this->_attributeList[$key] = $oAttribute;
+            $this->_attributeList->add($key, $oAttribute);
             //$oAttribute->insertToDB();
         }
     }
 
     public function searchAttribute($needle)
     {
-        if (is_null($this->_attributeList) && !empty($this->_attributeList)) {
+        if (is_null($this->_attributeList) && $this->_attributeList->getTotal() == 0) {
             return false;
         } else {
-            return array_key_exists($needle, $this->_attributeList);
+            return $this->_attributeList->search($needle);
         }
     }
 
     protected function saveAttributeList()
     {
-        if (!is_null($this->_attributeList) && !empty($this->_attributeList)) {
+        if (!is_null($this->_attributeList) && $this->_attributeList->getTotal() > 0) {
             $oMapper = new TM_Task_AttributeMapper();
             foreach ($this->_attributeList as $attribute) {
                 try {
