@@ -32,10 +32,16 @@ class TM_Attribute_AttributeDeferredCollection extends TM_Attribute_AttributeCol
     {
         if (!$this->_run) {
             $db = StdLib_DB::getInstance();
-            $this->raw = $db->query($this->_sql, StdLib_DB::QUERY_MOD_ASSOC);
+            $temp = $db->query($this->_sql, StdLib_DB::QUERY_MOD_ASSOC);
+            if (!empty($temp)) {
+                foreach ($temp as $row) {
+                    $this->raw[$row['attribute_key']] = $row;
+                    $this->keys[] = $row['attribute_key'];
+                }
+            }
+
             $this->total = count($this->raw);
         }
         $this->_run = true;
-
     }
 }

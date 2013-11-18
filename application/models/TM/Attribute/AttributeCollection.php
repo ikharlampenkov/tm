@@ -10,7 +10,7 @@
 /**
  * Class TM_Attribute_AttributeCollection
  */
-class TM_Attribute_AttributeCollection extends TM_Collection
+class TM_Attribute_AttributeCollection extends TM_AssocCollection
 {
     private $_object = null;
 
@@ -29,17 +29,56 @@ class TM_Attribute_AttributeCollection extends TM_Collection
     protected function _getRow($num)
     {
         $this->notifyAccess();
+
         if ($num >= $this->total || $num < 0) {
             return null;
         }
 
-        if (isset($this->objects[$num])) {
-            return $this->objects[$num];
+        if (!isset($this->keys[$num])) {
+            return null;
+        } else {
+            $key = $this->keys[$num];
         }
 
-        if (isset($this->raw[$num])) {
-            $this->objects[$num] = $this->mapper->getInstanceByArray($this->_object, $this->raw[$num]);
-            return $this->objects[$num];
+        if (isset($this->objects[$key])) {
+            return $this->objects[$key];
         }
+
+        if (isset($this->raw[$key])) {
+            $this->objects[$key] = $this->mapper->getInstanceByArray($this->_object, $this->raw[$key]);
+            return $this->objects[$key];
+        }
+
+        return null;
+    }
+
+    public function at($key)
+    {
+        $this->notifyAccess();
+        if (!in_array($key, $this->keys)) {
+            return null;
+        }
+
+        if (isset($this->objects[$key])) {
+            return $this->objects[$key];
+        }
+
+        if (isset($this->raw[$key])) {
+            $this->objects[$key] = $this->mapper->getInstanceByArray($this->_object, $this->raw[$key]);
+            return $this->objects[$key];
+        }
+
+        return null;
+    }
+
+    public function search($key)
+    {
+        $this->notifyAccess();
+        return in_array($key, $this->keys);
+    }
+
+    public function getTotal()
+    {
+        return $this->total;
     }
 }
