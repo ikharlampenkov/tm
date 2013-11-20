@@ -26,6 +26,10 @@ class TM_Attribute_AttributeCollection extends TM_AssocCollection
         return 'TM_Attribute_Attribute';
     }
 
+    /**
+     * @param $num
+     * @return TM_Attribute_Attribute|null
+     */
     protected function _getRow($num)
     {
         $this->notifyAccess();
@@ -52,6 +56,10 @@ class TM_Attribute_AttributeCollection extends TM_AssocCollection
         return null;
     }
 
+    /**
+     * @param $key
+     * @return TM_Attribute_Attribute|null
+     */
     public function at($key)
     {
         $this->notifyAccess();
@@ -79,6 +87,7 @@ class TM_Attribute_AttributeCollection extends TM_AssocCollection
 
     public function getTotal()
     {
+        $this->notifyAccess();
         return $this->total;
     }
 }
