@@ -269,6 +269,7 @@ class TM_Task_Task
     public function __construct()
     {
         $this->_db = StdLib_DB::getInstance();
+        $this->_attributeList = new TM_Attribute_AttributeCollection($this, null, new TM_Task_AttributeMapper());
     }
 
     /**
@@ -518,7 +519,10 @@ class TM_Task_Task
             $this->setParent(TM_Task_Task::getInstanceById($values['parent_id']));
         }
 
-        $this->getAttributeList();
+        $oMapper = new TM_Task_AttributeMapper();
+        $this->_attributeList = $oMapper->getAllInstance($this);
+        unset($oMapper);
+        //$this->getAttributeList();
     }
 
     /**
@@ -645,27 +649,7 @@ class TM_Task_Task
 
     public function getAttributeList()
     {
-        if (is_null($this->_attributeList)) {
-            try {
-                $oMapper = new TM_Task_AttributeMapper();
-                $this->_attributeList = $oMapper->getAllInstance($this);
-                unset($oMapper);
-
-                /*
-                if ($attributeList !== false) {
-                    foreach ($attributeList as $attribute) {
-                        $this->_attributeList[$attribute->attribyteKey] = $attribute;
-                    }
-                }
-                */
-
-                return $this->_attributeList;
-            } catch (Exception $e) {
-                throw new Exception($e->getMessage());
-            }
-        } else {
-            return $this->_attributeList;
-        }
+        return $this->_attributeList;
     }
 
     /**
@@ -681,7 +665,7 @@ class TM_Task_Task
 
     public function setAttribute($key, $value)
     {
-        if ($this->searchAttribute($key)) {
+        if ($this->_attributeList->search($key)) {
             $oHash = TM_Task_Hash::getInstanceById($key);
 
             $this->_attributeList->at($key)->setValue($value);
@@ -717,7 +701,7 @@ class TM_Task_Task
 
     public function searchAttribute($needle)
     {
-        if (is_null($this->_attributeList) && $this->_attributeList->getTotal() == 0) {
+        if ($this->_attributeList->getTotal() == 0) {
             return false;
         } else {
             return $this->_attributeList->search($needle);
@@ -726,7 +710,7 @@ class TM_Task_Task
 
     protected function saveAttributeList()
     {
-        if (!is_null($this->_attributeList) && $this->_attributeList->getTotal() > 0) {
+        if ($this->_attributeList->getTotal() > 0) {
             $oMapper = new TM_Task_AttributeMapper();
             foreach ($this->_attributeList as $attribute) {
                 try {

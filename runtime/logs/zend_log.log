@@ -21,3 +21,11 @@
 2013-11-02T23:57:24+07:00 WARN (4): mail(): Failed to connect to mailserver at "localhost" port 25, verify your "SMTP" and "smtp_port" setting in php.ini or use ini_set()
 2013-11-18T22:23:41+07:00 WARN (4): mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
 2013-11-18T22:24:14+07:00 WARN (4): mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
+2013-11-20T22:07:19+07:00 CRIT (2): 
+2013-11-20T22:07:19+07:00 CRIT (2): Request Parameters
+2013-11-20T22:07:34+07:00 CRIT (2): 
+2013-11-20T22:07:34+07:00 CRIT (2): Request Parameters
+2013-11-20T22:08:15+07:00 CRIT (2): 
+2013-11-20T22:08:15+07:00 CRIT (2): Request Parameters
+2013-11-20T22:12:19+07:00 WARN (4): mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
+2013-11-20T22:27:53+07:00 WARN (4): mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
