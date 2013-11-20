@@ -42,7 +42,7 @@ abstract class TM_AssocCollection implements Iterator
 
         $this->notifyAccess();
 
-        if (array_key_exists($key, $this->keys)) {
+        if (in_array($key, $this->keys)) {
             throw new Exception('Key ' . $key . ' already exist');
         }
         $this->objects[$key] = $object;
