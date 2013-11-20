@@ -85,7 +85,7 @@ class TM_Activity_Notification
             }
 
             $header = 'From: ' . Zend_Registry::get('production')->notification->from;
-            mail($email, 'Оповещения от TaskDrive', str_replace('&quot;', '"', $message), $header);
+            @mail($email, 'Оповещения от TaskDrive', str_replace('&quot;', '"', $message), $header);
         } catch (Exception $e) {
             StdLib_Log::logMsg('Не могу разослать оповещение: ' . $message . ' для ' . $email . '. ' . $e->getMessage(), StdLib_Log::StdLib_Log_ERROR);
         }
