@@ -230,3 +230,9 @@ error   Can`t complit query: SELECT id, title, tm_task.user_id, parent_id, date_
                       AND is_executant=1
                       AND tm_acl_task.user_id=1
                       ORDER BY t3.attribute_value DESC, t4.attribute_order, t2.attribute_value, title No error: 1054:: Error msg: Unknown column 'is_vip' in 'field list' ;  02.11.2013 23:06
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (503, "description", 2, "d d d", 0) No error: 1062:: Error msg: Duplicate entry '503-description' for key 'PRIMARY' ;  22.11.2013 22:08
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (503, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '503-description' for key 'PRIMARY' ;  22.11.2013 22:08
+error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (503, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '503-description' for key 'PRIMARY' ;  22.11.2013 22:10

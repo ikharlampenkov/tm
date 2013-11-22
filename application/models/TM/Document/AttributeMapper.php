@@ -35,7 +35,7 @@ class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function insertToDb
+    }
 
     /**
      *
@@ -60,11 +60,12 @@ class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function updateToDb
+    }
 
     /**
      *
-     * @param $attribute
+     * @param \TM_Attribute_Attribute $attribute
+     * @throws Exception
      * @return void
      * @access public
      */
@@ -77,15 +78,16 @@ class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function deleteFromDb
+    }
 
     /**
      *
      *
-     * @param $object
+     * @param TM_Document_Document $object
      * @param string $key
      *
-     * @return Attribute::TM_Attribute_Attribute
+     * @throws Exception
+     * @return TM_Attribute_Attribute
      * @static
      * @access public
      */
@@ -106,14 +108,14 @@ class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getInstanceByKey
+    }
 
     /**
      *
      *
-     * @param $object
-
-     * @return array
+     * @param TM_Document_Document $object
+     * @throws Exception
+     * @return TM_Attribute_AttributeDeferredCollection
      * @static
      * @access public
      */
@@ -125,7 +127,7 @@ class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getAllInstance
+    }
 
 
     /**

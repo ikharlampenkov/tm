@@ -70,7 +70,7 @@ class TM_Task_Hash
     public function getTask()
     {
         return $this->_task;
-    } // end of member function getTask
+    }
 
     /**
      *
@@ -81,7 +81,7 @@ class TM_Task_Hash
     public function getType()
     {
         return $this->_type;
-    } // end of member function getType
+    }
 
     /**
      *
@@ -92,7 +92,7 @@ class TM_Task_Hash
     public function getAttributeKey()
     {
         return $this->_attributeKey;
-    } // end of member function getAttributeKey
+    }
 
     public function setAttributeKey($value)
     {
@@ -110,7 +110,7 @@ class TM_Task_Hash
     {
         $this->_task = $value;
 
-    } // end of member function setTask
+    }
 
     /**
      *
@@ -121,7 +121,7 @@ class TM_Task_Hash
     public function getTitle()
     {
         return $this->_db->prepareStringToOut($this->_title);
-    } // end of member function getTitle
+    }
 
     /**
      *
@@ -133,7 +133,7 @@ class TM_Task_Hash
     public function setType(TM_Attribute_AttributeType $value)
     {
         $this->_type = $value;
-    } // end of member function setType
+    }
 
     /**
      *
@@ -145,7 +145,7 @@ class TM_Task_Hash
     public function setTitle($value)
     {
         $this->_title = $this->_db->prepareString($value);
-    } // end of member function setTitle
+    }
 
     /**
      *
@@ -161,12 +161,13 @@ class TM_Task_Hash
         } else {
             $this->_listValue = $this->_db->prepareString(trim($value));
         }
-    } // end of member function setValueList
+    }
 
     /**
      *
      *
      * @param bool $asString
+     * @param bool $isClear
      * @return array|string
      * @access public
      */
@@ -183,7 +184,7 @@ class TM_Task_Hash
             return explode('||', $this->_db->prepareStringToOut($temp));
         }
 
-    } // end of member function getValueList
+    }
 
     /**
      * @param string $listOrder
@@ -248,7 +249,7 @@ class TM_Task_Hash
     public function getSortOrder()
     {
         return $this->_sortOrder;
-    } // end of member function fillFromArray
+    }
 
     protected function _prepareBool($value)
     {
@@ -280,11 +281,12 @@ class TM_Task_Hash
     public function __construct()
     {
         $this->_db = StdLib_DB::getInstance();
-    } // end of member function __construct
+    }
 
     /**
      *
      *
+     * @throws Exception
      * @return void
      * @access public
      */
@@ -298,13 +300,14 @@ class TM_Task_Hash
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function insertToDb
+    }
 
     //task_id, attribute_key, title, type_id, required, sort_order
 
     /**
      *
      *
+     * @throws Exception
      * @return void
      * @access public
      */
@@ -320,11 +323,12 @@ class TM_Task_Hash
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function updateToDb
+    }
 
     /**
      *
      *
+     * @throws Exception
      * @return void
      * @access public
      */
@@ -337,12 +341,13 @@ class TM_Task_Hash
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function deleteFromDb
+    }
 
     /**
      *
      *
      * @param int $key идентификатор задачи
+     * @throws Exception
      * @return TM_Task_Hash
      * @static
      * @access public
@@ -364,12 +369,13 @@ class TM_Task_Hash
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getInstanceById
+    }
 
     /**
      *
      *
      * @param array $values
+     * @throws Exception
      * @return TM_Task_Hash
      * @static
      * @access public
@@ -383,11 +389,12 @@ class TM_Task_Hash
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getInstanceByArray
+    }
 
     /**
      *
-     * @param $object
+     * @param TM_Task_Task $object
+     * @throws Exception
      * @return array
      * @static
      * @access public
@@ -421,7 +428,7 @@ class TM_Task_Hash
 
             if (!is_null($object)) {
                 $sql .= ' LEFT JOIN (
-                        SELECT * FROM tm_task_attribute WHERE tm_task_attribute.task_id=' . $object->id . '
+                        SELECT * FROM tm_task_attribute WHERE tm_task_attribute.task_id=' . $object->getId() . '
                     ) t2 ON tm_task_hash.attribute_key=t2.attribute_key
                     ORDER BY required DESC, sort_order, title';
             } else {
@@ -442,7 +449,7 @@ class TM_Task_Hash
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getAllInstance
+    }
 
 
     /**
