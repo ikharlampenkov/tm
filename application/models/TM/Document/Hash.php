@@ -40,6 +40,21 @@ class TM_Document_Hash
     protected $_listValue = '';
 
     /**
+     * @var string
+     */
+    protected $_listOrder = '';
+
+    /**
+     * @var bool
+     */
+    protected $_isRequired = false;
+
+    /**
+     * @var int
+     */
+    protected $_sortOrder = 1000;
+
+    /**
      *
      * @access protected
      */
@@ -138,7 +153,6 @@ class TM_Document_Hash
      *
      *
      * @param array|string $value
-     *
      * @return void
      * @access public
      */
@@ -147,7 +161,7 @@ class TM_Document_Hash
         if (is_array($value)) {
             $this->_listValue = $this->_db->prepareString(implode('||', $value));
         } else {
-            $this->_listValue = $value;
+            $this->_listValue = $this->_db->prepareString(trim($value));
         }
     }
 
@@ -155,18 +169,88 @@ class TM_Document_Hash
      *
      *
      * @param bool $asString
-     *
+     * @param bool $isClear
      * @return array|string
      * @access public
      */
-    public function getValueList($asString = false)
+    public function getValueList($asString = false, $isClear = false)
     {
         if ($asString) {
             return $this->_listValue;
         } else {
-            return explode('||', $this->_db->prepareStringToOut($this->_listValue));
+            if ($isClear) {
+                $temp = str_replace('*', '', $this->_listValue);
+            } else {
+                $temp = $this->_listValue;
+            }
+            return explode('||', $this->_db->prepareStringToOut($temp));
         }
 
+    }
+
+    /**
+     * @param string $listOrder
+     */
+    public function setListOrder($listOrder)
+    {
+        if (is_array($listOrder)) {
+            $this->_listOrder = $this->_db->prepareString(implode('||', $listOrder));
+        } else {
+            $this->_listOrder = $this->_db->prepareString(trim($listOrder));
+        }
+    }
+
+    /**
+     * @param bool $asString
+     * @return array|string
+     * @return string
+     */
+    public function getListOrder($asString = false)
+    {
+        if ($asString) {
+            return $this->_listOrder;
+        } else {
+            return explode('||', $this->_db->prepareStringToOut($this->_listOrder));
+        }
+    }
+
+
+    /**
+     * @param boolean $isRequired
+     */
+    public function setIsRequired($isRequired)
+    {
+        if ($isRequired === 'on') {
+            $this->_isRequired = 1;
+        } elseif (empty($isRequired)) {
+            $this->_isRequired = 0;
+        } else {
+            $this->_isRequired = $isRequired;
+        }
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getIsRequired()
+    {
+        return $this->_isRequired;
+    }
+
+    /**
+     * @param int $sortOrder
+     */
+    public function setSortOrder($sortOrder)
+    {
+        $this->_sortOrder = $sortOrder;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSortOrder()
+    {
+        return $this->_sortOrder;
     }
 
     /**
@@ -308,7 +392,7 @@ class TM_Document_Hash
 
     /**
      *
-     * @param $object
+     * @param TM_Document_Document $object
      *
      * @throws Exception
      * @return array
@@ -342,7 +426,7 @@ class TM_Document_Hash
             if (!is_null($object)) {
                 $sql
                     .= ' LEFT JOIN (
-                         SELECT * FROM tm_document_attribute WHERE document_id=' . $object->id . '
+                         SELECT * FROM tm_document_attribute WHERE document_id=' . $object->getId() . '
                    ) t2 ON tm_document_hash.attribute_key=t2.attribute_key
                    ORDER BY t2.is_fill DESC, title';
             } else {
