@@ -30,7 +30,7 @@ class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
             }
 
             $sql = 'INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
-                    VALUES (' . $attribute->getObject()->getId() . ', "' . $attribute->attribyteKey . '", ' . $attribute->type->getId() . ', "' . $attribute->value . '", ' . $isFill . ')';
+                    VALUES (' . $attribute->getObject()->getId() . ', "' . $attribute->attributeKey . '", ' . $attribute->type->getId() . ', "' . $attribute->value . '", ' . $isFill . ')';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -55,7 +55,7 @@ class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
 
             $sql = 'UPDATE tm_document_attribute
                     SET type_id="' . $attribute->type->getId() . '", attribute_value="' . $attribute->value . '", is_fill=' . $isFill . ' 
-                    WHERE document_id=' . $attribute->getObject()->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
+                    WHERE document_id=' . $attribute->getObject()->getId() . ' AND attribute_key="' . $attribute->attributeKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -72,7 +72,7 @@ class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
     {
         try {
             $sql = 'DELETE FROM tm_document_attribute
-                    WHERE document_id=' . $attribute->getObject()->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
+                    WHERE document_id=' . $attribute->getObject()->getId() . ' AND attribute_key="' . $attribute->attributeKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());

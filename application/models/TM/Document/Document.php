@@ -768,7 +768,7 @@ class TM_Document_Document
                 $attributeList = $oMapper->getAllInstance($this);
                 if ($attributeList !== false) {
                     foreach ($attributeList as $attribute) {
-                        $this->_attributeList[$attribute->attribyteKey] = $attribute;
+                        $this->_attributeList[$attribute->attributeKey] = $attribute;
                     }
                 }
                 unset($oMapper);
@@ -795,7 +795,7 @@ class TM_Document_Document
         } else {
             $oHash = TM_Document_Hash::getInstanceById($key);
             $oAttribute = new TM_Attribute_Attribute($this);
-            $oAttribute->setAttribyteKey($key);
+            $oAttribute->setAttributeKey($key);
             $oAttribute->setType($oHash->getType());
             $oAttribute->setValue($value);
 

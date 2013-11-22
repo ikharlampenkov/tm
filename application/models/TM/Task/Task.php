@@ -682,7 +682,7 @@ class TM_Task_Task
             $oHash = TM_Task_Hash::getInstanceById($key);
 
             $oAttribute = new TM_Attribute_Attribute($this);
-            $oAttribute->setAttribyteKey($key);
+            $oAttribute->setAttributeKey($key);
             $oAttribute->setType($oHash->getType());
             $oAttribute->setValue($value);
 

@@ -92,7 +92,7 @@ class TM_Task_Hash
     public function getAttributeKey()
     {
         return $this->_attributeKey;
-    } // end of member function getAttribyteKey
+    } // end of member function getAttributeKey
 
     public function setAttributeKey($value)
     {

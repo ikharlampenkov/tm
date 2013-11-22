@@ -75,7 +75,7 @@ class TM_Organization_Hash
     /**
      *
      *
-     * @return Attribute::TM_Attribute_AttribyteType
+     * @return Attribute::TM_Attribute_AttributeType
      * @access public
      */
     public function getType()
@@ -92,7 +92,7 @@ class TM_Organization_Hash
     public function getAttributeKey()
     {
         return $this->_attributeKey;
-    } // end of member function getAttribyteKey
+    } // end of member function getAttributeKey
 
     public function setAttributeKey($value)
     {

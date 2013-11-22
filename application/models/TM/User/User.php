@@ -342,7 +342,7 @@ class TM_User_User
                 unset($oMapper);
                 if ($attributeList !== false) {
                     foreach ($attributeList as $attribute) {
-                        $this->_attributeList[$attribute->attribyteKey] = $attribute;
+                        $this->_attributeList[$attribute->attributeKey] = $attribute;
                     }
                 }
 
@@ -374,7 +374,7 @@ class TM_User_User
             $oHash = TM_User_Hash::getInstanceById($key);
             $oMapper = new TM_User_AttributeMapper();
             $oAttribute = new TM_Attribute_Attribute($this);
-            $oAttribute->setAttribyteKey($key);
+            $oAttribute->setAttributeKey($key);
             $oAttribute->setType($oHash->getType());
             $oAttribute->setValue($value);
 
