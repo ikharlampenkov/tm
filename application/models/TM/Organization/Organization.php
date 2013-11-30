@@ -268,7 +268,7 @@ class TM_Organization_Organization
                 unset($oMapper);
                 if ($attributeList !== false) {
                     foreach ($attributeList as $attribute) {
-                        $this->_attributeList[$attribute->attribyteKey] = $attribute;
+                        $this->_attributeList[$attribute->attributeKey] = $attribute;
                     }
                 }
 
@@ -309,7 +309,7 @@ class TM_Organization_Organization
         } else {
             $oHash = TM_Organization_Hash::getInstanceById($key);
             $oAttribute = new TM_Attribute_Attribute($this);
-            $oAttribute->setAttribyteKey($key);
+            $oAttribute->setAttributeKey($key);
             $oAttribute->setType($oHash->getType());
             $oAttribute->setValue($value);
 

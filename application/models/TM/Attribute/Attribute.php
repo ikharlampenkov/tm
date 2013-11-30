@@ -21,7 +21,7 @@ class TM_Attribute_Attribute
      *
      * @access protected
      */
-    protected $_attribyteKey;
+    protected $_attributeKey;
 
     /**
      *
@@ -80,9 +80,9 @@ class TM_Attribute_Attribute
      * @return string
      * @access public
      */
-    public function getAttribyteKey()
+    public function getAttributeKey()
     {
-        return $this->_attribyteKey;
+        return $this->_attributeKey;
     }
 
     /**
@@ -116,9 +116,9 @@ class TM_Attribute_Attribute
      * @return void
      * @access public
      */
-    public function setAttribyteKey($value)
+    public function setAttributeKey($value)
     {
-        $this->_attribyteKey = $this->_db->prepareString($value);
+        $this->_attributeKey = $this->_db->prepareString($value);
     }
 
     /**
@@ -282,7 +282,7 @@ class TM_Attribute_Attribute
         $o_type = $oMapper->getInstanceById($values['type_id']);
         $this->setType($o_type);
 
-        $this->setAttribyteKey($values['attribute_key']);
+        $this->setAttributeKey($values['attribute_key']);
         $this->setValue($values['attribute_value']);
         $this->setAttributeOrder($values['attribute_order']);
     }

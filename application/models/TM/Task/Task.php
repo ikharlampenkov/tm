@@ -66,9 +66,9 @@ class TM_Task_Task
     protected $_parentTask = array();
 
     /**
-     * @var array
+     * @var TM_Attribute_AttributeCollection
      */
-    protected $_attributeList = array();
+    protected $_attributeList = null;
 
     /**
      *
@@ -269,6 +269,7 @@ class TM_Task_Task
     public function __construct()
     {
         $this->_db = StdLib_DB::getInstance();
+        $this->_attributeList = new TM_Attribute_AttributeCollection($this, null, new TM_Task_AttributeMapper());
     }
 
     /**
@@ -518,7 +519,10 @@ class TM_Task_Task
             $this->setParent(TM_Task_Task::getInstanceById($values['parent_id']));
         }
 
-        $this->getAttributeList();
+        $oMapper = new TM_Task_AttributeMapper();
+        $this->_attributeList = $oMapper->getAllInstance($this);
+        unset($oMapper);
+        //$this->getAttributeList();
     }
 
     /**
@@ -645,25 +649,7 @@ class TM_Task_Task
 
     public function getAttributeList()
     {
-        if (is_null($this->_attributeList) || empty($this->_attributeList)) {
-            try {
-                $oMapper = new TM_Task_AttributeMapper();
-                $attributeList = $oMapper->getAllInstance($this);
-                unset($oMapper);
-
-                if ($attributeList !== false) {
-                    foreach ($attributeList as $attribute) {
-                        $this->_attributeList[$attribute->attribyteKey] = $attribute;
-                    }
-                }
-
-                return $this->_attributeList;
-            } catch (Exception $e) {
-                throw new Exception($e->getMessage());
-            }
-        } else {
-            return $this->_attributeList;
-        }
+        return $this->_attributeList;
     }
 
     /**
@@ -673,21 +659,22 @@ class TM_Task_Task
      */
     public function getAttribute($key)
     {
-        return $this->_attributeList[$key];
+        return $this->_attributeList->at($key);
+        //return $this->_attributeList[$key];
     }
 
     public function setAttribute($key, $value)
     {
-        if ($this->searchAttribute($key)) {
+        if ($this->_attributeList->search($key)) {
             $oHash = TM_Task_Hash::getInstanceById($key);
 
-            $this->_attributeList[$key]->setValue($value);
+            $this->_attributeList->at($key)->setValue($value);
 
             if ($oHash->getType() instanceof TM_Attribute_AttributeTypeList) {
                 $keyO = array_search($value, $oHash->getValueList(false, true));
                 $temp = $oHash->getListOrder();
                 if ($key !== false && isset($temp[$keyO])) {
-                    $this->_attributeList[$key]->setAttributeOrder($temp[$keyO]);
+                    $this->_attributeList->at($key)->setAttributeOrder($temp[$keyO]);
                 }
             }
 
@@ -695,7 +682,7 @@ class TM_Task_Task
             $oHash = TM_Task_Hash::getInstanceById($key);
 
             $oAttribute = new TM_Attribute_Attribute($this);
-            $oAttribute->setAttribyteKey($key);
+            $oAttribute->setAttributeKey($key);
             $oAttribute->setType($oHash->getType());
             $oAttribute->setValue($value);
 
@@ -707,23 +694,23 @@ class TM_Task_Task
                 }
             }
 
-            $this->_attributeList[$key] = $oAttribute;
+            $this->_attributeList->add($key, $oAttribute);
             //$oAttribute->insertToDB();
         }
     }
 
     public function searchAttribute($needle)
     {
-        if (is_null($this->_attributeList) && !empty($this->_attributeList)) {
+        if ($this->_attributeList->getTotal() == 0) {
             return false;
         } else {
-            return array_key_exists($needle, $this->_attributeList);
+            return $this->_attributeList->search($needle);
         }
     }
 
     protected function saveAttributeList()
     {
-        if (!is_null($this->_attributeList) && !empty($this->_attributeList)) {
+        if ($this->_attributeList->getTotal() > 0) {
             $oMapper = new TM_Task_AttributeMapper();
             foreach ($this->_attributeList as $attribute) {
                 try {

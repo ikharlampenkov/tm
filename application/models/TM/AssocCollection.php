@@ -12,26 +12,28 @@ abstract class TM_AssocCollection implements Iterator
     protected $mapper;
     protected $total = 0;
     protected $raw = array();
+    protected $keys = array();
 
     private $_result;
     private $_pointer = 0;
-    protected  $objects = array();
+    protected $objects = array();
 
     /**
      *
      * @param array $raw
-     * @param null  $mapper
+     * @param null $mapper
      */
     public function __construct(array $raw = null, $mapper = null)
     {
         if (!is_null($raw) && !is_null($mapper)) {
             $this->raw = $raw;
+            $this->keys = array_keys($raw);
             $this->total = count($raw);
         }
         $this->mapper = $mapper;
     }
 
-    public function add($object)
+    public function add($key, $object)
     {
         $class = $this->targetClass();
         if (!($object instanceof $class)) {
@@ -39,7 +41,12 @@ abstract class TM_AssocCollection implements Iterator
         }
 
         $this->notifyAccess();
-        $this->objects[$this->total] = $object;
+
+        if (in_array($key, $this->keys)) {
+            throw new Exception('Key ' . $key . ' already exist');
+        }
+        $this->objects[$key] = $object;
+        $this->keys[$this->total] = $key;
         $this->total++;
     }
 
@@ -57,13 +64,19 @@ abstract class TM_AssocCollection implements Iterator
             return null;
         }
 
-        if (isset($this->objects[$num])) {
-            return $this->objects[$num];
+        if (!isset($this->keys[$num])) {
+            return null;
+        } else {
+            $key = $this->keys[$num];
         }
 
-        if (isset($this->raw[$num])) {
-            $this->objects[$num] = $this->mapper->getInstanceByArray($this->raw[$num]);
-            return $this->objects[$num];
+        if (isset($this->objects[$key])) {
+            return $this->objects[$key];
+        }
+
+        if (isset($this->raw[$key])) {
+            $this->objects[$key] = $this->mapper->getInstanceByArray($this->raw[$key]);
+            return $this->objects[$key];
         }
 
         return null;

@@ -30,12 +30,12 @@ class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
             }
 
             $sql = 'INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
-                    VALUES (' . $attribute->getObject()->getId() . ', "' . $attribute->attribyteKey . '", ' . $attribute->type->getId() . ', "' . $attribute->value . '", ' . $isFill . ')';
+                    VALUES (' . $attribute->getObject()->getId() . ', "' . $attribute->attributeKey . '", ' . $attribute->type->getId() . ', "' . $attribute->value . '", ' . $isFill . ')';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function insertToDb
+    }
 
     /**
      *
@@ -55,16 +55,17 @@ class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
 
             $sql = 'UPDATE tm_document_attribute
                     SET type_id="' . $attribute->type->getId() . '", attribute_value="' . $attribute->value . '", is_fill=' . $isFill . ' 
-                    WHERE document_id=' . $attribute->getObject()->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
+                    WHERE document_id=' . $attribute->getObject()->getId() . ' AND attribute_key="' . $attribute->attributeKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function updateToDb
+    }
 
     /**
      *
-     * @param $attribute
+     * @param \TM_Attribute_Attribute $attribute
+     * @throws Exception
      * @return void
      * @access public
      */
@@ -72,20 +73,21 @@ class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
     {
         try {
             $sql = 'DELETE FROM tm_document_attribute
-                    WHERE document_id=' . $attribute->getObject()->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
+                    WHERE document_id=' . $attribute->getObject()->getId() . ' AND attribute_key="' . $attribute->attributeKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function deleteFromDb
+    }
 
     /**
      *
      *
-     * @param $object
+     * @param TM_Document_Document $object
      * @param string $key
      *
-     * @return Attribute::TM_Attribute_Attribute
+     * @throws Exception
+     * @return TM_Attribute_Attribute
      * @static
      * @access public
      */
@@ -106,14 +108,14 @@ class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getInstanceByKey
+    }
 
     /**
      *
      *
-     * @param $object
-
-     * @return array
+     * @param TM_Document_Document $object
+     * @throws Exception
+     * @return TM_Attribute_AttributeDeferredCollection
      * @static
      * @access public
      */
@@ -125,7 +127,7 @@ class TM_Document_AttributeMapper extends TM_Attribute_AttributeMapper
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getAllInstance
+    }
 
 
     /**

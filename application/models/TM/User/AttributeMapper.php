@@ -31,7 +31,7 @@ class TM_User_AttributeMapper extends TM_Attribute_AttributeMapper
             }
 
             $sql = 'INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
-                    VALUES (' . $attribute->getObject()->getId() . ', "' . $attribute->attribyteKey . '", ' . $attribute->type->getId() . ', "' . $attribute->value . '", ' . $isFill . ')';
+                    VALUES (' . $attribute->getObject()->getId() . ', "' . $attribute->attributeKey . '", ' . $attribute->type->getId() . ', "' . $attribute->value . '", ' . $isFill . ')';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -57,7 +57,7 @@ class TM_User_AttributeMapper extends TM_Attribute_AttributeMapper
 
             $sql = 'UPDATE tm_user_attribute
                     SET type_id="' . $attribute->type->getId() . '", attribute_value="' . $attribute->value . '", is_fill=' . $isFill . ' 
-                    WHERE user_id=' . $attribute->getObject()->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
+                    WHERE user_id=' . $attribute->getObject()->getId() . ' AND attribute_key="' . $attribute->attributeKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -76,7 +76,7 @@ class TM_User_AttributeMapper extends TM_Attribute_AttributeMapper
     {
         try {
             $sql = 'DELETE FROM tm_user_attribute
-                    WHERE user_id=' . $attribute->getObject()->getId() . ' AND attribute_key="' . $attribute->attribyteKey . '"';
+                    WHERE user_id=' . $attribute->getObject()->getId() . ' AND attribute_key="' . $attribute->attributeKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());

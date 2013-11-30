@@ -16,13 +16,6 @@
  */
 class TM_Document_Document
 {
-
-    /** Aggregations: */
-
-    /** Compositions: */
-
-    /*** Attributes: ***/
-
     /**
      *
      * @access protected
@@ -51,6 +44,9 @@ class TM_Document_Document
      */
     protected $_file = null;
 
+    /**
+     * @var bool индикатор папки
+     */
     protected $_isFolder = false;
 
     /**
@@ -60,9 +56,9 @@ class TM_Document_Document
     protected $_parentDocument = null;
 
     /**
-     * @var array
+     * @var TM_Attribute_AttributeCollection
      */
-    protected $_attributeList = array();
+    protected $_attributeList = null;
 
     /**
      *
@@ -81,7 +77,7 @@ class TM_Document_Document
     public function getId()
     {
         return $this->_id;
-    } // end of member function getId
+    }
 
     /**
      *
@@ -92,7 +88,7 @@ class TM_Document_Document
     public function getTitle()
     {
         return $this->_db->prepareStringToOut($this->_title);
-    } // end of member function getTitle
+    }
 
     /**
      *
@@ -103,7 +99,7 @@ class TM_Document_Document
     public function getUser()
     {
         return $this->_user;
-    } // end of member function getUser
+    }
 
     /**
      *
@@ -114,7 +110,7 @@ class TM_Document_Document
     public function getDateCreate()
     {
         return $this->_dateCreate;
-    } // end of member function getDateCreate
+    }
 
     /**
      *
@@ -127,7 +123,7 @@ class TM_Document_Document
     protected function setId($value)
     {
         $this->_id = (int)$value;
-    } // end of member function setId
+    }
 
     /**
      *
@@ -140,7 +136,7 @@ class TM_Document_Document
     public function setTitle($value)
     {
         $this->_title = $this->_db->prepareString($value);
-    } // end of member function setTitle
+    }
 
     /**
      *
@@ -153,7 +149,7 @@ class TM_Document_Document
     public function setUser(TM_User_User $value)
     {
         $this->_user = $value;
-    } // end of member function setUser
+    }
 
     /**
      *
@@ -220,7 +216,7 @@ class TM_Document_Document
      *
      *
      * @param TM_Document_Document $parent
-     * @param int                  $fill
+     * @param int $fill
      *
      * @return void
      * @access public
@@ -270,6 +266,7 @@ class TM_Document_Document
     public function __construct()
     {
         $this->_db = StdLib_DB::getInstance();
+        $this->_attributeList = new TM_Attribute_AttributeCollection($this, null, new TM_Document_AttributeMapper());
         //$this->_file = new TM_FileManager_File(Zend_Registry::get('production')->files->path);
     }
 
@@ -319,7 +316,7 @@ class TM_Document_Document
             $this->_db->rollbackTransaction();
             throw new Exception($e->getMessage());
         }
-    } // end of member function insertToDb
+    }
 
 
     //title, date_create, user_id, file, is_folder, parent_id
@@ -362,7 +359,7 @@ class TM_Document_Document
             $this->_db->rollbackTransaction();
             throw new Exception($e->getMessage());
         }
-    } // end of member function updateToDb
+    }
 
     /**
      *
@@ -443,7 +440,7 @@ class TM_Document_Document
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getInstanceById
+    }
 
     /**
      *
@@ -451,6 +448,7 @@ class TM_Document_Document
      * @param       $user
      * @param array $values
      *
+     * @throws Exception
      * @return TM_Document_Document
      * @static
      * @access public
@@ -464,16 +462,17 @@ class TM_Document_Document
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getInstanceByArray
+    }
 
     /**
      *
      *
      * @param TM_User_User $user
-     * @param int          $parentId
-     * @param int          $isFolder
-     * @param bool         $isArchive
+     * @param int $parentId
+     * @param int $isFolder
+     * @param bool $isArchive
      *
+     * @throws Exception
      * @return array
      * @static
      * @access public
@@ -535,7 +534,7 @@ class TM_Document_Document
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getAllInstance
+    }
 
     public static function getDocumentByTask(TM_User_User $user, TM_Task_Task $task)
     {
@@ -757,65 +756,67 @@ class TM_Document_Document
 
         $this->_file->setSubPath($this->getParentPath());
 
-        $this->getAttributeList();
-    } // end of member function fillFromArray
+        $oMapper = new TM_Document_AttributeMapper();
+        $this->_attributeList = $oMapper->getAllInstance($this);
+        unset($oMapper);
+    }
 
     public function getAttributeList()
     {
-        if (is_null($this->_attributeList) || empty($this->_attributeList)) {
-            try {
-                $oMapper = new TM_Document_AttributeMapper();
-                $attributeList = $oMapper->getAllInstance($this);
-                if ($attributeList !== false) {
-                    foreach ($attributeList as $attribute) {
-                        $this->_attributeList[$attribute->attribyteKey] = $attribute;
-                    }
-                }
-                unset($oMapper);
-
-                return $this->_attributeList;
-            } catch (Exception $e) {
-                throw new Exception($e->getMessage());
-            }
-        } else {
-            return $this->_attributeList;
-        }
+        return $this->_attributeList;
     }
 
     public function getAttribute($key)
     {
-        return $this->_attributeList[$key];
+        return $this->_attributeList->at($key);
     }
 
     public function setAttribute($key, $value)
     {
+        $oHash = TM_Document_Hash::getInstanceById($key);
+
         if ($this->searchAttribute($key)) {
-            $this->_attributeList[$key]->setValue($value);
+            $this->_attributeList->at($key)->setValue($value);
+
+            if ($oHash->getType() instanceof TM_Attribute_AttributeTypeList) {
+                $keyO = array_search($value, $oHash->getValueList(false, true));
+                $temp = $oHash->getListOrder();
+                if ($key !== false && isset($temp[$keyO])) {
+                    $this->_attributeList->at($key)->setAttributeOrder($temp[$keyO]);
+                }
+            }
 
         } else {
-            $oHash = TM_Document_Hash::getInstanceById($key);
             $oAttribute = new TM_Attribute_Attribute($this);
-            $oAttribute->setAttribyteKey($key);
+            $oAttribute->setAttributeKey($key);
             $oAttribute->setType($oHash->getType());
             $oAttribute->setValue($value);
 
-            $this->_attributeList[$key] = $oAttribute;
+            if ($oHash->getType() instanceof TM_Attribute_AttributeTypeList) {
+                $key = array_search($value, $oHash->getValueList(false, true));
+                $temp = $oHash->getListOrder();
+                if ($key !== false && isset($temp[$key])) {
+                    $oAttribute->setAttributeOrder($temp[$key]);
+                }
+            }
+
+            $this->_attributeList->add($key, $oAttribute);
             //$oAttribute->insertToDB();
         }
     }
 
     public function searchAttribute($needle)
     {
-        if (is_null($this->_attributeList) && !empty($this->_attributeList)) {
+        if ($this->_attributeList->getTotal() == 0) {
             return false;
         } else {
-            return array_key_exists($needle, $this->_attributeList);
+            return $this->_attributeList->search($needle);
         }
     }
 
     protected function saveAttributeList()
     {
-        if (!is_null($this->_attributeList) && !empty($this->_attributeList)) {
+        if ($this->_attributeList->getTotal() > 0) {
             $oMapper = new TM_Document_AttributeMapper();
             foreach ($this->_attributeList as $attribute) {
                 try {

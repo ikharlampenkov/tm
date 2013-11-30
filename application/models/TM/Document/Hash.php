@@ -7,7 +7,7 @@
  * To change this template use File | Settings | File Templates.
  */
 
-class TM_Document_Hash
+class TM_Document_Hash extends TM_Attribute_Hash
 {
 
     /**
@@ -18,35 +18,6 @@ class TM_Document_Hash
 
     /**
      *
-     * @access protected
-     */
-    protected $_attributeKey = '';
-
-    /**
-     *
-     * @access protected
-     */
-    protected $_title;
-
-    /**
-     * @var TM_Attribute_AttributeType
-     * @access protected
-     */
-    protected $_type = null;
-
-    /**
-     * @var string
-     */
-    protected $_listValue = '';
-
-    /**
-     *
-     * @access protected
-     */
-    protected $_db;
-
-    /**
-     *
      *
      * @return TM_Document_Document
      * @access public
@@ -54,33 +25,6 @@ class TM_Document_Hash
     public function getDocument()
     {
         return $this->_document;
-    }
-
-    /**
-     *
-     *
-     * @return TM_Attribute_AttributeType
-     * @access public
-     */
-    public function getType()
-    {
-        return $this->_type;
-    }
-
-    /**
-     *
-     *
-     * @return string
-     * @access public
-     */
-    public function getAttributeKey()
-    {
-        return $this->_attributeKey;
-    }
-
-    public function setAttributeKey($value)
-    {
-        $this->_attributeKey = $this->_db->prepareString($value);
     }
 
     /**
@@ -100,100 +44,12 @@ class TM_Document_Hash
     /**
      *
      *
-     * @return string
-     * @access public
-     */
-    public function getTitle()
-    {
-        return $this->_db->prepareStringToOut($this->_title);
-    }
-
-    /**
-     *
-     *
-     * @param TM_Attribute_AttributeType $value
-     *
-     * @return void
-     * @access protected
-     */
-    public function setType(TM_Attribute_AttributeType $value)
-    {
-        $this->_type = $value;
-    }
-
-    /**
-     *
-     *
-     * @param string $value
-     *
-     * @return void
-     * @access public
-     */
-    public function setTitle($value)
-    {
-        $this->_title = $this->_db->prepareString($value);
-    }
-
-    /**
-     *
-     *
-     * @param array|string $value
-     *
-     * @return void
-     * @access public
-     */
-    public function setValueList($value)
-    {
-        if (is_array($value)) {
-            $this->_listValue = $this->_db->prepareString(implode('||', $value));
-        } else {
-            $this->_listValue = $value;
-        }
-    }
-
-    /**
-     *
-     *
-     * @param bool $asString
-     *
-     * @return array|string
-     * @access public
-     */
-    public function getValueList($asString = false)
-    {
-        if ($asString) {
-            return $this->_listValue;
-        } else {
-            return explode('||', $this->_db->prepareStringToOut($this->_listValue));
-        }
-
-    }
-
-    /**
-     * @param $name
-     *
-     * @throws Exception
-     * @return mixed
-     */
-    public function __get($name)
-    {
-        $method = 'get' . ucfirst($name);
-        if (method_exists($this, $method)) {
-            return $this->$method();
-        } else {
-            throw new Exception('Can not find method ' . $method . ' in class ' . __CLASS__);
-        }
-    }
-
-    /**
-     *
-     *
      * @return TM_Document_Hash
      * @access public
      */
     public function __construct()
     {
-        $this->_db = StdLib_DB::getInstance();
+        parent::__construct();
     }
 
     /**
@@ -207,11 +63,10 @@ class TM_Document_Hash
     {
         try {
             $sql
-                = 'INSERT INTO tm_document_hash(document_id, attribute_key, title, type_id, list_value)
-                    VALUES (NULL, "' . $this->_attributeKey . '", "' . $this->_title . '", ' . $this->_type->getId() . ', "' . $this->_listValue . ' ")';
+                = 'INSERT INTO tm_document_hash(document_id, attribute_key, title, type_id, list_value, list_order, required, sort_order)
+                    VALUES (NULL, "' . $this->_attributeKey . '", "' . $this->_title . '", ' . $this->_type->getId() . ',
+                            "' . $this->_listValue . ' ", "' . $this->_listOrder . '",  ' . $this->_prepareBool($this->_isRequired) . ', ' . $this->_sortOrder . ')';
             $this->_db->query($sql);
-
-            $this->_id = $this->_db->getLastInsertId();
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
@@ -229,7 +84,9 @@ class TM_Document_Hash
         try {
             $sql
                 = 'UPDATE tm_document_hash
-                    SET title="' . $this->_title . '", type_id=' . $this->_type->getId() . ', list_value="' . $this->_listValue . ' "
+                    SET title="' . $this->_title . '", type_id=' . $this->_type->getId() . ',
+                        list_value="' . $this->_listValue . ' ", list_order="' . $this->_listOrder . '",
+                        required=' . $this->_prepareBool($this->_isRequired) . ', sort_order=' . $this->_sortOrder . '
                     WHERE document_id IS NULL AND attribute_key="' . $this->_attributeKey . '"';
             $this->_db->query($sql);
         } catch (Exception $e) {
@@ -275,7 +132,7 @@ class TM_Document_Hash
 
             if (isset($result[0])) {
                 $o = new TM_Document_Hash();
-                $o->fillFromArray($result[0]);
+                $o->fillFromArray($result[0], new TM_Document_AttributeTypeMapper());
                 return $o;
             } else {
                 return false;
@@ -299,7 +156,7 @@ class TM_Document_Hash
     {
         try {
             $o = new TM_Document_Hash();
-            $o->fillFromArray($values);
+            $o->fillFromArray($values, new TM_Document_AttributeTypeMapper());
             return $o;
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -308,7 +165,7 @@ class TM_Document_Hash
 
     /**
      *
-     * @param $object
+     * @param TM_Document_Document $object
      *
      * @throws Exception
      * @return array
@@ -336,13 +193,13 @@ class TM_Document_Hash
             */
 
             $sql
-                = 'SELECT tm_document_hash.attribute_key, title, tm_document_hash.type_id, list_value
+                = 'SELECT tm_document_hash.attribute_key, title, tm_document_hash.type_id, list_value, list_order, required, sort_order
                     FROM tm_document_hash ';
 
             if (!is_null($object)) {
                 $sql
                     .= ' LEFT JOIN (
-                         SELECT * FROM tm_document_attribute WHERE document_id=' . $object->id . '
+                         SELECT * FROM tm_document_attribute WHERE document_id=' . $object->getId() . '
                    ) t2 ON tm_document_hash.attribute_key=t2.attribute_key
                    ORDER BY t2.is_fill DESC, title';
             } else {
@@ -363,24 +220,5 @@ class TM_Document_Hash
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    }
-
-    /**
-     *
-     *
-     * @param array $values
-     *
-     * @return void
-     * @access public
-     */
-    public function fillFromArray($values)
-    {
-        $this->setAttributeKey($values['attribute_key']);
-        $this->setTitle($values['title']);
-
-        $oMapper = new TM_Document_AttributeTypeMapper();
-        $this->setType($oMapper->getInstanceById($values['type_id']));
-        unset($oMapper);
-        $this->setValueList($values['list_value']);
     }
 }

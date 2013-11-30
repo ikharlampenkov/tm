@@ -28,6 +28,18 @@
             <td class="ttovar_title">Список значений (через ||) </td>
             <td class="ttovar"><input name="data[list_value]" value="{$hash->getValueList(true)}"/></td>
         </tr>
+        <tr>
+            <td class="ttovar_title">Список для сортировки значений (через ||)</td>
+            <td class="ttovar"><input type="text" name="data[list_order]" value="{$hash->getListOrder(true)}"/></td>
+        </tr>
+        <tr>
+            <td class="ttovar_title">Обязательное</td>
+            <td class="ttovar"><input type="checkbox" name="data[required]" {if $hash->isRequired}checked="checked" {/if} style="width: 14px;"/></td>
+        </tr>
+        <tr>
+            <td class="ttovar_title">Порядок сортировки</td>
+            <td class="ttovar"><input type="text" name="data[sort_order]" value="{$hash->sortOrder}"/></td>
+        </tr>
     </table>
     <input id="save" name="save" type="submit" value="Сохранить"/>
 </form>
