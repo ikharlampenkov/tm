@@ -22,7 +22,8 @@ class UserController extends Zend_Controller_Action
         //$this->view->assign('userListClient', TM_User_User::getAllInstance(1));
         $this->view->assign('userType', $userType);
 
-        //$this->view->assign('organizationList', TM_Organization_Organization::getAllInstance($this->_user));
+        $this->view->assign('organizationList', TM_Organization_Organization::getAllInstance($this->_user));
+        $this->view->assign('organizationId', 1);
     }
 
     public function viewattributetypeAction()

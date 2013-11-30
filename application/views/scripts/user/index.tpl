@@ -1,4 +1,4 @@
-{*include file="organization/index.tpl"*}
+{include file="organization/index.tpl"}
 
 
 <div class="page">

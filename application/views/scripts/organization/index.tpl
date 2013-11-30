@@ -28,7 +28,7 @@
                     <span class="edit"><a href="{$this->url(['controller' => 'menu', 'action' => 'editmenu', 'id' => $organization->id])}"><i class="icon-pencil"></i></a></span>
                     <span class="del"><a href="{$this->url(['controller' => 'menu', 'action' => 'deletemenu', 'id' => $organization->id])}" onclick="return confirmDelete('{$organization->title}');"><i class="icon-remove"></i></a></span>
                 </li>
-            {/foreach}>
+            {/foreach}
         {/if}
     </ul>
 </div>
