@@ -236,3 +236,5 @@ error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attr
                     VALUES (503, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '503-description' for key 'PRIMARY' ;  22.11.2013 22:08
 error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attribute_key, type_id, attribute_value, is_fill)
                     VALUES (503, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '503-description' for key 'PRIMARY' ;  22.11.2013 22:10
+error   Can`t complit query: SELECT tm_document_hash.attribute_key, title, tm_document_hash.type_id, list_value, list_order, required, sort_order
+                    FROM tm_document_hash  ORDER BY title No error: 1054:: Error msg: Unknown column 'list_order' in 'field list' ;  30.11.2013 20:53

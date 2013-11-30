@@ -297,8 +297,8 @@ abstract class TM_Attribute_Hash
     {
         $this->setAttributeKey($values['attribute_key']);
         $this->setTitle($values['title']);
-
-        $this->setType(TM_Attribute_AttributeTypeFactory::getAttributeTypeById($typeMapper, $values['type_id']));
+        $this->setType($typeMapper->getInstanceById($values['type_id']));
+        unset($typeMapper);
         $this->setValueList($values['list_value']);
         $this->setListOrder($values['list_order']);
         $this->setIsRequired($values['required']);
