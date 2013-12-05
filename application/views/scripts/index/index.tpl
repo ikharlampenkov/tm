@@ -1,8 +1,8 @@
 {*{$this->action('index', 'task')}*}
 
-<div class="container">
+<div class="container-fluid">
 
-<div class="row">
+<div class="row-fluid">
     <div class="span6">
 
         {if_allowed resource="{$controller}/index" priv="show-my-task"}
@@ -139,7 +139,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row-fluid">
     <div class="span6">
         {*
     {if_allowed resource="{$controller}/index" priv="show-my-reports"}
