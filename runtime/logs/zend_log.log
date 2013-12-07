@@ -73,3 +73,7 @@
 2013-11-30T20:43:18+07:00 NOTICE (5): Undefined index: sort_order
 2013-11-30T20:53:16+07:00 CRIT (2): 
 2013-11-30T20:53:16+07:00 CRIT (2): Request Parameters
+2013-12-07T14:34:28+07:00 NOTICE (5): Undefined index: organizationList
+2013-12-07T14:34:28+07:00 NOTICE (5): Trying to get property of non-object
+2013-12-07T14:34:28+07:00 NOTICE (5): Undefined index: organizationList
+2013-12-07T14:34:28+07:00 NOTICE (5): Trying to get property of non-object
