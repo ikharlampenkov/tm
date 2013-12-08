@@ -10,6 +10,7 @@ class OrganizationController extends Zend_Controller_Action
         $storage_data = Zend_Auth::getInstance()->getStorage()->read();
         $this->_user = TM_User_User::getInstanceById($storage_data->id);
 
+        $this->_helper->AjaxContext()->addActionContext('index', 'html')->initContext('html');
         $this->_helper->AjaxContext()->addActionContext('add', 'html')->initContext('html');
         $this->_helper->AjaxContext()->addActionContext('edit', 'html')->initContext('html');
         $this->_helper->AjaxContext()->addActionContext('delete', 'html')->initContext('html');
@@ -19,20 +20,19 @@ class OrganizationController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        // action body
+        $this->view->assign('organizationList', TM_Organization_Organization::getAllInstance($this->_user));
+        $this->view->assign('organizationId', 0);
     }
 
     public function addAction()
     {
         $oOrganization = new TM_Organization_Organization();
-        //$oOrganization->setUser($this->_user);
+        $oOrganization->setUser($this->_user);
         //$oOrganization->setDateCreate(date('d.m.Y H:i:s'));
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
             $oOrganization->setTitle($data['title']);
-            //$oOrganization->setDateCreate($data['date_create']);
-            //$oOrganization->setType($data['type']);
 
             foreach ($data['attribute'] as $key => $value) {
                 $oOrganization->setAttribute($key, $value);
@@ -42,7 +42,7 @@ class OrganizationController extends Zend_Controller_Action
             try {
                 $oOrganization->insertToDb();
 
-                TM_Activity_ActivityLogger::logMessage($this->_user, 'Пользователи', 'Добавлена организация ' . $oOrganization->getTitle(), $oOrganization);
+                TM_Activity_ActivityLogger::logMessage($this->_user, 'Организации', 'Добавлена организация ' . $oOrganization->getTitle(), $oOrganization);
 
                 if ($this->_request->isXmlHttpRequest()) {
                     exit;
@@ -66,7 +66,6 @@ class OrganizationController extends Zend_Controller_Action
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
             $oOrganization->setTitle($data['title']);
-            //$oOrganization->setDateCreate($data['date_create']);
 
             foreach ($data['attribute'] as $key => $value) {
                 $oOrganization->setAttribute($key, $value);
@@ -75,7 +74,7 @@ class OrganizationController extends Zend_Controller_Action
             try {
                 $oOrganization->updateToDb();
 
-                TM_Activity_ActivityLogger::logMessage($this->_user, 'Проекты', 'Изменения в задаче ' . $oOrganization->getTitle(), $oOrganization);
+                TM_Activity_ActivityLogger::logMessage($this->_user, 'Организации', 'Изменения в организации ' . $oOrganization->getTitle(), $oOrganization);
 
                 if ($this->_request->isXmlHttpRequest()) {
                     exit;
@@ -92,6 +91,23 @@ class OrganizationController extends Zend_Controller_Action
         $this->view->assign('organization', $oOrganization);
     }
 
+    public function deleteAction()
+    {
+        $oOrganization = TM_Organization_Organization::getInstanceById($this->getRequest()->getParam('id'));
+        try {
+            $oOrganization->deleteFromDB();
+
+            TM_Activity_ActivityLogger::logMessage($this->_user, 'Организации', 'Удалена организация ' . $oOrganization->getTitle(), $oOrganization);
+            if ($this->_request->isXmlHttpRequest()) {
+                exit;
+            } else {
+                $this->redirect('/user/index/');
+            }
+        } catch (Exception $e) {
+            $this->view->assign('exception_msg', $e->getMessage());
+        }
+    }
+
     public function viewAction()
     {
         $oOrganization = TM_Organization_Organization::getInstanceById($this->getRequest()->getParam('id'));
@@ -104,24 +120,6 @@ class OrganizationController extends Zend_Controller_Action
         $oOrganization = TM_Organization_Organization::getInstanceById($this->getRequest()->getParam('id'));
         $this->view->assign('attributeHashList', TM_Organization_Hash::getAllInstance($oOrganization));
         $this->view->assign('organization', $oOrganization);
-    }
-
-    public function deleteAction()
-    {
-        $oOrganization = TM_Organization_Organization::getInstanceById($this->getRequest()->getParam('id'));
-        try {
-            $oOrganization->deleteFromDB();
-
-            TM_Activity_ActivityLogger::logMessage($this->_user, 'Проекты', 'Удалена задача ' . $oOrganization->getTitle(), $oOrganization);
-            if ($this->_request->isXmlHttpRequest()) {
-                exit;
-            } else {
-                $this->redirect('/user/index/');
-            }
-        } catch (Exception $e) {
-            $this->view->assign('exception_msg', $e->getMessage());
-        }
-        // action body
     }
 
     public function viewattributetypeAction()

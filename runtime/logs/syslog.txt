@@ -238,3 +238,8 @@ error   Can`t complit query: INSERT INTO tm_document_attribute(document_id, attr
                     VALUES (503, "description", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '503-description' for key 'PRIMARY' ;  22.11.2013 22:10
 error   Can`t complit query: SELECT tm_document_hash.attribute_key, title, tm_document_hash.type_id, list_value, list_order, required, sort_order
                     FROM tm_document_hash  ORDER BY title No error: 1054:: Error msg: Unknown column 'list_order' in 'field list' ;  30.11.2013 20:53
+error   Can`t complit query: DELETE FROM tm_organization
+                    WHERE id=3 No error: 1451:: Error msg: Cannot delete or update a parent row: a foreign key constraint fails (`cl71252_tm`.`tm_organization_attribute`, CONSTRAINT `fk_tm_organization_attribute_tm_organization1` FOREIGN KEY (`organization_id`) REFERENCES `tm_organization` (`id`) ON DELETE NO ACTION ON ) ;  08.12.2013 21:52
+error   Can`t complit query: INSERT INTO tm_organization(title, user_id,)
+                    VALUES ("ООО \"Проверка\"", 1) No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+                    VALUES ("ООО \"Проверка\"", 1)' at line 1 ;  08.12.2013 22:22

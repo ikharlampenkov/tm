@@ -387,19 +387,21 @@ var organization = {
         prefics = prefics || '';
         filter = filter || 'all';
 
+        /*
         if ($('#' + prefics + 'subtask_' + parent).html() != '' && !isReload) {
             $('#' + prefics + 'subtask_' + parent).hide();
             $('#' + prefics + 'subtask_' + parent).empty();
             return;
         }
+        */
 
-        rg_url += '/filter/' + filter;
+        //rg_url += '/filter/' + filter;
 
         $.get(rg_url, '', function (data) {
-            $('#' + prefics + 'subtask_' + parent).empty();
-            $('#' + prefics + 'subtask_' + parent).append(data);
-            //task.createSubMenu();
-            $('#' + prefics + 'subtask_' + parent).show();
+            $('#organization_block').empty();
+            $('#organization_block').append(data);
+
+            $('#organization_block').show();
         }, 'html');
     }
 

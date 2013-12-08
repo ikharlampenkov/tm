@@ -11,25 +11,43 @@
         {/if_allowed}
     </div>
 
-</div><br />
+</div><br/>
 
 {if_allowed resource="organization/add"}
     <div class="sub-menu">
-        <img src="/i/add.png" />&nbsp;<a href="javascript:void(0)" onclick="organization.addDialog('{$this->url(['controller' => 'organization','action' => 'add'])}', 0, '{$this->url(['controller' => 'organization','action' => 'showTaskBlock', 'parent' => 0])}')">добавить</a>
+        <img src="/i/add.png"/>&nbsp;<a href="javascript:void(0)" onclick="organization.addDialog('{$this->url(['controller' => 'organization','action' => 'add'])}', 0, '{$this->url(['controller' => 'organization', 'action' => 'index'])}')">добавить</a>
     </div>
 {/if_allowed}
 
-<div class="well" style="padding: 8px 0;">
-    <ul class="nav nav-list">
-        {if $organizationList !== false}
+<div id="organization_block">
+    <table>
+        <tr>
+            <td class="ttovar">Название</td>
+            <td class="ttovar"></td>
+        </tr>
+
+        {if $organizationList!==false}
             {foreach from=$organizationList item=organization}
-                <li {if $organization->id == $organizationId}class="active"{/if}>
-                    <a href="/menu/index/menuId/{$organization->id}/">{$organization->title}</a>
-                    <span class="edit"><a href="{$this->url(['controller' => 'menu', 'action' => 'editmenu', 'id' => $organization->id])}"><i class="icon-pencil"></i></a></span>
-                    <span class="del"><a href="{$this->url(['controller' => 'menu', 'action' => 'deletemenu', 'id' => $organization->id])}" onclick="return confirmDelete('{$organization->title}');"><i class="icon-remove"></i></a></span>
-                </li>
+                <tr>
+                    <td class="ttovar" {if $organization->id == $organizationId}class="active"{/if}>{$organization->title}</td>
+                    <td class="tedit" style="width: 20px; background-color: #f7f7f7;">
+                        <div class="btn-group">
+                            <button style="border: 0" data-toggle="dropdown"><i class="icon-edit"></i></button>
+                            <ul class="dropdown-menu pull-right">
+                                {if_allowed resource="{'organization'}/edit"}
+                                    <li><a href="javascript:void(0)" onclick="organization.editDialog('{$this->url(['controller' => 'organization', 'action' => 'edit', 'id' => $organization->id])}', 0, '{$this->url(['controller' => 'organization', 'action' => 'index'])}')"><img src="/i/edit.png"/>&nbsp;редактировать</a></li>
+                                {/if_allowed}
+
+                                {if $organization->user->id == $authUserId || $authUserRole == 'admin'}
+                                    {if_allowed resource="{'organization'}/delete"}
+                                        <li><a href="javascript:void(0)" onclick="organization.deleteDialog('{$organization->title}', '{$this->url(['controller' => 'organization', 'action' => 'delete', 'id' => $organization->id])}', 0, '{$this->url(['controller' => 'organization', 'action' => 'index'])}');" style="color: #830000"><img src="/i/delete.png"/>&nbsp;удалить</a></li>
+                                    {/if_allowed}
+                                {/if}
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
             {/foreach}
         {/if}
-    </ul>
+    </table>
 </div>
-
