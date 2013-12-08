@@ -19,6 +19,12 @@ class TM_Organization_Organization
     protected $_title;
 
     /**
+     * @var TM_User_User
+     * @access protected
+     */
+    protected $_user = null;
+
+    /**
      * @var array
      */
     protected $_attributeList = array();
@@ -56,6 +62,17 @@ class TM_Organization_Organization
     /**
      *
      *
+     * @return TM_User_User
+     * @access public
+     */
+    public function getUser()
+    {
+        return $this->_user;
+    }
+
+    /**
+     *
+     *
      * @param int $value
      *
      * @return void
@@ -78,6 +95,19 @@ class TM_Organization_Organization
     {
         $this->_title = $this->_db->prepareString($value);
     } // end of member function setTitle
+
+    /**
+     *
+     *
+     * @param TM_User_User $value
+     *
+     * @return void
+     * @access public
+     */
+    public function setUser(TM_User_User $value)
+    {
+        $this->_user = $value;
+    }
 
     public function __get($name)
     {
@@ -108,8 +138,8 @@ class TM_Organization_Organization
     {
         try {
             $sql
-                = 'INSERT INTO tm_organization(title)
-                    VALUES ("' . $this->_title . '")';
+                = 'INSERT INTO tm_organization(title, user_id)
+                    VALUES ("' . $this->_title . '", ' . $this->_user->getId() . ')';
             $this->_db->query($sql);
 
             $this->_id = $this->_db->getLastInsertId();
@@ -131,7 +161,7 @@ class TM_Organization_Organization
         try {
             $sql
                 = 'UPDATE tm_organization
-                    SET title="' . $this->_title . '"
+                    SET title="' . $this->_title . '", user_id=' . $this->_user->getId() . '
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
 
@@ -251,6 +281,9 @@ class TM_Organization_Organization
     {
         $this->setId($values['id']);
         $this->setTitle($values['title']);
+
+        $o_user = TM_User_User::getInstanceById($values['user_id']);
+        $this->setUser($o_user);
 
         $this->getAttributeList();
     } // end of member function fillFromArray
