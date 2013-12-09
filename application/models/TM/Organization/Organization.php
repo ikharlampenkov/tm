@@ -25,6 +25,12 @@ class TM_Organization_Organization
     protected $_user = null;
 
     /**
+     * @var string
+     * @access protected
+     */
+    protected $_dateCreate;
+
+    /**
      * @var array
      */
     protected $_attributeList = array();
@@ -46,7 +52,7 @@ class TM_Organization_Organization
     public function getId()
     {
         return $this->_id;
-    } // end of member function getId
+    }
 
     /**
      *
@@ -57,7 +63,7 @@ class TM_Organization_Organization
     public function getTitle()
     {
         return $this->_db->prepareStringToOut($this->_title);
-    } // end of member function getTitle
+    }
 
     /**
      *
@@ -73,6 +79,17 @@ class TM_Organization_Organization
     /**
      *
      *
+     * @return string
+     * @access public
+     */
+    public function getDateCreate()
+    {
+        return $this->_dateCreate;
+    }
+
+    /**
+     *
+     *
      * @param int $value
      *
      * @return void
@@ -81,7 +98,7 @@ class TM_Organization_Organization
     protected function setId($value)
     {
         $this->_id = (int)$value;
-    } // end of member function setId
+    }
 
     /**
      *
@@ -94,7 +111,7 @@ class TM_Organization_Organization
     public function setTitle($value)
     {
         $this->_title = $this->_db->prepareString($value);
-    } // end of member function setTitle
+    }
 
     /**
      *
@@ -109,11 +126,27 @@ class TM_Organization_Organization
         $this->_user = $value;
     }
 
+    /**
+     *
+     *
+     * @param string $value
+     *
+     * @return string
+     * @access public
+     */
+    public function setDateCreate($value)
+    {
+        $value = $this->_db->prepareString($value);
+        $this->_dateCreate = date("Y-m-d H:i:s", strtotime($value));
+    }
+
     public function __get($name)
     {
-        $method = "get{$name}";
+        $method = 'get' . ucfirst($name);
         if (method_exists($this, $method)) {
             return $this->$method();
+        } else {
+            throw new Exception('Can not find method ' . $method . ' in class ' . __CLASS__);
         }
     }
 
@@ -126,11 +159,12 @@ class TM_Organization_Organization
     public function __construct()
     {
         $this->_db = StdLib_DB::getInstance();
-    } // end of member function __construct
+    }
 
     /**
      *
      *
+     * @throws Exception
      * @return void
      * @access public
      */
@@ -138,8 +172,8 @@ class TM_Organization_Organization
     {
         try {
             $sql
-                = 'INSERT INTO tm_organization(title, user_id)
-                    VALUES ("' . $this->_title . '", ' . $this->_user->getId() . ')';
+                = 'INSERT INTO tm_organization(title, user_id, date_create)
+                    VALUES ("' . $this->_title . '", ' . $this->_user->getId() . ', "' . $this->_dateCreate . '")';
             $this->_db->query($sql);
 
             $this->_id = $this->_db->getLastInsertId();
@@ -148,11 +182,12 @@ class TM_Organization_Organization
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function insertToDb
+    }
 
     /**
      *
      *
+     * @throws Exception
      * @return void
      * @access public
      */
@@ -161,7 +196,7 @@ class TM_Organization_Organization
         try {
             $sql
                 = 'UPDATE tm_organization
-                    SET title="' . $this->_title . '", user_id=' . $this->_user->getId() . '
+                    SET title="' . $this->_title . '", user_id=' . $this->_user->getId() . ', date_create="' . $this->_dateCreate . '"
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
 
@@ -169,11 +204,12 @@ class TM_Organization_Organization
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function updateToDb
+    }
 
     /**
      *
      *
+     * @throws Exception
      * @return void
      * @access public
      */
@@ -187,13 +223,14 @@ class TM_Organization_Organization
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function deleteFromDb
+    }
 
     /**
      *
      *
-     * @param int $id идентификатор задачи
+     * @param int $id идентификатор организации
      *
+     * @throws Exception
      * @return TM_Organization_Organization
      * @static
      * @access public
@@ -215,7 +252,7 @@ class TM_Organization_Organization
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getInstanceById
+    }
 
     /**
      *
@@ -223,6 +260,7 @@ class TM_Organization_Organization
      * @param       $user
      * @param array $values
      *
+     * @throws Exception
      * @return TM_Organization_Organization
      * @static
      * @access public
@@ -236,13 +274,14 @@ class TM_Organization_Organization
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getInstanceByArray
+    }
 
     /**
      *
      *
      * @param TM_User_User $user
      *
+     * @throws Exception
      * @return array
      * @static
      * @access public
@@ -267,7 +306,7 @@ class TM_Organization_Organization
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getAllInstance
+    }
 
     /**
      *
@@ -285,8 +324,10 @@ class TM_Organization_Organization
         $o_user = TM_User_User::getInstanceById($values['user_id']);
         $this->setUser($o_user);
 
+        $this->setDateCreate($values['date_create']);
+
         $this->getAttributeList();
-    } // end of member function fillFromArray
+    }
 
     /**
      * @return array

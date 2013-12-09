@@ -28,11 +28,12 @@ class OrganizationController extends Zend_Controller_Action
     {
         $oOrganization = new TM_Organization_Organization();
         $oOrganization->setUser($this->_user);
-        //$oOrganization->setDateCreate(date('d.m.Y H:i:s'));
+        $oOrganization->setDateCreate(date('d.m.Y H:i:s'));
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
             $oOrganization->setTitle($data['title']);
+            $oOrganization->setDateCreate($data['date_create']);
 
             foreach ($data['attribute'] as $key => $value) {
                 $oOrganization->setAttribute($key, $value);
@@ -66,6 +67,7 @@ class OrganizationController extends Zend_Controller_Action
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
             $oOrganization->setTitle($data['title']);
+            $oOrganization->setDateCreate($data['date_create']);
 
             foreach ($data['attribute'] as $key => $value) {
                 $oOrganization->setAttribute($key, $value);

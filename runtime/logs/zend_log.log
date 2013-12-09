@@ -135,3 +135,11 @@
 2013-12-08T22:16:45+07:00 NOTICE (5): Trying to get property of non-object
 2013-12-09T20:52:27+07:00 CRIT (2): 
 2013-12-09T20:52:27+07:00 CRIT (2): Request Parameters
+2013-12-09T21:26:50+07:00 NOTICE (5): Undefined index: date_create
+2013-12-09T21:26:50+07:00 NOTICE (5): Undefined index: date_create
+2013-12-09T21:26:57+07:00 NOTICE (5): Undefined index: date_create
+2013-12-09T21:26:57+07:00 NOTICE (5): Undefined index: date_create
+2013-12-09T21:27:28+07:00 NOTICE (5): Undefined index: date_create
+2013-12-09T21:27:28+07:00 NOTICE (5): Undefined index: date_create
+2013-12-09T21:27:36+07:00 NOTICE (5): Undefined index: date_create
+2013-12-09T21:27:36+07:00 NOTICE (5): Undefined index: date_create
