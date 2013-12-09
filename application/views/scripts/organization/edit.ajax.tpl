@@ -12,7 +12,7 @@
     <table width="100%">
         <tr>
             <td class="ttovar_title">Название</td>
-            <td class="ttovar"><input name="data[title]" value="{$organization->title}" class="input_ajax"/></td>
+            <td class="ttovar"><input type="text" name="data[title]" value="{$organization->title}" class="input_ajax"/></td>
         </tr>
     {*
     <tr>
