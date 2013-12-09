@@ -31,9 +31,9 @@ class TM_Organization_Organization
     protected $_dateCreate;
 
     /**
-     * @var array
+     * @var TM_Attribute_AttributeCollection
      */
-    protected $_attributeList = array();
+    protected $_attributeList = null;
 
     /**
      *
@@ -159,6 +159,7 @@ class TM_Organization_Organization
     public function __construct()
     {
         $this->_db = StdLib_DB::getInstance();
+        $this->_attributeList = new TM_Attribute_AttributeCollection($this, null, new TM_Organization_AttributeMapper());
     }
 
     /**
@@ -326,7 +327,9 @@ class TM_Organization_Organization
 
         $this->setDateCreate($values['date_create']);
 
-        $this->getAttributeList();
+        $oMapper = new TM_Organization_AttributeMapper();
+        $this->_attributeList = $oMapper->getAllInstance($this);
+        unset($oMapper);
     }
 
     /**
@@ -335,24 +338,7 @@ class TM_Organization_Organization
      */
     public function getAttributeList()
     {
-        if (is_null($this->_attributeList) || empty($this->_attributeList)) {
-            try {
-                $oMapper = new TM_Organization_AttributeMapper();
-                $attributeList = $oMapper->getAllInstance($this);
-                unset($oMapper);
-                if ($attributeList !== false) {
-                    foreach ($attributeList as $attribute) {
-                        $this->_attributeList[$attribute->attributeKey] = $attribute;
-                    }
-                }
-
-                return $this->_attributeList;
-            } catch (Exception $e) {
-                throw new Exception($e->getMessage());
-            }
-        } else {
-            return $this->_attributeList;
-        }
+        return $this->_attributeList;
     }
 
     /**
@@ -362,26 +348,24 @@ class TM_Organization_Organization
      */
     public function getAttribute($key)
     {
-        return $this->_attributeList[$key];
+        return $this->_attributeList->at($key);
     }
 
     public function setAttribute($key, $value)
     {
-        if ($this->searchAttribute($key)) {
-            $oHash = TM_Organization_Hash::getInstanceById($key);
-
-            $this->_attributeList[$key]->setValue($value);
+        $oHash = TM_Organization_Hash::getInstanceById($key);
+        if ($this->_attributeList->search($key)) {
+            $this->_attributeList->at($key)->setValue($value);
 
             if ($oHash->getType() instanceof TM_Attribute_AttributeTypeList) {
                 $keyO = array_search($value, $oHash->getValueList(false, true));
                 $temp = $oHash->getListOrder();
                 if ($key !== false && isset($temp[$keyO])) {
-                    $this->_attributeList[$key]->setAttributeOrder($temp[$keyO]);
+                    $this->_attributeList->at($key)->setAttributeOrder($temp[$keyO]);
                 }
             }
 
         } else {
-            $oHash = TM_Organization_Hash::getInstanceById($key);
             $oAttribute = new TM_Attribute_Attribute($this);
             $oAttribute->setAttributeKey($key);
             $oAttribute->setType($oHash->getType());
@@ -395,23 +379,22 @@ class TM_Organization_Organization
                 }
             }
 
-            $this->_attributeList[$key] = $oAttribute;
-            //$oAttribute->insertToDB();
+            $this->_attributeList->add($key, $oAttribute);
         }
     }
 
     public function searchAttribute($needle)
     {
-        if (is_null($this->_attributeList) && !empty($this->_attributeList)) {
+        if ($this->_attributeList->getTotal() == 0) {
             return false;
         } else {
-            return array_key_exists($needle, $this->_attributeList);
+            return $this->_attributeList->search($needle);
         }
     }
 
     protected function saveAttributeList()
     {
-        if (!is_null($this->_attributeList) && !empty($this->_attributeList)) {
+        if ($this->_attributeList->getTotal() > 0) {
             $oMapper = new TM_Organization_AttributeMapper();
             foreach ($this->_attributeList as $attribute) {
                 try {
