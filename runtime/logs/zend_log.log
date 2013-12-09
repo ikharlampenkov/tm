@@ -143,3 +143,8 @@
 2013-12-09T21:27:28+07:00 NOTICE (5): Undefined index: date_create
 2013-12-09T21:27:36+07:00 NOTICE (5): Undefined index: date_create
 2013-12-09T21:27:36+07:00 NOTICE (5): Undefined index: date_create
+2013-12-09T21:46:47+07:00 NOTICE (5): Undefined index: is_allow
+2013-12-09T22:05:35+07:00 CRIT (2): 
+2013-12-09T22:05:35+07:00 CRIT (2): Request Parameters
+2013-12-09T22:06:25+07:00 CRIT (2): 
+2013-12-09T22:06:25+07:00 CRIT (2): Request Parameters

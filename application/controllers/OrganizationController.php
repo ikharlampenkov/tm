@@ -126,7 +126,8 @@ class OrganizationController extends Zend_Controller_Action
 
     public function viewattributetypeAction()
     {
-        $this->view->assign('attributeTypeList', TM_Attribute_AttributeType::getAllInstance(new TM_Organization_AttributeTypeMapper()));
+        $oMapper = new TM_Organization_AttributeTypeMapper();
+        $this->view->assign('attributeTypeList', $oMapper->getAllInstance());
     }
 
     public function viewhashAction()
@@ -136,7 +137,8 @@ class OrganizationController extends Zend_Controller_Action
 
     public function addattributetypeAction()
     {
-        $oType = new TM_Attribute_AttributeType(new TM_Organization_AttributeTypeMapper());
+        $oMapper = new TM_Organization_AttributeTypeMapper();
+        $oType = new TM_Attribute_AttributeType();
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
@@ -146,8 +148,8 @@ class OrganizationController extends Zend_Controller_Action
             $oType->setHandler($data['handler']);
 
             try {
-                $oType->insertToDb();
-                $this->redirect('/organization/viewAttributeType');
+                $oMapper->insertToDb($oType);
+                $this->redirect('/organization/viewAttributeType/');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
             }
@@ -159,7 +161,8 @@ class OrganizationController extends Zend_Controller_Action
 
     public function editattributetypeAction()
     {
-        $oType = TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Organization_AttributeTypeMapper(), $this->getRequest()->getParam('id'));
+        $oMapper = new TM_Organization_AttributeTypeMapper();
+        $oType = $oMapper->getInstanceById($this->getRequest()->getParam('id'));
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
@@ -169,7 +172,7 @@ class OrganizationController extends Zend_Controller_Action
             $oType->setHandler($data['handler']);
 
             try {
-                $oType->updateToDb();
+                $oMapper->updateToDb($oType);
                 $this->redirect('/organization/viewAttributeType');
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
@@ -182,9 +185,11 @@ class OrganizationController extends Zend_Controller_Action
 
     public function deleteattributetypeAction()
     {
-        $oType = TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Organization_AttributeTypeMapper(), $this->getRequest()->getParam('id'));
+        $oMapper = new TM_Organization_AttributeTypeMapper();
+        $oType = $oMapper->getInstanceById($this->getRequest()->getParam('id'));
+
         try {
-            $oType->deleteFromDB();
+            $oMapper->deleteFromDB($oType);
             $this->redirect('/organization/viewAttributeType');
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -193,6 +198,8 @@ class OrganizationController extends Zend_Controller_Action
 
     public function addattributehashAction()
     {
+        $oMapper = new TM_Organization_AttributeTypeMapper();
+
         $oHash = new TM_Organization_Hash();
         $oHash->setIsRequired(false);
         $oHash->setSortOrder(1000);
@@ -202,7 +209,7 @@ class OrganizationController extends Zend_Controller_Action
 
             $oHash->setAttributeKey($data['attribute_key']);
             $oHash->setTitle($data['title']);
-            $oHash->setType(TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Organization_AttributeTypeMapper(), $data['type_id']));
+            $oHash->setType($oMapper->getInstanceById($data['type_id']));
             $oHash->setValueList($data['list_value']);
             $oHash->setListOrder($data['list_order']);
             $oHash->setIsRequired($data['required']);
@@ -218,18 +225,19 @@ class OrganizationController extends Zend_Controller_Action
         }
 
         $this->view->assign('hash', $oHash);
-        $this->view->assign('attributeTypeList', TM_Attribute_AttributeType::getAllInstance(new TM_Organization_AttributeTypeMapper()));
+        $this->view->assign('attributeTypeList', $oMapper->getAllInstance());
     }
 
     public function editattributehashAction()
     {
+        $oMapper = new TM_Organization_AttributeTypeMapper();
         $oHash = TM_Organization_Hash::getInstanceById($this->getRequest()->getParam('key'));
 
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
 
             $oHash->setTitle($data['title']);
-            $oHash->setType(TM_Attribute_AttributeTypeFactory::getAttributeTypeById(new TM_Organization_AttributeTypeMapper(), $data['type_id']));
+            $oHash->setType($oMapper->getInstanceById($data['type_id']));
             $oHash->setValueList($data['list_value']);
             $oHash->setListOrder($data['list_order']);
             $oHash->setIsRequired($data['required']);
@@ -245,7 +253,7 @@ class OrganizationController extends Zend_Controller_Action
         }
 
         $this->view->assign('hash', $oHash);
-        $this->view->assign('attributeTypeList', TM_Attribute_AttributeType::getAllInstance(new TM_Organization_AttributeTypeMapper()));
+        $this->view->assign('attributeTypeList', $oMapper->getAllInstance());
     }
 
     public function deleteattributehashAction()
