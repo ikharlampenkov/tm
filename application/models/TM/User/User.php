@@ -27,6 +27,9 @@ class TM_User_User
      */
     protected $_role = null;
 
+    /**
+     * @var string
+     */
     protected $_dateCreate;
 
     /**
@@ -35,10 +38,13 @@ class TM_User_User
     protected $_type = 'client';
 
     /**
-     * @var array
+     * @var TM_Attribute_AttributeCollection
      */
-    protected $_attributeList = array();
+    protected $_attributeList = null;
 
+    /**
+     * @var StdLib_DB
+     */
     protected $_db;
 
 
@@ -105,16 +111,18 @@ class TM_User_User
 
     public function __get($name)
     {
-        $method = "get{$name}";
+        $method = 'get' . ucfirst($name);
         if (method_exists($this, $method)) {
             return $this->$method();
+        } else {
+            throw new Exception('Can not find method ' . $method . ' in class ' . __CLASS__);
         }
     }
 
     public function __construct()
     {
         $this->_db = StdLib_DB::getInstance();
-
+        $this->_attributeList = new TM_Attribute_AttributeCollection($this, null, new TM_User_AttributeMapper());
     }
 
     /**
@@ -131,53 +139,57 @@ class TM_User_User
                 throw new Exception('Пользователь с таким логином существует');
             }
             $sql
-                = 'INSERT INTO tm_user(login, password, role_id, date_create, type)
+                    = 'INSERT INTO tm_user(login, password, role_id, date_create, type)
                     VALUES ("' . $this->_login . '", "' . $this->_password . '", ' . $this->_role->getId() . ', "' . $this->_dateCreate . '", "' . $this->_type . '")';
             $this->_db->query($sql);
+
+            $this->_id = $this->_db->getLastInsertId();
+            $this->saveAttributeList();
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function insertToDb
+    }
 
     /**
      *
      *
-     * @return
+     * @throws Exception
+     * @return void
      * @access public
      */
     public function updateToDb()
     {
         try {
             $sql
-                = 'UPDATE tm_user
+                    = 'UPDATE tm_user
                     SET login="' . $this->_login . '", password="' . $this->_password . '",
                         role_id="' . $this->_role->getId() . '", date_create="' . $this->_dateCreate . '",
                         type="' . $this->_type . '"
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
+
             $this->saveAttributeList();
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function updateToDb
+    }
 
     /**
      *
      *
-     * @return
+     * @throws Exception
+     * @return void
      * @access public
      */
     public function deleteFromDb()
     {
         try {
-            $sql
-                = 'DELETE FROM tm_user
-                    WHERE id=' . $this->_id;
+            $sql = 'DELETE FROM tm_user  WHERE id=' . $this->_id;
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function deleteFromDb
+    }
 
     /**
      *
@@ -206,7 +218,7 @@ class TM_User_User
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getInstanceById
+    }
 
     /**
      *
@@ -274,7 +286,7 @@ class TM_User_User
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getInstanceByArray
+    }
 
     /**
      *
@@ -308,7 +320,7 @@ class TM_User_User
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getAllInstance
+    }
 
     /**
      *
@@ -330,29 +342,14 @@ class TM_User_User
 
         $this->setType($values['type']);
 
-        $this->getAttributeList();
-    } // end of member function fillFromArray
+        $oMapper = new TM_User_AttributeMapper();
+        $this->_attributeList = $oMapper->getAllInstance($this);
+        unset($oMapper);
+    }
 
     public function getAttributeList()
     {
-        if (is_null($this->_attributeList) || empty($this->_attributeList)) {
-            try {
-                $oMapper = new TM_User_AttributeMapper();
-                $attributeList = $oMapper->getAllInstance($this);
-                unset($oMapper);
-                if ($attributeList !== false) {
-                    foreach ($attributeList as $attribute) {
-                        $this->_attributeList[$attribute->attributeKey] = $attribute;
-                    }
-                }
-
-                return $this->_attributeList;
-            } catch (Exception $e) {
-                throw new Exception($e->getMessage());
-            }
-        } else {
-            return $this->_attributeList;
-        }
+        return $this->_attributeList;
     }
 
     /**
@@ -362,39 +359,52 @@ class TM_User_User
      */
     public function getAttribute($key)
     {
-        return $this->_attributeList[$key];
+        return $this->_attributeList->at($key);
     }
 
     public function setAttribute($key, $value)
     {
-        if ($this->searchAttribute($key)) {
-            $this->_attributeList[$key]->setValue($value);
+        $oHash = TM_User_Hash::getInstanceById($key);
+        if ($this->_attributeList->search($key)) {
+            $this->_attributeList->at($key)->setValue($value);
 
+            if ($oHash->getType() instanceof TM_Attribute_AttributeTypeList) {
+                $keyO = array_search($value, $oHash->getValueList(false, true));
+                $temp = $oHash->getListOrder();
+                if ($key !== false && isset($temp[$keyO])) {
+                    $this->_attributeList->at($key)->setAttributeOrder($temp[$keyO]);
+                }
+            }
         } else {
-            $oHash = TM_User_Hash::getInstanceById($key);
-            $oMapper = new TM_User_AttributeMapper();
             $oAttribute = new TM_Attribute_Attribute($this);
             $oAttribute->setAttributeKey($key);
             $oAttribute->setType($oHash->getType());
             $oAttribute->setValue($value);
 
-            $this->_attributeList[$key] = $oAttribute;
-            $oMapper->insertToDB($oAttribute);
+            if ($oHash->getType() instanceof TM_Attribute_AttributeTypeList) {
+                $key = array_search($value, $oHash->getValueList(false, true));
+                $temp = $oHash->getListOrder();
+                if ($key !== false && isset($temp[$key])) {
+                    $oAttribute->setAttributeOrder($temp[$key]);
+                }
+            }
+
+            $this->_attributeList->add($key, $oAttribute);
         }
     }
 
     public function searchAttribute($needle)
     {
-        if (is_null($this->_attributeList) && !empty($this->_attributeList)) {
+        if ($this->_attributeList->getTotal() == 0) {
             return false;
         } else {
-            return array_key_exists($needle, $this->_attributeList);
+            return $this->_attributeList->search($needle);
         }
     }
 
     protected function saveAttributeList()
     {
-        if (!is_null($this->_attributeList) && !empty($this->_attributeList)) {
+        if ($this->_attributeList->getTotal() > 0) {
             $oMapper = new TM_User_AttributeMapper();
             foreach ($this->_attributeList as $attribute) {
                 try {
