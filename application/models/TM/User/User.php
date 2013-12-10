@@ -18,8 +18,14 @@ class TM_User_User
      */
     protected $_id;
 
+    /**
+     * @var string
+     */
     protected $_login;
 
+    /**
+     * @var string
+     */
     protected $_password;
 
     /**
@@ -36,6 +42,11 @@ class TM_User_User
      * @var string тип - expert, client, admin
      */
     protected $_type = 'client';
+
+    /**
+     * @var TM_Organization_Organization|null
+     */
+    protected $_organization = null;
 
     /**
      * @var TM_Attribute_AttributeCollection
@@ -109,6 +120,36 @@ class TM_User_User
         return $this->_type;
     }
 
+    /**
+     * @param null|\TM_Organization_Organization $organization
+     */
+    public function setOrganization($organization)
+    {
+        $this->_organization = $organization;
+    }
+
+    /**
+     * @return null|\TM_Organization_Organization
+     */
+    public function getOrganization()
+    {
+        return $this->_organization;
+    }
+
+    /**
+     * @param TM_Organization_Organization $value
+     *
+     * @return string|int
+     */
+    protected function _prepareNull($value)
+    {
+        if ($value == null) {
+            return 'NULL';
+        } else {
+            return $value->getId();
+        }
+    }
+
     public function __get($name)
     {
         $method = 'get' . ucfirst($name);
@@ -139,8 +180,8 @@ class TM_User_User
                 throw new Exception('Пользователь с таким логином существует');
             }
             $sql
-                    = 'INSERT INTO tm_user(login, password, role_id, date_create, type)
-                    VALUES ("' . $this->_login . '", "' . $this->_password . '", ' . $this->_role->getId() . ', "' . $this->_dateCreate . '", "' . $this->_type . '")';
+                    = 'INSERT INTO tm_user(login, password, role_id, date_create, type, organization_id)
+                    VALUES ("' . $this->_login . '", "' . $this->_password . '", ' . $this->_role->getId() . ', "' . $this->_dateCreate . '", "' . $this->_type . '", ' . $this->_prepareNull($this->_organization) . ')';
             $this->_db->query($sql);
 
             $this->_id = $this->_db->getLastInsertId();
@@ -164,7 +205,7 @@ class TM_User_User
                     = 'UPDATE tm_user
                     SET login="' . $this->_login . '", password="' . $this->_password . '",
                         role_id="' . $this->_role->getId() . '", date_create="' . $this->_dateCreate . '",
-                        type="' . $this->_type . '"
+                        type="' . $this->_type . '", organization_id=' . $this->_prepareNull($this->_organization) . '
                     WHERE id=' . $this->_id;
             $this->_db->query($sql);
 
@@ -184,7 +225,7 @@ class TM_User_User
     public function deleteFromDb()
     {
         try {
-            $sql = 'DELETE FROM tm_user  WHERE id=' . $this->_id;
+            $sql = 'DELETE FROM tm_user WHERE id=' . $this->_id;
             $this->_db->query($sql);
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -291,6 +332,7 @@ class TM_User_User
     /**
      *
      *
+     * @param TM_Organization_Organization $organization
      * @param string $type
      *
      * @throws Exception
@@ -298,14 +340,19 @@ class TM_User_User
      * @static
      * @access public
      */
-    public static function getAllInstance($type = '')
+    public static function getAllInstance($organization = null, $type = '')
     {
         try {
             $db = StdLib_DB::getInstance();
-            $sql = 'SELECT * FROM tm_user ';
-            if ($type !== '') {
-                $sql .= ' WHERE type="' . $type . '" ';
+            $sql = 'SELECT * FROM tm_user WHERE 1';
+            if ($organization != null) {
+                $sql .= ' AND organization_id=' . $organization->getId() . ' ';
             }
+            if ($type !== '') {
+                $sql .= ' AND type="' . $type . '" ';
+            }
+
+            $sql .= ' ORDER BY organization_id, id';
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
@@ -345,6 +392,10 @@ class TM_User_User
         $oMapper = new TM_User_AttributeMapper();
         $this->_attributeList = $oMapper->getAllInstance($this);
         unset($oMapper);
+
+        if ($values['organization_id']) {
+            $this->setOrganization(TM_Organization_Organization::getInstanceById($values['organization_id']));
+        }
     }
 
     public function getAttributeList()
