@@ -165,7 +165,7 @@ class TM_User_Resource {
             if (isset($result[0])) {
                 $retArray = array();
                 foreach ($result as $res) {
-                    $retArray[] = TM_User_Resource::getInstanceByArray($res);
+                    $retArray[$res['id']] = TM_User_Resource::getInstanceByArray($res);
                 }
                 return $retArray;
             } else {

@@ -165,11 +165,11 @@ class TM_User_RoleAcl
      * @static
      * @access public
      */
-    public static function getInstanceByArray(TM_User_Role $role, $values)
+    public static function getInstanceByArray(TM_User_Role $role, $values, $resource)
     {
         try {
             $o = new TM_User_RoleAcl($role);
-            $o->fillFromArray($values);
+            $o->fillFromArray($values, $resource);
             return $o;
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -190,10 +190,12 @@ class TM_User_RoleAcl
             $sql = 'SELECT * FROM tm_acl_role WHERE tm_user_role_id=' . $role->getId();
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
+            $resourceList = TM_User_Resource::getAllInstance();
+
             if (isset($result[0])) {
                 $retArray = array();
                 foreach ($result as $res) {
-                    $retArray[$res['tm_user_resource_id']] = TM_User_RoleAcl::getInstanceByArray($role, $res);
+                    $retArray[$res['tm_user_resource_id']] = TM_User_RoleAcl::getInstanceByArray($role, $res, $resourceList[$res['tm_user_resource_id']]);
                 }
                 return $retArray;
             } else {
@@ -212,9 +214,9 @@ class TM_User_RoleAcl
      * @return void
      * @access public
      */
-    public function fillFromArray($values)
+    public function fillFromArray($values, $resource)
     {
-        $this->setResource(TM_User_Resource::getInstanceById($values['tm_user_resource_id']));
+        $this->setResource($resource); //TM_User_Resource::getInstanceById($values['tm_user_resource_id'])
         $this->setIsAllow($values['is_allow']);
         $this->setPrivileges($values['privileges']);
     } // end of member function fillFromArray
