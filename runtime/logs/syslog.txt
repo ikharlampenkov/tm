@@ -299,4 +299,3 @@ error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_ke
                     VALUES (1, "phone", 1, "", 0) No error: 1062:: Error msg: Duplicate entry '1-phone' for key 'PRIMARY' ;  11.12.2013 20:25
 error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
                     VALUES (1, "position", 1, "", 0) No error: 1062:: Error msg: Duplicate entry '1-position' for key 'PRIMARY' ;  11.12.2013 20:25
-                    

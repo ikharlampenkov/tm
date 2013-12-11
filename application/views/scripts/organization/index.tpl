@@ -29,7 +29,7 @@
         {if $organizationList!==false}
             {foreach from=$organizationList item=organization}
                 <tr>
-                    <td class="ttovar {if $organization->id == $organizationId}active{/if}">{$organization->title}</td>
+                    <td class="ttovar {if $organization->id == $organizationId}active{/if}"><a href="{$this->url(['controller' => 'user', 'action' => 'index', 'organizationId' => $organization->id, 'userType' => $userType])}">{$organization->title}</a></td>
                     <td class="tedit" style="width: 20px; background-color: #f7f7f7;">
                         <div class="btn-group">
                             <button style="border: 0" data-toggle="dropdown"><i class="icon-edit"></i></button>

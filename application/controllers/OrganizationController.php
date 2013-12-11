@@ -20,8 +20,12 @@ class OrganizationController extends Zend_Controller_Action
 
     public function indexAction()
     {
+        $userType = $this->getRequest()->getParam('userType', 'client');
+        $organizationId = $this->getRequest()->getParam('organizationId', null);
+
+        $this->view->assign('userType', $userType);
         $this->view->assign('organizationList', TM_Organization_Organization::getAllInstance($this->_user));
-        $this->view->assign('organizationId', 0);
+        $this->view->assign('organizationId', $organizationId);
     }
 
     public function addAction()

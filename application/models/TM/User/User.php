@@ -348,7 +348,7 @@ class TM_User_User
             if ($organization != null) {
                 $sql .= ' AND organization_id=' . $organization->getId() . ' ';
             }
-            if ($type !== '') {
+            if ($organization == null && $type !== '') {
                 $sql .= ' AND type="' . $type . '" ';
             }
 

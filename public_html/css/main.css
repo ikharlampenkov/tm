@@ -485,6 +485,13 @@ div#login input[type=submit] {
     width: 396px;
 }
 
+/** User **/
+
+.active {
+    background-color: #ffffff;
+    color: #000000;
+}
+
 
 
 
