@@ -18,7 +18,7 @@ class UserController extends Zend_Controller_Action
         $userType = $this->getRequest()->getParam('userType', 'client');
 
         $this->view->assign('userRoleList', TM_User_Role::getAllInstance());
-        $this->view->assign('userList', TM_User_User::getAllInstance($userType));
+        $this->view->assign('userList', TM_User_User::getAllInstance(null, $userType));
         //$this->view->assign('userListClient', TM_User_User::getAllInstance(1));
         $this->view->assign('userType', $userType);
 
@@ -57,6 +57,16 @@ class UserController extends Zend_Controller_Action
             $oUser->setRole(TM_User_Role::getInstanceById($data['role_id']));
             $oUser->setType($data['type']);
 
+            if ($data['organization_id'] != 'null') {
+                $oUser->setOrganization(TM_Organization_Organization::getInstanceById($data['organization_id']));
+            } else {
+                $oUser->setOrganization(null);
+            }
+
+            foreach ($data['attribute'] as $key => $value) {
+                $oUser->setAttribute($key, $value);
+            }
+
             try {
                 $oUser->insertToDb();
                 $this->redirect('/user');
@@ -66,6 +76,8 @@ class UserController extends Zend_Controller_Action
         }
 
         $this->view->assign('userRoleList', TM_User_Role::getAllInstance());
+        $this->view->assign('attributeHashList', TM_User_Hash::getAllInstance());
+        $this->view->assign('organizationList', TM_Organization_Organization::getAllInstance($this->_user));
         $this->view->assign('user', $oUser);
     }
 
@@ -77,12 +89,17 @@ class UserController extends Zend_Controller_Action
         if ($this->getRequest()->isPost()) {
             $data = $this->getRequest()->getParam('data');
 
-
             $oUser->setLogin($data['login']);
             $oUser->setDateCreate($data['date_create']);
             $oUser->setPassword($data['password']);
             $oUser->setRole(TM_User_Role::getInstanceById($data['role_id']));
             $oUser->setType($data['type']);
+
+            if ($data['organization_id'] != 'null') {
+                $oUser->setOrganization(TM_Organization_Organization::getInstanceById($data['organization_id']));
+            } else {
+                $oUser->setOrganization(null);
+            }
 
             foreach ($data['attribute'] as $key => $value) {
                 $oUser->setAttribute($key, $value);
@@ -98,6 +115,7 @@ class UserController extends Zend_Controller_Action
 
         $this->view->assign('userRoleList', TM_User_Role::getAllInstance());
         $this->view->assign('attributeHashList', TM_User_Hash::getAllInstance($oUser));
+        $this->view->assign('organizationList', TM_Organization_Organization::getAllInstance($this->_user));
         $this->view->assign('user', $oUser);
     }
 

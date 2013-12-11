@@ -197,8 +197,8 @@ class TM_Organization_Organization
         try {
             $sql
                 = 'UPDATE tm_organization
-                    SET title="' . $this->_title . '", user_id=' . $this->_user->getId() . ', date_create="' . $this->_dateCreate . '"
-                    WHERE id=' . $this->_id;
+                    SET title="' . $this->_title . '", date_create="' . $this->_dateCreate . '"
+                    WHERE id=' . $this->_id; //user_id=' . $this->_user->getId() . ',
             $this->_db->query($sql);
 
             $this->saveAttributeList();
@@ -322,8 +322,8 @@ class TM_Organization_Organization
         $this->setId($values['id']);
         $this->setTitle($values['title']);
 
-        $o_user = TM_User_User::getInstanceById($values['user_id']);
-        $this->setUser($o_user);
+        //$o_user = TM_User_User::getInstanceById($values['user_id']);
+        $this->setUser(new TM_User_User());
 
         $this->setDateCreate($values['date_create']);
 

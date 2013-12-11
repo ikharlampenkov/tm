@@ -245,3 +245,58 @@ error   Can`t complit query: INSERT INTO tm_organization(title, user_id,)
                     VALUES ("ООО \"Проверка\"", 1)' at line 1 ;  08.12.2013 22:22
 error   Can`t complit query: INSERT INTO tm_organization(title, user_id, date_create)
                     VALUES ("На дату", 1, "2013-12-09 21:27:39") No error: 1054:: Error msg: Unknown column 'date_create' in 'field list' ;  09.12.2013 21:27
+error   Can`t complit query: SELECT tm_user_hash.attribute_key, title, tm_user_hash.type_id, list_value, list_order, required, sort_order
+                    FROM tm_user_hash LEFT JOIN (
+                        SELECT * FROM tm_user_attribute WHERE tm_user_attribute.user_id=
+                     ) t2 ON tm_user_hash.attribute_key=t2.attribute_key
+                     ORDER BY t2.is_fill DESC, title No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ') t2 ON tm_user_hash.attribute_key=t2.attribute_key
+                     ORDER ' at line 4 ;  11.12.2013 20:05
+error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (112, "address", 1, "fbvfebfe", 0) No error: 1062:: Error msg: Duplicate entry '112-address' for key 'PRIMARY' ;  11.12.2013 20:13
+error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (112, "birthday", 1, "23.04.1987", 0) No error: 1062:: Error msg: Duplicate entry '112-birthday' for key 'PRIMARY' ;  11.12.2013 20:13
+error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (112, "name", 1, "Новый Новый Новичок", 0) No error: 1062:: Error msg: Duplicate entry '112-name' for key 'PRIMARY' ;  11.12.2013 20:13
+error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (112, "note", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '112-note' for key 'PRIMARY' ;  11.12.2013 20:13
+error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (112, "organization", 1, "", 0) No error: 1062:: Error msg: Duplicate entry '112-organization' for key 'PRIMARY' ;  11.12.2013 20:13
+error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (112, "phone", 1, "", 0) No error: 1062:: Error msg: Duplicate entry '112-phone' for key 'PRIMARY' ;  11.12.2013 20:13
+error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (112, "position", 1, "wwvgwvbwrgbqw", 0) No error: 1062:: Error msg: Duplicate entry '112-position' for key 'PRIMARY' ;  11.12.2013 20:13
+error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (1, "address", 1, "", 0) No error: 1062:: Error msg: Duplicate entry '1-address' for key 'PRIMARY' ;  11.12.2013 20:15
+error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (1, "birthday", 1, "", 0) No error: 1062:: Error msg: Duplicate entry '1-birthday' for key 'PRIMARY' ;  11.12.2013 20:15
+error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (1, "name", 1, "Администратор", 0) No error: 1062:: Error msg: Duplicate entry '1-name' for key 'PRIMARY' ;  11.12.2013 20:15
+error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (1, "note", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '1-note' for key 'PRIMARY' ;  11.12.2013 20:15
+error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (1, "organization", 1, "", 0) No error: 1062:: Error msg: Duplicate entry '1-organization' for key 'PRIMARY' ;  11.12.2013 20:15
+error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (1, "phone", 1, "", 0) No error: 1062:: Error msg: Duplicate entry '1-phone' for key 'PRIMARY' ;  11.12.2013 20:15
+error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (1, "position", 1, "", 0) No error: 1062:: Error msg: Duplicate entry '1-position' for key 'PRIMARY' ;  11.12.2013 20:15
+error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (5, "name", 1, "Руководитель", 0) No error: 1062:: Error msg: Duplicate entry '5-name' for key 'PRIMARY' ;  11.12.2013 20:25
+error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (5, "organization", 1, "", 0) No error: 1062:: Error msg: Duplicate entry '5-organization' for key 'PRIMARY' ;  11.12.2013 20:25
+error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (5, "position", 1, "", 0) No error: 1062:: Error msg: Duplicate entry '5-position' for key 'PRIMARY' ;  11.12.2013 20:25
+error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (1, "address", 1, "", 0) No error: 1062:: Error msg: Duplicate entry '1-address' for key 'PRIMARY' ;  11.12.2013 20:25
+error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (1, "birthday", 1, "", 0) No error: 1062:: Error msg: Duplicate entry '1-birthday' for key 'PRIMARY' ;  11.12.2013 20:25
+error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (1, "name", 1, "Администратор", 0) No error: 1062:: Error msg: Duplicate entry '1-name' for key 'PRIMARY' ;  11.12.2013 20:25
+error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (1, "note", 2, "", 0) No error: 1062:: Error msg: Duplicate entry '1-note' for key 'PRIMARY' ;  11.12.2013 20:25
+error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (1, "organization", 1, "", 0) No error: 1062:: Error msg: Duplicate entry '1-organization' for key 'PRIMARY' ;  11.12.2013 20:25
+error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (1, "phone", 1, "", 0) No error: 1062:: Error msg: Duplicate entry '1-phone' for key 'PRIMARY' ;  11.12.2013 20:25
+error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
+                    VALUES (1, "position", 1, "", 0) No error: 1062:: Error msg: Duplicate entry '1-position' for key 'PRIMARY' ;  11.12.2013 20:25
+                    

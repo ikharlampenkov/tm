@@ -29,6 +29,16 @@
             </td>
         </tr>
         <tr>
+            <td class="ttovar">Организация</td>
+            <td class="ttovar"><select name="data[organization_id]">
+                    <option value="null">--</option>
+                    {foreach from=$organizationList item=organization}
+                        <option value="{$organization->id}" {if !is_null($user->organization) && $user->organization->id == $organization->id}selected="selected" {/if}>{$organization->title}</option>
+                    {/foreach}
+                </select>
+            </td>
+        </tr>
+        <tr>
             <td class="ttovar">Тип пользователя</td>
             <td class="ttovar"><select name="data[type]">
                     <option value="administrator" {if $user->type == 'administrator'}selected="selected"{/if}>Работник</option>
@@ -36,6 +46,14 @@
                 </select>
             </td>
         </tr>
+        {if $attributeHashList!==false}
+            {foreach from=$attributeHashList item=attributeHash}
+                <tr>
+                    <td class="ttovar_title">{$attributeHash->title}</td>
+                    <td class="ttovar">{$attributeHash->type->getHTMLFrom($attributeHash, $user)}</td>
+                </tr>
+            {/foreach}
+        {/if}
     </table>
     <input id="save" name="save" type="submit" value="Сохранить"/>
 </form>

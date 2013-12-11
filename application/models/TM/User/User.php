@@ -393,7 +393,7 @@ class TM_User_User
         $this->_attributeList = $oMapper->getAllInstance($this);
         unset($oMapper);
 
-        if ($values['organization_id']) {
+        if ($values['organization_id'] != null) {
             $this->setOrganization(TM_Organization_Organization::getInstanceById($values['organization_id']));
         }
     }
