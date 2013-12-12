@@ -382,24 +382,98 @@ var organization = {
         }, 'html');
     },
 
+    editDialog: function (rq_url, parent, show_url, prefics) {
+        prefics = prefics || '';
+        if ($('#editDialog').length < 1) // создаем блок диалогового окна
+        {
+            $('body').append('<div id="editDialog" ></div>');
+        } else {
+            $('#addDialog').dialog('close'); // на всякий случай закрываем
+        }
+
+        $.get(rq_url, '', function (data) { // посылаем пост запрос для вывода формы
+            $('#editDialog').html(data).dialog({
+                title: 'Редактировать организацию',
+                modal: true,
+                height: 550,
+                width: 830,
+                buttons: {
+                    Сохранить: function () {
+                        $('#editForm').ajaxSubmit({
+                            success: function (responseText, statusText, xhr, $form) {
+                                if (responseText != '') {
+                                    $('#editDialog').html(responseText);
+                                }
+                                else {
+                                    organization.openOrganization(show_url, parent, true, prefics);
+                                    $('#editDialog').dialog('close');
+                                }
+                            }
+                        });
+                    },
+                    Отмена: function () {
+                        $('#editDialog').dialog('close');
+                    }
+                }
+            });
+            $(".datepicker").datetimepicker();
+            $('#exception').css('display', 'none');
+        }, 'html');
+    },
+
+    deleteDialog: function (organization_title, rg_url, parent, show_url) {
+        if ($('#deleteDialog').length < 1) // создаем блок диалогового окна
+        {
+            $('body').append('<div id="deleteDialog" ></div>');
+        } else {
+            $('#deleteDialog').dialog('close'); // на всякий случай закрываем
+        }
+
+        var html = '<div>Вы действительно хотите удалить организацию:<br/><b>' + organization_title + '?</b></div>';
+
+        $('#deleteDialog').html(html).dialog({
+            title: 'Удалить организацию',
+            modal: true,
+            height: 220,
+            width: 500,
+            buttons: {
+                Удалить: function () {
+                    $.get(rg_url, function (data) {
+                        if (data == '') {
+                            organization.openOrganization(show_url, parent, true);
+                            $('#deleteDialog').dialog('close');
+                        } else {
+                            $('#deleteDialog').append(data);
+                        }
+                    });
+                },
+                Отмена: function () {
+                    $('#deleteDialog').dialog('close');
+                }
+            }
+        });
+    },
+
     openOrganization: function (rg_url, parent, isReload, prefics, filter) {
         isReload = isReload || false;
         prefics = prefics || '';
         filter = filter || 'all';
 
-        if ($('#' + prefics + 'subtask_' + parent).html() != '' && !isReload) {
-            $('#' + prefics + 'subtask_' + parent).hide();
-            $('#' + prefics + 'subtask_' + parent).empty();
-            return;
-        }
+        /*
+         if ($('#' + prefics + 'subtask_' + parent).html() != '' && !isReload) {
+         $('#' + prefics + 'subtask_' + parent).hide();
+         $('#' + prefics + 'subtask_' + parent).empty();
+         return;
+         }
+         */
 
-        rg_url += '/filter/' + filter;
+        //rg_url += '/filter/' + filter;
 
         $.get(rg_url, '', function (data) {
-            $('#' + prefics + 'subtask_' + parent).empty();
-            $('#' + prefics + 'subtask_' + parent).append(data);
-            //task.createSubMenu();
-            $('#' + prefics + 'subtask_' + parent).show();
+            $('#organization_block').empty();
+            $('#organization_block').append(data);
+
+            $('#organization_block').show();
         }, 'html');
     }
 

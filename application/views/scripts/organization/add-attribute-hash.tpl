@@ -8,11 +8,11 @@
     <table width="100%">
         <tr>
             <td class="ttovar_title">Ключ</td>
-            <td class="ttovar"><input name="data[attribute_key]" value="{$hash->attributeKey}"/></td>
+            <td class="ttovar"><input type="text" name="data[attribute_key]" value="{$hash->attributeKey}"/></td>
         </tr>
         <tr>
             <td class="ttovar_title">Описание</td>
-            <td class="ttovar"><input name="data[title]" value="{$hash->title}"/></td>
+            <td class="ttovar"><input type="text" name="data[title]" value="{$hash->title}"/></td>
         </tr>
         <tr>
             <td class="ttovar_title">Тип</td>
@@ -26,11 +26,11 @@
         </tr>
         <tr>
             <td class="ttovar_title">Список значений (через ||)</td>
-            <td class="ttovar"><input name="data[list_value]" value="{$hash->listValue}"/></td>
+            <td class="ttovar"><input type="text" name="data[list_value]" value="{$hash->getValueList(true)}"/></td>
         </tr>
         <tr>
             <td class="ttovar_title">Список для сортировки значений (через ||)</td>
-            <td class="ttovar"><input name="data[list_order]" value="{$hash->listOrder}"/></td>
+            <td class="ttovar"><input type="text" name="data[list_order]" value="{$hash->getListOrder(true)}"/></td>
         </tr>
         <tr>
             <td class="ttovar_title">Обязательное</td>
@@ -38,7 +38,7 @@
         </tr>
         <tr>
             <td class="ttovar_title">Порядок сортировки</td>
-            <td class="ttovar"><input name="data[sort_order]" value="{$hash->sortOrder}"/></td>
+            <td class="ttovar"><input type="text" name="data[sort_order]" value="{$hash->sortOrder}"/></td>
         </tr>
     </table>
     <input id="save" name="save" type="submit" value="Сохранить"/>

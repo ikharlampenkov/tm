@@ -19,9 +19,21 @@ class TM_Organization_Organization
     protected $_title;
 
     /**
-     * @var array
+     * @var TM_User_User
+     * @access protected
      */
-    protected $_attributeList = array();
+    protected $_user = null;
+
+    /**
+     * @var string
+     * @access protected
+     */
+    protected $_dateCreate;
+
+    /**
+     * @var TM_Attribute_AttributeCollection
+     */
+    protected $_attributeList = null;
 
     /**
      *
@@ -40,7 +52,7 @@ class TM_Organization_Organization
     public function getId()
     {
         return $this->_id;
-    } // end of member function getId
+    }
 
     /**
      *
@@ -51,7 +63,29 @@ class TM_Organization_Organization
     public function getTitle()
     {
         return $this->_db->prepareStringToOut($this->_title);
-    } // end of member function getTitle
+    }
+
+    /**
+     *
+     *
+     * @return TM_User_User
+     * @access public
+     */
+    public function getUser()
+    {
+        return $this->_user;
+    }
+
+    /**
+     *
+     *
+     * @return string
+     * @access public
+     */
+    public function getDateCreate()
+    {
+        return $this->_dateCreate;
+    }
 
     /**
      *
@@ -64,7 +98,7 @@ class TM_Organization_Organization
     protected function setId($value)
     {
         $this->_id = (int)$value;
-    } // end of member function setId
+    }
 
     /**
      *
@@ -77,13 +111,42 @@ class TM_Organization_Organization
     public function setTitle($value)
     {
         $this->_title = $this->_db->prepareString($value);
-    } // end of member function setTitle
+    }
+
+    /**
+     *
+     *
+     * @param TM_User_User $value
+     *
+     * @return void
+     * @access public
+     */
+    public function setUser(TM_User_User $value)
+    {
+        $this->_user = $value;
+    }
+
+    /**
+     *
+     *
+     * @param string $value
+     *
+     * @return string
+     * @access public
+     */
+    public function setDateCreate($value)
+    {
+        $value = $this->_db->prepareString($value);
+        $this->_dateCreate = date("Y-m-d H:i:s", strtotime($value));
+    }
 
     public function __get($name)
     {
-        $method = "get{$name}";
+        $method = 'get' . ucfirst($name);
         if (method_exists($this, $method)) {
             return $this->$method();
+        } else {
+            throw new Exception('Can not find method ' . $method . ' in class ' . __CLASS__);
         }
     }
 
@@ -96,11 +159,13 @@ class TM_Organization_Organization
     public function __construct()
     {
         $this->_db = StdLib_DB::getInstance();
-    } // end of member function __construct
+        $this->_attributeList = new TM_Attribute_AttributeCollection($this, null, new TM_Organization_AttributeMapper());
+    }
 
     /**
      *
      *
+     * @throws Exception
      * @return void
      * @access public
      */
@@ -108,8 +173,8 @@ class TM_Organization_Organization
     {
         try {
             $sql
-                = 'INSERT INTO tm_organization(title)
-                    VALUES ("' . $this->_title . '")';
+                = 'INSERT INTO tm_organization(title, user_id, date_create)
+                    VALUES ("' . $this->_title . '", ' . $this->_user->getId() . ', "' . $this->_dateCreate . '")';
             $this->_db->query($sql);
 
             $this->_id = $this->_db->getLastInsertId();
@@ -118,11 +183,12 @@ class TM_Organization_Organization
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function insertToDb
+    }
 
     /**
      *
      *
+     * @throws Exception
      * @return void
      * @access public
      */
@@ -131,19 +197,20 @@ class TM_Organization_Organization
         try {
             $sql
                 = 'UPDATE tm_organization
-                    SET title="' . $this->_title . '"
-                    WHERE id=' . $this->_id;
+                    SET title="' . $this->_title . '", date_create="' . $this->_dateCreate . '"
+                    WHERE id=' . $this->_id; //user_id=' . $this->_user->getId() . ',
             $this->_db->query($sql);
 
             $this->saveAttributeList();
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function updateToDb
+    }
 
     /**
      *
      *
+     * @throws Exception
      * @return void
      * @access public
      */
@@ -157,13 +224,14 @@ class TM_Organization_Organization
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function deleteFromDb
+    }
 
     /**
      *
      *
-     * @param int $id идентификатор задачи
+     * @param int $id идентификатор организации
      *
+     * @throws Exception
      * @return TM_Organization_Organization
      * @static
      * @access public
@@ -185,7 +253,7 @@ class TM_Organization_Organization
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getInstanceById
+    }
 
     /**
      *
@@ -193,6 +261,7 @@ class TM_Organization_Organization
      * @param       $user
      * @param array $values
      *
+     * @throws Exception
      * @return TM_Organization_Organization
      * @static
      * @access public
@@ -206,13 +275,14 @@ class TM_Organization_Organization
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getInstanceByArray
+    }
 
     /**
      *
      *
      * @param TM_User_User $user
      *
+     * @throws Exception
      * @return array
      * @static
      * @access public
@@ -237,7 +307,7 @@ class TM_Organization_Organization
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
         }
-    } // end of member function getAllInstance
+    }
 
     /**
      *
@@ -252,8 +322,15 @@ class TM_Organization_Organization
         $this->setId($values['id']);
         $this->setTitle($values['title']);
 
-        $this->getAttributeList();
-    } // end of member function fillFromArray
+        //$o_user = TM_User_User::getInstanceById($values['user_id']);
+        $this->setUser(new TM_User_User());
+
+        $this->setDateCreate($values['date_create']);
+
+        $oMapper = new TM_Organization_AttributeMapper();
+        $this->_attributeList = $oMapper->getAllInstance($this);
+        unset($oMapper);
+    }
 
     /**
      * @return array
@@ -261,24 +338,7 @@ class TM_Organization_Organization
      */
     public function getAttributeList()
     {
-        if (is_null($this->_attributeList) || empty($this->_attributeList)) {
-            try {
-                $oMapper = new TM_Organization_AttributeMapper();
-                $attributeList = $oMapper->getAllInstance($this);
-                unset($oMapper);
-                if ($attributeList !== false) {
-                    foreach ($attributeList as $attribute) {
-                        $this->_attributeList[$attribute->attributeKey] = $attribute;
-                    }
-                }
-
-                return $this->_attributeList;
-            } catch (Exception $e) {
-                throw new Exception($e->getMessage());
-            }
-        } else {
-            return $this->_attributeList;
-        }
+        return $this->_attributeList;
     }
 
     /**
@@ -288,26 +348,24 @@ class TM_Organization_Organization
      */
     public function getAttribute($key)
     {
-        return $this->_attributeList[$key];
+        return $this->_attributeList->at($key);
     }
 
     public function setAttribute($key, $value)
     {
-        if ($this->searchAttribute($key)) {
-            $oHash = TM_Organization_Hash::getInstanceById($key);
-
-            $this->_attributeList[$key]->setValue($value);
+        $oHash = TM_Organization_Hash::getInstanceById($key);
+        if ($this->_attributeList->search($key)) {
+            $this->_attributeList->at($key)->setValue($value);
 
             if ($oHash->getType() instanceof TM_Attribute_AttributeTypeList) {
                 $keyO = array_search($value, $oHash->getValueList(false, true));
                 $temp = $oHash->getListOrder();
                 if ($key !== false && isset($temp[$keyO])) {
-                    $this->_attributeList[$key]->setAttributeOrder($temp[$keyO]);
+                    $this->_attributeList->at($key)->setAttributeOrder($temp[$keyO]);
                 }
             }
 
         } else {
-            $oHash = TM_Organization_Hash::getInstanceById($key);
             $oAttribute = new TM_Attribute_Attribute($this);
             $oAttribute->setAttributeKey($key);
             $oAttribute->setType($oHash->getType());
@@ -321,23 +379,22 @@ class TM_Organization_Organization
                 }
             }
 
-            $this->_attributeList[$key] = $oAttribute;
-            //$oAttribute->insertToDB();
+            $this->_attributeList->add($key, $oAttribute);
         }
     }
 
     public function searchAttribute($needle)
     {
-        if (is_null($this->_attributeList) && !empty($this->_attributeList)) {
+        if ($this->_attributeList->getTotal() == 0) {
             return false;
         } else {
-            return array_key_exists($needle, $this->_attributeList);
+            return $this->_attributeList->search($needle);
         }
     }
 
     protected function saveAttributeList()
     {
-        if (!is_null($this->_attributeList) && !empty($this->_attributeList)) {
+        if ($this->_attributeList->getTotal() > 0) {
             $oMapper = new TM_Organization_AttributeMapper();
             foreach ($this->_attributeList as $attribute) {
                 try {

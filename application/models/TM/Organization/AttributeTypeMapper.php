@@ -90,7 +90,7 @@ class TM_Organization_AttributeTypeMapper extends TM_Attribute_AttributeTypeMapp
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
-                $class = $$result[0]['handler'];
+                $class = $result[0]['handler'];
                 $o = new $class($this);
                 $o->fillFromArray($result[0]);
                 return $o;
@@ -162,5 +162,4 @@ class TM_Organization_AttributeTypeMapper extends TM_Attribute_AttributeTypeMapp
             throw new Exception($e->getMessage());
         }
     }
-} // end of TM_Organization_AttributeType
-?>
+}

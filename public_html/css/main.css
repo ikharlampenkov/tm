@@ -82,8 +82,8 @@ textarea {
 
 .page_block {
     float: right;
-    margin-top: -27px;
-    width: 300px;
+    margin-top: -37px;
+    width: 230px;
 }
 
 .tedit {
@@ -483,6 +483,13 @@ div#login select {
 
 div#login input[type=submit] {
     width: 396px;
+}
+
+/** User **/
+
+.active {
+    background-color: #ffffff;
+    color: #000000;
 }
 
 
