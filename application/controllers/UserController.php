@@ -9,6 +9,7 @@ class UserController extends Zend_Controller_Action
         $storage_data = Zend_Auth::getInstance()->getStorage()->read();
         $this->_user = TM_User_User::getInstanceById($storage_data->id);
 
+        $this->_helper->AjaxContext()->addActionContext('index', 'html')->initContext('html');
         $this->_helper->AjaxContext()->addActionContext('showUserAclBlock', 'html')->initContext('html');
         $this->_helper->AjaxContext()->addActionContext('showPrivateTask', 'html')->initContext('html');
     }

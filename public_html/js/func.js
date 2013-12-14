@@ -6,6 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 
+var organizationId = null;
 
 var task = {
     addDialog: function (rq_url, parent, show_url, prefics) { // Функция вывода диалогового окна
@@ -469,14 +470,33 @@ var organization = {
 
         //rg_url += '/filter/' + filter;
 
+        if (organizationId != null) {
+            rg_url += '/index/organizationId/' + organizationId;
+        }
+
         $.get(rg_url, '', function (data) {
             $('#organization_block').empty();
             $('#organization_block').append(data);
 
             $('#organization_block').show();
         }, 'html');
-    }
+    },
 
+    openUser: function (rg_url, organization_id) {
+
+        $.get(rg_url, '', function (data) {
+            $('#user_block').empty();
+            $('#user_block').append(data);
+
+            $('#user_block').show();
+
+
+            $('#organization_block td').removeClass('active');
+            $('#organization_' + organization_id).addClass('active');
+
+            organizationId = organization_id;
+        }, 'html');
+    }
 
 }
 
