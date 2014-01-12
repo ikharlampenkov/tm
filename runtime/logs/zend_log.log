@@ -161,3 +161,10 @@
 2013-12-14T21:05:39+07:00 NOTICE (5): Undefined index: organization
 2013-12-14T21:05:39+07:00 NOTICE (5): Trying to get property of non-object
 2013-12-14T21:05:39+07:00 NOTICE (5): Trying to get property of non-object
+2014-01-12T19:34:36+07:00 CRIT (2): 
+2014-01-12T19:34:36+07:00 CRIT (2): Request Parameters
+2014-01-12T19:36:51+07:00 ERR (3): Argument 1 passed to TM_Document_Document::setUser() must be an instance of TM_User_User, boolean given, called in C:\www\tm\application\models\TM\Document\Document.php on line 747 and defined
+2014-01-12T19:43:56+07:00 CRIT (2): 
+2014-01-12T19:43:56+07:00 CRIT (2): Request Parameters
+2014-01-12T20:13:02+07:00 CRIT (2): 
+2014-01-12T20:13:02+07:00 CRIT (2): Request Parameters

@@ -299,3 +299,9 @@ error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_ke
                     VALUES (1, "phone", 1, "", 0) No error: 1062:: Error msg: Duplicate entry '1-phone' for key 'PRIMARY' ;  11.12.2013 20:25
 error   Can`t complit query: INSERT INTO tm_user_attribute(user_id, attribute_key, type_id, attribute_value, is_fill)
                     VALUES (1, "position", 1, "", 0) No error: 1062:: Error msg: Duplicate entry '1-position' for key 'PRIMARY' ;  11.12.2013 20:25
+error   Can`t complit query: SELECT * FROM tm_document LEFT JOIN tm_task_document ON tm_document.id=tm_task_document.document_id LEFT JOIN tm_task ON tm_task_document.task_id=tm_task.id
+                        WHERE tm_document.parent_id IS NULL  AND is_archive=0  ORDER BY tm_task.is_vip No error: 1052:: Error msg: Column 'is_archive' in where clause is ambiguous ;  12.01.2014 19:34
+error   Can`t complit query: SELECT tm_document.id, tm_document.title, tm_document.user_id, tm_document.date_create, tm_document.file, tm_document.is_folder, tm_document.parent_id
+                       FROM tm_document LEFT JOIN tm_task_document ON tm_document.id=tm_task_document.document_id LEFT JOIN tm_task ON tm_task_document.task_id=tm_task.id
+                       WHERE tm_document.parent_id IS NULL AND tm_document.is_archive= ORDER BY tm_task.is_vip No error: 1064:: Error msg: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY tm_task.is_vip' at line 3 ;  12.01.2014 19:43
+error   Can`t complit query: SELECT * FROM tm_discussion LEFT JOIN tm_task_discussion ON tm_discussion.id=tm_task_discussion.discussion_id LEFT JOIN tm_task ON tm_task_discussion.task_id=tm_task.id WHERE topic_id IS NULL AND parent_id IS NULL AND is_message=0 AND is_archive=0 ORDER BY parent_id No error: 1052:: Error msg: Column 'parent_id' in where clause is ambiguous ;  12.01.2014 20:13

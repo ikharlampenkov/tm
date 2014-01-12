@@ -497,13 +497,22 @@ class TM_Document_Document
 
             } elseif ($parentId == 0) {
                 $sql
-                    = 'SELECT * FROM tm_document
-                        WHERE parent_id IS NULL ';
+                    = 'SELECT tm_document.id, tm_document.title, tm_document.user_id, tm_document.date_create, tm_document.file, tm_document.is_folder, tm_document.parent_id
+                       FROM tm_document
+                         LEFT JOIN tm_task_document ON tm_document.id=tm_task_document.document_id
+                         LEFT JOIN tm_task ON tm_task_document.task_id=tm_task.id
+                       WHERE tm_document.parent_id IS NULL
+                         AND tm_document.is_archive=' . (int)$isArchive;
+
+                /*
                 if ($isArchive) {
-                    $sql .= ' AND is_archive=1 ';
+                    $sql .= ' AND tm_document.is_archive=1 ';
                 } else {
-                    $sql .= ' AND is_archive=0 ';
+                    $sql .= ' AND tm_document.is_archive=0 ';
                 }
+                */
+
+                $sql .= ' ORDER BY tm_task.is_vip DESC, tm_document.id';
             }
 
             /*

@@ -6,8 +6,6 @@
  * Time: 15:38
  * To change this template use File | Settings | File Templates.
  */
-
-
 /*
  * tm_discussion
  *
@@ -515,9 +513,9 @@ class TM_Discussion_Discussion
      *
      *
      * @param TM_User_User $user
-     * @param int          $topicId id темы
-     * @param int          $isTopic - тема или сообщения
-     * @param bool         $isArchive
+     * @param int $topicId id темы
+     * @param int $isTopic - тема или сообщения
+     * @param bool $isArchive
      *
      * @throws Exception
      * @return array
@@ -544,15 +542,28 @@ class TM_Discussion_Discussion
                 }
 
             } elseif ($topicId == 0) {
-                $sql .= ' WHERE topic_id IS NULL AND parent_id IS NULL AND is_message=0';
+                $sql = 'SELECT tm_discussion.id, message, tm_discussion.user_id, tm_discussion.date_create, tm_discussion.is_first, is_message, topic_id, tm_discussion.parent_id, to_user_id, is_request, is_complete
+                        FROM tm_discussion
+                          LEFT JOIN tm_task_discussion ON tm_discussion.id=tm_task_discussion.discussion_id
+                          LEFT JOIN tm_task ON tm_task_discussion.task_id=tm_task.id
+                        WHERE tm_discussion.topic_id IS NULL
+                          AND tm_discussion.parent_id IS NULL
+                          AND tm_discussion.is_message=0
+                          AND tm_discussion.is_archive=' . (int)$isArchive;
+                /*
                 if ($isArchive) {
                     $sql .= ' AND is_archive=1';
                 } else {
                     $sql .= ' AND is_archive=0';
                 }
+                */
             }
 
-            $sql .= ' ORDER BY parent_id';
+            if ($topicId == 0) {
+                $sql .= ' ORDER BY tm_task.is_vip DESC, parent_id, tm_discussion.id';
+            } else {
+                $sql .= ' ORDER BY parent_id';
+            }
             $result = $db->query($sql, StdLib_DB::QUERY_MOD_ASSOC);
 
             if (isset($result[0])) {
@@ -638,7 +649,7 @@ class TM_Discussion_Discussion
      *
      *
      * @param TM_User_User $user
-     * @param int          $topicId
+     * @param int $topicId
      *
      * @throws Exception
      * @return array
