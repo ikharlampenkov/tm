@@ -42,7 +42,7 @@
         </tr>
         <tr>
             <td class="ttovar_title">Дата создания</td>
-            <td class="ttovar"><input type="text" name="data[date_create]" value="{$task->dateCreate|date_format:"%d.%m.%Y %H:%M:%S"}" class="datepicker input_ajax"/></td>
+            <td class="ttovar"><input type="text" name="data[date_create]" value="{$task->dateCreate|date_format:"%d.%m.%Y %H:%M:%S"}" class="input_ajax" readonly="readonly"/></td>
         </tr>
         {if $authUserRole == 'admin' || $authUserRole == 'adminsystem'}
             <tr>
@@ -50,7 +50,7 @@
                 <td class="ttovar"><input type="checkbox" name="data[is_vip]" {if $task->isVip == true}checked="checked"{/if} /></td>
             </tr>
         {else}
-            <input type="hidden" name="data[is_vip]" value="{if $task->isVip == true}on{/if}" />
+            <input type="hidden" name="data[is_vip]" value="{if $task->isVip == true}on{/if}"/>
         {/if}
 
         {if $attributeHashList!==false}

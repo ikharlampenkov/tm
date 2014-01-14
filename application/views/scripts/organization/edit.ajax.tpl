@@ -16,7 +16,7 @@
         </tr>
         <tr>
             <td class="ttovar_title">Дата создания</td>
-            <td class="ttovar"><input type="text" name="data[date_create]" value="{$organization->dateCreate|date_format:"%d.%m.%Y %H:%M:%S"}" class="datepicker input_ajax"/></td>
+            <td class="ttovar"><input type="text" name="data[date_create]" value="{$organization->dateCreate|date_format:"%d.%m.%Y %H:%M:%S"}" class="input_ajax" readonly="readonly"/></td>
         </tr>
 
 

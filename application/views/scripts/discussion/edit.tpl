@@ -37,7 +37,7 @@
         </tr>
         <tr>
             <td class="ttovar_title">Дата создания</td>
-            <td class="ttovar"><input name="data[date_create]" value="{$discussion->dateCreate|date_format:"%d.%m.%Y %H:%M:%S"}" class="datepicker"/></td>
+            <td class="ttovar"><input type="text" name="data[date_create]" value="{$discussion->dateCreate|date_format:"%d.%m.%Y %H:%M:%S"}" readonly="readonly"/></td>
         </tr>
         {if $documentList !== false}
             {foreach from=$documentList item=document}
