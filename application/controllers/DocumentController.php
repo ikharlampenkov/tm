@@ -75,6 +75,8 @@ class DocumentController extends Zend_Controller_Action
                     }
                 }
 
+                TM_Activity_ActivityLogger::logMessage($this->_user, 'Документы', 'Добавлен документ ' . $oDocument->getTitle(), $oDocument);
+
                 $this->redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
@@ -106,6 +108,7 @@ class DocumentController extends Zend_Controller_Action
 
             try {
                 $oDocument->updateToDb();
+                TM_Activity_ActivityLogger::logMessage($this->_user, 'Документы', 'Изменен документ ' . $oDocument->getTitle(), $oDocument);
                 $this->redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
@@ -124,6 +127,7 @@ class DocumentController extends Zend_Controller_Action
         $oDocument = TM_Document_Document::getInstanceById($this->getRequest()->getParam('id'));
         try {
             $oDocument->deleteFromDB();
+            TM_Activity_ActivityLogger::logMessage($this->_user, 'Документы', 'Удален документ ' . $oDocument->getTitle(), $oDocument);
             $this->redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
@@ -204,7 +208,7 @@ class DocumentController extends Zend_Controller_Action
                         }
                     }
                 }
-
+                TM_Activity_ActivityLogger::logMessage($this->_user, 'Документы', 'Добавлена папка ' . $oDocument->getTitle(), $oDocument);
                 $this->redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
@@ -235,6 +239,7 @@ class DocumentController extends Zend_Controller_Action
 
             try {
                 $oDocument->updateToDb();
+                TM_Activity_ActivityLogger::logMessage($this->_user, 'Документы', 'Изменена папка ' . $oDocument->getTitle(), $oDocument);
                 $this->redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
             } catch (Exception $e) {
                 $this->view->assign('exception_msg', $e->getMessage());
@@ -252,6 +257,7 @@ class DocumentController extends Zend_Controller_Action
         $oDocument = TM_Document_Document::getInstanceById($this->getRequest()->getParam('id'));
         try {
             $oDocument->deleteFromDB();
+            TM_Activity_ActivityLogger::logMessage($this->_user, 'Документы', 'Удалена папка ' . $oDocument->getTitle(), $oDocument);
             $this->redirect('/document/index/parent/' . $this->getRequest()->getParam('parent', 0));
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
