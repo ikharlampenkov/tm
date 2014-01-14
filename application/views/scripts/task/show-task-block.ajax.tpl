@@ -48,7 +48,7 @@
                             <a href="javascript:void(0)" onclick="task.toArchive('{$this->url(['controller' => $controller,'action' => 'toArchive', 'idTask' => $task->id])}', 0, '{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => 0])}')"><img src="/i/zip.gif" alt="в архив" title="в архив" border="0"/></a>
                         {/if_allowed}
                     {/if}
-                    {if $task->user->id == $authUserId || $task->user->title == 'admin'}
+                    {if $task->user->id == $authUserId || $authUserRole == 'admin'}
                     {if_allowed resource="{$controller}/delete"}
                         &nbsp;<a href="javascript:void(0)" onclick="task.deleteDialog('{$task->title}', '{$this->url(['controller' => $controller,'action' => 'delete', 'id' => $task->id])}', {if !$task->hasParent()}0{else}{$task->getParent()->id}{/if}, '{if !$task->hasParent()}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => 0])}{else}{$this->url(['controller' => $controller,'action' => 'showTaskBlock', 'parent' => $task->getParent()->id])}{/if}');" style="color: #830000"><img src="/i/delete.png" alt="удалить" title="удалить" border="0"/></a>
                     {/if_allowed}
