@@ -5,3 +5,4 @@ public_html/files.*
 .idea
 runtime/templates_c/*.tpl.php
 docs/cl71252_tm.sql
+~Documents/cl71252_tm.sql

@@ -1,174 +1,270 @@
-2013-11-02T13:55:37+07:00 NOTICE (5): Undefined index: is_vip
-2013-11-02T13:55:37+07:00 NOTICE (5): Undefined index: is_vip
-2013-11-02T13:55:37+07:00 NOTICE (5): Undefined index: is_vip
-2013-11-02T13:55:37+07:00 NOTICE (5): Undefined index: is_vip
-2013-11-02T14:02:43+07:00 NOTICE (5): Undefined index: is_vip
-2013-11-02T14:02:43+07:00 NOTICE (5): Undefined index: is_vip
-2013-11-02T14:02:43+07:00 NOTICE (5): Undefined index: is_vip
-2013-11-02T14:02:43+07:00 NOTICE (5): Undefined index: is_vip
-2013-11-02T14:04:48+07:00 NOTICE (5): Undefined index: is_vip
-2013-11-02T14:04:48+07:00 NOTICE (5): Undefined index: is_vip
-2013-11-02T14:04:48+07:00 NOTICE (5): Undefined index: is_vip
-2013-11-02T14:04:48+07:00 NOTICE (5): Undefined index: is_vip
-2013-11-02T14:39:09+07:00 NOTICE (5): Undefined index: vip
-2013-11-02T14:39:12+07:00 WARN (4): mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
-2013-11-02T14:40:21+07:00 WARN (4): mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
-2013-11-02T14:45:40+07:00 WARN (4): mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
-2013-11-02T14:46:56+07:00 WARN (4): mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
-2013-11-02T14:48:20+07:00 WARN (4): mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
-2013-11-02T23:06:57+07:00 CRIT (2): 
-2013-11-02T23:06:57+07:00 CRIT (2): Request Parameters
-2013-11-02T23:57:24+07:00 WARN (4): mail(): Failed to connect to mailserver at "localhost" port 25, verify your "SMTP" and "smtp_port" setting in php.ini or use ini_set()
-2013-11-18T22:23:41+07:00 WARN (4): mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
-2013-11-18T22:24:14+07:00 WARN (4): mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
-2013-11-20T22:07:19+07:00 CRIT (2): 
-2013-11-20T22:07:19+07:00 CRIT (2): Request Parameters
-2013-11-20T22:07:34+07:00 CRIT (2): 
-2013-11-20T22:07:34+07:00 CRIT (2): Request Parameters
-2013-11-20T22:08:15+07:00 CRIT (2): 
-2013-11-20T22:08:15+07:00 CRIT (2): Request Parameters
-2013-11-20T22:12:19+07:00 WARN (4): mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
-2013-11-20T22:27:53+07:00 WARN (4): mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set()
-2013-11-30T20:40:05+07:00 NOTICE (5): Undefined index: list_order
-2013-11-30T20:40:05+07:00 NOTICE (5): Undefined index: required
-2013-11-30T20:40:05+07:00 NOTICE (5): Undefined index: sort_order
-2013-11-30T20:40:05+07:00 NOTICE (5): Undefined index: list_order
-2013-11-30T20:40:05+07:00 NOTICE (5): Undefined index: required
-2013-11-30T20:40:05+07:00 NOTICE (5): Undefined index: sort_order
-2013-11-30T20:40:05+07:00 NOTICE (5): Undefined index: list_order
-2013-11-30T20:40:05+07:00 NOTICE (5): Undefined index: required
-2013-11-30T20:40:05+07:00 NOTICE (5): Undefined index: sort_order
-2013-11-30T20:40:05+07:00 NOTICE (5): Undefined index: list_order
-2013-11-30T20:40:05+07:00 NOTICE (5): Undefined index: required
-2013-11-30T20:40:05+07:00 NOTICE (5): Undefined index: sort_order
-2013-11-30T20:40:05+07:00 NOTICE (5): Undefined index: list_order
-2013-11-30T20:40:05+07:00 NOTICE (5): Undefined index: required
-2013-11-30T20:40:05+07:00 NOTICE (5): Undefined index: sort_order
-2013-11-30T20:40:05+07:00 NOTICE (5): Undefined index: list_order
-2013-11-30T20:40:05+07:00 NOTICE (5): Undefined index: required
-2013-11-30T20:40:05+07:00 NOTICE (5): Undefined index: sort_order
-2013-11-30T20:40:05+07:00 NOTICE (5): Undefined index: list_order
-2013-11-30T20:40:05+07:00 NOTICE (5): Undefined index: required
-2013-11-30T20:40:05+07:00 NOTICE (5): Undefined index: sort_order
-2013-11-30T20:43:18+07:00 NOTICE (5): Undefined index: list_order
-2013-11-30T20:43:18+07:00 NOTICE (5): Undefined index: required
-2013-11-30T20:43:18+07:00 NOTICE (5): Undefined index: sort_order
-2013-11-30T20:43:18+07:00 NOTICE (5): Undefined index: list_order
-2013-11-30T20:43:18+07:00 NOTICE (5): Undefined index: required
-2013-11-30T20:43:18+07:00 NOTICE (5): Undefined index: sort_order
-2013-11-30T20:43:18+07:00 NOTICE (5): Undefined index: list_order
-2013-11-30T20:43:18+07:00 NOTICE (5): Undefined index: required
-2013-11-30T20:43:18+07:00 NOTICE (5): Undefined index: sort_order
-2013-11-30T20:43:18+07:00 NOTICE (5): Undefined index: list_order
-2013-11-30T20:43:18+07:00 NOTICE (5): Undefined index: required
-2013-11-30T20:43:18+07:00 NOTICE (5): Undefined index: sort_order
-2013-11-30T20:43:18+07:00 NOTICE (5): Undefined index: list_order
-2013-11-30T20:43:18+07:00 NOTICE (5): Undefined index: required
-2013-11-30T20:43:18+07:00 NOTICE (5): Undefined index: sort_order
-2013-11-30T20:43:18+07:00 NOTICE (5): Undefined index: list_order
-2013-11-30T20:43:18+07:00 NOTICE (5): Undefined index: required
-2013-11-30T20:43:18+07:00 NOTICE (5): Undefined index: sort_order
-2013-11-30T20:43:18+07:00 NOTICE (5): Undefined index: list_order
-2013-11-30T20:43:18+07:00 NOTICE (5): Undefined index: required
-2013-11-30T20:43:18+07:00 NOTICE (5): Undefined index: sort_order
-2013-11-30T20:53:16+07:00 CRIT (2): 
-2013-11-30T20:53:16+07:00 CRIT (2): Request Parameters
-2013-11-30T21:30:33+07:00 NOTICE (5): Undefined index: organizationList
-2013-11-30T21:30:33+07:00 NOTICE (5): Trying to get property of non-object
-2013-11-30T21:30:33+07:00 NOTICE (5): Undefined index: organizationList
-2013-11-30T21:30:33+07:00 NOTICE (5): Trying to get property of non-object
-2013-11-30T21:31:08+07:00 NOTICE (5): Undefined index: organizationId
-2013-11-30T21:31:08+07:00 NOTICE (5): Trying to get property of non-object
-2013-11-30T21:31:08+07:00 NOTICE (5): Undefined index: organizationId
-2013-11-30T21:31:08+07:00 NOTICE (5): Trying to get property of non-object
-2013-11-30T21:32:08+07:00 NOTICE (5): Undefined index: organizationId
-2013-11-30T21:32:08+07:00 NOTICE (5): Trying to get property of non-object
-2013-11-30T21:32:08+07:00 NOTICE (5): Undefined index: organizationId
-2013-11-30T21:32:08+07:00 NOTICE (5): Trying to get property of non-object
-2013-11-30T21:32:45+07:00 NOTICE (5): Undefined index: organizationId
-2013-11-30T21:32:45+07:00 NOTICE (5): Trying to get property of non-object
-2013-11-30T21:32:45+07:00 NOTICE (5): Undefined index: organizationId
-2013-11-30T21:32:45+07:00 NOTICE (5): Trying to get property of non-object
-2013-11-30T21:32:49+07:00 NOTICE (5): Undefined index: organizationId
-2013-11-30T21:32:49+07:00 NOTICE (5): Trying to get property of non-object
-2013-11-30T21:32:49+07:00 NOTICE (5): Undefined index: organizationId
-2013-11-30T21:32:49+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-08T21:22:15+07:00 NOTICE (5): Undefined index: is_allow
-2013-12-08T21:22:53+07:00 NOTICE (5): Undefined index: is_allow
-2013-12-08T21:52:52+07:00 CRIT (2): 
-2013-12-08T21:52:52+07:00 CRIT (2): Request Parameters
-2013-12-08T21:56:39+07:00 CRIT (2): 
-2013-12-08T21:56:39+07:00 CRIT (2): Request Parameters
-2013-12-08T22:08:37+07:00 CRIT (2): 
-2013-12-08T22:08:37+07:00 CRIT (2): Request Parameters
-2013-12-08T22:08:44+07:00 NOTICE (5): Undefined index: task
-2013-12-08T22:08:44+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-08T22:08:44+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-08T22:08:44+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-08T22:08:44+07:00 NOTICE (5): Undefined index: task
-2013-12-08T22:08:44+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-08T22:08:44+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-08T22:08:44+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-08T22:08:45+07:00 NOTICE (5): Undefined index: task
-2013-12-08T22:08:45+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-08T22:08:45+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-08T22:08:45+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-08T22:08:45+07:00 NOTICE (5): Undefined index: task
-2013-12-08T22:08:45+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-08T22:08:45+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-08T22:08:45+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-08T22:16:45+07:00 NOTICE (5): Undefined index: task
-2013-12-08T22:16:45+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-08T22:16:45+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-08T22:16:45+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-08T22:16:45+07:00 NOTICE (5): Undefined index: task
-2013-12-08T22:16:45+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-08T22:16:45+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-08T22:16:45+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-08T22:16:45+07:00 NOTICE (5): Undefined index: task
-2013-12-08T22:16:45+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-08T22:16:45+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-08T22:16:45+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-08T22:16:45+07:00 NOTICE (5): Undefined index: task
-2013-12-08T22:16:45+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-08T22:16:45+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-08T22:16:45+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-09T20:52:27+07:00 CRIT (2): 
-2013-12-09T20:52:27+07:00 CRIT (2): Request Parameters
-2013-12-09T21:26:50+07:00 NOTICE (5): Undefined index: date_create
-2013-12-09T21:26:50+07:00 NOTICE (5): Undefined index: date_create
-2013-12-09T21:26:57+07:00 NOTICE (5): Undefined index: date_create
-2013-12-09T21:26:57+07:00 NOTICE (5): Undefined index: date_create
-2013-12-09T21:27:28+07:00 NOTICE (5): Undefined index: date_create
-2013-12-09T21:27:28+07:00 NOTICE (5): Undefined index: date_create
-2013-12-09T21:27:36+07:00 NOTICE (5): Undefined index: date_create
-2013-12-09T21:27:36+07:00 NOTICE (5): Undefined index: date_create
-2013-12-09T21:46:47+07:00 NOTICE (5): Undefined index: is_allow
-2013-12-09T22:05:35+07:00 CRIT (2): 
-2013-12-09T22:05:35+07:00 CRIT (2): Request Parameters
-2013-12-09T22:06:25+07:00 CRIT (2): 
-2013-12-09T22:06:25+07:00 CRIT (2): Request Parameters
-2013-12-11T20:05:59+07:00 CRIT (2): 
-2013-12-11T20:05:59+07:00 CRIT (2): Request Parameters
-2013-12-11T20:07:38+07:00 NOTICE (5): Undefined index: organizationList
-2013-12-11T20:07:38+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-11T20:10:02+07:00 NOTICE (5): Undefined index: organizationList
-2013-12-11T20:10:02+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-11T20:57:37+07:00 ERR (3): Argument 1 passed to TM_Organization_Organization::setUser() must be an instance of TM_User_User, null given, called in C:\www\tm\application\models\TM\Organization\Organization.php on line 326 and defined
-2013-12-14T21:02:22+07:00 NOTICE (5): Undefined index: organization
-2013-12-14T21:02:22+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-14T21:02:22+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-14T21:05:39+07:00 NOTICE (5): Undefined index: organization
-2013-12-14T21:05:39+07:00 NOTICE (5): Trying to get property of non-object
-2013-12-14T21:05:39+07:00 NOTICE (5): Trying to get property of non-object
-2014-01-12T19:34:36+07:00 CRIT (2): 
-2014-01-12T19:34:36+07:00 CRIT (2): Request Parameters
-2014-01-12T19:36:51+07:00 ERR (3): Argument 1 passed to TM_Document_Document::setUser() must be an instance of TM_User_User, boolean given, called in C:\www\tm\application\models\TM\Document\Document.php on line 747 and defined
-2014-01-12T19:43:56+07:00 CRIT (2): 
-2014-01-12T19:43:56+07:00 CRIT (2): Request Parameters
-2014-01-12T20:13:02+07:00 CRIT (2): 
-2014-01-12T20:13:02+07:00 CRIT (2): Request Parameters
-2014-01-14T21:29:18+07:00 CRIT (2): 
-2014-01-14T21:29:18+07:00 CRIT (2): Request Parameters
-2014-01-14T21:39:02+07:00 CRIT (2): 
-2014-01-14T21:39:02+07:00 CRIT (2): Request Parameters
+2013-11-01T13:41:10+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-01T15:55:47+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-12T14:29:28+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-29T10:33:26+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-11-29T15:43:32+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-12-03T16:26:22+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-12-03T16:26:47+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-12-04T10:51:05+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-12-04T10:57:16+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-12-04T10:57:54+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-12-13T09:21:10+07:00 CRIT (2): 
+2013-12-13T09:21:10+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:14+07:00 CRIT (2): 
+2013-12-13T09:21:14+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:16+07:00 CRIT (2): 
+2013-12-13T09:21:16+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:16+07:00 CRIT (2): 
+2013-12-13T09:21:16+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:17+07:00 CRIT (2): 
+2013-12-13T09:21:17+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:17+07:00 CRIT (2): 
+2013-12-13T09:21:17+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:17+07:00 CRIT (2): 
+2013-12-13T09:21:17+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:17+07:00 CRIT (2): 
+2013-12-13T09:21:17+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:18+07:00 CRIT (2): 
+2013-12-13T09:21:18+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:18+07:00 CRIT (2): 
+2013-12-13T09:21:18+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:18+07:00 CRIT (2): 
+2013-12-13T09:21:18+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:18+07:00 CRIT (2): 
+2013-12-13T09:21:18+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:22+07:00 CRIT (2): 
+2013-12-13T09:21:22+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:23+07:00 CRIT (2): 
+2013-12-13T09:21:23+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:23+07:00 CRIT (2): 
+2013-12-13T09:21:23+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:24+07:00 CRIT (2): 
+2013-12-13T09:21:24+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:24+07:00 CRIT (2): 
+2013-12-13T09:21:24+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:24+07:00 CRIT (2): 
+2013-12-13T09:21:24+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:24+07:00 CRIT (2): 
+2013-12-13T09:21:24+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:24+07:00 CRIT (2): 
+2013-12-13T09:21:24+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:25+07:00 CRIT (2): 
+2013-12-13T09:21:25+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:25+07:00 CRIT (2): 
+2013-12-13T09:21:25+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:25+07:00 CRIT (2): 
+2013-12-13T09:21:25+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:25+07:00 CRIT (2): 
+2013-12-13T09:21:25+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:26+07:00 CRIT (2): 
+2013-12-13T09:21:26+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:26+07:00 CRIT (2): 
+2013-12-13T09:21:26+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:26+07:00 CRIT (2): 
+2013-12-13T09:21:26+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:26+07:00 CRIT (2): 
+2013-12-13T09:21:26+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:26+07:00 CRIT (2): 
+2013-12-13T09:21:26+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:27+07:00 CRIT (2): 
+2013-12-13T09:21:27+07:00 CRIT (2): Request Parameters
+2013-12-13T09:21:27+07:00 CRIT (2): 
+2013-12-13T09:21:27+07:00 CRIT (2): Request Parameters
+2013-12-13T14:33:21+07:00 CRIT (2): 
+2013-12-13T14:33:21+07:00 CRIT (2): Request Parameters
+2013-12-13T14:33:24+07:00 CRIT (2): 
+2013-12-13T14:33:24+07:00 CRIT (2): Request Parameters
+2013-12-13T15:22:18+07:00 CRIT (2): 
+2013-12-13T15:22:18+07:00 CRIT (2): Request Parameters
+2013-12-13T15:22:21+07:00 CRIT (2): 
+2013-12-13T15:22:21+07:00 CRIT (2): Request Parameters
+2013-12-13T15:22:22+07:00 CRIT (2): 
+2013-12-13T15:22:22+07:00 CRIT (2): Request Parameters
+2013-12-16T10:15:46+07:00 CRIT (2): 
+2013-12-16T10:15:46+07:00 CRIT (2): Request Parameters
+2013-12-16T10:15:48+07:00 CRIT (2): 
+2013-12-16T10:15:48+07:00 CRIT (2): Request Parameters
+2013-12-16T10:15:48+07:00 CRIT (2): 
+2013-12-16T10:15:48+07:00 CRIT (2): Request Parameters
+2013-12-16T10:15:49+07:00 CRIT (2): 
+2013-12-16T10:15:49+07:00 CRIT (2): Request Parameters
+2013-12-16T10:15:49+07:00 CRIT (2): 
+2013-12-16T10:15:49+07:00 CRIT (2): Request Parameters
+2013-12-16T10:15:49+07:00 CRIT (2): 
+2013-12-16T10:15:49+07:00 CRIT (2): Request Parameters
+2013-12-16T10:15:49+07:00 CRIT (2): 
+2013-12-16T10:15:49+07:00 CRIT (2): Request Parameters
+2013-12-17T15:21:22+07:00 CRIT (2): 
+2013-12-17T15:21:22+07:00 CRIT (2): Request Parameters
+2013-12-17T15:21:25+07:00 CRIT (2): 
+2013-12-17T15:21:25+07:00 CRIT (2): Request Parameters
+2013-12-17T15:21:25+07:00 CRIT (2): 
+2013-12-17T15:21:25+07:00 CRIT (2): Request Parameters
+2013-12-17T15:21:25+07:00 CRIT (2): 
+2013-12-17T15:21:25+07:00 CRIT (2): Request Parameters
+2013-12-17T15:21:26+07:00 CRIT (2): 
+2013-12-17T15:21:26+07:00 CRIT (2): Request Parameters
+2013-12-17T15:21:26+07:00 CRIT (2): 
+2013-12-17T15:21:26+07:00 CRIT (2): Request Parameters
+2013-12-17T15:21:26+07:00 CRIT (2): 
+2013-12-17T15:21:26+07:00 CRIT (2): Request Parameters
+2013-12-17T15:21:26+07:00 CRIT (2): 
+2013-12-17T15:21:26+07:00 CRIT (2): Request Parameters
+2013-12-17T15:21:27+07:00 CRIT (2): 
+2013-12-17T15:21:27+07:00 CRIT (2): Request Parameters
+2013-12-17T15:21:27+07:00 CRIT (2): 
+2013-12-17T15:21:27+07:00 CRIT (2): Request Parameters
+2013-12-17T15:21:27+07:00 CRIT (2): 
+2013-12-17T15:21:27+07:00 CRIT (2): Request Parameters
+2013-12-17T15:21:27+07:00 CRIT (2): 
+2013-12-17T15:21:27+07:00 CRIT (2): Request Parameters
+2013-12-17T15:29:33+07:00 CRIT (2): 
+2013-12-17T15:29:33+07:00 CRIT (2): Request Parameters
+2013-12-18T09:03:35+07:00 CRIT (2): 
+2013-12-18T09:03:35+07:00 CRIT (2): Request Parameters
+2013-12-18T09:03:37+07:00 CRIT (2): 
+2013-12-18T09:03:37+07:00 CRIT (2): Request Parameters
+2013-12-18T09:03:37+07:00 CRIT (2): 
+2013-12-18T09:03:37+07:00 CRIT (2): Request Parameters
+2013-12-18T09:03:37+07:00 CRIT (2): 
+2013-12-18T09:03:37+07:00 CRIT (2): Request Parameters
+2013-12-18T09:03:37+07:00 CRIT (2): 
+2013-12-18T09:03:37+07:00 CRIT (2): Request Parameters
+2013-12-18T09:03:38+07:00 CRIT (2): 
+2013-12-18T09:03:38+07:00 CRIT (2): Request Parameters
+2013-12-18T09:03:38+07:00 CRIT (2): 
+2013-12-18T09:03:38+07:00 CRIT (2): Request Parameters
+2013-12-18T09:46:20+07:00 CRIT (2): 
+2013-12-18T09:46:20+07:00 CRIT (2): Request Parameters
+2013-12-18T09:50:36+07:00 CRIT (2): 
+2013-12-18T09:50:36+07:00 CRIT (2): Request Parameters
+2013-12-18T10:33:43+07:00 CRIT (2): 
+2013-12-18T10:33:43+07:00 CRIT (2): Request Parameters
+2013-12-18T10:33:44+07:00 CRIT (2): 
+2013-12-18T10:33:44+07:00 CRIT (2): Request Parameters
+2013-12-18T10:33:45+07:00 CRIT (2): 
+2013-12-18T10:33:45+07:00 CRIT (2): Request Parameters
+2013-12-19T09:21:07+07:00 CRIT (2): 
+2013-12-19T09:21:07+07:00 CRIT (2): Request Parameters
+2013-12-20T10:35:14+07:00 CRIT (2): 
+2013-12-20T10:35:14+07:00 CRIT (2): Request Parameters
+2013-12-23T13:33:28+07:00 CRIT (2): 
+2013-12-23T13:33:28+07:00 CRIT (2): Request Parameters
+2013-12-24T10:45:16+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-12-24T11:44:16+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-12-24T11:44:21+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-12-24T12:06:06+07:00 CRIT (2): 
+2013-12-24T12:06:06+07:00 CRIT (2): Request Parameters
+2013-12-24T13:53:04+07:00 CRIT (2): 
+2013-12-24T13:53:04+07:00 CRIT (2): Request Parameters
+2013-12-25T17:06:07+07:00 WARN (4): Invalid argument supplied for foreach()
+2013-12-26T14:24:57+07:00 CRIT (2): 
+2013-12-26T14:24:57+07:00 CRIT (2): Request Parameters
+2013-12-26T14:25:20+07:00 CRIT (2): 
+2013-12-26T14:25:20+07:00 CRIT (2): Request Parameters
+2014-01-09T09:17:51+07:00 CRIT (2): 
+2014-01-09T09:17:51+07:00 CRIT (2): Request Parameters
+2014-01-09T09:17:52+07:00 CRIT (2): 
+2014-01-09T09:17:52+07:00 CRIT (2): Request Parameters
+2014-01-09T09:17:52+07:00 CRIT (2): 
+2014-01-09T09:17:52+07:00 CRIT (2): Request Parameters
+2014-01-09T09:17:53+07:00 CRIT (2): 
+2014-01-09T09:17:53+07:00 CRIT (2): Request Parameters
+2014-01-11T09:12:31+07:00 CRIT (2): 
+2014-01-11T09:12:31+07:00 CRIT (2): Request Parameters
+2014-01-11T09:14:04+07:00 CRIT (2): 
+2014-01-11T09:14:04+07:00 CRIT (2): Request Parameters
+2014-01-11T10:44:31+07:00 CRIT (2): 
+2014-01-11T10:44:31+07:00 CRIT (2): Request Parameters
+2014-01-11T10:51:07+07:00 CRIT (2): 
+2014-01-11T10:51:07+07:00 CRIT (2): Request Parameters
+2014-01-13T09:51:47+07:00 CRIT (2): 
+2014-01-13T09:51:47+07:00 CRIT (2): Request Parameters
+2014-01-13T09:51:48+07:00 CRIT (2): 
+2014-01-13T09:51:48+07:00 CRIT (2): Request Parameters
+2014-01-13T09:51:49+07:00 CRIT (2): 
+2014-01-13T09:51:49+07:00 CRIT (2): Request Parameters
+2014-01-13T09:51:49+07:00 CRIT (2): 
+2014-01-13T09:51:49+07:00 CRIT (2): Request Parameters
+2014-01-13T15:29:34+07:00 CRIT (2): 
+2014-01-13T15:29:34+07:00 CRIT (2): Request Parameters
+2014-01-14T10:56:57+07:00 CRIT (2): 
+2014-01-14T10:56:57+07:00 CRIT (2): Request Parameters
+2014-01-14T10:56:59+07:00 CRIT (2): 
+2014-01-14T10:56:59+07:00 CRIT (2): Request Parameters
+2014-01-14T10:56:59+07:00 CRIT (2): 
+2014-01-14T10:56:59+07:00 CRIT (2): Request Parameters
+2014-01-14T10:56:59+07:00 CRIT (2): 
+2014-01-14T10:56:59+07:00 CRIT (2): Request Parameters
+2014-01-14T11:46:26+07:00 CRIT (2): 
+2014-01-14T11:46:26+07:00 CRIT (2): Request Parameters
+2014-01-14T11:46:27+07:00 CRIT (2): 
+2014-01-14T11:46:27+07:00 CRIT (2): Request Parameters
+2014-01-14T11:46:27+07:00 CRIT (2): 
+2014-01-14T11:46:27+07:00 CRIT (2): Request Parameters
+2014-01-14T11:46:27+07:00 CRIT (2): 
+2014-01-14T11:46:27+07:00 CRIT (2): Request Parameters
+2014-01-14T14:44:04+07:00 CRIT (2): 
+2014-01-14T14:44:04+07:00 CRIT (2): Request Parameters
+2014-01-14T16:45:46+07:00 CRIT (2): 
+2014-01-14T16:45:46+07:00 CRIT (2): Request Parameters
+2014-01-14T16:47:50+07:00 CRIT (2): 
+2014-01-14T16:47:50+07:00 CRIT (2): Request Parameters
+2014-01-14T16:48:26+07:00 CRIT (2): 
+2014-01-14T16:48:26+07:00 CRIT (2): Request Parameters
+2014-01-14T16:48:43+07:00 CRIT (2): 
+2014-01-14T16:48:43+07:00 CRIT (2): Request Parameters
+2014-01-14T16:49:39+07:00 CRIT (2): 
+2014-01-14T16:49:39+07:00 CRIT (2): Request Parameters
+2014-01-14T16:50:11+07:00 CRIT (2): 
+2014-01-14T16:50:11+07:00 CRIT (2): Request Parameters
+2014-01-14T16:50:33+07:00 CRIT (2): 
+2014-01-14T16:50:33+07:00 CRIT (2): Request Parameters
+2014-01-14T16:50:50+07:00 CRIT (2): 
+2014-01-14T16:50:50+07:00 CRIT (2): Request Parameters
+2014-01-14T16:51:05+07:00 CRIT (2): 
+2014-01-14T16:51:05+07:00 CRIT (2): Request Parameters
+2014-01-14T16:51:18+07:00 CRIT (2): 
+2014-01-14T16:51:18+07:00 CRIT (2): Request Parameters
+2014-01-14T16:51:39+07:00 CRIT (2): 
+2014-01-14T16:51:39+07:00 CRIT (2): Request Parameters
+2014-01-14T16:52:35+07:00 CRIT (2): 
+2014-01-14T16:52:35+07:00 CRIT (2): Request Parameters
+2014-01-14T16:53:33+07:00 CRIT (2): 
+2014-01-14T16:53:33+07:00 CRIT (2): Request Parameters
+2014-01-14T16:58:28+07:00 CRIT (2): 
+2014-01-14T16:58:28+07:00 CRIT (2): Request Parameters
+2014-01-14T16:59:12+07:00 CRIT (2): 
+2014-01-14T16:59:12+07:00 CRIT (2): Request Parameters
+2014-01-14T17:02:12+07:00 CRIT (2): 
+2014-01-14T17:02:12+07:00 CRIT (2): Request Parameters
+2014-01-14T17:03:13+07:00 CRIT (2): 
+2014-01-14T17:03:13+07:00 CRIT (2): Request Parameters
+2014-01-14T17:04:50+07:00 CRIT (2): 
+2014-01-14T17:04:50+07:00 CRIT (2): Request Parameters
+2014-01-14T17:07:50+07:00 CRIT (2): 
+2014-01-14T17:07:50+07:00 CRIT (2): Request Parameters
+2014-01-14T17:08:14+07:00 CRIT (2): 
+2014-01-14T17:08:14+07:00 CRIT (2): Request Parameters
+2014-01-14T17:08:40+07:00 CRIT (2): 
+2014-01-14T17:08:40+07:00 CRIT (2): Request Parameters
+2014-01-14T17:10:35+07:00 CRIT (2): 
+2014-01-14T17:10:35+07:00 CRIT (2): Request Parameters
+2014-01-14T17:11:23+07:00 WARN (4): Invalid argument supplied for foreach()
+2014-02-28T15:26:41+07:00 WARN (4): Invalid argument supplied for foreach()
+2014-03-03T16:54:43+07:00 WARN (4): Invalid argument supplied for foreach()
+2014-04-01T10:52:45+07:00 WARN (4): Invalid argument supplied for foreach()
+2014-04-01T11:14:37+07:00 WARN (4): Invalid argument supplied for foreach()
+2014-04-02T11:21:14+07:00 WARN (4): Invalid argument supplied for foreach()
+2014-04-02T11:21:19+07:00 WARN (4): Invalid argument supplied for foreach()
+2014-04-02T11:46:23+07:00 WARN (4): Invalid argument supplied for foreach()
+2014-04-02T18:39:39+07:00 WARN (4): Invalid argument supplied for foreach()
+2014-04-11T14:26:20+07:00 WARN (4): Invalid argument supplied for foreach()
+2014-04-23T11:17:04+07:00 WARN (4): copy(/home/c/cl71252/tm.cl71252.tmweb.ru/application/../public_html/files/OOO_Elektroset/Dokumentyi_01_03_2014/file_23-04-2014-11-17-04.jpg) [<a href='function.copy'>function.copy</a>]: failed to open stream: No such file or directory
+2014-04-23T11:18:53+07:00 WARN (4): copy(/home/c/cl71252/tm.cl71252.tmweb.ru/application/../public_html/files/OOO_Elektroset/Dokumentyi_01_03_2014/file_23-04-2014-11-18-53.jpg) [<a href='function.copy'>function.copy</a>]: failed to open stream: No such file or directory
+2014-04-23T11:27:05+07:00 WARN (4): copy(/home/c/cl71252/tm.cl71252.tmweb.ru/application/../public_html/files/OOO_Elektroset/Dokumentyi_01_03_2014/file_23-04-2014-11-27-05.jpg) [<a href='function.copy'>function.copy</a>]: failed to open stream: No such file or directory
+2014-04-23T11:36:13+07:00 WARN (4): copy(/home/c/cl71252/tm.cl71252.tmweb.ru/application/../public_html/files/OOO_Elektroset/Dokumentyi_01_03_2014/file_23-04-2014-11-36-13.jpg) [<a href='function.copy'>function.copy</a>]: failed to open stream: No such file or directory
+2014-04-23T11:38:40+07:00 WARN (4): copy(/home/c/cl71252/tm.cl71252.tmweb.ru/application/../public_html/files/OOO_Elektroset/Dokumentyi_01_03_2014/file_23-04-2014-11-38-40.png) [<a href='function.copy'>function.copy</a>]: failed to open stream: No such file or directory
+2014-04-23T11:39:48+07:00 WARN (4): Invalid argument supplied for foreach()
+2014-04-23T11:40:47+07:00 WARN (4): Invalid argument supplied for foreach()
+2014-04-23T11:43:34+07:00 WARN (4): Invalid argument supplied for foreach()
