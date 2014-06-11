@@ -268,3 +268,5 @@
 2014-04-23T11:39:48+07:00 WARN (4): Invalid argument supplied for foreach()
 2014-04-23T11:40:47+07:00 WARN (4): Invalid argument supplied for foreach()
 2014-04-23T11:43:34+07:00 WARN (4): Invalid argument supplied for foreach()
+2014-06-12T00:31:59+07:00 DEBUG (7): Declaration of TM_Attribute_AttributeTypeList::getHTMLFrom() should be compatible with TM_Attribute_AttributeType::getHTMLFrom($hash, $object, $value = '')
+2014-06-12T00:31:59+07:00 DEBUG (7): Declaration of TM_Attribute_AttributeTypeDate::getHTMLFrom() should be compatible with TM_Attribute_AttributeType::getHTMLFrom($hash, $object, $value = '')

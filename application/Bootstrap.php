@@ -36,7 +36,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
         // Настраиваем рендер
         $viewRenderer->setView($view)
-            ->setViewBasePathSpec($view->getEngine()->template_dir)
+            ->setViewBasePathSpec($view->getEngine()->template_dir[0])
             ->setViewScriptPathSpec(':controller/:action.:suffix')
             ->setViewScriptPathNoControllerSpec(':action.:suffix')
             ->setViewSuffix($options['resources']['view']['viewSuffix']);

@@ -9,7 +9,7 @@
  
 class SetViewParam extends Zend_Controller_Plugin_Abstract
 {
-    public function preDispatch() {
+    public function preDispatch(Zend_Controller_Request_Abstract $request) {
         $view = Zend_Controller_Front::getInstance()->getParam('bootstrap')->getResource('View');
         $view->assign('controller', Zend_Controller_Front::getInstance()->getRequest()->getControllerName());
     }
