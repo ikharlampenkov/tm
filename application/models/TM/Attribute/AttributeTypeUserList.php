@@ -9,7 +9,7 @@
 class TM_Attribute_AttributeTypeUserList extends TM_Attribute_AttributeType
 {
 
-    public function getHTMLFrom($hash, $object)
+    public function getHTMLFrom($hash, $object, $value = '')
     {
         $html = '<select name="data[attribute][' . $hash->attributeKey . ']" >';
         $html .= '<option value="-">-</option> ';

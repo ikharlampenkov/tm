@@ -9,7 +9,7 @@
  
 class TM_Attribute_AttributeTypeText extends TM_Attribute_AttributeType {
 
-    public function getHTMLFrom($hash, $object)
+    public function getHTMLFrom($hash, $object, $value = '')
     {
         $html = '<textarea name="data[attribute][' . $hash->attributeKey . ']" >';
         if ($object->searchAttribute($hash->attributeKey)) {

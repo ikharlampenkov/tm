@@ -10,7 +10,7 @@
 class TM_Attribute_AttributeTypeList extends TM_Attribute_AttributeType
 {
 
-    public function getHTMLFrom($hash, $object)
+    public function getHTMLFrom($hash, $object, $value = '')
     {
         $html = '<select name="data[attribute][' . $hash->attributeKey . ']" >';
 

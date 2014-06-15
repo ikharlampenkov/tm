@@ -14,7 +14,7 @@ class TM_Attribute_AttributeTypeDate extends TM_Attribute_AttributeType {
      * @param $object
      * @return void
      */
-    public function getHTMLFrom($hash, $object)
+    public function getHTMLFrom($hash, $object, $value = '')
     {
         $html = '<input type="text" name="data[attribute][' . $hash->attributeKey . ']" value="';
         if ($object->searchAttribute($hash->attributeKey)) {

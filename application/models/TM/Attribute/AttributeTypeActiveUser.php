@@ -9,7 +9,7 @@
 class TM_Attribute_AttributeTypeActiveUser extends TM_Attribute_AttributeType
 {
 
-    public function getHTMLFrom($hash, $object)
+    public function getHTMLFrom($hash, $object, $value = '')
     {
         $storage_data = Zend_Auth::getInstance()->getStorage()->read();
         $user = array_key_exists('login', $storage_data) ? $storage_data->login : 'guest';
